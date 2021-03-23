@@ -1,14 +1,18 @@
-# Project
+# Welcome to VS Extensibility for Partners!
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+This is a private, currently-confidential repository for Microsoft employees and Visual Studio extension partners with NDAs. The repo consists of private announcements and resources for upoming extensibility updates including Dev17, 64-bit extension migration, and the new extensibility model.
 
-As the maintainer of this project, please make a few updates:
+This repo contains the following: 
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+- Link to install Dev17 Partner Preview (TBA)
+- [Download VSSDK on NuGet (Dev17 TBA)](https://www.nuget.org/packages/Microsoft.VSSDK.BuildTools/)
+- [Guidance for migrating your 64-bit extensions](https://github.com/microsoft/VSExtensibility/wiki/Extensions-in-Dev17)
+- [Breaking API changes for Dev17](https://github.com/microsoft/VSExtensibility/wiki/Breaking-API-list)
+
+[Check out the wiki](https://github.com/microsoft/VSExtensibility/wiki) for all Dev17 & 64-bit extension resources.
+
+## Reporting Partner Preview Issues
+If you experience any VS-related issues while using the Private Preview, please report them under [Issues](https://github.com/microsoft/VSExtensibility/issues).
 
 ## Contributing
 
