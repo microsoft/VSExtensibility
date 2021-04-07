@@ -9,7 +9,7 @@ This repo contains the following:
 - [Guidance for migrating your 64-bit extensions](https://github.com/microsoft/VSExtensibility/wiki/Extensions-in-Dev17)
 - [Breaking API changes for Dev17](https://github.com/microsoft/VSExtensibility/wiki/Breaking-API-list)
 
-[Check out the wiki](https://github.com/microsoft/VSExtensibility/wiki) for all Dev17 & 64-bit extension resources.
+[Check out the wiki](https://github.com/microsoft/VSExtensibility/wiki) for all Dev17 & 64-bit extension resources, but keep in mind it's a work in progress!
 
 ## Reporting Partner Preview Issues
 If you experience any VS-related issues while using the Private Preview, please report them under [Issues](https://github.com/microsoft/VSExtensibility/issues).
