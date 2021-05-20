@@ -4,12 +4,16 @@ This is a private, currently-confidential repository for Microsoft employees and
 
 This repo contains the following: 
 
-- Link to install Dev17 Partner Preview (TBA)
+- [Dev17 Enterprise Installer](https://aka.ms/vs/17/pre/949488043_-290341351/vs_Enterprise.exe)
 - [Download VSSDK on NuGet (Dev17 TBA)](https://www.nuget.org/packages/Microsoft.VSSDK.BuildTools/)
 - [Guidance for migrating your 64-bit extensions](https://github.com/microsoft/VSExtensibility/wiki/Extensions-in-Dev17)
 - [Breaking API changes for Dev17](https://github.com/microsoft/VSExtensibility/wiki/Breaking-API-list)
 
 [Check out the wiki](https://github.com/microsoft/VSExtensibility/wiki) for all Dev17 & 64-bit extension resources, but keep in mind it's a work in progress!
+
+**Warning:** This release of Visual Studio has not been as extensively tested as regular release of Visual Studio. Specifically we don't recommend installing Dev17 side by side with an earlier version that you depend on to work. This version will also not be updated in place, we will provide new installers for updates.
+
+Use of this version of Visual Studio is subject to the [Visual Studio 2022 License](https://github.com/microsoft/VSExtensibility/raw/main/Visual%20Studio%202022%20License%20Confidential.docx) license agreement.
 
 ## Reporting Partner Preview Issues
 If you experience any VS-related issues while using the Private Preview, please report them under [Issues](https://github.com/microsoft/VSExtensibility/issues).
