@@ -4,7 +4,7 @@ This is a private, currently-confidential repository for Microsoft employees and
 
 This repo contains the following: 
 
-- [Dev17 Enterprise Installer](https://aka.ms/vs/17/pre/949488043_-290341351/vs_Enterprise.exe)
+- [Dev17 Enterprise Installer](https://aka.ms/vs/17/pre/701041097_-835410096/vs_Enterprise.exe)
 - [Download VSSDK on NuGet (Dev17 TBA)](https://www.nuget.org/packages/Microsoft.VSSDK.BuildTools/)
 - [Guidance for migrating your 64-bit extensions](https://github.com/microsoft/VSExtensibility/wiki/Extensions-in-Dev17)
 - [Breaking API changes for Dev17](https://github.com/microsoft/VSExtensibility/wiki/Breaking-API-list)
