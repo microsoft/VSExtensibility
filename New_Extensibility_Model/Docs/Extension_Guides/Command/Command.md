@@ -16,7 +16,7 @@ The attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute` h
 | --------- |----- | ------------ |
 | Name | String | A globally unique identifier for the command. It is recommended to use the full class name of your command here. |
 | Id | ushort | A locally unique identifier for your command within your extension. Each command within your extension should use a different value. |
-| DisplayName | String | The default display name of your command. Surround this string with the '%' character to enable localizing this string. See more on this at [Localizing a command](TODO: How do I link to another section of this doc?) |
+| DisplayName | String | The default display name of your command. Surround this string with the '%' character to enable localizing this string. See more on this at [Localizing a command](#localizing-a-command) |
 | ContainerType | Type? | The type that is to act as the CommandSet for this command. Setting this parameter to null automatically generates a default CommandSet for yor command. |
 | Placement | KnownCommandPlacement | Indicates where within Visual Studio your command should be parented. |
 | ClientContext | String | Client contexts requested by the command, separated by ','. By default only the Shell context is returned. TODO: what are the other options for contexts? Will there be a separate doc about these that I can link to? |
