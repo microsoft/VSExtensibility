@@ -22,7 +22,7 @@ The attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute` h
 | ClientContext | String | Client contexts requested by the command, separated by ','. By default only the Shell context is returned. TODO: what are the other options for contexts? Will there be a separate doc about these that I can link to? |
 
 ```
-    [Command(CommandName, CommandId, "Sample Remote Command", placement: KnownCommandPlacement.ToolsMenu)]
+	[Command(CommandName, CommandId, "Sample Remote Command", placement: KnownCommandPlacement.ToolsMenu)]
 	public class CommandHandler : Command
 	{
 		private const ushort CommandId = 1;
@@ -47,7 +47,7 @@ See the [InsertGuidExtension](TODO: add in a link to the InsertGuidSample once i
 Commands support adding icons to their menu item in addition to or instead of display name of the command. To add an icon to your command, you need to add the attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandIconAttribute` to your command class. You can then set the `imageMoniker` parameter to any of the [KnownMonikers](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.imaging.knownmonikers?view=visualstudiosdk-2022) currently supported by Visual Studio. Custom monikers are not supported at this time. You can also configure your icon with `Microsoft.VisualStudio.Extensibility.Commands.IconSettings`, which will control how your command is displayed if parented to a toolbar.
 
 ```
-    [CommandIcon("Extension", IconSettings.IconAndText)]
+	[CommandIcon("Extension", IconSettings.IconAndText)]
 ```
 
 ### Controlling command visibility
@@ -55,7 +55,7 @@ Commands support adding icons to their menu item in addition to or instead of di
 The visibility of a command can be controlled by adding the attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandVisibleWhenAttribute` to your command class. This attribute supports specifying an expression, defining a set of terms used in the expression, and what values those terms should be replaced with upon evaluation. Note: Term names and values are mapped to their index in the array. i.e. the term name at index 0 corresponds with the term value at that same index. An example of such an expression can be seen here:
 
 ```
-    [CommandVisibleWhen("AnyFile", new string[] { "AnyFile" }, new string[] { "ClientContext:Shell.ActiveEditorContentType=.+" })]
+	[CommandVisibleWhen("AnyFile", new string[] { "AnyFile" }, new string[] { "ClientContext:Shell.ActiveEditorContentType=.+" })]
 ```
 
 QUESTION: Is there an existing doc somewhere that I can point to for what possible term values are?
@@ -67,7 +67,7 @@ If this attribute is omitted from your command, the default is for the command t
 The visibility of a command can be controlled by adding the attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandEnabledWhenAttribute` to your command class. This attribute supports specifying an expression, defining a set of terms used in the expression, and what values those terms should be replaced with upon evaluation. Note: Term names and values are mapped to their index in the array. i.e. the term name at index 0 corresponds with the term value at that same index. An example of such an expression can be seen here:
 
 ```
-    [CommandEnabledWhen(
+	[CommandEnabledWhen(
 		"SolutionLoaded & IsValidFile",
 		new string[] { "SolutionLoaded", "IsValidFile" },
 		new string[] { "SolutionState:Exists", "ClientContext:Shell.ActiveSelectionFileName=(.jpg|.jpeg|.txt)$" })]
@@ -83,7 +83,7 @@ The text displayed on a command can be localized by including `string-resources.
 
 Localized Command DisplayName
 ```
-    [Command(CommandName, CommandId, "%Microsoft.VisualStudio.MyExtension.SampleRemoteCommand.DisplayName%", placement: KnownCommandPlacement.ToolsMenu)]
+	[Command(CommandName, CommandId, "%Microsoft.VisualStudio.MyExtension.SampleRemoteCommand.DisplayName%", placement: KnownCommandPlacement.ToolsMenu)]
 ```
 
 #### string-resources.json
@@ -94,8 +94,8 @@ Your extension should provide a `string-resources.json` file for every language 
 
 string-resources.json sample:
 ```
-    {
-        "Microsoft.VisualStudio.MyExtension.SampleRemoteCommand.DisplayName": "Sample Remote Command",
-        "Microsoft.VisualStudio.MyExtension.OutputWindowTest.DisplayName": "Output Window Test"
-    }
+	{
+		"Microsoft.VisualStudio.MyExtension.SampleRemoteCommand.DisplayName": "Sample Remote Command",
+		"Microsoft.VisualStudio.MyExtension.OutputWindowTest.DisplayName": "Output Window Test"
+	}
 ```
