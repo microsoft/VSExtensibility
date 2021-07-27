@@ -75,7 +75,7 @@ The visibility of a command can be controlled by adding the attribute `Microsoft
 
 QUESTION: Is there an existing doc somewhere that I can point to for what possible term values are?
 
-If this attribute is omitted from your command, the default is for the command to always be enabled. You can also automatically have your command be disabled if it currently executing by setting `this.DisableDuringExecution = true;` in the constructor of your command class.
+If this attribute is omitted from your command, the default is for the command to always be enabled. You can also automatically have your command be disabled if it is currently executing by setting `this.DisableDuringExecution = true;` in the constructor of your command class.
 
 ### Localizing a command
 
