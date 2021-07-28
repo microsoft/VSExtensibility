@@ -21,7 +21,7 @@ The attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute` h
 | Placement | KnownCommandPlacement | Indicates where within Visual Studio your command should be parented. |
 | ClientContext | String | Client contexts requested by the command, separated by ','. By default only the Shell context is returned. A client context is a snapshot of specific IDE states at the time a command was originally executed. Since these commands are executed asynchronously this state could change between the time the user executed the command and the command handler running. QUESTION: what are the other options for contexts? Will there be a separate doc about these that I can link to? |
 
-```
+```csharp
 	[Command(CommandName, CommandId, "Sample Remote Command", placement: KnownCommandPlacement.ToolsMenu)]
 	public class CommandHandler : Command
 	{
@@ -46,7 +46,7 @@ See the [InsertGuidExtension](TODO-link-to-sample-when-its-available) sample to 
 
 Commands support adding icons to their menu item in addition to or instead of display name of the command. To add an icon to your command, you need to add the attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandIconAttribute` to your command class. You can then set the `imageMoniker` parameter to any of the [KnownMonikers](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.imaging.knownmonikers?view=visualstudiosdk-2022) currently supported by Visual Studio. Custom monikers are not supported at this time. You can also configure your icon with `Microsoft.VisualStudio.Extensibility.Commands.IconSettings`, which will control how your command is displayed if parented to a toolbar.
 
-```
+```csharp
 	[CommandIcon("Extension", IconSettings.IconAndText)]
 ```
 
@@ -57,7 +57,7 @@ The visibility of a command can be controlled by adding the attribute `Microsoft
 If this attribute is omitted from your command, the default is for the command to always be visible.
 
 An example of such an expression can be seen here:
-```
+```csharp
 	// This command would become visible when an editor for a file with any file extension is active.
 	[CommandVisibleWhen(
 		expression: "AnyFile",
@@ -75,7 +75,7 @@ The visibility of a command can be controlled by adding the attribute `Microsoft
 If this attribute is omitted from your command, the default is for the command to always be enabled. You can also automatically have your command be disabled if it is currently executing by setting `this.DisableDuringExecution = true;` in the constructor of your command class. Setting this property will override the enabled/disabled state defined by the `Microsoft.VisualStudio.Extensibility.Commands.CommandEnabledWhenAttribute` while the command is being executed.
 
 An example of such an expression can be seen here:
-```
+```csharp
 	// This command would become enabled when a solution is loaded in the IDE and a file with the file extension ".jpg", ".jpeg", or ".txt" is selected in the Solution Explorer.
 	[CommandEnabledWhen(
 		expression: "SolutionLoaded & IsValidFile",
@@ -91,7 +91,7 @@ To see more information on valid term values:
 The text displayed on a command can be localized by including `string-resources.json` files with your extension and formatting the DisplayName parameter with the '%' character on either end in your `Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute`.
 
 Localized Command DisplayName
-```
+```csharp
 	[Command(CommandName, CommandId, "%Microsoft.VisualStudio.MyExtension.SampleRemoteCommand.DisplayName%", placement: KnownCommandPlacement.ToolsMenu)]
 ```
 
@@ -102,7 +102,7 @@ Your extension should provide a `string-resources.json` file for every language 
 ![Localization directory structure](localizing-a-command.PNG "Localization directory structure")
 
 string-resources.json sample:
-```
+```json
 	{
 		"Microsoft.VisualStudio.MyExtension.SampleRemoteCommand.DisplayName": "Sample Remote Command",
 		"Microsoft.VisualStudio.MyExtension.OutputWindowTest.DisplayName": "Output Window Test"
