@@ -14,5 +14,6 @@ The new extensibility model is primarily built on top remote RPC contracts that 
 
 Extensibility packages that are provided as part of the SDK consist of base classes, utility methods and wrapper objects around these RPC contracts with the goal of making extensibility surface area easier to use, easier to discover and also to be able to quickly contribute to Visual Studio ecosystem such as creating a new command handler.
 
+
 ### Links
 TBD: Do we have links around ServiceHub, IServiceBroker?
