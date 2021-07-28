@@ -4,7 +4,10 @@ Commands trigger actions in Visual Studio. They manifest as buttons parented to 
 
 ## Creating new commands
 
-To get started, add a reference to the [Microsoft.VisualStudio.Extensibility](https://www.nuget.org/TODO-add-real-link) NuGet package to your project.
+To get started: 
+
+* Add a reference to the [Microsoft.VisualStudio.Extensibility](https://www.nuget.org/TODO-add-real-link) and [Microsoft.VisualStudio.Extensibility.Build](https://www.nuget.org/TODO-add-real-link) NuGet packages to your project.
+* Change your project's `TargetFramework` from `net6.0` to `net6.0-windows`.
 
 ### Registering a command
 
@@ -13,7 +16,7 @@ Creating a command with the new Extensibility Model is as simple as extending th
 The attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute` has a few parameters that you should become familiar with:
 
 | Parameter | Type | Description |
-| --------- |----- | ------------ |
+| --------- |----- | ----------- |
 | Name | String | A globally unique identifier for the command. It is recommended to use the full class name of your command here. |
 | Id | ushort | A locally unique identifier for your command within your extension. Each command within your extension should use a different value. |
 | DisplayName | String | The default display name of your command. Surround this string with the '%' character to enable localizing this string. See more on this at [Localizing a command](#localizing-a-command) |
@@ -44,7 +47,12 @@ See the [InsertGuidExtension](TODO-link-to-sample-when-its-available) sample to 
 
 ### Adding an icon
 
-Commands support adding icons to their menu item in addition to or instead of display name of the command. To add an icon to your command, you need to add the attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandIconAttribute` to your command class. You can then set the `imageMoniker` parameter to any of the [KnownMonikers](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.imaging.knownmonikers?view=visualstudiosdk-2022) currently supported by Visual Studio. Custom monikers are not supported at this time. You can also configure your icon with `Microsoft.VisualStudio.Extensibility.Commands.IconSettings`, which will control how your command is displayed if parented to a toolbar.
+Commands support adding icons to their menu item in addition to or instead of the display name of the command. To add an icon to your command, add the attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandIconAttribute` to your command class. Currently you can use any of the [KnownMonikers](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.imaging.knownmonikers?view=visualstudiosdk-2022) currently supported by Visual Studio. Custom monikers are not supported at this time.
+
+| Parameter | Type | Description |
+| --------- |----- | ----------- |
+| ImageMoniker | String | The name of any of the [KnownMonikers](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.imaging.knownmonikers?view=visualstudiosdk-2022) currently supported by Visual Studio, with or without the `KnownMonikers` type name. |
+| IconSettings | IconSettings | Configures how the command will be displayed. For example `IconSettings.IconAndText` displays the icon alongside the command's display name, whereas `IconSettings.IconOnly` will only show the command's icon and not its DisplayName if parented to a toolbar. |
 
 ```csharp
 	[CommandIcon("Extension", IconSettings.IconAndText)]
