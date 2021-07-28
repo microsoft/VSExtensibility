@@ -27,7 +27,13 @@ TBD: Links
 Instances for these classes will be created as part of the extensibility framework provided by the SDK using dependency injection library and constructors can be used to retrieve instances of services provided by either the SDK or by the extension itself to share state across components.
 
 ### Lifetime of extension parts
-TBD
+Lifetime of each part is managed by the respective commponent that loads those parts inside Visual Studio IDE process.
+
+* Command handlers will be initialized when the corresponding command set is activated which can be during the first execution of the command. Once activated, command handlers should only be disposed when IDE is shutdown.
+
+* Similarly text view event listeners will be initialized when the first text view matching the content type specified is loaded in the IDE. Currently, such listeners will be active until IDE is shutdown but this behavior may change in future.
+
+In general, for complex extensions we recommend extension to provide local services that parts can import in their constructor and using those services to share state across parts and across instances of the same part. This will ensure that extension state is not affected by lifetime changes of extension parts.
 
 ### Services provided by SDK for injection
 The following services are provided by the SDK that can be used in constructor for any extension part:
