@@ -4,7 +4,7 @@ Commands trigger actions in Visual Studio. They manifest as buttons parented to 
 
 ## Creating new commands
 
-To get started, add a reference to the Microsoft.VisualStudio.Extensibility NuGet package.
+To get started, add a reference to the [Microsoft.VisualStudio.Extensibility](TODO: link to the NuGet package once its available) NuGet package.
 
 ### Registering a command
 
@@ -12,14 +12,14 @@ Creating a command with the new Extensibility Model is as simple as extending th
 
 The attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute` has a few parameters that you should become familiar with:
 
-| Parameter | Type | Descriptions |
+| Parameter | Type | Description |
 | --------- |----- | ------------ |
 | Name | String | A globally unique identifier for the command. It is recommended to use the full class name of your command here. |
 | Id | ushort | A locally unique identifier for your command within your extension. Each command within your extension should use a different value. |
 | DisplayName | String | The default display name of your command. Surround this string with the '%' character to enable localizing this string. See more on this at [Localizing a command](#localizing-a-command) |
-| ContainerType | Type? | The type that is to act as the CommandSet for this command. Setting this parameter to null automatically generates a default CommandSet for yor command. |
+| ContainerType | Type? | The type that is to act as the CommandSet for this command. Setting this parameter to null automatically generates a default CommandSet for your command. |
 | Placement | KnownCommandPlacement | Indicates where within Visual Studio your command should be parented. |
-| ClientContext | String | Client contexts requested by the command, separated by ','. By default only the Shell context is returned. TODO: what are the other options for contexts? Will there be a separate doc about these that I can link to? |
+| ClientContext | String | Client contexts requested by the command, separated by ','. By default only the Shell context is returned. A client context is a snapshot of specific IDE states at the time a command was originally executed. Since these commands are executed asynchronously this state could change between the time the user executed the command and the command handler running. QUESTION: what are the other options for contexts? Will there be a separate doc about these that I can link to? |
 
 ```
 	[Command(CommandName, CommandId, "Sample Remote Command", placement: KnownCommandPlacement.ToolsMenu)]
@@ -52,10 +52,14 @@ Commands support adding icons to their menu item in addition to or instead of di
 
 ### Controlling command visibility
 
-The visibility of a command can be controlled by adding the attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandVisibleWhenAttribute` to your command class. This attribute supports specifying an expression, defining a set of terms used in the expression, and what values those terms should be replaced with upon evaluation. Note: Term names and values are mapped to their index in the array. i.e. the term name at index 0 corresponds with the term value at that same index. An example of such an expression can be seen here:
+The visibility of a command can be controlled by adding the attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandVisibleWhenAttribute` to your command class. This attribute supports specifying an expression, defining a set of terms used in the expression, and what values those terms should be replaced with upon evaluation. Note: Term names and values are mapped to their index in the array. i.e. the term name at index 0 corresponds with the term value at that same index. The command would be visible when the expression evaluates to true, and invisible when it is false. An example of such an expression can be seen here:
 
 ```
-	[CommandVisibleWhen("AnyFile", new string[] { "AnyFile" }, new string[] { "ClientContext:Shell.ActiveEditorContentType=.+" })]
+	// This command would become visible when an editor for a file with any file extension is active.
+	[CommandVisibleWhen(
+		expression: "AnyFile",
+		termNames: new string[] { "AnyFile" },
+		termValues: new string[] { "ClientContext:Shell.ActiveEditorContentType=.+" })]
 ```
 
 QUESTION: Is there an existing doc somewhere that I can point to for what possible term values are?
@@ -64,18 +68,19 @@ If this attribute is omitted from your command, the default is for the command t
 
 ### Controlling command Enabled/Disabled state
 
-The visibility of a command can be controlled by adding the attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandEnabledWhenAttribute` to your command class. This attribute supports specifying an expression, defining a set of terms used in the expression, and what values those terms should be replaced with upon evaluation. Note: Term names and values are mapped to their index in the array. i.e. the term name at index 0 corresponds with the term value at that same index. An example of such an expression can be seen here:
+The visibility of a command can be controlled by adding the attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandEnabledWhenAttribute` to your command class. This attribute supports specifying an expression, defining a set of terms used in the expression, and what values those terms should be replaced with upon evaluation. Note: Term names and values are mapped to their index in the array. i.e. the term name at index 0 corresponds with the term value at that same index. The command would be enabled when the expression evaluates to true, and disabled when it is false. An example of such an expression can be seen here:
 
 ```
+	// This command would become enabled when a solution is loaded in the IDE and a file with the file extension ".jpg", ".jpeg", or ".txt" is selected in the Solution Explorer.
 	[CommandEnabledWhen(
-		"SolutionLoaded & IsValidFile",
-		new string[] { "SolutionLoaded", "IsValidFile" },
-		new string[] { "SolutionState:Exists", "ClientContext:Shell.ActiveSelectionFileName=(.jpg|.jpeg|.txt)$" })]
+		expression: "SolutionLoaded & IsValidFile",
+		termNames: new string[] { "SolutionLoaded", "IsValidFile" },
+		termValues: new string[] { "SolutionState:Exists", "ClientContext:Shell.ActiveSelectionFileName=(.jpg|.jpeg|.txt)$" })]
 ```
 
 QUESTION: Is there an existing doc somewhere that I can point to for what possible term values are?
 
-If this attribute is omitted from your command, the default is for the command to always be enabled. You can also automatically have your command be disabled if it is currently executing by setting `this.DisableDuringExecution = true;` in the constructor of your command class.
+If this attribute is omitted from your command, the default is for the command to always be enabled. You can also automatically have your command be disabled if it is currently executing by setting `this.DisableDuringExecution = true;` in the constructor of your command class. Setting this property will override the enabled/disabled state defined by the `Microsoft.VisualStudio.Extensibility.Commands.CommandEnabledWhenAttribute` while the command is being executed.
 
 ### Localizing a command
 
