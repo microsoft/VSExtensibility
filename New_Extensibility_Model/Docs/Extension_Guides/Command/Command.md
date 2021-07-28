@@ -4,7 +4,7 @@ Commands trigger actions in Visual Studio. They manifest as buttons parented to 
 
 ## Creating new commands
 
-To get started, add a reference to the [Microsoft.VisualStudio.Extensibility](https://www.nuget.org/TODO-add-real-link) NuGet package.
+To get started, add a reference to the [Microsoft.VisualStudio.Extensibility](https://www.nuget.org/TODO-add-real-link) NuGet package to your project.
 
 ### Registering a command
 
