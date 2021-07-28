@@ -4,7 +4,7 @@ Commands trigger actions in Visual Studio. They manifest as buttons parented to 
 
 ## Creating new commands
 
-To get started, add a reference to the [Microsoft.VisualStudio.Extensibility](TODO: link to the NuGet package once its available) NuGet package.
+To get started, add a reference to the [Microsoft.VisualStudio.Extensibility](https://www.nuget.org/TODO-add-real-link) NuGet package.
 
 ### Registering a command
 
@@ -40,7 +40,7 @@ The attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute` h
 	}
 ```
 
-See the [InsertGuidExtension](TODO: add in a link to the InsertGuidSample once its published) sample to get started with creating an extension with a command.
+See the [InsertGuidExtension](TODO-link-to-sample-when-its-available) sample to get started with creating an extension with a command.
 
 ### Adding an icon
 
@@ -52,8 +52,11 @@ Commands support adding icons to their menu item in addition to or instead of di
 
 ### Controlling command visibility
 
-The visibility of a command can be controlled by adding the attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandVisibleWhenAttribute` to your command class. This attribute supports specifying an expression, defining a set of terms used in the expression, and what values those terms should be replaced with upon evaluation. Note: Term names and values are mapped to their index in the array. i.e. the term name at index 0 corresponds with the term value at that same index. The command would be visible when the expression evaluates to true, and invisible when it is false. An example of such an expression can be seen here:
+The visibility of a command can be controlled by adding the attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandVisibleWhenAttribute` to your command class. This attribute supports specifying an expression, defining a set of terms used in the expression, and what values those terms should be replaced with upon evaluation. Note: Term names and values are mapped to their index in the array. i.e. the term name at index 0 corresponds with the term value at that same index. The command would be visible when the expression evaluates to true, and invisible when it is false.
 
+If this attribute is omitted from your command, the default is for the command to always be visible.
+
+An example of such an expression can be seen here:
 ```
 	// This command would become visible when an editor for a file with any file extension is active.
 	[CommandVisibleWhen(
@@ -62,14 +65,16 @@ The visibility of a command can be controlled by adding the attribute `Microsoft
 		termValues: new string[] { "ClientContext:Shell.ActiveEditorContentType=.+" })]
 ```
 
-QUESTION: Is there an existing doc somewhere that I can point to for what possible term values are?
-
-If this attribute is omitted from your command, the default is for the command to always be visible.
+To see more information on valid term values:
+- [Using context rules](TODO:-link-to-the-actual-doc-when-its-available)
 
 ### Controlling command Enabled/Disabled state
 
-The visibility of a command can be controlled by adding the attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandEnabledWhenAttribute` to your command class. This attribute supports specifying an expression, defining a set of terms used in the expression, and what values those terms should be replaced with upon evaluation. Note: Term names and values are mapped to their index in the array. i.e. the term name at index 0 corresponds with the term value at that same index. The command would be enabled when the expression evaluates to true, and disabled when it is false. An example of such an expression can be seen here:
+The visibility of a command can be controlled by adding the attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandEnabledWhenAttribute` to your command class. This attribute supports specifying an expression, defining a set of terms used in the expression, and what values those terms should be replaced with upon evaluation. Note: Term names and values are mapped to their index in the array. i.e. the term name at index 0 corresponds with the term value at that same index. The command would be enabled when the expression evaluates to true, and disabled when it is false. 
 
+If this attribute is omitted from your command, the default is for the command to always be enabled. You can also automatically have your command be disabled if it is currently executing by setting `this.DisableDuringExecution = true;` in the constructor of your command class. Setting this property will override the enabled/disabled state defined by the `Microsoft.VisualStudio.Extensibility.Commands.CommandEnabledWhenAttribute` while the command is being executed.
+
+An example of such an expression can be seen here:
 ```
 	// This command would become enabled when a solution is loaded in the IDE and a file with the file extension ".jpg", ".jpeg", or ".txt" is selected in the Solution Explorer.
 	[CommandEnabledWhen(
@@ -78,9 +83,8 @@ The visibility of a command can be controlled by adding the attribute `Microsoft
 		termValues: new string[] { "SolutionState:Exists", "ClientContext:Shell.ActiveSelectionFileName=(.jpg|.jpeg|.txt)$" })]
 ```
 
-QUESTION: Is there an existing doc somewhere that I can point to for what possible term values are?
-
-If this attribute is omitted from your command, the default is for the command to always be enabled. You can also automatically have your command be disabled if it is currently executing by setting `this.DisableDuringExecution = true;` in the constructor of your command class. Setting this property will override the enabled/disabled state defined by the `Microsoft.VisualStudio.Extensibility.Commands.CommandEnabledWhenAttribute` while the command is being executed.
+To see more information on valid term values:
+- [Using context rules](TODO:-link-to-the-actual-doc-when-its-available)
 
 ### Localizing a command
 
