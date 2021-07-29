@@ -9,6 +9,7 @@
 * [Nuget packages](Inside_the_SDK/Packages.md)
 * [Commands](...)
 * [Editor components](...)
+* [Rule based conditions](Inside_the_SDK/Activation_Constraints.md)
 
 ## Sample Walkthroughs
 * [Simple command handler](Extension_Guides/SimpleCommandSample.md)

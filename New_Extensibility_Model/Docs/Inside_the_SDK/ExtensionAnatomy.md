@@ -18,11 +18,9 @@ For features where an extension contributes components to Visual Studio such as 
 
 Currently the SDK supports a limited set of components to be exported:
 
-* Command handlers
-* Text view lifetime listeners for tracking text view created, closed events.
-* Text view change listeners for tracking changes to an open text view.
-
-TBD: Links
+* [Command handlers](TBD)
+* [Text view lifetime listeners](TBD) for tracking text view created, closed events.
+* [Text view change listeners](TBD) for tracking changes to an open text view.
 
 Instances for these classes will be created as part of the extensibility framework provided by the SDK using dependency injection library and constructors can be used to retrieve instances of services provided by either the SDK or by the extension itself to share state across components.
 
