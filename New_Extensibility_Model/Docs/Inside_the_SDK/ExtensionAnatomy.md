@@ -47,5 +47,13 @@ The following services are provided by the SDK that can be used in constructor f
 ## Local extension services
 In certain scenarios an extension may want to share state between different components such as a command handler and a text view change listener, as it can be seen in `MarkdownLinter` example. These services can be added to in-process service collection via overriding `Extension.InitializeServices` method and as instances of extension parts are created, the services will be injected based on the constructor arguments.
 
-For an example of a local service please see `MarkdownLinter` example, specifically `MarkdownDiagnosticsService` class.
+There are 3 options that a service can be added:
+
+* `AddTransient`: A new instance of the service is created for each part that ingests it.
+* `AddScoped`: A new instance of the service is created within a certain scope. In context of Visual Studio extensibility, scope refers to a single extension part.
+* `AddSingleton`: There is a single shared instance of service that is created on first ingestion.
+
+Due to lifetime of `VisualStudioExtensibility` object being bound to the scope of a single extension part, any local service that ingests it has to be a scoped or transient service. Trying to create a singleton service that injects `VisualStudioExtensibility` will result in failure.
+
+For an example of how local services are used please see [MarkdownLinte extension guide](../Extension_Guides/MarkdownLinterSample.md).
 
