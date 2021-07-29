@@ -13,7 +13,3 @@ The new extensibility model is designed with the following goals in mind:
 The new extensibility model is primarily built on top remote RPC contracts that are provided as brokered services from Visual Studio. The extensions are hosted in an external ServiceHub process that communicates with Visual Studio via RPC and both utilize services provided by Visual Studio and may also provide services to Visual Studio process in certain cases.
 
 Extensibility packages that are provided as part of the SDK consist of base classes, utility methods and wrapper objects around these RPC contracts with the goal of making extensibility surface area easier to use, easier to discover and also to be able to quickly contribute to Visual Studio ecosystem such as creating a new command handler.
-
-
-### Links
-TBD: Do we have links around ServiceHub, IServiceBroker?
