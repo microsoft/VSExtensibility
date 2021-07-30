@@ -61,9 +61,7 @@ Following is the list of terms currently supported by expression engine.
 | Building | Solution is building. |
 
 ## Client contexts
-As all extensions in the new SDK runs out of process, we introduce the concept of client context for various extension parts to represent the state of the IDE as when the user took action. This context is represnted by `IClientContext` instance in the SDK and is passed in to various operations such as command execution handlers.
-
-Similarly, activation rules can also use the same client context values to create rules to determine command state decleratively.
+Activation rules can also utilize the [client context](ExtensionAnatomy.md#client-context) contents as parts of its expression. 
 
 Currently, the client context is limited to a small set of values in IDE state:
 
