@@ -15,14 +15,14 @@ Creating a command with the new Extensibility Model is as simple as extending th
 
 The attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute` has a few parameters that you should become familiar with:
 
-| Parameter | Type | Description |
-| --------- |----- | ----------- |
-| Name | String | A globally unique identifier for the command. It is recommended to use the full class name of your command here. |
-| Id | ushort | A locally unique identifier for your command within your extension. Each command within your extension should use a different value. |
-| DisplayName | String | The default display name of your command. Surround this string with the '%' character to enable localizing this string. See more on this at [Localizing a command](#localizing-a-command). |
-| ContainerType | Type? | The type that is to act as the CommandSet for this command. Setting this parameter to null automatically generates a default CommandSet for your command. |
-| Placement | KnownCommandPlacement | Indicates where within Visual Studio your command should be parented. If no placement is provided the command defaults to being parented to the Standard toolbar. |
-| ClientContext | String | Client contexts requested by the command, separated by ','. By default only the Shell context is returned. See more on this at [Client contexts](#client-contexts). |
+| Parameter | Type | Required | Description |
+| --------- |----- | -------- | ----------- |
+| Name | String | Yes | A globally unique identifier for the command. It is recommended to use the full class name of your command here. |
+| Id | ushort | Yes | A locally unique identifier for your command within your extension. Each command within your extension should use a different value. |
+| DisplayName | String | Yes | The default display name of your command. Surround this string with the '%' character to enable localizing this string. See more on this at [Localizing a command](#localizing-a-command). |
+| ContainerType | Type? | No | The type that is to act as the CommandSet for this command. Setting this parameter to null automatically generates a default CommandSet for your command. |
+| Placement | KnownCommandPlacement | No | Indicates where within Visual Studio your command should be parented. If no placement is provided the command defaults to being parented to the Standard toolbar. |
+| ClientContext | String | No | Client contexts requested by the command, separated by ','. By default only the Shell context is returned. A client context is a snapshot of specific IDE states at the time a command was originally executed. Since these commands are executed asynchronously this state could change between the time the user executed the command and the command handler running. See more on this at [Client contexts](TODO:-link-to-the-actual-doc-when-its-available). |
 
 ```csharp
 	[Command(CommandName, CommandId, "Sample Remote Command", placement: KnownCommandPlacement.ToolsMenu)]
@@ -49,10 +49,10 @@ See the [InsertGuidExtension](TODO-link-to-sample-when-its-available) sample to 
 
 Commands support adding icons to their menu item in addition to or instead of the display name of the command. To add an icon to your command, add the attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandIconAttribute` to your command class. Currently you can use any of the [KnownMonikers](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.imaging.knownmonikers?view=visualstudiosdk-2022) currently supported by Visual Studio. Custom monikers are not supported at this time.
 
-| Parameter | Type | Description |
-| --------- |----- | ----------- |
-| ImageMoniker | String | The name of any of the [KnownMonikers](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.imaging.knownmonikers?view=visualstudiosdk-2022) currently supported by Visual Studio, with or without the `KnownMonikers` type name. |
-| IconSettings | IconSettings | Configures how the command will be displayed. For example `IconSettings.IconAndText` displays the icon alongside the command's display name, whereas `IconSettings.IconOnly` will only show the command's icon and not its DisplayName if parented to a toolbar. |
+| Parameter | Type | Required | Description |
+| --------- |----- | -------- | ----------- |
+| ImageMoniker | String | Yes | The name of any of the [KnownMonikers](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.imaging.knownmonikers?view=visualstudiosdk-2022) currently supported by Visual Studio, with or without the `KnownMonikers` type name. |
+| IconSettings | IconSettings | Yes | Configures how the command will be displayed. For example `IconSettings.IconAndText` displays the icon alongside the command's display name, whereas `IconSettings.IconOnly` will only show the command's icon and not its DisplayName if parented to a toolbar. |
 
 ```csharp
 	[CommandIcon("Extension", IconSettings.IconAndText)]
@@ -116,7 +116,3 @@ string-resources.json sample:
 		"Microsoft.VisualStudio.MyExtension.OutputWindowTest.DisplayName": "Output Window Test"
 	}
 ```
-
-### Client contexts
-
-A client context is a snapshot of specific IDE states at the time a command was originally executed. Since these commands are executed asynchronously this state could change between the time the user executed the command and the command handler running. TBD: More information on possible options for contexts and what kind of information each context gets you.
