@@ -10,8 +10,10 @@ Visual Studio extensibility model, only the following capabilities are supported
 
 ## Editor Extensibility Entrypoints
 
-Editor extensibility currently supports 3 entry points: listeners, the EditorExtensibility service object, and
-commands.
+Editor extensibility currently supports 3 entry points:
+1. Listeners
+2. EditorExtensibility service object
+3. Commands
 
 ### Adding a Listener
 
