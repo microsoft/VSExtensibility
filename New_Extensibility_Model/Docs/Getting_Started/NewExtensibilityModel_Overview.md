@@ -7,9 +7,9 @@ While the existing model loads extensions in-process, the new extensibility mode
 * How to compile and F5 debug an extension with the new model 
 * Resources and code samples to get started writing an extension with the new model
 
-## Why use the new extensibility model?
+## What is the new extensibility model & why should you use it?
 
-The new extensibility model aims to address many of the problems both developers experience when using and writing extensions in Visual Studio using the old model.  These issues include:
+The new, out-of-proc extensibility model aims to address many of the problems both developers experience when using and writing extensions in Visual Studio using the old model.  These issues include:
 
 * Extension-caused crashes and hangs of Visual Studio and other installed extensions
 * Inconsistent hard-to-find docs and APIs, tribal knowledge requirements, and overwhelming architecture
@@ -23,7 +23,6 @@ Writing extensions using the new model provides the following benefits:
 * **Low-trust extensions (Coming Soon)** – Since extensions in the new model run in a separate process, they can be isolated from devenv and ran in a low-trust sandbox. This environment will provide the extensions with read-only access to the file system and controlled writing access via the model’s APIs. 
 * **Hot-reloading functionality (Coming Soon)** – Excluding ones requiring VS component prerequisites that haven’t been installed yet, extensions written using the new model can be installed and loaded without needing to restart Visual Studio.
 * **.NET Core Only** – With VS transitioning primarily to .NET core, all new model extensions will be run on .NET core.  All APIs will also be built on .NET core and will be .NET 6 compatible.
-* **Cross-compatibility with Visual Studio for Mac (Coming Soon)** – Extensions written with the new model will be compatible with both VS Windows and VS for Mac.
 * **Cross-CPU Platform** – Since APIs will be IServiceBroker and .NET core based, all Gladstone extensions will run on all CPU platforms supported by .net core runtime.
 
 ## Next Steps
