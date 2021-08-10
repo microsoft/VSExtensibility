@@ -9,13 +9,18 @@ These extensions are composed of:
 1. Additional values for enumerations described in the LSP protocol. For example [`VSDiagnosticTag`](#vsdiagnostictag) extends [`DiagnosticTag`](https://microsoft.github.io/language-server-protocol/specifications/specification-current/#diagnosticTag).
 
 A .NET implementation of these extensions can be found on [NuGet](https://www.nuget.org/packages/Microsoft.VisualStudio.LanguageServer.Protocol.Extensions).
-When using this package in a language server, configure the `JsonSerializer` using `VSExtensionUtilities.AddVSExtensionConverters` in order to allow extensions classes to be correctly deserialized. For example, this allows the `JsonSerializer` to correctly deserialize the [`CodeAction.Diagnostics`](https://microsoft.github.io/language-server-protocol/specifications/specification-3-17/#codeAction) entries of a [`codeAction/resolve`](https://microsoft.github.io/language-server-protocol/specifications/specification-3-17/#codeAction_resolve) request into [`VSDiagnostic`](#vsdiagnostic) objects even if [`CodeAction.Diagnostics`](https://microsoft.github.io/language-server-protocol/specifications/specification-3-17/#codeAction) is defined as an array of [`Diagnostic`](https://microsoft.github.io/language-server-protocol/specifications/specification-current/#diagnostic).
+
+When using this package in a language server, configure the `JsonSerializer` using `VSExtensionUtilities.AddVSExtensionConverters` in order to allow extensions classes to be correctly deserialized. For example, this allows the `JsonSerializer` to correctly deserialize the [`CodeAction.Diagnostics`](https://microsoft.github.io/language-server-protocol/specifications/specification-3-17/#codeAction) entries of a [`codeAction/resolve`](https://microsoft.github.io/language-server-protocol/specifications/specification-3-17/#codeAction_resolve) request into [`VSDiagnostic`](#vsdiagnostic) objects even if [`CodeAction.Diagnostics`](https://microsoft.github.io/language-server-protocol/specifications/specification-3-17/#codeAction) is defined as an array of [`Diagnostic`](https://microsoft.github.io/language-server-protocol/specifications/specification-current/#diagnostic) objects.
 
 # New methods
 
 ## GetProjectContexts
 
-_GetProjectContexts_ requests are sent from the client to the server to retrieve a list of the project contexts associated with a text document.
+_GetProjectContexts_ requests are sent from the client to the server to retrieve a list of the project contexts associated with a text document. An example of project contexts are [multiple target frameworks](https://docs.microsoft.com/en-us/dotnet/standard/frameworks#how-to-specify-a-target-framework) in SDK style .NET projects.
+
+The labels of all project contexts are presented to the user in the navigation bar at the top of the document. When the user changes the project context in the navigation bar, the active project context is changed.
+
+The client includes the active project context in requests to the server by filling in the [`VSTextDocumentIdentifier._vs_projectContext`](#vstextdocumentidentifier) property.
 
 _Server Capability_
 
@@ -358,5 +363,18 @@ export interface VSSymbolInformation extends SymbolInformation {
      * Gets or sets the hint text for the symbol.
     **/
     _vs_hintText? : string,
+}
+```
+
+## VSTextDocumentIdentifier
+
+[`VSTextDocumentIdentifier`](#vstextdocumentidentifier) extends [`TextDocumentIdentifier`](https://microsoft.github.io/language-server-protocol/specifications/specification-current/) providing additional properties used by Visual Studio.
+```typescript
+export interface VSTextDocumentIdentifier extends TextDocumentIdentifier {
+
+    /**
+     * Gets or sets the project context of the text document.
+    **/
+    _vs_projectContext? : VSProjectContext,
 }
 ```
