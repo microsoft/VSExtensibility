@@ -6,10 +6,6 @@ date: 2021-8-16
 
 This site will help you write successful Visual Studio extensions and there's something for absolute beginners to experts alike.
 
-<video controls poster="../assets/img/intro-poster.png">
-  <source src="../assets/video/intro.mp4" type="video/mp4" />
-</video>
-
 ## Pick your starting point
 
 Based on your experience level, pick where to begin.
