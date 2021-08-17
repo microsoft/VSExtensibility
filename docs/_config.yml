@@ -1,1 +1,16 @@
-theme: jekyll-theme-tactile
+title: Visual Studio Extensibility
+description: Visual Studio Extensibility
+#theme: jekyll-theme-tactile
+layout: default
+
+css:
+  syntax: true
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+sass:
+    style: compressed

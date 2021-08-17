@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <meta name="description" content="{{ page.description }}" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel=apple-touch-icon href="/assets/img/icon-180x180.png" />
+    <link rel=icon type=image/png sizes=32x32 href="/assets/img/icon-32x32.png" />
+    <link rel=icon type=image/png sizes=16x16 href="/assets/img/icon-16x16.png" />
+    <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="{{ site.title }}" />
+    <meta property="og:title" content="{{ page.title }}" />
+    <meta property="og:description" content="{{ page.description }}" />
+    <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
+    <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/img/icon-180x180.png" />
+</head>
+
+<body>
+    <header>
+        <h1>{{ page.title }}</h1>
+        <a href="/">{{ site.description }}</a>
+    </header>
+    <main>
+        <nav id="menu">
+            <label for="hamburger">&#9776;</label>
+            <input type="checkbox" id="hamburger" />
+            <ul>
+                <li><a href="/" tabindex="0">Home</a></li>
+                <li class="parent">
+                    <a href="/new-extensibility-model/" aria-haspopup="menu">Out-of-Proc Extensibility</a>
+                    <ul>
+                        <li class="parent">
+                            <a href="/new-extensibility-model/getting-started/" aria-haspopup="menu">Getting Started</a></li>
+                            <ul>
+                                <li><a href="/new-extensibility-model/getting-started/Create_Your_First_Extension.html"></a></li>
+                            </ul>
+                        <li class="parent">
+                            <a href="/new-extensibility-model/extension-guides/" aria-haspopup="menu">Extension Guides</a></li>
+                        <li class="parent">
+                            <a href="/new-extensibility-model/inside-the-sdk" aria-haspopup="menu">Inside the SDK</a></li>
+                        <li class="parent">
+                            <a href="/new-extensibility-model/api" aria-haspopup="menu">API</a></li>
+                    </ul>
+                </li>
+                <li class="parent">
+                    <a href="/recipes/" aria-haspopup="menu">Recipes</a>
+                    <ul>
+                        <li><a href="/recipes/menus-buttons-commands.html">Menus &amp; commands</a></li>
+                        <li><a href="/recipes/custom-tool-windows.html">Tool windows</a></li>
+                        <li><a href="/recipes/theming.html">Theming</a></li>
+                        <li><a href="/recipes/settings-and-options.html">Settings &amp; options</a></li>
+                        <li><a href="/recipes/notifications.html">Notifications</a></li>
+                        <li><a href="/recipes/error-handling.html">Error handling</a></li>
+                        <li><a href="/recipes/showing-progress.html">Showing progress</a></li>
+                    </ul>
+                </li>
+                <li class="parent">
+                    <a href="/tips/" aria-haspopup="menu">Tips &amp; tricks</a>
+                    <ul>
+                        <li><a href="/tips/files.html">Files &amp; documents</a></li>
+                        <li><a href="/tips/projects.html">Projects</a></li>
+                        <li><a href="/tips/solutions.html">Solutions</a></li>
+                        <li><a href="/tips/build.html">Build</a></li>
+                        <li><a href="/tips/events.html">Events</a></li>
+                    </ul>
+                </li>
+                <li class="parent">
+                    <a href="/publish/" aria-haspopup="menu">Publishing</a>
+                    <ul>
+                        <li><a href="/publish/checklist.html">Checklist</a></li>
+                        <li><a href="/publish/create-extension-pack.html">Extension packs</a></li>
+                        <li><a href="/publish/marketplace.html">Marketplace</a></li>
+                        <li><a href="/publish/private-galleries.html">Private galleries</a></li>
+                    </ul>
+                </li>
+                <li><a href="/api.html">API</a></li>
+            </ul>
+        </nav>
+        <article>
+            {{ content }}
+            {% if page.date %}
+            <div class="meta">Last updated: <time datetime="{{ page.date }}">{{ page.date | date_to_string: "ordinal",
+                    "US" }}</time></div>
+            {% endif %}
+        </article>
+    </main>
+    <footer>
+        <ul>
+            <li><a rel="noopener" href="{{site.github.repository_url}}/blob/main/docs/{{page.path}}"
+                    target="_blank">Edit this page</a></li>
+            <li><a rel="noopener" href="https://github.com/VsixCommunity/Community.VisualStudio.Toolkit/discussions"
+                    target="_blank">Ask for help</a></li>
+            <li><a rel="noopener" href="https://github.com/VsixCommunity/docs/issues/" target="_blank">Report issues</a>
+            </li>
+        </ul>
+        <p>Made with <strong>❤</strong> by fellow extenders</p>
+    </footer>
+
+    <script>
+        window.requestAnimationFrame(function (e) {
+
+            // Expand menu on load
+            var navLinks = document.querySelectorAll("nav a");
+            navLinks.forEach(function (a) {
+                if (location.pathname.endsWith(a.pathname)) {
+                    a.setAttribute("aria-current", "page")
+                    if (a.parentNode && a.parentNode.parentNode) {
+                        a.parentNode.classList.add("open");
+                        a.parentNode.parentNode.parentNode.classList.add("open");
+                        return;
+                    }
+
+                }
+            });
+
+            // Open menu items on click
+            var menu = document.getElementById("menu");
+            menu.addEventListener("click", function (e) {
+                if (e.target.nextElementSibling !== null && e.target.tagName === "A") {
+                    e.preventDefault();
+                    e.target.parentNode.classList.toggle("open")
+                }
+            });
+
+            // Display alt text as caption under the image
+            var images = document.querySelectorAll("main img[alt]:not([alt=''])");
+            images.forEach(function (img) {
+                var caption = document.createElement("span");
+                caption.classList.add("caption");
+                caption.textContent = img.getAttribute("alt");
+                img.insertAdjacentElement("afterend", caption);
+            });
+        });
+    </script>
+</body>
+
+</html>
