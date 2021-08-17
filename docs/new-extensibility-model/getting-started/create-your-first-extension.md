@@ -1,4 +1,10 @@
-# Creating your first Visual Studio extension
+---
+title: Creating your first extension reference
+description: A reference for creating your first OOP extension
+date: 2021-8-16
+---
+
+# Creating your first Visual Studio Out-of-Process extension
 
 ## Prerequisites
 

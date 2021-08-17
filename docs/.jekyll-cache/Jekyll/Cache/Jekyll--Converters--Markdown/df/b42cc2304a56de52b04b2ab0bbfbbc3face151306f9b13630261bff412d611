@@ -1,0 +1,9 @@
+I"
+<h1 id="logging-extension-diagnostics">Logging extension diagnostics</h1>
+
+<p>Each extension part can inject a <code class="language-plaintext highlighter-rouge">TraceSource</code> instance that is created as part of the extensibility framework. Extension developers are strongly recommended to utilize this instance for diagnostics as it will allow integration with future tools on Visual Studio diagnostics.</p>
+
+<h2 id="accessing-log-entries">Accessing log entries</h2>
+
+<p>Currently the logs are output to <code class="language-plaintext highlighter-rouge">%TEMP%\VSLogs</code> directory in <code class="language-plaintext highlighter-rouge">svclog</code> XML format. This format allows logs from multiple processes to be correlated to each other and can be opened by <a href="https://docs.microsoft.com/en-us/dotnet/framework/wcf/service-trace-viewer-tool-svctraceviewer-exe">Microsoft Service Trace Viewer</a> tool. This tool should already be available on machines with Visual Studio as it is part of .Net Framework tools.</p>
+:ET

@@ -4,7 +4,7 @@ description: Welcome to Visual Studio Extensibility
 date: 2021-8-16
 ---
 
-This site will help you write successful Visual Studio extensions and there's something for absolute beginners to experts alike.
+This site will help you write successful Visual Studio extensions and there's something for absolute beginners to experts alike!
 
 ## Pick your starting point
 

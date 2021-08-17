@@ -1,3 +1,9 @@
+---
+title: Extension Anatomy Reference
+description: A reference for extension anatomy
+date: 2021-8-16
+---
+
 # Anatomy of a new Visual Studio Extension
 An extension utilizing the new extensibility SDK will have several components that interact together and also with Visual Studio. 
 

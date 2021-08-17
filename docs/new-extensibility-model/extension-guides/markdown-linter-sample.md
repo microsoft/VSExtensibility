@@ -1,3 +1,9 @@
+---
+title: Markdown Linter Extension reference
+description: A reference for Markdown Linter extension sample
+date: 2021-8-16
+---
+
 # Walkthrough: Markdown Linter Extension
 
 This extension shows how multiple components can interact together inside an extension and how different areas of Visual Studio can be extended.

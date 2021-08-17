@@ -1,4 +1,10 @@
-# New Extensibility Model Overview
+---
+title: OOP Extensibility Model reference
+description: A reference for OOP Extensibility Model
+date: 2021-8-16
+---
+
+# Out-of-Process Extensibility Model Overview
 
 While the existing model loads extensions in-process, the new extensibility model brings Visual Studio extensions out-of-process.  This out-of-proc model gives you the opportunity to create more reliable, secure, and easier-to-write extensions while still providing the in-depth functionality the old model provides.  The following documentation describes:
 

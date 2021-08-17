@@ -1,3 +1,9 @@
+---
+title: Commands reference
+description: A reference for extensibility commands
+date: 2021-8-16
+---
+
 # Commands
 
 Commands trigger actions in Visual Studio. They manifest as buttons parented to menus and/or toolbars in the IDE with their execution tied to user interaction. Commands in the new Extensibility Model run asynchronously and so the user can continue to interact with IDE while commands are executing.

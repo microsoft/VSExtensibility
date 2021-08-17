@@ -52,7 +52,7 @@ body {
     flex-direction: column;
     text-size-adjust: none;
     -webkit-text-size-adjust: none;
-    font: 18px/1.6 "Open Sans",Ubuntu,"Nimbus Sans L",Avenir,AvenirNext,"Segoe UI",Helvetica,Arial,sans-serif;
+    font: 16px/1.6 "Open Sans",Ubuntu,"Nimbus Sans L",Avenir,AvenirNext,"Segoe UI",Helvetica,Arial,sans-serif;
     counter-reset: figure;
 }
 
@@ -173,7 +173,7 @@ main {
 }
 
 #menu {
-    font-size: .85em;
+    font-size: .80em;
     min-width: fit-content;
     border-right: 1px solid var(--border-color);
     padding: 1em 1.5em 1em .7em;

@@ -1,3 +1,9 @@
+---
+title: Microsoft.VisualStudio.Extensibility API reference
+description: A reference for Microsoft.VisualStudio.Extensibility
+date: 2021-8-16
+---
+
 <a name='assembly'></a>
 # Microsoft.VisualStudio.Extensibility
 

@@ -1,8 +1,8 @@
 # Visual Studio Out-Of-Process Extensibility SDK
 
 ## Getting Started
-* [Introduction to new SDK](Getting_Started/Introduction.md)
-* [Create your first extension](Getting_Started/Create_Your_First_Extension.md)
+* [Introduction to new SDK](getting-started/Introduction.md)
+* [Create your first extension](getting-started/Create_Your_First_Extension.md)
 
 ## Extension Guides
 * [Parts of a new Visual Studio extension](Inside_the_SDK/ExtensionAnatomy.md)

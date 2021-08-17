@@ -1,3 +1,9 @@
+---
+title: Editor reference
+description: A reference for editor-based extensions
+date: 2021-8-16
+---
+
 # Editor Extensions
 
 The Visual Studio editor supports extensions that add to its capabilities. For the initial release of the new

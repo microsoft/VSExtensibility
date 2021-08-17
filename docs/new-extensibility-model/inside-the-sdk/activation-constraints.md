@@ -1,3 +1,9 @@
+---
+title: Activation Constraints Reference
+description: A reference for activation constraints
+date: 2021-8-16
+---
+
 # Rule based activation constraints
 
 One of the common concepts in Visual Studio Extensibility SDK is use of context based activation rules in code attributes. An example of these would `CommandVisibleWhen` attribute declaring when a command is made visible.

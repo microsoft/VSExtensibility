@@ -1,3 +1,9 @@
+---
+title: Microsoft.VisualStudio.Extensibility.Framework API reference
+description: A reference for Microsoft.VisualStudio.Extensibility.Framework
+date: 2021-8-16
+---
+
 <a name='assembly'></a>
 # Microsoft.VisualStudio.Extensibility.Framework
 

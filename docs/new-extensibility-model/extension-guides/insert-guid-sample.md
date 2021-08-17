@@ -1,3 +1,9 @@
+---
+title: Insert Guid Extension Sample reference
+description: A reference for Insert Guid sample reference
+date: 2021-8-16
+---
+
 # Walkthrough: Insert Guid Extension Sample
 
 This extension is a simple extension that shows how a command that modifies an open editor window can be quickly added to Visual Studio.

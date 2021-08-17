@@ -1,3 +1,9 @@
+---
+title: Logging Reference
+description: A reference for Logging
+date: 2021-8-16
+---
+
 # Logging extension diagnostics
 
 Each extension part can inject a `TraceSource` instance that is created as part of the extensibility framework. Extension developers are strongly recommended to utilize this instance for diagnostics as it will allow integration with future tools on Visual Studio diagnostics.

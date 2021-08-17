@@ -1,3 +1,9 @@
+---
+title: Packages Reference
+description: A reference for NuGet Packages
+date: 2021-8-16
+---
+
 # Visual Studio Extensibility Nuget Packages
 The new extensibilty model for Visual Studio depends on a set of new nuget packages to provide APIs, build tooling, code generation and analyzers. 
 

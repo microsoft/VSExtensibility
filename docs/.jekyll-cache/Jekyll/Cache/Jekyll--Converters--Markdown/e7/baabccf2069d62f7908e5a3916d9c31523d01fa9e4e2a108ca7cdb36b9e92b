@@ -1,0 +1,83 @@
+I"`<h1 id="creating-your-first-visual-studio-out-of-process-extension">Creating your first Visual Studio Out-of-Process extension</h1>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<ul>
+  <li>
+    <p>Visual Studio 2022 Preview 3 with managed languages workload.</p>
+  </li>
+  <li>
+    <p>Visual Studio Extensibility Project Extension: This extension will allow you to debug extension projects using F5. There is currently no other deployment mechanism supported.</p>
+  </li>
+</ul>
+
+<h2 id="create-the-extension-project">Create the extension project</h2>
+
+<ul>
+  <li>
+    <p>The extensibility APIs are distributed via nuget packages, so you can start with an empty .NET 6.0 C# class library project.</p>
+  </li>
+  <li>
+    <p>Once project is created change <code class="language-plaintext highlighter-rouge">TargetFramework</code> from <code class="language-plaintext highlighter-rouge">net6.0</code> to <code class="language-plaintext highlighter-rouge">net6.0-windows</code>.</p>
+  </li>
+  <li>
+    <p>Add references to <code class="language-plaintext highlighter-rouge">Microsoft.VisualStudio.Extensibility</code> and <code class="language-plaintext highlighter-rouge">Microsoft.VisualStudio.Extensibility.Build</code> packages.</p>
+  </li>
+</ul>
+
+<p>At this point you are ready to start extending Visual Studio by adding commands and editor components to your extension.</p>
+
+<h2 id="add-a-command-handler">Add a command handler</h2>
+
+<ul>
+  <li>Create a new <code class="language-plaintext highlighter-rouge">.cs</code> file and include the following code:</li>
+</ul>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">namespace</span> <span class="nn">SimpleRemoteCommandSample</span>
+<span class="p">{</span>
+	<span class="k">using</span> <span class="nn">System.Diagnostics</span><span class="p">;</span>
+	<span class="k">using</span> <span class="nn">System.Threading</span><span class="p">;</span>
+	<span class="k">using</span> <span class="nn">System.Threading.Tasks</span><span class="p">;</span>
+	<span class="k">using</span> <span class="nn">Microsoft</span><span class="p">;</span>
+	<span class="k">using</span> <span class="nn">Microsoft.VisualStudio.Extensibility</span><span class="p">;</span>
+	<span class="k">using</span> <span class="nn">Microsoft.VisualStudio.Extensibility.Commands</span><span class="p">;</span>
+	<span class="k">using</span> <span class="nn">Microsoft.VisualStudio.Extensibility.Definitions</span><span class="p">;</span>
+
+	<span class="p">[</span><span class="nf">CommandIcon</span><span class="p">(</span><span class="s">"Extension"</span><span class="p">,</span> <span class="n">IconSettings</span><span class="p">.</span><span class="n">IconAndText</span><span class="p">)]</span>
+	<span class="p">[</span><span class="nf">Command</span><span class="p">(</span>
+        <span class="s">"SimpleRemoteCommandSample.Command"</span><span class="p">,</span> 
+        <span class="m">1</span> <span class="cm">/* command id */</span><span class="p">,</span> 
+        <span class="s">"Sample Remote Command"</span><span class="p">,</span> 
+        <span class="n">placement</span><span class="p">:</span> <span class="n">KnownCommandPlacement</span><span class="p">.</span><span class="n">ToolsMenu</span><span class="p">)]</span>
+	<span class="k">public</span> <span class="k">class</span> <span class="nc">CommandHandler</span> <span class="p">:</span> <span class="n">Command</span>
+	<span class="p">{</span>
+		<span class="k">private</span> <span class="n">TraceSource</span> <span class="n">traceSource</span><span class="p">;</span>
+
+		<span class="k">public</span> <span class="nf">CommandHandler</span><span class="p">(</span><span class="n">VisualStudioExtensibility</span> <span class="n">extensibility</span><span class="p">,</span> <span class="n">TraceSource</span> <span class="n">traceSource</span><span class="p">,</span> <span class="kt">ushort</span> <span class="n">id</span><span class="p">)</span>
+			<span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">extensibility</span><span class="p">,</span> <span class="n">id</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="k">this</span><span class="p">.</span><span class="n">traceSource</span> <span class="p">=</span> <span class="n">Requires</span><span class="p">.</span><span class="nf">NotNull</span><span class="p">(</span><span class="n">traceSource</span><span class="p">,</span> <span class="k">nameof</span><span class="p">(</span><span class="n">traceSource</span><span class="p">));</span>
+		<span class="p">}</span>
+
+		<span class="k">public</span> <span class="k">override</span> <span class="n">Task</span> <span class="nf">ExecuteCommandAsync</span><span class="p">(</span><span class="n">IClientContext</span> <span class="n">context</span><span class="p">,</span> <span class="n">CancellationToken</span> <span class="n">cancellationToken</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="k">this</span><span class="p">.</span><span class="n">traceSource</span><span class="p">.</span><span class="nf">TraceInformation</span><span class="p">(</span><span class="s">$"Executing command </span><span class="p">{</span><span class="n">CommandName</span><span class="p">}</span><span class="s">"</span><span class="p">);</span>
+			<span class="k">return</span> <span class="n">Task</span><span class="p">.</span><span class="n">CompletedTask</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>For more information on how to add commands, please refer to <code class="language-plaintext highlighter-rouge">TBD</code>.</p>
+
+<h2 id="debug-your-extension">Debug your extension</h2>
+
+<ul>
+  <li>
+    <p>Making sure that your extension project is selected as startup projet in Visual Studio, press <code class="language-plaintext highlighter-rouge">F5</code> to start debugging.</p>
+  </li>
+  <li>
+    <p>This will build your extension and deploy it to experimental instance of Visual Studio version your are using. The debugger should attach once your extension is loaded.</p>
+  </li>
+</ul>
+:ET
