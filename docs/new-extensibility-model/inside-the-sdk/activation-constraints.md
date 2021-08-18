@@ -48,10 +48,10 @@ Following is the list of terms currently supported by expression engine.
 | Term | Description
 | -- | -- |
 | SolutionHasProjectBuildProperty:\<property>=\<regex> | The term is true when solution has a loaded project with the specified build property and property value matches to regex filter provided. |
-| SolutionHasProjectCapability:\<expression> | True whenever solution has a project with  capabilities matching the provided subexpression. An expression can be something like VB | CSharp. |
+| SolutionHasProjectCapability:\<expression> | True whenever solution has a project with  capabilities matching the provided sub-expression. An expression can be something like VB or C#. |
 | SolutionHasProjectFlavor:\<guid> | True whenever a solution has project that is flavored (aggregated) and has a flavor matching the given project type GUID. |
 | SolutionState:\<state> | True when solution state matches to provided value, see [solution states](#solution-states) for list of values. |
-| ProjectAddedItem:\<pattern> | The term is true when a file matching the "pattern" is added to a project in the soluion that is opened. |
+| ProjectAddedItem:\<pattern> | The term is true when a file matching the "pattern" is added to a project in the solution that is opened. |
 | ClientContext:\<key>=\<pattern> | True when the provided client context key matches to regular expression. See [client contexts](#client-contexts) for more details. |
 
 ## Solution states

@@ -172,6 +172,10 @@ main {
     border-bottom: 1px solid var(--border-color);
 }
 
+table, th, td {
+    border: 1px solid grey
+}
+
 #menu {
     font-size: .80em;
     min-width: fit-content;

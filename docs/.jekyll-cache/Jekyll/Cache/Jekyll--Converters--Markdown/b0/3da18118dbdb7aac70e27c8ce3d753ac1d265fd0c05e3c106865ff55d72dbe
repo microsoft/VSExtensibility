@@ -1,0 +1,167 @@
+I"�<h1 id="rule-based-activation-constraints">Rule based activation constraints</h1>
+
+<p>One of the common concepts in Visual Studio Extensibility SDK is use of context based activation rules in code attributes. An example of these would <code class="language-plaintext highlighter-rouge">CommandVisibleWhen</code> attribute declaring when a command is made visible.</p>
+
+<p>Our goal is to provide a common way to create such contexts, the current method is based on existing <a href="https://docs.microsoft.com/en-us/visualstudio/extensibility/how-to-use-rule-based-ui-context-for-visual-studio-extensions">Rule-based UI contexts</a> with a different set of context terms.</p>
+
+<h2 id="constraint-attribute-arguments">Constraint attribute arguments</h2>
+
+<p>Each constraint attribute will contain at least 3 required arguments that defines the expression:</p>
+
+<ul>
+  <li>
+    <p>Expression string: A boolean expression using <code class="language-plaintext highlighter-rouge">and</code>, <code class="language-plaintext highlighter-rouge">or</code>, <code class="language-plaintext highlighter-rouge">not</code> operations and term names that are defined in later arguments. Each term must be a single word (without spaces) and expression can utilize parantheses for grouping and <code class="language-plaintext highlighter-rouge">&amp;</code>, <code class="language-plaintext highlighter-rouge">|</code>, <code class="language-plaintext highlighter-rouge">!</code> operators for <code class="language-plaintext highlighter-rouge">and</code>, <code class="language-plaintext highlighter-rouge">or</code>, <code class="language-plaintext highlighter-rouge">not</code> operations.</p>
+  </li>
+  <li>
+    <p>Term names: An array that contains the name of the terms used in the expression above.</p>
+  </li>
+  <li>
+    <p>Term definitions: An array that defines the each term in the order terms are defined in the names array above.</p>
+  </li>
+</ul>
+
+<h2 id="example-definition">Example definition</h2>
+
+<p>In the example below, the code attributes defines when a command is in enabled state.</p>
+
+<ul>
+  <li>
+    <p>The expression indicates that command is enabled when both <code class="language-plaintext highlighter-rouge">SolutionLoaded</code> and <code class="language-plaintext highlighter-rouge">IsValidFile</code> terms are true.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">SolutionLoaded</code> term is defined as <code class="language-plaintext highlighter-rouge">SolutionState:Exists</code> which indicates, the term evaluates to <code class="language-plaintext highlighter-rouge">true</code> when a solution exists in the IDE.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">IsValidFile</code> term is true when selected file in Solution Explorer is a jpeg or text file as defined by the file extension.</p>
+  </li>
+</ul>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nf">CommandEnabledWhen</span><span class="p">(</span>
+    <span class="s">"SolutionLoaded &amp; IsValidFile"</span><span class="p">,</span>
+    <span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span> 
+        <span class="s">"SolutionLoaded"</span><span class="p">,</span> 
+        <span class="s">"IsValidFile"</span> <span class="p">},</span>
+    <span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span> 
+        <span class="s">"SolutionState:Exists"</span><span class="p">,</span> 
+        <span class="s">"ClientContext:Shell.ActiveSelectionFileName=(.jpg|.jpeg|.txt)$"</span> <span class="p">})]</span>
+</code></pre></div></div>
+
+<h2 id="available-terms">Available terms</h2>
+
+<p>Following is the list of terms currently supported by expression engine.</p>
+
+<p>| Term | Description
+| – | – |</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>SolutionHasProjectBuildProperty:&lt;property&gt;=&lt;regex&gt;</td>
+      <td>The term is true when solution has a loaded project with the specified build property and property value matches to regex filter provided.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>SolutionHasProjectCapability:&lt;expression&gt;</td>
+      <td>True whenever solution has a project with  capabilities matching the provided subexpression. An expression can be something like VB</td>
+      <td>CSharp.</td>
+    </tr>
+    <tr>
+      <td>SolutionHasProjectFlavor:&lt;guid&gt;</td>
+      <td>True whenever a solution has project that is flavored (aggregated) and has a flavor matching the given project type GUID.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>SolutionState:&lt;state&gt;</td>
+      <td>True when solution state matches to provided value, see <a href="#solution-states">solution states</a> for list of values.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ProjectAddedItem:&lt;pattern&gt;</td>
+      <td>The term is true when a file matching the “pattern” is added to a project in the soluion that is opened.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>ClientContext:&lt;key&gt;=&lt;pattern&gt;</td>
+      <td>True when the provided client context key matches to regular expression. See <a href="#client-contexts">client contexts</a> for more details.</td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="solution-states">Solution states</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>State</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NoSolution</td>
+      <td>No solution loaded.</td>
+    </tr>
+    <tr>
+      <td>Exists</td>
+      <td>A solution is opened but may be in loaded or loading state.</td>
+    </tr>
+    <tr>
+      <td>FullyLoaded</td>
+      <td>A solution is opened and fully loaded.</td>
+    </tr>
+    <tr>
+      <td>Empty</td>
+      <td>Solution contains no projects but may contain solution items.</td>
+    </tr>
+    <tr>
+      <td>SingleProject</td>
+      <td>Solution contains a single project.</td>
+    </tr>
+    <tr>
+      <td>MultipleProject</td>
+      <td>Solution contains multiple projects.</td>
+    </tr>
+    <tr>
+      <td>Building</td>
+      <td>Solution is building.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="client-contexts">Client contexts</h2>
+<p>Activation rules can also utilize the <a href="ExtensionAnatomy.md#client-context">client context</a> contents as parts of its expression.</p>
+
+<p>Currently, the client context is limited to a small set of values in IDE state:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Context key</th>
+      <th>Definition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Shell.ActiveSelectionUri</td>
+      <td>Full URI for the selected item in solution explorer.</td>
+    </tr>
+    <tr>
+      <td>Shell.ActiveSelectionPath</td>
+      <td>Full path for the selected item in solution explorer.</td>
+    </tr>
+    <tr>
+      <td>Shell.ActiveSelectionFileName</td>
+      <td>File name of the selected item in solution explorer.</td>
+    </tr>
+    <tr>
+      <td>Shell.ActiveEditorContentType</td>
+      <td>Content type of the active editor view.</td>
+    </tr>
+    <tr>
+      <td>Shell.ActiveEditorFileName</td>
+      <td>File name for the document that belongs to active editor view.</td>
+    </tr>
+  </tbody>
+</table>
+:ET
