@@ -1,6 +1,6 @@
 # Rule based activation constraints
 
-One of the common concepts in Visual Studio Extensibility SDK is use of context based activation rules in code attributes. An example of these would `CommandVisibleWhen` attribute declaring when a command is made visible.
+One of the common concepts in Visual Studio Extensibility SDK is use of context based activation rules in code attributes. An example of these would [CommandVisibleWhen](../APIs/Microsoft.VisualStudio.Extensibility.md#T-Microsoft-VisualStudio-Extensibility-Commands-CommandVisibleWhenAttribute) attribute declaring when a command is made visible.
 
 Our goal is to provide a common way to create such contexts, the current method is based on existing [Rule-based UI contexts](https://docs.microsoft.com/en-us/visualstudio/extensibility/how-to-use-rule-based-ui-context-for-visual-studio-extensions) with a different set of context terms.
 

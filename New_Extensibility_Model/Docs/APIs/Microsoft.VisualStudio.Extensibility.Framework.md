@@ -3,8 +3,6 @@
 
 ## Contents
 
-- [AllowNullAttribute](#T-System-Diagnostics-CodeAnalysis-AllowNullAttribute 'System.Diagnostics.CodeAnalysis.AllowNullAttribute')
-  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-AllowNullAttribute-#ctor 'System.Diagnostics.CodeAnalysis.AllowNullAttribute.#ctor')
 - [ClientContext](#T-Microsoft-VisualStudio-Extensibility-ClientContext 'Microsoft.VisualStudio.Extensibility.ClientContext')
   - [#ctor(contextProperties,extensibility)](#M-Microsoft-VisualStudio-Extensibility-ClientContext-#ctor-System-Collections-Generic-IReadOnlyDictionary{System-String,System-Object},Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility- 'Microsoft.VisualStudio.Extensibility.ClientContext.#ctor(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility)')
   - [Extensibility](#P-Microsoft-VisualStudio-Extensibility-ClientContext-Extensibility 'Microsoft.VisualStudio.Extensibility.ClientContext.Extensibility')
@@ -14,8 +12,6 @@
 - [DefaultJsonServiceFactory](#T-Microsoft-VisualStudio-Extensibility-DefaultJsonServiceFactory 'Microsoft.VisualStudio.Extensibility.DefaultJsonServiceFactory')
   - [CreateAsync()](#M-Microsoft-VisualStudio-Extensibility-DefaultJsonServiceFactory-CreateAsync-Microsoft-ServiceHub-Framework-ServiceMoniker,Microsoft-ServiceHub-Framework-ServiceActivationOptions,System-IServiceProvider,System-Type,System-Type- 'Microsoft.VisualStudio.Extensibility.DefaultJsonServiceFactory.CreateAsync(Microsoft.ServiceHub.Framework.ServiceMoniker,Microsoft.ServiceHub.Framework.ServiceActivationOptions,System.IServiceProvider,System.Type,System.Type)')
   - [GetServiceDescriptor()](#M-Microsoft-VisualStudio-Extensibility-DefaultJsonServiceFactory-GetServiceDescriptor-Microsoft-ServiceHub-Framework-ServiceMoniker- 'Microsoft.VisualStudio.Extensibility.DefaultJsonServiceFactory.GetServiceDescriptor(Microsoft.ServiceHub.Framework.ServiceMoniker)')
-- [DisallowNullAttribute](#T-System-Diagnostics-CodeAnalysis-DisallowNullAttribute 'System.Diagnostics.CodeAnalysis.DisallowNullAttribute')
-  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-DisallowNullAttribute-#ctor 'System.Diagnostics.CodeAnalysis.DisallowNullAttribute.#ctor')
 - [DisposableObject](#T-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject 'Microsoft.VisualStudio.Extensibility.Helpers.DisposableObject')
   - [IsDisposed](#P-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject-IsDisposed 'Microsoft.VisualStudio.Extensibility.Helpers.DisposableObject.IsDisposed')
   - [Dispose()](#M-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject-Dispose 'Microsoft.VisualStudio.Extensibility.Helpers.DisposableObject.Dispose')
@@ -23,11 +19,6 @@
   - [DisposeManagedResources()](#M-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject-DisposeManagedResources 'Microsoft.VisualStudio.Extensibility.Helpers.DisposableObject.DisposeManagedResources')
   - [DisposeNativeResources()](#M-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject-DisposeNativeResources 'Microsoft.VisualStudio.Extensibility.Helpers.DisposableObject.DisposeNativeResources')
   - [Finalize()](#M-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject-Finalize 'Microsoft.VisualStudio.Extensibility.Helpers.DisposableObject.Finalize')
-- [DoesNotReturnAttribute](#T-System-Diagnostics-CodeAnalysis-DoesNotReturnAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute')
-  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-DoesNotReturnAttribute-#ctor 'System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute.#ctor')
-- [DoesNotReturnIfAttribute](#T-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute')
-  - [#ctor(parameterValue)](#M-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-#ctor-System-Boolean- 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.#ctor(System.Boolean)')
-  - [ParameterValue](#P-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-ParameterValue 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.ParameterValue')
 - [EmptyResourceDictionary](#T-Microsoft-VisualStudio-Extensibility-Helpers-EmptyResourceDictionary 'Microsoft.VisualStudio.Extensibility.Helpers.EmptyResourceDictionary')
   - [#ctor()](#M-Microsoft-VisualStudio-Extensibility-Helpers-EmptyResourceDictionary-#ctor 'Microsoft.VisualStudio.Extensibility.Helpers.EmptyResourceDictionary.#ctor')
   - [Instance](#P-Microsoft-VisualStudio-Extensibility-Helpers-EmptyResourceDictionary-Instance 'Microsoft.VisualStudio.Extensibility.Helpers.EmptyResourceDictionary.Instance')
@@ -78,11 +69,6 @@
 - [IServiceFactory](#T-Microsoft-VisualStudio-Extensibility-IServiceFactory 'Microsoft.VisualStudio.Extensibility.IServiceFactory')
   - [CreateAsync(serviceMoniker,activationOptions,serviceProvider,instanceType,interfaceType)](#M-Microsoft-VisualStudio-Extensibility-IServiceFactory-CreateAsync-Microsoft-ServiceHub-Framework-ServiceMoniker,Microsoft-ServiceHub-Framework-ServiceActivationOptions,System-IServiceProvider,System-Type,System-Type- 'Microsoft.VisualStudio.Extensibility.IServiceFactory.CreateAsync(Microsoft.ServiceHub.Framework.ServiceMoniker,Microsoft.ServiceHub.Framework.ServiceActivationOptions,System.IServiceProvider,System.Type,System.Type)')
   - [GetServiceDescriptor(serviceMoniker)](#M-Microsoft-VisualStudio-Extensibility-IServiceFactory-GetServiceDescriptor-Microsoft-ServiceHub-Framework-ServiceMoniker- 'Microsoft.VisualStudio.Extensibility.IServiceFactory.GetServiceDescriptor(Microsoft.ServiceHub.Framework.ServiceMoniker)')
-- [MaybeNullAttribute](#T-System-Diagnostics-CodeAnalysis-MaybeNullAttribute 'System.Diagnostics.CodeAnalysis.MaybeNullAttribute')
-  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-MaybeNullAttribute-#ctor 'System.Diagnostics.CodeAnalysis.MaybeNullAttribute.#ctor')
-- [MaybeNullWhenAttribute](#T-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute')
-  - [#ctor(returnValue)](#M-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-#ctor-System-Boolean- 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.#ctor(System.Boolean)')
-  - [ReturnValue](#P-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-ReturnValue 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue')
 - [MultiTargetingRpcConnection](#T-Microsoft-VisualStudio-Extensibility-Framework-MultiTargetingRpcConnection 'Microsoft.VisualStudio.Extensibility.Framework.MultiTargetingRpcConnection')
   - [#ctor(jsonRpcConnection)](#M-Microsoft-VisualStudio-Extensibility-Framework-MultiTargetingRpcConnection-#ctor-Microsoft-ServiceHub-Framework-ServiceJsonRpcDescriptor-JsonRpcConnection- 'Microsoft.VisualStudio.Extensibility.Framework.MultiTargetingRpcConnection.#ctor(Microsoft.ServiceHub.Framework.ServiceJsonRpcDescriptor.JsonRpcConnection)')
   - [AddLocalRpcTarget()](#M-Microsoft-VisualStudio-Extensibility-Framework-MultiTargetingRpcConnection-AddLocalRpcTarget-System-Object- 'Microsoft.VisualStudio.Extensibility.Framework.MultiTargetingRpcConnection.AddLocalRpcTarget(System.Object)')
@@ -90,14 +76,6 @@
   - [#ctor(innerDescriptor)](#M-Microsoft-VisualStudio-Extensibility-Framework-MultiTargetingServiceJsonRpcDescriptor-#ctor-Microsoft-ServiceHub-Framework-ServiceJsonRpcDescriptor- 'Microsoft.VisualStudio.Extensibility.Framework.MultiTargetingServiceJsonRpcDescriptor.#ctor(Microsoft.ServiceHub.Framework.ServiceJsonRpcDescriptor)')
   - [Clone()](#M-Microsoft-VisualStudio-Extensibility-Framework-MultiTargetingServiceJsonRpcDescriptor-Clone 'Microsoft.VisualStudio.Extensibility.Framework.MultiTargetingServiceJsonRpcDescriptor.Clone')
   - [ConstructRpcConnection()](#M-Microsoft-VisualStudio-Extensibility-Framework-MultiTargetingServiceJsonRpcDescriptor-ConstructRpcConnection-System-IO-Pipelines-IDuplexPipe- 'Microsoft.VisualStudio.Extensibility.Framework.MultiTargetingServiceJsonRpcDescriptor.ConstructRpcConnection(System.IO.Pipelines.IDuplexPipe)')
-- [NotNullAttribute](#T-System-Diagnostics-CodeAnalysis-NotNullAttribute 'System.Diagnostics.CodeAnalysis.NotNullAttribute')
-  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-NotNullAttribute-#ctor 'System.Diagnostics.CodeAnalysis.NotNullAttribute.#ctor')
-- [NotNullIfNotNullAttribute](#T-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute 'System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute')
-  - [#ctor(parameterName)](#M-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-#ctor-System-String- 'System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.#ctor(System.String)')
-  - [ParameterName](#P-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-ParameterName 'System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.ParameterName')
-- [NotNullWhenAttribute](#T-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute')
-  - [#ctor(returnValue)](#M-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-#ctor-System-Boolean- 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)')
-  - [ReturnValue](#P-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-ReturnValue 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue')
 - [ResourceManagerDictionary](#T-Microsoft-VisualStudio-Extensibility-Helpers-ResourceManagerDictionary 'Microsoft.VisualStudio.Extensibility.Helpers.ResourceManagerDictionary')
   - [#ctor(resourceManager)](#M-Microsoft-VisualStudio-Extensibility-Helpers-ResourceManagerDictionary-#ctor-System-Resources-ResourceManager- 'Microsoft.VisualStudio.Extensibility.Helpers.ResourceManagerDictionary.#ctor(System.Resources.ResourceManager)')
   - [GetStringResourceAsync()](#M-Microsoft-VisualStudio-Extensibility-Helpers-ResourceManagerDictionary-GetStringResourceAsync-System-Globalization-CultureInfo,System-String,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Helpers.ResourceManagerDictionary.GetStringResourceAsync(System.Globalization.CultureInfo,System.String,System.Threading.CancellationToken)')
@@ -118,29 +96,6 @@
   - [GetService()](#M-Microsoft-VisualStudio-Extensibility-Helpers-TransientServiceProvider-GetService-System-Type- 'Microsoft.VisualStudio.Extensibility.Helpers.TransientServiceProvider.GetService(System.Type)')
 - [VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility')
   - [#ctor(serviceBroker,serviceProvider,resourceDictionary)](#M-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility-#ctor-Microsoft-ServiceHub-Framework-IServiceBroker,System-IServiceProvider,Microsoft-VisualStudio-RpcContracts-IStringResourceDictionary- 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility.#ctor(Microsoft.ServiceHub.Framework.IServiceBroker,System.IServiceProvider,Microsoft.VisualStudio.RpcContracts.IStringResourceDictionary)')
-
-<a name='T-System-Diagnostics-CodeAnalysis-AllowNullAttribute'></a>
-## AllowNullAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that `null` is allowed as an input even if the
-    corresponding type disallows it.
-
-<a name='M-System-Diagnostics-CodeAnalysis-AllowNullAttribute-#ctor'></a>
-### #ctor() `constructor`
-
-##### Summary
-
-Initializes a new instance of the [AllowNullAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.AllowNullAttribute 'System.Diagnostics.CodeAnalysis.AllowNullAttribute') class.
-
-##### Parameters
-
-This constructor has no parameters.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-ClientContext'></a>
 ## ClientContext `type`
@@ -234,29 +189,6 @@ This method has no parameters.
 
 This method has no parameters.
 
-<a name='T-System-Diagnostics-CodeAnalysis-DisallowNullAttribute'></a>
-## DisallowNullAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that `null` is disallowed as an input even if the
-    corresponding type allows it.
-
-<a name='M-System-Diagnostics-CodeAnalysis-DisallowNullAttribute-#ctor'></a>
-### #ctor() `constructor`
-
-##### Summary
-
-Initializes a new instance of the [DisallowNullAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.DisallowNullAttribute 'System.Diagnostics.CodeAnalysis.DisallowNullAttribute') class.
-
-##### Parameters
-
-This constructor has no parameters.
-
 <a name='T-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject'></a>
 ## DisposableObject `type`
 
@@ -340,65 +272,6 @@ Finalizes an instance of the [DisposableObject](#T-Microsoft-VisualStudio-Extens
 ##### Parameters
 
 This method has no parameters.
-
-<a name='T-System-Diagnostics-CodeAnalysis-DoesNotReturnAttribute'></a>
-## DoesNotReturnAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that a method that will never return under any circumstance.
-
-<a name='M-System-Diagnostics-CodeAnalysis-DoesNotReturnAttribute-#ctor'></a>
-### #ctor() `constructor`
-
-##### Summary
-
-Initializes a new instance of the [DoesNotReturnAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute') class.
-
-##### Parameters
-
-This constructor has no parameters.
-
-<a name='T-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute'></a>
-## DoesNotReturnIfAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that the method will not return if the associated [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean')
-    parameter is passed the specified value.
-
-<a name='M-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-#ctor-System-Boolean-'></a>
-### #ctor(parameterValue) `constructor`
-
-##### Summary
-
-Initializes a new instance of the [DoesNotReturnIfAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute')
-    class with the specified parameter value.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| parameterValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The condition parameter value.
-    Code after the method is considered unreachable by diagnostics if the argument
-    to the associated parameter matches this value. |
-
-<a name='P-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-ParameterValue'></a>
-### ParameterValue `property`
-
-##### Summary
-
-Gets the condition parameter value.
-    Code after the method is considered unreachable by diagnostics if the argument
-    to the associated parameter matches this value.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Helpers-EmptyResourceDictionary'></a>
 ## EmptyResourceDictionary `type`
@@ -1034,63 +907,6 @@ An instance of a [ServiceRpcDescriptor](#T-Microsoft-ServiceHub-Framework-Servic
 | ---- | ---- | ----------- |
 | serviceMoniker | [Microsoft.ServiceHub.Framework.ServiceMoniker](#T-Microsoft-ServiceHub-Framework-ServiceMoniker 'Microsoft.ServiceHub.Framework.ServiceMoniker') | Service moniker that was requested. |
 
-<a name='T-System-Diagnostics-CodeAnalysis-MaybeNullAttribute'></a>
-## MaybeNullAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that an output may be `null` even if the
-    corresponding type disallows it.
-
-<a name='M-System-Diagnostics-CodeAnalysis-MaybeNullAttribute-#ctor'></a>
-### #ctor() `constructor`
-
-##### Summary
-
-Initializes a new instance of the [MaybeNullAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.MaybeNullAttribute 'System.Diagnostics.CodeAnalysis.MaybeNullAttribute') class.
-
-##### Parameters
-
-This constructor has no parameters.
-
-<a name='T-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute'></a>
-## MaybeNullWhenAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that when a method returns [ReturnValue](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue'), 
-    the parameter may be `null` even if the corresponding type disallows it.
-
-<a name='M-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-#ctor-System-Boolean-'></a>
-### #ctor(returnValue) `constructor`
-
-##### Summary
-
-Initializes the attribute with the specified return value condition.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| returnValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The return value condition.
-    If the method returns this value, the associated parameter may be `null`. |
-
-<a name='P-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-ReturnValue'></a>
-### ReturnValue `property`
-
-##### Summary
-
-Gets the return value condition.
-    If the method returns this value, the associated parameter may be `null`.
-
 <a name='T-Microsoft-VisualStudio-Extensibility-Framework-MultiTargetingRpcConnection'></a>
 ## MultiTargetingRpcConnection `type`
 
@@ -1194,99 +1010,6 @@ to re-wrap it for [TraceSource](http://msdn.microsoft.com/query/dev14.query?appI
 ##### Parameters
 
 This method has no parameters.
-
-<a name='T-System-Diagnostics-CodeAnalysis-NotNullAttribute'></a>
-## NotNullAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that an output is not `null` even if the
-    corresponding type allows it.
-
-<a name='M-System-Diagnostics-CodeAnalysis-NotNullAttribute-#ctor'></a>
-### #ctor() `constructor`
-
-##### Summary
-
-Initializes a new instance of the [NotNullAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.NotNullAttribute 'System.Diagnostics.CodeAnalysis.NotNullAttribute') class.
-
-##### Parameters
-
-This constructor has no parameters.
-
-<a name='T-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute'></a>
-## NotNullIfNotNullAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that the output will be non-`null` if the
-    named parameter is non-`null`.
-
-<a name='M-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-#ctor-System-String-'></a>
-### #ctor(parameterName) `constructor`
-
-##### Summary
-
-Initializes the attribute with the associated parameter name.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| parameterName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The associated parameter name.
-    The output will be non-`null` if the argument to the
-    parameter specified is non-`null`. |
-
-<a name='P-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-ParameterName'></a>
-### ParameterName `property`
-
-##### Summary
-
-Gets the associated parameter name.
-    The output will be non-`null` if the argument to the
-    parameter specified is non-`null`.
-
-<a name='T-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute'></a>
-## NotNullWhenAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that when a method returns [ReturnValue](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue'),
-    the parameter will not be `null` even if the corresponding type allows it.
-
-<a name='M-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-#ctor-System-Boolean-'></a>
-### #ctor(returnValue) `constructor`
-
-##### Summary
-
-Initializes the attribute with the specified return value condition.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| returnValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The return value condition.
-    If the method returns this value, the associated parameter will not be `null`. |
-
-<a name='P-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-ReturnValue'></a>
-### ReturnValue `property`
-
-##### Summary
-
-Gets the return value condition.
-    If the method returns this value, the associated parameter will not be `null`.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Helpers-ResourceManagerDictionary'></a>
 ## ResourceManagerDictionary `type`

@@ -1,4 +1,9 @@
-# Creating your first Visual Studio extension
+# Creating your first Out-Of-Process Visual Studio extension
+
+## Introduction
+This document is a quick walkthrough on how to create your first extension using the new out-of-process extensibility model.
+
+The complete project can be found at [SimpleRemoteCommandSample](../..//Samples/SimpleRemoteCommandSample) but these steps will help you understand the requirements and dependencies.
 
 ## Prerequisites
 
@@ -6,17 +11,29 @@
 
 * Visual Studio Extensibility Project Extension: This extension will allow you to debug extension projects using F5. There is currently no other deployment mechanism supported.
 
+Extension can be downloaded from: TBD
+
 ## Create the extension project
 
 * The extensibility APIs are distributed via nuget packages, so you can start with an empty .NET 6.0 C# class library project.
 
-* Once project is created change `TargetFramework` from `net6.0` to `net6.0-windows`.
+* Once project is created change `TargetFramework` from `net6.0` to `net6.0-windows` by editing project file or changing Target OS to `Windows` in project properties.
 
-* Add references to `Microsoft.VisualStudio.Extensibility` and `Microsoft.VisualStudio.Extensibility.Build` packages.
+![Target Framework Properties](TargetFrameworkProperties.PNG "Target Framework Properties")
+
+* Add `https://pkgs.dev.azure.com/azure-public/vside/_packaging/vs-impl%40Local/nuget/v3/index.json` as an additional package source for Nuget in Visual Studio. 
+
+	* On the Tools menu, select Options > NuGet Package Manager > Package Sources. Select the green plus in the upper-right corner and enter a name and source URL above.
+	* Alternatively you can utilize [nuget.config](../../Samples/nuget.config) we provide in samples.
+
+* Add references to `Microsoft.VisualStudio.Extensibility.Sdk` Nuget package through [Manage Nuget Projects](https://docs.microsoft.com/en-us/nuget/consume-packages/install-use-packages-visual-studio) dialog.
+
+* Add a [source.extension.vsixmanifest](../../Samples/SimpleRemoteCommandSample/source.extension.vsixmanifest) file to describe your extension including name, description and unique identifier. This information in the future will be used to list the extension in the gallery.
 
 At this point you are ready to start extending Visual Studio by adding commands and editor components to your extension.
 
 ## Add a command handler
+In this step we will add a new command to Visual Studio to perform an action when user executes the command. In this case the command will be represented by a new menu item under `Tools` menu as specified by the placement parameter below.
 
 * Create a new `.cs` file and include the following code:
 
@@ -56,10 +73,14 @@ namespace SimpleRemoteCommandSample
 }
 ```
 
-For more information on how to add commands, please refer to `TBD`.
+For more information on how to add commands, please refer to [Commands](..\Extension_Guids/Commands/Command.md) section.
 
 ## Debug your extension
 
 * Making sure that your extension project is selected as startup projet in Visual Studio, press `F5` to start debugging.
 
 * This will build your extension and deploy it to experimental instance of Visual Studio version your are using. The debugger should attach once your extension is loaded.
+
+* You can find the command in `Tools` menu as shown.
+
+![SampleCommand](ExtensionCommand.PNG "Sample command")
