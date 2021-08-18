@@ -1,0 +1,179 @@
+I"�><h1 id="commands">Commands</h1>
+
+<p>Commands trigger actions in Visual Studio. They manifest as buttons parented to menus and/or toolbars in the IDE with their execution tied to user interaction. Commands in the new Extensibility Model run asynchronously and so the user can continue to interact with IDE while commands are executing.</p>
+
+<h2 id="creating-new-commands">Creating new commands</h2>
+
+<p>To get started:</p>
+
+<ul>
+  <li>Add a reference to the <a href="https://www.nuget.org/TODO-add-real-link">Microsoft.VisualStudio.Extensibility</a> and <a href="https://www.nuget.org/TODO-add-real-link">Microsoft.VisualStudio.Extensibility.Build</a> NuGet packages to your project.</li>
+  <li>Change your project’s <code class="language-plaintext highlighter-rouge">TargetFramework</code> from <code class="language-plaintext highlighter-rouge">net6.0</code> to <code class="language-plaintext highlighter-rouge">net6.0-windows</code>.</li>
+</ul>
+
+<h3 id="registering-a-command">Registering a command</h3>
+
+<p>Creating a command with the new Extensibility Model is as simple as extending the base class <code class="language-plaintext highlighter-rouge">Microsoft.VisualStudio.Extensibility.Commands.Command</code> and adorning your class with the attribute <code class="language-plaintext highlighter-rouge">Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute</code>.</p>
+
+<p>The attribute <code class="language-plaintext highlighter-rouge">Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute</code> has a few parameters that you should become familiar with:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Name</td>
+      <td>String</td>
+      <td>Yes</td>
+      <td>A globally unique identifier for the command. It is recommended to use the full class name of your command here.</td>
+    </tr>
+    <tr>
+      <td>Id</td>
+      <td>ushort</td>
+      <td>Yes</td>
+      <td>A locally unique identifier for your command within your extension. Each command within your extension should use a different value.</td>
+    </tr>
+    <tr>
+      <td>DisplayName</td>
+      <td>String</td>
+      <td>Yes</td>
+      <td>The default display name of your command. Surround this string with the ‘%’ character to enable localizing this string. See more on this at <a href="#localizing-a-command">Localizing a command</a>.</td>
+    </tr>
+    <tr>
+      <td>ContainerType</td>
+      <td>Type?</td>
+      <td>No</td>
+      <td>The type that is to act as the CommandSet for this command. Setting this parameter to null automatically generates a default CommandSet for your command.</td>
+    </tr>
+    <tr>
+      <td>Placement</td>
+      <td>KnownCommandPlacement</td>
+      <td>No</td>
+      <td>Indicates where within Visual Studio your command should be parented. If no placement is provided the command defaults to being parented to the Standard toolbar.</td>
+    </tr>
+    <tr>
+      <td>ClientContext</td>
+      <td>String</td>
+      <td>No</td>
+      <td>Client contexts requested by the command, separated by ‘,’. By default the Shell and Editor contexts are returned. A client context is a snapshot of specific IDE states at the time a command was originally executed. Since these commands are executed asynchronously this state could change between the time the user executed the command and the command handler running. See more on this at <a href="./../../Inside_the_SDK/Activation_Constraints.md/#client-contexts">Client contexts</a>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="p">[</span><span class="nf">Command</span><span class="p">(</span><span class="n">CommandName</span><span class="p">,</span> <span class="n">CommandId</span><span class="p">,</span> <span class="s">"Sample Remote Command"</span><span class="p">,</span> <span class="n">placement</span><span class="p">:</span> <span class="n">KnownCommandPlacement</span><span class="p">.</span><span class="n">ToolsMenu</span><span class="p">)]</span>
+	<span class="k">public</span> <span class="k">class</span> <span class="nc">CommandHandler</span> <span class="p">:</span> <span class="n">Command</span>
+	<span class="p">{</span>
+		<span class="k">private</span> <span class="k">const</span> <span class="kt">ushort</span> <span class="n">CommandId</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+		<span class="k">private</span> <span class="k">const</span> <span class="kt">string</span> <span class="n">CommandName</span> <span class="p">=</span> <span class="s">"SimpleRemoteCommandSample.Command"</span><span class="p">;</span>
+
+		<span class="k">public</span> <span class="nf">CommandHandler</span><span class="p">(</span><span class="n">VisualStudioExtensibility</span> <span class="n">extensibility</span><span class="p">,</span> <span class="n">TraceSource</span> <span class="n">traceSource</span><span class="p">,</span> <span class="kt">ushort</span> <span class="n">id</span><span class="p">)</span>
+			<span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">extensibility</span><span class="p">,</span> <span class="n">id</span><span class="p">)</span>
+		<span class="p">{</span>
+		<span class="p">}</span>
+
+		<span class="k">public</span> <span class="k">override</span> <span class="n">Task</span> <span class="nf">ExecuteCommandAsync</span><span class="p">(</span><span class="n">IClientContext</span> <span class="n">context</span><span class="p">,</span> <span class="n">CancellationToken</span> <span class="n">cancellationToken</span><span class="p">)</span>
+		<span class="p">{</span>
+			<span class="k">return</span> <span class="n">Task</span><span class="p">.</span><span class="n">CompletedTask</span><span class="p">;</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+</code></pre></div></div>
+
+<p>See the <a href="./../InsertGuidSample.md">InsertGuidSample</a> sample to get started with creating an extension with a command.</p>
+
+<h3 id="adding-an-icon">Adding an icon</h3>
+
+<p>Commands support adding icons to their menu item in addition to or instead of the display name of the command. To add an icon to your command, add the attribute <code class="language-plaintext highlighter-rouge">Microsoft.VisualStudio.Extensibility.Commands.CommandIconAttribute</code> to your command class. Currently you can use any of the <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.imaging.knownmonikers?view=visualstudiosdk-2022">KnownMonikers</a> currently supported by Visual Studio. Custom monikers are not supported at this time.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ImageMoniker</td>
+      <td>String</td>
+      <td>Yes</td>
+      <td>The name of any of the <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.imaging.knownmonikers?view=visualstudiosdk-2022">KnownMonikers</a> currently supported by Visual Studio, with or without the <code class="language-plaintext highlighter-rouge">KnownMonikers</code> type name.</td>
+    </tr>
+    <tr>
+      <td>IconSettings</td>
+      <td>IconSettings</td>
+      <td>Yes</td>
+      <td>Configures how the command will be displayed. For example <code class="language-plaintext highlighter-rouge">IconSettings.IconAndText</code> displays the icon alongside the command’s display name, whereas <code class="language-plaintext highlighter-rouge">IconSettings.IconOnly</code> will only show the command’s icon and not its DisplayName if parented to a toolbar.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="p">[</span><span class="nf">CommandIcon</span><span class="p">(</span><span class="s">"Extension"</span><span class="p">,</span> <span class="n">IconSettings</span><span class="p">.</span><span class="n">IconAndText</span><span class="p">)]</span>
+</code></pre></div></div>
+
+<h3 id="controlling-command-visibility">Controlling command visibility</h3>
+
+<p>The visibility of a command can be controlled by adding the attribute <code class="language-plaintext highlighter-rouge">Microsoft.VisualStudio.Extensibility.Commands.CommandVisibleWhenAttribute</code> to your command class. This attribute supports specifying an expression, defining a set of terms used in the expression, and what values those terms should be replaced with upon evaluation. Note: Term names and values are mapped to their index in the array. i.e. the term name at index 0 corresponds with the term value at that same index. The command would be visible when the expression evaluates to true, and invisible when it is false.</p>
+
+<p>If this attribute is omitted from your command, the default is for the command to always be visible.</p>
+
+<p>An example of such an expression can be seen here:</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="c1">// This command would become visible when an editor for a file with any file extension is active.</span>
+	<span class="p">[</span><span class="nf">CommandVisibleWhen</span><span class="p">(</span>
+		<span class="n">expression</span><span class="p">:</span> <span class="s">"AnyFile"</span><span class="p">,</span>
+		<span class="n">termNames</span><span class="p">:</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"AnyFile"</span> <span class="p">},</span>
+		<span class="n">termValues</span><span class="p">:</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"ClientContext:Shell.ActiveEditorContentType=.+"</span> <span class="p">})]</span>
+</code></pre></div></div>
+
+<p>To see more information on valid term values:</p>
+<ul>
+  <li><a href="./../../Inside_the_SDK/Activation_Constraints.md/#rule-based-activation-constraints">Using rule based activation constraints</a></li>
+</ul>
+
+<h3 id="controlling-command-enableddisabled-state">Controlling command Enabled/Disabled state</h3>
+
+<p>The visibility of a command can be controlled by adding the attribute <code class="language-plaintext highlighter-rouge">Microsoft.VisualStudio.Extensibility.Commands.CommandEnabledWhenAttribute</code> to your command class. This attribute supports specifying an expression, defining a set of terms used in the expression, and what values those terms should be replaced with upon evaluation. Note: Term names and values are mapped to their index in the array. i.e. the term name at index 0 corresponds with the term value at that same index. The command would be enabled when the expression evaluates to true, and disabled when it is false.</p>
+
+<p>If this attribute is omitted from your command, the default is for the command to always be enabled. You can also automatically have your command be disabled if it is currently executing by setting <code class="language-plaintext highlighter-rouge">this.DisableDuringExecution = true;</code> in the constructor of your command class. Setting this property will override the enabled/disabled state defined by the <code class="language-plaintext highlighter-rouge">Microsoft.VisualStudio.Extensibility.Commands.CommandEnabledWhenAttribute</code> while the command is being executed.</p>
+
+<p>An example of such an expression can be seen here:</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="c1">// This command would become enabled when a solution is loaded in the IDE and a file with the file extension ".jpg", ".jpeg", or ".txt" is selected in the Solution Explorer.</span>
+	<span class="p">[</span><span class="nf">CommandEnabledWhen</span><span class="p">(</span>
+		<span class="n">expression</span><span class="p">:</span> <span class="s">"SolutionLoaded &amp; IsValidFile"</span><span class="p">,</span>
+		<span class="n">termNames</span><span class="p">:</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"SolutionLoaded"</span><span class="p">,</span> <span class="s">"IsValidFile"</span> <span class="p">},</span>
+		<span class="n">termValues</span><span class="p">:</span> <span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span> <span class="s">"SolutionState:Exists"</span><span class="p">,</span> <span class="s">"ClientContext:Shell.ActiveSelectionFileName=(.jpg|.jpeg|.txt)$"</span> <span class="p">})]</span>
+</code></pre></div></div>
+
+<p>To see more information on valid term values:</p>
+<ul>
+  <li><a href="./../../Inside_the_SDK/Activation_Constraints.md/#rule-based-activation-constraints">Using rule based activation constraints</a></li>
+</ul>
+
+<h3 id="localizing-a-command">Localizing a command</h3>
+
+<p>The text displayed on a command can be localized by including <code class="language-plaintext highlighter-rouge">string-resources.json</code> files with your extension and formatting the DisplayName parameter with the ‘%’ character on either end in your <code class="language-plaintext highlighter-rouge">Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute</code>.</p>
+
+<p>Localized Command DisplayName</p>
+<div class="language-csharp highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="p">[</span><span class="nf">Command</span><span class="p">(</span><span class="n">CommandName</span><span class="p">,</span> <span class="n">CommandId</span><span class="p">,</span> <span class="s">"%Microsoft.VisualStudio.MyExtension.SampleRemoteCommand.DisplayName%"</span><span class="p">,</span> <span class="n">placement</span><span class="p">:</span> <span class="n">KnownCommandPlacement</span><span class="p">.</span><span class="n">ToolsMenu</span><span class="p">)]</span>
+</code></pre></div></div>
+
+<h4 id="string-resourcesjson">string-resources.json</h4>
+
+<p>Your extension should provide a <code class="language-plaintext highlighter-rouge">string-resources.json</code> file for every language that your extension supports. This JSON file is a dictionary of key/value pairs where the key is a globally (all of Visual Studio) unique identifier for a string resource and the value is the localized string resource. These JSON files should be deployed with your extension under the “.vsextension” directory, with each language you support being shipped in a folder matching the name of the locale i.e. “de” for German, “it” for Italian, etc. The <code class="language-plaintext highlighter-rouge">string-resources.json</code> deployed at the root of the “.vsextension” directory is used as the default if your extension does not support the language that Visual Studio is currently set to. An example of what this directory structure would look like can be seen here:</p>
+
+<p><img src="localizing-a-command.PNG" alt="Localization directory structure" title="Localization directory structure" /></p>
+
+<p>string-resources.json sample:</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">	</span><span class="p">{</span><span class="w">
+		</span><span class="nl">"Microsoft.VisualStudio.MyExtension.SampleRemoteCommand.DisplayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sample Remote Command"</span><span class="p">,</span><span class="w">
+		</span><span class="nl">"Microsoft.VisualStudio.MyExtension.OutputWindowTest.DisplayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Output Window Test"</span><span class="w">
+	</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+:ET

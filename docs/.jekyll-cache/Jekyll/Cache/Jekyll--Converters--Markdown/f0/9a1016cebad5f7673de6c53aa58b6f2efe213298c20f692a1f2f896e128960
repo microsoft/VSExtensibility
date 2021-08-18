@@ -1,0 +1,375 @@
+I"Tk<h1 id="visual-studio-extensions-to-the-language-server-protocol">Visual Studio extensions to the Language Server Protocol</h1>
+
+<p>This document describes the Visual Studio specific extensions to the <a href="https://microsoft.github.io/language-server-protocol/specifications/specification-current/">Language Server Protocol</a>. These extensions can be used by servers to provide additional functionalities when communicating with a Visual Studio instance.</p>
+
+<p>These extensions are composed of:</p>
+<ol>
+  <li>Classes which extend base classes from the LSP specification allowing to provide additional information to Visual Studio. For example <a href="#vsdiagnostic"><code class="language-plaintext highlighter-rouge">VSDiagnostic</code></a> extends <a href="https://microsoft.github.io/language-server-protocol/specifications/specification-current/#diagnostic"><code class="language-plaintext highlighter-rouge">Diagnostic</code></a> adding support for tooltips, sorting, etc.</li>
+  <li>Additional methods like <a href="#getprojectcontexts">GetProjectContexts</a>. These are listed in <a href="#vsmethods"><code class="language-plaintext highlighter-rouge">VSMethods</code></a>.</li>
+  <li>Additional capabilities that a language server can provide to the Visual Studio client. These are defined in <a href="#vsservercapabilities"><code class="language-plaintext highlighter-rouge">VSServerCapabilities</code></a> and can be communicated to the client in the <a href="https://microsoft.github.io/language-server-protocol/specifications/specification-3-17/#initializeResult"><code class="language-plaintext highlighter-rouge">InitializeResult.capabilities</code></a> field of the <a href="https://microsoft.github.io/language-server-protocol/specifications/specification-3-17/#initialize"><code class="language-plaintext highlighter-rouge">initialize</code></a> request.</li>
+  <li>Additional values for enumerations described in the LSP protocol. For example <a href="#vsdiagnostictag"><code class="language-plaintext highlighter-rouge">VSDiagnosticTag</code></a> extends <a href="https://microsoft.github.io/language-server-protocol/specifications/specification-current/#diagnosticTag"><code class="language-plaintext highlighter-rouge">DiagnosticTag</code></a>.</li>
+</ol>
+
+<p>A .NET implementation of these extensions can be found on <a href="https://www.nuget.org/packages/Microsoft.VisualStudio.LanguageServer.Protocol.Extensions">NuGet</a>.</p>
+
+<p>When using this package in a language server, configure the <code class="language-plaintext highlighter-rouge">JsonSerializer</code> using <code class="language-plaintext highlighter-rouge">VSExtensionUtilities.AddVSExtensionConverters</code> in order to allow extensions classes to be correctly deserialized. For example, this allows the <code class="language-plaintext highlighter-rouge">JsonSerializer</code> to correctly deserialize the <a href="https://microsoft.github.io/language-server-protocol/specifications/specification-3-17/#codeAction"><code class="language-plaintext highlighter-rouge">CodeAction.Diagnostics</code></a> entries of a <a href="https://microsoft.github.io/language-server-protocol/specifications/specification-3-17/#codeAction_resolve"><code class="language-plaintext highlighter-rouge">codeAction/resolve</code></a> request into <a href="#vsdiagnostic"><code class="language-plaintext highlighter-rouge">VSDiagnostic</code></a> objects even if <a href="https://microsoft.github.io/language-server-protocol/specifications/specification-3-17/#codeAction"><code class="language-plaintext highlighter-rouge">CodeAction.Diagnostics</code></a> is defined as an array of <a href="https://microsoft.github.io/language-server-protocol/specifications/specification-current/#diagnostic"><code class="language-plaintext highlighter-rouge">Diagnostic</code></a> objects.</p>
+
+<h1 id="new-methods">New methods</h1>
+
+<h2 id="getprojectcontexts">GetProjectContexts</h2>
+
+<p><em>GetProjectContexts</em> requests are sent from the client to the server to retrieve a list of the project contexts associated with a text document. An example of project contexts are <a href="https://docs.microsoft.com/en-us/dotnet/standard/frameworks#how-to-specify-a-target-framework">multiple target frameworks</a> in SDK style .NET projects.</p>
+
+<p>The labels of all project contexts are presented to the user in the navigation bar at the top of the document. When the user changes the project context in the navigation bar, the active project context is changed.</p>
+
+<p>The client includes the active project context in requests to the server by filling in the <a href="#vstextdocumentidentifier"><code class="language-plaintext highlighter-rouge">VSTextDocumentIdentifier._vs_projectContext</code></a> property.</p>
+
+<p><em>Server Capability</em></p>
+
+<ul>
+  <li>property path (optional): <a href="#vsservercapabilities"><code class="language-plaintext highlighter-rouge">_vs_projectContextProvider</code></a></li>
+  <li>property type: <code class="language-plaintext highlighter-rouge">boolean</code></li>
+</ul>
+
+<p><em>Request</em></p>
+
+<ul>
+  <li>method: <code class="language-plaintext highlighter-rouge">textDocument/_vs_getProjectContexts</code></li>
+  <li>params: <a href="#vsgetprojectcontextsparams"><code class="language-plaintext highlighter-rouge">VSGetProjectContextsParams</code></a></li>
+</ul>
+
+<p><em>Response</em></p>
+
+<ul>
+  <li>result: <a href="#vsprojectcontextlist"><code class="language-plaintext highlighter-rouge">VSProjectContextList</code></a></li>
+</ul>
+
+<h1 id="extensions-specification">Extensions specification</h1>
+
+<h2 id="vsdiagnostic">VSDiagnostic</h2>
+
+<p><a href="#vsdiagnostic"><code class="language-plaintext highlighter-rouge">VSDiagnostic</code></a> extends <a href="https://microsoft.github.io/language-server-protocol/specifications/specification-current/"><code class="language-plaintext highlighter-rouge">Diagnostic</code></a> providing additional properties used by Visual Studio.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kr">interface</span> <span class="nx">VSDiagnostic</span> <span class="kd">extends</span> <span class="nx">Diagnostic</span> <span class="p">{</span>
+
+    <span class="cm">/**
+     * Gets or sets the project and context (e.g. Win32, MacOS, etc.) in which the diagnostic was generated.
+    **/</span>
+    <span class="nl">_vs_projects</span><span class="p">?</span> <span class="p">:</span> <span class="nx">VSDiagnosticProjectInformation</span><span class="p">[],</span>
+
+    <span class="cm">/**
+     * Gets or sets an expanded description of the diagnostic.
+    **/</span>
+    <span class="nx">_vs_expandedMessage</span><span class="p">?</span> <span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+
+    <span class="cm">/**
+     * Gets or sets a message shown when the user hovers over an error. If null, then Diagnostic.message
+     * is used (use VSDiagnosticTags.SuppressEditorToolTip to prevent a tool tip from being shown).
+    **/</span>
+    <span class="nx">_vs_toolTip</span><span class="p">?</span> <span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+
+    <span class="cm">/**
+     * Gets or sets a non-human-readable identier allowing consolidation of multiple equivalent diagnostics
+     * (e.g. the same syntax error from builds targeting different platforms).
+    **/</span>
+    <span class="nx">_vs_identifier</span><span class="p">?</span> <span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+
+    <span class="cm">/**
+     * Gets or sets a string describing the diagnostic types (e.g. Security, Performance, Style, etc.).
+    **/</span>
+    <span class="nx">_vs_diagnosticType</span><span class="p">?</span> <span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+
+    <span class="cm">/**
+     * Gets or sets a rank associated with this diagnostic, used for the default sort.
+     * VSDiagnosticRank.Default will be used if no rank is specified.
+    **/</span>
+    <span class="nx">_vs_diagnosticRank</span><span class="p">?</span> <span class="p">:</span> <span class="nx">VSDiagnosticRank</span><span class="p">,</span>
+
+    <span class="cm">/**
+     * Gets or sets an ID used to associate this diagnostic with a corresponding line in the output window.
+    **/</span>
+    <span class="nx">_vs_outputId</span><span class="p">?</span> <span class="p">:</span> <span class="nx">integer</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="vsdiagnosticprojectinformation">VSDiagnosticProjectInformation</h2>
+
+<p><a href="#vsdiagnosticprojectinformation"><code class="language-plaintext highlighter-rouge">VSDiagnosticProjectInformation</code></a> represents the project and context in which the <a href="#vsdiagnostic"><code class="language-plaintext highlighter-rouge">VSDiagnostic</code></a> is generated.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kr">interface</span> <span class="nx">VSDiagnosticProjectInformation</span> <span class="p">{</span>
+
+    <span class="cm">/**
+     * Gets or sets a human-readable identifier for the project in which the diagnostic was generated.
+    **/</span>
+    <span class="nl">_vs_projectName</span><span class="p">?</span> <span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+
+    <span class="cm">/**
+     * Gets or sets a human-readable identifier for the build context (e.g. Win32 or MacOS)
+     * in which the diagnostic was generated.
+    **/</span>
+    <span class="nx">_vs_context</span><span class="p">?</span> <span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+
+    <span class="cm">/**
+     * Gets or sets the unique identifier for the project in which the diagnostic was generated.
+    **/</span>
+    <span class="nx">_vs_projectIdentifier</span><span class="p">?</span> <span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="vsdiagnosticrank">VSDiagnosticRank</h2>
+
+<p><a href="#vsdiagnosticrank"><code class="language-plaintext highlighter-rouge">VSDiagnosticRank</code></a> represents the rank of a <a href="#vsdiagnostic"><code class="language-plaintext highlighter-rouge">VSDiagnostic</code></a> object.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kr">enum</span> <span class="nx">VSDiagnosticRank</span> <span class="p">{</span>
+
+    <span class="cm">/**
+     * Highest priority.
+    **/</span>
+    <span class="nx">Highest</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+
+    <span class="cm">/**
+     * High priority.
+    **/</span>
+    <span class="nx">High</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span>
+
+    <span class="cm">/**
+     * Default priority.
+    **/</span>
+    <span class="nx">Default</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
+
+    <span class="cm">/**
+     * Low priority.
+    **/</span>
+    <span class="nx">Low</span> <span class="o">=</span> <span class="mi">400</span><span class="p">,</span>
+
+    <span class="cm">/**
+     * Lowest priority.
+    **/</span>
+    <span class="nx">Lowest</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="vsdiagnostictags">VSDiagnosticTags</h2>
+
+<p>Additional <a href="https://microsoft.github.io/language-server-protocol/specifications/specification-current/"><code class="language-plaintext highlighter-rouge">DiagnosticTag</code></a> values that are specific to Visual Studio.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="k">namespace</span> <span class="nx">VSDiagnosticTags</span> <span class="p">{</span>
+
+    <span class="cm">/**
+     * A Diagnostic entry generated by the build.
+    **/</span>
+    <span class="k">export</span> <span class="kd">const</span> <span class="nx">BuildError</span> <span class="p">:</span> <span class="nx">DiagnosticTag</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+    <span class="cm">/**
+     * A Diagnostic entry generated by Intellisense.
+    **/</span>
+    <span class="k">export</span> <span class="kd">const</span> <span class="nx">IntellisenseError</span> <span class="p">:</span> <span class="nx">DiagnosticTag</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="p">;</span>
+
+    <span class="cm">/**
+     * A Diagnostic entry that could be generated from both builds
+     * and Intellisense.
+     * 
+     * Diagnostic entries tagged with VSDiagnosticTags.PotentialDuplicate will be hidden
+     * in the error list if the error list is displaying build and intellisense
+     * errors.
+    **/</span>
+    <span class="k">export</span> <span class="kd">const</span> <span class="nx">PotentialDuplicate</span> <span class="p">:</span> <span class="nx">DiagnosticTag</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span><span class="p">;</span>
+
+    <span class="cm">/**
+     * A Diagnostic entry is never displayed in the error list.
+    **/</span>
+    <span class="k">export</span> <span class="kd">const</span> <span class="nx">HiddenInErrorList</span> <span class="p">:</span> <span class="nx">DiagnosticTag</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span><span class="p">;</span>
+
+    <span class="cm">/**
+     * The Diagnostic entry is always displayed in the error list.
+    **/</span>
+    <span class="k">export</span> <span class="kd">const</span> <span class="nx">VisibleInErrorList</span> <span class="p">:</span> <span class="nx">DiagnosticTag</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span><span class="p">;</span>
+
+    <span class="cm">/**
+     * The Diagnostic entry is never displayed in the editor.
+    **/</span>
+    <span class="k">export</span> <span class="kd">const</span> <span class="nx">HiddenInEditor</span> <span class="p">:</span> <span class="nx">DiagnosticTag</span> <span class="o">=</span> <span class="o">-</span><span class="mi">6</span><span class="p">;</span>
+
+    <span class="cm">/**
+     * No tooltip is shown for the Diagnostic entry in the editor.
+    **/</span>
+    <span class="k">export</span> <span class="kd">const</span> <span class="nx">SuppressEditorToolTip</span> <span class="p">:</span> <span class="nx">DiagnosticTag</span> <span class="o">=</span> <span class="o">-</span><span class="mi">7</span><span class="p">;</span>
+
+    <span class="cm">/**
+     * The Diagnostic entry is represented in the Editor as an Edit
+     * and Continue error.
+    **/</span>
+    <span class="k">export</span> <span class="kd">const</span> <span class="nx">EditAndContinueError</span> <span class="p">:</span> <span class="nx">DiagnosticTag</span> <span class="o">=</span> <span class="o">-</span><span class="mi">8</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="vsgetprojectcontextsparams">VSGetProjectContextsParams</h2>
+
+<p><a href="#vsgetprojectcontextsparams"><code class="language-plaintext highlighter-rouge">VSGetProjectContextsParams</code></a> represents the parameter that is sent with the ‘textDocument/_vs_getProjectContexts’ request.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kr">interface</span> <span class="nx">VSGetProjectContextsParams</span> <span class="p">{</span>
+
+    <span class="cm">/**
+     * Gets or sets the document for which project contexts are queried.
+    **/</span>
+    <span class="nl">_vs_textDocument</span> <span class="p">:</span> <span class="nx">TextDocumentItem</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="vsimageid">VSImageId</h2>
+
+<p><a href="#vsimageid"><code class="language-plaintext highlighter-rouge">VSImageId</code></a> represents the unique identifier for a Visual Studio image asset. The identified is composed by a <a href="#vsimageid"><code class="language-plaintext highlighter-rouge">VSImageId._vs_guid</code></a> and an integer. A list of valid image ids can be retrieved from the <a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.imaging.knownmonikers">KnownMonikers class</a> from the Visual Studio SDK.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kr">interface</span> <span class="nx">VSImageId</span> <span class="p">{</span>
+
+    <span class="cm">/**
+     * Gets or sets the VSImageId._vs_guid component of the unique identifier.
+    **/</span>
+    <span class="nl">_vs_guid</span> <span class="p">:</span> <span class="nx">Guid</span><span class="p">,</span>
+
+    <span class="cm">/**
+     * Gets or sets the integer component of the unique identifier.
+    **/</span>
+    <span class="nx">_vs_id</span> <span class="p">:</span> <span class="nx">integer</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="vslocation">VSLocation</h2>
+
+<p><a href="#vslocation"><code class="language-plaintext highlighter-rouge">VSLocation</code></a> extends <a href="https://microsoft.github.io/language-server-protocol/specifications/specification-current/"><code class="language-plaintext highlighter-rouge">Location</code></a> providing additional properties used by Visual Studio.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kr">interface</span> <span class="nx">VSLocation</span> <span class="kd">extends</span> <span class="nx">Location</span> <span class="p">{</span>
+
+    <span class="cm">/**
+     * Gets or sets the project name to be displayed to user.
+    **/</span>
+    <span class="nl">_vs_projectName</span><span class="p">?</span> <span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+
+    <span class="cm">/**
+     * Gets or sets the text value for the display path.
+     * In case the actual path on disk would be confusing for users, this should be a friendly display name.
+     * This doesn't have to correspond to a real file path, but must be parsable by the System.IO.Path.GetFileName(System.String) method.
+    **/</span>
+    <span class="nx">_vs_displayPath</span><span class="p">?</span> <span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="vsmethods">VSMethods</h2>
+
+<p><a href="#vsmethods"><code class="language-plaintext highlighter-rouge">VSMethods</code></a> contains the string values for all Language Server Protocol Visual Studio specific methods.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="k">namespace</span> <span class="nx">VSMethods</span> <span class="p">{</span>
+
+    <span class="cm">/**
+     * Method name for 'textDocument/_vs_getProjectContexts'.
+     * The 'textDocument/_vs_getProjectContexts' request is sent from the client to the server to query
+     * the list of project context associated with a document.
+     * This method has a parameter of type VSGetProjectContextsParams and a return value of type
+     * VSProjectContextList.
+     * In order to enable the client to send the 'textDocument/_vs_getProjectContexts' requests, the server must
+     * set the VSServerCapabilities._vs_projectContextProvider property.
+    **/</span>
+    <span class="k">export</span> <span class="kd">const</span> <span class="nx">GetProjectContextsName</span> <span class="p">:</span> <span class="kr">string</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">textDocument/_vs_getProjectContexts</span><span class="dl">'</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="vsprojectcontext">VSProjectContext</h2>
+
+<p><a href="#vsprojectcontext"><code class="language-plaintext highlighter-rouge">VSProjectContext</code></a> represents a project context.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kr">interface</span> <span class="nx">VSProjectContext</span> <span class="p">{</span>
+
+    <span class="cm">/**
+     * Gets or sets the label for the project context.
+    **/</span>
+    <span class="nl">_vs_label</span> <span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+
+    <span class="cm">/**
+     * Gets or sets the unique identifier of the project context.
+    **/</span>
+    <span class="nx">_vs_id</span> <span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+
+    <span class="cm">/**
+     * Gets or sets the context kind of the project context which is used to determine its associated icon.
+    **/</span>
+    <span class="nx">_vs_kind</span> <span class="p">:</span> <span class="nx">VSProjectKind</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="vsprojectcontextlist">VSProjectContextList</h2>
+
+<p><a href="#vsprojectcontextlist"><code class="language-plaintext highlighter-rouge">VSProjectContextList</code></a> represents the response to the ‘textDocument/_vs_getProjectContexts’ request.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kr">interface</span> <span class="nx">VSProjectContextList</span> <span class="p">{</span>
+
+    <span class="cm">/**
+     * Gets or sets the document contexts associated with a text document.
+    **/</span>
+    <span class="nl">_vs_projectContexts</span> <span class="p">:</span> <span class="nx">VSProjectContext</span><span class="p">[],</span>
+
+    <span class="cm">/**
+     * Gets or sets the index of the default entry of the VSProjectContext array.
+    **/</span>
+    <span class="nx">_vs_defaultIndex</span> <span class="p">:</span> <span class="nx">integer</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="vsprojectkind">VSProjectKind</h2>
+
+<p><a href="#vsprojectkind"><code class="language-plaintext highlighter-rouge">VSProjectKind</code></a> represents the various kinds of contexts.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kr">enum</span> <span class="nx">VSProjectKind</span> <span class="p">{</span>
+
+    <span class="cm">/**
+     * C++ project.
+    **/</span>
+    <span class="nx">CPlusPlus</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+
+    <span class="cm">/**
+     * C# project.
+    **/</span>
+    <span class="nx">CSharp</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+
+    <span class="cm">/**
+     * Visual Basic project.
+    **/</span>
+    <span class="nx">VisualBasic</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="vsservercapabilities">VSServerCapabilities</h2>
+
+<p><a href="#vsservercapabilities"><code class="language-plaintext highlighter-rouge">VSServerCapabilities</code></a> extends <a href="https://microsoft.github.io/language-server-protocol/specifications/specification-current/"><code class="language-plaintext highlighter-rouge">ServerCapabilities</code></a> allowing to provide additional capabilities supported by Visual Studio.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kr">interface</span> <span class="nx">VSServerCapabilities</span> <span class="kd">extends</span> <span class="nx">ServerCapabilities</span> <span class="p">{</span>
+
+    <span class="cm">/**
+     * Gets or sets a value indicating whether the server supports the
+     * 'textDocument/_vs_getProjectContexts' request.
+    **/</span>
+    <span class="nl">_vs_projectContextProvider</span><span class="p">?</span> <span class="p">:</span> <span class="nx">boolean</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="vssymbolinformation">VSSymbolInformation</h2>
+
+<p><a href="#vssymbolinformation"><code class="language-plaintext highlighter-rouge">VSSymbolInformation</code></a> extends <a href="https://microsoft.github.io/language-server-protocol/specifications/specification-current/"><code class="language-plaintext highlighter-rouge">SymbolInformation</code></a> providing additional properties used by Visual Studio.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kr">interface</span> <span class="nx">VSSymbolInformation</span> <span class="kd">extends</span> <span class="nx">SymbolInformation</span> <span class="p">{</span>
+
+    <span class="cm">/**
+     * Gets or sets the icon associated with the symbol. If specified, this icon is used instead of SymbolKind.
+    **/</span>
+    <span class="nl">_vs_icon</span><span class="p">?</span> <span class="p">:</span> <span class="nx">VSImageId</span><span class="p">,</span>
+
+    <span class="cm">/**
+     * Gets or sets the description of the symbol.
+    **/</span>
+    <span class="nx">_vs_description</span><span class="p">?</span> <span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+
+    <span class="cm">/**
+     * Gets or sets the hint text for the symbol.
+    **/</span>
+    <span class="nx">_vs_hintText</span><span class="p">?</span> <span class="p">:</span> <span class="kr">string</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="vstextdocumentidentifier">VSTextDocumentIdentifier</h2>
+
+<p><a href="#vstextdocumentidentifier"><code class="language-plaintext highlighter-rouge">VSTextDocumentIdentifier</code></a> extends <a href="https://microsoft.github.io/language-server-protocol/specifications/specification-current/"><code class="language-plaintext highlighter-rouge">TextDocumentIdentifier</code></a> providing additional properties used by Visual Studio.</p>
+<div class="language-typescript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="kr">interface</span> <span class="nx">VSTextDocumentIdentifier</span> <span class="kd">extends</span> <span class="nx">TextDocumentIdentifier</span> <span class="p">{</span>
+
+    <span class="cm">/**
+     * Gets or sets the project context of the text document.
+    **/</span>
+    <span class="nl">_vs_projectContext</span><span class="p">?</span> <span class="p">:</span> <span class="nx">VSProjectContext</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET
