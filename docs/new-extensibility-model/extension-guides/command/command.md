@@ -16,7 +16,7 @@ To get started, follow the [create the project](../getting-started/create-your-f
 
 Creating a command with the new Extensibility Model is as simple as extending the base class `Microsoft.VisualStudio.Extensibility.Commands.Command` and adorning your class with the attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute`.
 
-The attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute` has a few parameters that you should become familiar with:
+The attribute [Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute](./../../api/Microsoft.VisualStudio.Extensibility.md/#commandattribute-type) has a few parameters that you should become familiar with:
 
 | Parameter | Type | Required | Description |
 | --------- |----- | -------- | ----------- |
@@ -50,7 +50,7 @@ See the [InsertGuidSample](./../insert-guid-sample.md) sample to get started wit
 
 ### Adding an icon
 
-Commands support adding icons to their menu item in addition to or instead of the display name of the command. To add an icon to your command, add the attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandIconAttribute` to your command class. Currently you can use any of the [KnownMonikers](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.imaging.knownmonikers?view=visualstudiosdk-2022) currently supported by Visual Studio. Custom monikers are not supported at this time.
+Commands support adding icons to their menu item in addition to or instead of the display name of the command. To add an icon to your command, add the attribute [Microsoft.VisualStudio.Extensibility.Commands.CommandIconAttribute](./../../api/Microsoft.VisualStudio.Extensibility.md/#commandiconattribute-type) to your command class. Currently you can use any of the [KnownMonikers](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.imaging.knownmonikers?view=visualstudiosdk-2022) currently supported by Visual Studio. Custom monikers are not supported at this time.
 
 | Parameter | Type | Required | Description |
 | --------- |----- | -------- | ----------- |
@@ -63,7 +63,7 @@ Commands support adding icons to their menu item in addition to or instead of th
 
 ### Controlling command visibility
 
-The visibility of a command can be controlled by adding the attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandVisibleWhenAttribute` to your command class. This attribute supports specifying an expression, defining a set of terms used in the expression, and what values those terms should be replaced with upon evaluation. Note: Term names and values are mapped to their index in the array. i.e. the term name at index 0 corresponds with the term value at that same index. The command would be visible when the expression evaluates to true, and invisible when it is false.
+The visibility of a command can be controlled by adding the attribute [Microsoft.VisualStudio.Extensibility.Commands.CommandVisibleWhenAttribute](./../../api/Microsoft.VisualStudio.Extensibility.md/#commandvisiblewhenattribute-type) to your command class. This attribute supports specifying an expression, defining a set of terms used in the expression, and what values those terms should be replaced with upon evaluation. Note: Term names and values are mapped to their index in the array. i.e. the term name at index 0 corresponds with the term value at that same index. The command would be visible when the expression evaluates to true, and invisible when it is false.
 
 If this attribute is omitted from your command, the default is for the command to always be visible.
 
@@ -81,7 +81,7 @@ To see more information on valid term values:
 
 ### Controlling command Enabled/Disabled state
 
-The visibility of a command can be controlled by adding the attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandEnabledWhenAttribute` to your command class. This attribute supports specifying an expression, defining a set of terms used in the expression, and what values those terms should be replaced with upon evaluation. Note: Term names and values are mapped to their index in the array. i.e. the term name at index 0 corresponds with the term value at that same index. The command would be enabled when the expression evaluates to true, and disabled when it is false. 
+The visibility of a command can be controlled by adding the attribute [Microsoft.VisualStudio.Extensibility.Commands.CommandEnabledWhenAttribute](./../../api/Microsoft.VisualStudio.Extensibility.md/#commandenabledwhenattribute-type) to your command class. This attribute supports specifying an expression, defining a set of terms used in the expression, and what values those terms should be replaced with upon evaluation. Note: Term names and values are mapped to their index in the array. i.e. the term name at index 0 corresponds with the term value at that same index. The command would be enabled when the expression evaluates to true, and disabled when it is false. 
 
 If this attribute is omitted from your command, the default is for the command to always be enabled. You can also automatically have your command be disabled if it is currently executing by setting `this.DisableDuringExecution = true;` in the constructor of your command class. Setting this property will override the enabled/disabled state defined by the `Microsoft.VisualStudio.Extensibility.Commands.CommandEnabledWhenAttribute` while the command is being executed.
 
@@ -99,7 +99,7 @@ To see more information on valid term values:
 
 ### Localizing a command
 
-The text displayed on a command can be localized by including `string-resources.json` files with your extension and formatting the DisplayName parameter with the '%' character on either end in your `Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute`.
+The text displayed on a command can be localized by including `string-resources.json` files with your extension and formatting the DisplayName parameter with the '%' character on either end in your [Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute](./../../api/Microsoft.VisualStudio.Extensibility.md/#commandattribute-type).
 
 Localized Command DisplayName
 ```csharp
