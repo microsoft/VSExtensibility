@@ -14,7 +14,7 @@ Our goal is to provide a common way to create such contexts, the current method 
 
 Each constraint attribute will contain at least 3 required arguments that defines the expression:
 
-* Expression string: A boolean expression using `and`, `or`, `not` operations and term names that are defined in later arguments. Each term must be a single word (without spaces) and expression can utilize parantheses for grouping and `&`, `|`, `!` operators for `and`, `or`, `not` operations.
+* Expression string: A boolean expression using `and`, `or`, `not` operations and term names that are defined in later arguments. Each term must be a single word (without spaces) and expression can utilize parentheses for grouping and `&`, `|`, `!` operators for `and`, `or`, `not` operations.
 
 * Term names: An array that contains the name of the terms used in the expression above.
 

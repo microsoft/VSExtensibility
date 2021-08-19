@@ -74,7 +74,7 @@ new extensibility model.
 - "TypeScript" - TypeScript and JavaScript type languages.
 - "HTML" - HTML
 - "JSON" - JSON
-- "text" - text files, including hierarchical descendents of "code", which descends from "text".
+- "text" - text files, including hierarchical descendants of "code", which descends from "text".
 - "code" - C, C++, C#, etc.
 
 ContentTypes are hierarchical. e.g.: C# and C++ both descend from "code", so declaring "code" will cause your extension
