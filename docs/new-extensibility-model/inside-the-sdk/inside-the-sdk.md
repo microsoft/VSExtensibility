@@ -20,25 +20,21 @@ The new Visual Studio Extensibility SDK is built on top of brokered services inf
 The new extensibilty model for Visual Studio depends on a set of new nuget packages to provide APIs, build tooling, code generation and analyzers. 
 
 ### Microsoft.VisualStudio.Extensibility.Sdk
-Link: <TBD>
+Link: [Microsoft.VisualStudio.Extensibility.Sdk 17.0.159-alpha](https://www.nuget.org/packages/Microsoft.VisualStudio.Extensibility.Sdk/17.0.159-alpha)
 
 This is the primary package that contains dependencies to all pre-requisite packages mentioned below. We strongly recommend extension developers to have a reference to this meta-package instead of individual references.
+
+#### Microsoft.VisualStudio.Extensibility.Build
+Link: [Microsoft.VisualStudio.Extensibility.Build 17.0.159-alpha](https://www.nuget.org/packages/Microsoft.VisualStudio.Extensibility.Build/17.0.159-alpha)
+
+This package contains the build tooling, project capabilities code generators that is necessary for extension to work with F5 debugging in Visual Studio IDE.
 
 ### Dependencies
 
 #### Microsoft.VisualStudio.Extensibility
-Link: <TBD>
-
 This package contains the SDK APIs and utility libraries to help develop extensions using the out-of-process extensibility model. Every extension should include a reference to this package as a starting point.
 
-#### Microsoft.VisualStudio.Extensibility.Build
-Link: <TBD>
-
-This package contains the build tooling, project capabilities code generators that is necessary for extension to work with F5 debugging in Visual Studio IDE.
-
 #### Microsoft.VisualStudio.Extensibility.JsonGenerators.Sdk
-Link: <TBD>
-
 This package contains the code generators that is necessary for extension metadata to be generated during build. Without this package, a compiled extension may not work correctly as it will not contain the necessary metadata files.
 
 #### Microsoft.VisualStudio.Extensibility.Editor
