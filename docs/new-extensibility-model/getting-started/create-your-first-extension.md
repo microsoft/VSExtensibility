@@ -25,7 +25,7 @@ Extension can be downloaded from: TBD
 
 * Once project is created change `TargetFramework` from `net6.0` to `net6.0-windows` by editing project file or changing Target OS to `Windows` in project properties.
 
-![Target Framework Properties](TargetFrameworkProperties.PNG "Target Framework Properties")
+![Target Framework Properties](target-framework-properties.png "Target Framework Properties")
 
 * Add references to `Microsoft.VisualStudio.Extensibility.Sdk` and `Microsoft.VisualStudio.Extensibility.Build` nuget package through adding the following section to your project file.
 
@@ -92,4 +92,4 @@ For more information on how to add commands, please refer to [Commands](../exten
 
 * You can find the command in `Tools` menu as shown.
 
-![SampleCommand](ExtensionCommand.PNG "Sample command")
+![SampleCommand](extension-command.png "Sample command")
