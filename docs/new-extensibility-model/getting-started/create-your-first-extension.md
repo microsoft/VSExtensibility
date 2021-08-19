@@ -27,12 +27,15 @@ Extension can be downloaded from: TBD
 
 ![Target Framework Properties](TargetFrameworkProperties.PNG "Target Framework Properties")
 
-* Add `https://pkgs.dev.azure.com/azure-public/vside/_packaging/vs-impl%40Local/nuget/v3/index.json` as an additional package source for Nuget in Visual Studio. 
+* Add references to `Microsoft.VisualStudio.Extensibility.Sdk` and `Microsoft.VisualStudio.Extensibility.Build` nuget package through adding the following section to your project file.
 
-	* On the Tools menu, select Options > NuGet Package Manager > Package Sources. Select the green plus in the upper-right corner and enter a name and source URL above.
-	* Alternatively you can utilize [nuget.config](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/nuget.config) we provide in samples.
+```
+<ItemGroup>
+	<PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.0.159-alpha" />
+	<PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.0.159-alpha" />
+</ItemGroup>
+```
 
-* Add references to `Microsoft.VisualStudio.Extensibility.Sdk` Nuget package through [Manage Nuget Projects](https://docs.microsoft.com/en-us/nuget/consume-packages/install-use-packages-visual-studio) dialog.
 
 * Add a [source.extension.vsixmanifest](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/SimpleRemoteCommandSample/source.extension.vsixmanifest) file to describe your extension including name, description and unique identifier. This information in the future will be used to list the extension in the gallery.
 
