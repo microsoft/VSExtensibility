@@ -9,7 +9,7 @@ date: 2021-8-16
 ## Introduction
 This document is a quick walkthrough on how to create your first extension using the new out-of-process extensibility model.
 
-The complete project can be found at [SimpleRemoteCommandSample](../..//Samples/SimpleRemoteCommandSample) but these steps will help you understand the requirements and dependencies.
+The complete project can be found at [SimpleRemoteCommandSample](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/SimpleRemoteCommandSample) but these steps will help you understand the requirements and dependencies.
 
 ## Prerequisites
 
@@ -30,11 +30,11 @@ Extension can be downloaded from: TBD
 * Add `https://pkgs.dev.azure.com/azure-public/vside/_packaging/vs-impl%40Local/nuget/v3/index.json` as an additional package source for Nuget in Visual Studio. 
 
 	* On the Tools menu, select Options > NuGet Package Manager > Package Sources. Select the green plus in the upper-right corner and enter a name and source URL above.
-	* Alternatively you can utilize [nuget.config](../../Samples/nuget.config) we provide in samples.
+	* Alternatively you can utilize [nuget.config](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/nuget.config) we provide in samples.
 
 * Add references to `Microsoft.VisualStudio.Extensibility.Sdk` Nuget package through [Manage Nuget Projects](https://docs.microsoft.com/en-us/nuget/consume-packages/install-use-packages-visual-studio) dialog.
 
-* Add a [source.extension.vsixmanifest](../../Samples/SimpleRemoteCommandSample/source.extension.vsixmanifest) file to describe your extension including name, description and unique identifier. This information in the future will be used to list the extension in the gallery.
+* Add a [source.extension.vsixmanifest](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/SimpleRemoteCommandSample/source.extension.vsixmanifest) file to describe your extension including name, description and unique identifier. This information in the future will be used to list the extension in the gallery.
 
 At this point you are ready to start extending Visual Studio by adding commands and editor components to your extension.
 
@@ -79,7 +79,7 @@ namespace SimpleRemoteCommandSample
 }
 ```
 
-For more information on how to add commands, please refer to [Commands](..\Extension_Guids/Commands/Command.md) section.
+For more information on how to add commands, please refer to [Commands](../extension-guides/command/command.md) section.
 
 ## Debug your extension
 

@@ -6,7 +6,7 @@ date: 2021-8-16
 
 # Rule based activation constraints
 
-One of the common concepts in Visual Studio Extensibility SDK is use of context based activation rules in code attributes. An example of these would [CommandVisibleWhen](../APIs/Microsoft.VisualStudio.Extensibility.md#T-Microsoft-VisualStudio-Extensibility-Commands-CommandVisibleWhenAttribute) attribute declaring when a command is made visible.
+One of the common concepts in Visual Studio Extensibility SDK is use of context based activation rules in code attributes. An example of these would [CommandVisibleWhen](../api/Microsoft.VisualStudio.Extensibility.md#T-Microsoft-VisualStudio-Extensibility-Commands-CommandVisibleWhenAttribute) attribute declaring when a command is made visible.
 
 Our goal is to provide a common way to create such contexts, the current method is based on existing [Rule-based UI contexts](https://docs.microsoft.com/en-us/visualstudio/extensibility/how-to-use-rule-based-ui-context-for-visual-studio-extensions) with a different set of context terms.
 
@@ -67,7 +67,7 @@ Following is the list of terms currently supported by expression engine.
 | Building | Solution is building. |
 
 ## Client contexts
-Activation rules can also utilize the [client context](ExtensionAnatomy.md#client-context) contents as parts of its expression. 
+Activation rules can also utilize the [client context](extension-anatomy.md#client-context) contents as parts of its expression. 
 
 Currently, the client context is limited to a small set of values in IDE state:
 

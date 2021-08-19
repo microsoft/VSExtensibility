@@ -40,5 +40,5 @@ Extensibility packages that are provided as part of the SDK consist of base clas
 
 To get started writing an extension using the new model, here are some docs, walkthroughs, samples, and videos to get you started:
 
-* [Documentation Index](../Index.md)
-* [Create your first extension](Getting_Started/Create_Your_First_Extension.md)
+* [Documentation Index](../../index.md)
+* [Create your first extension](create-your-first-extension.md)
