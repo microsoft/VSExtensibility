@@ -1,23 +1,50 @@
 ---
 title: VS Extensibility
-description: Welcome to Visual Studio Extensibility
+description: Welcome to Visual Studio Out-of-Proc Extensibility
 date: 2021-8-16
 ---
 
-This site will help you write successful Visual Studio extensions and there's something for absolute beginners to experts alike!
+# Visual Studio Out-Of-Process Extensibility SDK
 
-## Pick your starting point
+While the existing model loads extensions in-process, the new extensibility model brings Visual Studio extensions out-of-process. This out-of-proc model gives you the opportunity to create more reliable, secure, and easier-to-write extensions while still providing the in-depth functionality the old model provides. The following documentation describes:
 
-Based on your experience level, pick where to begin.
+* The general architecture of the new extensibility model
+* How to take advantage of the new extensibility model’s APIs
+* How to compile and F5 debug an extension with the new model 
+* Resources and code samples to get started writing an extension with the new model
 
-### Learn how to get started
+For future updates please bookmark our [announcements](announcements.md) page
 
-If you are new to extension development, you want to start at the beginning to ensure you're not missing any information up front. Head on over to the [getting started guide](getting-started/).
+## Getting Started
+* [Introduction to new out-of-process extensibility](new-extensibility-model/getting-started/oop-extensibility-model-overview.md)
+* [Create your first extension](new-extensibility-model/getting-started/create-your-first-extension.md)
 
-### Walk me through typical scenarios
+## Extension Guides
+* [Parts of a new Visual Studio extension](new-extensibility-model/inside-the-sdk/extension-anatomy.md)
+* [Parts of the SDK](new-extensibility-model/inside-the-sdk/inside-the-sdk.md)
+* [Commands](new-extensibility-model/extension-guides/command/command.md)
+* [Editor components](new-extensibility-model/extension-guides/editor/editor.md)
+* [Rule based conditions](new-extensibility-model/inside-the-sdk/activation-constraints.md)
 
-Once you know the basics of the Visual Studio extensibility model, it is time to explore what type of features to extend. To do that, check out the [recipe section](recipes/) for inspiration and step-by-step walkthroughs.
+## Samples and walkthroughs
+A Visual Studio solution containing all samples can be found at [Samples.sln](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/Samples.sln).
 
-### Publishing the finished extension
+* [Simple command handler](new-extensibility-model/getting-started/create-your-first-extension.md) ([Source](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/SimpleRemoteCommandSample))
+* [Markdown Linter](new-extensibility-model/extension-guides/markdown-linter-sample.md) ([Source](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/MarkdownLinter))
+* [Insert guid extension sample](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/InsertGuidExtension)
+* [Command registration, localization sample](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/CommandRegistrationsSample)
 
-When you've written your extension, it is time to publish it. Whether you want to share it with just a few friends, your company, or the whole world, you want to check out the [publishing section](publish/).
+## API Docs
+
+The following two namespaces are primary extensibility surface provided by the SDK:
+
+* [Microsoft.VisualStudio.Extensibility](new-extensibility-model/api/Microsoft.VisualStudio.Extensibility.md)
+* [Microsoft.VisualStudio.Extensibility.Editor](new-extensibility-model/api/Microsoft.VisualStudio.Extensibility.Editor.md)
+
+
+The following assemblies contain classes related to infrastructure and underlying implementation for the wrappers in the SDK:
+
+* [Microsoft.VisualStudio.Extensibility.Framework](new-extensibility-model/api/Microsoft.VisualStudio.Extensibility.Framework.md)
+* [Microsoft.VisualStudio.Extensibility.Contracts](new-extensibility-model/api/Microsoft.VisualStudio.Extensibility.Contracts.md)
+* [Microsoft.VisualStudio.Extensibility.EditorHostService](new-extensibility-model/api/Microsoft.VisualStudio.Extensibility.EditorHostService.md)
+* [Microsoft.VisualStudio.ProjectSystem.Query](new-extensibility-model/api/Microsoft.VisualStudio.ProjectSystem.Query.md)

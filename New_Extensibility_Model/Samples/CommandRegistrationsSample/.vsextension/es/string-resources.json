@@ -1,0 +1,4 @@
+﻿{
+	"Microsoft.VisualStudio.MyExtension.SampleRemoteCommand1.DisplayName": "Ejemplo de Comando Remoto 1",
+	"Microsoft.VisualStudio.MyExtension.OutputWindowTest.DisplayName": "Prueba de la Ventana de Salida"
+}

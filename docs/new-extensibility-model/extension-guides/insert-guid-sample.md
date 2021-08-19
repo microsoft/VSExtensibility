@@ -26,7 +26,7 @@ The extension consist of a single code file that defines a command and its prope
 
 The first `Command` attribute registers the command using the unique name `Microsoft.VisualStudio.InsertGuidExtension.InsertGuidCommand` and id `1`. The command is placed in `Extensions` top menu and uses `OfficeWebExtension` icon moniker.
 
-`CommandVisibleWhen` attribute defines when the command is visible in `Extensions` menu. You can refer to [Activation Constraints]() to learn about different options that you can use to determine command visibility and state. In this case, the command is enabled anytime there is an active editor in the IDE.
+`CommandVisibleWhen` attribute defines when the command is visible in `Extensions` menu. You can refer to [Activation Constraints](../inside-the-sdk/activation-constraints.md/) to learn about different options that you can use to determine command visibility and state. In this case, the command is enabled anytime there is an active editor in the IDE.
 
 ## Getting the active editor view
 
