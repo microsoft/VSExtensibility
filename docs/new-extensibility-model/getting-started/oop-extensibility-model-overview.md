@@ -35,4 +35,4 @@ Writing extensions using the new model provides the following benefits:
 
 To get started writing an extension using the new model, here are some docs, walkthroughs, samples, and videos to get you started:
 
-**[TODO: Add links to docs here]**
+**TBA**

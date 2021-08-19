@@ -28,7 +28,7 @@ The attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute` h
 | DisplayName | String | Yes | The default display name of your command. Surround this string with the '%' character to enable localizing this string. See more on this at [Localizing a command](#localizing-a-command). |
 | ContainerType | Type? | No | The type that is to act as the CommandSet for this command. Setting this parameter to null automatically generates a default CommandSet for your command. |
 | Placement | KnownCommandPlacement | No | Indicates where within Visual Studio your command should be parented. If no placement is provided the command defaults to being parented to the Standard toolbar. |
-| ClientContext | String | No | Client contexts requested by the command, separated by ','. By default the Shell and Editor contexts are returned. A client context is a snapshot of specific IDE states at the time a command was originally executed. Since these commands are executed asynchronously this state could change between the time the user executed the command and the command handler running. See more on this at [Client contexts](./../../Inside_the_SDK/Activation_Constraints.md/#client-contexts). |
+| ClientContext | String | No | Client contexts requested by the command, separated by ','. By default the Shell and Editor contexts are returned. A client context is a snapshot of specific IDE states at the time a command was originally executed. Since these commands are executed asynchronously this state could change between the time the user executed the command and the command handler running. See more on this at [Client contexts](./../../inside-the-sdk/activation-constraints.md/#client-contexts). |
 
 ```csharp
 	[Command(CommandName, CommandId, "Sample Remote Command", placement: KnownCommandPlacement.ToolsMenu)]
@@ -49,7 +49,7 @@ The attribute `Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute` h
 	}
 ```
 
-See the [InsertGuidSample](./../InsertGuidSample.md) sample to get started with creating an extension with a command.
+See the [InsertGuidSample](./../insert-guid-sample.md) sample to get started with creating an extension with a command.
 
 ### Adding an icon
 
@@ -80,7 +80,7 @@ An example of such an expression can be seen here:
 ```
 
 To see more information on valid term values:
-- [Using rule based activation constraints](./../../Inside_the_SDK/Activation_Constraints.md/#rule-based-activation-constraints)
+- [Using rule based activation constraints](./../../inside-the-sdk/activation-constraints.md/#rule-based-activation-constraints)
 
 ### Controlling command Enabled/Disabled state
 
@@ -98,7 +98,7 @@ An example of such an expression can be seen here:
 ```
 
 To see more information on valid term values:
-- [Using rule based activation constraints](./../../Inside_the_SDK/Activation_Constraints.md/#rule-based-activation-constraints)
+- [Using rule based activation constraints](./../../inside-the-sdk/activation-constraints.md/#rule-based-activation-constraints)
 
 ### Localizing a command
 

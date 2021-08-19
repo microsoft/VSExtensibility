@@ -66,6 +66,6 @@ For more information on how to add commands, please refer to `TBD`.
 
 ## Debug your extension
 
-* Making sure that your extension project is selected as startup projet in Visual Studio, press `F5` to start debugging.
+* Making sure that your extension project is selected as startup project in Visual Studio, press `F5` to start debugging.
 
 * This will build your extension and deploy it to experimental instance of Visual Studio version your are using. The debugger should attach once your extension is loaded.

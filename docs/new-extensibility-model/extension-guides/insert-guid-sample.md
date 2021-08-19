@@ -54,4 +54,4 @@ await this.Extensibility.Editor().MutateAsync(
 
 ## Logging errors
 
-Each extension part including command sets is assigned a `TraceSource` instance that can be utilized to log diagnostic errors. Please see [Logging](../Inside_the_SDK/Logging.md) section for more information.
+Each extension part including command sets is assigned a `TraceSource` instance that can be utilized to log diagnostic errors. Please see [Logging](../inside-the-sdk/logging.md) section for more information.

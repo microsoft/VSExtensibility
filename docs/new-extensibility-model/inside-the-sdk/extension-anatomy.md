@@ -8,7 +8,7 @@ date: 2021-8-16
 An extension utilizing the new extensibility SDK will have several components that interact together and also with Visual Studio. 
 
 ## Extension instance
-The starting point for each extension is an instance of `Microsoft.VisualStudio.Extensibility.Extension`. This instance contains the necessary methods for Visual Studio to query services provided by the extension and also provides virtual methods for extension to provide localized resourcs and extension owned local services to be shared between the components of the extension.
+The starting point for each extension is an instance of `Microsoft.VisualStudio.Extensibility.Extension`. This instance contains the necessary methods for Visual Studio to query services provided by the extension and also provides virtual methods for extension to provide localized resources and extension owned local services to be shared between the components of the extension.
 
 For simple extensions that don't require such services, a default implementation will be created by code generators at build time. See `SimpleRemoteCommandSample` extension for such an example.
 
@@ -31,7 +31,7 @@ Currently the SDK supports a limited set of components to be exported:
 Instances for these classes will be created as part of the extensibility framework provided by the SDK using dependency injection library and constructors can be used to retrieve instances of services provided by either the SDK or by the extension itself to share state across components.
 
 ### Lifetime of extension parts
-Lifetime of each part is managed by the respective commponent that loads those parts inside Visual Studio IDE process.
+Lifetime of each part is managed by the respective component that loads those parts inside Visual Studio IDE process.
 
 * Command handlers will be initialized when the corresponding command set is activated which can be during the first execution of the command. Once activated, command handlers should only be disposed when IDE is shutdown.
 
@@ -46,7 +46,7 @@ The following services are provided by the SDK that can be used in constructor f
 
 * `Extension`: Parts can inject `Microsoft.VisualStudio.Extensibility.Extension` type or the extensions own type inheriting from it to extension parts.
 
-* `TraceSource`: A trace source instance is created on demand for each extension that can be used to record diagnostic information. These instances are registered with Visual Studio diagnostics provider which can be used to merge logs from multiple services and utilize future tooling to access real time logging. See [Logging](Logging.md) section for more information.
+* `TraceSource`: A trace source instance is created on demand for each extension that can be used to record diagnostic information. These instances are registered with Visual Studio diagnostics provider which can be used to merge logs from multiple services and utilize future tooling to access real time logging. See [Logging](logging.md) section for more information.
 
 * Local services: Any local services provided by the extension itself will also be available for dependency injection.
 
@@ -61,7 +61,7 @@ There are 3 options that a service can be added:
 
 Due to lifetime of `VisualStudioExtensibility` object being bound to the scope of a single extension part, any local service that ingests it has to be a scoped or transient service. Trying to create a singleton service that injects `VisualStudioExtensibility` will result in failure.
 
-For an example of how local services are used please see [MarkdownLinte extension guide](../Extension_Guides/MarkdownLinterSample.md).
+For an example of how local services are used please see [MarkdownLinter extension guide](../extension-guides/markdown-linter-sample.md).
 
 ## Client context
 As all extensions in the new SDK runs out of process, we introduce the concept of client context for various extension parts to represent the state of the IDE as when the event or method is invoked. This context is represented by `IClientContext` instance in the SDK and is passed in to various operations such as command execution handlers. The SDK provides extension methods on `IClientContext` that can be utilized to retrieve objects from the context. For example extensions can get the active text view or the URI for the selected items at the time of command execution utilizing `IClientContext` instance.
