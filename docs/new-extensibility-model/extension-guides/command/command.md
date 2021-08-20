@@ -28,22 +28,22 @@ The attribute [Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute](.
 | ClientContext | String | No | Client contexts requested by the command, separated by ','. By default the Shell and Editor contexts are returned. A client context is a snapshot of specific IDE states at the time a command was originally executed. Since these commands are executed asynchronously this state could change between the time the user executed the command and the command handler running. See more on this at [Client contexts](./../../inside-the-sdk/activation-constraints.md/#client-contexts). |
 
 ```csharp
-	[Command(CommandName, CommandId, "Sample Remote Command", placement: KnownCommandPlacement.ToolsMenu)]
-	public class CommandHandler : Command
+[Command(CommandName, CommandId, "Sample Remote Command", placement: KnownCommandPlacement.ToolsMenu)]
+public class CommandHandler : Command
+{
+	private const ushort CommandId = 1;
+	private const string CommandName = "SimpleRemoteCommandSample.Command";
+
+	public CommandHandler(VisualStudioExtensibility extensibility, TraceSource traceSource, ushort id)
+		: base(extensibility, id)
 	{
-		private const ushort CommandId = 1;
-		private const string CommandName = "SimpleRemoteCommandSample.Command";
-
-		public CommandHandler(VisualStudioExtensibility extensibility, TraceSource traceSource, ushort id)
-			: base(extensibility, id)
-		{
-		}
-
-		public override Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
-		{
-			return Task.CompletedTask;
-		}
 	}
+
+	public override Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
+	{
+		return Task.CompletedTask;
+	}
+}
 ```
 
 See the [InsertGuidSample](./../insert-guid-sample.md) sample to get started with creating an extension with a command.
@@ -58,7 +58,7 @@ Commands support adding icons to their menu item in addition to or instead of th
 | IconSettings | IconSettings | Yes | Configures how the command will be displayed. For example `IconSettings.IconAndText` displays the icon alongside the command's display name, whereas `IconSettings.IconOnly` will only show the command's icon and not its DisplayName if parented to a toolbar. |
 
 ```csharp
-	[CommandIcon("Extension", IconSettings.IconAndText)]
+[CommandIcon("Extension", IconSettings.IconAndText)]
 ```
 
 ### Controlling command visibility
@@ -69,11 +69,11 @@ If this attribute is omitted from your command, the default is for the command t
 
 An example of such an expression can be seen here:
 ```csharp
-	// This command would become visible when an editor for a file with any file extension is active.
-	[CommandVisibleWhen(
-		expression: "AnyFile",
-		termNames: new string[] { "AnyFile" },
-		termValues: new string[] { "ClientContext:Shell.ActiveEditorContentType=.+" })]
+// This command would become visible when an editor for a file with any file extension is active.
+[CommandVisibleWhen(
+	expression: "AnyFile",
+	termNames: new string[] { "AnyFile" },
+	termValues: new string[] { "ClientContext:Shell.ActiveEditorContentType=.+" })]
 ```
 
 To see more information on valid term values:
@@ -87,11 +87,12 @@ If this attribute is omitted from your command, the default is for the command t
 
 An example of such an expression can be seen here:
 ```csharp
-	// This command would become enabled when a solution is loaded in the IDE and a file with the file extension ".jpg", ".jpeg", or ".txt" is selected in the Solution Explorer.
-	[CommandEnabledWhen(
-		expression: "SolutionLoaded & IsValidFile",
-		termNames: new string[] { "SolutionLoaded", "IsValidFile" },
-		termValues: new string[] { "SolutionState:Exists", "ClientContext:Shell.ActiveSelectionFileName=(.jpg|.jpeg|.txt)$" })]
+// This command would become enabled when a solution is loaded in the IDE and a file with the file 
+// extension ".jpg", ".jpeg", or ".txt" is selected in the Solution Explorer.
+[CommandEnabledWhen(
+	expression: "SolutionLoaded & IsValidFile",
+	termNames: new string[] { "SolutionLoaded", "IsValidFile" },
+	termValues: new string[] { "SolutionState:Exists", "ClientContext:Shell.ActiveSelectionFileName=(.jpg|.jpeg|.txt)$" })]
 ```
 
 To see more information on valid term values:
@@ -103,7 +104,7 @@ The text displayed on a command can be localized by including `string-resources.
 
 Localized Command DisplayName
 ```csharp
-	[Command(CommandName, CommandId, "%Microsoft.VisualStudio.MyExtension.SampleRemoteCommand.DisplayName%", placement: KnownCommandPlacement.ToolsMenu)]
+[Command(CommandName, CommandId, "%Microsoft.VisualStudio.MyExtension.SampleRemoteCommand.DisplayName%", placement: KnownCommandPlacement.ToolsMenu)]
 ```
 
 #### string-resources.json
@@ -114,8 +115,8 @@ Your extension should provide a `string-resources.json` file for every language 
 
 string-resources.json sample:
 ```json
-	{
-		"Microsoft.VisualStudio.MyExtension.SampleRemoteCommand.DisplayName": "Sample Remote Command",
-		"Microsoft.VisualStudio.MyExtension.OutputWindowTest.DisplayName": "Output Window Test"
-	}
+{
+	"Microsoft.VisualStudio.MyExtension.SampleRemoteCommand.DisplayName": "Sample Remote Command",
+	"Microsoft.VisualStudio.MyExtension.OutputWindowTest.DisplayName": "Output Window Test"
+}
 ```
