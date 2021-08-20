@@ -173,7 +173,9 @@ main {
 }
 
 table, th, td {
-    border: 1px solid grey
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
 }
 
 #menu {
