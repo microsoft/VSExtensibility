@@ -110,7 +110,7 @@ Localized Command DisplayName
 
 Your extension should provide a `string-resources.json` file for every language that your extension supports. This JSON file is a dictionary of key/value pairs where the key is a globally (all of Visual Studio) unique identifier for a string resource and the value is the localized string resource. These JSON files should be deployed with your extension under the ".vsextension" directory, with each language you support being shipped in a folder matching the name of the locale i.e. "de" for German, "it" for Italian, etc. The `string-resources.json` deployed at the root of the ".vsextension" directory is used as the default if your extension does not support the language that Visual Studio is currently set to. An example of what this directory structure would look like can be seen here:
 
-![Localization directory structure](localizing-a-command.PNG "Localization directory structure")
+![Localization directory structure](localizing-a-command.png "Localization directory structure")
 
 string-resources.json sample:
 ```json
