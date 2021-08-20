@@ -15,13 +15,13 @@ Source code: TBD
 The extension consist of a single code file that defines a command and its properties starting with class attributes as seen below:
 
 ```csharp
-	[Command(
-		"Microsoft.VisualStudio.InsertGuidExtension.InsertGuidCommand",
-		1,
-		"Insert new guid",
-		placement: KnownCommandPlacement.ExtensionsMenu)]
-	[CommandIcon("OfficeWebExtension", IconSettings.IconAndText)]
-	[CommandVisibleWhen("AnyFile", new string[] { "AnyFile" }, new string[] { "ClientContext:Shell.ActiveEditorContentType=.+" })]
+[Command(
+	"Microsoft.VisualStudio.InsertGuidExtension.InsertGuidCommand",
+	1,
+	"Insert new guid",
+	placement: KnownCommandPlacement.ExtensionsMenu)]
+[CommandIcon("OfficeWebExtension", IconSettings.IconAndText)]
+[CommandVisibleWhen("AnyFile", new string[] { "AnyFile" }, new string[] { "ClientContext:Shell.ActiveEditorContentType=.+" })]
 ```
 
 The first `Command` attribute registers the command using the unique name `Microsoft.VisualStudio.InsertGuidExtension.InsertGuidCommand` and id `1`. The command is placed in `Extensions` top menu and uses `OfficeWebExtension` icon moniker.
