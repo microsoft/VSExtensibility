@@ -44,12 +44,12 @@ A Visual Studio solution containing all samples can be found at [Samples.sln](ht
 
 The following two namespaces are primary extensibility surface provided by the SDK:
 
-* [Microsoft.VisualStudio.Extensibility](new-extensibility-model/api/microsoft.visualstudio.extensibility.md)
-* [Microsoft.VisualStudio.Extensibility.Editor](new-extensibility-model/api/microsoft.visualstudio.extensibility.editor.md)
+* [Microsoft.VisualStudio.Extensibility](new-extensibility-model/api/Microsoft.VisualStudio.Extensibility.md)
+* [Microsoft.VisualStudio.Extensibility.Editor](new-extensibility-model/api/Microsoft.VisualStudio.Extensibility.Extensibility.editor.md)
 
 The following assemblies contain classes related to infrastructure and underlying implementation for the wrappers in the SDK:
 
-* [Microsoft.VisualStudio.Extensibility.Framework](new-extensibility-model/api/microsoft.visualstudio.extensibility.framework.md)
-* [Microsoft.VisualStudio.Extensibility.Contracts](new-extensibility-model/api/microsoft.visualstudio.extensibility.contracts.md)
-* [Microsoft.VisualStudio.Extensibility.EditorHostService](new-extensibility-model/api/microsoft.visualstudio.extensibility.EditorHostService.md)
-* [Microsoft.VisualStudio.ProjectSystem.Query](new-extensibility-model/api/microsoft.visualStudio.projectsystem.query.md)
+* [Microsoft.VisualStudio.Extensibility.Framework](new-extensibility-model/api/Microsoft.VisualStudio.Extensibility.Framework.md)
+* [Microsoft.VisualStudio.Extensibility.Contracts](new-extensibility-model/api/Microsoft.VisualStudio.Extensibility.Contracts.md)
+* [Microsoft.VisualStudio.Extensibility.EditorHostService](new-extensibility-model/api/Microsoft.VisualStudio.Extensibility.EditorHostService.md)
+* [Microsoft.VisualStudio.ProjectSystem.Query](new-extensibility-model/api/Microsoft.VisualStudio.ProjectSystem.Query.md)
