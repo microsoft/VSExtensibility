@@ -21,7 +21,7 @@ Extension can be downloaded from: TBD
 
 ## Create the extension project
 
-* The extensibility APIs are distributed via nuget packages, so you can start with an empty .NET 6.0 C# class library project.
+* The extensibility APIs are distributed via [nuget packages](https://www.nuget.org/packages/Microsoft.VisualStudio.Extensibility.Sdk), so you can start with an empty .NET 6.0 C# class library project.
 
 * Once project is created change `TargetFramework` from `net6.0` to `net6.0-windows` by editing project file or changing Target OS to `Windows` in project properties.
 
