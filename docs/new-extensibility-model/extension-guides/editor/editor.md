@@ -1,7 +1,7 @@
 ---
 title: Editor reference
 description: A reference for editor-based extensions
-date: 2021-8-16
+date: 2021-8-20
 ---
 
 # Editor Extensions
@@ -16,12 +16,12 @@ Visual Studio extensibility model, only the following capabilities are supported
 
 ## Editor Extensibility Entrypoints
 
-Editor extensibility currently supports 3 entry points: listeners, the EditorExtensibility service object, and
+Editor extensibility currently supports 3 entry points: listeners, the [EditorExtensibility](#EditorExtensibility) service object, and
 commands.
 
 ### Adding a Listener
 
-There are two types of listeners, ITextViewChangedListener, and ITextViewLifetimeListener.
+There are two types of listeners, [ITextViewChangedListener](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewChangedListener), and [ITextViewLifetimeListener](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewLifetimeListener).
 Together, these listeners can be used to observe the open, close, and modification of text editors.
 
 To get started:
@@ -31,19 +31,20 @@ and [Microsoft.VisualStudio.Extensibility.Build](https://www.nuget.org/TODO-add-
 project.
 * Change your project's `TargetFramework` from `net6.0` to `net6.0-windows`.
 
-Then, create a new class, implementing `ExtensionPart` base class and `ITextViewChangedListener`,
+Then, create a new class, implementing [ExtensionPart](./../../api/Microsoft.VisualStudio.Extensibility.Framework.md#T-Microsoft-VisualStudio-Extensibility-ExtensionPart) base class and `ITextViewChangedListener`,
 `ITextViewLifetimeListener`, or both. Then, add an `[ExtensionPart(typeof(ITextViewChangedListener))]` attribute for
 each listener interface you implemented and an `[AppliesTo(ContentType = "CSharp")]` attribute to your class.
-ExtensionPart indicates to Visual Studio that this class can be instantiated by interested IDE services, and triggers
-registration of the part in your extension's manifest.
 
 Assuming you decide to implement both listeners, the finished class declaration should look like the following:
 
 ```csharp
-  [ExtensionPart(typeof(ITextViewLifetimeListener))]
-  [ExtensionPart(typeof(ITextViewChangedListener))]
-  [AppliesTo(ContentType = "CSharp")]
-  public sealed class TextViewOperationListener : ExtensionPart, ITextViewLifetimeListener, ITextViewChangedListener
+  [ExtensionPart(typeof(ITextViewLifetimeListener))] // Indicates this part listens for text view lifetime events.
+  [ExtensionPart(typeof(ITextViewChangedListener))]  // Indicates this part listens to text view changes.
+  [AppliesTo(ContentType = "CSharp")]                // Indicates this part should only light up in C# files.
+  public sealed class TextViewOperationListener
+      : ExtensionPart,           // This is the extension part base class containing infrastructure necessary to use VS services.
+      ITextViewLifetimeListener,
+      ITextViewChangedListener
   {
         ...
   }
@@ -51,17 +52,17 @@ Assuming you decide to implement both listeners, the finished class declaration 
 
 When you run your extension, you should see:
 
-- ITextViewLifetimeListener.TextViewCreatedAsync() called anytime an editor is opened by the user.
-- ITextViewLifetimeListener.TextViewClosedAsync() called anytime an editor is closed by the user.
-- ITextViewChangedListener.TextViewChangedAsync() called anytime a user makes a text change in the editor.
+- [ITextViewLifetimeListener.TextViewCreatedAsync()](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#M-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewLifetimeListener-TextViewCreatedAsync-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView,System-Threading-CancellationToken-) called anytime an editor is opened by the user.
+- [ITextViewLifetimeListener.TextViewClosedAsync()](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#M-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewLifetimeListener-TextViewClosedAsync-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView,System-Threading-CancellationToken-) called anytime an editor is closed by the user.
+- [ITextViewLifetimeListener.TextViewChangedAsync()](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#M-Microsoft-VisualStudio-RpcContracts-Editor-ITextViewChangedListenerContract-TextViewChangedAsync-Microsoft-VisualStudio-RpcContracts-Editor-TextViewChange,System-Threading-CancellationToken-) called anytime a user makes a text change in the editor.
 
-Each of these methods are passed an ITextView containing the state of the text editor at the time the
+Each of these methods are passed an [ITextView](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView) containing the state of the text editor at the time the
 user invoked the action and a CancellationToken that will have `IsCancellationRequested == true` when
 the IDE wishes to cancel a pending action.
 
 #### AppliesTo Attribute
 
-AppliesTo attribute indicates the programming language scenarios in which the extension should activate. It is written as
+[AppliesTo](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToAttribute) attribute indicates the programming language scenarios in which the extension should activate. It is written as
 `[AppliesTo(ContentType = "CSharp")]`, where ContentType is a well known name of a language built into Visual Studio,
 or custom defined in a Visual Studio extension.
 
@@ -82,7 +83,7 @@ to activate for C#, C, C++, etc.
 
 ### EditorExtensibility
 
-Visual Studio ExtensionParts all expose a `this.Extensibility` property. Using this property, you can
+Visual Studio ExtensionParts all expose a [this.Extensibility](./../../api/Microsoft.VisualStudio.Extensibility.Framework.md#P-Microsoft-VisualStudio-Extensibility-ExtensionPart-Extensibility) property. Using this property, you can
 request an instance of the EditorExtensibility object, which exposes on demand editor functionality, such as
 performing text edits.
 
@@ -104,7 +105,7 @@ using ITextView textView = await this.Extensibility.Editor().GetActiveTextViewAs
 The Visual Studio Editor extensibility object model is composed of a few integral parts.
 
 ### ITextView
-ITextView contains the URI and version information necessary to acquire an ITextDocument as well
+[ITextView](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView) contains the URI and version information necessary to acquire an [ITextDocument](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md##T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument) as well
 as some properties of the text view, such as selections.
 
 - This object is immutable and will never change after it is created.
@@ -113,7 +114,7 @@ as some properties of the text view, such as selections.
 - ITextView cannot be changed directly. All changes are requested via Mutation. See Mutation Section below.
 
 ### ITextDocument
-ITextDocument contains the content of the text document from a point in time or version.
+[ITextDocument](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md##T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument) contains the content of the text document from a point in time or version.
 
 - This object is immutable and will never change after it is created.
 - ITextDocument cannot be changed directly. All changes are requested via Mutation. See Mutation Section below.
@@ -123,7 +124,7 @@ If you are familiar with legacy Visual Studio extensions, ITextDocument is almos
 and supports most of the same methods for accessing the text.
 
 Best Practices:
-- Avoid calling `.GetText()`.
+- Avoid calling [.GetText()](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#M-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument-GetText).
   - You can use Position and Span to represent substrings in the document without expending resources copying or allocating strings. Most APIs will operate in terms of these primitives.
   - You can use the indexer syntax, `textDocument[0]`, to read character by character in the document without copying it to a string.
   - If you must create a string such as for use as a dictionary key, use the overload that takes a Span, to avoid creating a large throwaway string from the entire line or document.
@@ -131,7 +132,7 @@ Best Practices:
 - ITextDocument references large data structures that may consume memory if an old enough version is stored. Best practice is to periodically update Positions and Spans that you are storing long term to the latest document version via their `TranslateTo()` method so the old ITextDocument version can be garbage collected.
 
 ### Position
-Represents a position within the text document. As opposed to `int` positions, the Position type
+Represents a position within the text document. As opposed to `int` positions, the [Position](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#position-type) type
 is aware of the ITextDocument it came from and supports `GetChar()` to directly get the character at that point.
 
 If you are familiar with legacy Visual Studio extensions, Position is almost 1:1 with
@@ -141,7 +142,7 @@ and supports most of the same methods.
 
 ### Span
 Represents a contiguous substring of characters within an ITextDocument. As opposed to a string created with
-`string.Substring()` or `ITextDocument.GetText()`, creating a span doesn't require any allocations or additional
+`string.Substring()` or `ITextDocument.GetText()`, creating a [Span](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#span-type) doesn't require any allocations or additional
 memory. You can later call `Span.GetText()` to realize it into a string in a deferred fashion.
 
 If you are familiar with legacy Visual Studio extensions, Position is almost 1:1 with
@@ -191,7 +192,7 @@ To avoid misplaced edits, editor extension edits are applied like so:
 
 ### Asynchronicity
 
-GetTextDocumentAsync() opens a copy of the text document in the Visual Studio extension. Since extensions run in a
+[ITextView.GetTextDocumentAsync()](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#gettextdocumentasync-method) opens a copy of the text document in the Visual Studio extension. Since extensions run in a
 separate process, all extension interactions are asynchronous, cooperative, and have some caveats:
 
 - GetTextDocumentAsync() may fail if called on a really old ITextDocument because it may no longer be cached by the
@@ -200,8 +201,6 @@ separate process, all extension interactions are asynchronous, cooperative, and 
   be a good idea to call GetTextDocumentAsync() immediately. Doing so fetches the text content for that version of
   the document into your extension, ensuring that a copy of that version is sent to your extension before it expires.
 - GetTextDocumentAsync() or MutateAsync() may fail if the user closes the document.
-
-![Document Open Diagram](DocumentOpenFlow.PNG)
 
 ### RPC Support
 
