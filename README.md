@@ -1,22 +1,55 @@
-# Welcome to VS Extensibility for Partners!
+# Welcome to the VSExtensibility repository!
+This repo is your hub for all [announcements](announcements.md) and documentation for ongoing and upcoming Visual Studio extensibility projects.  Documentation is currently available for the following:
 
-This is a private, currently-confidential repository for Microsoft employees and Visual Studio extension partners with NDAs. The repo consists of private announcements and resources for upoming extensibility updates including Dev17, 64-bit extension migration, and the new extensibility model.
+* Out-of-Proc Extensibility SDK (see below)
+* [Extensions to Language Server Protocol (LSP)](lsp/lsp-extensions-specifications.md) 
 
-This repo contains the following: 
+# VSExtensibility Website 
+For a more readable experience for all of the repo's resources and documentation, please visit the [VSExtensibility site](https://vigilant-guide-985f0fe3.pages.github.io/new-extensibility-model/getting-started/create-your-first-extension.html)
 
-- [Dev17 Enterprise Installer](https://aka.ms/vs/17/pre/701041097_-835410096/vs_Enterprise.exe)
-- [Download VSSDK on NuGet (Dev17 TBA)](https://www.nuget.org/packages/Microsoft.VSSDK.BuildTools/)
-- [Guidance for migrating your 64-bit extensions](https://github.com/microsoft/VSExtensibility/wiki/Extensions-in-Dev17)
-- [Breaking API changes for Dev17](https://github.com/microsoft/VSExtensibility/wiki/Breaking-API-list)
+# Visual Studio Out-Of-Process Extensibility SDK
 
-[Check out the wiki](https://github.com/microsoft/VSExtensibility/wiki) for all Dev17 & 64-bit extension resources, but keep in mind it's a work in progress!
+While the existing model loads extensions in-process, the new extensibility model brings Visual Studio extensions out-of-process. This out-of-proc model gives you the opportunity to create more reliable, secure, and easier-to-write extensions while still providing the in-depth functionality the old model provides. The following documentation describes:
 
-**Warning:** This release of Visual Studio has not been as extensively tested as regular release of Visual Studio. Specifically we don't recommend installing Dev17 side by side with an earlier version that you depend on to work. This version will also not be updated in place, we will provide new installers for updates.
+* The general architecture of the new extensibility model
+* How to take advantage of the new extensibility model’s APIs
+* How to compile and F5 debug an extension with the new model 
+* Resources and code samples to get started writing an extension with the new model
 
-Use of this version of Visual Studio is subject to the [Visual Studio 2022 License](https://github.com/microsoft/VSExtensibility/raw/main/Visual%20Studio%202022%20License%20Confidential.docx) license agreement.
+For future updates please bookmark our [announcements](announcements.md) page
 
-## Reporting Partner Preview Issues
-If you experience any VS-related issues while using the Private Preview, please report them under [Issues](https://github.com/microsoft/VSExtensibility/issues).
+## Getting Started
+* [Introduction to new out-of-process extensibility](new-extensibility-model/getting-started/oop-extensibility-model-overview.md)
+* [Create your first extension](new-extensibility-model/getting-started/create-your-first-extension.md)
+
+## Extension Guides
+* [Parts of a new Visual Studio extension](new-extensibility-model/inside-the-sdk/extension-anatomy.md)
+* [Parts of the SDK](new-extensibility-model/inside-the-sdk/inside-the-sdk.md)
+* [Commands](new-extensibility-model/extension-guides/command/command.md)
+* [Editor components](new-extensibility-model/extension-guides/editor/editor.md)
+* [Rule based conditions](new-extensibility-model/inside-the-sdk/activation-constraints.md)
+
+## Samples and walkthroughs
+A Visual Studio solution containing all samples can be found at [Samples.sln](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/Samples.sln).
+
+* [Simple command handler](new-extensibility-model/getting-started/create-your-first-extension.md) ([Source](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/SimpleRemoteCommandSample))
+* [Markdown Linter](new-extensibility-model/extension-guides/markdown-linter-sample.md) ([Source](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/MarkdownLinter))
+* [Insert guid extension sample](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/InsertGuidExtension)
+* [Command registration, localization sample](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/CommandRegistrationsSample)
+
+## API Docs
+
+The following two namespaces are primary extensibility surface provided by the SDK:
+
+* [Microsoft.VisualStudio.Extensibility](new-extensibility-model/api/Microsoft.VisualStudio.Extensibility.md)
+* [Microsoft.VisualStudio.Extensibility.Editor](new-extensibility-model/api/Microsoft.VisualStudio.Extensibility.Extensibility.editor.md)
+
+The following assemblies contain classes related to infrastructure and underlying implementation for the wrappers in the SDK:
+
+* [Microsoft.VisualStudio.Extensibility.Framework](new-extensibility-model/api/Microsoft.VisualStudio.Extensibility.Framework.md)
+* [Microsoft.VisualStudio.Extensibility.Contracts](new-extensibility-model/api/Microsoft.VisualStudio.Extensibility.Contracts.md)
+* [Microsoft.VisualStudio.Extensibility.EditorHostService](new-extensibility-model/api/Microsoft.VisualStudio.Extensibility.EditorHostService.md)
+* [Microsoft.VisualStudio.ProjectSystem.Query](new-extensibility-model/api/Microsoft.VisualStudio.ProjectSystem.Query.md)
 
 ## Contributing
 
