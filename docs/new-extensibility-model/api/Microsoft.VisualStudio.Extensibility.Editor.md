@@ -11,6 +11,11 @@
   - [ActiveTextViewId](#P-Microsoft-VisualStudio-RpcContracts-Utilities-EditorContext-ActiveTextViewId 'Microsoft.VisualStudio.RpcContracts.Utilities.EditorContext.ActiveTextViewId')
   - [TextDocuments](#P-Microsoft-VisualStudio-RpcContracts-Utilities-EditorContext-TextDocuments 'Microsoft.VisualStudio.RpcContracts.Utilities.EditorContext.TextDocuments')
   - [TextViews](#P-Microsoft-VisualStudio-RpcContracts-Utilities-EditorContext-TextViews 'Microsoft.VisualStudio.RpcContracts.Utilities.EditorContext.TextViews')
+- [EditorExtensibility](#T-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility 'Microsoft.VisualStudio.Extensibility.Editor.EditorExtensibility')
+  - [#ctor(extensibility,editorHostService)](#M-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,Microsoft-VisualStudio-Extensibility-Editor-IEditorHostService- 'Microsoft.VisualStudio.Extensibility.Editor.EditorExtensibility.#ctor(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,Microsoft.VisualStudio.Extensibility.Editor.IEditorHostService)')
+  - [GetActiveTextViewAsync(clientContext,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility-GetActiveTextViewAsync-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Editor.EditorExtensibility.GetActiveTextViewAsync(Microsoft.VisualStudio.Extensibility.Definitions.IClientContext,System.Threading.CancellationToken)')
+  - [MutateAsync(mutator,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility-MutateAsync-System-Action{Microsoft-VisualStudio-Extensibility-Editor-Mutation-IMutatorSource},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Editor.EditorExtensibility.MutateAsync(System.Action{Microsoft.VisualStudio.Extensibility.Editor.Mutation.IMutatorSource},System.Threading.CancellationToken)')
+  - [MutateAsync\`\`1(mutatable,mutator,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility-MutateAsync``1-Microsoft-VisualStudio-Extensibility-Editor-Mutation-IMutatable{``0},System-Action{``0},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Editor.EditorExtensibility.MutateAsync``1(Microsoft.VisualStudio.Extensibility.Editor.Mutation.IMutatable{``0},System.Action{``0},System.Threading.CancellationToken)')
 - [EditorServices](#T-Microsoft-VisualStudio-RpcContracts-Editor-EditorServices 'Microsoft.VisualStudio.RpcContracts.Editor.EditorServices')
   - [TextEditorSynchronizationServiceDescriptor](#P-Microsoft-VisualStudio-RpcContracts-Editor-EditorServices-TextEditorSynchronizationServiceDescriptor 'Microsoft.VisualStudio.RpcContracts.Editor.EditorServices.TextEditorSynchronizationServiceDescriptor')
 - [IEditorHostService](#T-Microsoft-VisualStudio-Extensibility-Editor-IEditorHostService 'Microsoft.VisualStudio.Extensibility.Editor.IEditorHostService')
@@ -389,6 +394,117 @@ State of open text documents.
 
 State of open text views.
 
+<a name='T-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility'></a>
+## EditorExtensibility `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.Editor
+
+##### Summary
+
+Framework object exposing methods for getting and interacting with [ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView')s
+and [ITextDocument](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument')s and performing document edits and other state changes.
+
+##### Remarks
+
+You can get an instance of [EditorExtensibility](#T-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility 'Microsoft.VisualStudio.Extensibility.Editor.EditorExtensibility') by calling
+[Editor](#M-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibilityExtensions-Editor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility- 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibilityExtensions.Editor(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility)') within an
+[ExtensionPart](#T-Microsoft-VisualStudio-Extensibility-ExtensionPart 'Microsoft.VisualStudio.Extensibility.ExtensionPart') or Command.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,Microsoft-VisualStudio-Extensibility-Editor-IEditorHostService-'></a>
+### #ctor(extensibility,editorHostService) `constructor`
+
+##### Summary
+
+Initializes a new instance of [EditorExtensibility](#T-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility 'Microsoft.VisualStudio.Extensibility.Editor.EditorExtensibility').
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | The root extensibility object. |
+| editorHostService | [Microsoft.VisualStudio.Extensibility.Editor.IEditorHostService](#T-Microsoft-VisualStudio-Extensibility-Editor-IEditorHostService 'Microsoft.VisualStudio.Extensibility.Editor.IEditorHostService') | The editor host service. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility-GetActiveTextViewAsync-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext,System-Threading-CancellationToken-'></a>
+### GetActiveTextViewAsync(clientContext,cancellationToken) `method`
+
+##### Summary
+
+Gets the currently focused [ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView') in the host Visual Studio process.
+
+##### Returns
+
+An instance of [ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView') or `null`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| clientContext | [Microsoft.VisualStudio.Extensibility.Definitions.IClientContext](#T-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext 'Microsoft.VisualStudio.Extensibility.Definitions.IClientContext') | The client context, usually passed to command handlers. |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancels the request. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility-MutateAsync-System-Action{Microsoft-VisualStudio-Extensibility-Editor-Mutation-IMutatorSource},System-Threading-CancellationToken-'></a>
+### MutateAsync(mutator,cancellationToken) `method`
+
+##### Summary
+
+Initiates a mutation request in the host Visual Studio process, enabling
+the extension to atomically request one or more [ITextDocument](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument')
+edits, caret position changes, or other state changes.
+
+##### Returns
+
+A response object detailing whether the operation was successful and what [ITextDocument](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument')s and [ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView')s changed.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| mutator | [System.Action{Microsoft.VisualStudio.Extensibility.Editor.Mutation.IMutatorSource}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Action 'System.Action{Microsoft.VisualStudio.Extensibility.Editor.Mutation.IMutatorSource}') | A service for obtaining mutators for requesting changes to a [IMutatable\`1](#T-Microsoft-VisualStudio-Extensibility-Editor-Mutation-IMutatable`1 'Microsoft.VisualStudio.Extensibility.Editor.Mutation.IMutatable`1') object, such as [ITextDocument](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument'). |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancels a pending request. |
+
+##### Remarks
+
+Mutation request is sent to Visual Studio IDE, where it succeeds only if the object being mutated hasn't
+changed since the version the request was made one. If the document has changed, the change may be rejected,
+requiring the extension to retry on newer version.
+
+Mutations are applied atomically. The best practice is to do all changes that should occur within a narrow time
+frame within a single MutateAsync() call to reduce the likelihood of unexpected behavior arising from user edits,
+or language service actions that occur between mutations.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility-MutateAsync``1-Microsoft-VisualStudio-Extensibility-Editor-Mutation-IMutatable{``0},System-Action{``0},System-Threading-CancellationToken-'></a>
+### MutateAsync\`\`1(mutatable,mutator,cancellationToken) `method`
+
+##### Summary
+
+Initiates a mutation request in the host Visual Studio process, enabling
+the extension to atomically request one or more [ITextDocument](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument')
+edits, caret position changes, or other state changes.
+
+##### Returns
+
+A response object detailing whether the operation was successful and what [ITextDocument](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument')s and [ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView')s changed.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| mutatable | [Microsoft.VisualStudio.Extensibility.Editor.Mutation.IMutatable{\`\`0}](#T-Microsoft-VisualStudio-Extensibility-Editor-Mutation-IMutatable{``0} 'Microsoft.VisualStudio.Extensibility.Editor.Mutation.IMutatable{``0}') | An [IMutatable\`1](#T-Microsoft-VisualStudio-Extensibility-Editor-Mutation-IMutatable`1 'Microsoft.VisualStudio.Extensibility.Editor.Mutation.IMutatable`1') object such as [ITextDocument](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument') or [ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView'). |
+| mutator | [System.Action{\`\`0}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Action 'System.Action{``0}') | A mutator for requesting changes to `mutatable`. |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancels a pending request. |
+
+##### Remarks
+
+Mutation request is sent to Visual Studio IDE, where it succeeds only if the object being mutated hasn't
+changed since the version the request was made one. If the document has changed, the change may be rejected,
+requiring the extension to retry on newer version.
+
+Mutations are applied atomically. The best practice is to do all changes that should occur within a narrow time
+frame within a single MutateAsync() call to reduce the likelihood of unexpected behavior arising from user edits,
+or language service actions that occur between mutations.
+
 <a name='T-Microsoft-VisualStudio-RpcContracts-Editor-EditorServices'></a>
 ## EditorServices `type`
 
@@ -725,6 +841,9 @@ Some advanced scenarios may benefit from caching results computed against previo
 supports 'translating' positions and spans on a document between versions using
 [TranslateTo](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-TranslateTo-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument,Microsoft-VisualStudio-Extensibility-Editor-Data-SpanTrackingMode- 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span.TranslateTo(Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument,Microsoft.VisualStudio.Extensibility.Editor.Data.SpanTrackingMode)') and
 [TranslateTo](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-Position-TranslateTo-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument,Microsoft-VisualStudio-Extensibility-Editor-Data-PointTrackingMode- 'Microsoft.VisualStudio.Extensibility.Editor.Data.Position.TranslateTo(Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument,Microsoft.VisualStudio.Extensibility.Editor.Data.PointTrackingMode)'), respectively.
+
+[ITextDocument](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument') is not directly mutable. Any changes must be requested
+via [MutateAsync](#M-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility-MutateAsync-System-Action{Microsoft-VisualStudio-Extensibility-Editor-Mutation-IMutatorSource},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Editor.EditorExtensibility.MutateAsync(System.Action{Microsoft.VisualStudio.Extensibility.Editor.Mutation.IMutatorSource},System.Threading.CancellationToken)').
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument-IsDirty'></a>
 ### IsDirty `property`
@@ -1357,10 +1476,17 @@ Microsoft.VisualStudio.Extensibility.Editor.UI
 
 ##### Summary
 
-Represents an editor that is attached to a document. Should be comparable to a TextView but naming it as an editor
- until we can determine how to create TextViews through our brokered service.
+Provides immutable, read access to properties of a text editor remoted from
+the host Visual Studio.
 
- Similar to https://code.visualstudio.com/api/references/vscode-api#TextEditor.
+##### Remarks
+
+[ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView') represents an editor at a point in time and does not
+change. Most IDE features will be invoked with an [ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView') with
+the state of the editor when the feature was invoked.
+
+[ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView') is not directly mutable. Any changes must be requested
+via [MutateAsync](#M-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility-MutateAsync-System-Action{Microsoft-VisualStudio-Extensibility-Editor-Mutation-IMutatorSource},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Editor.EditorExtensibility.MutateAsync(System.Action{Microsoft.VisualStudio.Extensibility.Editor.Mutation.IMutatorSource},System.Threading.CancellationToken)').
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView-RpcContract'></a>
 ### RpcContract `property`
@@ -1404,8 +1530,7 @@ Microsoft.VisualStudio.Extensibility.Editor.UI
 
 ##### Summary
 
-Extensibility point for listening for [ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView')s to be changed
-in an OOP extension running in service hub.
+Extensibility point for listening for [ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView')s to be changed.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewChangedListener-TextViewChangedAsync-Microsoft-VisualStudio-Extensibility-Editor-UI-TextViewChangedArgs,System-Threading-CancellationToken-'></a>
 ### TextViewChangedAsync() `method`
@@ -1450,7 +1575,7 @@ Microsoft.VisualStudio.Extensibility.Editor.UI
 ##### Summary
 
 Extensibility point for listening for [ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView')s to be opened
-and closed in an OOP extension running in service hub.
+and closed.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewLifetimeListener-TextViewClosedAsync-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView,System-Threading-CancellationToken-'></a>
 ### TextViewClosedAsync() `method`
@@ -4211,11 +4336,11 @@ Editor provided extension methods for acquiring VS extensibility points.
 
 ##### Summary
 
-Gets and instance of the [EditorExtensibility](#T-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility 'Microsoft.VisualStudio.Extensibility.Editor.EditorExtensibility') point.
+Gets an instance of the [EditorExtensibility](#T-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility 'Microsoft.VisualStudio.Extensibility.Editor.EditorExtensibility') point.
 
 ##### Returns
 
-
+Editor extensibility.
 
 ##### Parameters
 
