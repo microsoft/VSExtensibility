@@ -202,6 +202,16 @@ separate process, all extension interactions are asynchronous, cooperative, and 
   the document into your extension, ensuring that a copy of that version is sent to your extension before it expires.
 - GetTextDocumentAsync() or MutateAsync() may fail if the user closes the document.
 
+#### Concurrent Execution
+:warning: | Editor extensions can sometimes run concurrently
+:---: | :---
+
+The initial release has a known issue that can result in concurrent execution of editor extension code. Each async method
+is guaranteed to be called in the correct order but continuations after the first `await` may be interleaved. If your extension
+relies on execution order, consider maintaining a queue of incoming requests to preserve the order, until this issue is fixed.
+
+For more information, see [StreamJsonRpc Default Ordering and Concurrency](https://github.com/microsoft/vs-streamjsonrpc/blob/main/doc/resiliency.md#default-ordering-and-concurrency-behavior).
+
 ### RPC Support
 
 Since the new Visual Studio extensibility model is entirely in a separate process, all APIs have to at some
