@@ -13,9 +13,9 @@ The complete project can be found at [SimpleRemoteCommandSample](https://github.
 
 ## Prerequisites
 
-* Visual Studio 2022 Preview 3 with managed languages workload.
+* Visual Studio 2022 Preview 3 or higher with managed languages workload.
 
-* Visual Studio Extensibility Project Extension: This extension will allow you to debug extension projects using F5. There is currently no other deployment mechanism supported.
+* Install [Out-of-Proc Extensions Project System](https://marketplace.visualstudio.com/items?itemName=vsext.gladstone): This extension will allow you to debug extension projects using F5. There is currently no other deployment mechanism supported.
 
 Extension can be downloaded from: TBD
 
