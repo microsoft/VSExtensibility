@@ -17,8 +17,6 @@ The complete project can be found at [SimpleRemoteCommandSample](https://github.
 
 * Install [Out-of-Proc Extensions Project System](https://marketplace.visualstudio.com/items?itemName=vsext.gladstone): This extension will allow you to debug extension projects using F5. There is currently no other deployment mechanism supported.
 
-Extension can be downloaded from: TBD
-
 ## Create the extension project
 
 * The extensibility APIs are distributed via [nuget packages](https://www.nuget.org/packages/Microsoft.VisualStudio.Extensibility.Sdk), so you can start with an empty .NET 6.0 C# class library project.
