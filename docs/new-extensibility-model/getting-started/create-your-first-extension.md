@@ -34,6 +34,12 @@ The complete project can be found at [SimpleRemoteCommandSample](https://github.
 </ItemGroup>
 ```
 
+* To ensure extension dependencies are copied locally, set the `CopyLocalLockFileAssemblies` property in the project file:
+```
+<PropertyGroup>
+	<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+</PropertyGroup>
+```
 
 * Add a [source.extension.vsixmanifest](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/SimpleRemoteCommandSample/source.extension.vsixmanifest) file to describe your extension including name, description and unique identifier. This information in the future will be used to list the extension in the gallery.
 
@@ -86,7 +92,7 @@ For more information on how to add commands, please refer to [Commands](../exten
 
 * Making sure that your extension project is selected as startup project in Visual Studio, press `F5` to start debugging.
 
-* This will build your extension and deploy it to experimental instance of Visual Studio version your are using. The debugger should attach once your extension is loaded.
+* This will build your extension and deploy it to the experimental instance of Visual Studio version you are using. The debugger should attach once your extension is loaded.
 
 * You can find the command in `Tools` menu as shown.
 
