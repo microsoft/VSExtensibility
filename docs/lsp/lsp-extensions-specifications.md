@@ -14,7 +14,13 @@ These extensions are composed of:
 1. Additional capabilities that a language server can provide to the Visual Studio client. These are defined in [`VSServerCapabilities`](#vsservercapabilities) and can be communicated to the client in the [`InitializeResult.capabilities`](https://microsoft.github.io/language-server-protocol/specifications/specification-3-17/#initializeResult) field of the [`initialize`](https://microsoft.github.io/language-server-protocol/specifications/specification-3-17/#initialize) request.
 1. Additional values for enumerations described in the LSP protocol. For example [`VSDiagnosticTags`](#vsdiagnostictags) extends [`DiagnosticTag`](https://microsoft.github.io/language-server-protocol/specifications/specification-current/#diagnosticTag).
 
-A .NET implementation of these extensions can be found on [NuGet](https://www.nuget.org/packages/Microsoft.VisualStudio.LanguageServer.Protocol.Extensions).
+A .NET implementation of these extensions can be found on [NuGet](https://www.nuget.org/packages/Microsoft.VisualStudio.LanguageServer.Protocol.Extensions). Add a reference to these packages into the language server csproj file (and, if necessary, into the Visual Studio extension csproj file) using the latest package version available on NuGet:
+```xml
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.LanguageServer.Protocol" Version="17.0.4103-g225b54d231" />
+    <PackageReference Include="Microsoft.VisualStudio.LanguageServer.Protocol.Extensions" Version="17.0.4103-g225b54d231" />
+  </ItemGroup>
+```
 
 When using this package in a language server, configure the `JsonSerializer` using `VSExtensionUtilities.AddVSExtensionConverters` in order to allow extensions classes to be correctly deserialized. For example, this allows the `JsonSerializer` to correctly deserialize the [`CodeAction.Diagnostics`](https://microsoft.github.io/language-server-protocol/specifications/specification-3-17/#codeAction) entries of a [`codeAction/resolve`](https://microsoft.github.io/language-server-protocol/specifications/specification-3-17/#codeAction_resolve) request into [`VSDiagnostic`](#vsdiagnostic) objects even if [`CodeAction.Diagnostics`](https://microsoft.github.io/language-server-protocol/specifications/specification-3-17/#codeAction) is defined as an array of [`Diagnostic`](https://microsoft.github.io/language-server-protocol/specifications/specification-current/#diagnostic) objects.
 
