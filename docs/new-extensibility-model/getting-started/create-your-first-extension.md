@@ -70,7 +70,7 @@ namespace SimpleRemoteCommandSample
 	public class CommandHandler : Command
 	{
 		private TraceSource traceSource;
-
+		
 		public CommandHandler(VisualStudioExtensibility extensibility, TraceSource traceSource, ushort id)
 			: base(extensibility, id)
 		{
@@ -79,7 +79,7 @@ namespace SimpleRemoteCommandSample
 
 		public override Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
 		{
-			this.traceSource.TraceInformation($"Executing command {CommandName}");
+			this.traceSource.TraceInformation($"Hello from another process!");
 			return Task.CompletedTask;
 		}
 	}
