@@ -27,7 +27,6 @@ namespace Microsoft.VisualStudio.Extensions.MarkdownLinter
 	/// </remarks>
 	[Command(
 		"VisualStudio.Extensions.MarkdownLinter.RunLinterOnActiveDocument",
-		1,
 		"Run Linter on open file",
 		containerType: typeof(MarkdownLinterExtension),
 		placement: KnownCommandPlacement.ToolsMenu)]
@@ -47,8 +46,8 @@ namespace Microsoft.VisualStudio.Extensions.MarkdownLinter
 		/// <param name="traceSource">Logger instance that can be used to log extension actions.</param>
 		/// <param name="diagnosticsProvider">Local diagnostics provider service instance.</param>
 		/// <param name="id">Command identifier.</param>
-		public RunLinterOnCurrentFileCommand(VisualStudioExtensibility extensibility, TraceSource traceSource, MarkdownDiagnosticsService diagnosticsProvider, ushort id)
-			: base(extensibility, id)
+		public RunLinterOnCurrentFileCommand(VisualStudioExtensibility extensibility, TraceSource traceSource, MarkdownDiagnosticsService diagnosticsProvider, string name)
+			: base(extensibility, name)
 		{
 			this.logger = Requires.NotNull(traceSource, nameof(traceSource));
 			this.diagnosticsProvider = Requires.NotNull(diagnosticsProvider, nameof(diagnosticsProvider));

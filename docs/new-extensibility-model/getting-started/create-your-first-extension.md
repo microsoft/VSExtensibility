@@ -29,8 +29,8 @@ The complete project can be found at [SimpleRemoteCommandSample](https://github.
 
 ```
 <ItemGroup>
-	<PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.0.159-alpha" />
-	<PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.0.159-alpha" />
+	<PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.xxxxx" />
+	<PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.xxxxx" />
 </ItemGroup>
 ```
 
@@ -64,15 +64,14 @@ namespace SimpleRemoteCommandSample
 	[CommandIcon("Extension", IconSettings.IconAndText)]
 	[Command(
         "SimpleRemoteCommandSample.Command", 
-        1 /* command id */, 
         "Sample Remote Command", 
         placement: KnownCommandPlacement.ToolsMenu)]
 	public class CommandHandler : Command
 	{
 		private TraceSource traceSource;
 		
-		public CommandHandler(VisualStudioExtensibility extensibility, TraceSource traceSource, ushort id)
-			: base(extensibility, id)
+		public CommandHandler(VisualStudioExtensibility extensibility, TraceSource traceSource, string name)
+			: base(extensibility, name)
 		{
 			this.traceSource = Requires.NotNull(traceSource, nameof(traceSource));
 		}
