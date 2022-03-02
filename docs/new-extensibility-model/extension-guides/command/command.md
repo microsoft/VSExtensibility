@@ -50,16 +50,29 @@ See the [InsertGuidSample](./../insert-guid-sample.md) sample to get started wit
 
 ### Adding an icon
 
-Commands support adding icons to their menu item in addition to or instead of the display name of the command. To add an icon to your command, add the attribute [Microsoft.VisualStudio.Extensibility.Commands.CommandIconAttribute](./../../api/Microsoft.VisualStudio.Extensibility.md/#commandiconattribute-type) to your command class. Currently you can use any of the [KnownMonikers](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.imaging.knownmonikers?view=visualstudiosdk-2022) currently supported by Visual Studio. Custom monikers are not supported at this time.
+Commands support adding icons to their menu item in addition to or instead of the display name of the command. To add an icon to your command, add the attribute [Microsoft.VisualStudio.Extensibility.Commands.CommandIconAttribute](./../../api/Microsoft.VisualStudio.Extensibility.md/#commandiconattribute-type) to your command class.
 
 | Parameter | Type | Required | Description |
 | --------- |----- | -------- | ----------- |
-| ImageMoniker | String | Yes | The name of any of the [KnownMonikers](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.imaging.knownmonikers?view=visualstudiosdk-2022) currently supported by Visual Studio, with or without the `KnownMonikers` type name. |
+| ImageMoniker | String | Yes | You can either use a custom moniker for an image that you added following the `Adding custom images` section or reference a VS KnownMoniker like `KnownMonikers.AddItem` |
 | IconSettings | IconSettings | Yes | Configures how the command will be displayed. For example `IconSettings.IconAndText` displays the icon alongside the command's display name, whereas `IconSettings.IconOnly` will only show the command's icon and not its DisplayName if parented to a toolbar. |
 
 ```csharp
-[CommandIcon("Extension", IconSettings.IconAndText)]
+[CommandIcon(KnownMonikers.Extension, IconSettings.IconAndText)]
 ```
+or
+```csharp
+[CommandIcon("MyImage", IconSettings.IconAndText)]
+```
+
+### Adding custom images
+
+To add custom images which you can later reference with custom monikers, you will need the following steps:
+1. Rename the image source files to `%Custom Moniker%.*`, files prefixed with the same moniker will be all be used as backing sources for the same image. Different source will be used based on the requested icon size.
+	- For example, `MyImage.16.16.png` (a 16\*16 png), `MyImage.20.20.png` (a 20\*20 png) and `MyImage.xaml` are all considered as sources for `MyImage`. 
+	- When the requested icon size is 16*16, `MyImage.16.16.png` will be used, when requested size is 20\*20, `MyImage.20.20.png` will be used, in all other cases, `MyImage.xaml` will be used. 
+2. Put all of the image source files under `Images` folder.
+	- The default image assets folder is `Images`, but you can also customized it by adding `<ImageAssetsPath>%YourFolder%</ImageAssetsPath>`
 
 ### Controlling command visibility
 

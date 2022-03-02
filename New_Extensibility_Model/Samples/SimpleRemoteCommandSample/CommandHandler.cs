@@ -13,7 +13,7 @@ namespace SimpleRemoteCommandSample
 	/// <summary>
 	/// A sample command handler showing how to declare command definition and simple placement.
 	/// </summary>
-	[CommandIcon("Extension", IconSettings.IconAndText)]
+	[CommandIcon("Extension", IconSettings.IconAndText)] //TODO: update the icon name here after the nuget pacakge is updated
 	[Command(CommandName, CommandId, "Sample Remote Command", placement: KnownCommandPlacement.ToolsMenu)]
 	public class CommandHandler : Command
 	{

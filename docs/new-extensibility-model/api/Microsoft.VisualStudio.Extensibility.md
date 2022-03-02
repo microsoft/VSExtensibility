@@ -413,7 +413,7 @@ Initializes a new instance of the [CommandIconAttribute](#T-Microsoft-VisualStud
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| imageMoniker | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of a KnownMoniker to be used as the icon for a command. |
+| imageMoniker | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of a KnownMoniker or a custom image moniker to be used as the icon for a command. |
 | iconSettings | [Microsoft.VisualStudio.Extensibility.Commands.IconSettings](#T-Microsoft-VisualStudio-Extensibility-Commands-IconSettings 'Microsoft.VisualStudio.Extensibility.Commands.IconSettings') | The settings for how to display the icon. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandIconAttribute-Icon'></a>
