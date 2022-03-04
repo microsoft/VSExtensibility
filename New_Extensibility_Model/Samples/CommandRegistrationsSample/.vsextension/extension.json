@@ -10,7 +10,7 @@
 					"displayName": "%Microsoft.VisualStudio.MyExtension.OutputWindowTest.DisplayName%",
 					"priority": 1000,
 					"icon": {
-						"iconName": "ToolWindow",
+						"iconName": "KnownMonikers.ToolWindow",
 						"iconSettings": "IconOnly"
 					},
 					"appliesWhen": {

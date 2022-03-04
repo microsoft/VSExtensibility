@@ -13,7 +13,7 @@ namespace SampleCommandExtension
 	using Microsoft.VisualStudio.Extensibility.Definitions;
 
 	[Command("Microsoft.VisualStudio.MyExtension.SampleRemoteCommand2", CommandId, "Executed 0 times", placement: KnownCommandPlacement.ToolsMenu)]
-	[CommandIcon("AddItem", IconSettings.IconAndText)]
+	[CommandIcon("MyIcon", IconSettings.IconAndText)]
 	internal class SampleCommand2 : Command
 	{
 		private const int CommandId = 2;
