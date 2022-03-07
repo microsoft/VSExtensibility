@@ -54,7 +54,7 @@ Commands support adding icons to their menu item in addition to or instead of th
 
 | Parameter | Type | Required | Description |
 | --------- |----- | -------- | ----------- |
-| ImageMoniker | String | Yes | You can either use a custom moniker for an image that you added following the `Adding custom images` section or reference a VS KnownMoniker like `KnownMonikers.AddItem` |
+| ImageMoniker | String | Yes | You can either use a custom moniker for an image that you added following the [Adding custom images](#adding-custom-images) section or reference a VS KnownMoniker like `KnownMonikers.AddItem` |
 | IconSettings | IconSettings | Yes | Configures how the command will be displayed. For example `IconSettings.IconAndText` displays the icon alongside the command's display name, whereas `IconSettings.IconOnly` will only show the command's icon and not its DisplayName if parented to a toolbar. |
 
 ```csharp
@@ -67,7 +67,7 @@ or
 
 ### Adding custom images
 
-To add custom images which you can later reference with custom monikers, you will need the following steps:
+With supports added in 17.2, you can now add custom images which you can later reference with custom monikers with the following steps:
 1. Rename the image source files to follow the `%Custom Moniker%.*` pattern (e.g: `MyMoniker.1.png`). Files prefixed with the same moniker will all be used as backing sources for the same custom moniker. Different source will be used based on the requested icon size.
 	- For example, `MyImage.16.16.png` (a 16\*16 png), `MyImage.20.20.png` (a 20\*20 png) and `MyImage.xaml` are all considered as sources for `MyImage`. 
 	- When the requested icon size is 16*16, `MyImage.16.16.png` will be used, when requested size is 20\*20, `MyImage.20.20.png` will be used, in all other cases, `MyImage.xaml` will be used. 
