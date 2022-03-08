@@ -67,7 +67,7 @@ or
 
 ### Adding custom images
 
-With supports added in 17.2, you can now add custom images which you can later reference with custom monikers with the following steps:
+With support added in 17.2, you can now add custom images which you can later reference with custom monikers with the following steps:
 1. Rename the image source files to follow the `%Custom Moniker%.*` pattern (e.g: `MyMoniker.1.png`). Files prefixed with the same moniker will all be used as backing sources for the same custom moniker. Different source will be used based on the requested icon size.
 	- For example, `MyImage.16.16.png` (a 16\*16 png), `MyImage.20.20.png` (a 20\*20 png) and `MyImage.xaml` are all considered as sources for `MyImage`. 
 	- When the requested icon size is 16*16, `MyImage.16.16.png` will be used, when requested size is 20\*20, `MyImage.20.20.png` will be used, in all other cases, `MyImage.xaml` will be used. 
