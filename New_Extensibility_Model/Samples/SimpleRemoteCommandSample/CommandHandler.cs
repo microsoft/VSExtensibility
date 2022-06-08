@@ -13,8 +13,8 @@ namespace SimpleRemoteCommandSample
 	/// <summary>
 	/// A sample command handler showing how to declare command definition and simple placement.
 	/// </summary>
-	[CommandIcon("Extension", IconSettings.IconAndText)]
 	[Command(CommandName, "Sample Remote Command", placement: KnownCommandPlacement.ToolsMenu)]
+	[CommandIcon(KnownMonikers.Extension, IconSettings.IconAndText)]
 	public class CommandHandler : Command
 	{
 		private const string CommandName = "SimpleRemoteCommandSample.Command";
