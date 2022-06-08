@@ -14,10 +14,9 @@ namespace SimpleRemoteCommandSample
 	/// A sample command handler showing how to declare command definition and simple placement.
 	/// </summary>
 	[CommandIcon("Extension", IconSettings.IconAndText)]
-	[Command(CommandName, CommandId, "Sample Remote Command", placement: KnownCommandPlacement.ToolsMenu)]
+	[Command(CommandName, "Sample Remote Command", placement: KnownCommandPlacement.ToolsMenu)]
 	public class CommandHandler : Command
 	{
-		private const ushort CommandId = 1;
 		private const string CommandName = "SimpleRemoteCommandSample.Command";
 
 		/// <summary>
@@ -25,8 +24,8 @@ namespace SimpleRemoteCommandSample
 		/// </summary>
 		/// <param name="extensibility">Extensibility object instance.</param>
 		/// <param name="id">Command identifier.</param>
-		public CommandHandler(VisualStudioExtensibility extensibility, ushort id)
-			: base(extensibility, id)
+		public CommandHandler(VisualStudioExtensibility extensibility, string name)
+			: base(extensibility, name)
 		{
 		}
 

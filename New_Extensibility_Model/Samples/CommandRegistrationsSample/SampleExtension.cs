@@ -24,7 +24,7 @@ namespace SampleCommandExtension
 			Requires.NotNull(commandSet, nameof(commandSet));
 
 			// We can register a command via an execution delegate.
-			var command = commandSet.RegisterCommand("Microsoft.VisualStudio.MyExtension.WriteToOutputWindow", 3, this.WriteToOutputWindowAsync);
+			var command = commandSet.RegisterCommand("Microsoft.VisualStudio.MyExtension.WriteToOutputWindow", this.WriteToOutputWindowAsync);
 
 			// or register through the CommandAttribute (see SampleCommand2.cs).
 			return base.InitializeCommandsAsync(commandSet);
