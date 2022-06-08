@@ -21,21 +21,19 @@ The attribute [Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute](.
 | Parameter | Type | Required | Description |
 | --------- |----- | -------- | ----------- |
 | Name | String | Yes | A globally unique identifier for the command. It is recommended to use the full class name of your command here. |
-| Id | ushort | Yes | A locally unique identifier for your command within your extension. Each command within your extension should use a different value. |
 | DisplayName | String | Yes | The default display name of your command. Surround this string with the '%' character to enable localizing this string. See more on this at [Localizing a command](#localizing-a-command). |
 | ContainerType | Type? | No | The type that is to act as the CommandSet for this command. Setting this parameter to null automatically generates a default CommandSet for your command. |
 | Placement | KnownCommandPlacement | No | Indicates where within Visual Studio your command should be parented. If no placement is provided the command defaults to being parented to the Standard toolbar. |
 | ClientContexts | String | No | Client contexts requested by the command, separated by ','. By default the Shell and Editor contexts are returned. A client context is a snapshot of specific IDE states at the time a command was originally executed. Since these commands are executed asynchronously this state could change between the time the user executed the command and the command handler running. See more on this at [Client contexts](./../../inside-the-sdk/activation-constraints.md/#client-contexts). |
 
 ```csharp
-[Command(CommandName, CommandId, "Sample Remote Command", placement: KnownCommandPlacement.ToolsMenu)]
+[Command(CommandName, "Sample Remote Command", placement: KnownCommandPlacement.ToolsMenu)]
 public class CommandHandler : Command
 {
-	private const ushort CommandId = 1;
 	private const string CommandName = "SimpleRemoteCommandSample.Command";
 
-	public CommandHandler(VisualStudioExtensibility extensibility, TraceSource traceSource, ushort id)
-		: base(extensibility, id)
+	public CommandHandler(VisualStudioExtensibility extensibility, TraceSource traceSource, string name)
+		: base(extensibility, name)
 	{
 	}
 
@@ -117,7 +115,7 @@ The text displayed on a command can be localized by including `string-resources.
 
 Localized Command DisplayName
 ```csharp
-[Command(CommandName, CommandId, "%Microsoft.VisualStudio.MyExtension.SampleRemoteCommand.DisplayName%", placement: KnownCommandPlacement.ToolsMenu)]
+[Command(CommandName, "%Microsoft.VisualStudio.MyExtension.SampleRemoteCommand.DisplayName%", placement: KnownCommandPlacement.ToolsMenu)]
 ```
 
 #### string-resources.json

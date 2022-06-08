@@ -17,7 +17,6 @@ The extension consist of a single code file that defines a command and its prope
 ```csharp
 [Command(
 	"Microsoft.VisualStudio.InsertGuidExtension.InsertGuidCommand",
-	1,
 	"Insert new guid",
 	placement: KnownCommandPlacement.ExtensionsMenu)]
 [CommandIcon("OfficeWebExtension", IconSettings.IconAndText)]

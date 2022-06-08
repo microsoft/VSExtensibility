@@ -16,7 +16,6 @@ namespace Microsoft.VisualStudio.Gladstone.InsertGuidExtension
 
 	[Command(
 		"Microsoft.VisualStudio.InsertGuidExtension.InsertGuidCommand",
-		1,
 		"Insert new guid",
 		placement: KnownCommandPlacement.ExtensionsMenu,
 		clientContexts: "Editor,Shell")]
@@ -26,8 +25,8 @@ namespace Microsoft.VisualStudio.Gladstone.InsertGuidExtension
 	{
 		private readonly TraceSource logger;
 
-		public InsertGuidCommand(VisualStudioExtensibility extensibility, TraceSource traceSource, ushort id)
-			: base(extensibility, id)
+		public InsertGuidCommand(VisualStudioExtensibility extensibility, TraceSource traceSource, string name)
+			: base(extensibility, name)
 		{
 			this.logger = Requires.NotNull(traceSource, nameof(traceSource));
 		}

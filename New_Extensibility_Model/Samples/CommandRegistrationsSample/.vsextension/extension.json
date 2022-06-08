@@ -6,7 +6,6 @@
 			"commands": [
 				{
 					"name": "Microsoft.VisualStudio.MyExtension.OutputWindowTest",
-					"id": 3,
 					"displayName": "%Microsoft.VisualStudio.MyExtension.OutputWindowTest.DisplayName%",
 					"priority": 1000,
 					"icon": {
