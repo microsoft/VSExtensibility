@@ -1,0 +1,80 @@
+{
+  "controlContainers": [
+    {
+      "name": "GladstoneCommentRemover.CommentRemoverMenu",
+      "type": "Menu",
+      "displayName": "Comments",
+      "priority": 1
+    }
+  ],
+  "controlGroups": [
+    {
+      "name": "GladstoneCommentRemover.CommentRemoverMenuGroup1",
+      "parent": {
+        "parentName": "GladstoneCommentRemover.CommentRemoverMenu"
+      },
+      "priority": 1
+    },
+    {
+      "name": "GladstoneCommentRemover.CommentRemoverMenuGroup2",
+      "parent": {
+        "parentName": "GladstoneCommentRemover.CommentRemoverMenu"
+      },
+      "priority": 2
+    },
+    {
+      "name": "GladstoneCommentRemover.CommentRemoverMenuGroup3",
+      "parent": {
+        "parentName": "GladstoneCommentRemover.CommentRemoverMenu"
+      },
+      "priority": 3
+    }
+  ],
+  "controlPlacements": [
+    {
+      "controlName": "GladstoneCommentRemover.RemoveAllComment",
+      "parent": {
+        "parentName": "GladstoneCommentRemover.CommentRemoverMenuGroup1"
+      }
+    },
+    {
+      "controlName": "GladstoneCommentRemover.RemoveXmlDocComments",
+      "parent": {
+        "parentName": "GladstoneCommentRemover.CommentRemoverMenuGroup1"
+      }
+    },
+    {
+      "controlName": "GladstoneCommentRemover.RemoveAllExceptXmlDocComments",
+      "parent": {
+        "parentName": "GladstoneCommentRemover.CommentRemoverMenuGroup1"
+      }
+    },
+    {
+      "controlName": "GladstoneCommentRemover.RemoveTasks",
+      "parent": {
+        "parentName": "GladstoneCommentRemover.CommentRemoverMenuGroup2"
+      }
+    },
+    {
+      "controlName": "GladstoneCommentRemover.RemoveAllExceptTaskComments",
+      "parent": {
+        "parentName": "GladstoneCommentRemover.CommentRemoverMenuGroup2"
+      }
+    },
+    {
+      "controlName": "GladstoneCommentRemover.RemoveRegions",
+      "parent": {
+        "parentName": "GladstoneCommentRemover.CommentRemoverMenuGroup3"
+      }
+    },
+    {
+      "controlName": "GladstoneCommentRemover.CommentRemoverMenu",
+      "parent": {
+        "legacyParentId": {
+          "guid": "{d309f791-903f-11d0-9efc-00a0c911004f}",
+          "id": 24577 // Extensions -> Reparented Extension Menus
+        }
+      }
+    }
+  ]
+}
