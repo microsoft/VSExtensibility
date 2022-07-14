@@ -4,7 +4,7 @@ description: A reference for creating your first OOP extension
 date: 2021-8-16
 ---
 
-# Creating your first Out-Of-Process Visual Studio extension
+# Creating your first out-of-process Visual Studio extension
 
 ## Introduction
 This document is a quick walkthrough on how to create your first extension using the new out-of-process extensibility model.

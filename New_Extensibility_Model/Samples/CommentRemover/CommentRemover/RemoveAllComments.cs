@@ -21,127 +21,127 @@ using System.Threading.Tasks;
 [CommandShortcut(mod1: "Control", key1: "K", mod2: "Control", key2: "Q")]
 [Command("GladstoneCommentRemover.RemoveAllComment", CommandDescription)]
 [CommandEnabledWhen(
-    "IsValidFile",
-    new string[] { "IsValidFile" },
-    new string[] { "ClientContext:Shell.ActiveSelectionFileName=(.cs|.vb|.fs)$" })]
+	"IsValidFile",
+	new string[] { "IsValidFile" },
+	new string[] { "ClientContext:Shell.ActiveSelectionFileName=(.cs|.vb|.fs)$" })]
 public class RemoveAllComments : BaseCommand
 {
-    private const string CommandDescription = "Remove All";
+	private const string CommandDescription = "Remove All";
 
-    public RemoveAllComments(
-        VisualStudioExtensibility extensibility,
-        TraceSource traceSource,
-        AsyncServiceProviderInjection<DTE, DTE2> dte,
-        MefInjection<IBufferTagAggregatorFactoryService> bufferTagAggregatorFactoryService,
-        MefInjection<IVsEditorAdaptersFactoryService> editorAdaptersFactoryService,
-        AsyncServiceProviderInjection<SVsTextManager, IVsTextManager> textManager,
-        string id)
-        : base(extensibility, traceSource, dte, bufferTagAggregatorFactoryService, editorAdaptersFactoryService, textManager, id)
-    {
-    }
+	public RemoveAllComments(
+		VisualStudioExtensibility extensibility,
+		TraceSource traceSource,
+		AsyncServiceProviderInjection<DTE, DTE2> dte,
+		MefInjection<IBufferTagAggregatorFactoryService> bufferTagAggregatorFactoryService,
+		MefInjection<IVsEditorAdaptersFactoryService> editorAdaptersFactoryService,
+		AsyncServiceProviderInjection<SVsTextManager, IVsTextManager> textManager,
+		string id)
+		: base(extensibility, traceSource, dte, bufferTagAggregatorFactoryService, editorAdaptersFactoryService, textManager, id)
+	{
+	}
 
 	public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
 	{
-        if (!await context.ShowPromptAsync("All comments will be removed from the current document. Are you sure?", PromptOptions.OKCancel, cancellationToken))
-            return;
+		if (!await context.ShowPromptAsync("All comments will be removed from the current document. Are you sure?", PromptOptions.OKCancel, cancellationToken))
+			return;
 
-        using var reporter = await Extensibility.Shell().StartProgressReportingAsync("Removing comments", options: new(isWorkCancellable: false), cancellationToken);
+		using var reporter = await this.Extensibility.Shell().StartProgressReportingAsync("Removing comments", options: new(isWorkCancellable: false), cancellationToken);
 
-        await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
+		await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
 
-        var view = await GetCurentTextViewAsync();
-        var mappingSpans = await GetClassificationSpansAsync(view, "comment");
-        if (!mappingSpans.Any())
-            return;
+		var view = await this.GetCurentTextViewAsync();
+		var mappingSpans = await this.GetClassificationSpansAsync(view, "comment");
+		if (!mappingSpans.Any())
+			return;
 
-        var dte = await Dte.GetServiceAsync();
-        try
-        {
-            dte.UndoContext.Open(CommandDescription);
+		var dte = await this.Dte.GetServiceAsync();
+		try
+		{
+			dte.UndoContext.Open(CommandDescription);
 
-            DeleteFromBuffer(view, mappingSpans);
-        }
-        catch (Exception ex)
-        {
-            Debug.Write(ex);
-        }
-        finally
-        {
-            dte.UndoContext.Close();
-        }
-    }
+			DeleteFromBuffer(view, mappingSpans);
+		}
+		catch (Exception ex)
+		{
+			Debug.Write(ex);
+		}
+		finally
+		{
+			dte.UndoContext.Close();
+		}
+	}
 
-    private static void DeleteFromBuffer(IWpfTextView view, IEnumerable<IMappingSpan> mappingSpans)
-    {
-        var affectedLines = new List<int>();
+	private static void DeleteFromBuffer(IWpfTextView view, IEnumerable<IMappingSpan> mappingSpans)
+	{
+		var affectedLines = new List<int>();
 
-        RemoveCommentSpansFromBuffer(view, mappingSpans, affectedLines);
-        RemoveAffectedEmptyLines(view, affectedLines);
-    }
+		RemoveCommentSpansFromBuffer(view, mappingSpans, affectedLines);
+		RemoveAffectedEmptyLines(view, affectedLines);
+	}
 
-    private static void RemoveCommentSpansFromBuffer(IWpfTextView view, IEnumerable<IMappingSpan> mappingSpans, IList<int> affectedLines)
-    {
-        using (var edit = view.TextBuffer.CreateEdit())
-        {
-            foreach (var mappingSpan in mappingSpans)
-            {
-                var start = mappingSpan.Start.GetPoint(view.TextBuffer, PositionAffinity.Predecessor);
-                var end = mappingSpan.End.GetPoint(view.TextBuffer, PositionAffinity.Successor);
+	private static void RemoveCommentSpansFromBuffer(IWpfTextView view, IEnumerable<IMappingSpan> mappingSpans, IList<int> affectedLines)
+	{
+		using (var edit = view.TextBuffer.CreateEdit())
+		{
+			foreach (var mappingSpan in mappingSpans)
+			{
+				var start = mappingSpan.Start.GetPoint(view.TextBuffer, PositionAffinity.Predecessor);
+				var end = mappingSpan.End.GetPoint(view.TextBuffer, PositionAffinity.Successor);
 
-                if (!start.HasValue || !end.HasValue)
-                    continue;
+				if (!start.HasValue || !end.HasValue)
+					continue;
 
-                var span = new Span(start.Value, end.Value - start.Value);
-                var lines = view.TextBuffer.CurrentSnapshot.Lines.Where(l => l.Extent.IntersectsWith(span));
+				var span = new Span(start.Value, end.Value - start.Value);
+				var lines = view.TextBuffer.CurrentSnapshot.Lines.Where(l => l.Extent.IntersectsWith(span));
 
-                foreach (var line in lines)
-                {
-                    if (Utilities.IsXmlDocComment(line))
-                    {
-                        edit.Replace(line.Start, line.Length, string.Empty.PadLeft(line.Length));
-                    }
+				foreach (var line in lines)
+				{
+					if (IsXmlDocComment(line))
+					{
+						edit.Replace(line.Start, line.Length, string.Empty.PadLeft(line.Length));
+					}
 
-                    if (!affectedLines.Contains(line.LineNumber))
-                        affectedLines.Add(line.LineNumber);
-                }
+					if (!affectedLines.Contains(line.LineNumber))
+						affectedLines.Add(line.LineNumber);
+				}
 
-                var mappingText = view.TextBuffer.CurrentSnapshot.GetText(span.Start, span.Length);
-                string empty = Regex.Replace(mappingText, "([\\S]+)", string.Empty);
+				var mappingText = view.TextBuffer.CurrentSnapshot.GetText(span.Start, span.Length);
+				string empty = Regex.Replace(mappingText, "([\\S]+)", string.Empty);
 
-                edit.Replace(span.Start, span.Length, empty);
-            }
+				edit.Replace(span.Start, span.Length, empty);
+			}
 
-            edit.Apply();
-        }
-    }
+			edit.Apply();
+		}
+	}
 
-    private static void RemoveAffectedEmptyLines(IWpfTextView view, IList<int> affectedLines)
-    {
-        if (!affectedLines.Any())
-            return;
+	private static void RemoveAffectedEmptyLines(IWpfTextView view, IList<int> affectedLines)
+	{
+		if (!affectedLines.Any())
+			return;
 
-        using (var edit = view.TextBuffer.CreateEdit())
-        {
-            foreach (var lineNumber in affectedLines)
-            {
-                var line = view.TextBuffer.CurrentSnapshot.GetLineFromLineNumber(lineNumber);
+		using (var edit = view.TextBuffer.CreateEdit())
+		{
+			foreach (var lineNumber in affectedLines)
+			{
+				var line = view.TextBuffer.CurrentSnapshot.GetLineFromLineNumber(lineNumber);
 
-                if (Utilities.IsLineEmpty(line))
-                {
-                    // Strip next line if empty
-                    if (view.TextBuffer.CurrentSnapshot.LineCount > line.LineNumber + 1)
-                    {
-                        var next = view.TextBuffer.CurrentSnapshot.GetLineFromLineNumber(lineNumber + 1);
+				if (IsLineEmpty(line))
+				{
+					// Strip next line if empty
+					if (view.TextBuffer.CurrentSnapshot.LineCount > line.LineNumber + 1)
+					{
+						var next = view.TextBuffer.CurrentSnapshot.GetLineFromLineNumber(lineNumber + 1);
 
-                        if (Utilities.IsLineEmpty(next))
-                            edit.Delete(next.Start, next.LengthIncludingLineBreak);
-                    }
+						if (IsLineEmpty(next))
+							edit.Delete(next.Start, next.LengthIncludingLineBreak);
+					}
 
-                    edit.Delete(line.Start, line.LengthIncludingLineBreak);
-                }
-            }
+					edit.Delete(line.Start, line.LengthIncludingLineBreak);
+				}
+			}
 
-            edit.Apply();
-        }
-    }
+			edit.Apply();
+		}
+	}
 }
