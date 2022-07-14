@@ -48,7 +48,7 @@ The `MefInjection<TService>` and `AsyncServiceProviderInjection<TService, TInter
 The example below shows how the `DTE2` and `IBufferTagAggregatorFactoryService` services can be added to a command.
 
 ```CSharp
-    [CommandIcon("Extension", IconSettings.IconAndText)]
+    [CommandIcon(KnownMonikers.Extension, IconSettings.IconAndText)]
     [Command("MyFirstInProcExtension.Command1", "Sample Remote Command", placement: KnownCommandPlacement.ToolsMenu)]
     public class Command1 : Command
     {
