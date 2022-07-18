@@ -18,6 +18,7 @@ For future updates please bookmark our [announcements](docs/announcements.md) pa
 ## Getting Started
 * [Introduction to new out-of-process extensibility](docs/new-extensibility-model/getting-started/oop-extensibility-model-overview.md)
 * [Create your first extension](docs/new-extensibility-model/getting-started/create-your-first-extension.md)
+* [Create an in-proc extension](docs/new-extensibility-model/getting-started/in-proc-extensions.md)
 
 ## Extension Guides
 * [Parts of a new Visual Studio extension](docs/new-extensibility-model/inside-the-sdk/extension-anatomy.md)
@@ -33,6 +34,7 @@ A Visual Studio solution containing all samples can be found at [Samples.sln](ht
 * [Markdown Linter](docs/new-extensibility-model/extension-guides/markdown-linter-sample.md) ([Source](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/MarkdownLinter))
 * [Insert guid extension sample](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/InsertGuidExtension)
 * [Command registration, localization sample](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/CommandRegistrationsSample)
+* [Comment Remover, in-proc extension sample](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/CommentRemover)
 
 ## API Docs
 

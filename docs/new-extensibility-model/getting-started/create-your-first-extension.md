@@ -4,7 +4,7 @@ description: A reference for creating your first OOP extension
 date: 2021-8-16
 ---
 
-# Creating your first Out-Of-Process Visual Studio extension
+# Creating your first out-of-process Visual Studio extension
 
 ## Introduction
 This document is a quick walkthrough on how to create your first extension using the new out-of-process extensibility model.
@@ -15,7 +15,7 @@ The complete project can be found at [SimpleRemoteCommandSample](https://github.
 
 * Visual Studio 2022 Preview 3 or higher with managed languages workload.
 
-* Install [Out-of-Proc Extensions Project System](https://marketplace.visualstudio.com/items?itemName=vsext.gladstone): This extension will allow you to debug extension projects using F5. There is currently no other deployment mechanism supported.
+* Install [VisualStudio.Extensibility Project System](https://marketplace.visualstudio.com/items?itemName=vsext.gladstone): This extension will allow you to debug extension projects using F5. There is currently no other deployment mechanism supported.
 
 ## Create the extension project
 
