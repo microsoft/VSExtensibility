@@ -15,9 +15,9 @@ using Microsoft.VisualStudio.Threading;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 
-public abstract class BaseCommand : Microsoft.VisualStudio.Extensibility.Commands.Command
+internal abstract class CommentRemoverCommand : Microsoft.VisualStudio.Extensibility.Commands.Command
 {
-	public BaseCommand(
+	public CommentRemoverCommand(
 		VisualStudioExtensibility extensibility,
 		TraceSource traceSource,
 		AsyncServiceProviderInjection<DTE, DTE2> dte,

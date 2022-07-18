@@ -19,12 +19,12 @@ using System.Threading.Tasks;
 
 [CommandIcon(KnownMonikers.Uncomment, IconSettings.IconAndText)]
 [CommandShortcut(mod1: "Control", key1: "K", mod2: "Control", key2: "Q")]
-[Command("GladstoneCommentRemover.RemoveAllComment", CommandDescription)]
+[Command("CommentRemover.RemoveAllComment", CommandDescription)]
 [CommandEnabledWhen(
 	"IsValidFile",
 	new string[] { "IsValidFile" },
-	new string[] { "ClientContext:Shell.ActiveSelectionFileName=(.cs|.vb|.fs)$" })]
-public class RemoveAllComments : BaseCommand
+	new string[] { @"ClientContext:Shell.ActiveSelectionFileName=\.(cs|vb|fs)$" })]
+internal class RemoveAllComments : CommentRemoverCommand
 {
 	private const string CommandDescription = "Remove All";
 
@@ -49,6 +49,7 @@ public class RemoveAllComments : BaseCommand
 
 		await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
 
+		// Not using context.GetActiveTextViewAsync here because VisualStudio.Extensibility doesn't support classification yet.
 		var view = await this.GetCurentTextViewAsync();
 		var mappingSpans = await this.GetClassificationSpansAsync(view, "comment");
 		if (!mappingSpans.Any())
@@ -63,7 +64,7 @@ public class RemoveAllComments : BaseCommand
 		}
 		catch (Exception ex)
 		{
-			Debug.Write(ex);
+			this.TraceSource.TraceInformation(ex.ToString());
 		}
 		finally
 		{

@@ -16,12 +16,12 @@ using System.Threading;
 using System.Threading.Tasks;
 
 [CommandIcon("DeleteRegions", IconSettings.IconAndText)]
-[Command("GladstoneCommentRemover.RemoveRegions", CommandDescription)]
+[Command("CommentRemover.RemoveRegions", CommandDescription)]
 [CommandEnabledWhen(
 	"IsValidFile",
 	new string[] { "IsValidFile" },
-	new string[] { "ClientContext:Shell.ActiveSelectionFileName=(.cs|.vb|.fs)$" })]
-public class RemoveRegions : BaseCommand
+	new string[] { @"ClientContext:Shell.ActiveSelectionFileName=\.(cs|vb|fs)$" })]
+internal class RemoveRegions : CommentRemoverCommand
 {
 	private const string CommandDescription = "Remove Regions";
 
@@ -46,6 +46,7 @@ public class RemoveRegions : BaseCommand
 
 		await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
 
+		// Not using context.GetActiveTextViewAsync here because VisualStudio.Extensibility doesn't support classification yet.
 		var view = await this.GetCurentTextViewAsync();
 		var dte = await this.Dte.GetServiceAsync();
 		try
@@ -56,7 +57,7 @@ public class RemoveRegions : BaseCommand
 		}
 		catch (Exception ex)
 		{
-			Debug.Write(ex);
+			this.TraceSource.TraceInformation(ex.ToString());
 		}
 		finally
 		{

@@ -17,12 +17,12 @@ using System.Threading;
 using System.Threading.Tasks;
 
 [CommandIcon(KnownMonikers.DeleteTaskList, IconSettings.IconAndText)]
-[Command("GladstoneCommentRemover.RemoveTasks", CommandDescription)]
+[Command("CommentRemover.RemoveTasks", CommandDescription)]
 [CommandEnabledWhen(
 	"IsValidFile",
 	new string[] { "IsValidFile" },
-	new string[] { "ClientContext:Shell.ActiveSelectionFileName=(.cs|.vb|.fs)$" })]
-public class RemoveTasks : BaseCommand
+	new string[] { @"ClientContext:Shell.ActiveSelectionFileName=\.(cs|vb|fs)$" })]
+internal class RemoveTasks : CommentRemoverCommand
 {
 	private const string CommandDescription = "Remove Tasks";
 	private static readonly string[] TaskCaptions = { "todo", "hack", "undone", "unresolvedmergeconflict" };
@@ -48,6 +48,7 @@ public class RemoveTasks : BaseCommand
 
 		await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
 
+		// Not using context.GetActiveTextViewAsync here because the classification feature is not supported by VisualStudio.Extensibility yet.
 		var view = await this.GetCurentTextViewAsync();
 		var mappingSpans = await this.GetClassificationSpansAsync(view, "comment");
 		if (!mappingSpans.Any())
@@ -62,7 +63,7 @@ public class RemoveTasks : BaseCommand
 		}
 		catch (Exception ex)
 		{
-			Debug.Write(ex);
+			this.TraceSource.TraceInformation(ex.ToString());
 		}
 		finally
 		{

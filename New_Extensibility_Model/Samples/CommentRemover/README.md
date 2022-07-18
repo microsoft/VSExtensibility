@@ -32,12 +32,12 @@ Finally, I will set up shortcuts, icons and a rule about when the commands are e
 ```CSharp
 [CommandIcon(KnownMonikers.Uncomment, IconSettings.IconAndText)]
 [CommandShortcut(mod1: "Control", key1: "K", mod2: "Control", key2: "Q")]
-[Command("GladstoneCommentRemover.RemoveAllComment", CommandDescription)]
+[Command("CommentRemover.RemoveAllComment", CommandDescription)]
 [CommandEnabledWhen(
     "IsValidFile",
     new string[] { "IsValidFile" },
-    new string[] { "ClientContext:Shell.ActiveSelectionFileName=(.cs|.vb|.fs)$" })]
-public class RemoveAllComments : BaseCommand
+    new string[] { @"ClientContext:Shell.ActiveSelectionFileName=\.(cs|vb|fs)$" })]
+public class RemoveAllComments : CommentRemoverCommand
 {
     private const string CommandDescription = "Remove All";
 

@@ -18,12 +18,12 @@ using System.Threading;
 using System.Threading.Tasks;
 
 [CommandIcon(KnownMonikers.Dictionary, IconSettings.IconAndText)]
-[Command("GladstoneCommentRemover.RemoveAllExceptXmlDocComments", CommandDescription)]
+[Command("CommentRemover.RemoveAllExceptXmlDocComments", CommandDescription)]
 [CommandEnabledWhen(
 	"IsValidFile",
 	new string[] { "IsValidFile" },
-	new string[] { "ClientContext:Shell.ActiveSelectionFileName=(.cs|.vb|.fs)$" })]
-public class RemoveAllExceptXmlDocComments : BaseCommand
+	new string[] { @"ClientContext:Shell.ActiveSelectionFileName=\.(cs|vb|fs)$" })]
+internal class RemoveAllExceptXmlDocComments : CommentRemoverCommand
 {
 	private const string CommandDescription = "Remove All Except Xml Docs";
 
@@ -48,6 +48,7 @@ public class RemoveAllExceptXmlDocComments : BaseCommand
 
 		await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
 
+		// Not using context.GetActiveTextViewAsync here because VisualStudio.Extensibility doesn't support classification yet.
 		var view = await this.GetCurentTextViewAsync();
 		var mappingSpans = await this.GetClassificationSpansAsync(view, "comment");
 		if (!mappingSpans.Any())
@@ -62,7 +63,7 @@ public class RemoveAllExceptXmlDocComments : BaseCommand
 		}
 		catch (Exception ex)
 		{
-			Debug.Write(ex);
+			this.TraceSource.TraceInformation(ex.ToString());
 		}
 		finally
 		{

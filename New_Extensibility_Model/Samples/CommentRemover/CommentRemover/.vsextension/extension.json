@@ -1,7 +1,7 @@
 {
   "controlContainers": [
     {
-      "name": "GladstoneCommentRemover.CommentRemoverMenu",
+      "name": "CommentRemover.CommentRemoverMenu",
       "type": "Menu",
       "displayName": "Comments",
       "priority": 1
@@ -9,66 +9,66 @@
   ],
   "controlGroups": [
     {
-      "name": "GladstoneCommentRemover.CommentRemoverMenuGroup1",
+      "name": "CommentRemover.CommentRemoverMenuGroup1",
       "parent": {
-        "parentName": "GladstoneCommentRemover.CommentRemoverMenu"
+        "parentName": "CommentRemover.CommentRemoverMenu"
       },
       "priority": 1
     },
     {
-      "name": "GladstoneCommentRemover.CommentRemoverMenuGroup2",
+      "name": "CommentRemover.CommentRemoverMenuGroup2",
       "parent": {
-        "parentName": "GladstoneCommentRemover.CommentRemoverMenu"
+        "parentName": "CommentRemover.CommentRemoverMenu"
       },
       "priority": 2
     },
     {
-      "name": "GladstoneCommentRemover.CommentRemoverMenuGroup3",
+      "name": "CommentRemover.CommentRemoverMenuGroup3",
       "parent": {
-        "parentName": "GladstoneCommentRemover.CommentRemoverMenu"
+        "parentName": "CommentRemover.CommentRemoverMenu"
       },
       "priority": 3
     }
   ],
   "controlPlacements": [
     {
-      "controlName": "GladstoneCommentRemover.RemoveAllComment",
+      "controlName": "CommentRemover.RemoveAllComment",
       "parent": {
-        "parentName": "GladstoneCommentRemover.CommentRemoverMenuGroup1"
+        "parentName": "CommentRemover.CommentRemoverMenuGroup1"
       }
     },
     {
-      "controlName": "GladstoneCommentRemover.RemoveXmlDocComments",
+      "controlName": "CommentRemover.RemoveXmlDocComments",
       "parent": {
-        "parentName": "GladstoneCommentRemover.CommentRemoverMenuGroup1"
+        "parentName": "CommentRemover.CommentRemoverMenuGroup1"
       }
     },
     {
-      "controlName": "GladstoneCommentRemover.RemoveAllExceptXmlDocComments",
+      "controlName": "CommentRemover.RemoveAllExceptXmlDocComments",
       "parent": {
-        "parentName": "GladstoneCommentRemover.CommentRemoverMenuGroup1"
+        "parentName": "CommentRemover.CommentRemoverMenuGroup1"
       }
     },
     {
-      "controlName": "GladstoneCommentRemover.RemoveTasks",
+      "controlName": "CommentRemover.RemoveTasks",
       "parent": {
-        "parentName": "GladstoneCommentRemover.CommentRemoverMenuGroup2"
+        "parentName": "CommentRemover.CommentRemoverMenuGroup2"
       }
     },
     {
-      "controlName": "GladstoneCommentRemover.RemoveAllExceptTaskComments",
+      "controlName": "CommentRemover.RemoveAllExceptTaskComments",
       "parent": {
-        "parentName": "GladstoneCommentRemover.CommentRemoverMenuGroup2"
+        "parentName": "CommentRemover.CommentRemoverMenuGroup2"
       }
     },
     {
-      "controlName": "GladstoneCommentRemover.RemoveRegions",
+      "controlName": "CommentRemover.RemoveRegions",
       "parent": {
-        "parentName": "GladstoneCommentRemover.CommentRemoverMenuGroup3"
+        "parentName": "CommentRemover.CommentRemoverMenuGroup3"
       }
     },
     {
-      "controlName": "GladstoneCommentRemover.CommentRemoverMenu",
+      "controlName": "CommentRemover.CommentRemoverMenu",
       "parent": {
         "legacyParentId": {
           "guid": "{d309f791-903f-11d0-9efc-00a0c911004f}",
