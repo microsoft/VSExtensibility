@@ -26,6 +26,7 @@ For future updates please bookmark our [announcements](docs/announcements.md) pa
 * [Commands](docs/new-extensibility-model/extension-guides/command/command.md)
 * [Editor components](docs/new-extensibility-model/extension-guides/editor/editor.md)
 * [Rule based conditions](docs/new-extensibility-model/inside-the-sdk/activation-constraints.md)
+* [Remote UI](docs/new-extensibility-model/inside-the-sdk/remote-ui)
 
 ## Samples and walkthroughs
 A Visual Studio solution containing all samples can be found at [Samples.sln](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/Samples.sln).
