@@ -34,8 +34,8 @@ public class CommandWithCallback : Command
 {
 	private const string CommandId = "SimpleRemoteCommandSample.Command";
 
-	public CommandWithCallback(VisualStudioExtensibility extensibility, TraceSource traceSource, string name)
-		: base(extensibility, name)
+	public CommandWithCallback(VisualStudioExtensibility extensibility, TraceSource traceSource, string id)
+		: base(extensibility, id)
 	{
 	}
 
