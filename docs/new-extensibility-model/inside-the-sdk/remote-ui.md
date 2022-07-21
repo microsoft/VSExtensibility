@@ -298,6 +298,8 @@ Let's update `MyToolWindowContent.xaml` to use the new properties in the datacon
 
 ![Tool window with two-way binding and a command](remote-ui-commands.gif "Tool window with two-way binding and a command")
 
+## Understanding asynchronicity in Remote UI
+
 The whole Remote UI communication for this tool window follows these steps:
 1. The data context is proxied inside the Visual Studio process with its original content,
 1. The control created from `MyToolWindowContent.xaml` is data bound to the data context proxy,
@@ -310,6 +312,8 @@ The whole Remote UI communication for this tool window follows these steps:
    - the text block in the tool window is updated to the new value of `Text` through data binding.
 
 ![Tool window two-way binding and commands communication](remote-ui-databinding-commands.png "Tool window two-way binding and commands communication")
+
+## Using command parameters to avoid race conditions
 
 All the operations that involve communication between Visual Studio and the extension (blue arrows in the diagram) are asynchronous. It's important to consider this aspect in the overall design of the extension.
 
@@ -329,7 +333,26 @@ HelloCommand = new AsyncCommand((parameter, cancellationToken) =>
 });
 ```
 
-With this approach the value of the `Name` property is retrieved synchronously from the data context proxy at the time of the button click and sent over to the extension. This avoids any race condition.
+With this approach the value of the `Name` property is retrieved synchronously from the data context proxy at the time of the button click and sent over to the extension. This avoids any race condition, especially if the `HelloCommand` callback is changed in the future to yield (have `await` expressions).
+
+## Async commands consuming data from multiple properties
+
+Using a command parameter is not an option if the command needs to consume multiple properties that are settable by the user. For example, if the UI had two textboxes: "First Name" and "Last Name".
+
+The solution in this case is to retrieve the value of all the properties that are needed before yielding.
+
+Below you can see a sample where the `FirstName` and `LastName` property values are retrieved before yielding to make sure that the value at the time of the command invocation is used:
+```CSharp
+HelloCommand = new(async (parameter, cancellationToken) =>
+{
+    string firstName = FirstName;
+    string lastName = LastName;
+    await Task.Delay(TimeSpan.FromSeconds(1));
+    Text = $"Hello {firstName} {lastName}!";
+});
+```
+
+It's also important to avoid the extension asynchronously updating the value of properties that can also be updated by the user. In other words, avoid [TwoWay](https://docs.microsoft.com/en-us/dotnet/api/system.windows.data.bindingmode) data binding.
 
 # Advanced Remote UI concepts
 
