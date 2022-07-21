@@ -123,8 +123,8 @@ To see more information on valid term values:
 
 Command flags help define additional properties on your commands that are used at runtime to define special behaviors that your command can have. The flags that are currently supported are:
 
-- `Microsoft.VisualStudio.RpcContracts.Commands.CommandFlags.CanToggle` - Indicates that the `IsChecked` property of the command can change so that screen readers can announce the command properly. Functionally, it ensures that the automation property `IsTogglePatternAvailable` return true for the UI element.
-- `Microsoft.VisualStudio.RpcContracts.Commands.CommandFlags.CanSelect` - Indicates that the `IsChecked` property of the command can change so that screen readers can announce the command properly. Functionally, it ensures that the automation property `IsSelectionPatternAvailable` return true for the UI element.
+- `CanToggle` - Indicates that the `IsChecked` property of the command can change so that screen readers can announce the command properly. Functionally, it ensures that the automation property `IsTogglePatternAvailable` return true for the UI element.
+- `CanSelect` - Indicates that the `IsChecked` property of the command can change so that screen readers can announce the command properly. Functionally, it ensures that the automation property `IsSelectionPatternAvailable` return true for the UI element.
 
 ### Localizing a command
 
