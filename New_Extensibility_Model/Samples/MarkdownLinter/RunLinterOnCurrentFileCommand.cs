@@ -34,6 +34,7 @@ namespace Microsoft.VisualStudio.Extensions.MarkdownLinter
 		"FileSelected",
 		new string[] { "FileSelected" },
 		new string[] { "ClientContext:Shell.ActiveSelectionFileName=.+" })]
+	[CommandIcon("MarkdownIcon", IconSettings.IconAndText)]
 	internal class RunLinterOnCurrentFileCommand : Command
 	{
 		private readonly TraceSource logger;
@@ -46,8 +47,8 @@ namespace Microsoft.VisualStudio.Extensions.MarkdownLinter
 		/// <param name="traceSource">Logger instance that can be used to log extension actions.</param>
 		/// <param name="diagnosticsProvider">Local diagnostics provider service instance.</param>
 		/// <param name="id">Command identifier.</param>
-		public RunLinterOnCurrentFileCommand(VisualStudioExtensibility extensibility, TraceSource traceSource, MarkdownDiagnosticsService diagnosticsProvider, string name)
-			: base(extensibility, name)
+		public RunLinterOnCurrentFileCommand(VisualStudioExtensibility extensibility, TraceSource traceSource, MarkdownDiagnosticsService diagnosticsProvider, string id)
+			: base(extensibility, id)
 		{
 			this.logger = Requires.NotNull(traceSource, nameof(traceSource));
 			this.diagnosticsProvider = Requires.NotNull(diagnosticsProvider, nameof(diagnosticsProvider));

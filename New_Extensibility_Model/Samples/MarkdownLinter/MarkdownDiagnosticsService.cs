@@ -94,7 +94,7 @@ namespace Microsoft.VisualStudio.Extensions.MarkdownLinter
 		public async Task ProcessTextViewAsync(ITextView textView, CancellationToken cancellationToken)
 		{
 			var document = await textView.GetTextDocumentAsync(cancellationToken);
-			if (document is null || !LinterUtilities.IsValidMarkdownFile(document.Uri.LocalPath))
+			if (document is null)
 			{
 				return;
 			}

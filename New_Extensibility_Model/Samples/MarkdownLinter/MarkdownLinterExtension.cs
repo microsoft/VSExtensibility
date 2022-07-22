@@ -12,8 +12,7 @@ namespace Microsoft.VisualStudio.Extensions.MarkdownLinter
 	/// Extension entry point for Markdown Linter sample extension showcasing new
 	/// out of proc Visual Studio Extensibilty APIs.
 	/// </summary>
-	[CommandsPackage("Microsoft.VisualStudio.Extensions.MarkdownLinterExtension", "1.0")]
-	public class MarkdownLinterExtension : ExtensionWithCommands
+	public class MarkdownLinterExtension : Extension
 	{
 		/// <inheritdoc />
 		protected override ResourceManager? ResourceManager => Strings.ResourceManager;

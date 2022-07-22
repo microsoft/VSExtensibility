@@ -115,16 +115,6 @@ namespace Microsoft.VisualStudio.Extensions.MarkdownLinter
 			return await ProcessLinterQueueAsync(lineQueue);
 		}
 
-		/// <summary>
-		/// Checks if the given path is a valid markdown file.
-		/// </summary>
-		/// <param name="localPath">Local file path to verify.</param>
-		/// <returns>true if file is a markdown file, false otherwise.</returns>
-		public static bool IsValidMarkdownFile(string localPath)
-		{
-			return localPath is object && Path.GetExtension(localPath).Equals(".md", StringComparison.OrdinalIgnoreCase);
-		}
-
 		private static async Task<IEnumerable<Diagnostic>> ProcessLinterQueueAsync(AsyncQueue<string> lineQueue)
 		{
 			Requires.NotNull(lineQueue, nameof(lineQueue));

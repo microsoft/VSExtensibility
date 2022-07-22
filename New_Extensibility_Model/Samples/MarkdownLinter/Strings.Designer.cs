@@ -61,11 +61,29 @@ namespace Microsoft.VisualStudio.Extensions.MarkdownLinter {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Running linter on markdown files in the solution..
+        /// </summary>
+        internal static string MarkdownAnalysisMessage {
+            get {
+                return ResourceManager.GetString("MarkdownAnalysisMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Markdown Linter.
         /// </summary>
         internal static string MarkdownLinterWindowName {
             get {
                 return ResourceManager.GetString("MarkdownLinterWindowName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to run linter on {0} files in the solution?.
+        /// </summary>
+        internal static string MarkdownSolutionAnalysisPrompt {
+            get {
+                return ResourceManager.GetString("MarkdownSolutionAnalysisPrompt", resourceCulture);
             }
         }
         
