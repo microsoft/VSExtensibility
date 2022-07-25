@@ -29,7 +29,7 @@ namespace Microsoft.VisualStudio.Extensions.MarkdownLinter
 		"VisualStudio.Extensions.MarkdownLinter.RunLinterOnActiveDocument",
 		"Run Linter on open file",
 		containerType: typeof(MarkdownLinterExtension),
-		placement: KnownCommandPlacement.ToolsMenu)]
+		placement: CommandPlacement.ToolsMenu)]
 	[CommandEnabledWhen(
 		"FileSelected",
 		new string[] { "FileSelected" },

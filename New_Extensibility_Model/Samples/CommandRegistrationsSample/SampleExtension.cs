@@ -12,9 +12,12 @@ namespace SampleCommandExtension
 	using Microsoft.VisualStudio.Extensibility.Commands;
 	using Microsoft.VisualStudio.Extensibility.Definitions;
 
+	/// <summary>
+	/// Sample extension entry point for registering a custom command handler.
+	/// </summary>
 	[CommandsPackage("Microsoft.VisualStudio.MyExtension.SampleCommandSetService", "1.0")]
 	[CommandsPackageLoad("IsCSharp", new string[] { "IsCSharp" }, new string[] { "SolutionHasProjectCapability:CSharp" })]
-	public class SampleExtension : ExtensionWithCommands
+	public class SampleExtension : Extension
 	{
 		private const string SampleCommandOutputChannelIdentifier = nameof(SampleExtension);
 
@@ -24,7 +27,9 @@ namespace SampleCommandExtension
 			Requires.NotNull(commandSet, nameof(commandSet));
 
 			// We can register a command via an execution delegate.
+#pragma warning disable VSTHRD103 // Call async methods when in an async method, async alternative is for command instances.
 			var command = commandSet.RegisterCommand("Microsoft.VisualStudio.MyExtension.WriteToOutputWindow", this.WriteToOutputWindowAsync);
+#pragma warning restore VSTHRD103 // Call async methods when in an async method
 
 			// or register through the CommandAttribute (see SampleCommand2.cs).
 			return base.InitializeCommandsAsync(commandSet);

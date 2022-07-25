@@ -31,7 +31,7 @@ namespace Microsoft.VisualStudio.Extensions.MarkdownLinter
 		"VisualStudio.Extensions.MarkdownLinter.RunLinterOnSolution",
 		"Run Linter on solution",
 		containerType: typeof(MarkdownLinterExtension),
-		placement: KnownCommandPlacement.ToolsMenu)]
+		placement: CommandPlacement.ToolsMenu)]
 	[CommandEnabledWhen(
 		"SolutionLoaded",
 		new string[] { "SolutionLoaded" },
