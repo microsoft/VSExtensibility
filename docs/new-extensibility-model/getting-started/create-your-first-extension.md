@@ -19,7 +19,13 @@ The complete project can be found at [SimpleRemoteCommandSample](https://github.
 
 ## Create the extension project
 
-* The extensibility APIs are distributed via [nuget packages](https://www.nuget.org/packages/Microsoft.VisualStudio.Extensibility.Sdk), so you can start with an empty .NET 6.0 C# class library project.
+* The extensibility APIs are distributed via [vssdk nuget repository](https://dev.azure.com/azure-public/vside/_artifacts/feed/vssdk/connect/dotnet) to allow for more frequent updates to libraries with preview versions of Visual Studio. Please make sure that your `nuget.config` has the necessary package source entry as shown below.
+
+```xml
+<add key="vssdk" value="https://pkgs.dev.azure.com/azure-public/vside/_packaging/vssdk/nuget/v3/index.json" />
+```
+
+* All of the API components can be referenced by [nuget packages](https://dev.azure.com/azure-public/vside/_artifacts/feed/vssdk/NuGet/Microsoft.VisualStudio.Extensibility.Sdk/overview/17.3.46-alpha), so you can start with an empty .NET 6.0 C# class library project.
 
 * Once project is created change `TargetFramework` from `net6.0` to `net6.0-windows` by editing project file or changing Target OS to `Windows` in project properties.
 

@@ -14,7 +14,7 @@ namespace Microsoft.VisualStudio.Extensions.MarkdownLinter
 	/// </summary>
 	[ExtensionPart(typeof(ITextViewLifetimeListener))]
 	[ExtensionPart(typeof(ITextViewChangedListener))]
-	[AppliesTo(ContentType = "text")]
+	[AppliesTo(ContentType = "markdown")]
 	internal class TextViewEventListener : ExtensionPart, ITextViewLifetimeListener, ITextViewChangedListener
 	{
 		private readonly MarkdownDiagnosticsService diagnosticsProvider;
@@ -41,7 +41,7 @@ namespace Microsoft.VisualStudio.Extensions.MarkdownLinter
 		public async Task TextViewClosedAsync(ITextView textView, CancellationToken cancellationToken)
 		{
 			var document = await textView.GetTextDocumentAsync(cancellationToken);
-			if (document is null || !LinterUtilities.IsValidMarkdownFile(document.Uri.LocalPath))
+			if (document is null)
 			{
 				return;
 			}
