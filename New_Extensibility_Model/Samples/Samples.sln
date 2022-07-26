@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandRegistrationsSample"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsertGuidExtension", "InsertGuidExtension\InsertGuidExtension.csproj", "{0B822716-63CA-41A9-8914-254A34C1976B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocumentSelectorSample", "DocumentSelectorSample\DocumentSelectorSample.csproj", "{6D16A4D7-4CF1-4162-9538-06F2D8499821}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{0B822716-63CA-41A9-8914-254A34C1976B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B822716-63CA-41A9-8914-254A34C1976B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B822716-63CA-41A9-8914-254A34C1976B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D16A4D7-4CF1-4162-9538-06F2D8499821}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D16A4D7-4CF1-4162-9538-06F2D8499821}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D16A4D7-4CF1-4162-9538-06F2D8499821}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D16A4D7-4CF1-4162-9538-06F2D8499821}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
