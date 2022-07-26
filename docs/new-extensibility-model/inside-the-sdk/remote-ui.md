@@ -11,9 +11,14 @@ One of the main goals of the VisualSudio.Extensibility model is to allow extensi
 
 *Remote UI* leans heavily towards the *Model-View-ViewModel* design pattern relying on XAML and data binding, commands (instead of events), and triggers (instead of interacting with the [logical tree](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/advanced/trees-in-wpf) from *code-behind*).
 
-*Remote UI* is also fully asynchronous, introducing a few differences compared to *in-proc* WPF.
+While *Remote UI* was developed to support *out-of-proc* extensions, VisualStudio.Extensibility APIs that rely on *Remote UI*, like `ToolWindow`, will leverage *Remote UI* for *in-proc* extensions as well.
 
-While *Remote UI* was developed to support *out-of-proc* extensions, VisualStudio.Extensibility APIs that rely on *Remote UI*, like [ToolWindow], will leverage *Remote UI* for *in-proc* extensions as well.
+The main differences between *Remote UI* and normal WPF development are:
+- most *Remote UI* operations, including binding to the data context and command execution, are asynchronous.
+- *Remote UI* doesn't allow referencing your own custom controls.
+- A *Remote user control* is fully defined in a single XAML file which references a single (but potentially complex and nested) data context object.
+- *Remote UI* doesn't support code behind or event handlers (workarounds are descrived in the [advanced Remote UI concepts](advanced-remote-ui.md) document).
+- A *Remote user control* is actually instantiated in the Visual Studio process, not the process hosting the extension: the XAML cannot reference types and assemblies from the extension but can reference types and assemblies from the Visual Studio process. 
 
 # Creating a Remote UI Hello World extension
 Let's start creating the most basic Remote UI extension.
@@ -204,6 +209,34 @@ The content of the label is now set through databinding:
 The data context type above is marked with `DataContract` and `DataMember` attributes. This is because the `MyToolWindowData` instance exists in the extension host process while the WPF control created from `MyToolWindowContent.xaml` exists in the Visual Studio process. To make data binding work, the Remote UI infrastructure generates a proxy of the `MyToolWindowData` object in the Visual Studio process. The `DataContract` and `DataMember` attributes indicate which types and properties are relevant for data binding and should be replicated in the proxy.
 
 The data context of the remote user control is passed as a constructor parameter of the `RemoteUserControl` class: the `RemoteUserControl.DataContext` property is read-only. This doesn't imply that the whole data context is immutable, but the root data context object of a remote user control cannot be replaced. In the next section we will make `MyToolWindowData` mutable and observable.
+
+# Lifecycle of a Remote User Control
+
+You can override the `ControlLoadedAsync` method to be notified when the control is first loaded in a WPF container. If in your implementation, the state of the data context may change independently from UI events, the `ControlLoadedAsync` method is the right place to initialize the content of the data context and start applying changes to it.
+
+You can also override the `Dispose` method to be notified when the control is destroyed and won't be used anymore.
+
+```CSharp
+internal class MyToolWindowContent : RemoteUserControl
+{
+    public MyToolWindowContent()
+        : base(dataContext: new MyToolWindowData())
+    {
+    }
+
+    public override async Task ControlLoadedAsync(CancellationToken cancellationToken)
+    {
+        await base.ControlLoadedAsync(cancellationToken);
+        // Your code here
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        // Your code here
+        base.Dispose(disposing);
+    }
+}
+```
 
 # Commands, observability and two-way data binding
 

@@ -5,7 +5,7 @@ date: 2022-7-20
 ---
 
 # Setting up the project
-In this walkthrough, We will go over advanced Remote UI concepts by incrementally modifying a tool window that shows a list of random colors:
+In this walkthrough, we will go over advanced Remote UI concepts by incrementally modifying a tool window that shows a list of random colors:
 ![Random colors tool window](colors-tool-window.png "Random colors tool window")
 
 This walkthrough is based on the introductory [Remote UI](remote-ui.md) article and expects that you have a working VisualStudio.Extensibility extension including:
@@ -182,6 +182,22 @@ RemoveColorCommand = new AsyncCommand(async (parameter, ancellationToken) =>
 
 We are again using a `Task.Delay` to simulate a long running async command execution.
 
+# Reference types in the data context
+
+In the code above, a `MyColor` object is received as the parameter of an async command and used as parameter of a `List<T>.Remove` call which employs reference equality (since `MyColor` is a rererence type that doesn't override `Equals`) to identify the element to remove. This is possible because, even if the parameter is received from the UI, the exact instance of `MyColor` that is currently part of the data context is received, not a copy.
+
+The processes of
+- proxying the data context of a remote user control;
+- sending `INotifyPropertyChanged` updates from the extension to Visual Studio or vice versa;
+- sending observable collection updates from the extension to Visual Studio, or vice versa;
+- sending async command parameters
+
+all honor the identity of reference type objects. With the exception of strings, reference type objects are never duplicated when transferred back to the extension.
+
+![Remote UI data binding reference types](remote-ui-databinding-references.png "Remote UI data binding reference types")
+
+In the picture above, you can see how every reference type object in the data context (the commands, the collection, each `MyColor` and even the entire data context) is assigned a unique identifier by the Remote UI infrastructure. When the user clicks the "Remove" button for the proxy color object *#5*, the unique indentifier (*#5*), not the value of the object, is sent back to the extension. The Remote UI infrastructure takes care of retrieving the corresponding `MyColor` object and passing it as parameter to the async command callback.
+
 # RunningCommandsCount with multiple bindings and event handling
 
 If we test the extension at this point, we will notice that when one of the "Remove" buttons is clicked, all "Remove" buttons are disabled:
@@ -254,4 +270,4 @@ With the code above, the `Color` property value will be converted to a `LinearGr
 
 Async command callbacks (and `INotifyPropertyChanged` callbacks for values updated by the UI through data biding) are raised on random threadpool threads. Callbacks are raised one at a time and won't overlap until the code yields control (using an `await` expression).
 
-This behavior can be changed by passing a [SynchronizationContext](https://docs.microsoft.com/en-us/dotnet/api/system.threading.synchronizationcontext) to the `RemoteUserControl` constructor. In that case, the provided synchronization context will be used for all async command and property changed callbacks related to that control.
+This behavior can be changed by passing a [NonConcurrentSynchronizationContext](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.threading.nonconcurrentsynchronizationcontext) to the `RemoteUserControl` constructor. In that case, the provided synchronization context will be used for all async command and property changed callbacks related to that control.
