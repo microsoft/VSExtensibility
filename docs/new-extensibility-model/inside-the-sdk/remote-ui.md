@@ -1,27 +1,28 @@
 ---
-title: Remote UI
-description: A walkthrough exploring the Remote UI features
+title: *Remote UI*
+description: A walkthrough exploring the *Remote UI* features
 date: 2022-7-18
 ---
 
-# Why Remote UI
+# Why *Remote UI*
 One of the main goals of the VisualSudio.Extensibility model is to allow extensions to run outside of the Visual Studio process. This introduces an obstacle for adding UI support to extensions since most UI frameworks are in-process.
 
 *Remote UI* is a set of classes allowing to define WPF controls in an *out-of-proc* extension and showing them as part of the Visual Studio UI.
 
 *Remote UI* leans heavily towards the *Model-View-ViewModel* design pattern relying on XAML and data binding, commands (instead of events), and triggers (instead of interacting with the [logical tree](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/advanced/trees-in-wpf) from *code-behind*).
 
-While *Remote UI* was developed to support *out-of-proc* extensions, VisualStudio.Extensibility APIs that rely on *Remote UI*, like `ToolWindow`, will leverage *Remote UI* for *in-proc* extensions as well.
+While *Remote UI* was developed to support *out-of-proc* extensions, *VisualStudio.Extensibility* APIs that rely on *Remote UI*, like `ToolWindow`, will leverage *Remote UI* for *in-proc* extensions as well.
 
 The main differences between *Remote UI* and normal WPF development are:
-- most *Remote UI* operations, including binding to the data context and command execution, are asynchronous.
+- Most *Remote UI* operations, including binding to the data context and command execution, are asynchronous.
+- When defining data types to be used in *Remote UI* data contexts they must be decorated with the `DataContract` and `DataMember` attributes.
 - *Remote UI* doesn't allow referencing your own custom controls.
 - A *Remote user control* is fully defined in a single XAML file which references a single (but potentially complex and nested) data context object.
-- *Remote UI* doesn't support code behind or event handlers (workarounds are descrived in the [advanced Remote UI concepts](advanced-remote-ui.md) document).
+- *Remote UI* doesn't support code behind or event handlers (workarounds are descrived in the [advanced *Remote UI* concepts](advanced-remote-ui.md) document).
 - A *Remote user control* is actually instantiated in the Visual Studio process, not the process hosting the extension: the XAML cannot reference types and assemblies from the extension but can reference types and assemblies from the Visual Studio process. 
 
-# Creating a Remote UI Hello World extension
-Let's start creating the most basic Remote UI extension.
+# Creating a *Remote UI* Hello World extension
+Let's start creating the most basic *Remote UI* extension.
 
 Follow the instructions in [Creating your first out-of-process Visual Studio extension](../getting-started/create-your-first-extension.md).
 
@@ -47,7 +48,7 @@ public override Task ExecuteCommandAsync(IClientContext context, CancellationTok
 
 You can also consider changing the `Command` attribute for a more appropriate display message and placement:
 ```CSharp
-[Command(nameof(ShowMyToolWindowCommand), "Show Hello World Tool Window", placement: KnownCommandPlacement.ViewOtherWindowsMenu)]
+[Command(nameof(ShowMyToolWindowCommand), "Show Hello World Tool Window", placement: CommandPlacement.ViewOtherWindowsMenu)]
 internal class ShowMyToolWindowCommand : Command
 {
 ```
@@ -56,7 +57,7 @@ internal class ShowMyToolWindowCommand : Command
 
 Create a new `MyToolWindow.cs` file and define a `MyToolWindow` class extending `ToolWindow`.
 
-The `GetContentAsync` method is supposed to return an `IRemoteUserControl` which we will define in the next step. Since the remote user control is disposable, let's also take care of disposing it by overriding the `Dispose(bool)` method.
+The `GetContentAsync` method is supposed to return an `IRemoteUserControl` which we will define in the next step. Since the *remote user control* is disposable, let's also take care of disposing it by overriding the `Dispose(bool)` method.
 
 ```CSharp
 namespace MyToolWindowExtension;
@@ -69,8 +70,8 @@ internal class MyToolWindow : ToolWindow
 {
     private readonly MyToolWindowContent content = new();
 
-    public MyToolWindow(string identifier)
-        : base(identifier)
+    public MyToolWindow(string id)
+        : base(id)
     {
         Title = "My Tool Window";
     }
@@ -91,13 +92,13 @@ internal class MyToolWindow : ToolWindow
 }
 ```
 
-## Creating the remote user control
+## Creating the *remote user control*
 
 This step is performed across three files.
 
-### Remote user control class
+### *Remote user control* class
 
-The remote user control class, named `MyToolWindowContent`, is straightforward:
+The *remote user control* class, named `MyToolWindowContent`, is straightforward:
 
 ```CSharp
 namespace MyToolWindowExtension;
@@ -113,7 +114,7 @@ internal class MyToolWindowContent : RemoteUserControl
 }
 ```
 
-We don't need a data context yet, so we can leave it to `null` for now.
+We don't need a data context yet, so we can set it to `null` for now.
 
 A class extending `RemoteUserControl`, will automatically use the XAML embedded resource with the same name. If we wanted to change this behavior, we can override the `GetXamlAsync` method.
 
@@ -129,9 +130,9 @@ Next, let's create a file named `MyToolWindowContent.xaml`:
 
 As described above, this file must have the same name as the `RemoteUserControl` class.
 
-The XAML definition of the remote user control is normal WPF xaml describing a `DataTemplate`. This XAML will be sent to Visual Studio and used to fill the tool window content.
+The XAML definition of the *remote user control* is normal WPF xaml describing a `DataTemplate`. This XAML will be sent to Visual Studio and used to fill the tool window content.
 
-### Setting the XAML as embedded resource
+### Setting the XAML as an embedded resource
 
 Finally, let's open the `.csproj` file and make sure that the XAML file is treated as an embedded resource:
 ```xml
@@ -167,16 +168,16 @@ Let's update the XAML to use the [styles](https://docs.microsoft.com/en-us/dotne
 </DataTemplate>
 ```
 
-The label is now themed as the rest of the Visual Studio UI:
+The label now uses the same theme as the rest of the Visual Studio UI and automatically changes color if switching to dark mode:
 ![Themed tool window](remote-ui-themed.png "Themed tool window")
 
-The `xmlns`' above reference the [Microsoft.VisualStudio.Shell.15.0](https://www.nuget.org/packages/Microsoft.VisualStudio.Shell.15.0) assembly which is not one of the extension depedencies. This is fine because this XAML will be used by the Visual Studio process, which has a dependencies on *Shell.15*, not by the extension itself.
+The `xmlns`' above reference the [Microsoft.VisualStudio.Shell.15.0](https://www.nuget.org/packages/Microsoft.VisualStudio.Shell.15.0) assembly which is not one of the extension dependencies. This is fine because this XAML will be used by the Visual Studio process, which has a dependencies on *Shell.15*, not by the extension itself.
 
-In order to get a better XAML editing experience, you can **temporarily** add a `PackageReference` to `Microsoft.VisualStudio.Shell.15.0` to the extension project. **Don't forget to remove it** later since an *out-of-proc* VisualStudio.Extensibility extension shouldn't reference this package!
+In order to get a better XAML editing experience, you can **temporarily** add a `PackageReference` to `Microsoft.VisualStudio.Shell.15.0` to the extension project. **Don't forget to remove it** later since an *out-of-proc* *VisualStudio.Extensibility* extension shouldn't reference this package!
 
 # Adding a data context
 
-Let's now add a data context class for the remote user control:
+Let's now add a data context class for the *remote user control*:
 ```CSharp
 using System.Runtime.Serialization;
 
@@ -206,9 +207,9 @@ internal class MyToolWindowContent : RemoteUserControl
 The content of the label is now set through databinding:
 ![Tool window with data binding](remote-ui-data-binding.png "Tool window with data binding")
 
-The data context type above is marked with `DataContract` and `DataMember` attributes. This is because the `MyToolWindowData` instance exists in the extension host process while the WPF control created from `MyToolWindowContent.xaml` exists in the Visual Studio process. To make data binding work, the Remote UI infrastructure generates a proxy of the `MyToolWindowData` object in the Visual Studio process. The `DataContract` and `DataMember` attributes indicate which types and properties are relevant for data binding and should be replicated in the proxy.
+The data context type above is marked with `DataContract` and `DataMember` attributes. This is because the `MyToolWindowData` instance exists in the extension host process while the WPF control created from `MyToolWindowContent.xaml` exists in the Visual Studio process. To make data binding work, the *Remote UI* infrastructure generates a proxy of the `MyToolWindowData` object in the Visual Studio process. The `DataContract` and `DataMember` attributes indicate which types and properties are relevant for data binding and should be replicated in the proxy.
 
-The data context of the remote user control is passed as a constructor parameter of the `RemoteUserControl` class: the `RemoteUserControl.DataContext` property is read-only. This doesn't imply that the whole data context is immutable, but the root data context object of a remote user control cannot be replaced. In the next section we will make `MyToolWindowData` mutable and observable.
+The data context of the *remote user control* is passed as a constructor parameter of the `RemoteUserControl` class: the `RemoteUserControl.DataContext` property is read-only. This doesn't imply that the whole data context is immutable, but the root data context object of a *remote user control* cannot be replaced. In the next section we will make `MyToolWindowData` mutable and observable.
 
 # Lifecycle of a Remote User Control
 
@@ -242,17 +243,17 @@ internal class MyToolWindowContent : RemoteUserControl
 
 Next, let's make the data context observable and add a button to the toolbox.
 
-The data context can be made observable by implementing [INotifyPropertyChanged](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.inotifypropertychanged). Alternatively, Remote UI provides a convenient abstract class, `NotifyPropertyChangedObject`, that we can extend to reduce boilerplate code.
+The data context can be made observable by implementing [INotifyPropertyChanged](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.inotifypropertychanged). Alternatively, *Remote UI* provides a convenient abstract class, `NotifyPropertyChangedObject`, that we can extend to reduce boilerplate code.
 
-A data context usually have a mix of readonly properties and observable properties. The data context can be a complex graph of objects as long as they are marked with the `DataContract` and `DataMember` attributes and implement `INotifyPropertyChanged` as necessary. It is also possible to have [observable collections](https://docs.microsoft.com/en-us/dotnet/api/system.collections.objectmodel.observablecollection-1).
+A data context usually has a mix of readonly properties and observable properties. The data context can be a complex graph of objects as long as they are marked with the `DataContract` and `DataMember` attributes and implement `INotifyPropertyChanged` as necessary. It is also possible to have [observable collections](https://docs.microsoft.com/en-us/dotnet/api/system.collections.objectmodel.observablecollection-1).
 
-We also need to add a command to the data context. In Remote UI, commands implement `IAsyncCommand` but it is often easier to simply create an instance of the `AsyncCommand` class.
+We also need to add a command to the data context. In *Remote UI*, commands implement `IAsyncCommand` but it is often easier to simply create an instance of the `AsyncCommand` class.
 
 `IAsyncCommand` differs from [ICommand](https://docs.microsoft.com/en-us/dotnet/api/system.windows.input.icommand) in two ways:
-1. The `Execute` method is replaced with `ExecuteAsync` because everything in Remote UI is async!
+1. The `Execute` method is replaced with `ExecuteAsync` because everything in *Remote UI* is async!
 1. The `CanExecute(object)` method is replaced by a `CanExecute` property. The `AsyncCommand` class takes care of making `CanExecute` observable.
 
-It's important to note that Remote UI doesn't support event handlers, so all notifications from the UI to the extension must be implemented through databinding and commands.
+It's important to note that *Remote UI* doesn't support event handlers, so all notifications from the UI to the extension must be implemented through databinding and commands.
 
 This is the resulting code for `MyToolWindowData`.
 ```CSharp
@@ -331,9 +332,9 @@ Let's update `MyToolWindowContent.xaml` to use the new properties in the datacon
 
 ![Tool window with two-way binding and a command](remote-ui-commands.gif "Tool window with two-way binding and a command")
 
-## Understanding asynchronicity in Remote UI
+## Understanding asynchronicity in *Remote UI*
 
-The whole Remote UI communication for this tool window follows these steps:
+The whole *Remote UI* communication for this tool window follows these steps:
 1. The data context is proxied inside the Visual Studio process with its original content,
 1. The control created from `MyToolWindowContent.xaml` is data bound to the data context proxy,
 1. The user types some text in the text box which is assigned to the `Name` property of the data context proxy through databinding. The new value of `Name` is propagated to the `MyToolWindowData` object.
@@ -366,13 +367,13 @@ HelloCommand = new AsyncCommand((parameter, cancellationToken) =>
 });
 ```
 
-With this approach the value of the `Name` property is retrieved synchronously from the data context proxy at the time of the button click and sent over to the extension. This avoids any race condition, especially if the `HelloCommand` callback is changed in the future to yield (have `await` expressions).
+With this approach the value of the `Name` property is retrieved synchronously from the data context proxy at the time of the button click and sent over to the extension. This avoids any race conditions, especially if the `HelloCommand` callback is changed in the future to yield (have `await` expressions).
 
-## Async commands consuming data from multiple properties
+## *Async commands* consuming data from multiple properties
 
 Using a command parameter is not an option if the command needs to consume multiple properties that are settable by the user. For example, if the UI had two textboxes: "First Name" and "Last Name".
 
-The solution in this case is to retrieve the value of all the properties that are needed before yielding.
+The solution in this case is to retrieve, in the *async command* callback, the value of all the properties from the data context before yielding.
 
 Below you can see a sample where the `FirstName` and `LastName` property values are retrieved before yielding to make sure that the value at the time of the command invocation is used:
 ```CSharp
@@ -387,6 +388,6 @@ HelloCommand = new(async (parameter, cancellationToken) =>
 
 It's also important to avoid the extension asynchronously updating the value of properties that can also be updated by the user. In other words, avoid [TwoWay](https://docs.microsoft.com/en-us/dotnet/api/system.windows.data.bindingmode) data binding.
 
-# Advanced Remote UI concepts
+# Advanced *Remote UI* concepts
 
-The information above should be enough to build simple Remote UI components. For more advanced scenarios see [advanced Remote UI concepts](advanced-remote-ui.md).
+The information above should be enough to build simple *Remote UI* components. For more advanced scenarios see [advanced *Remote UI* concepts](advanced-remote-ui.md).
