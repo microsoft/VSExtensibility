@@ -15,12 +15,11 @@ This document is a quick walkthrough on how to create your first extension using
 
 * Install [VisualStudio.Extensibility Project System](https://marketplace.visualstudio.com/items?itemName=vsext.gladstone): This extension will allow you to debug extension projects using F5. There is currently no other deployment mechanism supported.
 
-![VSExtensibilityTemplate](vsextensibility-project-template.png  "VisualStudio.Extensibility template")
-
 ## Create the extension project
 
 * Use `VisualStudio.Extensibility Project` template to create a new extensibility project.
-* Open the source.extension.vsixmanifest file and fill in the Author field (the Publisher field if you are editing the file as code instead of using the designer).
+
+![VSExtensibilityTemplate](vsextensibility-project-template.png  "VisualStudio.Extensibility template")
 
 At this point you are ready to start extending Visual Studio by adding commands and editor components to your extension.
 
@@ -30,7 +29,7 @@ The template creates `Command1.cs` as your first command handler which you can u
 
 ```csharp
 [CommandIcon(KnownMonikers.Extension, IconSettings.IconAndText)]
-[Command("Extension1.Command1", "Sample Remote Command", placement: KnownCommandPlacement.ToolsMenu)]
+[Command("Extension1.Command1", "Sample Remote Command", placement: CommandPlacement.ToolsMenu)]
 ```
 
 When the command is executed, Visual Studio will call in to `ExecuteCommandAsync` method where you can place a breakpoint. You can utilize `context` argument or `this.Extensibility` object to interact with Visual Studio. 
