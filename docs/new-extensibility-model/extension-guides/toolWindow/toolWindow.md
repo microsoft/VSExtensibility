@@ -50,7 +50,7 @@ See the [ToolWindowExtension](./../../../../New_Extensibility_Model/Samples/Tool
 
 ### Creating content for a tool window
 
-Once a tool window is registered it will need content. Adding content requires creating a RemoteUserControl and corresponding data template for the control.
+Once a tool window is registered it will need content. Adding content requires creating a [RemoteUserControl](./../../inside-the-sdk/remote-ui.md) and corresponding data template for the control.
 
 ```csharp
     [ToolWindow(ToolWindowPlacement.DocumentWell)]
@@ -126,7 +126,7 @@ See the [Commands](./../command/command.md) docs to learn more about setting up 
 
 ### Registering a tool window with dynamic visibility
 
-Another mechanism for opening a tool window is to set up a context rule for when it should be shown or hidden. This allows tool windows to automatically be opened when certain conditions are met, and hidden again when those conditions are no longer applicable.
+Another mechanism for opening a tool window is to set up activation constraints for when it should be shown or hidden. This allows tool windows to automatically be opened when certain conditions are met, and hidden again when those conditions are no longer applicable.
 
 The attribute [Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowVisibleWhenAttribute](./../../api/Microsoft.VisualStudio.Extensibility.md/#toolwindowvisiblewhenattribute-type) has a few parameters that you should become familiar with:
 
@@ -148,3 +148,5 @@ public class MyToolWindow : ToolWindow
     // TODO: Implement the rest of the class
 }
 ```
+
+See the [Using rule based activation constraints](../../inside-the-sdk/activation-constraints.md/#rule-based-activation-constraints) docs for more information on valid term values.
