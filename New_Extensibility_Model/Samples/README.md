@@ -6,15 +6,11 @@ and call out interesting aspects to its sample.
 Samples include:
 
 * CommandRegistrationsSample: Showcases how to register commands in different ways and command placement, localization.
-* InsertGuidExtension: A simple extensioeeen showing how to read/modify editor buffers.
+* InsertGuidExtension: A simple extension showing how to read/modify editor buffers.
 * MarkdownLinter: An end-to-end example showing various features available in the extensibility SDK.
 * CommentRemover: A conversion of Mads Kristensen's [Comment Remover](https://github.com/madskristensen/CommentRemover) extension to in-proc VisualStudio.Extensibility. This sample shows how to consume [Visual Studio SDK](https://www.nuget.org/packages/Microsoft.VisualStudio.SDK) services through .NET dependency injection and use VisualStudio.Extensibility APIs for commands, prompts and progress report.
 
 ## Contributing
-
-
-
-
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
