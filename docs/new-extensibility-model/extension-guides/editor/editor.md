@@ -81,6 +81,47 @@ new extensibility model.
 ContentTypes are hierarchical. e.g.: C# and C++ both descend from "code", so declaring "code" will cause your extension
 to activate for C#, C, C++, etc.
 
+#### Definitng a new content type
+
+[ContentTypeDefinition](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeDefinition), [ContentTypeBaseDefinition](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeBaseDefinition) and [FileExtensionMapping](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-FileExtensionMapping) attributes allow defining a new content type, inheriting one or more other content types and map it to one or more file extensions. These are assembly level attributes:
+
+```csharp
+using Microsoft.VisualStudio.Extensibility.Editor;
+
+[assembly: ContentTypeDefinition("markdown")]
+[assembly: ContentTypeBaseDefinition("markdown", baseContentTypeName: "text")]
+[assembly: FileExtensionMapping("markdown", fileExtension: ".md")]
+[assembly: FileExtensionMapping("markdown", fileExtension: ".mdk")]
+[assembly: FileExtensionMapping("markdown", fileExtension: ".markdown")]
+```
+
+Content type definitions are merged with content type definitions provided by legacy Visual Studio extensibility, which allows for example to map additional file extensions to existing content types.
+
+#### Document Selectors
+
+In addition to [AppliesTo](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToAttribute) attribute, [AppliesToPattern](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToPattern) attribute allows to further limit applicability of the extension by making it activate only when document's file path matches a glob pattern:
+
+```csharp
+[AppliesTo(ContentType = "CSharp")]
+[AppliesToPattern(Pattern = "**/tests/*.cs")]
+```
+```csharp
+[AppliesTo(ContentType = "markdown")]
+[AppliesToPattern(Pattern="docs/*.md", RelativePath=true)]
+```
+
+The Pattern property represents a glob pattern that is matched on the absolute path of the document. 
+
+Glob patterns can have the following syntax:
+ * `*` to match zero or more characters in a path segment
+* `?` to match on one character in a path segment
+* `**` to match any number of path segments, including none
+* `{}` to group conditions (e.g. `**​/*.{ts,js}` matches all TypeScript and JavaScript files)
+* `[]` to declare a range of characters to match in a path segment (e.g., `example.[0-9]` to match on `example.0`, `example.1`, …)
+* `[!...]` to negate a range of characters to match in a path segment (e.g., `example.[!0-9]` to match on `example.a`, `example.b`, but not `example.0`)
+
+Note: a backslash (`\`) is not valid within a glob pattern. Make sure to convert any backslash to slash when creating the glob pattern.
+
 ### EditorExtensibility
 
 Visual Studio ExtensionParts all expose a [this.Extensibility](./../../api/Microsoft.VisualStudio.Extensibility.Framework.md#P-Microsoft-VisualStudio-Extensibility-ExtensionPart-Extensibility) property. Using this property, you can
