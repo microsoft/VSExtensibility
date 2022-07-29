@@ -3,19 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31516.38
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleRemoteCommandSample", "SimpleRemoteCommandSample\SimpleRemoteCommandSample.csproj", "{11EB62B3-79FD-450D-BC86-6FF414178B7E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{070F0AEA-C0A0-4B5D-9286-55574A37BE7A}"
 	ProjectSection(SolutionItems) = preProject
 		Directory.Build.props = Directory.Build.props
 		shipping.ruleset = shipping.ruleset
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarkdownLinter", "MarkdownLinter\MarkdownLinter.csproj", "{F005B03E-66DC-4145-8BBA-9E21ABE582C2}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandRegistrationsSample", "CommandRegistrationsSample\CommandRegistrationsSample.csproj", "{26601396-0E9A-4B38-8FE9-D5107B77D445}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsertGuidExtension", "InsertGuidExtension\InsertGuidExtension.csproj", "{0B822716-63CA-41A9-8914-254A34C1976B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarkdownLinter", "MarkdownLinter\MarkdownLinter.csproj", "{F005B03E-66DC-4145-8BBA-9E21ABE582C2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleRemoteCommandSample", "SimpleRemoteCommandSample\SimpleRemoteCommandSample.csproj", "{11EB62B3-79FD-450D-BC86-6FF414178B7E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolWindowExtension", "ToolWindowExtension\ToolWindowExtension.csproj", "{4605F69C-8179-409E-A3FA-431DD41F35CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{0B822716-63CA-41A9-8914-254A34C1976B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B822716-63CA-41A9-8914-254A34C1976B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B822716-63CA-41A9-8914-254A34C1976B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4605F69C-8179-409E-A3FA-431DD41F35CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4605F69C-8179-409E-A3FA-431DD41F35CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4605F69C-8179-409E-A3FA-431DD41F35CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4605F69C-8179-409E-A3FA-431DD41F35CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

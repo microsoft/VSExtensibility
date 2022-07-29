@@ -73,6 +73,12 @@
   - [ClearDiagnosticsAsync(textDocument,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider-ClearDiagnosticsAsync-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsProvider.ClearDiagnosticsAsync(Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument,System.Threading.CancellationToken)')
   - [ClearDiagnosticsAsync(documentMoniker,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider-ClearDiagnosticsAsync-System-Uri,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsProvider.ClearDiagnosticsAsync(System.Uri,System.Threading.CancellationToken)')
   - [Dispose()](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsProvider.Dispose(System.Boolean)')
+- [Dock](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock 'Microsoft.VisualStudio.Extensibility.ToolWindows.Dock')
+  - [Bottom](#F-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock-Bottom 'Microsoft.VisualStudio.Extensibility.ToolWindows.Dock.Bottom')
+  - [Left](#F-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock-Left 'Microsoft.VisualStudio.Extensibility.ToolWindows.Dock.Left')
+  - [None](#F-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock-None 'Microsoft.VisualStudio.Extensibility.ToolWindows.Dock.None')
+  - [Right](#F-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock-Right 'Microsoft.VisualStudio.Extensibility.ToolWindows.Dock.Right')
+  - [Top](#F-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock-Top 'Microsoft.VisualStudio.Extensibility.ToolWindows.Dock.Top')
 - [ExecutableCommand](#T-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommand 'Microsoft.VisualStudio.Extensibility.Commands.ExecutableCommand')
   - [#ctor(id)](#M-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommand-#ctor-System-UInt16- 'Microsoft.VisualStudio.Extensibility.Commands.ExecutableCommand.#ctor(System.UInt16)')
   - [Id](#P-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommand-Id 'Microsoft.VisualStudio.Extensibility.Commands.ExecutableCommand.Id')
@@ -148,6 +154,13 @@
   - [InvalidVersionString](#P-Microsoft-VisualStudio-Extensibility-Resources-InvalidVersionString 'Microsoft.VisualStudio.Extensibility.Resources.InvalidVersionString')
   - [ResourceManager](#P-Microsoft-VisualStudio-Extensibility-Resources-ResourceManager 'Microsoft.VisualStudio.Extensibility.Resources.ResourceManager')
   - [UnsupportedDocumentMoniker](#P-Microsoft-VisualStudio-Extensibility-Resources-UnsupportedDocumentMoniker 'Microsoft.VisualStudio.Extensibility.Resources.UnsupportedDocumentMoniker')
+- [ShellExtensibility](#T-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility')
+  - [#ctor(extensibilityPoint)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.#ctor(Microsoft.VisualStudio.Extensibility.ExtensibilityPoint)')
+  - [Dispose()](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.Dispose(System.Boolean)')
+  - [GetToolWindow\`\`1()](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-GetToolWindow``1 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.GetToolWindow``1')
+  - [HideToolWindowAsync\`\`1(cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-HideToolWindowAsync``1-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.HideToolWindowAsync``1(System.Threading.CancellationToken)')
+  - [ServiceAvailabilityChanged(sender,args)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ServiceAvailabilityChanged-System-Object,Microsoft-ServiceHub-Framework-BrokeredServicesChangedEventArgs- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.ServiceAvailabilityChanged(System.Object,Microsoft.ServiceHub.Framework.BrokeredServicesChangedEventArgs)')
+  - [ShowToolWindowAsync\`\`1(activate,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowToolWindowAsync``1-System-Boolean,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.ShowToolWindowAsync``1(System.Boolean,System.Threading.CancellationToken)')
 - [SynchronizedBufferTextWriter](#T-Microsoft-VisualStudio-Extensibility-Documents-SynchronizedBufferTextWriter 'Microsoft.VisualStudio.Extensibility.Documents.SynchronizedBufferTextWriter')
   - [#ctor(pipeWriter,encoding)](#M-Microsoft-VisualStudio-Extensibility-Documents-SynchronizedBufferTextWriter-#ctor-System-IO-Pipelines-PipeWriter,System-Text-Encoding- 'Microsoft.VisualStudio.Extensibility.Documents.SynchronizedBufferTextWriter.#ctor(System.IO.Pipelines.PipeWriter,System.Text.Encoding)')
   - [Dispose()](#M-Microsoft-VisualStudio-Extensibility-Documents-SynchronizedBufferTextWriter-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.Documents.SynchronizedBufferTextWriter.Dispose(System.Boolean)')
@@ -156,6 +169,29 @@
 - [ToggleCommand](#T-Microsoft-VisualStudio-Extensibility-Commands-ToggleCommand 'Microsoft.VisualStudio.Extensibility.Commands.ToggleCommand')
   - [#ctor(extensibility,id)](#M-Microsoft-VisualStudio-Extensibility-Commands-ToggleCommand-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-UInt16- 'Microsoft.VisualStudio.Extensibility.Commands.ToggleCommand.#ctor(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,System.UInt16)')
   - [IsChecked](#P-Microsoft-VisualStudio-Extensibility-Commands-ToggleCommand-IsChecked 'Microsoft.VisualStudio.Extensibility.Commands.ToggleCommand.IsChecked')
+- [ToolWindow](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow')
+  - [#ctor(extensibility)](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.#ctor(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility)')
+  - [Extensibility](#P-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-Extensibility 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.Extensibility')
+  - [Title](#P-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-Title 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.Title')
+  - [Dispose()](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-Dispose 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.Dispose')
+  - [Dispose(disposing)](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.Dispose(System.Boolean)')
+  - [GetContentAsync(cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-GetContentAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.GetContentAsync(System.Threading.CancellationToken)')
+  - [HideAsync(cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-HideAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.HideAsync(System.Threading.CancellationToken)')
+  - [InitializeAsync(cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-InitializeAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.InitializeAsync(System.Threading.CancellationToken)')
+  - [OnHideAsync(cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-OnHideAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.OnHideAsync(System.Threading.CancellationToken)')
+  - [OnShowAsync(cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-OnShowAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.OnShowAsync(System.Threading.CancellationToken)')
+  - [ShowAsync(activate,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-ShowAsync-System-Boolean,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.ShowAsync(System.Boolean,System.Threading.CancellationToken)')
+- [ToolWindowAttribute](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowAttribute 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowAttribute')
+  - [#ctor(placement,dockDirection,allowAutoCreation)](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowAttribute-#ctor-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement,Microsoft-VisualStudio-Extensibility-ToolWindows-Dock,System-Boolean- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowAttribute.#ctor(Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement,Microsoft.VisualStudio.Extensibility.ToolWindows.Dock,System.Boolean)')
+  - [#ctor(placement,dockDirection,allowAutoCreation)](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowAttribute-#ctor-System-String,Microsoft-VisualStudio-Extensibility-ToolWindows-Dock,System-Boolean- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowAttribute.#ctor(System.String,Microsoft.VisualStudio.Extensibility.ToolWindows.Dock,System.Boolean)')
+  - [AllowAutoCreation](#P-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowAttribute-AllowAutoCreation 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowAttribute.AllowAutoCreation')
+  - [DockDirection](#P-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowAttribute-DockDirection 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowAttribute.DockDirection')
+  - [Placement](#P-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowAttribute-Placement 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowAttribute.Placement')
+- [ToolWindowPlacement](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement')
+  - [DocumentWell](#F-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement-DocumentWell 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement.DocumentWell')
+  - [Floating](#F-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement-Floating 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement.Floating')
+- [ToolWindowVisibleWhenAttribute](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowVisibleWhenAttribute 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowVisibleWhenAttribute')
+  - [#ctor(expression,termNames,termValues)](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowVisibleWhenAttribute-#ctor-System-String,System-String[],System-String[]- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowVisibleWhenAttribute.#ctor(System.String,System.String[],System.String[])')
 - [ViewsExtensibility](#T-Microsoft-VisualStudio-Extensibility-Documents-ViewsExtensibility 'Microsoft.VisualStudio.Extensibility.Documents.ViewsExtensibility')
   - [#ctor(extensibilityPoint)](#M-Microsoft-VisualStudio-Extensibility-Documents-ViewsExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint- 'Microsoft.VisualStudio.Extensibility.Documents.ViewsExtensibility.#ctor(Microsoft.VisualStudio.Extensibility.ExtensibilityPoint)')
   - [Output](#P-Microsoft-VisualStudio-Extensibility-Documents-ViewsExtensibility-Output 'Microsoft.VisualStudio.Extensibility.Documents.ViewsExtensibility.Output')
@@ -1073,6 +1109,52 @@ A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=
 
 This method has no parameters.
 
+<a name='T-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock'></a>
+## Dock `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.ToolWindows
+
+##### Summary
+
+Dock direction that can be used to control how a tool window is docked when it's first shown.
+
+<a name='F-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock-Bottom'></a>
+### Bottom `constants`
+
+##### Summary
+
+Docks the tool window below its placement target.
+
+<a name='F-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock-Left'></a>
+### Left `constants`
+
+##### Summary
+
+Docks the tool window to the left of its placement target.
+
+<a name='F-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock-None'></a>
+### None `constants`
+
+##### Summary
+
+Docks the tool window alongside its placement target.
+
+<a name='F-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock-Right'></a>
+### Right `constants`
+
+##### Summary
+
+Docks the tool window to the right of its placement target.
+
+<a name='F-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock-Top'></a>
+### Top `constants`
+
+##### Summary
+
+Docks the tool window above its placement target.
+
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommand'></a>
 ## ExecutableCommand `type`
 
@@ -1921,6 +2003,123 @@ Returns the cached ResourceManager instance used by this class.
 
 Looks up a localized string similar to Unsupported document moniker..
 
+<a name='T-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility'></a>
+## ShellExtensibility `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.Shell
+
+##### Summary
+
+Provides functionality to interact with Visual Studio shell services such as progress reporting, notifications, etc.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint-'></a>
+### #ctor(extensibilityPoint) `constructor`
+
+##### Summary
+
+Initializes a new instance of the [ShellExtensibility](#T-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility') class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| extensibilityPoint | [Microsoft.VisualStudio.Extensibility.ExtensibilityPoint](#T-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoint') | Another instance of extensibility point object to use for initialization. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-Dispose-System-Boolean-'></a>
+### Dispose() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-GetToolWindow``1'></a>
+### GetToolWindow\`\`1() `method`
+
+##### Summary
+
+Gets the tool window of the given type.
+
+##### Returns
+
+The tool window matching the given type or null if not found.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| T | The type of the tool window. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-HideToolWindowAsync``1-System-Threading-CancellationToken-'></a>
+### HideToolWindowAsync\`\`1(cancellationToken) `method`
+
+##### Summary
+
+Hides the tool window of the given type.
+
+##### Returns
+
+A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the in-progress request. |
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| T | The type of the tool window. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ServiceAvailabilityChanged-System-Object,Microsoft-ServiceHub-Framework-BrokeredServicesChangedEventArgs-'></a>
+### ServiceAvailabilityChanged(sender,args) `method`
+
+##### Summary
+
+Handles the service instance when availability of brokered services has changed.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Sender. |
+| args | [Microsoft.ServiceHub.Framework.BrokeredServicesChangedEventArgs](#T-Microsoft-ServiceHub-Framework-BrokeredServicesChangedEventArgs 'Microsoft.ServiceHub.Framework.BrokeredServicesChangedEventArgs') | BrokeredServicesChangedEventArgs. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowToolWindowAsync``1-System-Boolean,System-Threading-CancellationToken-'></a>
+### ShowToolWindowAsync\`\`1(activate,cancellationToken) `method`
+
+##### Summary
+
+Shows the tool window of the given type.
+
+##### Returns
+
+A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| activate | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether or not to activate the tool window during the show. Activating a tool window will move focus into it. |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the in-progress request. |
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| T | The type of the tool window. |
+
 <a name='T-Microsoft-VisualStudio-Extensibility-Documents-SynchronizedBufferTextWriter'></a>
 ## SynchronizedBufferTextWriter `type`
 
@@ -2010,6 +2209,314 @@ Initializes a new instance of the [ToggleCommand](#T-Microsoft-VisualStudio-Exte
 ##### Summary
 
 *Inherit from parent.*
+
+<a name='T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow'></a>
+## ToolWindow `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.ToolWindows
+
+##### Summary
+
+Provides functionality for defining and interacting with a tool window.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility-'></a>
+### #ctor(extensibility) `constructor`
+
+##### Summary
+
+Initializes a new instance of the [ToolWindow](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow') class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility object. |
+
+<a name='P-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-Extensibility'></a>
+### Extensibility `property`
+
+##### Summary
+
+Gets the Visual Studio extensibility point.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-Title'></a>
+### Title `property`
+
+##### Summary
+
+Gets or sets the title of the tool window.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-Dispose'></a>
+### Dispose() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-Dispose-System-Boolean-'></a>
+### Dispose(disposing) `method`
+
+##### Summary
+
+Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether managed resources should be disposed. This should be `false` when
+[Dispose](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.Dispose(System.Boolean)') is called from a finalizer, `true` otherwise. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-GetContentAsync-System-Threading-CancellationToken-'></a>
+### GetContentAsync(cancellationToken) `method`
+
+##### Summary
+
+Gets the tool window's UI content.
+
+##### Returns
+
+An [IRemoteUserControl](#T-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl 'Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl') which represents the tool window's UI content.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress content creation. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-HideAsync-System-Threading-CancellationToken-'></a>
+### HideAsync(cancellationToken) `method`
+
+##### Summary
+
+Hides the tool window.
+
+##### Returns
+
+A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress hide. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-InitializeAsync-System-Threading-CancellationToken-'></a>
+### InitializeAsync(cancellationToken) `method`
+
+##### Summary
+
+Initializes the tool window.
+
+##### Returns
+
+A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress initialization. |
+
+##### Remarks
+
+This method is called prior to calling [GetContentAsync](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-GetContentAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.GetContentAsync(System.Threading.CancellationToken)') and can be used
+for any work that needs to be done prior to creating the tool window's UI content.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-OnHideAsync-System-Threading-CancellationToken-'></a>
+### OnHideAsync(cancellationToken) `method`
+
+##### Summary
+
+Notifies that the tool window is being hidden.
+
+##### Returns
+
+A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress hide. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-OnShowAsync-System-Threading-CancellationToken-'></a>
+### OnShowAsync(cancellationToken) `method`
+
+##### Summary
+
+Notifies that the tool window is being shown.
+
+##### Returns
+
+A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress show. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-ShowAsync-System-Boolean,System-Threading-CancellationToken-'></a>
+### ShowAsync(activate,cancellationToken) `method`
+
+##### Summary
+
+Shows the tool window.
+
+##### Returns
+
+A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| activate | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether or not to activate the tool window during the show. Activating a tool window will move focus into it. |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress hide. |
+
+<a name='T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowAttribute'></a>
+## ToolWindowAttribute `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.ToolWindows
+
+##### Summary
+
+An attribute used on ToolWindow classes to register a tool window and define its default behaviors.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowAttribute-#ctor-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement,Microsoft-VisualStudio-Extensibility-ToolWindows-Dock,System-Boolean-'></a>
+### #ctor(placement,dockDirection,allowAutoCreation) `constructor`
+
+##### Summary
+
+Initializes a new instance of the [ToolWindowAttribute](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowAttribute 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowAttribute') class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| placement | [Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement') | The placement location for the tool window. Valid values come from [ToolWindowPlacement](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement'). |
+| dockDirection | [Microsoft.VisualStudio.Extensibility.ToolWindows.Dock](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock 'Microsoft.VisualStudio.Extensibility.ToolWindows.Dock') | The direction relative to the placement where the tool window should be docked. |
+| allowAutoCreation | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether or not the tool window can be created automatically. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowAttribute-#ctor-System-String,Microsoft-VisualStudio-Extensibility-ToolWindows-Dock,System-Boolean-'></a>
+### #ctor(placement,dockDirection,allowAutoCreation) `constructor`
+
+##### Summary
+
+Initializes a new instance of the [ToolWindowAttribute](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowAttribute 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowAttribute') class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| placement | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The placement location for the tool window. Valid values come from guids of other tool windows. |
+| dockDirection | [Microsoft.VisualStudio.Extensibility.ToolWindows.Dock](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock 'Microsoft.VisualStudio.Extensibility.ToolWindows.Dock') | The direction relative to the placement where the tool window should be docked. |
+| allowAutoCreation | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether or not the tool window can be created automatically. |
+
+<a name='P-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowAttribute-AllowAutoCreation'></a>
+### AllowAutoCreation `property`
+
+##### Summary
+
+Gets a value indicating whether the tool window can be created automatically.
+
+##### Remarks
+
+When true, the tool window will be created if it should be visible in the current window layout or when any
+relevant visibility contexts activate. When false the tool window will not be created as part of loading any
+window layout or due to visibility contexts, and the only way to trigger the creation is to manually show it.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowAttribute-DockDirection'></a>
+### DockDirection `property`
+
+##### Summary
+
+Gets the dock direction where the tool window should be placed relative to the [Placement](#P-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowAttribute-Placement 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowAttribute.Placement') value.
+
+##### Remarks
+
+If the [Placement](#P-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowAttribute-Placement 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowAttribute.Placement') has the value [Floating](#F-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement-Floating 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement.Floating') this value is ignored. If
+the [Placement](#P-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowAttribute-Placement 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowAttribute.Placement') has the value [DocumentWell](#F-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement-DocumentWell 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement.DocumentWell') this value will dock
+the tool window to the corresponding side of the main window's document well. If the [Placement](#P-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowAttribute-Placement 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowAttribute.Placement') is
+any other value the tool window will be docked relative to the [Placement](#P-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowAttribute-Placement 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowAttribute.Placement') based on the value of the
+"Insert new tabs to the right" setting with the exception of [Left](#F-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock-Left 'Microsoft.VisualStudio.Extensibility.ToolWindows.Dock.Left') which will always dock to
+the left of the [Placement](#P-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowAttribute-Placement 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowAttribute.Placement').
+
+<a name='P-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowAttribute-Placement'></a>
+### Placement `property`
+
+##### Summary
+
+Gets the default placement location for the tool window. This can be a well-known string from
+[ToolWindowPlacement](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement'), or the guid string of another tool window.
+
+##### Remarks
+
+If the value is [Floating](#F-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement-Floating 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement.Floating') the tool window will be created in its own floating
+window. If the value is [DocumentWell](#F-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement-DocumentWell 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement.DocumentWell') the tool window will be docked in
+relation to the main window's document well. Any other value will attempt to find the referenced location and
+dock the tool window relative to that location, but if that location cannot be found, the tool window will
+fallback to opening in a floating window.
+
+<a name='T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement'></a>
+## ToolWindowPlacement `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.ToolWindows
+
+##### Summary
+
+Known default tool window placements.
+
+<a name='F-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement-DocumentWell'></a>
+### DocumentWell `constants`
+
+##### Summary
+
+Places the tool window in the active document well by default.
+
+<a name='F-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement-Floating'></a>
+### Floating `constants`
+
+##### Summary
+
+Places the tool window in a standalone floating window by default.
+
+<a name='T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowVisibleWhenAttribute'></a>
+## ToolWindowVisibleWhenAttribute `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.ToolWindows
+
+##### Summary
+
+An attribute used on ToolWindow classes to register a visibility context for showing a tool window.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowVisibleWhenAttribute-#ctor-System-String,System-String[],System-String[]-'></a>
+### #ctor(expression,termNames,termValues) `constructor`
+
+##### Summary
+
+Initializes a new instance of the [ToolWindowVisibleWhenAttribute](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowVisibleWhenAttribute 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowVisibleWhenAttribute') class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| expression | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A boolean expression string. |
+| termNames | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | The names of the terms used in the expression. |
+| termValues | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | The values of each term in the same order as term names array. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Documents-ViewsExtensibility'></a>
 ## ViewsExtensibility `type`
