@@ -5,6 +5,7 @@ and call out interesting aspects to its sample.
 
 Samples include:
 
+* SimpleRemoteCommandSample: A simple extension showing how to declare a single command.
 * CommandRegistrationsSample: Showcases how to register commands in different ways and command placement, localization.
 * InsertGuidExtension: A simple extension showing how to read/modify editor buffers.
 * MarkdownLinter: An end-to-end example showing various features available in the extensibility SDK.
