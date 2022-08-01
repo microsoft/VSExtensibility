@@ -66,7 +66,7 @@ using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.ToolWindows;
 using Microsoft.VisualStudio.RpcContracts.RemoteUI;
 
-[ToolWindow(nameof(MyToolWindow))]
+[ToolWindow]
 internal class MyToolWindow : ToolWindow
 {
     private readonly MyToolWindowContent content = new();
