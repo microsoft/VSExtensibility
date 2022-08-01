@@ -13,15 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandRegistrationsSample"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsertGuidExtension", "InsertGuidExtension\InsertGuidExtension.csproj", "{0B822716-63CA-41A9-8914-254A34C1976B}"
 EndProject
-<<<<<<< HEAD
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocumentSelectorSample", "DocumentSelectorSample\DocumentSelectorSample.csproj", "{6D16A4D7-4CF1-4162-9538-06F2D8499821}"
-=======
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarkdownLinter", "MarkdownLinter\MarkdownLinter.csproj", "{F005B03E-66DC-4145-8BBA-9E21ABE582C2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleRemoteCommandSample", "SimpleRemoteCommandSample\SimpleRemoteCommandSample.csproj", "{11EB62B3-79FD-450D-BC86-6FF414178B7E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolWindowExtension", "ToolWindowExtension\ToolWindowExtension.csproj", "{4605F69C-8179-409E-A3FA-431DD41F35CB}"
->>>>>>> 7e8d708ac6cc8b9d8c45aa5946ee531a0761e609
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,17 +43,14 @@ Global
 		{0B822716-63CA-41A9-8914-254A34C1976B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B822716-63CA-41A9-8914-254A34C1976B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B822716-63CA-41A9-8914-254A34C1976B}.Release|Any CPU.Build.0 = Release|Any CPU
-<<<<<<< HEAD
 		{6D16A4D7-4CF1-4162-9538-06F2D8499821}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6D16A4D7-4CF1-4162-9538-06F2D8499821}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D16A4D7-4CF1-4162-9538-06F2D8499821}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D16A4D7-4CF1-4162-9538-06F2D8499821}.Release|Any CPU.Build.0 = Release|Any CPU
-=======
 		{4605F69C-8179-409E-A3FA-431DD41F35CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4605F69C-8179-409E-A3FA-431DD41F35CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4605F69C-8179-409E-A3FA-431DD41F35CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4605F69C-8179-409E-A3FA-431DD41F35CB}.Release|Any CPU.Build.0 = Release|Any CPU
->>>>>>> 7e8d708ac6cc8b9d8c45aa5946ee531a0761e609
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
