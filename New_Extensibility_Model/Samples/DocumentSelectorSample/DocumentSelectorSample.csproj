@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>net6.0</TargetFrameworks>
-		<NoWarn>$(NoWarn);CS1591;IDE0008;CA1812</NoWarn>
+		<NoWarn>$(NoWarn);CS1591;IDE0008;CA1812;CA2007</NoWarn>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 		<CodeAnalysisRuleSet>$(RepoRootPath)src\tests.ruleset</CodeAnalysisRuleSet>
 		<RootNamespace>Microsoft.VisualStudio.Gladstone.DocumentSelectorSample</RootNamespace>

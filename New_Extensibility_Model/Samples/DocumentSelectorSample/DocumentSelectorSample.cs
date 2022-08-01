@@ -66,8 +66,10 @@ namespace Microsoft.VisualStudio.Gladstone.DocumentSelectorSample
 
 		private async Task WriteToOutputWindowAsync(string message, CancellationToken cancellationToken)
 		{
-			var channel = await this.Extensibility.Views().Output.GetChannelAsync(nameof(DocumentSelectorSample),
-				nameof(Resources.OutputWindowPaneName), cancellationToken);
+			var channel = await this.Extensibility.Views().Output.GetChannelAsync(
+				identifier: nameof(DocumentSelectorSample),
+				displayNameResourceId: nameof(Resources.OutputWindowPaneName),
+				cancellationToken);
 			Assumes.NotNull(channel);
 			await channel.Writer.WriteLineAsync(message);
 		}
