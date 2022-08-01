@@ -42,7 +42,7 @@ Update the code of the command to show the tool window using the `ShowToolWindow
 ```CSharp
 public override Task ExecuteCommandAsync(IClientContext context, CancellationToken ancellationToken)
 {
-    return Extensibility.Shell().ShowToolWindowAsync(nameof(MyToolWindow), activate: true, cancellationToken);
+    return Extensibility.Shell().ShowToolWindowAsync<MyToolWindow>(activate: true, cancellationToken);
 }
 ```
 
@@ -62,6 +62,7 @@ The `GetContentAsync` method is supposed to return an `IRemoteUserControl` which
 ```CSharp
 namespace MyToolWindowExtension;
 
+using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.ToolWindows;
 using Microsoft.VisualStudio.RpcContracts.RemoteUI;
 
@@ -70,8 +71,8 @@ internal class MyToolWindow : ToolWindow
 {
     private readonly MyToolWindowContent content = new();
 
-    public MyToolWindow(string id)
-        : base(id)
+    public MyToolWindow(VisualStudioExtensibility extensibility)
+        : base(extensibility)
     {
         Title = "My Tool Window";
     }
