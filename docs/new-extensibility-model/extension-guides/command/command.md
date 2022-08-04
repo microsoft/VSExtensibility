@@ -29,7 +29,7 @@ The attribute [Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute](.
 | ClientContexts | String | No | Client contexts requested by the command, separated by ','. By default the Shell and Editor contexts are returned. A client context is a snapshot of specific IDE states at the time a command was originally executed. Since these commands are executed asynchronously this state could change between the time the user executed the command and the command handler running. See more on this at [Client contexts](./../../inside-the-sdk/activation-constraints.md/#client-contexts). |
 
 ```csharp
-[Command(CommandId, "Sample Remote Command", placement: KnownCommandPlacement.ToolsMenu)]
+[Command(CommandId, "Sample Remote Command", placement: CommandPlacement.ToolsMenu)]
 public class CommandWithCallback : Command
 {
 	private const string CommandId = "SimpleRemoteCommandSample.Command";
@@ -50,11 +50,11 @@ See the [InsertGuidSample](./../insert-guid-sample.md) sample to get started wit
 
 ### Command Placement
 
-There are a set of well defined places in Visual Studio that commands can be placed. These placements are defined by the enum `Microsoft.VisualStudio.Extensibility.Commands.KnownCommandPlacement` and is passed into the constructor of the [Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute](./../../api/Microsoft.VisualStudio.Extensibility.md/#commandattribute-type) on your class. The current set of supported placements are:
+There are a set of well defined places in Visual Studio that commands can be placed. These placements are defined by the enum `Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement` and is passed into the constructor of the [Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute](./../../api/Microsoft.VisualStudio.Extensibility.md/#commandattribute-type) on your class. The current set of supported placements are:
 
-- `KnownCommandPlacement.ToolsMenu` - The command will be placed in a group under the top level "Tools" menu in Visual Studio.
-- `KnownCommandPlacement.ViewOtherWindowsMenu` - The command will be placed in a group under the top level "View" -> "Other Windows" menu in Visual Studio.
-- `KnownCommandPlacement.ExtensionsMenu` - The command will be placed in a group under the top level "Extensions" menu in Visual Studio.
+- `CommandPlacement.ToolsMenu` - The command will be placed in a group under the top level "Tools" menu in Visual Studio.
+- `CommandPlacement.ViewOtherWindowsMenu` - The command will be placed in a group under the top level "View" -> "Other Windows" menu in Visual Studio.
+- `CommandPlacement.ExtensionsMenu` - The command will be placed in a group under the top level "Extensions" menu in Visual Studio.
 
 ### Adding an icon
 
@@ -132,7 +132,7 @@ The text displayed on a command can be localized by including `string-resources.
 
 Localized Command DisplayName
 ```csharp
-[Command(CommandId, "%Microsoft.VisualStudio.MyExtension.SampleRemoteCommand.DisplayName%", placement: KnownCommandPlacement.ToolsMenu)]
+[Command(CommandId, "%Microsoft.VisualStudio.MyExtension.SampleRemoteCommand.DisplayName%", placement: CommandPlacement.ToolsMenu)]
 ```
 
 #### string-resources.json

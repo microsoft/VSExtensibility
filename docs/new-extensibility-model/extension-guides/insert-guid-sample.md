@@ -1,14 +1,12 @@
 ---
 title: Insert Guid Extension Sample reference
 description: A reference for Insert Guid sample reference
-date: 2021-8-16
+date: 2022-8-4
 ---
 
 # Walkthrough: Insert Guid Extension Sample
 
 This extension is a simple extension that shows how a command that modifies an open editor window can be quickly added to Visual Studio.
-
-Source code: TBD
 
 ## Command definition
 
@@ -18,7 +16,7 @@ The extension consist of a single code file that defines a command and its prope
 [Command(
 	"Microsoft.VisualStudio.InsertGuidExtension.InsertGuidCommand",
 	"Insert new guid",
-	placement: KnownCommandPlacement.ExtensionsMenu)]
+	placement: CommandPlacement.ExtensionsMenu)]
 [CommandIcon("OfficeWebExtension", IconSettings.IconAndText)]
 [CommandVisibleWhen("AnyFile", new string[] { "AnyFile" }, new string[] { "ClientContext:Shell.ActiveEditorContentType=.+" })]
 ```
