@@ -1,6 +1,6 @@
 ---
-title: Advanced *Remote UI* concepts
-description: A walkthrough of more advanced *Remote UI* concepts
+title: Advanced Remote UI concepts
+description: A walkthrough of more advanced Remote UI concepts
 date: 2022-7-20
 ---
 
