@@ -1,6 +1,6 @@
 ---
-title: *Remote UI*
-description: A walkthrough exploring the *Remote UI* features
+title: Remote UI
+description: A walkthrough exploring the Remote UI features
 date: 2022-7-18
 ---
 
