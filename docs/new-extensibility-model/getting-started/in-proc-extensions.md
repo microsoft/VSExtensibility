@@ -25,8 +25,6 @@ This document is a quick walkthrough on how to create your first *in-proc* exten
 
 ![VisualStudio.Extensibility In-Process Extension Project template](in-proc-project-template.png "VisualStudio.Extensibility In-Process Extension Project template")
 
-* Open the *source.extension.vsixmanifest* file and fill in the *Author* field (the *Publisher* field if you are editing the file as code instead of using the designer).
-
 ## Debug your extension
 
 * Set the *Container* project as *Startup Project*, press `F5` to start debugging.
