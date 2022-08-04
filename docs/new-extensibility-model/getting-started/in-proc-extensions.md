@@ -7,7 +7,7 @@ date: 2022-7-13
 # Creating your first in-process VisualStudio.Extensibility extension
 
 ## Introduction
-While the VisualStudio.Extensibility model was created primarily to host extensions outside of the devenv.exe process, starting with Visual Studio 17.3 it is possible to build a VisualStudio.Extensibility extension that are hosted within devenv.exe and can leverage traditional extensibility APIs provided by the [Microsoft.VisualStudio.Sdk](https://www.nuget.org/packages/Microsoft.VisualStudio.Sdk) packages.
+While the VisualStudio.Extensibility model was created primarily to host extensions outside of the devenv.exe process, starting with Visual Studio 2022 17.4 Preview 1 it is possible to build a VisualStudio.Extensibility extension that are hosted within devenv.exe and can leverage traditional extensibility APIs provided by the [Microsoft.VisualStudio.Sdk](https://www.nuget.org/packages/Microsoft.VisualStudio.Sdk) packages.
 
 The support of *in-proc* extensions is meant to allow early adopters to leverage the new VisualStudio.Extensibility APIs while relying on [Microsoft.VisualStudio.Sdk](https://www.nuget.org/packages/Microsoft.VisualStudio.Sdk) to cover any feature gap.
 
