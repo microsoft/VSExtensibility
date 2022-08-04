@@ -1,6 +1,6 @@
 ---
-title: Advanced *Remote UI* concepts
-description: A walkthrough of more advanced *Remote UI* concepts
+title: Advanced Remote UI concepts
+description: A walkthrough of more advanced Remote UI concepts
 date: 2022-7-20
 ---
 
@@ -29,6 +29,7 @@ Let's start with updating `MyToolWindowContent.xaml` to show a list view and a b
 ```xml
 <DataTemplate xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:vs="http://schemas.microsoft.com/visualstudio/extensibility/2022/xaml"
               xmlns:vsshell="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
               xmlns:vsfx="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0">
     <Grid x:Name="RootGrid">
@@ -216,16 +217,9 @@ If we test the extension at this point, we will notice that when one of the "Rem
 
 This may be the desired behavior. But, let's say that we want only the current button to be disabled and we will allow the user to queue multiple colors for removal: we cannot use the *async command*'s `RunningCommandsCount` property because we have a single command shared between all the buttons.
 
-We can achieve our goal by attaching a `RunningCommandsCount` property to each button so that we have a separate counter for each color. First, we need to add a new `xmlns` (`http://schemas.microsoft.com/visualstudio/extensibility/2022/xaml`) to consume *Remote UI* types from XAML:
-```xml
-<DataTemplate xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-              xmlns:vsshell="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
-              xmlns:vsfx="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0"
-              xmlns:vs="http://schemas.microsoft.com/visualstudio/extensibility/2022/xaml">
-```
+We can achieve our goal by attaching a `RunningCommandsCount` property to each button so that we have a separate counter for each color. These features are provided by the `http://schemas.microsoft.com/visualstudio/extensibility/2022/xaml` namespace which allows to consume *Remote UI* types from XAML:
 
-Then, we change the "Remove" button to the following:
+We change the "Remove" button to the following:
 ```xml
 <Button Content="Remove" Grid.Column="2"
         IsEnabled="{Binding Path=(vs:ExtensibilityUICommands.RunningCommandsCount).IsZero, RelativeSource={RelativeSource Self}}">

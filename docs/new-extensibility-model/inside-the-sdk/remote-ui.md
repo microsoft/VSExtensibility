@@ -1,6 +1,6 @@
 ---
-title: *Remote UI*
-description: A walkthrough exploring the *Remote UI* features
+title: Remote UI
+description: A walkthrough exploring the Remote UI features
 date: 2022-7-18
 ---
 
@@ -9,7 +9,7 @@ One of the main goals of the VisualSudio.Extensibility model is to allow extensi
 
 *Remote UI* is a set of classes allowing to define WPF controls in an *out-of-proc* extension and showing them as part of the Visual Studio UI.
 
-*Remote UI* leans heavily towards the *Model-View-ViewModel* design pattern relying on XAML and data binding, commands (instead of events), and triggers (instead of interacting with the [logical tree](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/advanced/trees-in-wpf) from *code-behind*).
+*Remote UI* leans heavily towards the [Model-View-ViewModel](https://docs.microsoft.com/en-us/archive/msdn-magazine/2009/february/patterns-wpf-apps-with-the-model-view-viewmodel-design-pattern) design pattern relying on XAML and data binding, commands (instead of events), and triggers (instead of interacting with the [logical tree](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/advanced/trees-in-wpf) from *code-behind*).
 
 While *Remote UI* was developed to support *out-of-proc* extensions, *VisualStudio.Extensibility* APIs that rely on *Remote UI*, like `ToolWindow`, will leverage *Remote UI* for *in-proc* extensions as well.
 
@@ -124,14 +124,15 @@ A class extending `RemoteUserControl`, will automatically use the XAML embedded 
 Next, let's create a file named `MyToolWindowContent.xaml`:
 ```xml
 <DataTemplate xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:vs="http://schemas.microsoft.com/visualstudio/extensibility/2022/xaml">
     <Label>Hello World</Label>
 </DataTemplate>
 ```
 
 As described above, this file must have the same name as the `RemoteUserControl` class.
 
-The XAML definition of the *remote user control* is normal WPF xaml describing a `DataTemplate`. This XAML will be sent to Visual Studio and used to fill the tool window content.
+The XAML definition of the *remote user control* is normal WPF xaml describing a `DataTemplate`. This XAML will be sent to Visual Studio and used to fill the tool window content. We use a special `xmlns` for *Remote UI* XAML: `http://schemas.microsoft.com/visualstudio/extensibility/2022/xaml`.
 
 ### Setting the XAML as an embedded resource
 
@@ -158,6 +159,7 @@ Let's update the XAML to use the [styles](https://docs.microsoft.com/en-us/dotne
 ```xml
 <DataTemplate xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:vs="http://schemas.microsoft.com/visualstudio/extensibility/2022/xaml"
               xmlns:vsshell="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
               xmlns:vsfx="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0">
     <Grid>
@@ -303,6 +305,7 @@ Let's update `MyToolWindowContent.xaml` to use the new properties in the datacon
 ```xml
 <DataTemplate xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:vs="http://schemas.microsoft.com/visualstudio/extensibility/2022/xaml"
               xmlns:vsshell="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
               xmlns:vsfx="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0">
     <Grid>

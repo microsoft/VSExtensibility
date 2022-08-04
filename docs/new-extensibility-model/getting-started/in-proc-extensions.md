@@ -11,11 +11,13 @@ While the VisualStudio.Extensibility model was created primarily to host extensi
 
 The support of *in-proc* extensions is meant to allow early adopters to leverage the new VisualStudio.Extensibility APIs while relying on [Microsoft.VisualStudio.Sdk](https://www.nuget.org/packages/Microsoft.VisualStudio.Sdk) to cover any feature gap.
 
+At this time, VSIX extensions containing VisualStudio.Extensibility references cannot be uploaded to the Visual Studio Marketplace due to VisualStudio.Extensibility being in preview status.
+
 This document is a quick walkthrough on how to create your first *in-proc* extension using the VisualStudio.Extensibility model.
 
 ## Prerequisites
 
-* Visual Studio 2022 17.3 or higher with the ".NET desktop development" and "Visual Studio extension development" workloads.
+* Visual Studio 2022 17.4 Preview 1 or higher with the ".NET desktop development" and "Visual Studio extension development" workloads.
 
 * Install [VisualStudio.Extensibility Project System](https://marketplace.visualstudio.com/items?itemName=vsext.gladstone): This extension contains project templates for VisualStudio.Extensibility extensions.
 
@@ -24,8 +26,6 @@ This document is a quick walkthrough on how to create your first *in-proc* exten
 * Use the *VisualStudio.Extensibility In-Process Extension Project* template to create a new solution.
 
 ![VisualStudio.Extensibility In-Process Extension Project template](in-proc-project-template.png "VisualStudio.Extensibility In-Process Extension Project template")
-
-* Open the *source.extension.vsixmanifest* file and fill in the *Author* field (the *Publisher* field if you are editing the file as code instead of using the designer).
 
 ## Debug your extension
 
