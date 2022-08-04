@@ -13,7 +13,7 @@
   - [ExecuteCommandAsync(context,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Commands-Command-ExecuteCommandAsync-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Commands.Command.ExecuteCommandAsync(Microsoft.VisualStudio.Extensibility.Definitions.IClientContext,System.Threading.CancellationToken)')
   - [InitializeAsync(cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Commands-Command-InitializeAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Commands.Command.InitializeAsync(System.Threading.CancellationToken)')
 - [CommandAttribute](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute 'Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute')
-  - [#ctor(name,id,displayName,containerType,placement,clientContexts)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-#ctor-System-String,System-UInt16,System-String,System-Type,Microsoft-VisualStudio-Extensibility-Commands-KnownCommandPlacement,System-String- 'Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute.#ctor(System.String,System.UInt16,System.String,System.Type,Microsoft.VisualStudio.Extensibility.Commands.KnownCommandPlacement,System.String)')
+  - [#ctor(name,id,displayName,containerType,placement,clientContexts)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-#ctor-System-String,System-UInt16,System-String,System-Type,Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement,System-String- 'Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute.#ctor(System.String,System.UInt16,System.String,System.Type,Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement,System.String)')
   - [ClientContexts](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-ClientContexts 'Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute.ClientContexts')
   - [ContainerType](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-ContainerType 'Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute.ContainerType')
   - [DisplayName](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-DisplayName 'Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute.DisplayName')
@@ -124,11 +124,11 @@
   - [IconAndText](#F-Microsoft-VisualStudio-Extensibility-Commands-IconSettings-IconAndText 'Microsoft.VisualStudio.Extensibility.Commands.IconSettings.IconAndText')
   - [IconOnly](#F-Microsoft-VisualStudio-Extensibility-Commands-IconSettings-IconOnly 'Microsoft.VisualStudio.Extensibility.Commands.IconSettings.IconOnly')
   - [None](#F-Microsoft-VisualStudio-Extensibility-Commands-IconSettings-None 'Microsoft.VisualStudio.Extensibility.Commands.IconSettings.None')
-- [KnownCommandPlacement](#T-Microsoft-VisualStudio-Extensibility-Commands-KnownCommandPlacement 'Microsoft.VisualStudio.Extensibility.Commands.KnownCommandPlacement')
-  - [ExtensionsMenu](#F-Microsoft-VisualStudio-Extensibility-Commands-KnownCommandPlacement-ExtensionsMenu 'Microsoft.VisualStudio.Extensibility.Commands.KnownCommandPlacement.ExtensionsMenu')
-  - [None](#F-Microsoft-VisualStudio-Extensibility-Commands-KnownCommandPlacement-None 'Microsoft.VisualStudio.Extensibility.Commands.KnownCommandPlacement.None')
-  - [ToolsMenu](#F-Microsoft-VisualStudio-Extensibility-Commands-KnownCommandPlacement-ToolsMenu 'Microsoft.VisualStudio.Extensibility.Commands.KnownCommandPlacement.ToolsMenu')
-  - [ViewOtherWindowsMenu](#F-Microsoft-VisualStudio-Extensibility-Commands-KnownCommandPlacement-ViewOtherWindowsMenu 'Microsoft.VisualStudio.Extensibility.Commands.KnownCommandPlacement.ViewOtherWindowsMenu')
+- [CommandPlacement](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement 'Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement')
+  - [ExtensionsMenu](#F-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement-ExtensionsMenu 'Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement.ExtensionsMenu')
+  - [None](#F-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement-None 'Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement.None')
+  - [ToolsMenu](#F-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement-ToolsMenu 'Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement.ToolsMenu')
+  - [ViewOtherWindowsMenu](#F-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement-ViewOtherWindowsMenu 'Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement.ViewOtherWindowsMenu')
 - [LanguagesExtensibility](#T-Microsoft-VisualStudio-Extensibility-Documents-LanguagesExtensibility 'Microsoft.VisualStudio.Extensibility.Documents.LanguagesExtensibility')
   - [#ctor(extensibilityPoint)](#M-Microsoft-VisualStudio-Extensibility-Documents-LanguagesExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint- 'Microsoft.VisualStudio.Extensibility.Documents.LanguagesExtensibility.#ctor(Microsoft.VisualStudio.Extensibility.ExtensibilityPoint)')
 - [OutputWindow](#T-Microsoft-VisualStudio-Extensibility-Documents-OutputWindow 'Microsoft.VisualStudio.Extensibility.Documents.OutputWindow')
@@ -320,7 +320,7 @@ Microsoft.VisualStudio.Extensibility.Commands
 
 An attribute used on Command classes to specify the command id (or name in future).
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-#ctor-System-String,System-UInt16,System-String,System-Type,Microsoft-VisualStudio-Extensibility-Commands-KnownCommandPlacement,System-String-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-#ctor-System-String,System-UInt16,System-String,System-Type,Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement,System-String-'></a>
 ### #ctor(name,id,displayName,containerType,placement,clientContexts) `constructor`
 
 ##### Summary
@@ -335,7 +335,7 @@ Initializes a new instance of the [CommandAttribute](#T-Microsoft-VisualStudio-E
 | id | [System.UInt16](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.UInt16 'System.UInt16') | Command identifier. |
 | displayName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The default display name for the command. |
 | containerType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | Optional container type that should contain the command, this is used for automatic registration of commands. If left null command will be registered to default command set generated during compilation. |
-| placement | [Microsoft.VisualStudio.Extensibility.Commands.KnownCommandPlacement](#T-Microsoft-VisualStudio-Extensibility-Commands-KnownCommandPlacement 'Microsoft.VisualStudio.Extensibility.Commands.KnownCommandPlacement') | Where the command should be parented to in the IDE. |
+| placement | [Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement 'Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement') | Where the command should be parented to in the IDE. |
 | clientContexts | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Client contexts requested by the command, separated by ','. By default only Shell context is returned. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-ClientContexts'></a>
@@ -1676,8 +1676,8 @@ In a toolbar, only the icon should be shown to represent the command. In a menu,
 
 None.
 
-<a name='T-Microsoft-VisualStudio-Extensibility-Commands-KnownCommandPlacement'></a>
-## KnownCommandPlacement `type`
+<a name='T-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement'></a>
+## CommandPlacement `type`
 
 ##### Namespace
 
@@ -1687,28 +1687,28 @@ Microsoft.VisualStudio.Extensibility.Commands
 
 Known locations that a command can be parented to.
 
-<a name='F-Microsoft-VisualStudio-Extensibility-Commands-KnownCommandPlacement-ExtensionsMenu'></a>
+<a name='F-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement-ExtensionsMenu'></a>
 ### ExtensionsMenu `constants`
 
 ##### Summary
 
 A group inside of the Extensions top level menu.
 
-<a name='F-Microsoft-VisualStudio-Extensibility-Commands-KnownCommandPlacement-None'></a>
+<a name='F-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement-None'></a>
 ### None `constants`
 
 ##### Summary
 
 The command should not be placed anywhere. It only exists in the command well.
 
-<a name='F-Microsoft-VisualStudio-Extensibility-Commands-KnownCommandPlacement-ToolsMenu'></a>
+<a name='F-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement-ToolsMenu'></a>
 ### ToolsMenu `constants`
 
 ##### Summary
 
 A group inside of the Tools top level menu.
 
-<a name='F-Microsoft-VisualStudio-Extensibility-Commands-KnownCommandPlacement-ViewOtherWindowsMenu'></a>
+<a name='F-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement-ViewOtherWindowsMenu'></a>
 ### ViewOtherWindowsMenu `constants`
 
 ##### Summary
