@@ -4,34 +4,50 @@ description: A reference for extensibility tool windows
 date: 2022-7-20
 ---
 
-# Tool Windows
+# Tool Windows Overview
 
-Tool windows are a way to add complex UI and interactions to Visual Studio. They typically provide a user friendly mechanism for interacting with various APIs and features. For example, the Solution Explorer provides a tree-based view of the current project/solution/folder and allows simple gestures for opening, renaming, creating files.
+Tool windows are a way to add complex UI and interactions to Visual Studio. They typically provide a user-friendly way to interact with various APIs and features. For example, the Solution Explorer tool window provides a tree-based view of the current project/solution/folder and provides simple gestures for the opening, renaming, and creating of files.
 
-Tool windows are single-instance , meaning that only one instance of the tool window can be open at a time. After a single-instance tool window is opened, it remains open until Visual Studio is closed, and when closed the tool window is only visibly hidden instead of being fully closed and disposed like documents. Tool windows can be dynamic, meaning that they are visible whenever their related context rule applies. The use of auto-visibility can reduce the clutter of windows in the IDE. Tool windows can be docked, floating, or tabbed in the document well. The default size and location apply only when the tool window is first opened and after that the tool window state is persisted.
+Tool windows are single-instance, meaning that only one instance of the Tool Window can be open at a time. When a Tool Window is closed in the IDE, it is only visibly hidden, instead of being fully closed and disposed of like documents. 
 
-## Creating new tool windows
+# Getting Started
 
-To get started, follow the [create the project](../getting-started/create-your-first-extension.md) section in Getting Started section.
+To get started, follow the [create the project](./../../getting-started/create-your-first-extension.md) section in Getting Started section.
 
-### Registering a tool window
+Next, see the [ToolWindowExtension](./../../../../New_Extensibility_Model/Samples/ToolWindowExtension) sample for a full example of creating an extension with a tool window.
 
-Creating a tool window with the new Extensibility Model is as simple as extending the base class `Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow` and adorning your class with the attribute `Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowAttribute`.
+# Working with Tool Windows
 
-The attribute [Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowAttribute](./../../api/Microsoft.VisualStudio.Extensibility.md/#toolwindowattribute-type) has a few parameters that you should become familiar with:
+This guide is designed to cover the top user scenarios when working with Tool Windows:
 
-| Parameter | Type | Required | Description |
-| --------- |----- | -------- | ----------- |
-| Placement | ToolWindowPlacement or String | No | The location in Visual Studio where the tool window should be opened the first time. If this value is a string it's expected to be a guid matching an old vsix-style tool window id. See more about [ToolWindowPlacement](#tool-window-placement). |
-| DockDirection | Dock | No | The direction relative to the placement where the tool window should be docked when opened the first time. See more about [Dock](#dock). |
-| AllowAutoCreation | Bool | No | Whether or not the tool window can be created automatically. Setting this to false means that tool windows that are open when Visual Studio is closed will not be automatically restored when Visual Studio is opened again. |
+- [Creating a Tool Window](#creating-a-tool-window)
+- [Adding Content to a Tool Window](#adding-content-to-a-tool-window)
+- [Creating a Command to Show a Tool Window](#creating-a-command-to-show-a-tool-window)
+- [Controlling the visibility of a Tool Window](#controlling-the-visibility-of-a-tool-window)
+
+# Creating a Tool Window
+
+Creating a tool window with the new Extensibility Model is as simple as extending the base class [`Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow`](./../../api/Microsoft.VisualStudio.Extensibility.md/#toolwindow-type) and adorning your class with the attribute [`Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowAttribute`](./../../api/Microsoft.VisualStudio.Extensibility.Contracts.md/#toolwindowattribute-type).
 
 ```csharp
-// This is a default tool window registration that will result in:
-// 1) Placement of ToolWindowPlacement.Floating
-// 2) Dock direction of Dock.None
-// 3) Allow auto-creation being enabled
 [ToolWindow]
+public class MyToolWindow : ToolWindow
+```
+
+## ToolWindow Attribute
+
+The attribute [`ToolWindowAttribute`](./../../api/Microsoft.VisualStudio.Extensibility.md/#toolwindowattribute-type) has a few parameters that you should become familiar with:
+
+| Parameter | Type | Required | Description | Default Value |
+| --------- |----- | -------- | ----------- | ------------- |
+| Placement | ToolWindowPlacement or String | No | The location in Visual Studio where the tool window should be opened the first time. If this value is a string it's expected to be a guid matching an old vsix-style tool window id. See more about [ToolWindowPlacement](./../../api/Microsoft.VisualStudio.Extensibility.Contracts.md/#toolwindowplacement-type). | ToolWindowPlacement.Floating |
+| DockDirection | Dock | No | The direction relative to the placement where the tool window should be docked when opened the first time. See more about [Dock](./../../api/Microsoft.VisualStudio.Extensibility.Contracts.md/#dock-type). | Dock.None |
+| AllowAutoCreation | Bool | No | Whether or not the tool window can be created automatically. Setting this to false means that tool windows that are open when Visual Studio is closed will not be automatically restored when Visual Studio is opened again. | `true` |
+
+## Example
+
+```csharp
+[ToolWindow(placement: ToolWindowPlacement.Floating, dockDirection: Dock.Right, allowAutoCreation: true)]
 public class MyToolWindow : ToolWindow
 {
     public MyToolWindow(VisualStudioExtensibility extensibility)
@@ -42,38 +58,35 @@ public class MyToolWindow : ToolWindow
 
     public override Task<IRemoteUserControl> GetContentAsync(CancellationToken cancellationToken)
     {
-        // TODO: Create and return a RemoteUserControl
+        // Create and return a RemoteUserControl
     }
 }
 ```
-See the [ToolWindowExtension](./../../../../New_Extensibility_Model/Samples/ToolWindowExtension) sample to get started with creating an extension with a tool window.
 
-### Creating content for a tool window
+# Adding Content to a Tool Window
 
-Once a tool window is registered it will need content. Adding content requires creating a [RemoteUserControl](./../../inside-the-sdk/remote-ui.md) and corresponding data template for the control.
+Because extensions in VisualStudio.Extensibility might be out-of-process from the IDE, we cannot directly use WPF as a presentation layer for content in Tool Windows. Instead, adding content to a tool window requires creating a [RemoteUserControl](./../../inside-the-sdk/remote-ui.md) and the corresponding data template for that control. While there are some simple examples below, we recommend reading the [Remote UI documentation](./../../inside-the-sdk/remote-ui.md) when adding Tool Window content.
 
 ```csharp
-    [ToolWindow(ToolWindowPlacement.DocumentWell)]
-    public class MyToolWindow : ToolWindow
+[ToolWindow(ToolWindowPlacement.DocumentWell)]
+public class MyToolWindow : ToolWindow
+{
+    public MyToolWindow(VisualStudioExtensibility extensibility)
+        : base(extensibility)
     {
-        public MyToolWindow(VisualStudioExtensibility extensibility)
-            : base(extensibility)
-        {
-            this.Title = "My Tool Window";
-        }
-
-        public override Task<IRemoteUserControl> GetContentAsync(CancellationToken cancellationToken)
-        {
-            // The data object allows for data binding in the control.
-            var dataContext = new MyToolWindowData(this.Extensibility);
-
-            // The only work done here should be related to creating the content.
-            // If additional work is needed prior to creating the control, it
-            // can be done by overriding the InitializeAsync method
-            var control = new MyToolWindowControl(dataContext);
-            return Task.FromResult<IRemoteUserControl>(control);
-        }
+        this.Title = "My Tool Window";
     }
+
+    public override async Task InitializeAsync(CancellationToken cancellationToken)
+    {
+        // Do any work here that is needed before creating the control.
+    }
+
+    public override Task<IRemoteUserControl> GetContentAsync(CancellationToken cancellationToken)
+    {
+        return Task.FromResult<IRemoteUserControl>(new MyToolWindowControl());
+    }
+}
 ```
 
 MyToolWindowControl.cs: (this is an example file name and should have the same name as the data template file)
@@ -81,8 +94,8 @@ MyToolWindowControl.cs: (this is an example file name and should have the same n
 ```csharp
 internal class MyToolWindowControl : RemoteUserControl
 {
-    public MyToolWindowControl(object? dataContext, SynchronizationContext? synchronizationContext = null)
-        : base(dataContext, synchronizationContext)
+    public MyToolWindowControl()
+        : base(dataContext: null)
     {
     }
 }
@@ -92,43 +105,50 @@ MyToolWindowControl.xaml (this is an example file name and should have the same 
 
 ```xml
 <DataTemplate xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <!-- TODO: Fill with content -->
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:vs="http://schemas.microsoft.com/visualstudio/extensibility/2022/xaml">
+    <Label></Label>
 </DataTemplate>
 ```
 
 See the [Remote UI](./../../inside-the-sdk/remote-ui.md) docs for more information on creating a RemoteUserControl.
 
-### Registering a command to show tool window
+# Creating a Command to Show a Tool Window
 
-A common mechanism for opening a tool window is to add a command that, when invoked, shows the tool window.
+A common mechanism for showing a tool window is to add a [command](./../command/command.md) that, when invoked, shows the tool window by calling `ShellExtensibility.ShowToolWindowAsync()`.
+
+`ShowToolWindowAsync()` has a boolean parameter, `activate`:
+ - When `true`, the tool window will be both visible in the IDE *and* given focus.
+ - When `false`, the tool window will be visibile in the IDE, but may be visible only as a tab in a tab group if other tool windows are active.
+
+## Example
 
 ```csharp
 [Command("ToolWindowExtension.MyToolWindowCommand", "My Tool Window", placement: CommandPlacement.ToolsMenu)]
 [CommandIcon(KnownMonikers.ToolWindow, IconSettings.IconAndText)]
 public class MyToolWindowCommand : Command
 {
-    public MyToolWindowCommand(VisualStudioExtensibility extensibility, string name)
-        : base(extensibility, name)
+    public MyToolWindowCommand(VisualStudioExtensibility extensibility, string id)
+        : base(extensibility, id)
     {
     }
 
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
-        // "Activate: true" here means that the tool window will be shown and given focus
-        // "Activate: false" here means that the tool window will only be shown which may result in only showing its tab
         await this.Extensibility.Shell().ShowToolWindowAsync<MyToolWindow>(activate: true, cancellationToken);
     }
 }
 ```
 
-See the [Commands](./../command/command.md) docs to learn more about setting up commands.
+See the [Commands](./../command/command.md) docs to learn more about creating and using commands.
 
-### Registering a tool window with dynamic visibility
+# Controlling the Visibility of a Tool Window
 
-Another mechanism for opening a tool window is to set up activation constraints for when it should be shown or hidden. This allows tool windows to automatically be opened when certain conditions are met, and hidden again when those conditions are no longer applicable.
+Another way of controling the visibility of a tool window, besides using commands, is to use rule-based activation constraints. This allows tool windows to automatically be opened when certain conditions are met, and hidden again when those conditions are no longer applicable.
 
-The attribute [Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowVisibleWhenAttribute](./../../api/Microsoft.VisualStudio.Extensibility.md/#toolwindowvisiblewhenattribute-type) has a few parameters that you should become familiar with:
+## ToolWindowVisibleWhenAttribute
+
+The attribute [`Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowVisibleWhenAttribute`](./../../api/Microsoft.VisualStudio.Extensibility.Contracts.md/#toolwindowvisiblewhenattribute-type) has a few parameters that you should become familiar with:
 
 | Parameter | Type | Required | Description |
 | --------- |----- | -------- | ----------- |
@@ -136,17 +156,16 @@ The attribute [Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowVisibl
 | TermNames | String[] | Yes | The names of the terms used in the expression. |
 | TermValues | String[] | Yes | The values of each term. The term values must be in the same order as term names array. |
 
+## Example
+
 ```csharp
-// The tool window will be shown if a .cs file is the active document, and
-// will be hidden whenever any other file type is the active document.
+// The tool window will be shown if the active document is a .cs file, and
+// will be hidden if the active document is any any other type of file.
 [ToolWindow]
 [ToolWindowVisibleWhen("FileSelected",
                        new string[] { "FileSelected" },
                        new string[] { "ClientContext:Shell.ActiveSelectionFileName=.cs$" })]
 public class MyToolWindow : ToolWindow
-{
-    // TODO: Implement the rest of the class
-}
 ```
 
 See the [Using rule based activation constraints](../../inside-the-sdk/activation-constraints.md/#rule-based-activation-constraints) docs for more information on valid term values.
