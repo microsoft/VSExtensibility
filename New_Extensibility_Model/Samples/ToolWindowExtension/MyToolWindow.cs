@@ -1,44 +1,45 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-namespace ToolWindowExtension
+namespace ToolWindowExtension;
+
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.VisualStudio.Extensibility;
+using Microsoft.VisualStudio.Extensibility.ToolWindows;
+using Microsoft.VisualStudio.RpcContracts.RemoteUI;
+
+/// <summary>
+/// A sample tool window.
+/// </summary>
+[ToolWindow(ToolWindowPlacement.DocumentWell)]
+public class MyToolWindow : ToolWindow
 {
-	using Microsoft.VisualStudio.Extensibility;
-	using Microsoft.VisualStudio.Extensibility.ToolWindows;
-	using Microsoft.VisualStudio.RpcContracts.RemoteUI;
+	private object? dataContext;
 
 	/// <summary>
-	/// A sample tool window.
+	/// Initializes a new instance of the <see cref="MyToolWindow" /> class.
 	/// </summary>
-	[ToolWindow(ToolWindowPlacement.DocumentWell)]
-	public class MyToolWindow : ToolWindow
+	/// <param name="extensibility">
+	/// Extensibility object instance.
+	/// </param>
+	public MyToolWindow(VisualStudioExtensibility extensibility)
+		: base(extensibility)
 	{
-		private object? dataContext;
+		this.Title = "My Tool Window";
+	}
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="MyToolWindow" /> class.
-		/// </summary>
-		/// <param name="extensibility">
-		/// Extensibility object instance.
-		/// </param>
-		public MyToolWindow(VisualStudioExtensibility extensibility)
-			: base(extensibility)
-		{
-			this.Title = "My Tool Window";
-		}
+	/// <inheritdoc />
+	public override Task InitializeAsync(CancellationToken cancellationToken)
+	{
+		this.dataContext = new MyToolWindowData(this.Extensibility);
 
-		/// <inheritdoc />
-		public override Task InitializeAsync(CancellationToken cancellationToken)
-		{
-			this.dataContext = new MyToolWindowData(this.Extensibility);
+		return Task.CompletedTask;
+	}
 
-			return Task.CompletedTask;
-		}
-
-		/// <inheritdoc />
-		public override Task<IRemoteUserControl> GetContentAsync(CancellationToken cancellationToken)
-		{
-			return Task.FromResult<IRemoteUserControl>(new MyToolWindowControl(this.dataContext));
-		}
+	/// <inheritdoc />
+	public override Task<IRemoteUserControl> GetContentAsync(CancellationToken cancellationToken)
+	{
+		return Task.FromResult<IRemoteUserControl>(new MyToolWindowControl(this.dataContext));
 	}
 }

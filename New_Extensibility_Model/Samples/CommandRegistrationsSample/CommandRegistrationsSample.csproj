@@ -1,9 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFramework>net6.0-windows</TargetFramework>
-		<NoWarn>$(NoWarn);CS1591;IDE0008;CA1812</NoWarn>
 		<Nullable>enable</Nullable>
+		<LangVersion>10</LangVersion>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<NoWarn>$(NoWarn);CS1591;IDE0008;CA1812</NoWarn>
 
 		<!-- The VisualStudio.Extensibility preview packages are available from the azure-public/vside/vssdk feed -->
 		<RestoreAdditionalProjectSources>https://pkgs.dev.azure.com/azure-public/vside/_packaging/vssdk/nuget/v3/index.json;$(RestoreAdditionalProjectSources)</RestoreAdditionalProjectSources>
@@ -36,10 +37,6 @@
 	<ItemGroup>
 		<Content Include=".vsextension\**\string-resources.json">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVsix>true</IncludeInVsix>
 		</Content>
-		<None Update="source.extension.vsixmanifest">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</None>
 	</ItemGroup>
 </Project>

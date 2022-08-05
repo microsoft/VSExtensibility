@@ -1,9 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFrameworks>net6.0-windows</TargetFrameworks>
-		<NoWarn>$(NoWarn);CS1591;IDE0008;CA1812;CA2007</NoWarn>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<LangVersion>10</LangVersion>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 		<NeutralLanguage>en-US</NeutralLanguage>
+		<NoWarn>$(NoWarn);CS1591;IDE0008;CA1812;CA2007</NoWarn>
 		<RootNamespace>Microsoft.VisualStudio.Extensions.MarkdownLinter</RootNamespace>
 
 		<!-- The VisualStudio.Extensibility preview packages are available from the azure-public/vside/vssdk feed -->
@@ -28,11 +30,5 @@
 			<Generator>ResXFileCodeGenerator</Generator>
 			<LastGenOutput>Strings.Designer.cs</LastGenOutput>
 		</EmbeddedResource>
-	</ItemGroup>
-
-	<ItemGroup>
-		<None Update="source.extension.vsixmanifest">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</None>
 	</ItemGroup>
 </Project>

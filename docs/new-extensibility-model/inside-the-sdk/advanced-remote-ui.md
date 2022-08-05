@@ -30,14 +30,14 @@ Let's start with updating `MyToolWindowContent.xaml` to show a list view and a b
 <DataTemplate xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
               xmlns:vs="http://schemas.microsoft.com/visualstudio/extensibility/2022/xaml"
-              xmlns:vsshell="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
-              xmlns:vsfx="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0">
+              xmlns:styles="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
+              xmlns:colors="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0">
     <Grid x:Name="RootGrid">
         <Grid.Resources>
-            <Style TargetType="ListView" BasedOn="{StaticResource {x:Static vsshell:VsResourceKeys.ThemedDialogListViewStyleKey}}" />
-            <Style TargetType="Button" BasedOn="{StaticResource {x:Static vsshell:VsResourceKeys.ButtonStyleKey}}" />
+            <Style TargetType="ListView" BasedOn="{StaticResource {x:Static styles:VsResourceKeys.ThemedDialogListViewStyleKey}}" />
+            <Style TargetType="Button" BasedOn="{StaticResource {x:Static styles:VsResourceKeys.ButtonStyleKey}}" />
             <Style TargetType="TextBlock">
-                <Setter Property="Foreground" Value="{DynamicResource {x:Static vsshell:VsBrushes.WindowTextKey}}" />
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static styles:VsBrushes.WindowTextKey}}" />
             </Style>
         </Grid.Resources>
         <Grid.RowDefinitions>
@@ -236,7 +236,7 @@ We change the "Remove" button to the following:
 
 The `vs:ExtensibilityUICommands.EventHandlers` attached property allows assigning *async commands* to any event (for example, `MouseRightButtonUp`) and can be useful in more advanced scenarios.
 
-`vs:EventHandler` can also have a `CounterTarget`: a `UIElement` to which a `vs:ExtensibilityUICommands.RunningCommandsCount` property should be attached, counting the active executions related to that specific event.
+`vs:EventHandler` can also have a `CounterTarget`: a `UIElement` to which a `vs:ExtensibilityUICommands.RunningCommandsCount` property should be attached, counting the active executions related to that specific event. Make sure to use parentheses (for example `Path=(vs:ExtensibilityUICommands.RunningCommandsCount).IsZero`) when binding to an attached property.
 
 In this case, we use `vs:EventHandler` to attach to each button its own separate counter of active command executions. By binding `IsEnabled` to the attached property, only that specific button is disabled when the corresponding color is being removed:
 
