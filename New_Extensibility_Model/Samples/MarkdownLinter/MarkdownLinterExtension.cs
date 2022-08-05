@@ -6,7 +6,6 @@ namespace Microsoft.VisualStudio.Extensions.MarkdownLinter
 	using System.Resources;
 	using Microsoft.Extensions.DependencyInjection;
 	using Microsoft.VisualStudio.Extensibility;
-	using Microsoft.VisualStudio.Extensibility.Commands;
 
 	/// <summary>
 	/// Extension entry point for Markdown Linter sample extension showcasing new

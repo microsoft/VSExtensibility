@@ -6,13 +6,13 @@ namespace Microsoft.VisualStudio.Extensions.MarkdownLinter
 	using System;
 	using System.Collections.Generic;
 	using System.Threading;
+	using System.Threading.Tasks;
 	using Microsoft.VisualStudio.Extensibility;
 	using Microsoft.VisualStudio.Extensibility.Documents;
 	using Microsoft.VisualStudio.Extensibility.Editor.Data;
 	using Microsoft.VisualStudio.Extensibility.Editor.UI;
 	using Microsoft.VisualStudio.Extensibility.Helpers;
 	using Microsoft.VisualStudio.Threading;
-	using Task = System.Threading.Tasks.Task;
 
 	/// <summary>
 	/// An internal service shared across extension components via dependency injection. The service provides

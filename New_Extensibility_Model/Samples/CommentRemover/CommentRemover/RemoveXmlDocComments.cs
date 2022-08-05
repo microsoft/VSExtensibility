@@ -41,7 +41,9 @@ internal class RemoveXmlDocComments : CommentRemoverCommand
 	public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
 	{
 		if (!await context.ShowPromptAsync("All Xml Docs comments will be removed from the current document. Are you sure?", PromptOptions.OKCancel, cancellationToken))
+		{
 			return;
+		}
 
 		using var reporter = await this.Extensibility.Shell().StartProgressReportingAsync("Removing comments", options: new(isWorkCancellable: false), cancellationToken);
 
@@ -51,7 +53,9 @@ internal class RemoveXmlDocComments : CommentRemoverCommand
 		var view = await this.GetCurentTextViewAsync();
 		var mappingSpans = await this.GetClassificationSpansAsync(view, "comment");
 		if (!mappingSpans.Any())
+		{
 			return;
+		}
 
 		var dte = await this.Dte.GetServiceAsync();
 		try
@@ -80,13 +84,17 @@ internal class RemoveXmlDocComments : CommentRemoverCommand
 			var end = mappingSpan.End.GetPoint(view.TextBuffer, PositionAffinity.Successor);
 
 			if (!start.HasValue || !end.HasValue)
+			{
 				continue;
+			}
 
 			var span = new Span(start.Value, end.Value - start.Value);
 			var line = view.TextBuffer.CurrentSnapshot.Lines.First(l => l.Extent.IntersectsWith(span));
 
 			if (!affectedLines.Contains(line.LineNumber))
+			{
 				affectedLines.Add(line.LineNumber);
+			}
 		}
 
 		using (var edit = view.TextBuffer.CreateEdit())

@@ -140,6 +140,7 @@ Finally, let's open the `.csproj` file and make sure that the XAML file is treat
 ```xml
 <ItemGroup>
   <EmbeddedResource Include="MyToolWindowContent.xaml" />
+  <Page Remove="MyToolWindowContent.xaml" />
 </ItemGroup>
 ```
 

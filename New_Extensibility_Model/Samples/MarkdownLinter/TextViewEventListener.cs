@@ -4,10 +4,10 @@
 namespace Microsoft.VisualStudio.Extensions.MarkdownLinter
 {
 	using System.Threading;
+	using System.Threading.Tasks;
 	using Microsoft.VisualStudio.Extensibility;
 	using Microsoft.VisualStudio.Extensibility.Editor;
 	using Microsoft.VisualStudio.Extensibility.Editor.UI;
-	using Task = System.Threading.Tasks.Task;
 
 	/// <summary>
 	/// Listener for text view lifetime events to start linter on new documents or changed documents.

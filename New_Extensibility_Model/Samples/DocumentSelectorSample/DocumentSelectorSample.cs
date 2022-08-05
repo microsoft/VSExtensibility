@@ -7,9 +7,7 @@ namespace Microsoft.VisualStudio.Gladstone.DocumentSelectorSample
 {
 	using System.Threading;
 	using System.Threading.Tasks;
-
 	using Microsoft.VisualStudio.Extensibility;
-	using Microsoft.VisualStudio.Extensibility.Documents;
 	using Microsoft.VisualStudio.Extensibility.Editor;
 	using Microsoft.VisualStudio.Extensibility.Editor.UI;
 

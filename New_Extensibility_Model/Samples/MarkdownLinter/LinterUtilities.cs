@@ -8,7 +8,6 @@ namespace Microsoft.VisualStudio.Extensions.MarkdownLinter
 	using System.ComponentModel;
 	using System.Diagnostics;
 	using System.Globalization;
-	using System.IO;
 	using System.Text.RegularExpressions;
 	using System.Threading.Tasks;
 	using Microsoft.VisualStudio.RpcContracts.DiagnosticManagement;

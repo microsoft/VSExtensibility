@@ -6,20 +6,15 @@ namespace Microsoft.VisualStudio.Extensions.MarkdownLinter
 	using System;
 	using System.Collections.Generic;
 	using System.Diagnostics;
-	using System.IO;
 	using System.Linq;
 	using System.Threading;
-	using Microsoft.ServiceHub.Framework;
+	using System.Threading.Tasks;
 	using Microsoft.VisualStudio.Extensibility;
 	using Microsoft.VisualStudio.Extensibility.Commands;
 	using Microsoft.VisualStudio.Extensibility.Definitions;
-	using Microsoft.VisualStudio.Extensibility.Documents;
-	using Microsoft.VisualStudio.Extensibility.Helpers;
 	using Microsoft.VisualStudio.Extensibility.Shell;
 	using Microsoft.VisualStudio.ProjectSystem.Query;
-	using Microsoft.VisualStudio.RpcContracts.DiagnosticManagement;
 	using Microsoft.VisualStudio.RpcContracts.ProgressReporting;
-	using Task = System.Threading.Tasks.Task;
 
 	/// <summary>
 	/// A command to execute linter on all markdown files in a solution.

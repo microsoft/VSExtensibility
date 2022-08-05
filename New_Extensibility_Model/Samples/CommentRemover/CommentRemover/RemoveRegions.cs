@@ -40,7 +40,9 @@ internal class RemoveRegions : CommentRemoverCommand
 	public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
 	{
 		if (!await context.ShowPromptAsync("All regions will be removed from the current document. Are you sure?", PromptOptions.OKCancel, cancellationToken))
+		{
 			return;
+		}
 
 		using var reporter = await this.Extensibility.Shell().StartProgressReportingAsync("Removing comments", options: new(isWorkCancellable: false), cancellationToken);
 
@@ -72,15 +74,18 @@ internal class RemoveRegions : CommentRemoverCommand
 			foreach (var line in view.TextBuffer.CurrentSnapshot.Lines.Reverse())
 			{
 				if (line.Extent.IsEmpty)
+				{
 					continue;
+				}
 
 				string text = line.GetText()
 								  .TrimStart('/', '*')
 								  .Replace("<!--", string.Empty)
-								  .TrimStart()
-								  .ToLowerInvariant();
+								  .TrimStart();
 
-				if (text.StartsWith("#region") || text.StartsWith("#endregion") || text.StartsWith("#end region"))
+				if (text.StartsWith("#region", StringComparison.OrdinalIgnoreCase) ||
+					text.StartsWith("#endregion", StringComparison.OrdinalIgnoreCase) ||
+					text.StartsWith("#end region", StringComparison.OrdinalIgnoreCase))
 				{
 					// Strip next line if empty
 					if (view.TextBuffer.CurrentSnapshot.LineCount > line.LineNumber + 1)
@@ -88,7 +93,9 @@ internal class RemoveRegions : CommentRemoverCommand
 						var next = view.TextBuffer.CurrentSnapshot.GetLineFromLineNumber(line.LineNumber + 1);
 
 						if (IsLineEmpty(next))
+						{
 							edit.Delete(next.Start, next.LengthIncludingLineBreak);
+						}
 					}
 
 					edit.Delete(line.Start, line.LengthIncludingLineBreak);

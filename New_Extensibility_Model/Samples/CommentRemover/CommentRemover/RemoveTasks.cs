@@ -25,7 +25,6 @@ using System.Threading.Tasks;
 internal class RemoveTasks : CommentRemoverCommand
 {
 	private const string CommandDescription = "Remove Tasks";
-	private static readonly string[] TaskCaptions = { "todo", "hack", "undone", "unresolvedmergeconflict" };
 
 	public RemoveTasks(
 		VisualStudioExtensibility extensibility,
@@ -42,7 +41,9 @@ internal class RemoveTasks : CommentRemoverCommand
 	public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
 	{
 		if (!await context.ShowPromptAsync("All tasks comment will be removed from the current document. Are you sure?", PromptOptions.OKCancel, cancellationToken))
+		{
 			return;
+		}
 
 		using var reporter = await this.Extensibility.Shell().StartProgressReportingAsync("Removing comments", options: new(isWorkCancellable: false), cancellationToken);
 
@@ -52,7 +53,9 @@ internal class RemoveTasks : CommentRemoverCommand
 		var view = await this.GetCurentTextViewAsync();
 		var mappingSpans = await this.GetClassificationSpansAsync(view, "comment");
 		if (!mappingSpans.Any())
+		{
 			return;
+		}
 
 		var dte = await this.Dte.GetServiceAsync();
 		try
@@ -84,7 +87,9 @@ internal class RemoveTasks : CommentRemoverCommand
 				var end = mappingSpan.End.GetPoint(view.TextBuffer, PositionAffinity.Successor);
 
 				if (!start.HasValue || !end.HasValue)
+				{
 					continue;
+				}
 
 				var span = new Span(start.Value, end.Value - start.Value);
 				var line = view.TextBuffer.CurrentSnapshot.Lines.First(l => l.Extent.IntersectsWith(span));
@@ -94,7 +99,9 @@ internal class RemoveTasks : CommentRemoverCommand
 					edit.Delete(span);
 
 					if (!affectedLines.Contains(line.LineNumber))
+					{
 						affectedLines.Add(line.LineNumber);
+					}
 				}
 			}
 
@@ -115,18 +122,5 @@ internal class RemoveTasks : CommentRemoverCommand
 
 			edit.Apply();
 		}
-	}
-
-	public static bool ContainsTaskComment(ITextSnapshotLine line)
-	{
-		string text = line.GetText().ToLowerInvariant();
-
-		foreach (var task in TaskCaptions)
-		{
-			if (text.Contains(task + ":"))
-				return true;
-		}
-
-		return false;
 	}
 }
