@@ -43,7 +43,9 @@ internal class RemoveAllComments : CommentRemoverCommand
 	public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
 	{
 		if (!await context.ShowPromptAsync("All comments will be removed from the current document. Are you sure?", PromptOptions.OKCancel, cancellationToken))
+		{
 			return;
+		}
 
 		using var reporter = await this.Extensibility.Shell().StartProgressReportingAsync("Removing comments", options: new(isWorkCancellable: false), cancellationToken);
 
@@ -53,7 +55,9 @@ internal class RemoveAllComments : CommentRemoverCommand
 		var view = await this.GetCurentTextViewAsync();
 		var mappingSpans = await this.GetClassificationSpansAsync(view, "comment");
 		if (!mappingSpans.Any())
+		{
 			return;
+		}
 
 		var dte = await this.Dte.GetServiceAsync();
 		try
@@ -90,7 +94,9 @@ internal class RemoveAllComments : CommentRemoverCommand
 				var end = mappingSpan.End.GetPoint(view.TextBuffer, PositionAffinity.Successor);
 
 				if (!start.HasValue || !end.HasValue)
+				{
 					continue;
+				}
 
 				var span = new Span(start.Value, end.Value - start.Value);
 				var lines = view.TextBuffer.CurrentSnapshot.Lines.Where(l => l.Extent.IntersectsWith(span));
@@ -103,7 +109,9 @@ internal class RemoveAllComments : CommentRemoverCommand
 					}
 
 					if (!affectedLines.Contains(line.LineNumber))
+					{
 						affectedLines.Add(line.LineNumber);
+					}
 				}
 
 				var mappingText = view.TextBuffer.CurrentSnapshot.GetText(span.Start, span.Length);
@@ -119,7 +127,9 @@ internal class RemoveAllComments : CommentRemoverCommand
 	private static void RemoveAffectedEmptyLines(IWpfTextView view, IList<int> affectedLines)
 	{
 		if (!affectedLines.Any())
+		{
 			return;
+		}
 
 		using (var edit = view.TextBuffer.CreateEdit())
 		{
@@ -135,7 +145,9 @@ internal class RemoveAllComments : CommentRemoverCommand
 						var next = view.TextBuffer.CurrentSnapshot.GetLineFromLineNumber(lineNumber + 1);
 
 						if (IsLineEmpty(next))
+						{
 							edit.Delete(next.Start, next.LengthIncludingLineBreak);
+						}
 					}
 
 					edit.Delete(line.Start, line.LengthIncludingLineBreak);

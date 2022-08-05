@@ -1,58 +1,57 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-namespace Microsoft.VisualStudio.Extensions.MarkdownLinter
+namespace Microsoft.VisualStudio.Extensions.MarkdownLinter;
+
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.VisualStudio.Extensibility;
+using Microsoft.VisualStudio.Extensibility.Editor;
+using Microsoft.VisualStudio.Extensibility.Editor.UI;
+
+/// <summary>
+/// Listener for text view lifetime events to start linter on new documents or changed documents.
+/// </summary>
+[ExtensionPart(typeof(ITextViewLifetimeListener))]
+[ExtensionPart(typeof(ITextViewChangedListener))]
+[AppliesTo(ContentType = "markdown")]
+internal class TextViewEventListener : ExtensionPart, ITextViewLifetimeListener, ITextViewChangedListener
 {
-	using System.Threading;
-	using Microsoft.VisualStudio.Extensibility;
-	using Microsoft.VisualStudio.Extensibility.Editor;
-	using Microsoft.VisualStudio.Extensibility.Editor.UI;
-	using Task = System.Threading.Tasks.Task;
+	private readonly MarkdownDiagnosticsService diagnosticsProvider;
 
 	/// <summary>
-	/// Listener for text view lifetime events to start linter on new documents or changed documents.
+	/// Initializes a new instance of the <see cref="TextViewEventListener"/> class.
 	/// </summary>
-	[ExtensionPart(typeof(ITextViewLifetimeListener))]
-	[ExtensionPart(typeof(ITextViewChangedListener))]
-	[AppliesTo(ContentType = "markdown")]
-	internal class TextViewEventListener : ExtensionPart, ITextViewLifetimeListener, ITextViewChangedListener
+	/// <param name="extension">Extension instance.</param>
+	/// <param name="extensibility">Extensibility object.</param>
+	/// <param name="diagnosticsProvider">Local diagnostics provider service instance.</param>
+	public TextViewEventListener(MarkdownLinterExtension extension, VisualStudioExtensibility extensibility, MarkdownDiagnosticsService diagnosticsProvider)
+		: base(extension, extensibility)
 	{
-		private readonly MarkdownDiagnosticsService diagnosticsProvider;
+		this.diagnosticsProvider = Requires.NotNull(diagnosticsProvider, nameof(diagnosticsProvider));
+	}
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="TextViewEventListener"/> class.
-		/// </summary>
-		/// <param name="extension">Extension instance.</param>
-		/// <param name="extensibility">Extensibility object.</param>
-		/// <param name="diagnosticsProvider">Local diagnostics provider service instance.</param>
-		public TextViewEventListener(MarkdownLinterExtension extension, VisualStudioExtensibility extensibility, MarkdownDiagnosticsService diagnosticsProvider)
-			: base(extension, extensibility)
+	/// <inheritdoc />
+	public Task TextViewChangedAsync(TextViewChangedArgs args, CancellationToken cancellationToken)
+	{
+		return this.diagnosticsProvider.ProcessTextViewAsync(args.AfterTextView, cancellationToken);
+	}
+
+	/// <inheritdoc />
+	public async Task TextViewClosedAsync(ITextView textView, CancellationToken cancellationToken)
+	{
+		var document = await textView.GetTextDocumentAsync(cancellationToken);
+		if (document is null)
 		{
-			this.diagnosticsProvider = Requires.NotNull(diagnosticsProvider, nameof(diagnosticsProvider));
+			return;
 		}
 
-		/// <inheritdoc />
-		public Task TextViewChangedAsync(TextViewChangedArgs args, CancellationToken cancellationToken)
-		{
-			return this.diagnosticsProvider.ProcessTextViewAsync(args.AfterTextView, cancellationToken);
-		}
+		await this.diagnosticsProvider.ClearEntriesForDocumentAsync(document.Uri, cancellationToken);
+	}
 
-		/// <inheritdoc />
-		public async Task TextViewClosedAsync(ITextView textView, CancellationToken cancellationToken)
-		{
-			var document = await textView.GetTextDocumentAsync(cancellationToken);
-			if (document is null)
-			{
-				return;
-			}
-
-			await this.diagnosticsProvider.ClearEntriesForDocumentAsync(document.Uri, cancellationToken);
-		}
-
-		/// <inheritdoc />
-		public Task TextViewCreatedAsync(ITextView textView, CancellationToken cancellationToken)
-		{
-			return this.diagnosticsProvider.ProcessTextViewAsync(textView, cancellationToken);
-		}
+	/// <inheritdoc />
+	public Task TextViewCreatedAsync(ITextView textView, CancellationToken cancellationToken)
+	{
+		return this.diagnosticsProvider.ProcessTextViewAsync(textView, cancellationToken);
 	}
 }

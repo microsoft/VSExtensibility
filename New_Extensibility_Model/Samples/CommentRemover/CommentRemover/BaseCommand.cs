@@ -17,6 +17,8 @@ using System.Text.RegularExpressions;
 
 internal abstract class CommentRemoverCommand : Microsoft.VisualStudio.Extensibility.Commands.Command
 {
+	private static readonly string[] TaskCaptions = { "TODO", "HACK", "UNDONE", "UNRESOLVEDMERGECONFLICT" };
+
 	public CommentRemoverCommand(
 		VisualStudioExtensibility extensibility,
 		TraceSource traceSource,
@@ -75,6 +77,21 @@ internal abstract class CommentRemoverCommand : Microsoft.VisualStudio.Extensibi
 		if (contentType.IsOfType("Basic") && text.StartsWith("'''", StringComparison.Ordinal))
 		{
 			return true;
+		}
+
+		return false;
+	}
+
+	protected static bool ContainsTaskComment(ITextSnapshotLine line)
+	{
+		string text = line.GetText().ToUpperInvariant();
+
+		foreach (var task in TaskCaptions)
+		{
+			if (text.Contains(task + ":"))
+			{
+				return true;
+			}
 		}
 
 		return false;

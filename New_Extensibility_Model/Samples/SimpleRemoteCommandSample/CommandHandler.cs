@@ -1,39 +1,37 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-namespace SimpleRemoteCommandSample
+namespace SimpleRemoteCommandSample;
+
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.VisualStudio.Extensibility;
+using Microsoft.VisualStudio.Extensibility.Commands;
+using Microsoft.VisualStudio.Extensibility.Definitions;
+
+/// <summary>
+/// A sample command handler showing how to declare command definition and simple placement.
+/// </summary>
+[Command(CommandName, "Sample Remote Command", placement: CommandPlacement.ToolsMenu)]
+[CommandIcon(KnownMonikers.Extension, IconSettings.IconAndText)]
+public class CommandHandler : Command
 {
-	using System.Diagnostics;
-	using System.Threading;
-	using System.Threading.Tasks;
-	using Microsoft.VisualStudio.Extensibility;
-	using Microsoft.VisualStudio.Extensibility.Commands;
-	using Microsoft.VisualStudio.Extensibility.Definitions;
+	private const string CommandName = "SimpleRemoteCommandSample.Command";
 
 	/// <summary>
-	/// A sample command handler showing how to declare command definition and simple placement.
+	/// Initializes a new instance of the <see cref="CommandHandler"/> class.
 	/// </summary>
-	[Command(CommandName, "Sample Remote Command", placement: CommandPlacement.ToolsMenu)]
-	[CommandIcon(KnownMonikers.Extension, IconSettings.IconAndText)]
-	public class CommandHandler : Command
+	/// <param name="extensibility">Extensibility object instance.</param>
+	/// <param name="name">Command identifier.</param>
+	public CommandHandler(VisualStudioExtensibility extensibility, string name)
+		: base(extensibility, name)
 	{
-		private const string CommandName = "SimpleRemoteCommandSample.Command";
+	}
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="CommandHandler"/> class.
-		/// </summary>
-		/// <param name="extensibility">Extensibility object instance.</param>
-		/// <param name="name">Command identifier.</param>
-		public CommandHandler(VisualStudioExtensibility extensibility, string name)
-			: base(extensibility, name)
-		{
-		}
-
-		/// <inheritdoc />
-		public override Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
-		{
-			// Do any work you want your command handler to do here
-			return Task.CompletedTask;
-		}
+	/// <inheritdoc />
+	public override Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
+	{
+		// Do any work you want your command handler to do here
+		return Task.CompletedTask;
 	}
 }
