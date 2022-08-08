@@ -6,9 +6,9 @@ date: 2022-07-29
 
 # User Prompts Overview
 
-User Prompts are a simple UI mechanism for prompting the user during the execution of a [Command Handler](../command/command.md#registering-a-command). Prompting the user creates a dialog box with a message, one to three buttons for the choices, and a dismiss button. 
+User Prompts are a simple UI mechanism for prompting the user during the execution of a [Command](../command/command.md). Prompting the user creates a dialog box with a message, one to three buttons for the choices, and a dismiss button. 
 
-> The exact UI used to prompt users may change in future versions based on user feedback or other factors.
+**Note:** The exact UI used to prompt users may change in future versions based on user feedback or other factors.
 
 Common examples are requesting confirmation with an OK/Cancel prompt, or asking the user to choose among a small set of options (no more than three).
 
@@ -26,26 +26,42 @@ The choices presented to the user are mapped to return values of the type define
 
 # Getting Started
 
-User Prompts can only be created inside of a command handler. To get started, [Create the extension project](../../getting-started/create-your-first-extension.md#create-the-extension-project) and [Add your first command](../../getting-started/create-your-first-extension.md#add-your-first-command).
+User Prompts can only be created inside of a [Command](../command/command.md). To get started, [Create the extension project](../../getting-started/create-your-first-extension.md#create-the-extension-project) and [Add your first command](../../getting-started/create-your-first-extension.md#add-your-first-command).
 
-Inside the `ExecuteCommandAsync` method, call `IClientContext.ShowPromptAsync<TResult>`. `ShowPromptAsync` takes three parameters:
-
-1. The message of the prompt.
-2. An instance of `PromptOptions`, which defines the choices to show the user.
-3. A CancellationToken. Triggering the token will close the prompt before the user makes a choice.
-
-| Parameter | Type | Required | Description |
-| ----------|------|----------|-------------|
-| message   | string | Yes | The text of the message for the prompt. |
-| options   | `PromptOptions<TResult>` | Yes | Defines the user choices, mapping them to return values. |
-| cancellationToken | CancellationToken | Yes | When triggered, force closes the prompt. |
+Next, see the [UserPromptSample](./../../../../New_Extensibility_Model/Samples/UserPromptSample) sample for a full example of creating an extension that displays a User Prompt.
 
 # Working with User Prompts
 
 This guide covers the following scenarios for working with User Prompts:
 
+- [Displaying a User Prompt](#displaying-a-user-prompt)
 - [Using Built-in Options](#using-built-in-options)
 - [Creating Custom Options](#creating-custom-options)
+
+# Displaying a User Prompt
+
+As discussed above, User Prompts can be shown inside of Commands, where you have access to an `IClientContext` instance. To show a user prompt, call the `IClientContext.ShowPromptAsync<TResult>()` method inside the `ExecuteCommandAsync()` method for the Command. 
+
+## `IClientContext.ShowPromptAsync<TResult>()`
+
+The `ShowPromptAsync()` method takes three parameters:
+
+| Parameter | Type | Required | Description |
+| ----------|------|----------|-------------|
+| message   | `string` | yes | The text of the message for the prompt. |
+| options   | `PromptOptions<TResult>` | yes | Defines the user choices, mapping them to return values. |
+| cancellationToken | [`CancellationToken`](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) | Yes | The [`CancellationToken`](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) for the async operation. When triggered, the prompt is force closed. |
+
+## Example
+
+The following code inside a Command will show a User Prompt with a simple message and an OK button.
+
+```csharp
+public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
+{
+    await context.ShowPromptAsync("This is a user prompt.", PromptOptions.OK, cancellationToken))
+}
+```
 
 # Using Built-in Options
 
