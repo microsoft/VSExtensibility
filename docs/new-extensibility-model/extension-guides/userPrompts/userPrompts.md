@@ -8,9 +8,11 @@ date: 2022-07-29
 
 User Prompts are a simple UI mechanism for prompting the user during the execution of a [Command Handler](../command/command.md#registering-a-command). Prompting the user creates a dialog box with a message, one to three buttons for the choices, and a dismiss button. 
 
+> The exact UI used to prompt users may change in future versions based on user feedback or other factors.
+
 Common examples are requesting confirmation with an OK/Cancel prompt, or asking the user to choose among a small set of options (no more than three).
 
-Only a single prompt can be visible at a time, and the user always has the option of dismissing the prompt without making a selection.
+The user always has the option of dismissing the prompt without making a selection.
 
 The choices presented to the user are mapped to return values of the type defined in the `TResult` type parameter.
 
