@@ -5,8 +5,18 @@
 
 - [AppliesToAttribute](#T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToAttribute 'Microsoft.VisualStudio.Extensibility.Editor.AppliesToAttribute')
   - [ContentType](#P-Microsoft-VisualStudio-Extensibility-Editor-AppliesToAttribute-ContentType 'Microsoft.VisualStudio.Extensibility.Editor.AppliesToAttribute.ContentType')
+- [AppliesToPatternAttribute](#T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToPatternAttribute 'Microsoft.VisualStudio.Extensibility.Editor.AppliesToPatternAttribute')
+  - [Pattern](#P-Microsoft-VisualStudio-Extensibility-Editor-AppliesToPatternAttribute-Pattern 'Microsoft.VisualStudio.Extensibility.Editor.AppliesToPatternAttribute.Pattern')
+  - [RelativePath](#P-Microsoft-VisualStudio-Extensibility-Editor-AppliesToPatternAttribute-RelativePath 'Microsoft.VisualStudio.Extensibility.Editor.AppliesToPatternAttribute.RelativePath')
 - [CompoundMutationContract](#T-Microsoft-VisualStudio-RpcContracts-Editor-CompoundMutationContract 'Microsoft.VisualStudio.RpcContracts.Editor.CompoundMutationContract')
   - [Mutations](#P-Microsoft-VisualStudio-RpcContracts-Editor-CompoundMutationContract-Mutations 'Microsoft.VisualStudio.RpcContracts.Editor.CompoundMutationContract.Mutations')
+- [ContentTypeBaseDefinitionAttribute](#T-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeBaseDefinitionAttribute 'Microsoft.VisualStudio.Extensibility.Editor.ContentTypeBaseDefinitionAttribute')
+  - [#ctor(contentTypeName,baseContentTypeName)](#M-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeBaseDefinitionAttribute-#ctor-System-String,System-String- 'Microsoft.VisualStudio.Extensibility.Editor.ContentTypeBaseDefinitionAttribute.#ctor(System.String,System.String)')
+  - [Base](#P-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeBaseDefinitionAttribute-Base 'Microsoft.VisualStudio.Extensibility.Editor.ContentTypeBaseDefinitionAttribute.Base')
+  - [ContentType](#P-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeBaseDefinitionAttribute-ContentType 'Microsoft.VisualStudio.Extensibility.Editor.ContentTypeBaseDefinitionAttribute.ContentType')
+- [ContentTypeDefinitionAttribute](#T-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeDefinitionAttribute 'Microsoft.VisualStudio.Extensibility.Editor.ContentTypeDefinitionAttribute')
+  - [#ctor(name)](#M-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeDefinitionAttribute-#ctor-System-String- 'Microsoft.VisualStudio.Extensibility.Editor.ContentTypeDefinitionAttribute.#ctor(System.String)')
+  - [ContentType](#P-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeDefinitionAttribute-ContentType 'Microsoft.VisualStudio.Extensibility.Editor.ContentTypeDefinitionAttribute.ContentType')
 - [EditorContext](#T-Microsoft-VisualStudio-RpcContracts-Utilities-EditorContext 'Microsoft.VisualStudio.RpcContracts.Utilities.EditorContext')
   - [ActiveTextViewId](#P-Microsoft-VisualStudio-RpcContracts-Utilities-EditorContext-ActiveTextViewId 'Microsoft.VisualStudio.RpcContracts.Utilities.EditorContext.ActiveTextViewId')
   - [TextDocuments](#P-Microsoft-VisualStudio-RpcContracts-Utilities-EditorContext-TextDocuments 'Microsoft.VisualStudio.RpcContracts.Utilities.EditorContext.TextDocuments')
@@ -18,6 +28,10 @@
   - [MutateAsync\`\`1(mutatable,mutator,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility-MutateAsync``1-Microsoft-VisualStudio-Extensibility-Editor-Mutation-IMutatable{``0},System-Action{``0},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Editor.EditorExtensibility.MutateAsync``1(Microsoft.VisualStudio.Extensibility.Editor.Mutation.IMutatable{``0},System.Action{``0},System.Threading.CancellationToken)')
 - [EditorServices](#T-Microsoft-VisualStudio-RpcContracts-Editor-EditorServices 'Microsoft.VisualStudio.RpcContracts.Editor.EditorServices')
   - [TextEditorSynchronizationServiceDescriptor](#P-Microsoft-VisualStudio-RpcContracts-Editor-EditorServices-TextEditorSynchronizationServiceDescriptor 'Microsoft.VisualStudio.RpcContracts.Editor.EditorServices.TextEditorSynchronizationServiceDescriptor')
+- [FileExtensionMappingAttribute](#T-Microsoft-VisualStudio-Extensibility-Editor-FileExtensionMappingAttribute 'Microsoft.VisualStudio.Extensibility.Editor.FileExtensionMappingAttribute')
+  - [#ctor(fileExtension,contentType)](#M-Microsoft-VisualStudio-Extensibility-Editor-FileExtensionMappingAttribute-#ctor-System-String,System-String- 'Microsoft.VisualStudio.Extensibility.Editor.FileExtensionMappingAttribute.#ctor(System.String,System.String)')
+  - [ContentType](#P-Microsoft-VisualStudio-Extensibility-Editor-FileExtensionMappingAttribute-ContentType 'Microsoft.VisualStudio.Extensibility.Editor.FileExtensionMappingAttribute.ContentType')
+  - [FileExtension](#P-Microsoft-VisualStudio-Extensibility-Editor-FileExtensionMappingAttribute-FileExtension 'Microsoft.VisualStudio.Extensibility.Editor.FileExtensionMappingAttribute.FileExtension')
 - [IEditorHostService](#T-Microsoft-VisualStudio-Extensibility-Editor-IEditorHostService 'Microsoft.VisualStudio.Extensibility.Editor.IEditorHostService')
   - [CreateActiveTextViewAsync(clientContext,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Editor-IEditorHostService-CreateActiveTextViewAsync-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Editor.IEditorHostService.CreateActiveTextViewAsync(Microsoft.VisualStudio.Extensibility.Definitions.IClientContext,System.Threading.CancellationToken)')
   - [CreatePositionAsync(textDocumentPosition,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Editor-IEditorHostService-CreatePositionAsync-Microsoft-VisualStudio-RpcContracts-Utilities-VersionedTextDocumentPosition,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Editor.IEditorHostService.CreatePositionAsync(Microsoft.VisualStudio.RpcContracts.Utilities.VersionedTextDocumentPosition,System.Threading.CancellationToken)')
@@ -46,8 +60,8 @@
   - [GetText(startIndex,length)](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument-GetText-System-Int32,System-Int32- 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument.GetText(System.Int32,System.Int32)')
   - [GetText()](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument-GetText 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument.GetText')
   - [ToCharArray(startIndex,length)](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument-ToCharArray-System-Int32,System-Int32- 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument.ToCharArray(System.Int32,System.Int32)')
-  - [TranslatePositionTo(trackingMode)](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument-TranslatePositionTo-Microsoft-VisualStudio-Extensibility-Editor-Data-Position,Microsoft-VisualStudio-Extensibility-Editor-Data-PointTrackingMode- 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument.TranslatePositionTo(Microsoft.VisualStudio.Extensibility.Editor.Data.Position,Microsoft.VisualStudio.Extensibility.Editor.Data.PointTrackingMode)')
-  - [TranslateSpanTo(trackingMode)](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument-TranslateSpanTo-Microsoft-VisualStudio-Extensibility-Editor-Data-Span,Microsoft-VisualStudio-Extensibility-Editor-Data-SpanTrackingMode- 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument.TranslateSpanTo(Microsoft.VisualStudio.Extensibility.Editor.Data.Span,Microsoft.VisualStudio.Extensibility.Editor.Data.SpanTrackingMode)')
+  - [TranslatePositionTo(position,trackingMode)](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument-TranslatePositionTo-Microsoft-VisualStudio-Extensibility-Editor-Data-Position,Microsoft-VisualStudio-Extensibility-Editor-Data-PointTrackingMode- 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument.TranslatePositionTo(Microsoft.VisualStudio.Extensibility.Editor.Data.Position,Microsoft.VisualStudio.Extensibility.Editor.Data.PointTrackingMode)')
+  - [TranslateSpanTo(span,trackingMode)](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument-TranslateSpanTo-Microsoft-VisualStudio-Extensibility-Editor-Data-Span,Microsoft-VisualStudio-Extensibility-Editor-Data-SpanTrackingMode- 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument.TranslateSpanTo(Microsoft.VisualStudio.Extensibility.Editor.Data.Span,Microsoft.VisualStudio.Extensibility.Editor.Data.SpanTrackingMode)')
 - [ITextDocumentLine](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocumentLine 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocumentLine')
   - [Document](#P-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocumentLine-Document 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocumentLine.Document')
   - [End](#P-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocumentLine-End 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocumentLine.End')
@@ -99,14 +113,16 @@
 - [MutationBatch](#T-Microsoft-VisualStudio-Extensibility-Editor-Mutation-MutationBatch 'Microsoft.VisualStudio.Extensibility.Editor.Mutation.MutationBatch')
 - [MutationContractBase](#T-Microsoft-VisualStudio-RpcContracts-Editor-MutationContractBase 'Microsoft.VisualStudio.RpcContracts.Editor.MutationContractBase')
 - [MutationResponse](#T-Microsoft-VisualStudio-Extensibility-Editor-Mutation-MutationResponse 'Microsoft.VisualStudio.Extensibility.Editor.Mutation.MutationResponse')
-  - [#ctor(succeeded,message,textViewMutationResults)](#M-Microsoft-VisualStudio-Extensibility-Editor-Mutation-MutationResponse-#ctor-System-Boolean,System-String,System-Collections-Generic-IReadOnlyDictionary{Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument,Microsoft-VisualStudio-Extensibility-Editor-Mutation-TextDocumentMutationResponse},System-Collections-Generic-IReadOnlyDictionary{Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView,Microsoft-VisualStudio-Extensibility-Editor-Mutation-TextViewMutationResponse}- 'Microsoft.VisualStudio.Extensibility.Editor.Mutation.MutationResponse.#ctor(System.Boolean,System.String,System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument,Microsoft.VisualStudio.Extensibility.Editor.Mutation.TextDocumentMutationResponse},System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView,Microsoft.VisualStudio.Extensibility.Editor.Mutation.TextViewMutationResponse})')
+  - [#ctor(succeeded,message,documentMutationResults,textViewMutationResults)](#M-Microsoft-VisualStudio-Extensibility-Editor-Mutation-MutationResponse-#ctor-System-Boolean,System-String,System-Collections-Generic-IReadOnlyDictionary{Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument,Microsoft-VisualStudio-Extensibility-Editor-Mutation-TextDocumentMutationResponse},System-Collections-Generic-IReadOnlyDictionary{Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView,Microsoft-VisualStudio-Extensibility-Editor-Mutation-TextViewMutationResponse}- 'Microsoft.VisualStudio.Extensibility.Editor.Mutation.MutationResponse.#ctor(System.Boolean,System.String,System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument,Microsoft.VisualStudio.Extensibility.Editor.Mutation.TextDocumentMutationResponse},System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView,Microsoft.VisualStudio.Extensibility.Editor.Mutation.TextViewMutationResponse})')
   - [DocumentMutationResults](#P-Microsoft-VisualStudio-Extensibility-Editor-Mutation-MutationResponse-DocumentMutationResults 'Microsoft.VisualStudio.Extensibility.Editor.Mutation.MutationResponse.DocumentMutationResults')
   - [Message](#P-Microsoft-VisualStudio-Extensibility-Editor-Mutation-MutationResponse-Message 'Microsoft.VisualStudio.Extensibility.Editor.Mutation.MutationResponse.Message')
   - [Succeeded](#P-Microsoft-VisualStudio-Extensibility-Editor-Mutation-MutationResponse-Succeeded 'Microsoft.VisualStudio.Extensibility.Editor.Mutation.MutationResponse.Succeeded')
+  - [TextViewMutationResults](#P-Microsoft-VisualStudio-Extensibility-Editor-Mutation-MutationResponse-TextViewMutationResults 'Microsoft.VisualStudio.Extensibility.Editor.Mutation.MutationResponse.TextViewMutationResults')
 - [MutationResponseContract](#T-Microsoft-VisualStudio-RpcContracts-Editor-MutationResponseContract 'Microsoft.VisualStudio.RpcContracts.Editor.MutationResponseContract')
   - [DocumentMutationResults](#P-Microsoft-VisualStudio-RpcContracts-Editor-MutationResponseContract-DocumentMutationResults 'Microsoft.VisualStudio.RpcContracts.Editor.MutationResponseContract.DocumentMutationResults')
   - [Message](#P-Microsoft-VisualStudio-RpcContracts-Editor-MutationResponseContract-Message 'Microsoft.VisualStudio.RpcContracts.Editor.MutationResponseContract.Message')
   - [Succeeded](#P-Microsoft-VisualStudio-RpcContracts-Editor-MutationResponseContract-Succeeded 'Microsoft.VisualStudio.RpcContracts.Editor.MutationResponseContract.Succeeded')
+  - [TextViewMutationResults](#P-Microsoft-VisualStudio-RpcContracts-Editor-MutationResponseContract-TextViewMutationResults 'Microsoft.VisualStudio.RpcContracts.Editor.MutationResponseContract.TextViewMutationResults')
 - [MutationResult](#T-Microsoft-VisualStudio-RpcContracts-Editor-MutationResult 'Microsoft.VisualStudio.RpcContracts.Editor.MutationResult')
   - [Aborted](#F-Microsoft-VisualStudio-RpcContracts-Editor-MutationResult-Aborted 'Microsoft.VisualStudio.RpcContracts.Editor.MutationResult.Aborted')
   - [DocumentChanged](#F-Microsoft-VisualStudio-RpcContracts-Editor-MutationResult-DocumentChanged 'Microsoft.VisualStudio.RpcContracts.Editor.MutationResult.DocumentChanged')
@@ -199,15 +215,15 @@
   - [RpcContract](#P-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-RpcContract 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span.RpcContract')
   - [Start](#P-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-Start 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span.Start')
   - [Contains(position)](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-Contains-System-Int32- 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span.Contains(System.Int32)')
-  - [Contains(point)](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-Contains-Microsoft-VisualStudio-Extensibility-Editor-Data-Position- 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span.Contains(Microsoft.VisualStudio.Extensibility.Editor.Data.Position)')
-  - [Contains(snapshotSpan)](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-Contains-Microsoft-VisualStudio-Extensibility-Editor-Data-Span- 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span.Contains(Microsoft.VisualStudio.Extensibility.Editor.Data.Span)')
+  - [Contains(position)](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-Contains-Microsoft-VisualStudio-Extensibility-Editor-Data-Position- 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span.Contains(Microsoft.VisualStudio.Extensibility.Editor.Data.Position)')
+  - [Contains(span)](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-Contains-Microsoft-VisualStudio-Extensibility-Editor-Data-Span- 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span.Contains(Microsoft.VisualStudio.Extensibility.Editor.Data.Span)')
   - [Equals()](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-Equals-System-Object- 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span.Equals(System.Object)')
   - [GetHashCode()](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-GetHashCode 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span.GetHashCode')
   - [GetText()](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-GetText 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span.GetText')
-  - [Intersection(snapshotSpan)](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-Intersection-Microsoft-VisualStudio-Extensibility-Editor-Data-Span- 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span.Intersection(Microsoft.VisualStudio.Extensibility.Editor.Data.Span)')
+  - [Intersection(span)](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-Intersection-Microsoft-VisualStudio-Extensibility-Editor-Data-Span- 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span.Intersection(Microsoft.VisualStudio.Extensibility.Editor.Data.Span)')
   - [IntersectsWith(span)](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-IntersectsWith-Microsoft-VisualStudio-Extensibility-Editor-Data-Span- 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span.IntersectsWith(Microsoft.VisualStudio.Extensibility.Editor.Data.Span)')
-  - [Overlap(snapshotSpan)](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-Overlap-Microsoft-VisualStudio-Extensibility-Editor-Data-Span- 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span.Overlap(Microsoft.VisualStudio.Extensibility.Editor.Data.Span)')
-  - [OverlapsWith(snapshotSpan)](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-OverlapsWith-Microsoft-VisualStudio-Extensibility-Editor-Data-Span- 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span.OverlapsWith(Microsoft.VisualStudio.Extensibility.Editor.Data.Span)')
+  - [Overlap(span)](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-Overlap-Microsoft-VisualStudio-Extensibility-Editor-Data-Span- 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span.Overlap(Microsoft.VisualStudio.Extensibility.Editor.Data.Span)')
+  - [OverlapsWith(span)](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-OverlapsWith-Microsoft-VisualStudio-Extensibility-Editor-Data-Span- 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span.OverlapsWith(Microsoft.VisualStudio.Extensibility.Editor.Data.Span)')
   - [TranslateTo(targetDocumentVersion,spanTrackingMode)](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-TranslateTo-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument,Microsoft-VisualStudio-Extensibility-Editor-Data-SpanTrackingMode- 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span.TranslateTo(Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument,Microsoft.VisualStudio.Extensibility.Editor.Data.SpanTrackingMode)')
   - [op_Equality()](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-op_Equality-Microsoft-VisualStudio-Extensibility-Editor-Data-Span,Microsoft-VisualStudio-Extensibility-Editor-Data-Span- 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span.op_Equality(Microsoft.VisualStudio.Extensibility.Editor.Data.Span,Microsoft.VisualStudio.Extensibility.Editor.Data.Span)')
   - [op_Implicit()](#M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-op_Implicit-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-~Microsoft-VisualStudio-RpcContracts-Utilities-VersionedTextDocumentRange 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span.op_Implicit(Microsoft.VisualStudio.Extensibility.Editor.Data.Span)~Microsoft.VisualStudio.RpcContracts.Utilities.VersionedTextDocumentRange')
@@ -265,7 +281,7 @@
   - [BeforeTextView](#P-Microsoft-VisualStudio-RpcContracts-Editor-TextViewChange-BeforeTextView 'Microsoft.VisualStudio.RpcContracts.Editor.TextViewChange.BeforeTextView')
   - [DocumentMutations](#P-Microsoft-VisualStudio-RpcContracts-Editor-TextViewChange-DocumentMutations 'Microsoft.VisualStudio.RpcContracts.Editor.TextViewChange.DocumentMutations')
 - [TextViewChangedArgs](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-TextViewChangedArgs 'Microsoft.VisualStudio.Extensibility.Editor.UI.TextViewChangedArgs')
-  - [#ctor(beforeTextView,afterTextView)](#M-Microsoft-VisualStudio-Extensibility-Editor-UI-TextViewChangedArgs-#ctor-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView,Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView,System-Collections-Generic-IReadOnlyList{Microsoft-VisualStudio-Extensibility-Editor-Mutation-TextMutation}- 'Microsoft.VisualStudio.Extensibility.Editor.UI.TextViewChangedArgs.#ctor(Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView,Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView,System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Extensibility.Editor.Mutation.TextMutation})')
+  - [#ctor(beforeTextView,afterTextView,mutations)](#M-Microsoft-VisualStudio-Extensibility-Editor-UI-TextViewChangedArgs-#ctor-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView,Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView,System-Collections-Generic-IReadOnlyList{Microsoft-VisualStudio-Extensibility-Editor-Mutation-TextMutation}- 'Microsoft.VisualStudio.Extensibility.Editor.UI.TextViewChangedArgs.#ctor(Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView,Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView,System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Extensibility.Editor.Mutation.TextMutation})')
   - [AfterTextView](#P-Microsoft-VisualStudio-Extensibility-Editor-UI-TextViewChangedArgs-AfterTextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.TextViewChangedArgs.AfterTextView')
   - [BeforeTextView](#P-Microsoft-VisualStudio-Extensibility-Editor-UI-TextViewChangedArgs-BeforeTextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.TextViewChangedArgs.BeforeTextView')
   - [Changes](#P-Microsoft-VisualStudio-Extensibility-Editor-UI-TextViewChangedArgs-Changes 'Microsoft.VisualStudio.Extensibility.Editor.UI.TextViewChangedArgs.Changes')
@@ -328,6 +344,10 @@ Microsoft.VisualStudio.Extensibility.Editor
 Describes the conditions under which an extension part should
 be activated.
 
+##### See Also
+
+- [Microsoft.VisualStudio.Extensibility.Editor.ContentTypeDefinitionAttribute](#T-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeDefinitionAttribute 'Microsoft.VisualStudio.Extensibility.Editor.ContentTypeDefinitionAttribute')
+
 <a name='P-Microsoft-VisualStudio-Extensibility-Editor-AppliesToAttribute-ContentType'></a>
 ### ContentType `property`
 
@@ -335,6 +355,46 @@ be activated.
 
 The content type of an object. Content type is frequently used to
 target specific languages.
+
+<a name='T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToPatternAttribute'></a>
+## AppliesToPatternAttribute `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.Editor
+
+##### Summary
+
+Describes the conditions under which an extension part should
+be activated.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-AppliesToPatternAttribute-Pattern'></a>
+### Pattern `property`
+
+##### Summary
+
+The glob pattern to match document file path.
+Glob patterns can have the following syntax:
+
+* to match one or more characters in a path segment
+? to match on one character in a path segment
+** to match any number of path segments, including none
+{} to group conditions (e.g. **/*.{ts,js} matches all TypeScript and JavaScript files)
+[] to declare a range of characters to match in a path segment (e.g., example.[0-9]
+to match on example.0, example.1, …)
+[!...] to negate a range of characters to match in a path segment (e.g., example.[!0-9]
+to match on example.a, example.b, but not example.0)
+Note: a backslash (\) is not valid within a glob pattern. If you have an existing file path to match against,
+consider to use the relative pattern support that takes care of converting any backslash into slash.
+Otherwise, make sure to convert any backslash to slash when creating the glob pattern.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-AppliesToPatternAttribute-RelativePath'></a>
+### RelativePath `property`
+
+##### Summary
+
+Defines whether the pattern should be applied to the absolute path of a file or to a path
+relative to the solution folder.
 
 <a name='T-Microsoft-VisualStudio-RpcContracts-Editor-CompoundMutationContract'></a>
 ## CompoundMutationContract `type`
@@ -361,6 +421,124 @@ to using the RPC contracts directly.
 ##### Summary
 
 A set of changes to apply to text documents.
+
+<a name='T-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeBaseDefinitionAttribute'></a>
+## ContentTypeBaseDefinitionAttribute `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.Editor
+
+##### Summary
+
+Makes a content type inheriting from a defined base.
+
+##### Remarks
+
+Example:
+
+```
+[assembly: ContentTypeDefinitionAttribute("markdown")]
+[assembly: ContentTypeBaseDefinitionAttribute("markdown", baseContentTypeName: "code")]
+[assembly: FileExtensionMappingAttribute("markdown", fileExtension: ".md")]
+[assembly: FileExtensionMappingAttribute("markdown", fileExtension: ".mdk")]
+[assembly: FileExtensionMappingAttribute("markdown", fileExtension: ".markdn")]
+```
+
+##### See Also
+
+- [Microsoft.VisualStudio.Extensibility.Editor.ContentTypeDefinitionAttribute](#T-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeDefinitionAttribute 'Microsoft.VisualStudio.Extensibility.Editor.ContentTypeDefinitionAttribute')
+- [Microsoft.VisualStudio.Extensibility.Editor.FileExtensionMappingAttribute](#T-Microsoft-VisualStudio-Extensibility-Editor-FileExtensionMappingAttribute 'Microsoft.VisualStudio.Extensibility.Editor.FileExtensionMappingAttribute')
+- [Microsoft.VisualStudio.Extensibility.Editor.AppliesToAttribute](#T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToAttribute 'Microsoft.VisualStudio.Extensibility.Editor.AppliesToAttribute')
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeBaseDefinitionAttribute-#ctor-System-String,System-String-'></a>
+### #ctor(contentTypeName,baseContentTypeName) `constructor`
+
+##### Summary
+
+Initializes a new instance of [ContentTypeBaseDefinitionAttribute](#T-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeBaseDefinitionAttribute 'Microsoft.VisualStudio.Extensibility.Editor.ContentTypeBaseDefinitionAttribute').
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| contentTypeName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The content type name. Content type names are case-insensitive. |
+| baseContentTypeName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The base content type name. Content type names are case-insensitive. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | `contentTypeName` or `baseContentTypeName` is null or an empty string. |
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeBaseDefinitionAttribute-Base'></a>
+### Base `property`
+
+##### Summary
+
+The base content type name.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeBaseDefinitionAttribute-ContentType'></a>
+### ContentType `property`
+
+##### Summary
+
+The content type name.
+
+<a name='T-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeDefinitionAttribute'></a>
+## ContentTypeDefinitionAttribute `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.Editor
+
+##### Summary
+
+Declares a new content type.
+
+##### Remarks
+
+Example:
+
+```
+[assembly: ContentTypeDefinitionAttribute("markdown")]
+[assembly: ContentTypeBaseDefinitionAttribute("markdown", baseContentTypeName: "code")]
+[assembly: FileExtensionMappingAttribute("markdown", fileExtension: ".md")]
+[assembly: FileExtensionMappingAttribute("markdown", fileExtension: ".mdk")]
+[assembly: FileExtensionMappingAttribute("markdown", fileExtension: ".markdn")]
+```
+
+##### See Also
+
+- [Microsoft.VisualStudio.Extensibility.Editor.ContentTypeBaseDefinitionAttribute](#T-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeBaseDefinitionAttribute 'Microsoft.VisualStudio.Extensibility.Editor.ContentTypeBaseDefinitionAttribute')
+- [Microsoft.VisualStudio.Extensibility.Editor.FileExtensionMappingAttribute](#T-Microsoft-VisualStudio-Extensibility-Editor-FileExtensionMappingAttribute 'Microsoft.VisualStudio.Extensibility.Editor.FileExtensionMappingAttribute')
+- [Microsoft.VisualStudio.Extensibility.Editor.AppliesToAttribute](#T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToAttribute 'Microsoft.VisualStudio.Extensibility.Editor.AppliesToAttribute')
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeDefinitionAttribute-#ctor-System-String-'></a>
+### #ctor(name) `constructor`
+
+##### Summary
+
+Initializes a new instance of [ContentTypeDefinitionAttribute](#T-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeDefinitionAttribute 'Microsoft.VisualStudio.Extensibility.Editor.ContentTypeDefinitionAttribute').
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The content type name. Content type names are case-insensitive. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | `name` is null or an empty string. |
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeDefinitionAttribute-ContentType'></a>
+### ContentType `property`
+
+##### Summary
+
+The content type name.
 
 <a name='T-Microsoft-VisualStudio-RpcContracts-Utilities-EditorContext'></a>
 ## EditorContext `type`
@@ -444,6 +622,11 @@ An instance of [ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITe
 | clientContext | [Microsoft.VisualStudio.Extensibility.Definitions.IClientContext](#T-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext 'Microsoft.VisualStudio.Extensibility.Definitions.IClientContext') | The client context, usually passed to command handlers. |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancels the request. |
 
+##### Remarks
+
+Can return `null` if the `clientContext` references a version of text view
+that is sufficiently old so as to no longer be cached.
+
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility-MutateAsync-System-Action{Microsoft-VisualStudio-Extensibility-Editor-Mutation-IMutatorSource},System-Threading-CancellationToken-'></a>
 ### MutateAsync(mutator,cancellationToken) `method`
 
@@ -455,7 +638,7 @@ edits, caret position changes, or other state changes.
 
 ##### Returns
 
-A response object detailing whether the operation was successful and what [ITextDocument](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument')s and [ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView')s changed.
+A response object detailing whether the operation was successful and which [ITextDocument](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument')s and [ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView')s changed.
 
 ##### Parameters
 
@@ -468,7 +651,7 @@ A response object detailing whether the operation was successful and what [IText
 
 Mutation request is sent to Visual Studio IDE, where it succeeds only if the object being mutated hasn't
 changed since the version the request was made one. If the document has changed, the change may be rejected,
-requiring the extension to retry on newer version.
+requiring the extension to retry on a newer version.
 
 Mutations are applied atomically. The best practice is to do all changes that should occur within a narrow time
 frame within a single MutateAsync() call to reduce the likelihood of unexpected behavior arising from user edits,
@@ -485,7 +668,7 @@ edits, caret position changes, or other state changes.
 
 ##### Returns
 
-A response object detailing whether the operation was successful and what [ITextDocument](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument')s and [ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView')s changed.
+A response object detailing whether the operation was successful and which [ITextDocument](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument')s and [ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView')s changed.
 
 ##### Parameters
 
@@ -499,7 +682,7 @@ A response object detailing whether the operation was successful and what [IText
 
 Mutation request is sent to Visual Studio IDE, where it succeeds only if the object being mutated hasn't
 changed since the version the request was made one. If the document has changed, the change may be rejected,
-requiring the extension to retry on newer version.
+requiring the extension to retry on a newer version.
 
 Mutations are applied atomically. The best practice is to do all changes that should occur within a narrow time
 frame within a single MutateAsync() call to reduce the likelihood of unexpected behavior arising from user edits,
@@ -522,6 +705,69 @@ Descriptors for internal Editor RPC services for Gladstone Extensibility.
 ##### Summary
 
 Descriptor for text editor synchronization and buffer manipulation service.
+
+<a name='T-Microsoft-VisualStudio-Extensibility-Editor-FileExtensionMappingAttribute'></a>
+## FileExtensionMappingAttribute `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.Editor
+
+##### Summary
+
+Associate a content type to a file extension.
+
+##### Remarks
+
+Example:
+
+```
+[assembly: ContentTypeDefinitionAttribute("markdown")]
+[assembly: ContentTypeBaseDefinitionAttribute("markdown", baseContentTypeName: "code")]
+[assembly: FileExtensionMappingAttribute("markdown", fileExtension: ".md")]
+[assembly: FileExtensionMappingAttribute("markdown", fileExtension: ".mdk")]
+[assembly: FileExtensionMappingAttribute("markdown", fileExtension: ".markdn")]
+```
+
+##### See Also
+
+- [Microsoft.VisualStudio.Extensibility.Editor.ContentTypeDefinitionAttribute](#T-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeDefinitionAttribute 'Microsoft.VisualStudio.Extensibility.Editor.ContentTypeDefinitionAttribute')
+- [Microsoft.VisualStudio.Extensibility.Editor.ContentTypeBaseDefinitionAttribute](#T-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeBaseDefinitionAttribute 'Microsoft.VisualStudio.Extensibility.Editor.ContentTypeBaseDefinitionAttribute')
+- [Microsoft.VisualStudio.Extensibility.Editor.AppliesToAttribute](#T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToAttribute 'Microsoft.VisualStudio.Extensibility.Editor.AppliesToAttribute')
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-FileExtensionMappingAttribute-#ctor-System-String,System-String-'></a>
+### #ctor(fileExtension,contentType) `constructor`
+
+##### Summary
+
+Initializes a new instance of [FileExtensionMappingAttribute](#T-Microsoft-VisualStudio-Extensibility-Editor-FileExtensionMappingAttribute 'Microsoft.VisualStudio.Extensibility.Editor.FileExtensionMappingAttribute').
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| fileExtension | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The file extension. File extensions are case-insensitive. |
+| contentType | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The content type name. Content type names are case-insensitive. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentNullException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentNullException 'System.ArgumentNullException') | `fileExtension` or `contentType` is null or an empty string. |
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-FileExtensionMappingAttribute-ContentType'></a>
+### ContentType `property`
+
+##### Summary
+
+The content type name.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-FileExtensionMappingAttribute-FileExtension'></a>
+### FileExtension `property`
+
+##### Summary
+
+The file extension.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Editor-IEditorHostService'></a>
 ## IEditorHostService `type`
@@ -1071,7 +1317,7 @@ underlying [ITextDocument](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-I
 is greater than the length of the document. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument-TranslatePositionTo-Microsoft-VisualStudio-Extensibility-Editor-Data-Position,Microsoft-VisualStudio-Extensibility-Editor-Data-PointTrackingMode-'></a>
-### TranslatePositionTo(trackingMode) `method`
+### TranslatePositionTo(position,trackingMode) `method`
 
 ##### Summary
 
@@ -1085,7 +1331,8 @@ A [Position](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Position 'Micro
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| trackingMode | [Microsoft.VisualStudio.Extensibility.Editor.Data.Position](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Position 'Microsoft.VisualStudio.Extensibility.Editor.Data.Position') | The [PointTrackingMode](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-PointTrackingMode 'Microsoft.VisualStudio.Extensibility.Editor.Data.PointTrackingMode') to use in the translation. |
+| position | [Microsoft.VisualStudio.Extensibility.Editor.Data.Position](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Position 'Microsoft.VisualStudio.Extensibility.Editor.Data.Position') | Position to translate |
+| trackingMode | [Microsoft.VisualStudio.Extensibility.Editor.Data.PointTrackingMode](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-PointTrackingMode 'Microsoft.VisualStudio.Extensibility.Editor.Data.PointTrackingMode') | The [PointTrackingMode](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-PointTrackingMode 'Microsoft.VisualStudio.Extensibility.Editor.Data.PointTrackingMode') to use in the translation. |
 
 ##### Exceptions
 
@@ -1094,7 +1341,7 @@ A [Position](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Position 'Micro
 | [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | This [ITextDocument](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument') does not refer to the same underlying text document as this [Position](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Position 'Microsoft.VisualStudio.Extensibility.Editor.Data.Position'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument-TranslateSpanTo-Microsoft-VisualStudio-Extensibility-Editor-Data-Span,Microsoft-VisualStudio-Extensibility-Editor-Data-SpanTrackingMode-'></a>
-### TranslateSpanTo(trackingMode) `method`
+### TranslateSpanTo(span,trackingMode) `method`
 
 ##### Summary
 
@@ -1108,7 +1355,8 @@ A [Position](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Position 'Micro
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| trackingMode | [Microsoft.VisualStudio.Extensibility.Editor.Data.Span](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Span 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span') | The [PointTrackingMode](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-PointTrackingMode 'Microsoft.VisualStudio.Extensibility.Editor.Data.PointTrackingMode') to use in the translation. |
+| span | [Microsoft.VisualStudio.Extensibility.Editor.Data.Span](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Span 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span') | Span to translate |
+| trackingMode | [Microsoft.VisualStudio.Extensibility.Editor.Data.SpanTrackingMode](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-SpanTrackingMode 'Microsoft.VisualStudio.Extensibility.Editor.Data.SpanTrackingMode') | The [PointTrackingMode](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-PointTrackingMode 'Microsoft.VisualStudio.Extensibility.Editor.Data.PointTrackingMode') to use in the translation. |
 
 ##### Exceptions
 
@@ -1749,7 +1997,7 @@ Describes the cumulative result of a call to
 [MutateAsync](#M-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility-MutateAsync-System-Action{Microsoft-VisualStudio-Extensibility-Editor-Mutation-IMutatorSource},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Editor.EditorExtensibility.MutateAsync(System.Action{Microsoft.VisualStudio.Extensibility.Editor.Mutation.IMutatorSource},System.Threading.CancellationToken)').
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-Mutation-MutationResponse-#ctor-System-Boolean,System-String,System-Collections-Generic-IReadOnlyDictionary{Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument,Microsoft-VisualStudio-Extensibility-Editor-Mutation-TextDocumentMutationResponse},System-Collections-Generic-IReadOnlyDictionary{Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView,Microsoft-VisualStudio-Extensibility-Editor-Mutation-TextViewMutationResponse}-'></a>
-### #ctor(succeeded,message,textViewMutationResults) `constructor`
+### #ctor(succeeded,message,documentMutationResults,textViewMutationResults) `constructor`
 
 ##### Summary
 
@@ -1761,7 +2009,8 @@ Initializes a new instance of [MutationResponse](#T-Microsoft-VisualStudio-Exten
 | ---- | ---- | ----------- |
 | succeeded | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | `true` if the cumulative operation completed successfully. |
 | message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Any cumulative error message, `null`, or [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') if none. |
-| textViewMutationResults | [System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument,Microsoft.VisualStudio.Extensibility.Editor.Mutation.TextDocumentMutationResponse}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyDictionary 'System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument,Microsoft.VisualStudio.Extensibility.Editor.Mutation.TextDocumentMutationResponse}') | Per-document operation results including per document errors and updated [ITextDocument](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument')
+| documentMutationResults | [System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument,Microsoft.VisualStudio.Extensibility.Editor.Mutation.TextDocumentMutationResponse}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyDictionary 'System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument,Microsoft.VisualStudio.Extensibility.Editor.Mutation.TextDocumentMutationResponse}') |  |
+| textViewMutationResults | [System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView,Microsoft.VisualStudio.Extensibility.Editor.Mutation.TextViewMutationResponse}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyDictionary 'System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView,Microsoft.VisualStudio.Extensibility.Editor.Mutation.TextViewMutationResponse}') | Per-document operation results including per document errors and updated [ITextDocument](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument')
 versions. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Editor-Mutation-MutationResponse-DocumentMutationResults'></a>
@@ -1790,6 +2039,14 @@ Any cumulative error message, `null`, or [Empty](http://msdn.microsoft.com/query
 ##### Summary
 
 `true` if the cumulative operation completed successfully.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-Mutation-MutationResponse-TextViewMutationResults'></a>
+### TextViewMutationResults `property`
+
+##### Summary
+
+Per text view operation results including per text view errors and updated [ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView')
+versions.
 
 <a name='T-Microsoft-VisualStudio-RpcContracts-Editor-MutationResponseContract'></a>
 ## MutationResponseContract `type`
@@ -1828,6 +2085,14 @@ Contains any high level error messages or [Empty](http://msdn.microsoft.com/quer
 ##### Summary
 
 `true` if all operations completed successfully.
+
+<a name='P-Microsoft-VisualStudio-RpcContracts-Editor-MutationResponseContract-TextViewMutationResults'></a>
+### TextViewMutationResults `property`
+
+##### Summary
+
+Contains per-view operation results including per text view errors and updated [ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView')
+versions.
 
 <a name='T-Microsoft-VisualStudio-RpcContracts-Editor-MutationResult'></a>
 ## MutationResult `type`
@@ -2858,6 +3123,26 @@ The strongly versioned document the change should be applied to.
 
 Microsoft.VisualStudio.Extensibility.Editor.Data
 
+##### Summary
+
+An immutable text span in a particular [ITextDocument](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument') version.
+
+##### Remarks
+
+[VersionedTextDocumentRange](#T-Microsoft-VisualStudio-RpcContracts-Utilities-VersionedTextDocumentRange 'Microsoft.VisualStudio.RpcContracts.Utilities.VersionedTextDocumentRange') is one of three closely related concepts:
+- [Span](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Span 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span'): Thick object representing a span/range of text in a [ITextDocument](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument').
+  This type should be used in all code within the same process.
+
+- [VersionedTextDocumentRange](#T-Microsoft-VisualStudio-RpcContracts-Utilities-VersionedTextDocumentRange 'Microsoft.VisualStudio.RpcContracts.Utilities.VersionedTextDocumentRange'): A serializable representation of [Span](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Span 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span') that can
+  be sent between processes over RPC. This type should be used in most RPC contracts between processes.
+
+- [Range](#T-Microsoft-VisualStudio-RpcContracts-Utilities-Range 'Microsoft.VisualStudio.RpcContracts.Utilities.Range'): A serialiable representation of [Span](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Span 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span') that can be sent between
+  processes over RPC. As opposed to [VersionedTextDocumentRange](#T-Microsoft-VisualStudio-RpcContracts-Utilities-VersionedTextDocumentRange 'Microsoft.VisualStudio.RpcContracts.Utilities.VersionedTextDocumentRange'), it omits the [Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri')
+  and document version, making for a smaller serializable representation. This type should be used in RPC
+  contracts that contain lots of span/range equivalents that need to reduce their payload size for
+  performance. These RPC contracts will need to pass the document [Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') and version for the
+  spans/range to be rehydrated into [Span](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Span 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span') by [IEditorHostService](#T-Microsoft-VisualStudio-Extensibility-Editor-IEditorHostService 'Microsoft.VisualStudio.Extensibility.Editor.IEditorHostService').
+
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-#ctor-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument,System-Int32,System-Int32-'></a>
 ### #ctor(document,start,length) `constructor`
 
@@ -2988,7 +3273,7 @@ Determines whether the position lies within the span.
 | position | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The position to check. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-Contains-Microsoft-VisualStudio-Extensibility-Editor-Data-Position-'></a>
-### Contains(point) `method`
+### Contains(position) `method`
 
 ##### Summary
 
@@ -3002,10 +3287,10 @@ Determines whether a given [Position](#T-Microsoft-VisualStudio-Extensibility-Ed
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| point | [Microsoft.VisualStudio.Extensibility.Editor.Data.Position](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Position 'Microsoft.VisualStudio.Extensibility.Editor.Data.Position') | The point to check. |
+| position | [Microsoft.VisualStudio.Extensibility.Editor.Data.Position](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Position 'Microsoft.VisualStudio.Extensibility.Editor.Data.Position') | The point to check. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-Contains-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-'></a>
-### Contains(snapshotSpan) `method`
+### Contains(span) `method`
 
 ##### Summary
 
@@ -3019,7 +3304,7 @@ Determines whether `span` falls completely within this span.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| snapshotSpan | [Microsoft.VisualStudio.Extensibility.Editor.Data.Span](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Span 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span') | The span to check. |
+| span | [Microsoft.VisualStudio.Extensibility.Editor.Data.Span](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Span 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span') | The span to check. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-Equals-System-Object-'></a>
 ### Equals() `method`
@@ -3059,7 +3344,7 @@ A non-null string.
 This method has no parameters.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-Intersection-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-'></a>
-### Intersection(snapshotSpan) `method`
+### Intersection(span) `method`
 
 ##### Summary
 
@@ -3073,7 +3358,7 @@ The intersection of the spans, or null if the intersection is empty.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| snapshotSpan | [Microsoft.VisualStudio.Extensibility.Editor.Data.Span](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Span 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span') | The span to check. |
+| span | [Microsoft.VisualStudio.Extensibility.Editor.Data.Span](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Span 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span') | The span to check. |
 
 ##### Exceptions
 
@@ -3101,7 +3386,7 @@ coincides with the start of the other span, and neither is empty.
 | span | [Microsoft.VisualStudio.Extensibility.Editor.Data.Span](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Span 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span') | The span to check. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-Overlap-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-'></a>
-### Overlap(snapshotSpan) `method`
+### Overlap(span) `method`
 
 ##### Summary
 
@@ -3115,7 +3400,7 @@ The overlap of the spans, or null if the overlap is empty.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| snapshotSpan | [Microsoft.VisualStudio.Extensibility.Editor.Data.Span](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Span 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span') | The span to check. |
+| span | [Microsoft.VisualStudio.Extensibility.Editor.Data.Span](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Span 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span') | The span to check. |
 
 ##### Exceptions
 
@@ -3125,7 +3410,7 @@ The overlap of the spans, or null if the overlap is empty.
 [ITextDocument](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument') as this snapshot span. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-OverlapsWith-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-'></a>
-### OverlapsWith(snapshotSpan) `method`
+### OverlapsWith(span) `method`
 
 ##### Summary
 
@@ -3140,7 +3425,7 @@ Two spans are considered to overlap if they have positions in common and are not
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| snapshotSpan | [Microsoft.VisualStudio.Extensibility.Editor.Data.Span](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Span 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span') | The span to check for overlap. |
+| span | [Microsoft.VisualStudio.Extensibility.Editor.Data.Span](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-Span 'Microsoft.VisualStudio.Extensibility.Editor.Data.Span') | The span to check for overlap. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-Data-Span-TranslateTo-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument,Microsoft-VisualStudio-Extensibility-Editor-Data-SpanTrackingMode-'></a>
 ### TranslateTo(targetDocumentVersion,spanTrackingMode) `method`
@@ -3727,7 +4012,7 @@ Microsoft.VisualStudio.Extensibility.Editor.UI
 Arguments for [ITextViewChangedListener](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewChangedListener 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextViewChangedListener').
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-UI-TextViewChangedArgs-#ctor-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView,Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView,System-Collections-Generic-IReadOnlyList{Microsoft-VisualStudio-Extensibility-Editor-Mutation-TextMutation}-'></a>
-### #ctor(beforeTextView,afterTextView) `constructor`
+### #ctor(beforeTextView,afterTextView,mutations) `constructor`
 
 ##### Summary
 
@@ -3739,6 +4024,7 @@ Creates a new instance of [TextViewChangedArgs](#T-Microsoft-VisualStudio-Extens
 | ---- | ---- | ----------- |
 | beforeTextView | [Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView') | The state of the [ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView') before the change. |
 | afterTextView | [Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView') | The state of the [ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView') after. |
+| mutations | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Extensibility.Editor.Mutation.TextMutation}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Extensibility.Editor.Mutation.TextMutation}') | A list of changes applied to the text document. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Editor-UI-TextViewChangedArgs-AfterTextView'></a>
 ### AfterTextView `property`
