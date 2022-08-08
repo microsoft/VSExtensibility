@@ -67,7 +67,7 @@ Several sets of pre-defined `PromptOptions` are available in the SDK.
 
 ### Using a built-in option
 
-TODO: Image
+![User Prompt With OK](user_prompt_ok.png)
 
 Create a prompt with a single "OK" choice.
 
