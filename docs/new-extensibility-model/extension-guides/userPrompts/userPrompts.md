@@ -16,12 +16,11 @@ The choices presented to the user are mapped to return values of the type define
 
 # Parts of a user prompt
 
-TODO: Image
+![User Prompt Parts](user_prompt_parts.png)
 
 1. Message
 2. Choice Buttons
-3. Default Choice
-4. Dismiss Button
+3. Dismiss Button
 
 ## Creating user prompts
 
@@ -103,6 +102,8 @@ public override async Task ExecuteCommandAsync(IClientContext context, Cancellat
 ```
 
 ## Custom options
+
+![Custom User Prompt](user_prompt_custom.png)
 
 In addition to the built-in options, you can customize the choices presented to the user and the return value mapped to each.
 
