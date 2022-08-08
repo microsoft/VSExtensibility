@@ -6,7 +6,7 @@ date: 2022-07-29
 
 # User Prompts
 
-User Prompts are a simple UI mechanism for prompting the user during the execution of a [Command Handler](). Prompting the user creates a dialog box with a message, one to three buttons for the choices, and a dismiss button. 
+User Prompts are a simple UI mechanism for prompting the user during the execution of a [Command Handler](../command/command.md#registering-a-command). Prompting the user creates a dialog box with a message, one to three buttons for the choices, and a dismiss button. 
 
 Common examples are requesting confirmation with an OK/Cancel prompt, or asking the user to choose among a small set of options (no more than three).
 
@@ -24,23 +24,23 @@ The choices presented to the user are mapped to return values of the type define
 
 ## Creating user prompts
 
-User Prompts can only be created inside of a command handler. To get started, [Create the extension project]() and [Add your first command]().
+User Prompts can only be created inside of a command handler. To get started, [Create the extension project](../../getting-started/create-your-first-extension.md#create-the-extension-project) and [Add your first command](../../getting-started/create-your-first-extension.md#add-your-first-command).
 
-Inside the [ExecuteCommandAsync]() method, call [IClientContext.ShowPromptAsync&lt;TResult&gt;](). `ShowPromptAsync` takes three parameters:
+Inside the `ExecuteCommandAsync` method, call `IClientContext.ShowPromptAsync&lt;TResult&gt;`. `ShowPromptAsync` takes three parameters:
 
 1. The message of the prompt.
-2. An instance of [PromptOptions](), which defines the choices to show the user.
+2. An instance of `PromptOptions`, which defines the choices to show the user.
 3. A CancellationToken. Triggering the token will close the prompt before the user makes a choice.
 
 | Parameter | Type | Required | Description |
 | ----------|------|----------|-------------|
 | message   | string | Yes | The text of the message for the prompt. |
-| options   | [PromptOptions&lt;TResult&gt;]() | Yes | Defines the user choices, mapping them to return values. |
+| options   | `PromptOptions&lt;TResult&gt;` | Yes | Defines the user choices, mapping them to return values. |
 | cancellationToken | CancellationToken | Yes | When triggered, force closes the prompt. |
 
 ## Built-in options
 
-Several sets of pre-defined [PromptOptions]() are available in the SDK.
+Several sets of pre-defined `PromptOptions` are available in the SDK.
 
 ### OK
 
@@ -107,7 +107,7 @@ public override async Task ExecuteCommandAsync(IClientContext context, Cancellat
 
 In addition to the built-in options, you can customize the choices presented to the user and the return value mapped to each.
 
-Instead of using the sets defined in [PromptOptions](), create a new instance of [PromptOptions&lt;TResult&gt;]() and pass it to `ShowPromptAsync`.
+Instead of using the sets defined in `PromptOptions`, create a new instance of `PromptOptions&lt;TResult&gt;` and pass it to `ShowPromptAsync`.
 
 Start by creating a value type to define the return values:
 
@@ -150,4 +150,5 @@ The `Choices` collection maps the user choices to values in the `TokenThemeResul
 
 ## Samples
 
-* [UserPromptSample]()
+* [UserPromptSample](../../../../New_Extensibility_Model/Samples/UserPromptSample/SampleCommand.cs)
+* [MarkdownLinter](../../../../New_Extensibility_Model/Samples/MarkdownLinter/RunLinterOnSolutionCommand.cs)
