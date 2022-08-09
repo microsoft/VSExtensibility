@@ -15,24 +15,40 @@ While the existing model loads extensions in-process, the new extensibility mode
 
 For future updates please bookmark our [announcements](docs/announcements.md) page
 
+## Prerequisites
+
+* Visual Studio 2022.4 Preview 1 or higher with `.Net desktop development` workload.
+* Install [VisualStudio.Extensibility Project System](https://marketplace.visualstudio.com/items?itemName=vsext.gladstone): This extension will allow you to debug extension projects using F5. There is currently no other deployment mechanism supported.
+
 ## Getting Started
 * [Introduction to new out-of-process extensibility](docs/new-extensibility-model/getting-started/oop-extensibility-model-overview.md)
 * [Create your first extension](docs/new-extensibility-model/getting-started/create-your-first-extension.md)
+* [Create an in-proc extension](docs/new-extensibility-model/getting-started/in-proc-extensions.md)
 
 ## Extension Guides
 * [Parts of a new Visual Studio extension](docs/new-extensibility-model/inside-the-sdk/extension-anatomy.md)
 * [Parts of the SDK](docs/new-extensibility-model/inside-the-sdk/inside-the-sdk.md)
 * [Commands](docs/new-extensibility-model/extension-guides/command/command.md)
+* [Tool Windows](docs/new-extensibility-model/extension-guides/toolWindow/toolWindow.md)
+* [Output Window](docs/new-extensibility-model/extension-guides/outputWindow/outputWindow.md)
+* [User Prompts](docs/new-extensibility-model/extension-guides/userPrompts/userPrompts.md)
 * [Editor components](docs/new-extensibility-model/extension-guides/editor/editor.md)
 * [Rule based conditions](docs/new-extensibility-model/inside-the-sdk/activation-constraints.md)
+* [Remote UI](docs/new-extensibility-model/inside-the-sdk/remote-ui.md)
+* [Advanced Remote UI concepts](docs/new-extensibility-model/inside-the-sdk/advanced-remote-ui.md)
 
 ## Samples and walkthroughs
-A Visual Studio solution containing all samples can be found at [Samples.sln](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/Samples.sln).
+A Visual Studio solution containing all samples can be found at [Samples.sln](./New_Extensibility_Model/Samples/Samples.sln).
 
-* [Simple command handler](docs/new-extensibility-model/getting-started/create-your-first-extension.md) ([Source](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/SimpleRemoteCommandSample))
-* [Markdown Linter](docs/new-extensibility-model/extension-guides/markdown-linter-sample.md) ([Source](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/MarkdownLinter))
-* [Insert guid extension sample](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/InsertGuidExtension)
-* [Command registration, localization sample](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/CommandRegistrationsSample)
+* [Simple command handler](docs/new-extensibility-model/getting-started/create-your-first-extension.md) ([Source](./New_Extensibility_Model/Samples/SimpleRemoteCommandSample))
+* [Markdown Linter](./New_Extensibility_Model/Samples/MarkdownLinter))
+* [Output Window sample](./New_Extensibility_Model/Samples/OutputWindowSample/)
+* [Insert guid extension sample](./New_Extensibility_Model/Samples/InsertGuidExtension)
+* [Command registration, localization sample](./New_Extensibility_Model/Samples/CommandRegistrationsSample)
+* [Comment Remover, in-proc extension sample](./New_Extensibility_Model/Samples/CommentRemover)
+* [Tool Window sample](./New_Extensibility_Model/Samples/ToolWindowExtension/)
+* [User Prompt sample](./New_Extensibility_Model/Samples/UserPromptSample/)
+* [Document Selector sample](./New_Extensibility_Model/Samples/DocumentSelectorSample/)
 
 ## API Docs
 

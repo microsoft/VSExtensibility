@@ -6,9 +6,14 @@ and call out interesting aspects to its sample.
 Samples include:
 
 * SimpleRemoteCommandSample: A simple extension showing how to declare a single command.
+* OutputWindowSample: An extension that uses a simple command to write a message to the output window.
+* ToolWindowSample: An extension that creates a tool window and populates it with content.
+* UserPromptSample: An extension that uses a simple command to display a prompt to the user.
 * CommandRegistrationsSample: Showcases how to register commands in different ways and command placement, localization.
 * InsertGuidExtension: A simple extension showing how to read/modify editor buffers.
 * MarkdownLinter: An end-to-end example showing various features available in the extensibility SDK.
+* DocumentSelectorSample: A sample demonstrating how to define an editor extension that is only applicable to files matching a file path pattern.
+* CommentRemover: A conversion of Mads Kristensen's [Comment Remover](https://github.com/madskristensen/CommentRemover) extension to in-proc VisualStudio.Extensibility. This sample shows how to consume [Visual Studio SDK](https://www.nuget.org/packages/Microsoft.VisualStudio.SDK) services through .NET dependency injection and use VisualStudio.Extensibility APIs for commands, prompts and progress report.
 
 ## Contributing
 

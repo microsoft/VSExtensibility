@@ -50,6 +50,8 @@ The following services are provided by the SDK that can be used in constructor f
 
 * Local services: Any local services provided by the extension itself will also be available for dependency injection.
 
+* `MefInjection<TService>` and `AsyncServiceProviderInjection<TService, TInterface>`: In-proc extensions can inject [Visual Studio SDK](https://www.nuget.org/packages/Microsoft.VisualStudio.SDK) services that would be traditionally consumed through either [MEF](https://docs.microsoft.com/en-us/visualstudio/extensibility/managed-extensibility-framework-in-the-editor) or the [AsyncServiceProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.asyncserviceprovider).
+
 ## Local extension services
 In certain scenarios an extension may want to share state between different components such as a command handler and a text view change listener, as it can be seen in `MarkdownLinter` example. These services can be added to in-process service collection via overriding `Extension.InitializeServices` method and as instances of extension parts are created, the services will be injected based on the constructor arguments.
 
@@ -61,7 +63,7 @@ There are 3 options that a service can be added:
 
 Due to lifetime of `VisualStudioExtensibility` object being bound to the scope of a single extension part, any local service that ingests it has to be a scoped or transient service. Trying to create a singleton service that injects `VisualStudioExtensibility` will result in failure.
 
-For an example of how local services are used please see [MarkdownLinter extension guide](../extension-guides/markdown-linter-sample.md).
+For an example of how local services are used please see the [MarkdownLinter extension](../../../New_Extensibility_Model/Samples/MarkdownLinter/).
 
 ## Client context
 As all extensions in the new SDK runs out of process, we introduce the concept of client context for various extension parts to represent the state of the IDE as when the event or method is invoked. This context is represented by `IClientContext` instance in the SDK and is passed in to various operations such as command execution handlers. The SDK provides extension methods on `IClientContext` that can be utilized to retrieve objects from the context. For example extensions can get the active text view or the URI for the selected items at the time of command execution utilizing `IClientContext` instance.
