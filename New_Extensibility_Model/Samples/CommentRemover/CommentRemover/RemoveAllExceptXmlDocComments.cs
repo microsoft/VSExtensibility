@@ -42,7 +42,9 @@ internal class RemoveAllExceptXmlDocComments : CommentRemoverCommand
 	public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
 	{
 		if (!await context.ShowPromptAsync("All task comments, except for Xml Docs, will be removed from the current document. Are you sure?", PromptOptions.OKCancel, cancellationToken))
+		{
 			return;
+		}
 
 		using var reporter = await this.Extensibility.Shell().StartProgressReportingAsync("Removing comments", options: new(isWorkCancellable: false), cancellationToken);
 
@@ -52,7 +54,9 @@ internal class RemoveAllExceptXmlDocComments : CommentRemoverCommand
 		var view = await this.GetCurentTextViewAsync();
 		var mappingSpans = await this.GetClassificationSpansAsync(view, "comment");
 		if (!mappingSpans.Any())
+		{
 			return;
+		}
 
 		var dte = await this.Dte.GetServiceAsync();
 		try
@@ -89,7 +93,9 @@ internal class RemoveAllExceptXmlDocComments : CommentRemoverCommand
 				var end = mappingSpan.End.GetPoint(view.TextBuffer, PositionAffinity.Successor);
 
 				if (!start.HasValue || !end.HasValue)
+				{
 					continue;
+				}
 
 				var span = new Span(start.Value, end.Value - start.Value);
 				var lines = view.TextBuffer.CurrentSnapshot.Lines.Where(l => l.Extent.IntersectsWith(span));
@@ -104,12 +110,16 @@ internal class RemoveAllExceptXmlDocComments : CommentRemoverCommand
 					else
 					{
 						if (!affectedLines.Contains(line.LineNumber))
+						{
 							affectedLines.Add(line.LineNumber);
+						}
 					}
 				}
 
 				if (skip)
+				{
 					continue;
+				}
 
 				var mappingText = view.TextBuffer.CurrentSnapshot.GetText(span.Start, span.Length);
 				string empty = Regex.Replace(mappingText, "([\\S]+)", string.Empty);
@@ -124,7 +134,9 @@ internal class RemoveAllExceptXmlDocComments : CommentRemoverCommand
 	private static void RemoveAffectedEmptyLines(IWpfTextView view, IList<int> affectedLines)
 	{
 		if (!affectedLines.Any())
+		{
 			return;
+		}
 
 		using (var edit = view.TextBuffer.CreateEdit())
 		{
@@ -140,7 +152,9 @@ internal class RemoveAllExceptXmlDocComments : CommentRemoverCommand
 						var next = view.TextBuffer.CurrentSnapshot.GetLineFromLineNumber(lineNumber + 1);
 
 						if (IsLineEmpty(next))
+						{
 							edit.Delete(next.Start, next.LengthIncludingLineBreak);
+						}
 					}
 
 					edit.Delete(line.Start, line.LengthIncludingLineBreak);
