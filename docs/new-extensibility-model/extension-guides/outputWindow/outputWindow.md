@@ -43,11 +43,13 @@ The current version of the Output Window API requires that the display name for 
  - Add an [Extension class](../../inside-the-sdk/extension-anatomy.md#extension-instance) to your project, if it doesn't have one already ([sample](./../../../../New_Extensibility_Model/Samples/OutputWindowSample/OutputWindowSampleExtension.cs))
  - In the Extension class override the `ResourceManager` property to return the ResourceManager corresponding to your .resx file.
 
-## Example
+## Editing the `.resx` [Resource File](https://docs.microsoft.com/en-us/dotnet/core/extensions/resources)
 
-### `.resx` [Resource File](https://docs.microsoft.com/en-us/dotnet/core/extensions/resources)
+You can edit the resource file (in this case `MyStrings.resx`) by using the designer UI available in Visual Studio:
 
-In this case, `MyStrings.resx`:
+![resx Designer](resxDesigner.png "The .resx designer UI available in Visual Studio being used to set the display name for the Output Window Channel.")
+
+Alternatively, you can edit the resource file by editing the raw XML to add the following snippet:
 
 ```xml
   <data name="OutputWindowDisplayName" xml:space="preserve">
@@ -55,7 +57,9 @@ In this case, `MyStrings.resx`:
   </data>
 ```
 
-### `.csproj` Project File
+## Editing the `.csproj` Project File
+
+Add the following to your `.csproj` project file (if you added the `.resx` file through the IDE, this may already be present):
 
 ```xml
 	<ItemGroup>
@@ -74,25 +78,40 @@ In this case, `MyStrings.resx`:
 	</ItemGroup>
 ```
 
-### Extension Class
+## Editing or Adding the Extension Class
 
-In this case, `MyExtension.cs`:
+If your project does not already contain a class that derives from `Microsoft.VisualStudio.Extensibility.Extension`, you will need to add one like the simple one below (in this case called `MyExtension.cs`):
 
 ```csharp
-public class MyExtension : Extension
+using System.Resources;
+using Microsoft.VisualStudio.Extensibility;
+
+namespace MyProject
 {
-	protected override ResourceManager? ResourceManager => MyStrings.ResourceManager;
+	public class MyExtension : Extension
+	{
+		protected override ResourceManager? ResourceManager => MyStrings.ResourceManager;
+	}
 }
 ```
 
+If your project already contains such a class, you only need to add the line that sets the `ResourceManager` property.
+
 **Note:** Make sure that the MyExtension class is in the same namespace as the `MyStrings` resource class, which defaults to the name of the project, unless you have overridden it.
 
-### Extension code:
+## Adding the initialization code:
+
+This code can be in whichever class you intend to use to show output messages (such as a [Command](./../command/command.md)), but the important thing is that `GetChannelAsync()` can only be called once for a given Output Window Channel ID, so consider calling it in a one-time, initialization method such as `InitializeAsync()`.
 
 ```csharp
-string id = "MyOutputWindow";
-string displayNameResourceId = nameof(Strings.OutputWindowDisplayName);
-OutputWindow? outputWindow = await this.Extensibility.Views().Output.GetChannelAsync(id, displayNameResourceId, cancellationToken);
+public override async Task InitializeAsync(CancellationToken cancellationToken)
+{
+	string id = "MyOutputWindow";
+	string displayNameResourceId = nameof(MyStrings.OutputWindowDisplayName);
+
+	 // To use this Output Window Channel elsewhere in the class, such as the ExecuteCommandAsync() method in a Command, save this result to a field in the class.
+	OutputWindow? outputWindow = await this.Extensibility.Views().Output.GetChannelAsync(id, displayNameResourceId, cancellationToken);
+}
 ```
 
 # Writing to the Output Window
@@ -104,6 +123,8 @@ The [`OutputWindow`](./../api/../../api/Microsoft.VisualStudio.Extensibility.md#
 - [`WriteLineAsync()`](https://docs.microsoft.com/en-us/dotnet/api/system.io.textwriter.writelineasync)
 
 ## Example
+
+This snippet could be used wherever you want to display a message in the Output Window, such as in the `ExecuteCommandAsync()` method in a [Command](./../command/command.md).
 
 ```csharp
 if (this.outputWindow != null)
