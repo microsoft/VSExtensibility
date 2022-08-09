@@ -15,6 +15,11 @@ While the existing model loads extensions in-process, the new extensibility mode
 
 For future updates please bookmark our [announcements](docs/announcements.md) page
 
+## Prerequisites
+
+* Visual Studio 2022.4 Preview 1 or higher with `.Net desktop development` workload.
+* Install [VisualStudio.Extensibility Project System](https://marketplace.visualstudio.com/items?itemName=vsext.gladstone): This extension will allow you to debug extension projects using F5. There is currently no other deployment mechanism supported.
+
 ## Getting Started
 * [Introduction to new out-of-process extensibility](docs/new-extensibility-model/getting-started/oop-extensibility-model-overview.md)
 * [Create your first extension](docs/new-extensibility-model/getting-started/create-your-first-extension.md)
