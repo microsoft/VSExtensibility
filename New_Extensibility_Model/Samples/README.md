@@ -6,6 +6,9 @@ and call out interesting aspects to its sample.
 Samples include:
 
 * SimpleRemoteCommandSample: A simple extension showing how to declare a single command.
+* OutputWindowSample: An extension that uses a simple command to write a message to the output window.
+* ToolWindowSample: An extension that creates a tool window and populates it with content.
+* UserPromptSample: An extension that uses a simple command to display a prompt to the user.
 * CommandRegistrationsSample: Showcases how to register commands in different ways and command placement, localization.
 * InsertGuidExtension: A simple extension showing how to read/modify editor buffers.
 * MarkdownLinter: An end-to-end example showing various features available in the extensibility SDK.
