@@ -1,7 +1,7 @@
 ---
 title: Markdown Linter Extension reference
 description: A reference for Markdown Linter extension sample
-date: 2021-8-16
+date: 2022-8-4
 ---
 
 # Walkthrough: Markdown Linter Extension
@@ -61,7 +61,7 @@ Note that because this extension part implements two contract interfaces, it mus
 ```csharp
 [ExtensionPart(typeof(ITextViewLifetimeListener))]
 [ExtensionPart(typeof(ITextViewChangedListener))]
-[AppliesTo(ContentType = "text")]
+[AppliesTo(ContentType = "markdown")]
 ```
 
 The extension part also utilizes `AppliesTo` attribute to indicate that it is interested in events from views with `text` content type. (Note, this is required as there is no `markdown` content type in Visual Studio)
