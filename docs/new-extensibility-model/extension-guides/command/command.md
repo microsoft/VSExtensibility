@@ -12,6 +12,8 @@ Commands trigger actions in Visual Studio. They manifest as buttons parented to 
 
 To get started, follow the [create the project](../getting-started/create-your-first-extension.md) section in Getting Started section.
 
+Next, see the [InsertGuidSample](./../../../../New_Extensibility_Model/Samples/InsertGuidExtension) sample for a more complete look at creating an extension with a command.
+
 # Working with Commands
 
 This guide is designed to cover the top user scenarios when working with Commands:
@@ -67,8 +69,6 @@ public class MyCommand : Command
 	}
 }
 ```
-
-See the [InsertGuidSample](./../insert-guid-sample.md) sample for a more complete look at creating an extension with a command.
 
 # Placing a Command in the IDE
 

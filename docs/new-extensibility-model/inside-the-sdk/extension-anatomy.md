@@ -63,7 +63,7 @@ There are 3 options that a service can be added:
 
 Due to lifetime of `VisualStudioExtensibility` object being bound to the scope of a single extension part, any local service that ingests it has to be a scoped or transient service. Trying to create a singleton service that injects `VisualStudioExtensibility` will result in failure.
 
-For an example of how local services are used please see [MarkdownLinter extension guide](../extension-guides/markdown-linter-sample.md).
+For an example of how local services are used please see the [MarkdownLinter extension](../../../New_Extensibility_Model/Samples/MarkdownLinter/).
 
 ## Client context
 As all extensions in the new SDK runs out of process, we introduce the concept of client context for various extension parts to represent the state of the IDE as when the event or method is invoked. This context is represented by `IClientContext` instance in the SDK and is passed in to various operations such as command execution handlers. The SDK provides extension methods on `IClientContext` that can be utilized to retrieve objects from the context. For example extensions can get the active text view or the URI for the selected items at the time of command execution utilizing `IClientContext` instance.
