@@ -81,7 +81,7 @@ new extensibility model.
 ContentTypes are hierarchical. e.g.: C# and C++ both descend from "code", so declaring "code" will cause your extension
 to activate for C#, C, C++, etc.
 
-#### Definitng a new content type
+#### Defining a new content type
 
 [ContentTypeDefinition](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeDefinition), [ContentTypeBaseDefinition](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-ContentTypeBaseDefinition) and [FileExtensionMapping](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-FileExtensionMapping) attributes allow defining a new content type, inheriting one or more other content types and map it to one or more file extensions. These are assembly level attributes:
 
