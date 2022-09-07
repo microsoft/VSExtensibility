@@ -3,8 +3,8 @@
 
 using Microsoft.VisualStudio.Extensibility.Editor;
 
-[assembly: ContentTypeDefinition("markdown")]
-[assembly: ContentTypeBaseDefinition("markdown", baseContentTypeName: "code++")]
+[assembly: DocumentTypeDefinition("markdown")]
+[assembly: DocumentTypeBaseDefinition("markdown", baseDocumentTypeName: "code++")]
 [assembly: FileExtensionMapping("markdown", fileExtension: ".md")]
 [assembly: FileExtensionMapping("markdown", fileExtension: ".mdk")]
 [assembly: FileExtensionMapping("markdown", fileExtension: ".markdown")]

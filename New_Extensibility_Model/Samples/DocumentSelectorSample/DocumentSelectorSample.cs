@@ -30,9 +30,9 @@ internal class DocumentSelectorSample : ExtensionPart, ITextViewLifetimeListener
 	}
 
 	/// <inheritdoc />
-	public Task TextViewCreatedAsync(ITextView textView, CancellationToken cancellationToken)
+	public Task TextViewCreatedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
 	{
-		return this.RunUnitTestsAfterDelayAsync(textView, cancellationToken);
+		return this.RunUnitTestsAfterDelayAsync(textViewSnapshot, cancellationToken);
 	}
 
 	/// <inheritdoc />
@@ -42,21 +42,21 @@ internal class DocumentSelectorSample : ExtensionPart, ITextViewLifetimeListener
 	}
 
 	/// <inheritdoc />
-	public async Task TextViewClosedAsync(ITextView textView, CancellationToken cancellationToken)
+	public async Task TextViewClosedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
 	{
-		await this.StopUnitTestsAsync(textView, cancellationToken);
+		await this.StopUnitTestsAsync(textViewSnapshot, cancellationToken);
 	}
 
-	private async Task RunUnitTestsAfterDelayAsync(ITextView textView, CancellationToken cancellationToken)
+	private async Task RunUnitTestsAfterDelayAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
 	{
 		await Task.Delay(500);
-		var document = await textView.GetTextDocumentAsync(cancellationToken);
+		var document = await textViewSnapshot.GetTextDocumentAsync(cancellationToken);
 		await this.WriteToOutputWindowAsync($"Running unit tests in {document.Uri.LocalPath}", cancellationToken);
 	}
 
-	private async Task StopUnitTestsAsync(ITextView textView, CancellationToken cancellationToken)
+	private async Task StopUnitTestsAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
 	{
-		var document = await textView.GetTextDocumentAsync(cancellationToken);
+		var document = await textViewSnapshot.GetTextDocumentAsync(cancellationToken);
 		await this.WriteToOutputWindowAsync($"Stop running unit tests in {document.Uri.LocalPath}", cancellationToken);
 	}
 
