@@ -10,14 +10,14 @@
   - [GetExportedValues\`\`1()](#M-Microsoft-VisualStudio-Extensibility-EditorHostService-IMefHostExportProvider-GetExportedValues``1 'Microsoft.VisualStudio.Extensibility.EditorHostService.IMefHostExportProvider.GetExportedValues``1')
   - [GetExports\`\`1()](#M-Microsoft-VisualStudio-Extensibility-EditorHostService-IMefHostExportProvider-GetExports``1 'Microsoft.VisualStudio.Extensibility.EditorHostService.IMefHostExportProvider.GetExports``1')
   - [GetExports\`\`2()](#M-Microsoft-VisualStudio-Extensibility-EditorHostService-IMefHostExportProvider-GetExports``2 'Microsoft.VisualStudio.Extensibility.EditorHostService.IMefHostExportProvider.GetExports``2')
-- [TextDocument](#T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocument')
-  - [Equals()](#M-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument-Equals-System-Object- 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocument.Equals(System.Object)')
-  - [GetHashCode()](#M-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument-GetHashCode 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocument.GetHashCode')
-  - [op_Equality(left,right)](#M-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument-op_Equality-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument,Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument- 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocument.op_Equality(Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocument,Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocument)')
-  - [op_Inequality(left,right)](#M-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument-op_Inequality-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument,Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument- 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocument.op_Inequality(Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocument,Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocument)')
-- [TextDocumentLine](#T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentLine 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentLine')
-- [TextDocumentLinesCollectionFacade](#T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentLinesCollectionFacade 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentLinesCollectionFacade')
 - [TextDocumentObserver](#T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentObserver 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentObserver')
+- [TextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentSnapshot')
+  - [Equals()](#M-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot-Equals-System-Object- 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentSnapshot.Equals(System.Object)')
+  - [GetHashCode()](#M-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot-GetHashCode 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentSnapshot.GetHashCode')
+  - [op_Equality(left,right)](#M-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot-op_Equality-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot,Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot- 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentSnapshot.op_Equality(Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentSnapshot,Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentSnapshot)')
+  - [op_Inequality(left,right)](#M-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot-op_Inequality-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot,Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot- 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentSnapshot.op_Inequality(Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentSnapshot,Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentSnapshot)')
+- [TextDocumentSnapshotLine](#T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshotLine 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentSnapshotLine')
+- [TextDocumentSnapshotLinesCollectionFacade](#T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshotLinesCollectionFacade 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentSnapshotLinesCollectionFacade')
 
 <a name='T-Microsoft-VisualStudio-Extensibility-EditorHostService-IMefHostExportProvider'></a>
 ## IMefHostExportProvider `type`
@@ -92,8 +92,21 @@ Gets all lazy exports matching the type and metadata.
 
 This method has no parameters.
 
-<a name='T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument'></a>
-## TextDocument `type`
+<a name='T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentObserver'></a>
+## TextDocumentObserver `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.EditorHostService
+
+##### Summary
+
+Document that observes an [ITextDocument](#T-Microsoft-VisualStudio-Text-ITextDocument 'Microsoft.VisualStudio.Text.ITextDocument') in another process, often in-proc in
+Visual Studio, and produces [TextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentSnapshot')s, the OOP analogue for [ITextSnapshot](#T-Microsoft-VisualStudio-Text-ITextSnapshot 'Microsoft.VisualStudio.Text.ITextSnapshot')
+for consumption by OOP Gladstone extensions running in Service Hub.
+
+<a name='T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot'></a>
+## TextDocumentSnapshot `type`
 
 ##### Namespace
 
@@ -102,9 +115,9 @@ Microsoft.VisualStudio.Extensibility.EditorHostService
 ##### Summary
 
 Lightweight facade for exposing selected immutable elements of [ITextSnapshot](#T-Microsoft-VisualStudio-Text-ITextSnapshot 'Microsoft.VisualStudio.Text.ITextSnapshot') and
-[ITextDocument](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument') to OOP language extensions hosted in Service Hub.
+[ITextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocumentSnapshot') to OOP language extensions hosted in Service Hub.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument-Equals-System-Object-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot-Equals-System-Object-'></a>
 ### Equals() `method`
 
 ##### Summary
@@ -115,7 +128,7 @@ Lightweight facade for exposing selected immutable elements of [ITextSnapshot](#
 
 This method has no parameters.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument-GetHashCode'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot-GetHashCode'></a>
 ### GetHashCode() `method`
 
 ##### Summary
@@ -126,12 +139,12 @@ This method has no parameters.
 
 This method has no parameters.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument-op_Equality-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument,Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot-op_Equality-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot,Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot-'></a>
 ### op_Equality(left,right) `method`
 
 ##### Summary
 
-Indicates whether `left` and `right` equiavlent.
+Indicates whether `left` and `right` equivalent.
 
 ##### Returns
 
@@ -141,10 +154,10 @@ True if the items are equiavlent.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| left | [Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocument](#T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocument') | Left item. |
-| right | [Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocument](#T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocument') | Right item. |
+| left | [Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentSnapshot') | Left item. |
+| right | [Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentSnapshot') | Right item. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument-op_Inequality-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument,Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot-op_Inequality-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot,Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot-'></a>
 ### op_Inequality(left,right) `method`
 
 ##### Summary
@@ -159,11 +172,11 @@ True if the items are different.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| left | [Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocument](#T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocument') | Left item. |
-| right | [Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocument](#T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocument') | Right item. |
+| left | [Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentSnapshot') | Left item. |
+| right | [Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocumentSnapshot') | Right item. |
 
-<a name='T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentLine'></a>
-## TextDocumentLine `type`
+<a name='T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshotLine'></a>
+## TextDocumentSnapshotLine `type`
 
 ##### Namespace
 
@@ -179,8 +192,8 @@ in Service Hub.
 [TextImageLine](#T-Microsoft-VisualStudio-Text-TextImageLine 'Microsoft.VisualStudio.Text.TextImageLine') is a comparable alternative to [ITextSnapshotLine](#T-Microsoft-VisualStudio-Text-ITextSnapshotLine 'Microsoft.VisualStudio.Text.ITextSnapshotLine')
 that performs one less heap allocation to acquire, so we use it instead in our wrapper.
 
-<a name='T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentLinesCollectionFacade'></a>
-## TextDocumentLinesCollectionFacade `type`
+<a name='T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshotLinesCollectionFacade'></a>
+## TextDocumentSnapshotLinesCollectionFacade `type`
 
 ##### Namespace
 
@@ -190,16 +203,3 @@ Microsoft.VisualStudio.Extensibility.EditorHostService
 
 Facade that presents as if it was a [IReadOnlyList\`1](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyList`1 'System.Collections.Generic.IReadOnlyList`1')
 but actually creates the wrapper objects on demand.
-
-<a name='T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentObserver'></a>
-## TextDocumentObserver `type`
-
-##### Namespace
-
-Microsoft.VisualStudio.Extensibility.EditorHostService
-
-##### Summary
-
-Document that observes an [ITextDocument](#T-Microsoft-VisualStudio-Text-ITextDocument 'Microsoft.VisualStudio.Text.ITextDocument') in another process, often in-proc in
-Visual Studio, and produces [TextDocument](#T-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocument 'Microsoft.VisualStudio.Extensibility.EditorHostService.TextDocument')s, the OOP analogue for [ITextSnapshot](#T-Microsoft-VisualStudio-Text-ITextSnapshot 'Microsoft.VisualStudio.Text.ITextSnapshot')
-for consumption by OOP Gladstone extensions running in Service Hub.

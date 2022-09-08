@@ -8,12 +8,21 @@
   - [Expression](#P-Microsoft-VisualStudio-Extensibility-ActivationContextAttribute-Expression 'Microsoft.VisualStudio.Extensibility.ActivationContextAttribute.Expression')
   - [TermNames](#P-Microsoft-VisualStudio-Extensibility-ActivationContextAttribute-TermNames 'Microsoft.VisualStudio.Extensibility.ActivationContextAttribute.TermNames')
   - [TermValues](#P-Microsoft-VisualStudio-Extensibility-ActivationContextAttribute-TermValues 'Microsoft.VisualStudio.Extensibility.ActivationContextAttribute.TermValues')
+- [AllowNullAttribute](#T-System-Diagnostics-CodeAnalysis-AllowNullAttribute 'System.Diagnostics.CodeAnalysis.AllowNullAttribute')
+  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-AllowNullAttribute-#ctor 'System.Diagnostics.CodeAnalysis.AllowNullAttribute.#ctor')
+- [DisallowNullAttribute](#T-System-Diagnostics-CodeAnalysis-DisallowNullAttribute 'System.Diagnostics.CodeAnalysis.DisallowNullAttribute')
+  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-DisallowNullAttribute-#ctor 'System.Diagnostics.CodeAnalysis.DisallowNullAttribute.#ctor')
 - [Dock](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock 'Microsoft.VisualStudio.Extensibility.ToolWindows.Dock')
   - [Bottom](#F-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock-Bottom 'Microsoft.VisualStudio.Extensibility.ToolWindows.Dock.Bottom')
   - [Left](#F-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock-Left 'Microsoft.VisualStudio.Extensibility.ToolWindows.Dock.Left')
   - [None](#F-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock-None 'Microsoft.VisualStudio.Extensibility.ToolWindows.Dock.None')
   - [Right](#F-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock-Right 'Microsoft.VisualStudio.Extensibility.ToolWindows.Dock.Right')
   - [Top](#F-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock-Top 'Microsoft.VisualStudio.Extensibility.ToolWindows.Dock.Top')
+- [DoesNotReturnAttribute](#T-System-Diagnostics-CodeAnalysis-DoesNotReturnAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute')
+  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-DoesNotReturnAttribute-#ctor 'System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute.#ctor')
+- [DoesNotReturnIfAttribute](#T-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute')
+  - [#ctor(parameterValue)](#M-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-#ctor-System-Boolean- 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.#ctor(System.Boolean)')
+  - [ParameterValue](#P-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-ParameterValue 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.ParameterValue')
 - [ExtensionContractAttribute](#T-Microsoft-VisualStudio-Extensibility-ExtensionContractAttribute 'Microsoft.VisualStudio.Extensibility.ExtensionContractAttribute')
   - [#ctor(rpcContractType,wrapperObjectType)](#M-Microsoft-VisualStudio-Extensibility-ExtensionContractAttribute-#ctor-System-Type,System-Type- 'Microsoft.VisualStudio.Extensibility.ExtensionContractAttribute.#ctor(System.Type,System.Type)')
   - [RpcContractType](#P-Microsoft-VisualStudio-Extensibility-ExtensionContractAttribute-RpcContractType 'Microsoft.VisualStudio.Extensibility.ExtensionContractAttribute.RpcContractType')
@@ -24,6 +33,28 @@
 - [HostingOptionsAttribute](#T-Microsoft-VisualStudio-Extensibility-HostingOptionsAttribute 'Microsoft.VisualStudio.Extensibility.HostingOptionsAttribute')
   - [#ctor(requiresInProcessHosting)](#M-Microsoft-VisualStudio-Extensibility-HostingOptionsAttribute-#ctor-System-Boolean- 'Microsoft.VisualStudio.Extensibility.HostingOptionsAttribute.#ctor(System.Boolean)')
   - [RequiresInProcessHosting](#P-Microsoft-VisualStudio-Extensibility-HostingOptionsAttribute-RequiresInProcessHosting 'Microsoft.VisualStudio.Extensibility.HostingOptionsAttribute.RequiresInProcessHosting')
+- [MaybeNullAttribute](#T-System-Diagnostics-CodeAnalysis-MaybeNullAttribute 'System.Diagnostics.CodeAnalysis.MaybeNullAttribute')
+  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-MaybeNullAttribute-#ctor 'System.Diagnostics.CodeAnalysis.MaybeNullAttribute.#ctor')
+- [MaybeNullWhenAttribute](#T-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute')
+  - [#ctor(returnValue)](#M-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-#ctor-System-Boolean- 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.#ctor(System.Boolean)')
+  - [ReturnValue](#P-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-ReturnValue 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue')
+- [MemberNotNullAttribute](#T-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute 'System.Diagnostics.CodeAnalysis.MemberNotNullAttribute')
+  - [#ctor(member)](#M-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-#ctor-System-String- 'System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String)')
+  - [#ctor(members)](#M-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-#ctor-System-String[]- 'System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String[])')
+  - [Members](#P-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-Members 'System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.Members')
+- [MemberNotNullWhenAttribute](#T-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute 'System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute')
+  - [#ctor(returnValue,member)](#M-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-#ctor-System-Boolean,System-String- 'System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String)')
+  - [#ctor(returnValue,members)](#M-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-#ctor-System-Boolean,System-String[]- 'System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String[])')
+  - [Members](#P-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-Members 'System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.Members')
+  - [ReturnValue](#P-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-ReturnValue 'System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.ReturnValue')
+- [NotNullAttribute](#T-System-Diagnostics-CodeAnalysis-NotNullAttribute 'System.Diagnostics.CodeAnalysis.NotNullAttribute')
+  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-NotNullAttribute-#ctor 'System.Diagnostics.CodeAnalysis.NotNullAttribute.#ctor')
+- [NotNullIfNotNullAttribute](#T-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute 'System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute')
+  - [#ctor(parameterName)](#M-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-#ctor-System-String- 'System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.#ctor(System.String)')
+  - [ParameterName](#P-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-ParameterName 'System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.ParameterName')
+- [NotNullWhenAttribute](#T-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute')
+  - [#ctor(returnValue)](#M-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-#ctor-System-Boolean- 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)')
+  - [ReturnValue](#P-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-ReturnValue 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue')
 - [Resources](#T-Microsoft-VisualStudio-Extensibility-Contracts-Resources 'Microsoft.VisualStudio.Extensibility.Contracts.Resources')
   - [CommandIdAlreadyRegistered](#P-Microsoft-VisualStudio-Extensibility-Contracts-Resources-CommandIdAlreadyRegistered 'Microsoft.VisualStudio.Extensibility.Contracts.Resources.CommandIdAlreadyRegistered')
   - [Culture](#P-Microsoft-VisualStudio-Extensibility-Contracts-Resources-Culture 'Microsoft.VisualStudio.Extensibility.Contracts.Resources.Culture')
@@ -95,6 +126,52 @@ Gets the names of the terms used in the expression.
 
 Gets the term values in the same order as term names.
 
+<a name='T-System-Diagnostics-CodeAnalysis-AllowNullAttribute'></a>
+## AllowNullAttribute `type`
+
+##### Namespace
+
+System.Diagnostics.CodeAnalysis
+
+##### Summary
+
+Specifies that `null` is allowed as an input even if the
+    corresponding type disallows it.
+
+<a name='M-System-Diagnostics-CodeAnalysis-AllowNullAttribute-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Initializes a new instance of the [AllowNullAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.AllowNullAttribute 'System.Diagnostics.CodeAnalysis.AllowNullAttribute') class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='T-System-Diagnostics-CodeAnalysis-DisallowNullAttribute'></a>
+## DisallowNullAttribute `type`
+
+##### Namespace
+
+System.Diagnostics.CodeAnalysis
+
+##### Summary
+
+Specifies that `null` is disallowed as an input even if the
+    corresponding type allows it.
+
+<a name='M-System-Diagnostics-CodeAnalysis-DisallowNullAttribute-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Initializes a new instance of the [DisallowNullAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.DisallowNullAttribute 'System.Diagnostics.CodeAnalysis.DisallowNullAttribute') class.
+
+##### Parameters
+
+This constructor has no parameters.
+
 <a name='T-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock'></a>
 ## Dock `type`
 
@@ -140,6 +217,65 @@ Docks the tool window to the right of its placement target.
 ##### Summary
 
 Docks the tool window above its placement target.
+
+<a name='T-System-Diagnostics-CodeAnalysis-DoesNotReturnAttribute'></a>
+## DoesNotReturnAttribute `type`
+
+##### Namespace
+
+System.Diagnostics.CodeAnalysis
+
+##### Summary
+
+Specifies that a method that will never return under any circumstance.
+
+<a name='M-System-Diagnostics-CodeAnalysis-DoesNotReturnAttribute-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Initializes a new instance of the [DoesNotReturnAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute') class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='T-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute'></a>
+## DoesNotReturnIfAttribute `type`
+
+##### Namespace
+
+System.Diagnostics.CodeAnalysis
+
+##### Summary
+
+Specifies that the method will not return if the associated [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean')
+    parameter is passed the specified value.
+
+<a name='M-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-#ctor-System-Boolean-'></a>
+### #ctor(parameterValue) `constructor`
+
+##### Summary
+
+Initializes a new instance of the [DoesNotReturnIfAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute')
+    class with the specified parameter value.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| parameterValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The condition parameter value.
+    Code after the method is considered unreachable by diagnostics if the argument
+    to the associated parameter matches this value. |
+
+<a name='P-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-ParameterValue'></a>
+### ParameterValue `property`
+
+##### Summary
+
+Gets the condition parameter value.
+    Code after the method is considered unreachable by diagnostics if the argument
+    to the associated parameter matches this value.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-ExtensionContractAttribute'></a>
 ## ExtensionContractAttribute `type`
@@ -241,6 +377,258 @@ Initializes a new instance of the [HostingOptionsAttribute](#T-Microsoft-VisualS
 ##### Summary
 
 Gets a value indicating whether the extension requires to be hosted in process.
+
+<a name='T-System-Diagnostics-CodeAnalysis-MaybeNullAttribute'></a>
+## MaybeNullAttribute `type`
+
+##### Namespace
+
+System.Diagnostics.CodeAnalysis
+
+##### Summary
+
+Specifies that an output may be `null` even if the
+    corresponding type disallows it.
+
+<a name='M-System-Diagnostics-CodeAnalysis-MaybeNullAttribute-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Initializes a new instance of the [MaybeNullAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.MaybeNullAttribute 'System.Diagnostics.CodeAnalysis.MaybeNullAttribute') class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='T-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute'></a>
+## MaybeNullWhenAttribute `type`
+
+##### Namespace
+
+System.Diagnostics.CodeAnalysis
+
+##### Summary
+
+Specifies that when a method returns [ReturnValue](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue'), 
+    the parameter may be `null` even if the corresponding type disallows it.
+
+<a name='M-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-#ctor-System-Boolean-'></a>
+### #ctor(returnValue) `constructor`
+
+##### Summary
+
+Initializes the attribute with the specified return value condition.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| returnValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The return value condition.
+    If the method returns this value, the associated parameter may be `null`. |
+
+<a name='P-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-ReturnValue'></a>
+### ReturnValue `property`
+
+##### Summary
+
+Gets the return value condition.
+    If the method returns this value, the associated parameter may be `null`.
+
+<a name='T-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute'></a>
+## MemberNotNullAttribute `type`
+
+##### Namespace
+
+System.Diagnostics.CodeAnalysis
+
+##### Summary
+
+Specifies that the method or property will ensure that the listed field and property members have
+    not-`null` values.
+
+<a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-#ctor-System-String-'></a>
+### #ctor(member) `constructor`
+
+##### Summary
+
+Initializes the attribute with a field or property member.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| member | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The field or property member that is promised to be not-null. |
+
+<a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-#ctor-System-String[]-'></a>
+### #ctor(members) `constructor`
+
+##### Summary
+
+Initializes the attribute with the list of field and property members.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| members | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | The list of field and property members that are promised to be not-null. |
+
+<a name='P-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-Members'></a>
+### Members `property`
+
+##### Summary
+
+Gets field or property member names.
+
+<a name='T-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute'></a>
+## MemberNotNullWhenAttribute `type`
+
+##### Namespace
+
+System.Diagnostics.CodeAnalysis
+
+##### Summary
+
+Specifies that the method or property will ensure that the listed field and property members have
+    non-`null` values when returning with the specified return value condition.
+
+<a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-#ctor-System-Boolean,System-String-'></a>
+### #ctor(returnValue,member) `constructor`
+
+##### Summary
+
+Initializes the attribute with the specified return value condition and a field or property member.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| returnValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The return value condition. If the method returns this value,
+    the associated parameter will not be `null`. |
+| member | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The field or property member that is promised to be not-`null`. |
+
+<a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-#ctor-System-Boolean,System-String[]-'></a>
+### #ctor(returnValue,members) `constructor`
+
+##### Summary
+
+Initializes the attribute with the specified return value condition and list
+    of field and property members.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| returnValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The return value condition. If the method returns this value,
+    the associated parameter will not be `null`. |
+| members | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | The list of field and property members that are promised to be not-null. |
+
+<a name='P-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-Members'></a>
+### Members `property`
+
+##### Summary
+
+Gets field or property member names.
+
+<a name='P-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-ReturnValue'></a>
+### ReturnValue `property`
+
+##### Summary
+
+Gets the return value condition.
+
+<a name='T-System-Diagnostics-CodeAnalysis-NotNullAttribute'></a>
+## NotNullAttribute `type`
+
+##### Namespace
+
+System.Diagnostics.CodeAnalysis
+
+##### Summary
+
+Specifies that an output is not `null` even if the
+    corresponding type allows it.
+
+<a name='M-System-Diagnostics-CodeAnalysis-NotNullAttribute-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Initializes a new instance of the [NotNullAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.NotNullAttribute 'System.Diagnostics.CodeAnalysis.NotNullAttribute') class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='T-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute'></a>
+## NotNullIfNotNullAttribute `type`
+
+##### Namespace
+
+System.Diagnostics.CodeAnalysis
+
+##### Summary
+
+Specifies that the output will be non-`null` if the
+    named parameter is non-`null`.
+
+<a name='M-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-#ctor-System-String-'></a>
+### #ctor(parameterName) `constructor`
+
+##### Summary
+
+Initializes the attribute with the associated parameter name.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| parameterName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The associated parameter name.
+    The output will be non-`null` if the argument to the
+    parameter specified is non-`null`. |
+
+<a name='P-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-ParameterName'></a>
+### ParameterName `property`
+
+##### Summary
+
+Gets the associated parameter name.
+    The output will be non-`null` if the argument to the
+    parameter specified is non-`null`.
+
+<a name='T-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute'></a>
+## NotNullWhenAttribute `type`
+
+##### Namespace
+
+System.Diagnostics.CodeAnalysis
+
+##### Summary
+
+Specifies that when a method returns [ReturnValue](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue'),
+    the parameter will not be `null` even if the corresponding type allows it.
+
+<a name='M-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-#ctor-System-Boolean-'></a>
+### #ctor(returnValue) `constructor`
+
+##### Summary
+
+Initializes the attribute with the specified return value condition.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| returnValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The return value condition.
+    If the method returns this value, the associated parameter will not be `null`. |
+
+<a name='P-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-ReturnValue'></a>
+### ReturnValue `property`
+
+##### Summary
+
+Gets the return value condition.
+    If the method returns this value, the associated parameter will not be `null`.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Contracts-Resources'></a>
 ## Resources `type`

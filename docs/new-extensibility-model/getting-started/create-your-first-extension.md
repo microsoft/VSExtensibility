@@ -11,9 +11,11 @@ This document is a quick walkthrough on how to create your first extension using
 
 ## Prerequisites
 
-* Visual Studio 2022.4 Preview 1 or higher with `.Net desktop development` workload.
+* Visual Studio 2022.4 Preview 2 or higher with `.Net desktop development` workload.
 
-* Install [VisualStudio.Extensibility Project System](https://marketplace.visualstudio.com/items?itemName=vsext.gladstone): This extension will allow you to debug extension projects using F5. There is currently no other deployment mechanism supported.
+* Install latest version of [VisualStudio.Extensibility Project System](https://marketplace.visualstudio.com/items?itemName=vsext.gladstone): This extension will allow you to debug extension projects using F5. There is currently no other deployment mechanism supported.
+
+* If you are updating from Visual Studio 2022.4 Preview 1, please make sure to update VisualStudio.Extensibility Project System to latest version as there are breaking changes in VisualStudio.Extensibility packages.
 
 ## Create the extension project
 
