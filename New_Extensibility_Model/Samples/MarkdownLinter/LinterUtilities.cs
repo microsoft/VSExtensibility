@@ -110,10 +110,7 @@ namespace Microsoft.VisualStudio.Extensions.MarkdownLinter
 				linter.Start();
 				linter.BeginErrorReadLine();
 				linter.StandardInput.AutoFlush = true;
-				foreach (var line in textDocument.Lines)
-				{
-					await linter.StandardInput.WriteAsync(line.CopyToString());
-				}
+				await linter.StandardInput.WriteAsync(content);
 
 				linter.StandardInput.Close();
 			}
@@ -140,11 +137,20 @@ namespace Microsoft.VisualStudio.Extensions.MarkdownLinter
 		{
 			foreach (var diagnostic in diagnostics)
 			{
-				var startindex = document.Lines[diagnostic.Range.StartLine].Start.Offset + diagnostic.Range.StartColumn;
-				var endIndex = document.Lines[diagnostic.Range.EndLine].Start.Offset + diagnostic.Range.EndColumn;
+				var startindex = document.Lines[diagnostic.Range.StartLine].Start.Offset;
+				if (diagnostic.Range.StartColumn >= 0)
+				{
+					startindex += diagnostic.Range.StartColumn;
+				}
+
+				var endIndex = document.Lines[diagnostic.Range.EndLine].Start.Offset;
+				if (diagnostic.Range.EndColumn >= 0)
+				{
+					endIndex += diagnostic.Range.EndColumn;
+				}
 
 				yield return DocumentDiagnostic.CreateDocumentDiagnostic(
-					new TextRange(document, startindex, endIndex),
+					new TextRange(document, startindex, endIndex - startindex),
 					diagnostic.Message,
 					diagnostic.ErrorCode,
 					DiagnosticSeverity.Warning,
