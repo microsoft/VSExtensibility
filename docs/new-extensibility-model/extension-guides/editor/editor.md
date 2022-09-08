@@ -24,13 +24,6 @@ commands.
 There are two types of listeners, [ITextViewChangedListener](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewChangedListener), and [ITextViewLifetimeListener](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewLifetimeListener).
 Together, these listeners can be used to observe the open, close, and modification of text editors.
 
-To get started:
-
-* Add a reference to the [Microsoft.VisualStudio.Extensibility.Editor](https://www.nuget.org/TODO-add-real-link)
-and [Microsoft.VisualStudio.Extensibility.Build](https://www.nuget.org/TODO-add-real-link) NuGet packages to your
-project.
-* Change your project's `TargetFramework` from `net6.0` to `net6.0-windows`.
-
 Then, create a new class, implementing [ExtensionPart](./../../api/Microsoft.VisualStudio.Extensibility.Framework.md#T-Microsoft-VisualStudio-Extensibility-ExtensionPart) base class and `ITextViewChangedListener`,
 `ITextViewLifetimeListener`, or both. Then, add an `[ExtensionPart(typeof(ITextViewChangedListener))]` attribute for
 each listener interface you implemented and an `[AppliesTo(ContentType = "CSharp")]` attribute to your class.
