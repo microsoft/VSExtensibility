@@ -38,7 +38,7 @@ In the example below, the code attributes defines when a command is in enabled s
         "IsValidFile" },
     new string[] { 
         "SolutionState:Exists", 
-        "ClientContext:Shell.ActiveSelectionFileName=(.jpg|.jpeg|.txt)$" })]
+        @"ClientContext:Shell.ActiveSelectionFileName=\.(jpg|jpeg|txt)$" })]
 ```
 
 ## Available terms
