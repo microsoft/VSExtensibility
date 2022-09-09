@@ -106,16 +106,41 @@
 - [CommandsPackageLoadAttribute](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandsPackageLoadAttribute 'Microsoft.VisualStudio.Extensibility.Commands.CommandsPackageLoadAttribute')
   - [#ctor(expression,termNames,termValues)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandsPackageLoadAttribute-#ctor-System-String,System-String[],System-String[]- 'Microsoft.VisualStudio.Extensibility.Commands.CommandsPackageLoadAttribute.#ctor(System.String,System.String[],System.String[])')
 - [DiagnosticsExtensionMethods](#T-Microsoft-VisualStudio-Extensibility-DiagnosticsExtensionMethods 'Microsoft.VisualStudio.Extensibility.DiagnosticsExtensionMethods')
-  - [GetDiagnosticsProvider(extensibilityPoint,generatorId)](#M-Microsoft-VisualStudio-Extensibility-DiagnosticsExtensionMethods-GetDiagnosticsProvider-Microsoft-VisualStudio-Extensibility-Documents-LanguagesExtensibility,System-String- 'Microsoft.VisualStudio.Extensibility.DiagnosticsExtensionMethods.GetDiagnosticsProvider(Microsoft.VisualStudio.Extensibility.Documents.LanguagesExtensibility,System.String)')
-- [DiagnosticsProvider](#T-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsProvider')
-  - [#ctor(generatorId,extensibilityPoint)](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider-#ctor-System-String,Microsoft-VisualStudio-Extensibility-ExtensibilityPoint- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsProvider.#ctor(System.String,Microsoft.VisualStudio.Extensibility.ExtensibilityPoint)')
-  - [GeneratorId](#P-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider-GeneratorId 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsProvider.GeneratorId')
-  - [AppendDiagnosticsAsync(textDocument,diagnostics,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider-AppendDiagnosticsAsync-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument,System-Collections-Generic-IEnumerable{Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-Diagnostic},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsProvider.AppendDiagnosticsAsync(Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument,System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.Diagnostic},System.Threading.CancellationToken)')
-  - [AppendDiagnosticsAsync(documentMoniker,diagnostics,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider-AppendDiagnosticsAsync-System-Uri,System-Collections-Generic-IEnumerable{Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-Diagnostic},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsProvider.AppendDiagnosticsAsync(System.Uri,System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.Diagnostic},System.Threading.CancellationToken)')
-  - [AppendDiagnosticsAsync(documentMoniker,documentVersion,diagnostics,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider-AppendDiagnosticsAsync-System-Uri,System-Int32,System-Collections-Generic-IEnumerable{Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-Diagnostic},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsProvider.AppendDiagnosticsAsync(System.Uri,System.Int32,System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.Diagnostic},System.Threading.CancellationToken)')
-  - [ClearDiagnosticsAsync(textDocument,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider-ClearDiagnosticsAsync-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsProvider.ClearDiagnosticsAsync(Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument,System.Threading.CancellationToken)')
-  - [ClearDiagnosticsAsync(documentMoniker,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider-ClearDiagnosticsAsync-System-Uri,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsProvider.ClearDiagnosticsAsync(System.Uri,System.Threading.CancellationToken)')
-  - [Dispose()](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsProvider.Dispose(System.Boolean)')
+  - [GetDiagnosticsReporter(extensibilityPoint,generatorId)](#M-Microsoft-VisualStudio-Extensibility-DiagnosticsExtensionMethods-GetDiagnosticsReporter-Microsoft-VisualStudio-Extensibility-Documents-LanguagesExtensibility,System-String- 'Microsoft.VisualStudio.Extensibility.DiagnosticsExtensionMethods.GetDiagnosticsReporter(Microsoft.VisualStudio.Extensibility.Documents.LanguagesExtensibility,System.String)')
+- [DiagnosticsReporter](#T-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsReporter')
+  - [#ctor(generatorId,extensibilityPoint)](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-#ctor-System-String,Microsoft-VisualStudio-Extensibility-ExtensibilityPoint- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsReporter.#ctor(System.String,Microsoft.VisualStudio.Extensibility.ExtensibilityPoint)')
+  - [GeneratorId](#P-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-GeneratorId 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsReporter.GeneratorId')
+  - [ClearDiagnosticsAsync(textDocument,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-ClearDiagnosticsAsync-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocumentSnapshot,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsReporter.ClearDiagnosticsAsync(Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocumentSnapshot,System.Threading.CancellationToken)')
+  - [ClearDiagnosticsAsync(documentMoniker,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-ClearDiagnosticsAsync-System-Uri,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsReporter.ClearDiagnosticsAsync(System.Uri,System.Threading.CancellationToken)')
+  - [Dispose()](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsReporter.Dispose(System.Boolean)')
+  - [ReportDiagnosticAsync(diagnostic,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-ReportDiagnosticAsync-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsReporter.ReportDiagnosticAsync(Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic,System.Threading.CancellationToken)')
+  - [ReportDiagnosticsAsync(diagnostics,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-ReportDiagnosticsAsync-System-Collections-Generic-IEnumerable{Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsReporter.ReportDiagnosticsAsync(System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic},System.Threading.CancellationToken)')
+- [DocumentDiagnostic](#T-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic')
+  - [#ctor(span,message,errorCode,severity,providerName,helpLink)](#M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-#ctor-Microsoft-VisualStudio-Extensibility-Editor-Data-TextRange,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String- 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.#ctor(Microsoft.VisualStudio.Extensibility.Editor.Data.TextRange,System.String,System.String,Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity,System.String,System.String)')
+  - [#ctor(uri,range,message,errorCode,severity,providerName,helpLink)](#M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-#ctor-System-Uri,Microsoft-VisualStudio-RpcContracts-Utilities-Range,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String- 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.#ctor(System.Uri,Microsoft.VisualStudio.RpcContracts.Utilities.Range,System.String,System.String,Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity,System.String,System.String)')
+  - [DocumentVersion](#P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-DocumentVersion 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.DocumentVersion')
+  - [ErrorCode](#P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-ErrorCode 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.ErrorCode')
+  - [HelpLink](#P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-HelpLink 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.HelpLink')
+  - [Message](#P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-Message 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.Message')
+  - [ProviderName](#P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-ProviderName 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.ProviderName')
+  - [Range](#P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-Range 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.Range')
+  - [Severity](#P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-Severity 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.Severity')
+  - [Uri](#P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-Uri 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.Uri')
+  - [CreateDocumentDiagnostic(range,message,errorCode,severity,providerName,helpLink)](#M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-CreateDocumentDiagnostic-Microsoft-VisualStudio-Extensibility-Editor-Data-TextRange,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String- 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.CreateDocumentDiagnostic(Microsoft.VisualStudio.Extensibility.Editor.Data.TextRange,System.String,System.String,Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity,System.String,System.String)')
+  - [CreateDocumentDiagnosticForClosedDocument(uri,range,message,errorCode,severity,providerName,helpLink)](#M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-CreateDocumentDiagnosticForClosedDocument-System-Uri,Microsoft-VisualStudio-RpcContracts-Utilities-Range,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String- 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.CreateDocumentDiagnosticForClosedDocument(System.Uri,Microsoft.VisualStudio.RpcContracts.Utilities.Range,System.String,System.String,Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity,System.String,System.String)')
+- [DocumentExtensions](#T-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions 'Microsoft.VisualStudio.Extensibility.Documents.DocumentExtensions')
+  - [CloseAsync(document,option,extensibility,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions-CloseAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentExtensions.CloseAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot,Microsoft.VisualStudio.RpcContracts.Documents.SaveDocumentOption,Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,System.Threading.CancellationToken)')
+  - [SaveAsync(document,extensibility,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions-SaveAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentExtensions.SaveAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot,Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,System.Threading.CancellationToken)')
+- [DocumentsExtensibility](#T-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility')
+  - [#ctor(extensibilityPoint)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.#ctor(Microsoft.VisualStudio.Extensibility.ExtensibilityPoint)')
+  - [CloseDocumentAsync(moniker,option,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-CloseDocumentAsync-System-Uri,Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.CloseDocumentAsync(System.Uri,Microsoft.VisualStudio.RpcContracts.Documents.SaveDocumentOption,System.Threading.CancellationToken)')
+  - [GetOpenDocumentAsync(moniker,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-GetOpenDocumentAsync-System-Uri,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.GetOpenDocumentAsync(System.Uri,System.Threading.CancellationToken)')
+  - [GetOpenDocumentsAsync(token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-GetOpenDocumentsAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.GetOpenDocumentsAsync(System.Threading.CancellationToken)')
+  - [OpenDocumentAsync(moniker,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-OpenDocumentAsync-System-Uri,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.OpenDocumentAsync(System.Uri,System.Threading.CancellationToken)')
+  - [OpenDocumentAsync(moniker,options,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-OpenDocumentAsync-System-Uri,Microsoft-VisualStudio-RpcContracts-OpenDocument-OpenDocumentOptions,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.OpenDocumentAsync(System.Uri,Microsoft.VisualStudio.RpcContracts.OpenDocument.OpenDocumentOptions,System.Threading.CancellationToken)')
+  - [SaveAllAsync(token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-SaveAllAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.SaveAllAsync(System.Threading.CancellationToken)')
+  - [SaveDocumentAsync(moniker,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-SaveDocumentAsync-System-Uri,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.SaveDocumentAsync(System.Uri,System.Threading.CancellationToken)')
+  - [SubscribeAsync(listener,filterRegex,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-SubscribeAsync-Microsoft-VisualStudio-RpcContracts-Documents-IDocumentEventsListener,System-String,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.SubscribeAsync(Microsoft.VisualStudio.RpcContracts.Documents.IDocumentEventsListener,System.String,System.Threading.CancellationToken)')
 - [DynamicCommand](#T-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommand')
   - [#ctor(extensibility,id,iconName,relativeDisplayOrder)](#M-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-String,System-String,System-UInt32- 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommand.#ctor(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,System.String,System.String,System.UInt32)')
   - [IconName](#P-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand-IconName 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommand.IconName')
@@ -133,6 +158,7 @@
   - [IsEnabled](#P-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommand-IsEnabled 'Microsoft.VisualStudio.Extensibility.Commands.ExecutableCommand.IsEnabled')
   - [ExecuteCommandAsync()](#M-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommand-ExecuteCommandAsync-System-Collections-Generic-IReadOnlyDictionary{System-String,System-Object},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Commands.ExecutableCommand.ExecuteCommandAsync(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},System.Threading.CancellationToken)')
 - [ExtensibilityPoints](#T-Microsoft-VisualStudio-Extensibility-ExtensibilityPoints 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoints')
+  - [Documents(extensibility)](#M-Microsoft-VisualStudio-Extensibility-ExtensibilityPoints-Documents-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility- 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoints.Documents(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility)')
   - [Languages(extensibility)](#M-Microsoft-VisualStudio-Extensibility-ExtensibilityPoints-Languages-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility- 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoints.Languages(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility)')
   - [Shell(extensibility)](#M-Microsoft-VisualStudio-Extensibility-ExtensibilityPoints-Shell-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility- 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoints.Shell(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility)')
   - [Views(extensibility)](#M-Microsoft-VisualStudio-Extensibility-ExtensibilityPoints-Views-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility- 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoints.Views(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility)')
@@ -233,6 +259,7 @@
 - [PromptOptions\`1](#T-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions`1 'Microsoft.VisualStudio.Extensibility.Shell.PromptOptions`1')
   - [#ctor()](#M-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions`1-#ctor 'Microsoft.VisualStudio.Extensibility.Shell.PromptOptions`1.#ctor')
   - [#ctor(choices,defaultChoiceIndex,dismissedReturns)](#M-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions`1-#ctor-Microsoft-VisualStudio-Extensibility-Shell-ChoiceResultCollection{`0},System-Int32,`0- 'Microsoft.VisualStudio.Extensibility.Shell.PromptOptions`1.#ctor(Microsoft.VisualStudio.Extensibility.Shell.ChoiceResultCollection{`0},System.Int32,`0)')
+  - [#ctor(original)](#M-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions`1-#ctor-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions{`0}- 'Microsoft.VisualStudio.Extensibility.Shell.PromptOptions`1.#ctor(Microsoft.VisualStudio.Extensibility.Shell.PromptOptions{`0})')
   - [Choices](#P-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions`1-Choices 'Microsoft.VisualStudio.Extensibility.Shell.PromptOptions`1.Choices')
   - [DefaultChoiceIndex](#P-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions`1-DefaultChoiceIndex 'Microsoft.VisualStudio.Extensibility.Shell.PromptOptions`1.DefaultChoiceIndex')
   - [DismissedReturns](#P-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions`1-DismissedReturns 'Microsoft.VisualStudio.Extensibility.Shell.PromptOptions`1.DismissedReturns')
@@ -1541,26 +1568,26 @@ Microsoft.VisualStudio.Extensibility
 
 Provides functionality for extending Visual Studio through brokered services for Langauge Services.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-DiagnosticsExtensionMethods-GetDiagnosticsProvider-Microsoft-VisualStudio-Extensibility-Documents-LanguagesExtensibility,System-String-'></a>
-### GetDiagnosticsProvider(extensibilityPoint,generatorId) `method`
+<a name='M-Microsoft-VisualStudio-Extensibility-DiagnosticsExtensionMethods-GetDiagnosticsReporter-Microsoft-VisualStudio-Extensibility-Documents-LanguagesExtensibility,System-String-'></a>
+### GetDiagnosticsReporter(extensibilityPoint,generatorId) `method`
 
 ##### Summary
 
-Creates a new diagnostics or gets the previously registered provider to utilize error list functionality.
+Creates a new diagnostic reporter or gets the previously registered reporter to utilize error list functionality.
 
 ##### Returns
 
-an instance of [DiagnosticsProvider](#T-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsProvider') that can be utilized to add/append/reset diagnostics.
+an instance of [DiagnosticsReporter](#T-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsReporter') that can be utilized to report/clear diagnostics.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | extensibilityPoint | [Microsoft.VisualStudio.Extensibility.Documents.LanguagesExtensibility](#T-Microsoft-VisualStudio-Extensibility-Documents-LanguagesExtensibility 'Microsoft.VisualStudio.Extensibility.Documents.LanguagesExtensibility') | Extensibility object instance. |
-| generatorId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique identifier for the component that owns the provider to be created. |
+| generatorId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique identifier for the component that owns the reporter to be created. |
 
-<a name='T-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider'></a>
-## DiagnosticsProvider `type`
+<a name='T-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter'></a>
+## DiagnosticsReporter `type`
 
 ##### Namespace
 
@@ -1570,91 +1597,33 @@ Microsoft.VisualStudio.Extensibility.Documents
 
 Provides functionality for extending Visual Studio through brokered services for Langauge Services.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider-#ctor-System-String,Microsoft-VisualStudio-Extensibility-ExtensibilityPoint-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-#ctor-System-String,Microsoft-VisualStudio-Extensibility-ExtensibilityPoint-'></a>
 ### #ctor(generatorId,extensibilityPoint) `constructor`
 
 ##### Summary
 
-Initializes a new instance of the [DiagnosticsProvider](#T-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsProvider') class.
+Initializes a new instance of the [DiagnosticsReporter](#T-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsReporter') class.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| generatorId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique identifier associated with the owner of this provider. |
+| generatorId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique identifier associated with the owner of this reporter. |
 | extensibilityPoint | [Microsoft.VisualStudio.Extensibility.ExtensibilityPoint](#T-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoint') | Another instance of extensibility point object to use for initialization. |
 
-<a name='P-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider-GeneratorId'></a>
+<a name='P-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-GeneratorId'></a>
 ### GeneratorId `property`
 
 ##### Summary
 
-Gets the unique identifier associated with the owner of this provider.
+Gets the unique identifier associated with the owner of this reporter.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider-AppendDiagnosticsAsync-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument,System-Collections-Generic-IEnumerable{Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-Diagnostic},System-Threading-CancellationToken-'></a>
-### AppendDiagnosticsAsync(textDocument,diagnostics,cancellationToken) `method`
-
-##### Summary
-
-Append the diagnostics with `diagnostics` to the previously reported list.
-
-##### Returns
-
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| textDocument | [Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument') | Text document instance that diagnostic entries are intended for. |
-| diagnostics | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.Diagnostic}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.Diagnostic}') | New diagnostics to append. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider-AppendDiagnosticsAsync-System-Uri,System-Collections-Generic-IEnumerable{Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-Diagnostic},System-Threading-CancellationToken-'></a>
-### AppendDiagnosticsAsync(documentMoniker,diagnostics,cancellationToken) `method`
-
-##### Summary
-
-Append the diagnostics with `diagnostics` to the previously reported list.
-
-##### Returns
-
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| documentMoniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | Document moniker that diagnostic entries are intended for. |
-| diagnostics | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.Diagnostic}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.Diagnostic}') | New diagnostics to append. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider-AppendDiagnosticsAsync-System-Uri,System-Int32,System-Collections-Generic-IEnumerable{Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-Diagnostic},System-Threading-CancellationToken-'></a>
-### AppendDiagnosticsAsync(documentMoniker,documentVersion,diagnostics,cancellationToken) `method`
-
-##### Summary
-
-Append the diagnostics with `diagnostics` to the previously reported list.
-
-##### Returns
-
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| documentMoniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | Document moniker that diagnostic entries are intended for. |
-| documentVersion | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | Version of the document that diagnostic entries are intended for. |
-| diagnostics | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.Diagnostic}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.Diagnostic}') | New diagnostics to append. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider-ClearDiagnosticsAsync-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument,System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-ClearDiagnosticsAsync-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocumentSnapshot,System-Threading-CancellationToken-'></a>
 ### ClearDiagnosticsAsync(textDocument,cancellationToken) `method`
 
 ##### Summary
 
-Clears all previous reported diagnostics by this generator for a given document.
+Clears all previous reported diagnostics by this generator for a given open document.
 
 ##### Returns
 
@@ -1664,15 +1633,15 @@ A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| textDocument | [Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocument 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocument') | Text document to clear diagnostic entries for. |
+| textDocument | [Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocumentSnapshot') | Text document to clear diagnostic entries for. |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider-ClearDiagnosticsAsync-System-Uri,System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-ClearDiagnosticsAsync-System-Uri,System-Threading-CancellationToken-'></a>
 ### ClearDiagnosticsAsync(documentMoniker,cancellationToken) `method`
 
 ##### Summary
 
-Clears all previous reported diagnostics by this generator for a given document.
+Clears all previous reported diagnostics by this generator for a given closed document.
 
 ##### Returns
 
@@ -1682,10 +1651,10 @@ A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| documentMoniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | Document moniker to clear diagnostic entries for. |
+| documentMoniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | Document URI to clear diagnostic entries for. |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsProvider-Dispose-System-Boolean-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-Dispose-System-Boolean-'></a>
 ### Dispose() `method`
 
 ##### Summary
@@ -1695,6 +1664,437 @@ A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-ReportDiagnosticAsync-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic,System-Threading-CancellationToken-'></a>
+### ReportDiagnosticAsync(diagnostic,cancellationToken) `method`
+
+##### Summary
+
+Reports a single diagnostic with `diagnostic` by adding them to the previously reported list.
+
+##### Returns
+
+A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| diagnostic | [Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic](#T-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic') | New diagnostic to report. |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-ReportDiagnosticsAsync-System-Collections-Generic-IEnumerable{Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic},System-Threading-CancellationToken-'></a>
+### ReportDiagnosticsAsync(diagnostics,cancellationToken) `method`
+
+##### Summary
+
+Reports diagnostics with `diagnostics` by adding them to the previously reported list.
+
+##### Returns
+
+A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| diagnostics | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic}') | New diagnostics to report. |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
+
+<a name='T-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic'></a>
+## DocumentDiagnostic `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.Languages
+
+##### Summary
+
+Class that represents a document diagnostic. Contains information about a span of text in a document
+that holds an error, warning, information, or hint.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-#ctor-Microsoft-VisualStudio-Extensibility-Editor-Data-TextRange,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String-'></a>
+### #ctor(span,message,errorCode,severity,providerName,helpLink) `constructor`
+
+##### Summary
+
+Initializes a new instance of the [DocumentDiagnostic](#T-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic') class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| span | [Microsoft.VisualStudio.Extensibility.Editor.Data.TextRange](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-TextRange 'Microsoft.VisualStudio.Extensibility.Editor.Data.TextRange') | Span that the diagnostic is located on in a specific ITextDocument. |
+| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | String of text to be shown as the diagnostic description. |
+| errorCode | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique error code associated with this type of diagnostic. |
+| severity | [Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity](#T-Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity 'Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity') | Level of severity of the Diagnostic. |
+| providerName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Localized string describing the tool that generated the diagnostic. |
+| helpLink | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Uri to a help page to understand the diagnostic further. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-#ctor-System-Uri,Microsoft-VisualStudio-RpcContracts-Utilities-Range,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String-'></a>
+### #ctor(uri,range,message,errorCode,severity,providerName,helpLink) `constructor`
+
+##### Summary
+
+Initializes a new instance of the [DocumentDiagnostic](#T-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic') class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| uri | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | Uri of the document the diagnostic belongs on. |
+| range | [Microsoft.VisualStudio.RpcContracts.Utilities.Range](#T-Microsoft-VisualStudio-RpcContracts-Utilities-Range 'Microsoft.VisualStudio.RpcContracts.Utilities.Range') | Location of the document that contains the diagnostic. |
+| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | String of text to be shown as the diagnostic description. |
+| errorCode | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique error code associated with this type of diagnostic. |
+| severity | [Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity](#T-Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity 'Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity') | Level of severity of the Diagnostic. |
+| providerName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Localized string describing the tool that generated the diagnostic. |
+| helpLink | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Uri to a help page to understand the diagnostic further. |
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-DocumentVersion'></a>
+### DocumentVersion `property`
+
+##### Summary
+
+Gets the version of the document this diagnostic is intended for.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-ErrorCode'></a>
+### ErrorCode `property`
+
+##### Summary
+
+Gets the diagnostic code for the diagnostic.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-HelpLink'></a>
+### HelpLink `property`
+
+##### Summary
+
+Gets the uri linked to the diagnostic code for extra information.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-Message'></a>
+### Message `property`
+
+##### Summary
+
+Gets a localized description of the diagnostic.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-ProviderName'></a>
+### ProviderName `property`
+
+##### Summary
+
+Gets the localized string describing the tool that generated the diagnostic.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-Range'></a>
+### Range `property`
+
+##### Summary
+
+Gets the range of the diagnostic in the document.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-Severity'></a>
+### Severity `property`
+
+##### Summary
+
+Gets the severity of the diagnostic.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-Uri'></a>
+### Uri `property`
+
+##### Summary
+
+Gets the document location in the form of a URI path.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-CreateDocumentDiagnostic-Microsoft-VisualStudio-Extensibility-Editor-Data-TextRange,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String-'></a>
+### CreateDocumentDiagnostic(range,message,errorCode,severity,providerName,helpLink) `method`
+
+##### Summary
+
+Creates and returns a new instance of a [DocumentDiagnostic](#T-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic') that belongs on an open document.
+
+##### Returns
+
+Newly created [DocumentDiagnostic](#T-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic').
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| range | [Microsoft.VisualStudio.Extensibility.Editor.Data.TextRange](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-TextRange 'Microsoft.VisualStudio.Extensibility.Editor.Data.TextRange') | Range that the diagnostic is located on in a specific ITextDocumentSnapshot. |
+| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | String of text to be shown as the diagnostic description. |
+| errorCode | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique error code associated with this type of diagnostic. |
+| severity | [Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity](#T-Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity 'Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity') | Level of severity of the Diagnostic. |
+| providerName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Localized string describing the tool that generated the diagnostic. |
+| helpLink | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Uri to a help page to understand the diagnostic further. |
+
+##### Remarks
+
+Passing in a TextRange associated with the diagnostic ensures document versioning in a way that is maintained despite any further edits to the document.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-CreateDocumentDiagnosticForClosedDocument-System-Uri,Microsoft-VisualStudio-RpcContracts-Utilities-Range,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String-'></a>
+### CreateDocumentDiagnosticForClosedDocument(uri,range,message,errorCode,severity,providerName,helpLink) `method`
+
+##### Summary
+
+Creates and returns a new instance of a [DocumentDiagnostic](#T-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic') that belongs on a closed document.
+
+##### Returns
+
+Newly created [DocumentDiagnostic](#T-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic').
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| uri | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | Uri of the document the diagnostic belongs on. |
+| range | [Microsoft.VisualStudio.RpcContracts.Utilities.Range](#T-Microsoft-VisualStudio-RpcContracts-Utilities-Range 'Microsoft.VisualStudio.RpcContracts.Utilities.Range') | Location of the document that contains the diagnostic. |
+| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | String of text to be shown as the diagnostic description. |
+| errorCode | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique error code associated with this type of diagnostic. |
+| severity | [Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity](#T-Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity 'Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity') | Level of severity of the Diagnostic. |
+| providerName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Localized string describing the tool that generated the diagnostic. |
+| helpLink | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Uri to a help page to understand the diagnostic further. |
+
+##### Remarks
+
+Uri's should exclusively used with closed documnents since the lack of versioning is only safe on documents that are assured to not change.
+
+<a name='T-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions'></a>
+## DocumentExtensions `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.Documents
+
+##### Summary
+
+Exteension methods for [DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot') objects.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions-CloseAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken-'></a>
+### CloseAsync(document,option,extensibility,token) `method`
+
+##### Summary
+
+Closes the view(s) for a [DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot').
+
+##### Returns
+
+A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task').representing the asynchronous operation.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| document | [Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot') | The document to close. |
+| option | [Microsoft.VisualStudio.RpcContracts.Documents.SaveDocumentOption](#T-Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption 'Microsoft.VisualStudio.RpcContracts.Documents.SaveDocumentOption') | An option controlling if and how the document will be saved, if it has unsaved changes. |
+| extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility object. |
+| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions-SaveAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken-'></a>
+### SaveAsync(document,extensibility,token) `method`
+
+##### Summary
+
+Saves the contents of a [DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot').
+
+##### Returns
+
+A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task').representing the asynchronous operation.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| document | [Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot') | The document to save. |
+| extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility object. |
+| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+
+<a name='T-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility'></a>
+## DocumentsExtensibility `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.Documents
+
+##### Summary
+
+Provides the surface area for document management.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint-'></a>
+### #ctor(extensibilityPoint) `constructor`
+
+##### Summary
+
+Initializes a new instance of the [DocumentsExtensibility](#T-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility') class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| extensibilityPoint | [Microsoft.VisualStudio.Extensibility.ExtensibilityPoint](#T-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoint') | Another instance of extensibility point object to use for initialization. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-CloseDocumentAsync-System-Uri,Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption,System-Threading-CancellationToken-'></a>
+### CloseDocumentAsync(moniker,option,token) `method`
+
+##### Summary
+
+Closes the tab(s) for the document specified by `moniker`.
+
+##### Returns
+
+A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| moniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | The moniker of the document to search for. |
+| option | [Microsoft.VisualStudio.RpcContracts.Documents.SaveDocumentOption](#T-Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption 'Microsoft.VisualStudio.RpcContracts.Documents.SaveDocumentOption') | An option controlling if and how the document will be saved, if it has unsaved changes. |
+| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-GetOpenDocumentAsync-System-Uri,System-Threading-CancellationToken-'></a>
+### GetOpenDocumentAsync(moniker,token) `method`
+
+##### Summary
+
+Returns the open document corresponding to `moniker`.
+
+##### Returns
+
+The matching document, or `null` if a matching document isn't found.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| moniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | The moniker of the document to search for. |
+| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-GetOpenDocumentsAsync-System-Threading-CancellationToken-'></a>
+### GetOpenDocumentsAsync(token) `method`
+
+##### Summary
+
+Returns a collection of the documents that are currently open.
+
+##### Returns
+
+A collection of open documents.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-OpenDocumentAsync-System-Uri,System-Threading-CancellationToken-'></a>
+### OpenDocumentAsync(moniker,token) `method`
+
+##### Summary
+
+Opens the document identified by `moniker`.
+
+##### Returns
+
+The document.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| moniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | The moniker of the document to search for. |
+| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+
+##### Remarks
+
+If the document identified by `moniker` is already open,
+its [DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot') is returned.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-OpenDocumentAsync-System-Uri,Microsoft-VisualStudio-RpcContracts-OpenDocument-OpenDocumentOptions,System-Threading-CancellationToken-'></a>
+### OpenDocumentAsync(moniker,options,token) `method`
+
+##### Summary
+
+Opens the document identified by `moniker`.
+
+##### Returns
+
+The document.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| moniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | The moniker of the document to search for. |
+| options | [Microsoft.VisualStudio.RpcContracts.OpenDocument.OpenDocumentOptions](#T-Microsoft-VisualStudio-RpcContracts-OpenDocument-OpenDocumentOptions 'Microsoft.VisualStudio.RpcContracts.OpenDocument.OpenDocumentOptions') | Options defining how to open the document. |
+| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+
+##### Remarks
+
+If the document identified by `moniker` is already open,
+its [DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot') is returned.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-SaveAllAsync-System-Threading-CancellationToken-'></a>
+### SaveAllAsync(token) `method`
+
+##### Summary
+
+Saves all open documents that have unsaved changes.
+
+##### Returns
+
+A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-SaveDocumentAsync-System-Uri,System-Threading-CancellationToken-'></a>
+### SaveDocumentAsync(moniker,token) `method`
+
+##### Summary
+
+Saves the document specified by `moniker`.
+
+##### Returns
+
+A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| moniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | The moniker of the document to search for. |
+| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-SubscribeAsync-Microsoft-VisualStudio-RpcContracts-Documents-IDocumentEventsListener,System-String,System-Threading-CancellationToken-'></a>
+### SubscribeAsync(listener,filterRegex,token) `method`
+
+##### Summary
+
+Adds a listener for document events.
+
+##### Returns
+
+A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.  The result of the
+task is an object which, when disposed, will remove the event listener.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| listener | [Microsoft.VisualStudio.RpcContracts.Documents.IDocumentEventsListener](#T-Microsoft-VisualStudio-RpcContracts-Documents-IDocumentEventsListener 'Microsoft.VisualStudio.RpcContracts.Documents.IDocumentEventsListener') | The event listener. |
+| filterRegex | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | An optional regular expression string used to filter events.  If this string is not `null` and
+not empty, then events will only be raised for documents whose monikers match the regular expression. |
+| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+
+##### Remarks
+
+Before the asynchronous operation completes, the listener will receive an
+[OpenedAsync](#M-Microsoft-VisualStudio-RpcContracts-Documents-IDocumentEventsListener-OpenedAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentEventArgs,System-Threading-CancellationToken- 'Microsoft.VisualStudio.RpcContracts.Documents.IDocumentEventsListener.OpenedAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentEventArgs,System.Threading.CancellationToken)') event for each open document
+whose moniker matches `filterRegex`.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand'></a>
 ## DynamicCommand `type`
@@ -1909,6 +2309,23 @@ Microsoft.VisualStudio.Extensibility
 
 Helper extension methods.
 
+<a name='M-Microsoft-VisualStudio-Extensibility-ExtensibilityPoints-Documents-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility-'></a>
+### Documents(extensibility) `method`
+
+##### Summary
+
+Gets the surface area for document management.
+
+##### Returns
+
+an instance of [DocumentsExtensibility](#T-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility').
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility object. |
+
 <a name='M-Microsoft-VisualStudio-Extensibility-ExtensibilityPoints-Languages-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility-'></a>
 ### Languages(extensibility) `method`
 
@@ -2047,7 +2464,7 @@ Gets the active text view on the IDE at the time context was created.
 
 ##### Returns
 
-an instance of [ITextView](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextView') if there is an active text view, otherwise null.
+an instance of [ITextViewSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextViewSnapshot') if there is an active text view, otherwise null.
 
 ##### Parameters
 
@@ -3088,6 +3505,23 @@ Initializes a new instance of the [PromptOptions\`1](#T-Microsoft-VisualStudio-E
 | choices | [Microsoft.VisualStudio.Extensibility.Shell.ChoiceResultCollection{\`0}](#T-Microsoft-VisualStudio-Extensibility-Shell-ChoiceResultCollection{`0} 'Microsoft.VisualStudio.Extensibility.Shell.ChoiceResultCollection{`0}') | The choices to present to the user. |
 | defaultChoiceIndex | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The index in `choices` of the choice to present as the default. |
 | dismissedReturns | [\`0](#T-`0 '`0') | The result value to return when the user dismisses the prompt without making a selection. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions`1-#ctor-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions{`0}-'></a>
+### #ctor(original) `constructor`
+
+##### Summary
+
+Initializes a new instance of the [PromptOptions\`1](#T-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions`1 'Microsoft.VisualStudio.Extensibility.Shell.PromptOptions`1') class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| original | [Microsoft.VisualStudio.Extensibility.Shell.PromptOptions{\`0}](#T-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions{`0} 'Microsoft.VisualStudio.Extensibility.Shell.PromptOptions{`0}') | The instance to copy. |
+
+##### Remarks
+
+Overrides the default record copy constructor to make a deep clone of [Choices](#P-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions`1-Choices 'Microsoft.VisualStudio.Extensibility.Shell.PromptOptions`1.Choices').
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions`1-Choices'></a>
 ### Choices `property`
