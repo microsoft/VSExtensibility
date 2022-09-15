@@ -27,7 +27,7 @@ internal class MarkdownDiagnosticsService : DisposableObject
 #pragma warning restore CA2213 // Disposable fields should be disposed
 
 	private OutputWindow? outputWindow;
-	private DiagnosticsProvider? diagnosticsProvider;
+	private DiagnosticsReporter? diagnosticsReporter;
 	private Dictionary<Uri, CancellationTokenSource> documentCancellationTokens;
 	private Task initializationTask;
 
@@ -71,10 +71,10 @@ internal class MarkdownDiagnosticsService : DisposableObject
 
 		try
 		{
-			var diagnostics = await LinterUtilities.RunLinterOnFileAsync(documentUri.LocalPath);
+			var diagnostics = await LinterUtilities.RunLinterOnFileAsync(documentUri);
 
-			await this.diagnosticsProvider!.ClearDiagnosticsAsync(documentUri, cancellationToken);
-			await this.diagnosticsProvider!.AppendDiagnosticsAsync(documentUri, diagnostics, cancellationToken);
+			await this.diagnosticsReporter!.ClearDiagnosticsAsync(documentUri, cancellationToken);
+			await this.diagnosticsReporter!.ReportDiagnosticsAsync(diagnostics, cancellationToken);
 		}
 		catch (InvalidOperationException)
 		{
@@ -88,12 +88,12 @@ internal class MarkdownDiagnosticsService : DisposableObject
 	/// <summary>
 	/// Processes the current version <see cref="ITextView"/> instance for markdown errors and reports to the error list.
 	/// </summary>
-	/// <param name="textView">Text View instance to read the contents from.</param>
+	/// <param name="textViewSnapshot">Text View instance to read the contents from.</param>
 	/// <param name="cancellationToken">Cancellation token to monitor.</param>
 	/// <returns>Task indicating completion of reporting markdown errors to error list.</returns>
-	public async Task ProcessTextViewAsync(ITextView textView, CancellationToken cancellationToken)
+	public async Task ProcessTextViewAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
 	{
-		var document = await textView.GetTextDocumentAsync(cancellationToken);
+		var document = await textViewSnapshot.GetTextDocumentAsync(cancellationToken);
 		if (document is null)
 		{
 			return;
@@ -130,7 +130,7 @@ internal class MarkdownDiagnosticsService : DisposableObject
 			}
 		}
 
-		await this.diagnosticsProvider!.ClearDiagnosticsAsync(documentUri, cancellationToken);
+		await this.diagnosticsReporter!.ClearDiagnosticsAsync(documentUri, cancellationToken);
 	}
 
 	/// <inheritdoc />
@@ -141,11 +141,11 @@ internal class MarkdownDiagnosticsService : DisposableObject
 		if (isDisposing)
 		{
 			this.outputWindow?.Dispose();
-			this.diagnosticsProvider?.Dispose();
+			this.diagnosticsReporter?.Dispose();
 		}
 	}
 
-	private async Task ProcessDocumentAsync(ITextDocument document, CancellationToken cancellationToken)
+	private async Task ProcessDocumentAsync(ITextDocumentSnapshot documentSnapshot, CancellationToken cancellationToken)
 	{
 		// Wait for 1 second to see if any other changes are being sent.
 		await Task.Delay(1000, cancellationToken);
@@ -155,15 +155,12 @@ internal class MarkdownDiagnosticsService : DisposableObject
 			return;
 		}
 
-		// For simplicity in the sample, we are using GetText here but in very large files this will cause performance issues.
-		// Instead consider using ITextDocument.CopyTo or ITextDocument.GetLine methods.
-		var content = document.GetText();
 		try
 		{
-			var diagnostics = await LinterUtilities.RunLinterOnTextAsync(content);
+			var diagnostics = await LinterUtilities.RunLinterOnDocumentAsync(documentSnapshot);
 
-			await this.diagnosticsProvider!.ClearDiagnosticsAsync(document, cancellationToken);
-			await this.diagnosticsProvider!.AppendDiagnosticsAsync(document, diagnostics, cancellationToken);
+			await this.diagnosticsReporter!.ClearDiagnosticsAsync(documentSnapshot, cancellationToken);
+			await this.diagnosticsReporter!.ReportDiagnosticsAsync(diagnostics, cancellationToken);
 		}
 		catch (InvalidOperationException)
 		{
@@ -179,7 +176,7 @@ internal class MarkdownDiagnosticsService : DisposableObject
 		this.outputWindow = await this.extensibility.Views().Output.GetChannelAsync(nameof(MarkdownLinterExtension) + Guid.NewGuid(), nameof(Strings.MarkdownLinterWindowName), default);
 		Assumes.NotNull(this.outputWindow);
 
-		this.diagnosticsProvider = this.extensibility.Languages().GetDiagnosticsProvider(nameof(MarkdownLinterExtension));
-		Assumes.NotNull(this.diagnosticsProvider);
+		this.diagnosticsReporter = this.extensibility.Languages().GetDiagnosticsReporter(nameof(MarkdownLinterExtension));
+		Assumes.NotNull(this.diagnosticsReporter);
 	}
 }

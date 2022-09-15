@@ -14,7 +14,7 @@ using Microsoft.VisualStudio.Extensibility.Editor.UI;
 /// </summary>
 [ExtensionPart(typeof(ITextViewLifetimeListener))]
 [ExtensionPart(typeof(ITextViewChangedListener))]
-[AppliesTo(ContentType = "markdown")]
+[AppliesTo(DocumentType = "markdown")]
 internal class TextViewEventListener : ExtensionPart, ITextViewLifetimeListener, ITextViewChangedListener
 {
 	private readonly MarkdownDiagnosticsService diagnosticsProvider;
@@ -38,9 +38,9 @@ internal class TextViewEventListener : ExtensionPart, ITextViewLifetimeListener,
 	}
 
 	/// <inheritdoc />
-	public async Task TextViewClosedAsync(ITextView textView, CancellationToken cancellationToken)
+	public async Task TextViewClosedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
 	{
-		var document = await textView.GetTextDocumentAsync(cancellationToken);
+		var document = await textViewSnapshot.GetTextDocumentAsync(cancellationToken);
 		if (document is null)
 		{
 			return;
@@ -50,8 +50,8 @@ internal class TextViewEventListener : ExtensionPart, ITextViewLifetimeListener,
 	}
 
 	/// <inheritdoc />
-	public Task TextViewCreatedAsync(ITextView textView, CancellationToken cancellationToken)
+	public Task TextViewCreatedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
 	{
-		return this.diagnosticsProvider.ProcessTextViewAsync(textView, cancellationToken);
+		return this.diagnosticsProvider.ProcessTextViewAsync(textViewSnapshot, cancellationToken);
 	}
 }
