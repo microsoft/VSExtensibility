@@ -6,7 +6,7 @@ date: 2022-7-20
 
 # Commands Overview
 
-A command represented by the `Command` class is some action that can be initiated by a user, such as when the user chooses a menu item, presses a toolbar button, or types a keyboard shortcut. Commands have an ID and a display name, an execution method (`ExecuteCommandAsync`) that performs the action, as well as a means to provide parameters, an icon for display in the toolbar to identify the command, a tooltip to explain the command to the user, and they can be enabled or disabled depending on various conditions.
+A command represented by the `Command` class is some action that can be initiated by a user, such as when the user chooses a menu item, presses a toolbar button, or types a keyboard shortcut. Commands have an ID and a display name, an execution method (`ExecuteCommandAsync`) that performs the action, an icon for display in the toolbar to identify the command, a tooltip to explain the command to the user, and they can be enabled or disabled depending on various conditions.
 
 Commands in the new Extensibility Model run asynchronously and so the user can continue to interact with the IDE while commands are executing.
 
