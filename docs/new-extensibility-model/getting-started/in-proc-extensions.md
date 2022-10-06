@@ -7,6 +7,7 @@ date: 2022-7-13
 # Creating your first in-process VisualStudio.Extensibility extension
 
 ## Introduction
+
 While the VisualStudio.Extensibility model was created primarily to host extensions outside of the devenv.exe process, starting with Visual Studio 2022 17.4 Preview 1 it is possible to build a VisualStudio.Extensibility extension that are hosted within devenv.exe and can leverage traditional extensibility APIs provided by the [Microsoft.VisualStudio.Sdk](https://www.nuget.org/packages/Microsoft.VisualStudio.Sdk) packages.
 
 The support of *in-proc* extensions is meant to allow early adopters to leverage the new VisualStudio.Extensibility APIs while relying on [Microsoft.VisualStudio.Sdk](https://www.nuget.org/packages/Microsoft.VisualStudio.Sdk) to cover any feature gap.
@@ -43,7 +44,7 @@ An *in-proc* extension project references the [Microsoft.VisualStudio.Sdk](https
 
 Traditionally, such services are consumed through either [MEF](https://docs.microsoft.com/en-us/visualstudio/extensibility/managed-extensibility-framework-in-the-editor) or the [AsyncServiceProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.asyncserviceprovider). A VisualStudio.Extensibility extender is instead encouraged to leverage [.NET depedency injection](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection).
 
-The `MefInjection<TService>` and `AsyncServiceProviderInjection<TService, TInterface>` classes (both from the `Microsoft.VisualStudio.Extensibility` namespace) allow to consume the Visual Studio SDK's services by simply adding them to the constructor of a class that is instantiated through dependency injection (like a command, tool window or extension part).
+The `MefInjection<TService>` and `AsyncServiceProviderInjection<TService, TInterface>` classes (both from the `Microsoft.VisualStudio.Extensibility.VSSdkCompatibility` namespace) allow to consume the Visual Studio SDK's services by simply adding them to the constructor of a class that is instantiated through dependency injection (like a command, tool window or extension part).
 
 The example below shows how the `DTE2` and `IBufferTagAggregatorFactoryService` services can be added to a command.
 
@@ -53,19 +54,19 @@ The example below shows how the `DTE2` and `IBufferTagAggregatorFactoryService` 
     public class Command1 : Command
     {
         private TraceSource traceSource;
-		private AsyncServiceProviderInjection<DTE, DTE2> dte;
-		private MefInjection<IBufferTagAggregatorFactoryService> bufferTagAggregatorFactoryService;
+        private AsyncServiceProviderInjection<DTE, DTE2> dte;
+        private MefInjection<IBufferTagAggregatorFactoryService> bufferTagAggregatorFactoryService;
 
         public Command1(
-			VisualStudioExtensibility extensibility,
-			TraceSource traceSource,
-			AsyncServiceProviderInjection<DTE, DTE2> dte,
-			MefInjection<IBufferTagAggregatorFactoryService> bufferTagAggregatorFactoryService,
-			string id)
-			: base(extensibility, id)
+            VisualStudioExtensibility extensibility,
+            TraceSource traceSource,
+            AsyncServiceProviderInjection<DTE, DTE2> dte,
+            MefInjection<IBufferTagAggregatorFactoryService> bufferTagAggregatorFactoryService,
+            string id)
+            : base(extensibility, id)
     {
-		this.dte = dte;
-		this.bufferTagAggregatorFactoryService = bufferTagAggregatorFactoryService;
+        this.dte = dte;
+        this.bufferTagAggregatorFactoryService = bufferTagAggregatorFactoryService;
     }
 ```
 
@@ -76,6 +77,7 @@ While using the *VisualStudio.Extensibility In-Process Extension Project* templa
 ### Container project
 
 An *in-proc* VisualStudio.Extensibility solution is composed of two projects:
+
 1. a class library that references both the VisualStudio.Extensibility and Visual Studio SDK packages and contains all the code of the extension,
 1. a container VSIX project that provides the ability to deploy the debug the extension.
 
