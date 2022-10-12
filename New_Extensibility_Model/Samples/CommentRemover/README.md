@@ -23,15 +23,17 @@ Commands are the main VisualStudio.Extensibility feature that I will leverage in
 VisualStudio.Extensibility commands are quite different, so we can either start from scratch with new empty commands and move the code or we can start with the old commands classes and convert them. Whatever path we choose, we will end up with the same 6 command classes (for example, [RemoveAllComments.cs](CommentRemover/RemoveAllComments.cs)). I also decided to keep the original structure of using a common [base command class](CommentRemover/BaseCommand.cs) to provide some shared implementation.
 
 The two most glaring differences between the old and new commands are:
+
 - VisualStudio.Extensibility command execution is `async`,
 - VisualStudio.Extensibility commands are defined in one place, we can delete the `.vsct` file.
 
 We also don't need to initialize the commands anymore, so I don't need to port the code from the `AsyncPackage` class.
 
 Finally, I will set up shortcuts, icons and a rule about when the commands are enabled. All of this is achieved by adding attributes to the command class which will end up looking like this:
+
 ```CSharp
 [CommandIcon(KnownMonikers.Uncomment, IconSettings.IconAndText)]
-[CommandShortcut(mod1: "Control", key1: "K", mod2: "Control", key2: "Q")]
+[CommandShortcut(mod1: ModifierKey.Control, key1: KnownKey.K, mod2: ModifierKey.Control, key2: KnownKey.Q)]
 [Command("CommentRemover.RemoveAllComment", CommandDescription)]
 [CommandEnabledWhen(
     "IsValidFile",
@@ -56,6 +58,7 @@ public class RemoveAllComments : CommentRemoverCommand
 ### Command placing
 
 Unfortunately command placing (complex organizing of commands into menus and command groups) is not available yet, so I need to add a [.vsextension/extension.json](CommentRemover/.vsextension/extension.json) file which will:
+
 - add a *control container* to contain all the *control groups*,
 - add three *control groups* as children of the *control container* for the different types of commands,
 - place the six commands we have created through C# code under the desired *control group*
@@ -64,12 +67,14 @@ Unfortunately command placing (complex organizing of commands into menus and com
 ### Dependency injection of Visual Studio SDK services
 
 The Comment Remover extension is leveraging four of Visual Studio services:
+
 - `DTE2`, available as `DTE` through  [AsyncServiceProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.asyncserviceprovider);
 - `IVsTextManager`, available as `SVsTextManager` through `AsyncServiceProvider`;
 - `IBufferTagAggregatorFactoryService`, available through [MEF](https://docs.microsoft.com/en-us/visualstudio/extensibility/managed-extensibility-framework-in-the-editor);
 - `IVsEditorAdaptersFactoryService`, available through `MEF`.
 
 In a VisualStudio.Extensibility command, we can consume such services using .NET dependency injection by simply adding them to the command's constructor:
+
 ```CSharp
     public RemoveAllComments(
         VisualStudioExtensibility extensibility,
@@ -87,6 +92,7 @@ In a VisualStudio.Extensibility command, we can consume such services using .NET
 The `AsyncServiceProviderInjection` and `MefInjection` classes take care of making retrieval of these services async-friendly.
 
 It's important to remember that, while VisualStudio.Extensibility APIs are fully async, interacting with [Visual Studio SDK](https://www.nuget.org/packages/Microsoft.VisualStudio.SDK) services is sometimes restricted to the UI thread. We can switch to the UI thread as usual with
+
 ```CSharp
 await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
 ```
@@ -94,6 +100,7 @@ await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
 ### Adding custom command icons
 
 I also decided to add a custom icon for the [RemoveRegions](CommentRemover/RemoveRegions.cs) command. I was able to do it by simply adding `DeleteRegions.16.16.png` and `DeleteRegions.xaml` to the `Images` folder and referencing the custom image with the `"DeleteRegions"` string in the `CommandIcon` attribute:
+
 ```CSharp
 [CommandIcon("DeleteRegions", IconSettings.IconAndText)]
 ```
@@ -103,6 +110,7 @@ The VisualStudio.Extensibility build tools will take care of packaging the conte
 ### Confirmation prompts and progress reporting
 
 VisualStudio.Extensibility features are designed to be used with minimal boilerplate code. With a couple of lines of code I can add a confirmation promtp and progress report to the extension:
+
 ```CSharp
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
@@ -115,4 +123,3 @@ VisualStudio.Extensibility features are designed to be used with minimal boilerp
 Calling `ShowPromptAsync` causes a modal popup to appear, returning `true` or `false` depending whether they cliked Ok or Cancel. The prompt can be configured with different messages and button configurations. It's important to remember that prompts can always be dismissed by pressing the "X" button in the popup dialog title bar: the docs for `PromptOptions.OKCancel` let us know that `ShowPromptAsync` returns `false` in case of dismissal.
 
 Calling `StartProgressReportingAsync` instruct Visual Studio to notify the user that a potentially long-running work is running in the background. `StartProgressReportingAsync` creates a disposable object that tracks the background work and automatically removes the notification from the UI when the object is disposed.
-

@@ -7,6 +7,7 @@ using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Commands;
 using Microsoft.VisualStudio.Extensibility.Definitions;
 using Microsoft.VisualStudio.Extensibility.Shell;
+using Microsoft.VisualStudio.Extensibility.VSSdkCompatibility;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Text;
 using Microsoft.VisualStudio.Text.Editor;
@@ -18,7 +19,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 [CommandIcon(KnownMonikers.Uncomment, IconSettings.IconAndText)]
-[CommandShortcut(mod1: "Control", key1: "K", mod2: "Control", key2: "Q")]
+[CommandShortcut(mod1: ModifierKey.Control, key1: KnownKey.K, mod2: ModifierKey.Control, key2: KnownKey.Q)]
 [Command("CommentRemover.RemoveAllComment", CommandDescription)]
 [CommandEnabledWhen(
 	"IsValidFile",

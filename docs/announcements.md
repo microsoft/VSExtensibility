@@ -15,3 +15,6 @@ Use this page to stay up-to-date on all upcoming extensibility announcements and
 
 ## September 12, 2022
 * Released updated VisualStudio.Extensibility packages, samples for Visual Studio 2022.4 Preview 2 release. The older versions are no longer compatible with this release due to breaking changes.
+
+## October 11, 2022
+* Released updated VisualStudio.Extensibility packages, samples for Visual Studio 2022.4 Preview 3 release. In-proc extensions using earlier VisualStudio.Extensibility packages are no longer compatible with this release due to a namespace change.
