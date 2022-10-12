@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.4.2052-preview-4" />
-    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.4.2052-preview-4" />
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.5.4-preview-1" />
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.5.4-preview-1" />
     <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.4.33006.217" ExcludeAssets="runtime" />
   </ItemGroup>
 
