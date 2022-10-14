@@ -6,27 +6,33 @@ date: 2021-8-20
 
 # Editor Extensions
 
-The Visual Studio editor supports extensions that add to its capabilities. For the initial release of the new
-Visual Studio extensibility model, only the following capabilities are supported:
+The Visual Studio editor supports extensions that add to its capabilities. Examples include extensions that insert and modify code in an existing language.
+
+For the initial release of the new Visual Studio extensibility model, only the following capabilities are supported:
 
 - Listening for text views being opened and closed.
 - Listening for text view (editor) state changes.
 - Reading the text of the document and the caret locations.
 - Performing text edits.
 
-## Editor Extensibility Entrypoints
+The Visual Studio editor generally refers to the functionality of editing text files, known as documents, of any type. Individual files may be opened for editing, and the open editor window is referred to as a TextView.
 
-Editor extensibility currently supports 3 entry points: listeners, the [EditorExtensibility](#EditorExtensibility) service object, and
-commands.
+## Editor Extensibility entry points
+
+Your extension code can be configured to run in response to various situations that a occur when a user interacts with Visual Studio. These are known as entry points. Editor extensibility currently supports three entry points: listeners, the [EditorExtensibility](#EditorExtensibility) service object, and commands.
+
+Listeners are events that get triggered when certain actions occur in the an editor window, known as a `TextView`. For example, when a user types something into the editor, a `TextViewChanged` event occurs. When an editor window is opened or closed, `TextViewCreated` and `TextViewClosed` events occur. Listeners are objects that can be used to set up handlers for those events that your extension can use to perform your custom actions.
+
+In addition to these entry points, editor extensions can expose functionality via [Commands](commands.md), which you can place on menus, context menus, or toolbars.
 
 ### Adding a Listener
 
 There are two types of listeners, [ITextViewChangedListener](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewChangedListener), and [ITextViewLifetimeListener](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewLifetimeListener).
 Together, these listeners can be used to observe the open, close, and modification of text editors.
 
-Then, create a new class, implementing [ExtensionPart](./../../api/Microsoft.VisualStudio.Extensibility.Framework.md#T-Microsoft-VisualStudio-Extensibility-ExtensionPart) base class and `ITextViewChangedListener`,
+Then, create a new class, implementing the [ExtensionPart](./../../api/Microsoft.VisualStudio.Extensibility.Framework.md#T-Microsoft-VisualStudio-Extensibility-ExtensionPart) base class and `ITextViewChangedListener`,
 `ITextViewLifetimeListener`, or both. Then, add an `[ExtensionPart(typeof(ITextViewChangedListener))]` attribute for
-each listener interface you implemented and an `[AppliesTo(DocumentType = "CSharp")]` attribute to your class.
+each listener interface you implemented and an `[AppliesTo(DocumentType = "CSharp")]` attribute to your class to make the listener apply when editing C# files. The available document types for other programming languages and file types are listed [later in this article](#applies-to-attribute), and custom file types may also be defined when required.
 
 Assuming you decide to implement both listeners, the finished class declaration should look like the following:
 
@@ -49,31 +55,36 @@ When you run your extension, you should see:
 - [ITextViewLifetimeListener.TextViewClosedAsync()](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#M-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewLifetimeListener-TextViewClosedAsync-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView,System-Threading-CancellationToken-) called anytime an editor is closed by the user.
 - [ITextViewChangedListener.TextViewChangedAsync()](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#M-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewChangedListener-TextViewChangedAsync-Microsoft-VisualStudio-Extensibility-Editor-UI-TextViewChangedArgs,System-Threading-CancellationToken-) called anytime a user makes a text change in the editor.
 
-Each of these methods are passed an [ITextViewSnapshot](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewSnapshot) containing the state of the text editor at the time the
-user invoked the action and a CancellationToken that will have `IsCancellationRequested == true` when
+Each of these methods are passed an [ITextViewSnapshot](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewSnapshot) containing the state of the text editor at the time the user invoked the action and a CancellationToken that will have `IsCancellationRequested == true` when
 the IDE wishes to cancel a pending action.
 
-#### AppliesTo Attribute
+## Define when your extension is relevant
 
-[AppliesTo](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToAttribute) attribute indicates the programming language scenarios in which the extension should activate. It is written as
-`[AppliesTo(DocumentType = "CSharp")]`, where DocumentType is a well known name of a language built into Visual Studio,
-or custom defined in a Visual Studio extension.
+Your extension is typically relevant only to certain supported document types and scenarios, and so it is important to clearly define its applicability. The Visual Studio Extensibility model provides several ways to clearly define the applicability of an extension. These are various attributes which are known as document selectors: tthe [AppliesTo attribute](#appliesto-attribute), which helps specify what file types such as code languages the extension supports, and the [AppliesToPattern attribute](#appiestopattern-attribute), which lets you refine the applicability of an extension by further matching on a pattern based on the filename or path.
 
-**Some Well Known Document Types**:
-- "CSharp" - C#
-- "C/C++" - C, C++, headers, and IDL
-- "TypeScript" - TypeScript and JavaScript type languages.
-- "HTML" - HTML
-- "JSON" - JSON
-- "text" - text files, including hierarchical descendants of "code", which descends from "text".
-- "code" - C, C++, C#, etc.
+### AppliesTo Attribute
 
-DocumentTypes are hierarchical. e.g.: C# and C++ both descend from "code", so declaring "code" will cause your extension
-to activate for C#, C, C++, etc.
+The [AppliesTo](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToAttribute) attribute indicates the programming language scenarios in which the extension should activate. It is written as `[AppliesTo(DocumentType = "CSharp")]`, where DocumentType is a well known name of a language built into Visual Studio, or custom defined in a Visual Studio extension.
 
-#### Defining a new document type
+Some well-known document types are shown in the following table:
 
-[DocumentTypeDefinition](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeDefinition), [DocumentTypeBaseDefinition](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeBaseDefinition) and [FileExtensionMapping](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-FileExtensionMapping) attributes allow defining a new document type, inheriting one or more other document types and map it to one or more file extensions. These are assembly level attributes:
+| DocumentType | Description |
+| - | - |
+| "CSharp" | C# |
+| "C/C++" | C, C++, headers, and IDL |
+| "TypeScript" | TypeScript and JavaScript type languages. |
+| "HTML" | HTML |
+| "JSON" | JSON |
+| "text" | Text files, including hierarchical descendants of "code", which descends from "text". |
+| "code" | C, C++, C#, and so on. |
+
+DocumentTypes are hierarchical. That is, C# and C++ both descend from "code", so declaring "code" will cause your extension to activate for all code languages, C#, C, C++, and so on.
+
+### Define a new document type
+
+You can define a new document type, for example to support a custom code language, by adding certain assembly-level attributes.
+
+[DocumentTypeDefinition](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeDefinition), [DocumentTypeBaseDefinition](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeBaseDefinition) and [FileExtensionMapping](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-FileExtensionMapping) attributes together allow you to define a new document type, specify that it inherits one or more other document types, and specify one or more file extensions that are used to identify the file type. These are assembly-level attributes that you add at the top level in your extension code:
 
 ```csharp
 using Microsoft.VisualStudio.Extensibility.Editor;
@@ -85,11 +96,11 @@ using Microsoft.VisualStudio.Extensibility.Editor;
 [assembly: FileExtensionMapping("markdown", fileExtension: ".markdown")]
 ```
 
-Document type definitions are merged with content type definitions provided by legacy Visual Studio extensibility, which allows for example to map additional file extensions to existing document types.
+Document type definitions are merged with content type definitions provided by legacy Visual Studio extensibility, which allows you to map additional file extensions to existing document types.
 
 #### Document Selectors
 
-In addition to [AppliesTo](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToAttribute) attribute, [AppliesToPattern](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToPattern) attribute allows to further limit applicability of the extension by making it activate only when document's file path matches a glob pattern:
+In addition to [AppliesTo](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToAttribute) attribute, [AppliesToPattern](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToPattern) attribute allows you to further limit applicability of the extension by making it activate only when document's file path matches a glob (wildcard) pattern:
 
 ```csharp
 [AppliesTo(ContentType = "CSharp")]
@@ -100,7 +111,7 @@ In addition to [AppliesTo](./../../api/Microsoft.VisualStudio.Extensibility.Edit
 [AppliesToPattern(Pattern="docs/*.md", RelativePath=true)]
 ```
 
-The Pattern property represents a glob pattern that is matched on the absolute path of the document. 
+The `Pattern` property represents a glob pattern that is matched on the absolute path of the document.
 
 Glob patterns can have the following syntax:
  * `*` to match zero or more characters in a path segment
@@ -110,32 +121,35 @@ Glob patterns can have the following syntax:
 * `[]` to declare a range of characters to match in a path segment (e.g., `example.[0-9]` to match on `example.0`, `example.1`, …)
 * `[!...]` to negate a range of characters to match in a path segment (e.g., `example.[!0-9]` to match on `example.a`, `example.b`, but not `example.0`)
 
-Note: a backslash (`\`) is not valid within a glob pattern. Make sure to convert any backslash to slash when creating the glob pattern.
+Note that a backslash (`\`) is not valid within a glob pattern. Make sure to convert any backslash to slash when creating the glob pattern.
 
-### EditorExtensibility
+## Access editor functionality
 
-Visual Studio ExtensionParts all expose a [this.Extensibility](./../../api/Microsoft.VisualStudio.Extensibility.Framework.md#P-Microsoft-VisualStudio-Extensibility-ExtensionPart-Extensibility) property. Using this property, you can
-request an instance of the EditorExtensibility object, which exposes on demand editor functionality, such as
+Editor functionality may be accessed within event handlers and in commands that your extension may define. See [Commands](commands.md).
+
+Your editor extension classes inherit from `ExtensionPart`. The `ExtensionPart` class exposes the [Extensibility](./../../api/Microsoft.VisualStudio.Extensibility.Framework.md#P-Microsoft-VisualStudio-Extensibility-ExtensionPart-Extensibility) property. Using this property, you can request an instance of the `EditorExtensibility` object, which exposes real-time editor functionality, such as
 performing text edits.
 
 ```csharp
 EditorExtensibility editorService = this.Extensibility.Editor();
 ```
 
-### Getting an ITextViewSnapshot within a Command
+### Access editor state within a command
 
-`ExecuteCommandAsync()` in each Command is passed an IClientContext that contains a snapshot of the state of the IDE
-at the time the command was invoked. You can access the active ITextView from this using EditorExtensibility.
+`ExecuteCommandAsync()` in each `Command` is passed an `IClientContext` that contains a snapshot of the state of the IDE at the time the command was invoked. You can access the active document via the `ITextViewSnapshot` interface, which you get by from the `EditorExtensibility` object by calling the asynchronous method `GetActiveTextViewAsync`:
 
 ```csharp
 using ITextViewSnapshot textView = await this.Extensibility.Editor().GetActiveTextViewAsync(clientContext, cancellationToken);
 ```
+
+Once you have ITextViewSnapshot, you can access ... 
 
 ## Object Model
 
 The Visual Studio Editor extensibility object model is composed of a few integral parts.
 
 ### ITextView
+
 [ITextViewSnapshot](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewSnapshot) contains the URI and version information necessary to acquire an [ITextDocumentSnapshot](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md##T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocumentSnapshot) as well
 as some properties of the text view, such as selections.
 
