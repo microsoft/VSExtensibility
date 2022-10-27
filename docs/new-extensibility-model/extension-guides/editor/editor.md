@@ -55,12 +55,12 @@ When you run your extension, you should see:
 - [ITextViewLifetimeListener.TextViewClosedAsync()](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#M-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewLifetimeListener-TextViewClosedAsync-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView,System-Threading-CancellationToken-) called anytime an editor is closed by the user.
 - [ITextViewChangedListener.TextViewChangedAsync()](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#M-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewChangedListener-TextViewChangedAsync-Microsoft-VisualStudio-Extensibility-Editor-UI-TextViewChangedArgs,System-Threading-CancellationToken-) called anytime a user makes a text change in the editor.
 
-Each of these methods are passed an [ITextViewSnapshot](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewSnapshot) containing the state of the text editor at the time the user invoked the action and a CancellationToken that will have `IsCancellationRequested == true` when
+Each of these methods are passed an [ITextViewSnapshot](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewSnapshot) containing the state of the text editor at the time the user invoked the action and a CancellationToken that will have `IsCancellationRequested == true` when the IDE wishes to cancel a pending action.
 the IDE wishes to cancel a pending action.
 
 ## Define when your extension is relevant
 
-Your extension is typically relevant only to certain supported document types and scenarios, and so it is important to clearly define its applicability. The Visual Studio Extensibility model provides several ways to clearly define the applicability of an extension. These are various attributes which are known as document selectors: tthe [AppliesTo attribute](#appliesto-attribute), which helps specify what file types such as code languages the extension supports, and the [AppliesToPattern attribute](#appiestopattern-attribute), which lets you refine the applicability of an extension by further matching on a pattern based on the filename or path.
+Your extension is typically relevant only to certain supported document types and scenarios, and so it is important to clearly define its applicability. The Visual Studio Extensibility model provides several ways to clearly define the applicability of an extension. These are various attributes which are known as document selectors: the [AppliesTo attribute](#appliesto-attribute), which helps specify what file types such as code languages the extension supports, and the [AppliesToPattern attribute](#appiestopattern-attribute), which lets you refine the applicability of an extension by further matching on a pattern based on the filename or path.
 
 ### AppliesTo Attribute
 
@@ -125,7 +125,7 @@ Note that a backslash (`\`) is not valid within a glob pattern. Make sure to con
 
 ## Access editor functionality
 
-Editor functionality may be accessed within event handlers and in commands that your extension may define. See [Commands](commands.md).
+You can access editor functionality within event handlers and in commands that your extension may define. See [Commands](commands.md).
 
 Your editor extension classes inherit from `ExtensionPart`. The `ExtensionPart` class exposes the [Extensibility](./../../api/Microsoft.VisualStudio.Extensibility.Framework.md#P-Microsoft-VisualStudio-Extensibility-ExtensionPart-Extensibility) property. Using this property, you can request an instance of the `EditorExtensibility` object, which exposes real-time editor functionality, such as
 performing text edits.
