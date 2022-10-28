@@ -142,9 +142,9 @@ EditorExtensibility editorService = this.Extensibility.Editor();
 using ITextViewSnapshot textView = await this.Extensibility.Editor().GetActiveTextViewAsync(clientContext, cancellationToken);
 ```
 
-Once you have ITextViewSnapshot, you can access ... 
+Once you have ITextViewSnapshot, you can access editor state. ITextViewSnapshot is an immutable view of editor state at a point in time, so you'll need to use the other interfaces in the Editor object model to make edits. 
 
-## Object Model
+## Understand the Editor object model
 
 The Visual Studio Editor extensibility object model is composed of a few integral parts.
 
@@ -182,36 +182,31 @@ Best Practices:
 Represents a position within the text document. As opposed to `int` positions, the [Position](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#position-type) type
 is aware of the ITextDocument it came from and supports `GetChar()` to directly get the character at that point.
 
-If you are familiar with legacy Visual Studio extensions, Position is almost 1:1 with
-[SnapshotPoint](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.text.snapshotpoint?view=visualstudiosdk-2019)
-and supports most of the same methods.
+If you are familiar with legacy Visual Studio extensions, Position is almost the same as
+[SnapshotPoint](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.text.snapshotpoint?view=visualstudiosdk-2019) and supports most of the same methods.
 
 ### Span
 
 Represents a contiguous substring of characters within an ITextDocument. As opposed to a string created with
-`string.Substring()` or `ITextDocumentSnapshot.CopyToString()`, creating a [Span](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#span-type) doesn't require any allocations or additional
-memory. You can later call `Span.GetText()` to realize it into a string in a deferred fashion.
+`string.Substring()` or `ITextDocumentSnapshot.CopyToString()`, creating a [Span](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#span-type) doesn't require any allocations or additional memory. You can later call `Span.GetText()` to realize it into a string in a deferred fashion.
 
-If you are familiar with legacy Visual Studio extensions, Position is almost 1:1 with
-[SnapshotSpan](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.text.snapshotSpan?view=visualstudiosdk-2019)
-and supports most of the same methods.
+If you are familiar with legacy Visual Studio extensions, Position is almost the same as
+[SnapshotSpan](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.text.snapshotSpan?view=visualstudiosdk-2019) and supports most of the same methods.
 
-## Editing and Asynchronicity
+## Editing and asynchronicity
 
-### Editing
+Edits, that is, changes to a text document open in the Visual Studio editor, may arise from user interactions, threads in Visual Studio such as language services and other in-process extensions, or extensions running out-of-process such as those designed with the Editor object model discussed here.
+
+Asynchronicity refers to extensions running outside the main Visual Studio IDE process that use asynchronous design patterns to communicate with the Visual Studio IDE process. This means the use of asynchronous method calls, as indicated by the `async` keyword in C# and reinforced by the `Async` suffix on method names. Asynchronicity is a significant advantage in the context of an editor that is expected to be responsive to user actions. A traditional synchronous API call, if it takes longer than expected, will stop responding to user input, creating a UI freeze that lasts until the API call completes. User expectations of modern interactive applications are that text editors always remain responsive, and never block them from working. Having extensions be asynchronous is therefore essential to meet user expectations.
+
+### Make changes in a text document from an extension
 
 In the new Visual Studio extensibility model, the extension is second class relative to the user: it cannot directly
-modify the editor or the text document. All state changes are asynchronous and cooperative, with Visual Studio IDE performing
-the requested change on the extension's behalf. The extension can request one or more changes on on a specific version of
-the document or text view.
+modify the editor or the text document. All state changes are asynchronous and cooperative, with Visual Studio IDE performing the requested change on the extension's behalf. The extension can request one or more changes on on a specific version of the document or text view, but changes from an extension may be rejected, such as if that area of the document has changed.
 
 Edits are requested using the `EditAsync()` method on `EditorExtensibility`.
 
-If you are familiar with legacy Visual Studio extensions, ITextDocumentEditor is almost 1:1 with the state changing
-methods from
-[ITextBuffer](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.text.itextbuffer?view=visualstudiosdk-2019)
-and [ITextDocument](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.text.itextdocument?view=visualstudiosdk-2019)
-and supports most of the same capabilities.
+If you are familiar with legacy Visual Studio extensions, ITextDocumentEditor is almost the same as the state changing methods from [ITextBuffer](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.text.itextbuffer?view=visualstudiosdk-2019) and [ITextDocument](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.text.itextdocument?view=visualstudiosdk-2019) and supports most of the same capabilities.
 
 ```csharp
 MutationResult result = await this.Extensibility.Editor().EditAsync(
@@ -223,24 +218,18 @@ batch =>
 cancellationToken);
 ```
 
-To avoid misplaced edits, editor extension edits are applied like so:
+To avoid misplaced edits, edits from editor extensions are applied as follows:
 
-- Extension requests an edit be made, based on its most recent version of the document.
-- That request may contain one or more text edits, caret position changes, etc. Any type implementing `IEditable`
-  can be changed in a single `EditAsync()` request, including ITextViewSnapshot and ITextDocumentSnapshot. Edits
-  are done by editor, which can be requested on a specific class via `AsEditable()`.
-- Edit requests are sent to Visual Studio IDE, where it succeeds only if the object being mutated hasn't changed
+1. Extension requests an edit be made, based on its most recent version of the document.
+1. That request may contain one or more text edits, caret position changes, and so on. Any type implementing `IEditable` can be changed in a single `EditAsync()` request, including ITextViewSnapshot and ITextDocumentSnapshot. Edits are done by editor, which can be requested on a specific class via `AsEditable()`.
+1. Edit requests are sent to Visual Studio IDE, where it succeeds only if the object being mutated hasn't changed
   since the version the request was made one. If the document has changed, the change may be rejected, requiring
   the extension to retry on newer version. Outcome of mutation operation is stored in `result`.
-- Edits are applied atomically. The best practice is to do all changes that should occur within a narrow time
-  frame into a single EditAsync() call, to reduce the likelihood of unexpected behavior arising from user edits,
-  or language service actions that occur between edits (e.g.: extension edits getting interleaved with Roslyn C#
-  moving the caret).
+1. Edits are applied atomically, meaning without interruption from other executing threads. The best practice is to do all changes that should occur within a narrow time frame into a single EditAsync() call, to reduce the likelihood of unexpected behavior arising from user edits, or language service actions that occur between edits (for example, extension edits getting interleaved with Roslyn C# moving the caret).
 
 ### Asynchronicity
 
-[ITextViewSnapshot.GetTextDocumentAsync()](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#gettextdocumentasync-method) opens a copy of the text document in the Visual Studio extension. Since extensions run in a
-separate process, all extension interactions are asynchronous, cooperative, and have some caveats:
+[ITextViewSnapshot.GetTextDocumentAsync()](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#gettextdocumentasync-method) opens a copy of the text document in the Visual Studio extension. Since extensions run in a separate process, all extension interactions are asynchronous, cooperative, and have some caveats:
 
 - GetTextDocumentAsync() may fail if called on a really old ITextDocument because it may no longer be cached by the
   Visual Studio client, if the user has made many changes since it was created. For
@@ -250,12 +239,11 @@ separate process, all extension interactions are asynchronous, cooperative, and 
 - GetTextDocumentAsync() or MutateAsync() may fail if the user closes the document.
 
 #### Concurrent Execution
+
 :warning: | Editor extensions can sometimes run concurrently
 :---: | :---
 
-The initial release has a known issue that can result in concurrent execution of editor extension code. Each async method
-is guaranteed to be called in the correct order but continuations after the first `await` may be interleaved. If your extension
-relies on execution order, consider maintaining a queue of incoming requests to preserve the order, until this issue is fixed.
+The initial release has a known issue that can result in concurrent execution of editor extension code. Each async method is guaranteed to be called in the correct order but continuations after the first `await` may be interleaved. If your extension relies on execution order, consider maintaining a queue of incoming requests to preserve the order, until this issue is fixed.
 
 For more information, see [StreamJsonRpc Default Ordering and Concurrency](https://github.com/microsoft/vs-streamjsonrpc/blob/main/doc/resiliency.md#default-ordering-and-concurrency-behavior).
 
