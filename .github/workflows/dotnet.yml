@@ -18,4 +18,4 @@ jobs:
     - name: Restore dependencies
       run: msbuild /t:restore New_Extensibility_Model/Samples/Samples.sln
     - name: Build
-      run: msbuild /t:build --no-restore New_Extensibility_Model/Samples/Samples.sln
+      run: msbuild /t:build New_Extensibility_Model/Samples/Samples.sln
