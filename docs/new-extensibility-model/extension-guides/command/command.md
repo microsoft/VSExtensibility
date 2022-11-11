@@ -6,9 +6,9 @@ date: 2022-7-20
 
 # Commands Overview
 
-A command represented by the `Command` class is some action that can be initiated by a user, such as when the user chooses a menu item, presses a toolbar button, or types a keyboard shortcut. Commands have an ID and a display name, an execution method (`ExecuteCommandAsync`) that performs the action, an icon for display in the toolbar to identify the command, a tooltip to explain the command to the user, and they can be enabled or disabled depending on various conditions.
+A command represented by the `Command` class is some action that can be initiated by a user, such as when the user chooses a menu item, presses a toolbar button, or types a keyboard shortcut. Commands have an ID and a display name, an execution method (`ExecuteCommandAsync`) that performs the action, an icon for display in the toolbar to identify the command, and a tooltip to explain the command to the user. Commands can be enabled or disabled depending on various conditions.
 
-Commands in the new Extensibility Model run asynchronously and so the user can continue to interact with the IDE while commands are executing.
+Commands in the new Extensibility Model run asynchronously so the user can continue to interact with the IDE while commands are executing.
 
 ## Get started
 
@@ -122,7 +122,7 @@ You can add custom images, which you can then reference with custom monikers by 
 [CommandIcon("MyImage", IconSettings.IconAndText)]
 ```
 
-# Control the visibility of a command
+## Control the enabled/disabled state and the visibility of a command
 
 The visibility of a command can be controlled by adding the attribute [`Microsoft.VisualStudio.Extensibility.Commands.CommandVisibleWhenAttribute`](./../../api/Microsoft.VisualStudio.Extensibility.md/#commandvisiblewhenattribute-type) to your command class.
 
@@ -142,9 +142,7 @@ If this attribute is omitted from your command, the default is for the command t
 	termValues: new string[] { "ClientContext:Shell.ActiveEditorContentType=.+" })]
 ```
 
-## Control the Enabled/Disabled state of a command
-
-The visibility of a command can be controlled by adding the attribute [Microsoft.VisualStudio.Extensibility.Commands.CommandEnabledWhenAttribute](./../../api/Microsoft.VisualStudio.Extensibility.md/#commandenabledwhenattribute-type) to your command class. The attribute works by accepting a rule-based activation constraint, as described in the previous section, so it involves specifying an expression in one parameter, terms in another parameter, and values for those terms in a third parameter. The command would be enabled when the expression evaluates to true, and disabled when it is false.
+The enabled/disabled state of a command can be controlled by adding the attribute [Microsoft.VisualStudio.Extensibility.Commands.CommandEnabledWhenAttribute](./../../api/Microsoft.VisualStudio.Extensibility.md/#commandenabledwhenattribute-type) to your command class. The attribute works by accepting a rule-based activation constraint, as described in the previous section, so it involves specifying an expression in one parameter, terms in another parameter, and values for those terms in a third parameter. The command would be enabled when the expression evaluates to true, and disabled when it is false.
 
 If this attribute is omitted from your command, the default is for the command to always be enabled. You can also automatically have your command be disabled if it is currently executing by setting `this.DisableDuringExecution = true;` in the constructor of your command class. Setting this property will override the enabled/disabled state defined by the `Microsoft.VisualStudio.Extensibility.Commands.CommandEnabledWhenAttribute` while the command is being executed.
 
