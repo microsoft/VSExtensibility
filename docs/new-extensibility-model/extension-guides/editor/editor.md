@@ -114,7 +114,7 @@ In addition to [AppliesTo](./../../api/Microsoft.VisualStudio.Extensibility.Edit
 The `Pattern` property represents a glob pattern that is matched on the absolute path of the document.
 
 Glob patterns can have the following syntax:
- * `*` to match zero or more characters in a path segment
+* `*` to match zero or more characters in a path segment
 * `?` to match on one character in a path segment
 * `**` to match any number of path segments, including none
 * `{}` to group conditions (e.g. `**​/*.{ts,js}` matches all TypeScript and JavaScript files)
@@ -142,7 +142,7 @@ EditorExtensibility editorService = this.Extensibility.Editor();
 using ITextViewSnapshot textView = await this.Extensibility.Editor().GetActiveTextViewAsync(clientContext, cancellationToken);
 ```
 
-Once you have ITextViewSnapshot, you can access editor state. ITextViewSnapshot is an immutable view of editor state at a point in time, so you'll need to use the other interfaces in the Editor object model to make edits. 
+Once you have `ITextViewSnapshot`, you can access editor state. `ITextViewSnapshot` is an immutable view of editor state at a point in time, so you'll need to use the other interfaces in the Editor object model to make edits. 
 
 ## Understand the Editor object model
 
