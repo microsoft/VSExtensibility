@@ -62,7 +62,7 @@ the IDE wishes to cancel a pending action.
 
 Your extension is typically relevant only to certain supported document types and scenarios, and so it is important to clearly define its applicability. The Visual Studio Extensibility model provides several ways to clearly define the applicability of an extension. These are various attributes which are known as document selectors: the [AppliesTo attribute](#appliesto-attribute), which helps specify what file types such as code languages the extension supports, and the [AppliesToPattern attribute](#appiestopattern-attribute), which lets you refine the applicability of an extension by further matching on a pattern based on the filename or path.
 
-### AppliesTo Attribute
+### Specify programming languages with the AppliesTo Attribute
 
 The [AppliesTo](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToAttribute) attribute indicates the programming language scenarios in which the extension should activate. It is written as `[AppliesTo(DocumentType = "CSharp")]`, where DocumentType is a well known name of a language built into Visual Studio, or custom defined in a Visual Studio extension.
 
@@ -175,7 +175,7 @@ Best Practices:
   - You can use the indexer syntax, `textDocument[0]`, to read character by character in the document without copying it to a string.
   - If you must create a string such as for use as a dictionary key, use the overload that takes a Span, to avoid creating a large throwaway string from the entire line or document.
 - Avoid assuming lines or documents will be short. Many languages minify into huge lines or consume very large files.
-- ITextDocument references large data structures that may consume memory if an old enough version is stored. Best practice is to periodically update Positions and Spans that you are storing long term to the latest document version via their `TranslateTo()` method so the old ITextDocument version can be garbage collected.
+- ITextDocument references large data structures that may consume memory if an old enough version is stored. Best practice is to periodically update Positions and Spans that you are storing long term to the latest document version via their `TranslateTo()` method so the old `ITextDocument` version can be garbage collected.
 
 ### Position
 
@@ -206,7 +206,7 @@ modify the editor or the text document. All state changes are asynchronous and c
 
 Edits are requested using the `EditAsync()` method on `EditorExtensibility`.
 
-If you are familiar with legacy Visual Studio extensions, ITextDocumentEditor is almost the same as the state changing methods from [ITextBuffer](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.text.itextbuffer?view=visualstudiosdk-2019) and [ITextDocument](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.text.itextdocument?view=visualstudiosdk-2019) and supports most of the same capabilities.
+If you are familiar with legacy Visual Studio extensions, `ITextDocumentEditor` is almost the same as the state changing methods from [ITextBuffer](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.text.itextbuffer?view=visualstudiosdk-2019) and [ITextDocument](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.text.itextdocument?view=visualstudiosdk-2019) and supports most of the same capabilities.
 
 ```csharp
 MutationResult result = await this.Extensibility.Editor().EditAsync(
@@ -225,7 +225,7 @@ To avoid misplaced edits, edits from editor extensions are applied as follows:
 1. Edit requests are sent to Visual Studio IDE, where it succeeds only if the object being mutated hasn't changed
   since the version the request was made one. If the document has changed, the change may be rejected, requiring
   the extension to retry on newer version. Outcome of mutation operation is stored in `result`.
-1. Edits are applied atomically, meaning without interruption from other executing threads. The best practice is to do all changes that should occur within a narrow time frame into a single EditAsync() call, to reduce the likelihood of unexpected behavior arising from user edits, or language service actions that occur between edits (for example, extension edits getting interleaved with Roslyn C# moving the caret).
+1. Edits are applied atomically, meaning without interruption from other executing threads. The best practice is to do all changes that should occur within a narrow time frame into a single `EditAsync()` call, to reduce the likelihood of unexpected behavior arising from user edits, or language service actions that occur between edits (for example, extension edits getting interleaved with Roslyn C# moving the caret).
 
 ### Asynchronicity
 
@@ -249,22 +249,18 @@ For more information, see [StreamJsonRpc Default Ordering and Concurrency](https
 
 ### RPC Support
 
-Since the new Visual Studio extensibility model is entirely in a separate process, all APIs have to at some
-level operate with serializable data types. Typically, extensions can ignore these implementation details,
+Since the new Visual Studio extensibility model is entirely in a separate process, and communications between the extension process and the Visual Studio process occurs through a stream, all APIs have to at some
+level operate with serializable data types. Typically, extensions can ignore these implementation details;
 however, in some scenarios, an extension may need to interface directly with RPC services acquired from
 `this.Extensibility.ServiceBroker`. To facilitate interactions with RPC services, the object model exposes
-`RpcContract` properties on most core types, and the following serializable RPC types.
+`RpcContract` properties on most core types, and the following serializable RPC types:
 
-- VersionedTextDocumentRange - 1:1 serializable version of Span, accessible via `.RpcContract`. This type should be used in most RPC contracts between processes.
-- VersionedTextDocumentPosition - 1:1 serializable version of Position, accessible via `.RpcContract`. This type should be used in most RPC contracts between processes.
+- VersionedTextDocumentRange - 1:1 serializable version of `Span`, accessible via `RpcContract`. This type should be used in most RPC contracts between processes.
+- VersionedTextDocumentPosition - 1:1 serializable version of `Position`, accessible via `RpcContract`. This type should be used in most RPC contracts between processes.
 - Range - Serializable version of Span, omitting the Uri and version number.
-- Microsoft.VisualStudio.RpcContracts.Utilities.Position - Serializable version of Position, omitting the Uri and version number.
-- TextView - 1:1 serialized form of ITextView, accessible via `.RpcContract`.
-- TextDocument - 1:1 serialized form of ITextDocument via `.RpcContract`.
+- Microsoft.VisualStudio.RpcContracts.Utilities.Position - Serializable version of `Position`, omitting the Uri and version number.
+- TextView - 1:1 serialized form of `ITextView`, accessible via `RpcContract`.
+- TextDocument - 1:1 serialized form of `ITextDocument` via `RpcContract`.
 
-As opposed to VersionedTextDocumentRange and VersionedTextDocumentPosition, Range and Microsoft.VisualStudio.RpcContracts.Utilities.Position
-omit the Uri and document version, making for a smaller serializable representation. This type should be used in RPC contracts that contain
-lots of span/range equivalents that need to reduce their payload size for performance. These RPC contracts will need to pass the document
-Uri and version for the spans/range to be rehydrated into Spans and Positions by the IEditorHostService.
-IEditorHostService interfaces with extension-local copies of the text buffer, and manages opening and closing of
+As opposed to VersionedTextDocumentRange and VersionedTextDocumentPosition, Range and Microsoft.VisualStudio.RpcContracts.Utilities.Position omit the Uri and document version, making for a smaller serializable representation. This type should be used in RPC contracts that contain lots of span/range equivalents that need to reduce their payload size for performance. These RPC contracts will need to pass the document Uri and version for the spans or range to be instantiated into `Span` and `Position` objects by the `IEditorHostService`. `IEditorHostService` interfaces with extension-local copies of the text buffer, and manages opening and closing of
 documents described by the RPC types.
