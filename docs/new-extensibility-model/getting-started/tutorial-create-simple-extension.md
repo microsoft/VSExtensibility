@@ -33,7 +33,7 @@ The project template or the sample you created in the [Create your first extensi
 	   placement: CommandPlacement.ExtensionsMenu)]
    ```
 
-The first argument to the `Command` attribute is the `CommandId`, the second is `CommandDisplayName`, which is the menu text, and you specify any other parameters by name because they're optional. `Placement`, specifies where to host the command in the IDE. In this case, the command is placed on the Extensions menu, one of the top-level menus in Visual Studio. You can view the values of `CommandPlacement` in the reference docs, or use IntelliSense to see various choices for placement.
+The first argument to the `Command` attribute is the `CommandId`, the second is `CommandDisplayName`, which is the menu text, and you specify any other parameters by name because they're optional. `Placement`, specifies where the command should appear in the IDE. In this case, the command is placed on the Extensions menu, one of the top-level menus in Visual Studio. You can view the values of `CommandPlacement` in the reference docs, or use IntelliSense to see various choices for placement.
 
 1. Add the `CommandIcon` attribute.
 
