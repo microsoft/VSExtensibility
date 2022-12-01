@@ -18,14 +18,14 @@ as some properties of the text view, such as selections.
 - This object is immutable and will never change after it is created.
 - You can use `ITextViewSnapshot.GetTextDocumentAsync()` to get the content from the document. Note that calling this method is
   expensive and only should be done if you need the document content.
-- `ITextView` cannot be changed directly. All changes are requested via mutation. See Mutation Section below.
+- `ITextView` cannot be changed directly. All changes are requested via mutation. See [Make changes in a text document from an extension](editor.md#make-changes-in-a-text-document-from-an-extension).
 
 ## ITextDocument
 
 [ITextDocumentSnapshot](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md##T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocumentSnapshot) contains the content of the text document from a point in time or version.
 
 - This object is immutable and will never change after it is created.
-- `ITextDocument` cannot be changed directly. All changes are requested via mutation. See Mutation Section below.
+- `ITextDocument` cannot be changed directly. All changes are requested via mutation. See [Make changes in a text document from an extension](editor.md#make-changes-in-a-text-document-from-an-extension).
 
 If you are familiar with legacy Visual Studio extensions, `ITextDocument` is almost 1:1 with
 [ITextSnapshot](https://docs.microsoft.com/dotnet/api/microsoft.visualstudio.text.itextsnapshot?view=visualstudiosdk-2019) and supports most of the same methods for accessing the text.

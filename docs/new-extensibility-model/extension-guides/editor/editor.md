@@ -102,7 +102,7 @@ using Microsoft.VisualStudio.Extensibility.Editor;
 
 Document type definitions are merged with content type definitions provided by legacy Visual Studio extensibility, which allows you to map additional file extensions to existing document types.
 
-#### Document Selectors
+### Document Selectors
 
 In addition to [AppliesTo](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToAttribute) attribute, [AppliesToPattern](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToPattern) attribute allows you to further limit applicability of the extension by making it activate only when document's file path matches a glob (wildcard) pattern:
 
@@ -143,17 +143,15 @@ EditorExtensibility editorService = this.Extensibility.Editor();
 using ITextViewSnapshot textView = await this.Extensibility.Editor().GetActiveTextViewAsync(clientContext, cancellationToken);
 ```
 
-Once you have `ITextViewSnapshot`, you can access editor state. `ITextViewSnapshot` is an immutable view of editor state at a point in time, so you'll need to use the other interfaces in the Editor object model to make edits. 
+Once you have `ITextViewSnapshot`, you can access editor state. `ITextViewSnapshot` is an immutable view of editor state at a point in time, so you'll need to use the other interfaces in the [Editor object model](editor-object-model.md) to make edits.
 
-## Editing and asynchronous method calls
+## Make changes in a text document from an extension
 
 Edits, that is, changes to a text document open in the Visual Studio editor, may arise from user interactions, threads in Visual Studio such as language services and other extensions. Your extension must be prepared to deal with changes in the document text occurring in real time.
 
 Extensions running outside the main Visual Studio IDE process that use asynchronous design patterns to communicate with the Visual Studio IDE process. This means the use of asynchronous method calls, as indicated by the `async` keyword in C# and reinforced by the `Async` suffix on method names. Asynchronicity is a significant advantage in the context of an editor that is expected to be responsive to user actions. A traditional synchronous API call, if it takes longer than expected, will stop responding to user input, creating a UI freeze that lasts until the API call completes. User expectations of modern interactive applications are that text editors always remain responsive, and never block them from working. Having extensions be asynchronous is therefore essential to meet user expectations.
 
 Learn more about asynchronous programming at [Asynchronous programming with async and await](https://learn.microsoft.com/dotnet/csharp/programming-guide/concepts/async/).
-
-### Make changes in a text document from an extension
 
 In the new Visual Studio extensibility model, the extension is second class relative to the user: it cannot directly
 modify the editor or the text document. All state changes are asynchronous and cooperative, with Visual Studio IDE performing the requested change on the extension's behalf. The extension can request one or more changes on on a specific version of the document or text view, but changes from an extension may be rejected, such as if that area of the document has changed.
@@ -185,7 +183,7 @@ To avoid misplaced edits, edits from editor extensions are applied as follows:
 
 [ITextViewSnapshot.GetTextDocumentAsync()](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#gettextdocumentasync-method) opens a copy of the text document in the Visual Studio extension. Since extensions run in a separate process, all extension interactions are asynchronous, cooperative, and have some caveats:
 
-- GetTextDocumentAsync() may fail if called on a really old ITextDocument because it may no longer be cached by the
+- GetTextDocumentAsync() may fail if called on a really old `ITextDocument` because it may no longer be cached by the
   Visual Studio client, if the user has made many changes since it was created. For
   this reason, if you plan to store an ITextView to access its document later, and cannot tolerate failure, it may
   be a good idea to call GetTextDocumentAsync() immediately. Doing so fetches the text content for that version of
