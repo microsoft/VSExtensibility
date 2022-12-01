@@ -21,7 +21,7 @@ The Visual Studio editor generally refers to the functionality of editing text f
 
 Your extension code can be configured to run in response to various situations that a occur when a user interacts with Visual Studio. These are known as entry points. Editor extensibility currently supports three entry points: listeners, the [EditorExtensibility](#EditorExtensibility) service object, and commands.
 
-Listeners are events that get triggered when certain actions occur in the an editor window, known as a `TextView`. For example, when a user types something into the editor, a `TextViewChanged` event occurs. When an editor window is opened or closed, `TextViewCreated` and `TextViewClosed` events occur. Listeners are objects that can be used to set up handlers for those events that your extension can use to perform your custom actions.
+Event listeners get triggered when certain actions occur in an editor window, represented in code by a `TextView`. For example, when a user types something into the editor, a `TextViewChanged` event occurs. When an editor window is opened or closed, `TextViewCreated` and `TextViewClosed` events occur.
 
 In addition to these entry points, editor extensions can expose functionality via [Commands](commands.md), which you can place on menus, context menus, or toolbars.
 
