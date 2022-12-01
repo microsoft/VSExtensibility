@@ -23,7 +23,9 @@ Your extension code can be configured to run in response to various situations t
 
 Listeners are events that get triggered when certain actions occur in the an editor window, known as a `TextView`. For example, when a user types something into the editor, a `TextViewChanged` event occurs. When an editor window is opened or closed, `TextViewCreated` and `TextViewClosed` events occur. Listeners are objects that can be used to set up handlers for those events that your extension can use to perform your custom actions.
 
-In addition to these entry points, editor extensions can expose functionality via [Commands](commands.md), which you can place on menus, context menus, or toolbars.
+The editor service object is an instance of the `EditorExtensibility` class, which exposes real-time editor functionality, such as performing text edits.
+
+[Commands](commands.md) are initiated by the user by clicking on an item which you can place on a menu, context menu, or toolbar.
 
 ### Adding a Listener
 
@@ -125,10 +127,7 @@ Note that a backslash (`\`) is not valid within a glob pattern. Make sure to con
 
 ## Access editor functionality
 
-You can access editor functionality within event handlers and in commands that your extension may define. See [Commands](commands.md).
-
-Your editor extension classes inherit from `ExtensionPart`. The `ExtensionPart` class exposes the [Extensibility](./../../api/Microsoft.VisualStudio.Extensibility.Framework.md#P-Microsoft-VisualStudio-Extensibility-ExtensionPart-Extensibility) property. Using this property, you can request an instance of the `EditorExtensibility` object, which exposes real-time editor functionality, such as
-performing text edits.
+Your editor extension classes inherit from `ExtensionPart`. The `ExtensionPart` class exposes the [Extensibility](./../../api/Microsoft.VisualStudio.Extensibility.Framework.md#P-Microsoft-VisualStudio-Extensibility-ExtensionPart-Extensibility) property. Using this property, you can request an instance of the `EditorExtensibility` object. You can use this object to access real-time editor functionality, such as performing edits.
 
 ```csharp
 EditorExtensibility editorService = this.Extensibility.Editor();
@@ -193,11 +192,13 @@ Represents a contiguous substring of characters within an ITextDocument. As oppo
 If you are familiar with legacy Visual Studio extensions, Position is almost the same as
 [SnapshotSpan](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.text.snapshotSpan?view=visualstudiosdk-2019) and supports most of the same methods.
 
-## Editing and asynchronicity
+## Editing and asynchronous method calls
 
-Edits, that is, changes to a text document open in the Visual Studio editor, may arise from user interactions, threads in Visual Studio such as language services and other in-process extensions, or extensions running out-of-process such as those designed with the Editor object model discussed here.
+Edits, that is, changes to a text document open in the Visual Studio editor, may arise from user interactions, threads in Visual Studio such as language services and other extensions. Your extension must be prepared to deal with changes in the document text occurring in real time.
 
-Asynchronicity refers to extensions running outside the main Visual Studio IDE process that use asynchronous design patterns to communicate with the Visual Studio IDE process. This means the use of asynchronous method calls, as indicated by the `async` keyword in C# and reinforced by the `Async` suffix on method names. Asynchronicity is a significant advantage in the context of an editor that is expected to be responsive to user actions. A traditional synchronous API call, if it takes longer than expected, will stop responding to user input, creating a UI freeze that lasts until the API call completes. User expectations of modern interactive applications are that text editors always remain responsive, and never block them from working. Having extensions be asynchronous is therefore essential to meet user expectations.
+Extensions running outside the main Visual Studio IDE process that use asynchronous design patterns to communicate with the Visual Studio IDE process. This means the use of asynchronous method calls, as indicated by the `async` keyword in C# and reinforced by the `Async` suffix on method names. Asynchronicity is a significant advantage in the context of an editor that is expected to be responsive to user actions. A traditional synchronous API call, if it takes longer than expected, will stop responding to user input, creating a UI freeze that lasts until the API call completes. User expectations of modern interactive applications are that text editors always remain responsive, and never block them from working. Having extensions be asynchronous is therefore essential to meet user expectations.
+
+Learn more about asynchronous programming at [Asynchronous programming with async and await](https://learn.microsoft.com/dotnet/csharp/programming-guide/concepts/async/).
 
 ### Make changes in a text document from an extension
 
@@ -227,7 +228,7 @@ To avoid misplaced edits, edits from editor extensions are applied as follows:
   the extension to retry on newer version. Outcome of mutation operation is stored in `result`.
 1. Edits are applied atomically, meaning without interruption from other executing threads. The best practice is to do all changes that should occur within a narrow time frame into a single `EditAsync()` call, to reduce the likelihood of unexpected behavior arising from user edits, or language service actions that occur between edits (for example, extension edits getting interleaved with Roslyn C# moving the caret).
 
-### Asynchronicity
+### Asynchronous execution
 
 [ITextViewSnapshot.GetTextDocumentAsync()](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#gettextdocumentasync-method) opens a copy of the text document in the Visual Studio extension. Since extensions run in a separate process, all extension interactions are asynchronous, cooperative, and have some caveats:
 
@@ -250,17 +251,17 @@ For more information, see [StreamJsonRpc Default Ordering and Concurrency](https
 ### RPC Support
 
 Since the new Visual Studio extensibility model is entirely in a separate process, and communications between the extension process and the Visual Studio process occurs through a stream, all APIs have to at some
-level operate with serializable data types. Typically, extensions can ignore these implementation details;
-however, in some scenarios, an extension may need to interface directly with RPC services acquired from
+level operate with serializable data types. Typically, extensions can ignore these implementation details.
+In some scenarios, an extension may need to interface directly with RPC services acquired from
 `this.Extensibility.ServiceBroker`. To facilitate interactions with RPC services, the object model exposes
 `RpcContract` properties on most core types, and the following serializable RPC types:
 
-- VersionedTextDocumentRange - 1:1 serializable version of `Span`, accessible via `RpcContract`. This type should be used in most RPC contracts between processes.
-- VersionedTextDocumentPosition - 1:1 serializable version of `Position`, accessible via `RpcContract`. This type should be used in most RPC contracts between processes.
+- VersionedTextDocumentRange - 1:1 serializable version of `Span`, which you can access through the `RpcContract` property. This type should be used in most RPC contracts between processes.
+- VersionedTextDocumentPosition - 1:1 serializable version of `Position`, which you can access through the `RpcContract` property. This type should be used in most RPC contracts between processes.
 - Range - Serializable version of Span, omitting the Uri and version number.
 - Microsoft.VisualStudio.RpcContracts.Utilities.Position - Serializable version of `Position`, omitting the Uri and version number.
-- TextView - 1:1 serialized form of `ITextView`, accessible via `RpcContract`.
-- TextDocument - 1:1 serialized form of `ITextDocument` via `RpcContract`.
+- TextView - 1:1 serialized form of `ITextView`, which you can access through the `RpcContract` property.
+- TextDocument - 1:1 serialized form of `ITextDocument` through the `RpcContract` property.
 
 As opposed to VersionedTextDocumentRange and VersionedTextDocumentPosition, Range and Microsoft.VisualStudio.RpcContracts.Utilities.Position omit the Uri and document version, making for a smaller serializable representation. This type should be used in RPC contracts that contain lots of span/range equivalents that need to reduce their payload size for performance. These RPC contracts will need to pass the document Uri and version for the spans or range to be instantiated into `Span` and `Position` objects by the `IEditorHostService`. `IEditorHostService` interfaces with extension-local copies of the text buffer, and manages opening and closing of
 documents described by the RPC types.
