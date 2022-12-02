@@ -1,7 +1,7 @@
 ---
 title: Create a simple extension
 description: A tutorial for creating a simple extension
-date: 2022-10-27
+date: 2022-12-01
 ---
 # Create a simple extension
 
