@@ -41,7 +41,7 @@ The first argument to the `Command` attribute is the `CommandId`, the second is 
    [CommandIcon("OfficeWebExtension", IconSettings.IconAndText)]
    ```
 
-The second attribute is the `CommandIcon` attribute. Here, we specify `OfficeWebExtension`. You can specify a known built-in icon, or upload images for the icon as described in [Commands overview](../extension-guides/command/command.md).  The second argument is an enumeration that determines what is actually displayed in the IDE. The option `IconSettings.IconAndText` means show the icon and the `DisplayName` next to each other.
+The second attribute is the `CommandIcon` attribute. Here, we specify `OfficeWebExtension`. You can specify a known built-in icon, or upload images for the icon as described in [Commands overview](../extension-guides/command/command.md).  The second argument is an enumeration that determines how the command should appear in toolbars (in addition to its place in a menu). The option `IconSettings.IconAndText` means show the icon and the `DisplayName` next to each other.
 
 1. Add the `CommandVisibleWhen` attribute. This attribute specifies the conditions that must apply for the item to appear to the user.
 
