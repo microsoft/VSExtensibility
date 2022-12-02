@@ -53,7 +53,7 @@ The second attribute is the `CommandIcon` attribute. Here, we specify `OfficeWeb
 
 ## Create the execution method
 
-In this step, you'll implement the Command's `ExecuteCommandAsync` method, which defines what happens when the user chooses the menu item, or presses the command bar button that you designed to host your command.
+In this step, you'll implement the Command's `ExecuteCommandAsync` method, which defines what happens when the user chooses the menu item, or presses the item in the toolbar for your command.
 
 Copy the following code to implement the method.
 
