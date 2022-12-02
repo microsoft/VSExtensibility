@@ -33,7 +33,7 @@ The project template or the sample you created in the [Create your first extensi
 	   placement: CommandPlacement.ExtensionsMenu)]
    ```
 
-The first argument to the `Command` attribute is the `CommandId`, the second is `CommandDisplayName`, which is the menu text, and you specify any other parameters by name because they're optional. `Placement`, specifies where to host the command in the IDE. In this case, the command is placed on the Extensions menu, one of the top-level menus in Visual Studio. You can view the values of `CommandPlacement` in the reference docs, or use IntelliSense to see various choices for placement.
+The first argument to the `Command` attribute is the `CommandId`, the second is `CommandDisplayName`, which is the menu text, and you specify any other parameters by name because they're optional. `Placement`, specifies where the command should appear in the IDE. In this case, the command is placed in the Extensions menu, one of the top-level menus in Visual Studio. You can view the values of `CommandPlacement` in the reference docs, or use IntelliSense to see various choices for placement.
 
 1. Add the `CommandIcon` attribute.
 
@@ -48,6 +48,8 @@ The second attribute is the `CommandIcon` attribute. Here, we specify `OfficeWeb
    ```csharp
    [CommandVisibleWhen("AnyFile", new string[] { "AnyFile" }, new string[] { "ClientContext:Shell.ActiveEditorContentType=.+" })]
    ```
+
+   [Using rule based activation constraints](./../inside-the-sdk/activation-constraints.md/#rule-based-activation-constraints)
 
 ## Create the execution method
 
@@ -84,7 +86,7 @@ Then, we create an `ITextViewSnapshot` (the `textView` object here) by calling t
 
 Next, we request the document, an instance of `ITextDocumentSnapshot` (here `document`). 
 
-Now we're ready to call the asynchronous method that submits a edit request to Visual Studio's editor. The method we want is `EditAsync`. That's a member of the `EditorExtensibility` class, which allows interaction with the running Visual Studio Editor in the IDE. From that object, we can call `EditAsync`. The `Command` type, which your own `InsertGuidCommand` class inherits from, has a member `Extensibility` that provides access to the `EditorExtensibility` object, so we can get to the `EditorExtensibility` class with a call to `this.Extensibility.Editor()`.
+Now we're ready to call the asynchronous method that submits an edit request to Visual Studio's editor. The method we want is `EditAsync`. That's a member of the `EditorExtensibility` class, which allows interaction with the running Visual Studio Editor in the IDE. The `Command` type, which your own `InsertGuidCommand` class inherits from, has a member `Extensibility` that provides access to the `EditorExtensibility` object, so we can get to the `EditorExtensibility` class with a call to `this.Extensibility.Editor()`.
 
 The `EditAsync` method takes an `Action<IEditBatch>` as a parameter. This is called `editorSource`, 
 
@@ -105,4 +107,4 @@ You could think of this call as specifying the code that you want to be run in t
 
 Using the `AsEditable` method on the document, you get a temporary editor object that you can use to specify the desired changes. Think of everything in the lambda expression as a request for Visual Studio to execute rather than as actually executing, because as described in the [Editor overview](../editor/editor.md), there's a particular protocol for handling these asynchronous edit requests from extensions, and there's a possibility of the changes not being accepted, such as if the user is making changes at the same time that create a conflict.
 
-In practice you can use the same `EditAsync` design pattern, in which most of the code always looks the same, except for the part after the comment "specify your desired changes here".
+The `EditAsync` pattern can be used to modify text in general by specifying your modifications after the "specify your desired changes here" comment.
