@@ -3,7 +3,7 @@ title: #Required; page title displayed in search results. Include the brand.
 description: #Required; article description that is displayed in search results.
 author: #Required; your GitHub user alias, with correct capitalization.
 ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. service slug assigned to your service by ACOM.
+ms.technology: vs-ide-sdk
 ms.topic: overview #Required
 ms.date: #Required; mm/dd/yyyy format.
 ---
@@ -18,8 +18,7 @@ You can provide feedback about this template at: mailto:ghogen@microsoft.com
 
  1. H1 -----------------------------------------------------------------------------
 
-Required: For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
-You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
+Required: For the H1 - that's the primary heading at the top of the article. Use the word "overview" for consistency after the feature or service.
 -->
 
 <!---
@@ -31,7 +30,7 @@ TODO: Add your heading
 <!-- 2. Introductory paragraph ----------------------------------------------------------
 
 Required: The introductory paragraph helps customers quickly determine whether an article is relevant.
-Describe in customer-friendly terms what the service is and does, and why the customer should care. Keep it short for the intro.
+Describe in customer-friendly terms what the  or feature is and does, and why the customer should care. Keep it short for the intro.
 You can go into more detail later in the article. Many services add artwork or videos below the introduction.
 -->
 
@@ -52,7 +51,7 @@ TODO: Add your article body
 <!-- Top tasks ------------------------------------------------------------------------------
 
 Suggested:
-An effective way to structure you overview article is to create an H2 for the top customer tasks you identified during the [planning process](../contribute/content-dev-plan.md) and describe how the product/service helps customers with that task.
+An effective way to structure you overview article is to create an H2 for the top customer tasks you identified during the planning process and describe how the product/service helps customers with that task.
 
 Create a new H2 for each task you list. Task 
 headings should start with an imperative verb, not a gerund (-ing form), e.g. "Configure a command" not "Configuring a command".
