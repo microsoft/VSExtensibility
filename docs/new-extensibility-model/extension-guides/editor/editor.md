@@ -1,10 +1,10 @@
 ---
-title: Editor reference
-description: A reference for editor-based extensions
+title: Editor overview
+description: An overview of the editor-based extensions for the Visual Studio IDE
 date: 2021-8-20
 ---
 
-# Editor Extensions
+# Editor extensions overview
 
 The Visual Studio editor supports extensions that add to its capabilities. Examples include extensions that insert and modify code in an existing language.
 
@@ -17,7 +17,9 @@ For the initial release of the new Visual Studio extensibility model, only the f
 
 The Visual Studio editor generally refers to the functionality of editing text files, known as documents, of any type. Individual files may be opened for editing, and the open editor window is referred to as a `TextView`.
 
-## Editor Extensibility entry points
+The editor object model is described at [Editor concepts](editor-concepts.md).
+
+## Get started
 
 Your extension code can be configured to run in response to various situations that a occur when a user interacts with Visual Studio. These are known as entry points. Editor extensibility currently supports three entry points: listeners, the [EditorExtensibility](#EditorExtensibility) service object, and commands.
 
@@ -27,9 +29,7 @@ The editor service object is an instance of the `EditorExtensibility` class, whi
 
 [Commands](commands.md) are initiated by the user by clicking on an item which you can place on a menu, context menu, or toolbar.
 
-The editor object model is described at [Editor object model](editor-object-model.md).
-
-### Adding a Listener
+### Add a listener
 
 There are two types of listeners, [ITextViewChangedListener](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewChangedListener), and [ITextViewLifetimeListener](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewLifetimeListener).
 Together, these listeners can be used to observe the open, close, and modification of text editors.
@@ -102,7 +102,7 @@ using Microsoft.VisualStudio.Extensibility.Editor;
 
 Document type definitions are merged with content type definitions provided by legacy Visual Studio extensibility, which allows you to map additional file extensions to existing document types.
 
-### Document Selectors
+### Document selectors
 
 In addition to [AppliesTo](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToAttribute) attribute, [AppliesToPattern](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToPattern) attribute allows you to further limit applicability of the extension by making it activate only when document's file path matches a glob (wildcard) pattern:
 
@@ -110,6 +110,7 @@ In addition to [AppliesTo](./../../api/Microsoft.VisualStudio.Extensibility.Edit
 [AppliesTo(ContentType = "CSharp")]
 [AppliesToPattern(Pattern = "**/tests/*.cs")]
 ```
+
 ```csharp
 [AppliesTo(ContentType = "markdown")]
 [AppliesToPattern(Pattern="docs/*.md", RelativePath=true)]
@@ -118,12 +119,13 @@ In addition to [AppliesTo](./../../api/Microsoft.VisualStudio.Extensibility.Edit
 The `Pattern` property represents a glob pattern that is matched on the absolute path of the document.
 
 Glob patterns can have the following syntax:
-* `*` to match zero or more characters in a path segment
-* `?` to match on one character in a path segment
-* `**` to match any number of path segments, including none
-* `{}` to group conditions (e.g. `**​/*.{ts,js}` matches all TypeScript and JavaScript files)
-* `[]` to declare a range of characters to match in a path segment (e.g., `example.[0-9]` to match on `example.0`, `example.1`, …)
-* `[!...]` to negate a range of characters to match in a path segment (e.g., `example.[!0-9]` to match on `example.a`, `example.b`, but not `example.0`)
+
+- `*` to match zero or more characters in a path segment
+- `?` to match on one character in a path segment
+- `**` to match any number of path segments, including none
+- `{}` to group conditions (e.g. `**​/*.{ts,js}` matches all TypeScript and JavaScript files)
+- `[]` to declare a range of characters to match in a path segment (e.g., `example.[0-9]` to match on `example.0`, `example.1`, …)
+- `[!...]` to negate a range of characters to match in a path segment (e.g., `example.[!0-9]` to match on `example.a`, `example.b`, but not `example.0`)
 
 Note that a backslash (`\`) is not valid within a glob pattern. Make sure to convert any backslash to slash when creating the glob pattern.
 
@@ -190,7 +192,7 @@ To avoid misplaced edits, edits from editor extensions are applied as follows:
   the document into your extension, ensuring that a copy of that version is sent to your extension before it expires.
 - GetTextDocumentAsync() or MutateAsync() may fail if the user closes the document.
 
-#### Concurrent Execution
+#### Concurrent execution
 
 :warning: | Editor extensions can sometimes run concurrently
 :---: | :---
@@ -216,3 +218,7 @@ In some scenarios, an extension may need to interface directly with RPC services
 
 As opposed to VersionedTextDocumentRange and VersionedTextDocumentPosition, Range and Microsoft.VisualStudio.RpcContracts.Utilities.Position omit the Uri and document version, making for a smaller serializable representation. This type should be used in RPC contracts that contain lots of span/range equivalents that need to reduce their payload size for performance. These RPC contracts will need to pass the document Uri and version for the spans or range to be instantiated into `Span` and `Position` objects by the `IEditorHostService`. `IEditorHostService` interfaces with extension-local copies of the text buffer, and manages opening and closing of
 documents described by the RPC types.
+
+## Next steps
+
+Learn about the editor interfaces and types at [Editor concepts](editor-concepts.md).
