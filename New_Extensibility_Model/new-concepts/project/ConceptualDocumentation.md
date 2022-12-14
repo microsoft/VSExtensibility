@@ -3,6 +3,9 @@ Conceptual documentation about what the project system is, usages, and its vario
 
 ## What is a project system?
 A project system sits between a project file on disk (for example, .csproj and .vbproj) and various Visual Studio features including, but not limited to, Solution Explorer, designers, the debugger, language services, build and deployment. Almost all interaction that occurs with files contained in a project file, happens through the project system.
+
+Project systems are a part of VS components to help users work with and maintain projects, run builds to produce results, and to test output.
+
 There are three reasons to extend a project system in Visual Studio:
 1. Support a new project file format.
 1. Integrate existing file format with a new language service.
