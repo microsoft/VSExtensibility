@@ -32,7 +32,15 @@ fundamental “why would I want to know this?” question. Keep it short.
 
 [add your introductory paragraph]
 
-<!-- 3. H2s
+<!-- 3. In-topic TOC -->
+
+## In this article
+
+- [Section 1 heading](#section-1-heading)
+- [Section 2 heading](#section-2-heading)
+- etc.
+
+<!-- 4. H2s
 Required. Give each H2 a heading that sets expectations for the content that follows. 
 Follow the H2 headings with a sentence about how the section contributes to the whole.
 -->
@@ -46,7 +54,7 @@ Follow the H2 headings with a sentence about how the section contributes to the 
 ## [Section n heading]
 <!-- add your content here -->
 
-<!-- 4. Next steps
+<!-- 5. Next steps
 Required. Provide at least one next step and no more than three. Include some 
 context so the customer can determine why they would click the link.
 -->

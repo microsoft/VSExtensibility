@@ -39,7 +39,16 @@ TODO: Add your introductory paragraph
 
 <!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
 
-<!-- 3. Article body ------------------------------------------------------------
+<!-- 3. In-topic TOC -->
+
+## In this article
+
+- [Section 1 heading](#section-1-heading)
+- [Section 2 heading](#section-2-heading)
+- etc.
+
+
+<!-- 4. Article body ------------------------------------------------------------
 Required: After the intro, you can develop your overview by discussing the features that answer the "Why should I care" question with a bit more depth.
 Be sure to call out any basic requirements and dependencies, as well as limitations or overhead.
 Don't catalog every feature, and some may only need to be mentioned as available, without any discussion.
@@ -48,7 +57,7 @@ Don't catalog every feature, and some may only need to be mentioned as available
 [Article body]
 TODO: Add your article body
 
-<!-- Top tasks ------------------------------------------------------------------------------
+<!-- 5. Top tasks ------------------------------------------------------------------------------
 
 Suggested:
 An effective way to structure you overview article is to create an H2 for the top customer tasks you identified during the planning process and describe how the product/service helps customers with that task.
@@ -61,7 +70,7 @@ Use H3s for subareas within each task to break up.
 
 ## Task heading
 
-<!-- 5. Next steps ------------------------------------------------------------------------
+<!-- 6. Next steps ------------------------------------------------------------------------
 
 Required: In Overview articles, provide at least one next step.
 Next steps in overview articles will often link to a tutorial or a conceptual article.
