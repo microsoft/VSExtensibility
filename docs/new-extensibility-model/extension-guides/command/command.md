@@ -1,33 +1,33 @@
 ---
 title: Commands reference
-description: A reference for extensibility commands
+description: An overview of extensibility commands
 date: 2022-7-20
+author: ghogen
+ms.author: ghogen
+ms.technology: vs-ide-sdk
+ms.topic: overview
+ms.date: 12/16/2022
+ms.custom: template-overview
 ---
 
-# Commands Overview
+# Commands overview
 
 A command represented by the `Command` class is some action that can be initiated by a user, such as when the user chooses a menu item, presses a toolbar button, or types a keyboard shortcut. Commands have an ID and a display name, an execution method (`ExecuteCommandAsync`) that performs the action, an icon for display in the toolbar to identify the command, and a tooltip to explain the command to the user. Commands can be enabled or disabled depending on various conditions.
 
 Commands in the new Extensibility Model run asynchronously so the user can continue to interact with the IDE while commands are executing.
 
-## Get started
-
-To get started, follow the [create the project](../getting-started/create-your-first-extension.md) section in Getting Started section.
-
-Next, see the [InsertGuidSample](./../../../../New_Extensibility_Model/Samples/InsertGuidExtension) sample for a more complete look at creating an extension with a command.
-
 ## Work with commands
 
-This guide is designed to cover the top user scenarios when working with Commands:
+This overview covers these top scenarios for working with commands:
 
-- [Creating a Command](#creating-a-command)
-- [Placing a Command in the IDE](#placing-a-command-in-the-ide)
-- [Adding an Icon to a Command](#adding-an-icon-to-a-command)
-- [Controlling the Visibility of a Command](#controlling-the-visibility-of-a-command)
-- [Controlling the Enabled/Disabled state of a Command](#controlling-the-enableddisabled-state-of-a-command)
-- [Setting additional Command Metadata Using Flags](#setting-additional-command-metadata-using-flags)
-- [Localizing a Command](#localizing-a-command)
-- [Changing the Display Name of a Command](#changing-the-display-name-of-a-command)
+- [Create a command](#create-a-command)
+- [Place a command in the IDE](#place-a-command-in-the-ide)
+- [Add an icon to a Command](#add-an-icon-to-a-command)
+- [Configure a command](#configure-a-command)
+- [Localizing a Command](#localize-a-command)
+- [Change the display name of a command](#change-the-display-name-of-a-command)
+
+This overview shows the use of attributes to configure commands; you can also use a JSON configuration file `extension.json` to configure commands. This method is not show here, but is demonstrated in sample code.
 
 ## Create a command
 
@@ -122,7 +122,11 @@ You can add custom images, which you can then reference with custom monikers by 
 [CommandIcon("MyImage", IconSettings.IconAndText)]
 ```
 
-## Control the enabled/disabled state and the visibility of a command
+## Configure a command
+
+You can configure visibility and the enabled/disabled state of a command, and set additional metadata using flags.
+
+### Visibility
 
 The visibility of a command can be controlled by adding the attribute [`Microsoft.VisualStudio.Extensibility.Commands.CommandVisibleWhenAttribute`](./../../api/Microsoft.VisualStudio.Extensibility.md/#commandvisiblewhenattribute-type) to your command class.
 
@@ -142,6 +146,8 @@ If this attribute is omitted from your command, the default is for the command t
 	termValues: new string[] { "ClientContext:Shell.ActiveEditorContentType=.+" })]
 ```
 
+### Enabled/disabled state
+
 The enabled/disabled state of a command can be controlled by adding the attribute [Microsoft.VisualStudio.Extensibility.Commands.CommandEnabledWhenAttribute](./../../api/Microsoft.VisualStudio.Extensibility.md/#commandenabledwhenattribute-type) to your command class. The attribute works by accepting a rule-based activation constraint, as described in the previous section, so it involves specifying an expression in one parameter, terms in another parameter, and values for those terms in a third parameter. The command would be enabled when the expression evaluates to true, and disabled when it is false.
 
 If this attribute is omitted from your command, the default is for the command to always be enabled. You can also automatically have your command be disabled if it is currently executing by setting `this.DisableDuringExecution = true;` in the constructor of your command class. Setting this property will override the enabled/disabled state defined by the `Microsoft.VisualStudio.Extensibility.Commands.CommandEnabledWhenAttribute` while the command is being executed.
@@ -159,14 +165,14 @@ If this attribute is omitted from your command, the default is for the command t
 
 For more information on valid term values, see [Using rule based activation constraints](./../../inside-the-sdk/activation-constraints.md/#rule-based-activation-constraints).
 
-## Setting additional command metadata using flags
+### Command flags
 
 Command flags help define additional properties on your commands that are used at runtime to define special behaviors that your command can have. The flags that are currently supported are:
 
-- `CanToggle` - Indicates that the `IsChecked` property of the command can change so that screen readers can announce the command properly. Functionally, it ensures that the automation property `IsTogglePatternAvailable` return true for the UI element.
-- `CanSelect` - Indicates that the `IsChecked` property of the command can change so that screen readers can announce the command properly. Functionally, it ensures that the automation property `IsSelectionPatternAvailable` return true for the UI element.
+- `CanToggle` - Indicates that the `IsChecked` property of the command can change so that screen readers can announce the command properly. Functionally, it ensures that the automation property `IsTogglePatternAvailable` returns true for the UI element.
+- `CanSelect` - Indicates that the `IsChecked` property of the command can change so that screen readers can announce the command properly. Functionally, it ensures that the automation property `IsSelectionPatternAvailable` returns true for the UI element.
 
-## Localizing a command
+## Localize a command
 
 The text displayed on a command can be localized by including *string-resources.json* files with your extension and surrounding the `DisplayName` parameter with `%` characters in your [Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute](./../../api/Microsoft.VisualStudio.Extensibility.md/#commandattribute-type).
 
@@ -216,3 +222,10 @@ public class MyCommand : Command
     }
 }
 ```
+
+## Next steps
+
+- Follow the [create the project](../getting-started/create-your-first-extension.md) section in Getting Started section.
+- Next, see the [InsertGuidSample](./../../../../New_Extensibility_Model/Samples/InsertGuidExtension) sample for a more complete look at creating an extension with a command.
+- See an example of using an `extensions.json` file to parent a command at [Command-Parenting-Sample](./../../../../New_Extensibility_Model/Samples/Command-Parenting-Sample/README.md).
+- See an example of registering a command at [CommandRegistrationsSample](./../../../../New_Extensibility_Model/Samples/CommandRegistrationsSample/README.md).
