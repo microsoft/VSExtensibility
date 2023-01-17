@@ -59,7 +59,7 @@ internal class RunLinterOnSolutionCommand : Command
 		try
 		{
 			var markdownFiles = await this.Extensibility.Workspaces().QueryProjectsAsync(
-				query => query.Get(project => project.SourceFiles).With(file => file.Path).Where(file => file.Extension == ".md"),
+				query => query.Get(project => project.Files).With(file => file.Path).Where(file => file.Extension == ".md"),
 				cancellationToken);
 
 			List<Uri> filesToProcess = new List<Uri>(markdownFiles.Select(f => new Uri(f.Path)));
