@@ -1,14 +1,3 @@
----
-title: Tutorial: Working with the Project Query API
-description: An overview of top scenarios for working with the Project Query API
-date: 2023-01-13
-author: hwelliver
-ms.author: hwelliver
-ms.technology: vs-ide-sdk
-ms.topic: tutorial
-ms.date: 01/13/2023
-ms.custom: template-overview
----
 # Working with the Project Query API
 
 ## Common User Scenarios
