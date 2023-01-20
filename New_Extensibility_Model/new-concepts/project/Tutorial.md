@@ -11,12 +11,12 @@ This overview covers top scenarios for working with the Project Query API:
 - [Using the Get method](#the-get-method)
 - [Using the IAsyncEnumerable method](#the-iasyncenumerable-method)
 - [Querying information from a previous item](#querying-from-previous)
-- [Extensions make changes through the query API](#extensions-make-changes)
+- [Extensions making changes through the query API](#extensions-making-changes)
 - [Getting information from the Solution File](#get-info-from-solution-file)
 - [Getting projects and project properties](#get-projects-properties)
-- [Getting solution filters](#get-solution-filters)
-- [Enumerating source files with additional information in a project/solution folder](#source-files-additional-information)
-- [Finding all projects owning a specific source file](#find-all-projects)
+- [Getting solution folders](#get-solution-folders)
+- [Enumerating files with additional information in a project/solution folder](#files-additional-information)
+- [Finding all projects owning a specific file](#find-all-projects)
 - [Accessing project configurations and their properties](#access-project-configurations)
 - [Enumerating project to project references](#project-to-project-references)
 - [Enumerating package references of projects](#package-references)
@@ -39,10 +39,10 @@ var workSpace = queryService.QueryableSpace;
 ## Selecting specific properties from Extensions
 
 Extensions can retrieve necessary information from projects by selecting specific properties needed.
-Here is a sample to enumerate all projects, so the caller can divide them into various catalogs:
+Here is an example enumerating all projects, so the caller can divide them into various catalogs:
 
 ```csharp
-var allProjects =               // IQueryResult<IProjectSnapshot> : IEnumerable<IProjectSnapshot>
+IQueryResult<IProjectSnapshot> allProjects =
     await workSpace.Projects
         .With(p => p.Path)
         .With(p => p.Guid)
@@ -112,7 +112,7 @@ var webProjects =
 ## Using an Extension to recursively access a collection of children in one query
 
 Extensions can access a collection of children recursively in one query.
-Here is an example getting project information along with source files and properties:
+Here is an example getting project information along with files and properties:
 
 ```csharp
 var projects =
@@ -165,7 +165,7 @@ var fileResults =     // IAsyncEnumerable<IQueryResultItem<IFileSnapshot>>
     workSpace.ProjectsByGuid(knownGuid)
         .Get(p => p.Files
             .With(f => new { f.Path, f.IsHidden, f.IsSearchable }))
-        .StartQueryAsync(cancellationToken);
+        .QueryAsync(cancellationToken);
 await foreach (var fileResult in fileResults)
 {
     IFileSnapshot file = fileResult.Value;
@@ -220,7 +220,7 @@ var projectsWithOutputGroupData =       // IQueryResult<IProjectSnapshot>
         .ExecuteQueryAsync();
 ```
 
-## Extensions make changes through the query API
+## Extensions making changes through the query API
 
 Here is an example of extensions making changes through the query API:
 
@@ -270,7 +270,7 @@ var properties = await myProject.AsQueryable()      // IQueryResult<IPropertySna
 string rootNamespace = (string)properties.Single(prop => prop.Name == "RootNamespace").Value;
 ```
 
-## Getting solution filters
+## Getting solution folders
 
 Here is an example of getting all solution folders, regardless of whether they are nested or not:
 
@@ -311,7 +311,7 @@ var recursivelyNestedFolders = // IQueryResult<ISolutionFolderSnapshot>
         .ExecuteQueryAsync(cancellationToken);
 ```
 
-## Enumerating source files with additional information in a project/solution folder
+## Enumerating files with additional information in a project/solution folder
 
 Here is an example enumerating all .xaml files in a project and its code generator:
 
@@ -329,7 +329,7 @@ Another example is to start with a project returned from previous query:
 
 ```csharp
 var files =
-    await myProject.FilesEndingWith(".xaml")     // use built-in filter instead of 'Where' condition
+    await myProject.FilesEndingWith(".xaml")
         .With(file => file.Path)
         .With(file.PropertiesByName("Generator"))
         .ExecuteQueryAsync(cancellationToken);
@@ -358,7 +358,7 @@ await foreach (var fileResult in schemaFiles)
 }
 ```
 
-## Finding all projects owning a specific source file
+## Finding all projects owning a specific file
 
 Example:
 
