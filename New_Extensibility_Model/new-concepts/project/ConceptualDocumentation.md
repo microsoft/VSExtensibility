@@ -41,10 +41,10 @@ Find further information on project systems [here](https://github.com/microsoft/
 |---|---
 |With| Requests value of a property/collection to be returned from the query.
 |WithRequired| Requests value of a property/collection must be returned from the query.
-|Where| Requests value of a property/collection to be returned from the query. 
+|Where| Requests the query result to be filtered based on a predicate.
 |Get| Gets child items instead in the query result.
 |ExecuteQueryAsync| Executes a query and retrieves the result. 
-|StartQueryAsync| Executes a query and retrieves the result as IAsyncEnumerable.
+|QueryAsync| Executes a query and retrieves the result as IAsyncEnumerable.
 |AsQueryable| Starts a query from a previous retrieved object.
 |QueryFrom| Starts a query from a collection of previous retrieved objects.
 |AsUpdatable| Starts to update object from a query result.
