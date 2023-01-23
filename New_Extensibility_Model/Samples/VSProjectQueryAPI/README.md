@@ -1,23 +1,26 @@
 ---
 title: VS Project Query API Extension reference
 description: A reference for VS Project Query API Extension reference
-date: 2022-12-27
+date: 2022-1-20
 ---
 
 # Walkthrough: VS Project Query API Extension
 
-This extension demonstrates the most basic usage of the VS Project Query API. For further assistance in creating queries use [VS Project Query API Browser](<https://marketplace.visualstudio.com/items?itemName=vsext.VSProjectQueryAPIBrowser&ssr=false#overview>) found in Visual Studio Extension Marketplace.
+This extension demonstrates the most basic usage of the VS Project Query API into commands that query information and updates the project system.
 
 ## Overview
 
-The Project System Query API allows users to retrieve and update information in the Project System such as source files, build configurations, dependencies and much more.
+The Project System Query API allows users to retrieve and update information in the Project System such as files, build configurations, dependencies, and much more.
 
 ## Setting Up IProjectModelQueryableSpace
 
-The code snippet below as seen below sets up the Project Query Service:
+Add `Microsoft.VisualStudio.ProjectSystem.Query` NuGet Package to the solution's `references` to get access to the API.
+
+The code snippet below as seen below sets up the Project Query Service for the project:
 
 ```csharp
-IProjectModelQueryableSpace querySpace = new ProjectQueryableSpace(this.serviceBroker);
+var queryService = await this.package.GetServiceAsync<IProjectSystemQueryService, IProjectSystemQueryService>();
+                var queryableSpace = await queryService.GetProjectModelQueryableSpaceAsync();
 ```
 
 The `queryableSpace` requires a service broker to gain access to information in the Project System.
@@ -34,12 +37,8 @@ var result = await queryableSpace.Projects
          .With(project => project.Path)
          .With(project => project.Files
             .With(file => file.FileName))
-.ExecuteQueryAsync(cancellationToken);
+.ExecuteQueryAsync();
 ```
-The image below showcases the information that the result holds.
-
-![ExecuteQueryAsyncResult](Images/ExecuteQueryAsyncResult.png)
-*Figure 1: Execute Query Async Result*
 
 ## Modifying the Project System
 
@@ -47,15 +46,68 @@ Using the same `queryableSpace`, users may modify data in their project system. 
 
 In our example, we call the `ExecuteAsync` method to create a new file. The file we want to add is called `CreatedFile.txt`, and we want to add it to our project called `ConsoleApp1`.
 
+```csharp
+var result = await queryableSpace.Projects
+			.Where(project => project.Name == "ConsoleApp1")
+			.AsUpdatable()
+			.CreateFile("CreatedFile.txt")
+.ExecuteAsync();
+```
+
+## Filtering
+
+Users can filter out the desired data they would like to collect.
+
+### Querying ByName
+
+If the users know which metadata they would like to obtain, they may filter that information `ByName` if that metadata contains a ByName method.
+
+In the snippet below, we call `OutputGroupsByName` to get specific Output Groups. The Project System Query API will add valid output group to the results, and invalid groups are skipped over. In this case, results will contain three output groups: `Build`, `XmlSerializer`, and `SourceFiles`.
 
 ```csharp
 var result = await queryableSpace.Projects
-         .Where(project => project.Name == "ConsoleApp1")
-         .AsUpdatable()
-         .CreateFile("CreatedFile.txt")
-.ExecuteAsync(cancellationToken);
+	.With(p => p.Name)
+	.With(p => p.ActiveConfigurations
+		.With(c => c.Name)
+		.With(c => c.OutputGroupsByName("Built", "XmlSerializer", "SourceFiles", "RandomNameShouldntBePickedUp")
+		.With(g => g.Name)
+		))
+	.ExecuteQueryAsync();
 ```
-The image below details the new information created for the newly created file.
 
-![ExecuteAsyncResult](Images/ExecuteAsyncResult.png)
-*Figure 2: Execute Async Result*
+### Querying ById
+
+As usuages for project query becomes more complex, users may realize that the require more information from their query.
+
+In our example, let's say we query information about Output Groups.
+
+```csharp
+var result = await space.Projects
+	.With(p => p.Name)
+	.With(p => p.ActiveConfigurations
+		.With(c => c.Name)
+		.With(c => c.OutputGroups))
+	.ExecuteQueryAsync();
+```
+
+However, in addition to the output groups, we would want to collect the name of each group output group.  Notice `await group.AsQueryable()` is waiting to perform another query.
+
+```csharp
+foreach (var project in result) 
+{
+	message.Append($"{project.Name}\n");
+
+	foreach (var config in project.ActiveConfigurations) 
+	{
+		message.Append($" \t {config.Name}\n");
+
+		foreach (var group in config.OutputGroups) 
+		{
+				// This is needed for byId:
+				var newResult = await group.AsQueryable()
+					.With(g => g.Name)
+				.ExecuteQueryAsync();
+		}
+	}
+}
+```
