@@ -10,7 +10,7 @@ This is a walkthrough on how to use [VS Project Query API Browser](<https://mark
 
 ## Overview
 
-The Project System Query API allows users to retrieve and update information in the Project System such as source files, build configurations, dependencies and much more. However, as more functionality is added to the API, it is hard for consumers and developers to verify the information and functionality that is available. With this extension writing, testing and verifying Project System queries is much more accessible.
+The Project System Query API allows users to retrieve and update information in the Project System such as files, build configurations, dependencies and much more. However, as more functionality is added to the API, it is hard for consumers and developers to verify the information and functionality that is available. With this extension writing, testing and verifying Project System queries is much more accessible.
 
 ## Getting Started
 
@@ -21,7 +21,7 @@ The browser is composed of three main components: the editor, results panel, and
 
 The embedded editor has IntelliSense and colorization. Users may type directly into the editor to write their Project Queries.
 
-Above the editor, there are two buttons: Copy and Run. Users may run their query to verify if their query functions. If the query is supported, the results are then outputted to the results panel below the editor. Otherwise, a  notification pop-up will notify the user the query is unsupported. Users may also copy their clipboard.
+Above the editor, there are two buttons: Copy and Run. Users may run their query to verify if their query functions. If the query is supported, the results are then outputted to the results panel below the editor. Otherwise, a  notification pop-up will notify the user the query is unsupported. Users may also copy their query to the clipboard.
 
 To get started, load a solution into Visual Studio. Once loaded, you may perform queries regarding the solution you have loaded.
 
