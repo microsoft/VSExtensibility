@@ -5,7 +5,6 @@ using EnvDTE80;
 using Microsoft.VisualStudio.Editor;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Commands;
-using Microsoft.VisualStudio.Extensibility.Definitions;
 using Microsoft.VisualStudio.Extensibility.Shell;
 using Microsoft.VisualStudio.Extensibility.VSSdkCompatibility;
 using Microsoft.VisualStudio.Shell;
@@ -18,16 +17,10 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 
-[CommandIcon(KnownMonikers.Uncomment, IconSettings.IconAndText)]
-[CommandShortcut(mod1: ModifierKey.Control, key1: KnownKey.K, mod2: ModifierKey.Control, key2: KnownKey.Q)]
-[Command("CommentRemover.RemoveAllComment", CommandDescription)]
-[CommandEnabledWhen(
-	"IsValidFile",
-	new string[] { "IsValidFile" },
-	new string[] { @"ClientContext:Shell.ActiveSelectionFileName=\.(cs|vb|fs)$" })]
+[VisualStudioContribution]
 internal class RemoveAllComments : CommentRemoverCommand
 {
-	private const string CommandDescription = "Remove All";
+	private const string CommandDescription = "%RemoveAllComments.DisplayName%";
 
 	public RemoveAllComments(
 		VisualStudioExtensibility extensibility,
@@ -35,11 +28,18 @@ internal class RemoveAllComments : CommentRemoverCommand
 		AsyncServiceProviderInjection<DTE, DTE2> dte,
 		MefInjection<IBufferTagAggregatorFactoryService> bufferTagAggregatorFactoryService,
 		MefInjection<IVsEditorAdaptersFactoryService> editorAdaptersFactoryService,
-		AsyncServiceProviderInjection<SVsTextManager, IVsTextManager> textManager,
-		string id)
-		: base(extensibility, traceSource, dte, bufferTagAggregatorFactoryService, editorAdaptersFactoryService, textManager, id)
+		AsyncServiceProviderInjection<SVsTextManager, IVsTextManager> textManager)
+		: base(extensibility, traceSource, dte, bufferTagAggregatorFactoryService, editorAdaptersFactoryService, textManager)
 	{
 	}
+
+	/// <inheritdoc />
+	public override CommandConfiguration CommandConfiguration => new(CommandDescription)
+	{
+		Icon = new(ImageMoniker.KnownValues.Uncomment, IconSettings.IconAndText),
+		EnabledWhen = CommandEnabledWhen,
+		Shortcuts = new[] { new CommandShortcutConfiguration(ModifierKey.Control, Key.K, ModifierKey.Control, Key.Q) },
+	};
 
 	public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
 	{

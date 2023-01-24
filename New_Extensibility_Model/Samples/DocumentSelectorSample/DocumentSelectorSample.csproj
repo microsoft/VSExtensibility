@@ -13,8 +13,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.5.20-preview-1" />
-		<PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.5.20-preview-1" />
+		<PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.6.6-preview-1" />
+		<PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.6.6-preview-1" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -30,5 +30,11 @@
 			<Generator>ResXFileCodeGenerator</Generator>
 			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
 		</EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include=".vsextension\**\string-resources.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
 	</ItemGroup>
 </Project>

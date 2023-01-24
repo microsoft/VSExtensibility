@@ -11,7 +11,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Commands;
-using Microsoft.VisualStudio.Extensibility.Definitions;
 using Microsoft.VisualStudio.Extensibility.Shell;
 using Microsoft.VisualStudio.ProjectSystem.Query;
 using Microsoft.VisualStudio.RpcContracts.ProgressReporting;
@@ -22,16 +21,7 @@ using Microsoft.VisualStudio.RpcContracts.ProgressReporting;
 /// <remarks>
 /// This command utilizes <see cref="CommandEnabledWhenAttribute"/> to describe when commmand state is enabled.
 /// </remarks>
-[Command(
-	"VisualStudio.Extensions.MarkdownLinter.RunLinterOnSolution",
-	"Run Linter on solution",
-	containerType: typeof(MarkdownLinterExtension),
-	placement: CommandPlacement.ToolsMenu)]
-[CommandEnabledWhen(
-	"SolutionLoaded",
-	new string[] { "SolutionLoaded" },
-	new string[] { "SolutionState:FullyLoaded" })]
-[CommandIcon("MarkdownIcon", IconSettings.IconAndText)]
+[VisualStudioContribution]
 internal class RunLinterOnSolutionCommand : Command
 {
 	private readonly TraceSource logger;
@@ -43,15 +33,22 @@ internal class RunLinterOnSolutionCommand : Command
 	/// <param name="extensibility">Extensibility object.</param>
 	/// <param name="traceSource">Logger instance that can be used to log extension actions.</param>
 	/// <param name="diagnosticsProvider">Local diagnostics provider service instance.</param>
-	/// <param name="id">Command identifier.</param>
-	public RunLinterOnSolutionCommand(VisualStudioExtensibility extensibility, TraceSource traceSource, MarkdownDiagnosticsService diagnosticsProvider, string id)
-		: base(extensibility, id)
+	public RunLinterOnSolutionCommand(VisualStudioExtensibility extensibility, TraceSource traceSource, MarkdownDiagnosticsService diagnosticsProvider)
+		: base(extensibility)
 	{
 		this.logger = Requires.NotNull(traceSource, nameof(traceSource));
 		this.diagnosticsProvider = Requires.NotNull(diagnosticsProvider, nameof(diagnosticsProvider));
 
 		this.logger.TraceEvent(TraceEventType.Information, 0, $"Initializing {nameof(RunLinterOnSolutionCommand)} instance.");
 	}
+
+	/// <inheritdoc />
+	public override CommandConfiguration CommandConfiguration => new("%RunLinterOnSolutionCommand.DisplayName%")
+	{
+		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+		Icon = new(ImageMoniker.Custom("MarkdownIcon"), IconSettings.IconAndText),
+		EnabledWhen = ActivationConstraint.SolutionState(SolutionState.FullyLoaded),
+	};
 
 	/// <inheritdoc />
 	public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)

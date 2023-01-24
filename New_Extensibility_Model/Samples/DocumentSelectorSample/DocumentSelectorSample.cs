@@ -7,17 +7,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Editor;
-using Microsoft.VisualStudio.Extensibility.Editor.UI;
 
 /// <summary>
 /// A sample demonstrating how to define an editor extension that is only applicable to files matching a file path pattern.
 /// This text view event listener monitors users opening/modifying/closing C# files in "tests" folder and emulates running
 /// unit tests in these files.
 /// </summary>
-[ExtensionPart(typeof(ITextViewLifetimeListener))]
-[ExtensionPart(typeof(ITextViewChangedListener))]
-[AppliesToPattern(Pattern = "**/tests/*.cs")]
-internal class DocumentSelectorSample : ExtensionPart, ITextViewLifetimeListener, ITextViewChangedListener
+[VisualStudioContribution]
+internal class DocumentSelectorSample : ExtensionPart, ITextViewOpenClosedListener, ITextViewChangedListener
 {
 	/// <summary>
 	/// Initializes a new instance of the <see cref="DocumentSelectorSample"/> class.
@@ -30,7 +27,16 @@ internal class DocumentSelectorSample : ExtensionPart, ITextViewLifetimeListener
 	}
 
 	/// <inheritdoc />
-	public Task TextViewCreatedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
+	public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
+	{
+		AppliesTo = new[]
+		{
+			DocumentFilter.FromGlobPattern("**/tests/*.cs"),
+		},
+	};
+
+	/// <inheritdoc />
+	public Task TextViewOpenedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
 	{
 		return this.RunUnitTestsAfterDelayAsync(textViewSnapshot, cancellationToken);
 	}

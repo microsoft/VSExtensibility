@@ -10,18 +10,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Commands;
-using Microsoft.VisualStudio.Extensibility.Definitions;
 
 /// <summary>
 /// Command handler to insert a random guid at the current caret position.
 /// </summary>
-[Command(
-	"Microsoft.VisualStudio.InsertGuidExtension.InsertGuidCommand",
-	"Insert new guid",
-	placement: CommandPlacement.ExtensionsMenu,
-	clientContexts: "Editor,Shell")]
-[CommandIcon("OfficeWebExtension", IconSettings.IconAndText)]
-[CommandVisibleWhen("AnyFile", new string[] { "AnyFile" }, new string[] { "ClientContext:Shell.ActiveEditorContentType=.+" })]
+[VisualStudioContribution]
 internal class InsertGuidCommand : Command
 {
 	private readonly TraceSource logger;
@@ -31,12 +24,20 @@ internal class InsertGuidCommand : Command
 	/// </summary>
 	/// <param name="extensibility">Extensibility object.</param>
 	/// <param name="traceSource">Trace source instance to utilize.</param>
-	/// <param name="name">Command identifier.</param>
-	public InsertGuidCommand(VisualStudioExtensibility extensibility, TraceSource traceSource, string name)
-		: base(extensibility, name)
+	public InsertGuidCommand(VisualStudioExtensibility extensibility, TraceSource traceSource)
+		: base(extensibility)
 	{
 		this.logger = Requires.NotNull(traceSource, nameof(traceSource));
 	}
+
+	/// <inheritdoc />
+	public override CommandConfiguration CommandConfiguration => new("%InsertGuidCommand.DisplayName%")
+	{
+		Placements = new[] { CommandPlacement.KnownPlacements.ExtensionsMenu },
+		Icon = new(ImageMoniker.KnownValues.OfficeWebExtension, IconSettings.IconAndText),
+		VisibleWhen = ActivationConstraint.ClientContext(ClientContextKey.Shell.ActiveEditorContentType, ".+"),
+		ClientContexts = new[] { "Editor", "Shell" },
+	};
 
 	/// <inheritdoc />
 	/// <remarks>

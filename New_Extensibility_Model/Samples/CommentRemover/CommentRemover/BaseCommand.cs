@@ -18,6 +18,8 @@ using System.Text.RegularExpressions;
 
 internal abstract class CommentRemoverCommand : Microsoft.VisualStudio.Extensibility.Commands.Command
 {
+	protected static readonly ActivationConstraint CommandEnabledWhen = ActivationConstraint.ClientContext(ClientContextKey.Shell.ActiveSelectionFileName, @"\.(cs|vb|fs)$");
+
 	private static readonly string[] TaskCaptions = { "TODO", "HACK", "UNDONE", "UNRESOLVEDMERGECONFLICT" };
 
 	public CommentRemoverCommand(
@@ -26,9 +28,8 @@ internal abstract class CommentRemoverCommand : Microsoft.VisualStudio.Extensibi
 		AsyncServiceProviderInjection<DTE, DTE2> dte,
 		MefInjection<IBufferTagAggregatorFactoryService> bufferTagAggregatorFactoryService,
 		MefInjection<IVsEditorAdaptersFactoryService> editorAdaptersFactoryService,
-		AsyncServiceProviderInjection<SVsTextManager, IVsTextManager> textManager,
-		string id)
-		: base(extensibility, id)
+		AsyncServiceProviderInjection<SVsTextManager, IVsTextManager> textManager)
+		: base(extensibility)
 	{
 		this.TraceSource = traceSource;
 		this.Dte = dte;

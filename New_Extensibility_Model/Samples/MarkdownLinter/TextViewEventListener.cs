@@ -7,15 +7,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Editor;
-using Microsoft.VisualStudio.Extensibility.Editor.UI;
 
 /// <summary>
 /// Listener for text view lifetime events to start linter on new documents or changed documents.
 /// </summary>
-[ExtensionPart(typeof(ITextViewLifetimeListener))]
-[ExtensionPart(typeof(ITextViewChangedListener))]
-[AppliesTo(DocumentType = "markdown")]
-internal class TextViewEventListener : ExtensionPart, ITextViewLifetimeListener, ITextViewChangedListener
+[VisualStudioContribution]
+internal class TextViewEventListener : ExtensionPart, ITextViewOpenClosedListener, ITextViewChangedListener
 {
 	private readonly MarkdownDiagnosticsService diagnosticsProvider;
 
@@ -30,6 +27,15 @@ internal class TextViewEventListener : ExtensionPart, ITextViewLifetimeListener,
 	{
 		this.diagnosticsProvider = Requires.NotNull(diagnosticsProvider, nameof(diagnosticsProvider));
 	}
+
+	/// <inheritdoc/>
+	public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
+	{
+		AppliesTo = new[]
+		{
+			DocumentFilter.FromDocumentType(MarkdownLinterExtensionContributions.MarkdownDocumentType),
+		},
+	};
 
 	/// <inheritdoc />
 	public Task TextViewChangedAsync(TextViewChangedArgs args, CancellationToken cancellationToken)
@@ -50,7 +56,7 @@ internal class TextViewEventListener : ExtensionPart, ITextViewLifetimeListener,
 	}
 
 	/// <inheritdoc />
-	public Task TextViewCreatedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
+	public Task TextViewOpenedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
 	{
 		return this.diagnosticsProvider.ProcessTextViewAsync(textViewSnapshot, cancellationToken);
 	}
