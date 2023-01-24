@@ -87,23 +87,23 @@ namespace ProjectQueryAPISample {
             StringBuilder message = new StringBuilder();
             ThreadHelper.JoinableTaskFactory.Run(async () => {
                 var queryService = await this.package.GetServiceAsync<IProjectSystemQueryService, IProjectSystemQueryService>();
-                var queryableSpace = await queryService.GetProjectModelQueryableSpaceAsync();
+                var querySpace = queryService.QueryableSpace;
 
                 //// Querying Project Files
-                var result = await queryableSpace.Projects
+                var result = querySpace.Projects
                          .With(project => project.Name)
                          .With(project => project.Path)
                          .With(project => project.Files
                             .With(file => file.FileName))
-                .ExecuteQueryAsync();
+                .QueryAsync(CancellationToken.None);
 
                 message.Append($"\n \n === Querying File === \n");
 
-                foreach (var project in result) 
+                await foreach (var project in result) 
                 {
-                    message.Append($"{project.Name}\n");
+                    message.Append($"{project.Value.Name}\n");
 
-                    foreach (var file in project.Files) 
+                    foreach (var file in project.Value.Files) 
                     {
                         message.Append($" \t {file.FileName}\n");
 

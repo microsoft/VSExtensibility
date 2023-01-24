@@ -87,25 +87,24 @@ namespace ProjectQueryAPISample {
             StringBuilder message = new StringBuilder();
             ThreadHelper.JoinableTaskFactory.Run(async () => {
                 var queryService = await this.package.GetServiceAsync<IProjectSystemQueryService, IProjectSystemQueryService>();
-                var queryableSpace = await queryService.GetProjectModelQueryableSpaceAsync();
+                var querySpace = queryService.QueryableSpace;
 
                 //// Querying Output Groups
-                var result = await queryableSpace.Projects
+                var result = querySpace.Projects
                     .With(p => p.Name)
                     .With(p => p.ActiveConfigurations
                         .With(c => c.Name)
                         .With(c => c.OutputGroupsByName("Built", "XmlSerializer", "SourceFiles", "RandomNameShouldntBePickedUp")
-                        .With(g => g.Name)
-                        ))
-                    .ExecuteQueryAsync();
+                        .With(g => g.Name)))
+                    .QueryAsync(CancellationToken.None);
 
                 message.Append($"\n \n === Querying by Name === \n");
 
-                foreach (var project in result) 
+                await foreach (var project in result) 
                 {
-                    message.Append($"{project.Name}\n");
+                    message.Append($"{project.Value.Name}\n");
 
-                    foreach (var config in project.ActiveConfigurations) 
+                    foreach (var config in project.Value.ActiveConfigurations) 
                     {
                         message.Append($" \t {config.Name}\n");
 

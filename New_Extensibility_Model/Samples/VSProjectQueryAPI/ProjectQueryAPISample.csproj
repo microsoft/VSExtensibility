@@ -15,6 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ProjectQueryAPISample</RootNamespace>
     <AssemblyName>ProjectQueryAPISample</AssemblyName>
+	<LangVersion>8.0</LangVersion>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <GeneratePkgDefFile>true</GeneratePkgDefFile>
     <UseCodebase>true</UseCodebase>
@@ -70,10 +71,19 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup>
+  <!--<ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.0.32112.339" ExcludeAssets="runtime" />
     <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.6.1-alpha" />
-  </ItemGroup>
+  </ItemGroup>-->
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.ServiceHub.Framework">
+			<Version>4.1.112</Version>
+		</PackageReference>
+		<PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.0.31902.203" ExcludeAssets="runtime" />
+		<PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.1.3052-preview3" />
+	</ItemGroup>
+	
   <ItemGroup>
     <VSCTCompile Include="ProjectQueryAPISamplePackage.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>

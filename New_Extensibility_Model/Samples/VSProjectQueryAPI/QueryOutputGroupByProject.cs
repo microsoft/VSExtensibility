@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.ProjectSystem.Query;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
+using Microsoft.VisualStudio.Shell.ServiceBroker;
 using System;
 using System.ComponentModel.Design;
 using System.Globalization;
@@ -87,23 +88,23 @@ namespace ProjectQueryAPISample {
             StringBuilder message = new StringBuilder();
             ThreadHelper.JoinableTaskFactory.Run(async () => {
                 var queryService = await this.package.GetServiceAsync<IProjectSystemQueryService, IProjectSystemQueryService>();
-                var space = await queryService.GetProjectModelQueryableSpaceAsync();
+                var querySpace = queryService.QueryableSpace;
 
                 //// Querying non-cps projects
-                var result = await space.Projects
+                var result = querySpace.Projects
                     .With(p => p.Name)
                     .With(p => p.ActiveConfigurations
                         .With(c => c.Name)
                         .With(c => c.OutputGroups
                             .With(g => g.Name)))
-                    .ExecuteQueryAsync();
+                    .QueryAsync(CancellationToken.None);
 
                 message.Append($"\n \n === Querying by Project === \n");
 
-                foreach (var project in result) {
-                    message.Append($"{project.Name}\n");
+                await foreach (var project in result) {
+                    message.Append($"{project.Value.Name}\n");
 
-                    foreach (var config in project.ActiveConfigurations) {
+                    foreach (var config in project.Value.ActiveConfigurations) {
                         message.Append($" \t {config.Name}\n");
 
                         foreach (var group in config.OutputGroups) {

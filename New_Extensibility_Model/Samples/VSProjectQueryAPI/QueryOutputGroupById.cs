@@ -88,22 +88,22 @@ namespace ProjectQueryAPISample {
             StringBuilder message = new StringBuilder();
             ThreadHelper.JoinableTaskFactory.Run(async () => {
                 var queryService = await this.package.GetServiceAsync<IProjectSystemQueryService, IProjectSystemQueryService>();
-                var space = await queryService.GetProjectModelQueryableSpaceAsync();
+                var space = queryService.QueryableSpace;
 
-                var result = await space.Projects
+                var result = space.Projects
                     .With(p => p.Name)
                     .With(p => p.ActiveConfigurations
                         .With(c => c.Name)
                         .With(c => c.OutputGroups))
-                    .ExecuteQueryAsync();
+                    .QueryAsync(CancellationToken.None);
 
                 message.Append( $"\n \n === Querying by Id === \n");
 
-                foreach (var project in result) 
+                await foreach (var project in result) 
                 {
-                    message.Append($"{project.Name}\n");
+                    message.Append($"{project.Value.Name}\n");
 
-                    foreach (var config in project.ActiveConfigurations) 
+                    foreach (var config in project.Value.ActiveConfigurations) 
                     {
                         message.Append($" \t {config.Name}\n");
 

@@ -95,9 +95,9 @@ namespace ProjectQueryAPISample
             StringBuilder message = new StringBuilder();
             ThreadHelper.JoinableTaskFactory.Run(async () => {
                 var queryService = await this.package.GetServiceAsync<IProjectSystemQueryService, IProjectSystemQueryService>();
-                var queryableSpace = await queryService.GetProjectModelQueryableSpaceAsync();
-                
-                var result = await queryableSpace.Projects
+                var querySpace = queryService.QueryableSpace;
+
+                var result = querySpace.Projects
                          .Where(project => project.Name == "ConsoleApp1")
                          .AsUpdatable()
                          .CreateFile("CreatedFile.txt")

@@ -20,24 +20,25 @@ The code snippet below as seen below sets up the Project Query Service for the p
 
 ```csharp
 var queryService = await this.package.GetServiceAsync<IProjectSystemQueryService, IProjectSystemQueryService>();
-                var queryableSpace = await queryService.GetProjectModelQueryableSpaceAsync();
+
+var querySpace = queryService.QueryableSpace;
 ```
 
-The `queryableSpace` requires a service broker to gain access to information in the Project System.
+The `querySpace` requires a service broker to gain access to information in the Project System.
 
 ## Accessing API Metadata
 
-Once the user establishes a `queryableSpace`, users may query information about the Project System on the Solution and/or Project level. Using the keyword `With` the query can collect the value of a property/collection.
+Once the user establishes a `querySpace`, users may query information about the Project System on the Solution and/or Project level. Using the keyword `With` the query can collect the value of a property/collection.
 
-In our example, we call the `ExecuteQueryAsync` method to get information from the projects, namely the Project Name, Project Path, Project Files, and File Names.
+In our example, we call the `QueryAsync` method to get information from the projects, namely the Project Name, Project Path, Project Files, and File Names.
 
 ```csharp
-var result = await queryableSpace.Projects
-         .With(project => project.Name)
-         .With(project => project.Path)
-         .With(project => project.Files
-            .With(file => file.FileName))
-.ExecuteQueryAsync();
+var result = querySpace.Projects
+			.With(project => project.Name)
+			.With(project => project.Path)
+			.With(project => project.Files
+			.With(file => file.FileName))
+.QueryAsync(CancellationToken.None);
 ```
 
 ## Modifying the Project System
@@ -65,14 +66,13 @@ If the users know which metadata they would like to obtain, they may filter that
 In the snippet below, we call `OutputGroupsByName` to get specific Output Groups. The Project System Query API will add valid output group to the results, and invalid groups are skipped over. In this case, results will contain three output groups: `Build`, `XmlSerializer`, and `SourceFiles`.
 
 ```csharp
-var result = await queryableSpace.Projects
+var result = querySpace.Projects
 	.With(p => p.Name)
 	.With(p => p.ActiveConfigurations
 		.With(c => c.Name)
 		.With(c => c.OutputGroupsByName("Built", "XmlSerializer", "SourceFiles", "RandomNameShouldntBePickedUp")
-		.With(g => g.Name)
-		))
-	.ExecuteQueryAsync();
+		.With(g => g.Name)))
+	.QueryAsync(CancellationToken.None);
 ```
 
 ### Querying ById
@@ -82,30 +82,30 @@ As usuages for project query becomes more complex, users may realize that the re
 In our example, let's say we query information about Output Groups.
 
 ```csharp
-var result = await space.Projects
+var result = space.Projects
 	.With(p => p.Name)
 	.With(p => p.ActiveConfigurations
 		.With(c => c.Name)
 		.With(c => c.OutputGroups))
-	.ExecuteQueryAsync();
+	.QueryAsync(CancellationToken.None);
 ```
 
 However, in addition to the output groups, we would want to collect the name of each group output group.  Notice `await group.AsQueryable()` is waiting to perform another query.
 
 ```csharp
-foreach (var project in result) 
+await foreach (var project in result) 
 {
-	message.Append($"{project.Name}\n");
+	message.Append($"{project.Value.Name}\n");
 
-	foreach (var config in project.ActiveConfigurations) 
+	foreach (var config in project.Value.ActiveConfigurations) 
 	{
 		message.Append($" \t {config.Name}\n");
 
 		foreach (var group in config.OutputGroups) 
 		{
-				// This is needed for byId:
-				var newResult = await group.AsQueryable()
-					.With(g => g.Name)
+			// This is needed for byId:
+			var newResult = await group.AsQueryable()
+				.With(g => g.Name)
 				.ExecuteQueryAsync();
 		}
 	}
