@@ -1,14 +1,24 @@
 ---
-title: VS Extensibility
+title: VisualStudio.Extensibility
 description: Welcome to Visual Studio Extensibility model
 date: 2021-8-19
 ---
 
-# Welcome to the VSExtensibility documentation
+# Welcome to the VisualStudio.Extensibility documentation
 
-This site is your hub for all documentation for ongoing and upcoming Visual Studio extensibility projects.  Documentation is currently available for the following:
+The VisualStudio.Extensibility SDK is a new framework for developing Visual Studio extensions currently in active development and is now made available as a preview, which you can download from []().
 
-* Visual Studio Extensibility SDK (see below)
+With the current preview, you can already develop a wide range of extensions to Visual Studio, from creating a simple command and exposing it in the IDE, to adding support for a new language, extending code or text editing functionality, exposing the functionality of a tool in the IDE, and more.
+
+The new framework is designed to be fully asynchronous and keep extensions isolated, usually in a separate process. These design principles are critical for keeping the Visual Studio IDE responsive and stable, even if extensions themselves have problems.
+
+We're actively seeking feedback and engagement. During the preview phase, the framework isn't code complete, and this preview phase is a great time to get community input to help us identify issues and opportunities. You can enter issues in our [public repo](https://github.com/microsoft/VSExtensibility/issues).
+
+The new VisualStudio.Extensibility framework may ultimately replace the VS SDK. However, you can also develop with both frameworks in the same extension, if the functionality you are trying to use is not yet available in the new framework, or if you are updating an existing extension written with the existing VS SDK.
+
+This site is your hub for all documentation for ongoing and upcoming VisualStudio.Extensibility projects.  Documentation is currently available for the following:
+
+* Visual Studio.Extensibility SDK (see below)
 * [Extensions to Language Server Protocol (LSP)](lsp/lsp-extensions-specifications.md) 
 
 ## Visual Studio Extensibility SDK
@@ -27,18 +37,18 @@ For future updates please bookmark our [announcements](announcements.md) page.
 | Article | Description|
 |-|-|
 | [Get started](#get-started) | Never developed an extension before? Start with beginner quickstarts and introductory tutorials. |
-| [Modern extension development](modern-extension-development.md) | Discover the VS Extensibility SDK and how it compares to the Visual Studio SDK. |
+| [Modern extension development](modern-extension-development.md) | Discover the VisualStudio.Extensibility SDK and how it compares to the Visual Studio SDK. |
 | [Overviews](#overviews) | Learn more by reading overviews of each major area of functionality. |
 | [Concepts](#concepts) | Find information to answer questions solve specific problems. |
 | [Samples](#samples-and-tutorials) | Explore sample code demonstrating major features. |
-| [API reference](#api-docs) | Browse the VS Extensibility API documentation. |
-| [Advanced topics](#advanced) | Learn implementation details of the VS Extensibility SDK. |
+| [API reference](#api-docs) | Browse the VisualStudio.Extensibility API documentation. |
+| [Advanced topics](#advanced) | Learn implementation details of the VisualStudio.Extensibility SDK. |
 
 ## Get Started
 
 | Article | Description|
 |-|-|
-| [Introduction to new out-of-process extensibility](new-extensibility-model/getting-started/oop-extensibility-model-overview.md) | Learn what the VS Extensibility model can do. |
+| [Introduction to new out-of-process extensibility](new-extensibility-model/getting-started/oop-extensibility-model-overview.md) | Learn what the VisualStudio.Extensibility model can do. |
 | [Create your first extension](new-extensibility-model/getting-started/create-your-first-extension.md) | Learn how to create a extension. |
 | [Create a simple extension](new-extensibility-model/getting-started/tutorial-create-simple-extension.md) | Follow a tutorial and create a sample extension that adds a GUID to the editor window. |
 
