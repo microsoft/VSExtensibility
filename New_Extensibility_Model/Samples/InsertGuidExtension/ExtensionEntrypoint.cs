@@ -1,9 +1,8 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-namespace OutputWindowSample;
+namespace Microsoft.VisualStudio.Gladstone.InsertGuidExtension;
 
-using System.Resources;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.Extensibility;
 
@@ -11,11 +10,8 @@ using Microsoft.VisualStudio.Extensibility;
 /// Extension entry point for the OutputWindowSampleExtension.
 /// </summary>
 [VisualStudioContribution]
-public class OutputWindowSampleExtension : Extension
+public class ExtensionEntrypoint : Extension
 {
-	/// <inheritdoc />
-	protected override ResourceManager? ResourceManager => Strings.ResourceManager;
-
 	/// <inheritdoc/>
 	protected override void InitializeServices(IServiceCollection serviceCollection)
 	{

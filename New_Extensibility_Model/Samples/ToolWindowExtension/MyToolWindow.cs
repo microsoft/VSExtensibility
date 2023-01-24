@@ -12,7 +12,7 @@ using Microsoft.VisualStudio.RpcContracts.RemoteUI;
 /// <summary>
 /// A sample tool window.
 /// </summary>
-[ToolWindow(ToolWindowPlacement.DocumentWell)]
+[VisualStudioContribution]
 public class MyToolWindow : ToolWindow
 {
 	private object? dataContext;
@@ -28,6 +28,12 @@ public class MyToolWindow : ToolWindow
 	{
 		this.Title = "My Tool Window";
 	}
+
+	/// <inheritdoc />
+	public override ToolWindowConfiguration ToolWindowConfiguration => new()
+	{
+		Placement = ToolWindowPlacement.DocumentWell,
+	};
 
 	/// <inheritdoc />
 	public override Task InitializeAsync(CancellationToken cancellationToken)

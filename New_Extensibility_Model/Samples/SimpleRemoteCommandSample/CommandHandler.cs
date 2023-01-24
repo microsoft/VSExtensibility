@@ -7,26 +7,28 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Commands;
-using Microsoft.VisualStudio.Extensibility.Definitions;
 
 /// <summary>
 /// A sample command handler showing how to declare command definition and simple placement.
 /// </summary>
-[Command(CommandName, "Sample Remote Command", placement: CommandPlacement.ToolsMenu)]
-[CommandIcon(KnownMonikers.Extension, IconSettings.IconAndText)]
+[VisualStudioContribution]
 public class CommandHandler : Command
 {
-	private const string CommandName = "SimpleRemoteCommandSample.Command";
-
 	/// <summary>
 	/// Initializes a new instance of the <see cref="CommandHandler"/> class.
 	/// </summary>
 	/// <param name="extensibility">Extensibility object instance.</param>
-	/// <param name="name">Command identifier.</param>
-	public CommandHandler(VisualStudioExtensibility extensibility, string name)
-		: base(extensibility, name)
+	public CommandHandler(VisualStudioExtensibility extensibility)
+		: base(extensibility)
 	{
 	}
+
+	/// <inheritdoc />
+	public override CommandConfiguration CommandConfiguration => new("%CommandHandler.DisplayName%")
+	{
+		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+		Icon = new(ImageMoniker.KnownValues.Extension, IconSettings.IconAndText),
+	};
 
 	/// <inheritdoc />
 	public override Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
