@@ -18,9 +18,9 @@ This document is a quick walkthrough on how to create your first *in-proc* exten
 
 ## Prerequisites
 
-* Visual Studio 2022 17.4 Preview 1 or higher with the ".NET desktop development" and "Visual Studio extension development" workloads.
-
+* Visual Studio 2022.5 Preview 1 or higher with `.Net desktop development` workload. The latest minimum requirement will always be listed at [Announcements](../../announcements.md) page.
 * Install [VisualStudio.Extensibility Project System](https://marketplace.visualstudio.com/items?itemName=vsext.gladstone): This extension contains project templates for VisualStudio.Extensibility extensions.
+* If you are updating from earlier builds, please make sure to update VisualStudio.Extensibility Project System to latest version as there are breaking changes in VisualStudio.Extensibility packages.
 
 ## Create the extension project
 

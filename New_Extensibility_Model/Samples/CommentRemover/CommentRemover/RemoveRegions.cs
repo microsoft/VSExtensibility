@@ -5,7 +5,6 @@ using EnvDTE80;
 using Microsoft.VisualStudio.Editor;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Commands;
-using Microsoft.VisualStudio.Extensibility.Definitions;
 using Microsoft.VisualStudio.Extensibility.Shell;
 using Microsoft.VisualStudio.Extensibility.VSSdkCompatibility;
 using Microsoft.VisualStudio.Shell;
@@ -16,15 +15,10 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
-[CommandIcon("DeleteRegions", IconSettings.IconAndText)]
-[Command("CommentRemover.RemoveRegions", CommandDescription)]
-[CommandEnabledWhen(
-	"IsValidFile",
-	new string[] { "IsValidFile" },
-	new string[] { @"ClientContext:Shell.ActiveSelectionFileName=\.(cs|vb|fs)$" })]
+[VisualStudioContribution]
 internal class RemoveRegions : CommentRemoverCommand
 {
-	private const string CommandDescription = "Remove Regions";
+	private const string CommandDescription = "%RemoveRegions.DisplayName%";
 
 	public RemoveRegions(
 		VisualStudioExtensibility extensibility,
@@ -32,11 +26,17 @@ internal class RemoveRegions : CommentRemoverCommand
 		AsyncServiceProviderInjection<DTE, DTE2> dte,
 		MefInjection<IBufferTagAggregatorFactoryService> bufferTagAggregatorFactoryService,
 		MefInjection<IVsEditorAdaptersFactoryService> editorAdaptersFactoryService,
-		AsyncServiceProviderInjection<SVsTextManager, IVsTextManager> textManager,
-		string id)
-		: base(extensibility, traceSource, dte, bufferTagAggregatorFactoryService, editorAdaptersFactoryService, textManager, id)
+		AsyncServiceProviderInjection<SVsTextManager, IVsTextManager> textManager)
+		: base(extensibility, traceSource, dte, bufferTagAggregatorFactoryService, editorAdaptersFactoryService, textManager)
 	{
 	}
+
+	/// <inheritdoc />
+	public override CommandConfiguration CommandConfiguration => new(CommandDescription)
+	{
+		Icon = new(ImageMoniker.Custom("DeleteRegions"), IconSettings.IconAndText),
+		EnabledWhen = CommandEnabledWhen,
+	};
 
 	public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
 	{

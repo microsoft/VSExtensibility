@@ -42,7 +42,7 @@ For future updates please bookmark our [announcements](docs/announcements.md) pa
 A Visual Studio solution containing all samples can be found at [Samples.sln](./New_Extensibility_Model/Samples/Samples.sln).
 
 * [Simple command handler](docs/new-extensibility-model/getting-started/create-your-first-extension.md) ([Source](./New_Extensibility_Model/Samples/SimpleRemoteCommandSample))
-* [Markdown Linter](./New_Extensibility_Model/Samples/MarkdownLinter))
+* [Markdown Linter](./New_Extensibility_Model/Samples/MarkdownLinter)
 * [Output Window sample](./New_Extensibility_Model/Samples/OutputWindowSample/)
 * [Insert guid extension sample](./New_Extensibility_Model/Samples/InsertGuidExtension)
 * [Command registration, localization sample](./New_Extensibility_Model/Samples/CommandRegistrationsSample)
