@@ -19,7 +19,6 @@ The new, out-of-proc extensibility model aims to address many of the problems bo
 
 * Extension-caused crashes and hangs of Visual Studio and other installed extensions
 * Inconsistent hard-to-find docs and APIs, tribal knowledge requirements, and overwhelming architecture
-* Lack of secure extensions
 * Having to restart Visual Studio when installing extensions
 
 Writing extensions using the new model provides the following benefits:
