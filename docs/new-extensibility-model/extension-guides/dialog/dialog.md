@@ -16,10 +16,10 @@ To get started, follow the [create the project](./../../getting-started/create-y
 
 This guide is designed to cover the top user scenarios when working with dialogs:
 
-- [Creating a dialog](#creating-a-dialog)
-- [Customizing the dialog title](#customizing-the-dialog-title)
-- [Customizing the dialog buttons](#customizing-the-dialog-buttons)
-- [Getting the dialog result](#getting-the-dialog-result)
+- [Create a dialog](#create-a-dialog)
+- [Customize the dialog title](#customize-the-dialog-title)
+- [Customize the dialog buttons](#customize-the-dialog-buttons)
+- [Get the dialog result](#get-the-dialog-result)
 
 # Create a dialog
 
