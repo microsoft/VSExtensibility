@@ -1,16 +1,19 @@
-# Project Query API Documentation
+# Project System and Project Query API Documentation
 Conceptual documentation about what the project system is, usages, and its various terms.
 
 ## What is a project system?
 A project system sits between a project file on disk (for example, .csproj and .vbproj) and various Visual Studio features including, but not limited to, Solution Explorer, designers, the debugger, language services, build and deployment. Almost all interaction that occurs with files contained in a project file, happens through the project system.
+Find further information on project systems [here](https://github.com/microsoft/VSProjectSystem).
 
 Project systems are a part of VS components to help users work with and maintain projects, run builds to produce results, and to test output.
 
-There are three reasons to extend a project system in Visual Studio:
-1. Support a new project file format.
-1. Integrate existing file format with a new language service.
-1. Customize behavior of an existing project system.
-Find further information on project systems [here](https://github.com/microsoft/VSProjectSystem).
+The goal of the Project Query API is to:
+1. Work with Project Systems 
+1. Retrieve data from projects
+1. Make changes to projects
+Some examples include understanding files included in a project, NuGet packages referenced by a project, adding new files to a project, or changing project properties.
+
+The new project query API allows for querying information from the project system. It is optimized for the Common Project System (CPS) so that it is not required to switch to the UI thread, something needed by the classic COM-based APIs (IVsHierarchy and DTE).
 
 ## Project Query Specific Nouns
 |Term|Description
@@ -23,7 +26,7 @@ Find further information on project systems [here](https://github.com/microsoft/
 |Project| Represents most projects in Visual Studio, but solution folders are represented differently in the new API.
 |SolutionFolder| Represents a solution folder, which is a virtual folder to group projects and files inside a Visual Studio solution.
 |File| Represents a file contained by a project or a solution folder.
-|ExternalFile| Represents external files referenced by a project, which is only supported by VC projects.
+|ExternalFile| Represents external files referenced by a project, which is not yet supported by VC projects.
 |Property| Represents dynamic set (weak name/type) of properties of a project, a configuration, or a file.
 |ProjectReference| Represents project to project references, including shared project references.
 |PackageReference| Represents a package reference in a project configuration, typically a NuGet package reference.
@@ -43,12 +46,8 @@ Find further information on project systems [here](https://github.com/microsoft/
 |WithRequired| Requests value of a property/collection must be returned from the query.
 |Where| Requests the query result to be filtered based on a predicate.
 |Get| Gets child items instead in the query result.
-|ExecuteQueryAsync| Executes a query and retrieves the result. 
 |QueryAsync| Executes a query and retrieves the result as IAsyncEnumerable.
 |AsQueryable| Starts a query from a previous retrieved object.
 |QueryFrom| Starts a query from a collection of previous retrieved objects.
 |AsUpdatable| Starts to update object from a query result.
 |ExecuteAsync| Executes an update query.
-
-## MEF: Managed Extensibility Framework
-MEF introduced to CPS to provide a way for CPS partners to inject themselves.
