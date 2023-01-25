@@ -18,10 +18,10 @@
     <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.4.33006.217" ExcludeAssets="runtime" />
   </ItemGroup>
 
-	<ItemGroup>
-		<Content Include=".vsextension\**\string-resources.json">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-	</ItemGroup>
+  <ItemGroup>
+    <Content Include=".vsextension\**\string-resources.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 
 </Project>
