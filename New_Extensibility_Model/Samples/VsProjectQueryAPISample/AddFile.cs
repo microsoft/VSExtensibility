@@ -1,17 +1,16 @@
-﻿using System;
-using System.ComponentModel.Design;
-using System.Globalization;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio.ProjectSystem.Query;
-using System.Windows.Forms;
-using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
-using Task = System.Threading.Tasks.Task;
+﻿// Copyright (c) Microsoft. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace VsProjectQueryAPISample
 {
+	using System;
+	using System.ComponentModel.Design;
+	using System.Text;
+	using System.Windows.Forms;
+	using Microsoft.VisualStudio.ProjectSystem.Query;
+	using Microsoft.VisualStudio.Shell;
+	using Task = System.Threading.Tasks.Task;
+
 	/// <summary>
 	/// Command handler
 	/// </summary>

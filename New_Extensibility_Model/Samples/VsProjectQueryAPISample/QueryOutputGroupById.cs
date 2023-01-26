@@ -1,18 +1,15 @@
-﻿using System;
-using System.ComponentModel.Design;
-using System.Globalization;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio.ProjectSystem.Query;
-using System.Windows.Forms;
-using Microsoft.VisualStudio.Shell;
-using Microsoft.VisualStudio.Shell.Interop;
-using Task = System.Threading.Tasks.Task;
-using System.Linq;
-
-namespace VsProjectQueryAPISample
+﻿namespace VsProjectQueryAPISample
 {
+	using System;
+	using System.ComponentModel.Design;
+	using System.Linq;
+	using System.Text;
+	using System.Threading;
+	using System.Windows.Forms;
+	using Microsoft.VisualStudio.ProjectSystem.Query;
+	using Microsoft.VisualStudio.Shell;
+	using Task = System.Threading.Tasks.Task;
+
 	/// <summary>
 	/// Command handler
 	/// </summary>
