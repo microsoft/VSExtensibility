@@ -22,7 +22,7 @@
 
   <!--The Commands section is where commands, menus, and menu groups are defined.
       This section uses a Guid to identify the package that provides the command defined inside it. -->
-  <Commands package="guidProjectQueryAPISamplePackage">
+  <Commands package="guidVsProjectQueryAPISamplePackage">
     <!-- Inside this section we have different sub-sections: one for the menus, another
     for the menu groups, one for the buttons (the actual commands), one for the combos
     and the last one for the bitmaps used. Each element is identified by a command id that
@@ -36,7 +36,7 @@
          group as the part of a menu contained between two lines. The parent of a group
          must be a menu. -->
     <Groups>
-      <Group guid="guidProjectQueryAPISamplePackageCmdSet" id="MyMenuGroup" priority="0x0600">
+      <Group guid="guidVsProjectQueryAPISamplePackageCmdSet" id="MyMenuGroup" priority="0x0600">
         <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS" />
       </Group>
     </Groups>
@@ -52,73 +52,59 @@
               <CommandFlag>DefaultInvisible</CommandFlag>
               <CommandFlag>DynamicVisibility</CommandFlag>
           If you do not want an image next to your command, remove the Icon node /> -->
-      <Button guid="guidProjectQueryAPISamplePackageCmdSet" id="AddFileId" priority="0x0100" type="Button">
-        <Parent guid="guidProjectQueryAPISamplePackageCmdSet" id="MyMenuGroup" />
+      <Button guid="guidVsProjectQueryAPISamplePackageCmdSet" id="AddFileId" priority="0x0100" type="Button">
+        <Parent guid="guidVsProjectQueryAPISamplePackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages" id="bmpPic1" />
         <Strings>
           <ButtonText>Invoke AddFile</ButtonText>
         </Strings>
       </Button>
-      <Button guid="guidProjectQueryAPISamplePackageCmdSet" id="cmdidQueryFile" priority="0x0100" type="Button">
-        <Parent guid="guidProjectQueryAPISamplePackageCmdSet" id="MyMenuGroup" />
+      <Button guid="guidVsProjectQueryAPISamplePackageCmdSet" id="cmdidQueryFile" priority="0x0100" type="Button">
+        <Parent guid="guidVsProjectQueryAPISamplePackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages1" id="bmpPic1" />
         <Strings>
           <ButtonText>Invoke QueryFile</ButtonText>
         </Strings>
       </Button>
-      <Button guid="guidProjectQueryAPISamplePackageCmdSet" id="cmdidQueryOutputGroupByName" priority="0x0100" type="Button">
-        <Parent guid="guidProjectQueryAPISamplePackageCmdSet" id="MyMenuGroup" />
+      <Button guid="guidVsProjectQueryAPISamplePackageCmdSet" id="cmdidQueryOutputGroupById" priority="0x0100" type="Button">
+        <Parent guid="guidVsProjectQueryAPISamplePackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages2" id="bmpPic1" />
-        <Strings>
-          <ButtonText>Invoke QueryOutputGroupByName</ButtonText>
-        </Strings>
-      </Button>
-      <Button guid="guidProjectQueryAPISamplePackageCmdSet" id="cmdidQueryOutputGroupById" priority="0x0100" type="Button">
-        <Parent guid="guidProjectQueryAPISamplePackageCmdSet" id="MyMenuGroup" />
-        <Icon guid="guidImages3" id="bmpPic1" />
         <Strings>
           <ButtonText>Invoke QueryOutputGroupById</ButtonText>
         </Strings>
       </Button>
-      <Button guid="guidProjectQueryAPISamplePackageCmdSet" id="cmdidQueryOutputGroupByProject" priority="0x0100" type="Button">
-        <Parent guid="guidProjectQueryAPISamplePackageCmdSet" id="MyMenuGroup" />
+      <Button guid="guidVsProjectQueryAPISamplePackageCmdSet" id="cmdidQueryOutputGroupByName" priority="0x0100" type="Button">
+        <Parent guid="guidVsProjectQueryAPISamplePackageCmdSet" id="MyMenuGroup" />
+        <Icon guid="guidImages3" id="bmpPic1" />
+        <Strings>
+          <ButtonText>Invoke QueryOutputGroupByName</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidVsProjectQueryAPISamplePackageCmdSet" id="cmdidQueryOutputGroupByProject" priority="0x0100" type="Button">
+        <Parent guid="guidVsProjectQueryAPISamplePackageCmdSet" id="MyMenuGroup" />
         <Icon guid="guidImages4" id="bmpPic1" />
         <Strings>
           <ButtonText>Invoke QueryOutputGroupByProject</ButtonText>
         </Strings>
       </Button>
     </Buttons>
-
-    <!--The bitmaps section is used to define the bitmaps that are used for the commands.-->
-    <Bitmaps>
-      <!--  The bitmap id is defined in a way that is a little bit different from the others:
-            the declaration starts with a guid for the bitmap strip, then there is the resource id of the
-            bitmap strip containing the bitmaps and then there are the numeric ids of the elements used
-            inside a button definition. An important aspect of this declaration is that the element id
-            must be the actual index (1-based) of the bitmap inside the bitmap strip. -->
-      <Bitmap guid="guidImages" href="Resources\AddFile.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
-      <Bitmap guid="guidImages1" href="Resources\QueryFile.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
-      <Bitmap guid="guidImages2" href="Resources\QueryOutputGroupByName.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
-      <Bitmap guid="guidImages3" href="Resources\QueryOutputGroupById.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
-      <Bitmap guid="guidImages4" href="Resources\QueryOutputGroupByProject.png" usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />
-    </Bitmaps>
   </Commands>
 
   <Symbols>
     <!-- This is the package guid. -->
-    <GuidSymbol name="guidProjectQueryAPISamplePackage" value="{61178973-6c5f-49a4-8ec5-39f5fe769a66}" />
+    <GuidSymbol name="guidVsProjectQueryAPISamplePackage" value="{4743e56e-1978-4510-834b-5b165c72d32d}" />
 
     <!-- This is the guid used to group the menu commands together -->
-    <GuidSymbol name="guidProjectQueryAPISamplePackageCmdSet" value="{0d5d40cd-a6d9-4389-a18a-0326601107ad}">
+    <GuidSymbol name="guidVsProjectQueryAPISamplePackageCmdSet" value="{0f208f00-10ab-4c3d-a89c-e8cbbbb9499f}">
       <IDSymbol name="MyMenuGroup" value="0x1020" />
       <IDSymbol name="AddFileId" value="0x0100" />
       <IDSymbol value="4129" name="cmdidQueryFile" />
-      <IDSymbol value="4130" name="cmdidQueryOutputGroupByName" />
-      <IDSymbol value="4131" name="cmdidQueryOutputGroupById" />
+      <IDSymbol value="4130" name="cmdidQueryOutputGroupById" />
+      <IDSymbol value="4131" name="cmdidQueryOutputGroupByName" />
       <IDSymbol value="4132" name="cmdidQueryOutputGroupByProject" />
     </GuidSymbol>
 
-    <GuidSymbol name="guidImages" value="{4f612fdd-4a51-4ae0-84b3-2ec3c14dcc3b}">
+    <GuidSymbol name="guidImages" value="{beba7e68-2880-4bfb-a3aa-bed6884f65ad}">
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />
@@ -127,7 +113,7 @@
       <IDSymbol name="bmpPicStrikethrough" value="6" />
     </GuidSymbol>
   
-    <GuidSymbol value="{e46b8aa3-3148-4d28-b6bf-2ef6458047e6}" name="guidImages1">
+    <GuidSymbol value="{0c4e4589-1749-4fe9-876b-ef0e9c4c524f}" name="guidImages1">
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />
@@ -136,7 +122,7 @@
       <IDSymbol name="bmpPicStrikethrough" value="6" />
     </GuidSymbol>
   
-    <GuidSymbol value="{6e497173-0731-4e89-b195-7af548eb8e76}" name="guidImages2">
+    <GuidSymbol value="{51c80828-24ec-4dc5-9ded-e0d30856a4c2}" name="guidImages2">
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />
@@ -145,7 +131,7 @@
       <IDSymbol name="bmpPicStrikethrough" value="6" />
     </GuidSymbol>
   
-    <GuidSymbol value="{33f3d1b5-b8f7-4d72-8402-dbfd67a2fcc0}" name="guidImages3">
+    <GuidSymbol value="{84124e53-3cc4-4ae2-a9d5-b94867e76326}" name="guidImages3">
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />
@@ -154,7 +140,7 @@
       <IDSymbol name="bmpPicStrikethrough" value="6" />
     </GuidSymbol>
   
-    <GuidSymbol value="{66929d7c-e959-46c4-8c3d-e008e61d0973}" name="guidImages4">
+    <GuidSymbol value="{956b8b9e-a322-4178-886a-0019231f088f}" name="guidImages4">
       <IDSymbol name="bmpPic1" value="1" />
       <IDSymbol name="bmpPic2" value="2" />
       <IDSymbol name="bmpPicSearch" value="3" />

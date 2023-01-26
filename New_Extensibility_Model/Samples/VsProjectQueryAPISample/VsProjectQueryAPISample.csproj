@@ -10,12 +10,12 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{58786EDB-6AEE-49BF-983F-C3066553B935}</ProjectGuid>
+    <ProjectGuid>{13AD9CDD-0DEA-45F9-B650-E30C49ADC457}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProjectQueryAPISample</RootNamespace>
-    <AssemblyName>ProjectQueryAPISample</AssemblyName>
-	<LangVersion>8.0</LangVersion>
+    <RootNamespace>VsProjectQueryAPISample</RootNamespace>
+    <AssemblyName>VsProjectQueryAPISample</AssemblyName>
+    <LangVersion>8.0</LangVersion>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <GeneratePkgDefFile>true</GeneratePkgDefFile>
     <UseCodebase>true</UseCodebase>
@@ -48,13 +48,15 @@
   <ItemGroup>
     <Compile Include="AddFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProjectQueryAPISamplePackage.cs" />
     <Compile Include="QueryFile.cs" />
     <Compile Include="QueryOutputGroupById.cs" />
     <Compile Include="QueryOutputGroupByName.cs" />
     <Compile Include="QueryOutputGroupByProject.cs" />
+    <Compile Include="VsProjectQueryAPISamplePackage.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ProjectQueryAPIBrowser.md" />
+    <None Include="README.md" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
@@ -62,7 +64,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.ProjectSystem.Query">
-      <HintPath>..\Microsoft.VisualStudio.ProjectSystem.Query.dll</HintPath>
+      <HintPath>..\..\..\..\..\Users\jasminewoon\source\repos\ProjectQueryAPISample\Microsoft.VisualStudio.ProjectSystem.Query.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -73,28 +75,27 @@
   </ItemGroup>
   <!--<ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.0.32112.339" ExcludeAssets="runtime" />
-    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.6.1-alpha" />
+    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.6.13-alpha" />
   </ItemGroup>-->
-
-	<ItemGroup>
-		<PackageReference Include="Microsoft.ServiceHub.Framework">
-			<Version>4.1.112</Version>
-		</PackageReference>
-		<PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.0.31902.203" ExcludeAssets="runtime" />
-		<PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.1.3052-preview3" />
-	</ItemGroup>
-	
   <ItemGroup>
-    <VSCTCompile Include="ProjectQueryAPISamplePackage.vsct">
+    <PackageReference Include="Microsoft.ServiceHub.Framework">
+      <Version>4.1.112</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.0.31902.203" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.1.3052-preview3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\APIMetaData.png" />
+    <Content Include="Images\Browser.png" />
+    <Content Include="Images\ExecuteAsyncResult.png" />
+    <Content Include="Images\ExecuteQueryAsyncResult.png" />
+    <Content Include="Images\TemplateQueries.png" />
+    <VSCTCompile Include="VsProjectQueryAPISamplePackage.vsct">
       <ResourceName>Menus.ctmenu</ResourceName>
     </VSCTCompile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\AddFile.png" />
-    <Content Include="Resources\QueryFile.png" />
-    <Content Include="Resources\QueryOutputGroupById.png" />
-    <Content Include="Resources\QueryOutputGroupByName.png" />
-    <Content Include="Resources\QueryOutputGroupByProject.png" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />

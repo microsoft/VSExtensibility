@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="ProjectQueryAPISample.852c14c3-a7e3-494a-b502-6c8d82ccf3a9" Version="1.0" Language="en-US" Publisher="Jasmine Woon" />
-    <DisplayName>ProjectQueryAPISample</DisplayName>
+    <Identity Id="VsProjectQueryAPISample.1ad23690-9af8-4356-a41a-177bbcaa4abb" Version="1.0" Language="en-US" Publisher="Jasmine Woon" />
+    <DisplayName>VsProjectQueryAPISample</DisplayName>
     <Description>Empty VSIX Project.</Description>
   </Metadata>
   <Installation>

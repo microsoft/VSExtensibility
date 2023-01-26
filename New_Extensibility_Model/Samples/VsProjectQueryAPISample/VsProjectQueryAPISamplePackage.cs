@@ -4,8 +4,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using Task = System.Threading.Tasks.Task;
 
-namespace ProjectQueryAPISample
-{
+namespace VsProjectQueryAPISample {
     /// <summary>
     /// This is the class that implements the package exposed by this assembly.
     /// </summary>
@@ -24,14 +23,13 @@ namespace ProjectQueryAPISample
     /// </para>
     /// </remarks>
     [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
-    [Guid(ProjectQueryAPISamplePackage.PackageGuidString)]
+    [Guid(VsProjectQueryAPISamplePackage.PackageGuidString)]
     [ProvideMenuResource("Menus.ctmenu", 1)]
-    public sealed class ProjectQueryAPISamplePackage : AsyncPackage
-    {
+    public sealed class VsProjectQueryAPISamplePackage : AsyncPackage {
         /// <summary>
-        /// ProjectQueryAPISamplePackage GUID string.
+        /// VsProjectQueryAPISamplePackage GUID string.
         /// </summary>
-        public const string PackageGuidString = "61178973-6c5f-49a4-8ec5-39f5fe769a66";
+        public const string PackageGuidString = "4743e56e-1978-4510-834b-5b165c72d32d";
 
         #region Package Members
 
@@ -42,16 +40,15 @@ namespace ProjectQueryAPISample
         /// <param name="cancellationToken">A cancellation token to monitor for initialization cancellation, which can occur when VS is shutting down.</param>
         /// <param name="progress">A provider for progress updates.</param>
         /// <returns>A task representing the async work of package initialization, or an already completed task if there is none. Do not return null from this method.</returns>
-        protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress)
-        {
+        protected override async Task InitializeAsync(CancellationToken cancellationToken, IProgress<ServiceProgressData> progress) {
             // When initialized asynchronously, the current thread may be a background thread at this point.
             // Do any initialization that requires the UI thread after switching to the UI thread.
             await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
-            await AddFile.InitializeAsync(this);
-            await QueryFile.InitializeAsync(this);
-            await QueryOutputGroupByName.InitializeAsync(this);
-            await QueryOutputGroupById.InitializeAsync(this);
-            await QueryOutputGroupByProject.InitializeAsync(this);
+    await AddFile.InitializeAsync(this);
+    await QueryFile.InitializeAsync(this);
+    await QueryOutputGroupById.InitializeAsync(this);
+    await QueryOutputGroupByName.InitializeAsync(this);
+    await QueryOutputGroupByProject.InitializeAsync(this);
         }
 
         #endregion
