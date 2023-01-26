@@ -8,7 +8,7 @@ date: 2021-8-19
 
 The VisualStudio.Extensibility SDK is a new framework for developing Visual Studio extensions currently in active development and is now made available as a preview, which you can download from []().
 
-With the current preview, you can already develop a wide range of extensions to Visual Studio, from creating a simple command and exposing it in the IDE, to adding support for a new language, extending code or text editing functionality, exposing the functionality of a tool in the IDE, and more.
+With the current preview, you can already develop a wide range of extensions to Visual Studio, from creating a simple command and exposing it in the IDE, to adding support for a new language, working with code or text in the editor, exposing the functionality of a tool in the IDE, and more.
 
 The new framework is designed to be fully asynchronous and keep extensions isolated, usually in a separate process. These design principles are critical for keeping the Visual Studio IDE responsive and stable, even if extensions themselves have problems.
 
