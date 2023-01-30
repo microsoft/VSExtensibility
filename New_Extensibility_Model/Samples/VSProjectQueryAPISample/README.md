@@ -41,23 +41,39 @@ var result = querySpace.Projects
 
 ## Modifying the Project System
 
-Using the same `queryableSpace`, users may modify data in their project system. `Where` is used to identify the value of a property/collection to be returned from the query and `AsUpdatable` is to update the object from the query result. These actions modifying the Project System may include creating/deleting files, building/cleaning/deploying solutions, setting properties, and more.
+Using the same `querySpace`, users may modify data in their project system. `Where` is used to identify the value of a property/collection to be returned from the query and `AsUpdatable` is to update the object from the query result. These actions modifying the Project System may include creating/deleting files, building/cleaning/deploying solutions, setting properties, and more.
 
 In our example, we call the `ExecuteAsync` method to create a new file. The file we want to add is called `CreatedFile.txt`, and we want to add it to our project called `ConsoleApp1`.
 
 ```csharp
-var result = await queryableSpace.Projects
+var result = await querySpace.Projects
 			.Where(project => project.Name == "ConsoleApp1")
 			.AsUpdatable()
 			.CreateFile("CreatedFile.txt")
 .ExecuteAsync();
 ```
 
-## Filtering
+## Data Producers
 
-Users can filter out the desired data they would like to collect.
+Users can filter out the desired data they would like to collect through various data producers.
 
-### Querying ByName
+### Querying By Project
+
+Users may filter out metadata`By Project` in their solution.
+
+In the snippet below, the result will contain information about query Output Groups' names about all projects in our Solution.
+
+```csharp
+var result = querySpace.Projects
+	.With(p => p.Name)
+	.With(p => p.ActiveConfigurations
+		.With(c => c.Name)
+		.With(c => c.OutputGroups
+			.With(g => g.Name)))
+	.QueryAsync(CancellationToken.None);
+```
+
+### Querying By Name
 
 If the users know which metadata they would like to obtain, they may filter that information `ByName` if that metadata contains a ByName method.
 
@@ -73,11 +89,11 @@ var result = querySpace.Projects
 	.QueryAsync(CancellationToken.None);
 ```
 
-### Querying ById
+### Querying By Id
 
 As usuages for project query becomes more complex, users may realize that the require more information from their query.
 
-In our example, let's say we query information about Output Groups.
+In our example, let's say we already queried information about Output Groups.
 
 ```csharp
 var result = space.Projects
@@ -109,3 +125,5 @@ await foreach (var project in result)
 	}
 }
 ```
+
+Now `newResult` will contain information about OutputGroups' names.
