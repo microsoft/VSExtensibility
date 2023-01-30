@@ -6,17 +6,16 @@ date: 2021-8-19
 
 # Welcome to the VisualStudio.Extensibility documentation
 
-The VisualStudio.Extensibility SDK is a new framework for developing Visual Studio extensions currently in active development and is now made available as a preview, which you can download from []().
+The VisualStudio.Extensibility SDK is a new framework for developing Visual Studio extensions. The new SDK focuses primarily on extensions that run out-of-process from the IDE for improved performance and reliability, and it features a modern, asynchronous API that has been streamlined and carefully engineered to maximize developer productivity. The VisualStudio.Extensibility SDK  currently in active development and is now made available as a preview, which you can download by cloning this code repository.
 
-With the current preview, you can already develop a wide range of extensions to Visual Studio, from creating a simple command and exposing it in the IDE, to adding support for a new language, working with code or text in the editor, exposing the functionality of a tool in the IDE, and more.
+With the current preview, you can develop a wide range of extensions to Visual Studio, including creating a simple command and exposing it in the IDE, working with code or text in the editor, exposing the functionality of a tool in the IDE, creating debugger visualizers, and more.
 
-The new framework is designed to be fully asynchronous and keep extensions isolated, usually in a separate process. These design principles are critical for keeping the Visual Studio IDE responsive and stable, even if extensions themselves have problems.
 
-We're actively seeking feedback and engagement. During the preview phase, the framework isn't code complete, and this preview phase is a great time to get community input to help us identify issues and opportunities. You can enter issues in our [public repo](https://github.com/microsoft/VSExtensibility/issues).
+We're actively seeking feedback and engagement. The preview phase is a great time to get community input to help us identify issues and opportunities. You can provide feedback and report bugs in our [issues tracker](https://github.com/microsoft/VSExtensibility/issues).
 
-The new VisualStudio.Extensibility framework may ultimately replace the VS SDK. However, you can also develop with both frameworks in the same extension, if the functionality you are trying to use is not yet available in the new framework, or if you are updating an existing extension written with the existing VS SDK.
+Eventually, the VisualStudio.Extensibility framework will ultimately replace the VS SDK. However, until that time, you might encounter situations where the functionality you need in your extension is not yet available in VisualStudio.Extensibility. In that case, you can develop an in-process extension by leveraging the new VisualStudio.Extensibility APIs while relying on [Microsoft.VisualStudio.Sdk](https://www.nuget.org/packages/Microsoft.VisualStudio.Sdk) to cover any feature gap.
 
-This site is your hub for all documentation for ongoing and upcoming VisualStudio.Extensibility projects.  Documentation is currently available for the following:
+This site is your hub for all documentation for the VisualStudio.Extensibility framwork.  Documentation is currently available for the following:
 
 * Visual Studio.Extensibility SDK (see below)
 * [Extensions to Language Server Protocol (LSP)](lsp/lsp-extensions-specifications.md) 
