@@ -205,4 +205,8 @@ For more information, see [StreamJsonRpc Default Ordering and Concurrency](https
 
 Learn about the editor interfaces and types at [Editor concepts](editor-concepts.md).
 
+Review sample code for a simple editor-based extension:
+
+- [DocumentSelectorSample](~/VSExtensibility/blob/main/New_Extensibility_Model/Samples/DocumentSelectorSample/)
+
 Advanced users might wish to learn about the [Editor RPC support](editor-rpc.md).

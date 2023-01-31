@@ -175,7 +175,9 @@ public override async Task ExecuteCommandAsync(IClientContext context, Cancellat
 
 The `Choices` collection maps the user choices to values in the `TokenThemeResult` enum. `DismissedReturns` sets the value that is returned if the user clicks the dismiss button. `DefaultChoiceIndex` is a zero-based index into the `Choices` collection that defines the default choice.
 
-## Samples
+## Next steps
+
+The following samples demonstrate how to work with user prompts:
 
 - [UserPromptSample](../../../../New_Extensibility_Model/Samples/UserPromptSample/SampleCommand.cs)
 - [MarkdownLinter](../../../../New_Extensibility_Model/Samples/MarkdownLinter/RunLinterOnSolutionCommand.cs)

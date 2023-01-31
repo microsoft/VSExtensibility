@@ -12,8 +12,6 @@ The Output window in the Visual Studio IDE is a [Tool Window](./../toolWindow/to
 
 To get started, follow the [create the project](./../../getting-started/create-your-first-extension.md) section in Getting Started section.
 
-Next, see the [OutputWindowSample](./../../../../New_Extensibility_Model/Samples/OutputWindowSample) sample for a full example of creating an extension that uses the output window.
-
 ## Work with the Output window
 
 This guide is designed to cover the most common things you can do with the Output Window:
@@ -117,6 +115,7 @@ public override async Task InitializeAsync(CancellationToken cancellationToken)
 ## Write to the Output window
 
 The [`OutputWindow`](./../api/../../api/Microsoft.VisualStudio.Extensibility.md#outputwindow-type) instance obtained in [Get an Output window channel](#get-an-output-window-channel) has a [`System.IO.TextWriter`](https://docs.microsoft.com/dotnet/api/system.io.textwriter) property called `Writer`, which supports familiar operations for writing text, such as:
+
 - [`Write()`](https://docs.microsoft.com/dotnet/api/system.io.textwriter.write)
 - [`WriteAsync()`](https://docs.microsoft.com/dotnet/api/system.io.textwriter.writeasync)
 - [`WriteLine()`](https://docs.microsoft.com/dotnet/api/system.io.textwriter.writeline)
@@ -135,6 +134,12 @@ if (this.outputWindow != null)
 
 ## Next steps
 
+Learn more:
+
 - Learn more about [commands](./../command/command.md).
 - Learn more about exposing functionality in the IDE in a [tool window](./../toolWindow/toolWindow.md)
 - Learn about interacting with the user with [user prompts](./../userPrompts/userPrompts.md)
+
+Look at sample code:
+
+- See the [OutputWindowSample](./../../../../New_Extensibility_Model/Samples/OutputWindowSample) sample for a full example of creating an extension that uses the output window.

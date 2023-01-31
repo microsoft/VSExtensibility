@@ -14,8 +14,6 @@ Tool windows are single-instance, meaning that only one instance of the Tool Win
 
 To get started, follow the [create the project](./../../getting-started/create-your-first-extension.md) section in Get Started section.
 
-Next, see the [ToolWindowExtension](./../../../../New_Extensibility_Model/Samples/ToolWindowExtension) sample for a full example of creating an extension with a tool window.
-
 ## Working with Tool Windows
 
 This guide is designed to cover the top user scenarios when working with Tool Windows:
@@ -175,3 +173,5 @@ See the [Using rule based activation constraints](../../inside-the-sdk/activatio
 Be sure to read about [Remote UI](./../../inside-the-sdk/remote-ui.md) works in the VisualStudio.Extensibility framework.
 
 Tool window content is created using WPF, so refer to the [WPF documentation](https://learn.microsoft.com/dotnet/desktop/wpf/overview/) for guidance.
+
+See the [ToolWindowExtension](./../../../../New_Extensibility_Model/Samples/ToolWindowExtension) sample for a full example of creating an extension with a tool window.
