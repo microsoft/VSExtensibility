@@ -28,8 +28,6 @@ The choices presented to the user are mapped to return values of the type define
 
 User Prompts can only be created inside of a [Command](../command/command.md). To get started, [Create the extension project](../../getting-started/create-your-first-extension.md#create-the-extension-project) and [Add your first command](../../getting-started/create-your-first-extension.md#add-your-first-command).
 
-Next, see the [UserPromptSample](./../../../../New_Extensibility_Model/Samples/UserPromptSample) sample for a full example of creating an extension that displays a User Prompt.
-
 ## Work with user prompts
 
 This guide covers the following scenarios for working with User Prompts:
@@ -179,5 +177,5 @@ The `Choices` collection maps the user choices to values in the `TokenThemeResul
 
 The following samples demonstrate how to work with user prompts:
 
-- [UserPromptSample](../../../../New_Extensibility_Model/Samples/UserPromptSample/SampleCommand.cs)
-- [MarkdownLinter](../../../../New_Extensibility_Model/Samples/MarkdownLinter/RunLinterOnSolutionCommand.cs)
+- [UserPromptSample](../../../../New_Extensibility_Model/Samples/UserPromptSample/)
+- [MarkdownLinter](../../../../New_Extensibility_Model/Samples/MarkdownLinter/)

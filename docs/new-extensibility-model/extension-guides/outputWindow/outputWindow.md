@@ -1,12 +1,12 @@
 ---
-title: Output Window Reference
+title: Output window Reference
 description: A reference for output window extensibility
 date: 2022-08-01
 ---
 
 # Output window overview
 
-The Output window in the Visual Studio IDE is a [Tool Window](./../toolWindow/toolWindow.md) that can be used to deliver status, diagnostics/logging, or any other informational text to the user. Unlike [User Prompts](./../userPrompts/userPrompts.md), which might display a message box, the messages written to the Output Window are only displayed if the user has the Output pane visible in the IDE (Output in the View menu) and your Channel selected in the "Show output from:" dropdown menu.
+The Output window in the Visual Studio IDE is a [Tool Window](./../toolWindow/toolWindow.md) that can be used to deliver status, diagnostics/logging, or any other informational text to the user. Unlike [User Prompts](./../userPrompts/userPrompts.md), which might display a message box, the messages written to the Output window are only displayed if the user has the Output pane visible in the IDE (Output in the View menu) and your Channel selected in the "Show output from:" dropdown menu.
 
 ## Get Started
 
@@ -14,10 +14,10 @@ To get started, follow the [create the project](./../../getting-started/create-y
 
 ## Work with the Output window
 
-This guide is designed to cover the most common things you can do with the Output Window:
+This guide is designed to cover the most common things you can do with the Output window:
 
-- [Get an Output Window channel](#getting-an-output-window-channel)
-- [Write to the Output Window](#writing-to-the-output-window)
+- [Get an Output window channel](#get-an-output-window-channel)
+- [Write to the Output window](#write-to-the-output-window)
 
 ## Get an Output window channel
 
@@ -30,8 +30,8 @@ The `GetChannelAsync()` method has three parameters:
 | Parameter | Type | Required | Description |
 | --------- |----- | -------- | ----------- |
 | `identifier` | `string` | yes | A unique identifier for the channel. |
-| `displayNameResourceId` | `string` | yes | The name of the [resource](https://docs.microsoft.com/en-us/dotnet/core/extensions/resources) that contains the display name of the output window. This is what will be visible in the "Show output from:" dropdown menu in the Output pane.<br /><br />For example, if you had a [`.resx`](https://docs.microsoft.com/en-us/dotnet/core/extensions/resources) resource file called `MyStrings.resx` with a resource named "OutputWindowDisplayName", you would use `nameof(MyStrings.OutputWindowDisplayName)` for this parameter. |
-| `cancellationToken` | [`CancellationToken`](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) | yes | The [`CancellationToken`](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) for the async operation. |
+| `displayNameResourceId` | `string` | yes | The name of the [resource](https://docs.microsoft.com/dotnet/core/extensions/resources) that contains the display name of the output window. This is what will be visible in the "Show output from:" dropdown menu in the Output pane.<br /><br />For example, if you had a [`.resx`](https://docs.microsoft.com/dotnet/core/extensions/resources) resource file called `MyStrings.resx` with a resource named "OutputWindowDisplayName", you would use `nameof(MyStrings.OutputWindowDisplayName)` for this parameter. |
+| `cancellationToken` | [`CancellationToken`](https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken) | yes | The [`CancellationToken`](https://docs.microsoft.com/dotnet/api/system.threading.cancellationtoken) for the async operation. |
 
 ### Display name resource ID requirements
 
@@ -45,13 +45,13 @@ The current version of the Output window API requires that the display name for 
 
 You can edit the resource file (in this case `MyStrings.resx`) by using the designer UI available in Visual Studio:
 
-![resx Designer](resxDesigner.png "The .resx designer UI available in Visual Studio being used to set the display name for the Output Window Channel.")
+![resx Designer](resxDesigner.png "The .resx designer UI available in Visual Studio being used to set the display name for the Output window Channel.")
 
 Alternatively, you can edit the resource file by editing the raw XML to add the following snippet:
 
 ```xml
   <data name="OutputWindowDisplayName" xml:space="preserve">
-    <value>My Output Window</value>
+    <value>My Output window</value>
   </data>
 ```
 
@@ -107,7 +107,7 @@ public override async Task InitializeAsync(CancellationToken cancellationToken)
 	string id = "MyOutputWindow";
 	string displayNameResourceId = nameof(MyStrings.OutputWindowDisplayName);
 
-	 // To use this Output Window Channel elsewhere in the class, such as the ExecuteCommandAsync() method in a Command, save this result to a field in the class.
+	 // To use this Output window Channel elsewhere in the class, such as the ExecuteCommandAsync() method in a Command, save this result to a field in the class.
 	OutputWindow? outputWindow = await this.Extensibility.Views().Output.GetChannelAsync(id, displayNameResourceId, cancellationToken);
 }
 ```
@@ -136,7 +136,7 @@ if (this.outputWindow != null)
 
 Learn more:
 
-- Learn more about [commands](./../command/command.md).
+- Learn more about [commands](./../command/command.md)
 - Learn more about exposing functionality in the IDE in a [tool window](./../toolWindow/toolWindow.md)
 - Learn about interacting with the user with [user prompts](./../userPrompts/userPrompts.md)
 
