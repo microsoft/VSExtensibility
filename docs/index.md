@@ -35,7 +35,7 @@ For future updates please bookmark our [announcements](announcements.md) page.
 | Article | Description|
 |-|-|
 | [Get started](#get-started) | Never developed an extension before? Start with beginner quickstarts and introductory tutorials. |
-| [Modern extension development](modern-extension-development.md) | Discover the VisualStudio.Extensibility SDK and how it compares to the Visual Studio SDK. |
+| [Modern extension development](new-extensibility-model/getting-started/oop-extensibility-model-overview.md) | Discover the VisualStudio.Extensibility SDK and how it compares to the Visual Studio SDK. |
 | [Concepts](#concepts) | Build your mental model of how the SDK and extensions work. |
 | [Overviews](#overviews) | Learn more by reading overviews of each major area of functionality. |
 | [Samples](#samples-and-tutorials) | Explore sample code demonstrating major features. |
@@ -58,7 +58,7 @@ Build your mental model of how Visual Studio extensions work. See [Parts of a ne
 
 Learn what's in the SDK at [Parts of the SDK](new-extensibility-model/inside-the-sdk/inside-the-sdk.md)
 
-When and where should your extension appear in the IDE? Visual Studio extensions surface in the IDE at when certain conditions are met. To control how and when your extension appears in the IDE, see [Rule based conditions](new-extensibility-model/inside-the-sdk/activation-constraints.md).
+When and where should your extension appear in the IDE? Visual Studio extensions surface in the IDE at when certain conditions are met. To control how and when your extension appears in the IDE, see [Rule-based activation constraints](new-extensibility-model/inside-the-sdk/activation-constraints.md).
 
 ## Overviews
 

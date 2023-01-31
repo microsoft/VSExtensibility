@@ -168,4 +168,4 @@ The attribute [`Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowVisib
 public class MyToolWindow : ToolWindow
 ```
 
-See the [Using rule based activation constraints](../../inside-the-sdk/activation-constraints.md/#rule-based-activation-constraints) docs for more information on valid term values.
+See the [Rule-based activation constraints](../../inside-the-sdk/activation-constraints.md/#rule-based-activation-constraints) docs for more information on valid term values.

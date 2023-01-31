@@ -49,7 +49,7 @@ The second attribute is the `CommandIcon` attribute. Here, we specify `OfficeWeb
    [CommandVisibleWhen("AnyFile", new string[] { "AnyFile" }, new string[] { "ClientContext:Shell.ActiveEditorContentType=.+" })]
    ```
 
-   [Using rule based activation constraints](./../inside-the-sdk/activation-constraints.md/#rule-based-activation-constraints)
+   [Rule-based activation constraints](./../inside-the-sdk/activation-constraints.md/#rule-based-activation-constraints)
 
 ## Create the execution method
 
