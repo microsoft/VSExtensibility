@@ -13,7 +13,7 @@ The goal of the Project Query API is to:
 1. Make changes to projects
 Some examples include understanding files included in a project, NuGet packages referenced by a project, adding new files to a project, or changing project properties.
 
-The new project query API allows for querying information from the project system. It is optimized for the Common Project System (CPS) so that it is not required to switch to the UI thread, something needed by the classic COM-based APIs (IVsHierarchy and DTE).
+The new project query API allows for querying information from the project system.
 
 ## Project Query Specific Nouns
 |Term|Description
