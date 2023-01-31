@@ -57,3 +57,9 @@ For more information on how to add commands, please refer to [Commands](../exten
 * You can find the command in `Tools` menu as shown.
 
 ![SampleCommand](extension-command.png "Sample Remote Command")
+
+## Next steps
+
+If you missed the introductory overviews, see [Welcome to the VisualStudio.Extensibility documentation](../index.md) and [Out-of-Process Extensibility Model Overview](oop-extensibility-model-overview.md).
+
+Now create a slightly more interesting extension; see [Create a simple extension](tutorial-create-simple-extension.md).

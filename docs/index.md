@@ -10,7 +10,6 @@ The VisualStudio.Extensibility SDK is a new framework for developing Visual Stud
 
 With the current preview, you can develop a wide range of extensions to Visual Studio, including creating a simple command and exposing it in the IDE, working with code or text in the editor, exposing the functionality of a tool in the IDE, creating debugger visualizers, and more.
 
-
 We're actively seeking feedback and engagement. The preview phase is a great time to get community input to help us identify issues and opportunities. You can provide feedback and report bugs in our [issues tracker](https://github.com/microsoft/VSExtensibility/issues).
 
 Eventually, the VisualStudio.Extensibility framework will ultimately replace the VS SDK. However, until that time, you might encounter situations where the functionality you need in your extension is not yet available in VisualStudio.Extensibility. In that case, you can develop an in-process extension by leveraging the new VisualStudio.Extensibility APIs while relying on [Microsoft.VisualStudio.Sdk](https://www.nuget.org/packages/Microsoft.VisualStudio.Sdk) to cover any feature gap.
@@ -37,38 +36,39 @@ For future updates please bookmark our [announcements](announcements.md) page.
 |-|-|
 | [Get started](#get-started) | Never developed an extension before? Start with beginner quickstarts and introductory tutorials. |
 | [Modern extension development](modern-extension-development.md) | Discover the VisualStudio.Extensibility SDK and how it compares to the Visual Studio SDK. |
+| [Concepts](#concepts) | Build your mental model of how the SDK and extensions work. |
 | [Overviews](#overviews) | Learn more by reading overviews of each major area of functionality. |
-| [Concepts](#concepts) | Find information to answer questions solve specific problems. |
 | [Samples](#samples-and-tutorials) | Explore sample code demonstrating major features. |
 | [API reference](#api-docs) | Browse the VisualStudio.Extensibility API documentation. |
 | [Advanced topics](#advanced) | Learn implementation details of the VisualStudio.Extensibility SDK. |
 
+In addition, we recommend a thorough understanding of [asynchronous programming with async and await](https://learn.microsoft.com/dotnet/csharp/programming-guide/concepts/async/) and [dependency injection](https://learn.microsoft.com/dotnet/core/extensions/dependency-injection). The UI Framework used in Visual Studio is Windows Presentation Foundation (WPF), so you might want to review the [WPF documentation](/dotnet/desktop/wpf/).
+
 ## Get Started
 
-| Article | Description|
-|-|-|
-| [Introduction to new out-of-process extensibility](new-extensibility-model/getting-started/oop-extensibility-model-overview.md) | Learn what the VisualStudio.Extensibility model can do. |
-| [Create your first extension](new-extensibility-model/getting-started/create-your-first-extension.md) | Learn how to create a extension. |
-| [Create a simple extension](new-extensibility-model/getting-started/tutorial-create-simple-extension.md) | Follow a tutorial and create a sample extension that adds a GUID to the editor window. |
+The following articles will help you get oriented and started.
 
-## Overviews
-
-| Article | Description|
-|-|-|
-| [Commands](new-extensibility-model/extension-guides/command/command.md) | Learn how to create extension functions and expose them to users in the IDE. |
-| [Editor components](new-extensibility-model/extension-guides/editor/editor.md) | Learn how to extend the code editor. |
-appears in the IDE. |
-| [Output window](new-extensibility-model/extension-guides/outputWindow/outputWindow.md) | Learn how to use the output window in an extension. |
-| [Tool windows](new-extensibility-model/extension-guides/toolWindow/toolWindow.md) | Learn how to work with tool windows, dockable windows hosted within the Visual Studio IDE. |
-| [User prompts](new-extensibility-model/extension-guides/userPrompts/userPrompts.md)| Learn how to use prompts to interact with the user. |
+* [Introduction to new out-of-process extensibility](new-extensibility-model/getting-started/oop-extensibility-model-overview.md)
+* [Create your first extension](new-extensibility-model/getting-started/create-your-first-extension.md) shows how to create the equivalent of "Hello, world" as an extension.
+* Next , follow a tutorial and create a more interesting extension that adds a GUID to the editor window. See [Create a simple extension](new-extensibility-model/getting-started/tutorial-create-simple-extension.md).
 
 ## Concepts
 
-| Article | Description|
-|-|-|
-| [Parts of a new Visual Studio extension](new-extensibility-model/inside-the-sdk/extension-anatomy.md) | Build your mental model of how Visual Studio extensions work. |
-| [Parts of the SDK](new-extensibility-model/inside-the-sdk/inside-the-sdk.md) | Learn waht's in the SDK. |
-| [Rule based conditions](new-extensibility-model/inside-the-sdk/activation-constraints.md) | Control how and when your extension appears in the IDE. |
+Build your mental model of how Visual Studio extensions work. See [Parts of a new Visual Studio extension](new-extensibility-model/inside-the-sdk/extension-anatomy.md).
+
+Learn what's in the SDK at [Parts of the SDK](new-extensibility-model/inside-the-sdk/inside-the-sdk.md)
+
+When and where should your extension appear in the IDE? Visual Studio extensions surface in the IDE at when certain conditions are met. To control how and when your extension appears in the IDE, see [Rule based conditions](new-extensibility-model/inside-the-sdk/activation-constraints.md).
+
+## Overviews
+
+Read an overview of the areas of the SDK that you might need for your extension development projects:
+
+* To learn how to create extension functions and expose them to users in the IDE, see [Commands](new-extensibility-model/extension-guides/command/command.md).
+* To learn how to extend the code editor, see [Editor components](new-extensibility-model/extension-guides/editor/editor.md).
+* To learn how to use the output window in an extension, see [Output window](new-extensibility-model/extension-guides/outputWindow/outputWindow.md).
+* To learn how to work with tool windows, dockable windows hosted within the Visual Studio IDE, see [Tool windows](new-extensibility-model/extension-guides/toolWindow/toolWindow.md).
+* To learn how to use prompts to interact with the user, see [User prompts](new-extensibility-model/extension-guides/userPrompts/userPrompts.md).
 
 ## Samples and tutorials
 

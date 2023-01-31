@@ -36,7 +36,7 @@ The new extensibility model is primarily built on top remote RPC contracts that 
 
 Extensibility packages that are provided as part of the SDK consist of base classes, utility methods and wrapper objects around these RPC contracts with the goal of making the extensibility surface area easier to use, easier to discover, and also to be able to quickly contribute to Visual Studio ecosystem such as creating a new command handler.
 
-To understand how to work with the new extensibility model, we recommend a thorough understanding of [asynchronous programming with async and await](https://learn.microsoft.com/dotnet/csharp/programming-guide/concepts/async/) and [dependency injection](https://learn.microsoft.com/dotnet/core/extensions/dependency-injection).
+To understand how to work with the new extensibility model, we recommend a thorough understanding of [asynchronous programming with async and await](https://learn.microsoft.com/dotnet/csharp/programming-guide/concepts/async/) and [dependency injection](https://learn.microsoft.com/dotnet/core/extensions/dependency-injection). In addition, the UI use Windows Presentation Foundation (WPF), so you might want to review the [WPF documentation](/dotnet/desktop/wpf/).
 
 ## Next Steps
 
