@@ -21,13 +21,13 @@ The editor object model is described at [Editor concepts](editor-concepts.md).
 
 ## Get started
 
-Your extension code can be configured to run in response to various situations that a occur when a user interacts with Visual Studio. These are known as entry points. Editor extensibility currently supports three entry points: listeners, the [EditorExtensibility](#EditorExtensibility) service object, and commands.
+Your extension code can be configured to run in response to various situations that a occur when a user interacts with Visual Studio. These are known as entry points. Editor extensibility currently supports three entry points: listeners, the [EditorExtensibility](#access-editor-functionality) service object, and commands.
 
 Event listeners get triggered when certain actions occur in an editor window, represented in code by a `TextView`. For example, when a user types something into the editor, a `TextViewChanged` event occurs. When an editor window is opened or closed, `TextViewCreated` and `TextViewClosed` events occur.
 
 The editor service object is an instance of the `EditorExtensibility` class, which exposes real-time editor functionality, such as performing text edits.
 
-[Commands](commands.md) are initiated by the user by clicking on an item which you can place on a menu, context menu, or toolbar.
+[Commands](../command/command.md) are initiated by the user by clicking on an item which you can place on a menu, context menu, or toolbar.
 
 ### Add a listener
 
@@ -36,7 +36,7 @@ Together, these listeners can be used to observe the open, close, and modificati
 
 Then, create a new class, implementing the [ExtensionPart](./../../api/Microsoft.VisualStudio.Extensibility.Framework.md#T-Microsoft-VisualStudio-Extensibility-ExtensionPart) base class and `ITextViewChangedListener`,
 `ITextViewLifetimeListener`, or both. Then, add an `[ExtensionPart(typeof(ITextViewChangedListener))]` attribute for
-each listener interface you implemented and an `[AppliesTo(DocumentType = "CSharp")]` attribute to your class to make the listener apply when editing C# files. The available document types for other programming languages and file types are listed [later in this article](#applies-to-attribute), and custom file types may also be defined when required.
+each listener interface you implemented and an `[AppliesTo(DocumentType = "CSharp")]` attribute to your class to make the listener apply when editing C# files. The available document types for other programming languages and file types are listed [later in this article](#specify-programming-languages-with-the-appliesto-attribute), and custom file types may also be defined when required.
 
 Assuming you decide to implement both listeners, the finished class declaration should look like the following:
 
@@ -64,7 +64,7 @@ the IDE wishes to cancel a pending action.
 
 ## Define when your extension is relevant
 
-Your extension is typically relevant only to certain supported document types and scenarios, and so it is important to clearly define its applicability. The Visual Studio Extensibility model provides several ways to clearly define the applicability of an extension. These are various attributes which are known as document selectors: the [AppliesTo attribute](#appliesto-attribute), which helps specify what file types such as code languages the extension supports, and the [AppliesToPattern attribute](#appiestopattern-attribute), which lets you refine the applicability of an extension by further matching on a pattern based on the filename or path.
+Your extension is typically relevant only to certain supported document types and scenarios, and so it is important to clearly define its applicability. The Visual Studio Extensibility model provides several ways to clearly define the applicability of an extension. These are various attributes which are known as document selectors: the [AppliesTo attribute](#specify-programming-languages-with-the-appliesto-attribute), which helps specify what file types such as code languages the extension supports, and the [AppliesToPattern attribute](#document-selectors), which lets you refine the applicability of an extension by further matching on a pattern based on the filename or path.
 
 ### Specify programming languages with the AppliesTo Attribute
 
