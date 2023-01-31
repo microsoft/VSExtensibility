@@ -207,6 +207,6 @@ Learn about the editor interfaces and types at [Editor concepts](editor-concepts
 
 Review sample code for a simple editor-based extension:
 
-- [DocumentSelectorSample](~/New_Extensibility_Model/Samples/DocumentSelectorSample/)
+- [DocumentSelectorSample](../../../../New_Extensibility_Model/Samples/DocumentSelectorSample/)
 
 Advanced users might wish to learn about the [Editor RPC support](editor-rpc.md).
