@@ -12,7 +12,7 @@ Tool windows are single-instance, meaning that only one instance of the Tool Win
 
 ## Get started
 
-To get started, follow the [create the project](./../../getting-started/create-your-first-extension.md) tutorial.
+To get started, follow the [create your first extension](./../../getting-started/create-your-first-extension.md) tutorial.
 
 ## Working with Tool Windows
 
@@ -166,7 +166,7 @@ The attribute [`Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowVisib
 public class MyToolWindow : ToolWindow
 ```
 
-See the [Using rule based activation constraints](../../inside-the-sdk/activation-constraints.md/#rule-based-activation-constraints) docs for more information on valid term values.
+See [Rule-based activation constraints](../../inside-the-sdk/activation-constraints.md/#rule-based-activation-constraints) for more information on valid term values.
 
 ## Next steps
 
