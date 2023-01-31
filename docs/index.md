@@ -1,6 +1,6 @@
 ---
 title: VisualStudio.Extensibility
-description: Welcome to Visual Studio Extensibility model
+description: Welcome to the Visual Studio Extensibility model
 date: 2021-8-19
 ---
 
@@ -12,14 +12,14 @@ With the current preview, you can develop a wide range of extensions to Visual S
 
 We're actively seeking feedback and engagement. The preview phase is a great time to get community input to help us identify issues and opportunities. You can provide feedback and report bugs in our [issues tracker](https://github.com/microsoft/VSExtensibility/issues).
 
-Eventually, the VisualStudio.Extensibility framework will ultimately replace the VS SDK. However, until that time, you might encounter situations where the functionality you need in your extension is not yet available in VisualStudio.Extensibility. In that case, you can develop an in-process extension by leveraging the new VisualStudio.Extensibility APIs while relying on [Microsoft.VisualStudio.Sdk](https://www.nuget.org/packages/Microsoft.VisualStudio.Sdk) to cover any feature gap.
+Eventually, the VisualStudio.Extensibility SDK will ultimately replace the VS SDK. However, until that time, you might encounter situations where the functionality you need in your extension is not yet available in VisualStudio.Extensibility. In that case, you can develop an in-process extension by leveraging the new VisualStudio.Extensibility APIs while relying on [Microsoft.VisualStudio.Sdk](https://www.nuget.org/packages/Microsoft.VisualStudio.Sdk) to cover any feature gap.
 
-This site is your hub for all documentation for the VisualStudio.Extensibility framwork.  Documentation is currently available for the following:
+This site is your hub for all documentation for the VisualStudio.Extensibility SDK. Documentation is currently available for the following:
 
-* Visual Studio.Extensibility SDK (see below)
-* [Extensions to Language Server Protocol (LSP)](lsp/lsp-extensions-specifications.md) 
+* VisualStudio.Extensibility SDK (see below)
+* [Extensions to Language Server Protocol (LSP)](lsp/lsp-extensions-specifications.md)
 
-## Visual Studio Extensibility SDK
+## VisualStudio.Extensibility SDK
 
 The following documentation describes:
 
@@ -65,7 +65,7 @@ When and where should your extension appear in the IDE? Visual Studio extensions
 Read an overview of the areas of the SDK that you might need for your extension development projects:
 
 * To learn how to create extension functions and expose them to users in the IDE, see [Commands](new-extensibility-model/extension-guides/command/command.md).
-* To learn how to extend the code editor, see [Editor components](new-extensibility-model/extension-guides/editor/editor.md).
+* To learn how to extend the code editor, see [Editor extensions](new-extensibility-model/extension-guides/editor/editor.md).
 * To learn how to use the output window in an extension, see [Output window](new-extensibility-model/extension-guides/outputWindow/outputWindow.md).
 * To learn how to work with tool windows, dockable windows hosted within the Visual Studio IDE, see [Tool windows](new-extensibility-model/extension-guides/toolWindow/toolWindow.md).
 * To learn how to use prompts to interact with the user, see [User prompts](new-extensibility-model/extension-guides/userPrompts/userPrompts.md).
@@ -77,14 +77,14 @@ A Visual Studio solution containing all samples can be found at [Samples.sln](ht
 | Sample | Description|
 |-|-|
 | [Simple command handler](new-extensibility-model/getting-started/create-your-first-extension.md) ([Source](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/SimpleRemoteCommandSample)) | Demonstrates the basics of working with commands. |
-| [Insert guid extension sample](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/InsertGuidExtension) | Shows how to insert text or code in the code editor. See also the [tutorial](new-extensibility-modlel/getting-started/tutorial-create-simple-extension.md). |
+| [Insert guid extension sample](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/InsertGuidExtension) | Shows how to insert text or code in the code editor. See also the [tutorial](new-extensibility-model/getting-started/tutorial-create-simple-extension.md). |
 | [Command registration, localization sample](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/CommandRegistrationsSample) | An extension that shows a command registered with specific activation conditions. |
 | [Command parenting sample](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/Command-Parenting-Sample) | Shows how to author a command that can be parented to different aspects of the IDE. |
 | [Document selector](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/DocumentSelectorSample) | Shows how to create an editor extension that is only applicable to files matching a file path pattern. |
-| [Output window sample](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/OutputWindowSample) | Shows the most basic use of the [Output Window API](./../../../docs/new-extensibility-model/extension-guides/outputWindow/outputWindow.md)|
+| [Output window sample](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/OutputWindowSample) | Shows the most basic use of the [Output Window API](./new-extensibility-model/extension-guides/outputWindow/outputWindow.md)|
 | [Tool window extension](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/ToolWindowExtension) | Shows how to create a tool window and populate it with content. |
 | [User prompt sample](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/UserPromptSample) | Shows how to create a simple command to display a prompt to the user. |
-| [Markdown Linter](new-extensibility-model/extension-guides/markdown-linter-sample.md) ([Source](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/MarkdownLinter)) | A complete extension with many moving parts interacting to provide an enhanced experience in the editor for a certain file type. |
+| [Markdown Linter](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/MarkdownLinter) | A complete extension with many moving parts interacting to provide an enhanced experience in the editor for a certain file type. |
 | [Comment remover](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/CommentRemover) | Shows how to consume [Visual Studio SDK](https://www.nuget.org/packages/Microsoft.VisualStudio.SDK) services through .NET dependency injection and use VisualStudio.Extensibility APIs for commands, prompts and progress report. |
 
 ## API Docs
@@ -92,7 +92,7 @@ A Visual Studio solution containing all samples can be found at [Samples.sln](ht
 The following two namespaces are primary extensibility surface provided by the SDK:
 
 * [Microsoft.VisualStudio.Extensibility](new-extensibility-model/api/Microsoft.VisualStudio.Extensibility.md)
-* [Microsoft.VisualStudio.Extensibility.Editor](new-extensibility-model/api/Microsoft.VisualStudio.Extensibility.Extensibility.editor.md)
+* [Microsoft.VisualStudio.Extensibility.Editor](new-extensibility-model/api/Microsoft.VisualStudio.Extensibility.Editor.md)
 
 The following assemblies contain classes related to infrastructure and underlying implementation for the wrappers in the SDK:
 
@@ -105,6 +105,6 @@ The following assemblies contain classes related to infrastructure and underlyin
 
 | Article | Description|
 |-|-|
-| [Remote UI](new-extensibility-model/inside-the-sdk/remote-ui.md) | |
-| [Advanced Remote UI](new-extensibility-model/inside-the-sdk/advanced-remote-ui.md) | |
+| [Remote UI](new-extensibility-model/inside-the-sdk/remote-ui.md) | Start learning about remote UI model used in the VisualStudio.Extensibility SDK.|
+| [Advanced Remote UI](new-extensibility-model/inside-the-sdk/advanced-remote-ui.md) | In-depth information on the remote UI model. |
 | [In-proc extensions](new-extensibility-model/getting-started/in-proc-extensions.md) | Learn how to make extension that run in-process. |
