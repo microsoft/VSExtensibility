@@ -5,17 +5,16 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<LangVersion>10.0</LangVersion>
 
     <!-- The VisualStudio.Extensibility preview packages are available from the azure-public/vside/vssdk feed -->
     <RestoreAdditionalProjectSources>https://pkgs.dev.azure.com/azure-public/vside/_packaging/vssdk/nuget/v3/index.json;$(RestoreAdditionalProjectSources)</RestoreAdditionalProjectSources>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <LangVersion>10.0</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <LangVersion>10.0</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
