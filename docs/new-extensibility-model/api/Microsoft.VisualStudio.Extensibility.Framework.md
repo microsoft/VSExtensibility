@@ -3,8 +3,6 @@
 
 ## Contents
 
-- [AllowNullAttribute](#T-System-Diagnostics-CodeAnalysis-AllowNullAttribute 'System.Diagnostics.CodeAnalysis.AllowNullAttribute')
-  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-AllowNullAttribute-#ctor 'System.Diagnostics.CodeAnalysis.AllowNullAttribute.#ctor')
 - [AsyncCommand](#T-Microsoft-VisualStudio-Extensibility-UI-AsyncCommand 'Microsoft.VisualStudio.Extensibility.UI.AsyncCommand')
   - [#ctor(executeCallback)](#M-Microsoft-VisualStudio-Extensibility-UI-AsyncCommand-#ctor-System-Func{System-Object,System-Threading-CancellationToken,System-Threading-Tasks-Task}- 'Microsoft.VisualStudio.Extensibility.UI.AsyncCommand.#ctor(System.Func{System.Object,System.Threading.CancellationToken,System.Threading.Tasks.Task})')
   - [CanExecute](#P-Microsoft-VisualStudio-Extensibility-UI-AsyncCommand-CanExecute 'Microsoft.VisualStudio.Extensibility.UI.AsyncCommand.CanExecute')
@@ -28,7 +26,7 @@
   - [GetSerializeMethodForCollection(type)](#M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-GetSerializeMethodForCollection-System-Type- 'Microsoft.VisualStudio.Extensibility.UI.DataContextSerializerOptions.DataContextFormatter.GetSerializeMethodForCollection(System.Type)')
   - [GetSerializeMethodForMapObject(type)](#M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-GetSerializeMethodForMapObject-System-Type- 'Microsoft.VisualStudio.Extensibility.UI.DataContextSerializerOptions.DataContextFormatter.GetSerializeMethodForMapObject(System.Type)')
   - [GetTypeSerializer(type,omitNullableHeader,dataTypeCode,isSimpleValueTypeNullable)](#M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-GetTypeSerializer-System-Type,System-Boolean,Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode@,System-Boolean@- 'Microsoft.VisualStudio.Extensibility.UI.DataContextSerializerOptions.DataContextFormatter.GetTypeSerializer(System.Type,System.Boolean,Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode@,System.Boolean@)')
-  - [IsCollection(type,itemType,getCountMethod)](#M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-IsCollection-System-Type,System-Type@,System-Reflection-MethodInfo@- 'Microsoft.VisualStudio.Extensibility.UI.DataContextSerializerOptions.DataContextFormatter.IsCollection(System.Type,System.Type@,System.Reflection.MethodInfo@)')
+  - [IsCollection(type,itemType,getEnumerableAndCount)](#M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-IsCollection-System-Type,System-Type@,System-Func{System-Object,System-ValueTuple{System-Collections-IEnumerable,System-Int32}}@- 'Microsoft.VisualStudio.Extensibility.UI.DataContextSerializerOptions.DataContextFormatter.IsCollection(System.Type,System.Type@,System.Func{System.Object,System.ValueTuple{System.Collections.IEnumerable,System.Int32}}@)')
   - [Serialize()](#M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-Serialize-MessagePack-MessagePackWriter@,System-Object,MessagePack-MessagePackSerializerOptions- 'Microsoft.VisualStudio.Extensibility.UI.DataContextSerializerOptions.DataContextFormatter.Serialize(MessagePack.MessagePackWriter@,System.Object,MessagePack.MessagePackSerializerOptions)')
   - [SerializeAsXamlFragment(writer,value,options)](#M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-SerializeAsXamlFragment-MessagePack-MessagePackWriter@,System-Object,MessagePack-MessagePackSerializerOptions- 'Microsoft.VisualStudio.Extensibility.UI.DataContextSerializerOptions.DataContextFormatter.SerializeAsXamlFragment(MessagePack.MessagePackWriter@,System.Object,MessagePack.MessagePackSerializerOptions)')
   - [SerializeComplexNullable(writer,value,options,serializeMethod)](#M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-SerializeComplexNullable-MessagePack-MessagePackWriter@,System-Object,MessagePack-MessagePackSerializerOptions,Microsoft-Internal-VisualStudio-RemoteUI-SimpleDataTypesSerializer-SerializeMethod- 'Microsoft.VisualStudio.Extensibility.UI.DataContextSerializerOptions.DataContextFormatter.SerializeComplexNullable(MessagePack.MessagePackWriter@,System.Object,MessagePack.MessagePackSerializerOptions,Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeMethod)')
@@ -67,8 +65,6 @@
 - [DefaultMessagePackServiceFactory](#T-Microsoft-VisualStudio-Extensibility-DefaultMessagePackServiceFactory 'Microsoft.VisualStudio.Extensibility.DefaultMessagePackServiceFactory')
   - [CreateAsync()](#M-Microsoft-VisualStudio-Extensibility-DefaultMessagePackServiceFactory-CreateAsync-Microsoft-ServiceHub-Framework-ServiceMoniker,Microsoft-ServiceHub-Framework-ServiceActivationOptions,System-IServiceProvider,System-Type,System-Type- 'Microsoft.VisualStudio.Extensibility.DefaultMessagePackServiceFactory.CreateAsync(Microsoft.ServiceHub.Framework.ServiceMoniker,Microsoft.ServiceHub.Framework.ServiceActivationOptions,System.IServiceProvider,System.Type,System.Type)')
   - [GetServiceDescriptor()](#M-Microsoft-VisualStudio-Extensibility-DefaultMessagePackServiceFactory-GetServiceDescriptor-Microsoft-ServiceHub-Framework-ServiceMoniker- 'Microsoft.VisualStudio.Extensibility.DefaultMessagePackServiceFactory.GetServiceDescriptor(Microsoft.ServiceHub.Framework.ServiceMoniker)')
-- [DisallowNullAttribute](#T-System-Diagnostics-CodeAnalysis-DisallowNullAttribute 'System.Diagnostics.CodeAnalysis.DisallowNullAttribute')
-  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-DisallowNullAttribute-#ctor 'System.Diagnostics.CodeAnalysis.DisallowNullAttribute.#ctor')
 - [DisposableObject](#T-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject 'Microsoft.VisualStudio.Extensibility.Helpers.DisposableObject')
   - [IsDisposed](#P-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject-IsDisposed 'Microsoft.VisualStudio.Extensibility.Helpers.DisposableObject.IsDisposed')
   - [Dispose()](#M-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject-Dispose 'Microsoft.VisualStudio.Extensibility.Helpers.DisposableObject.Dispose')
@@ -76,11 +72,6 @@
   - [DisposeManagedResources()](#M-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject-DisposeManagedResources 'Microsoft.VisualStudio.Extensibility.Helpers.DisposableObject.DisposeManagedResources')
   - [DisposeNativeResources()](#M-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject-DisposeNativeResources 'Microsoft.VisualStudio.Extensibility.Helpers.DisposableObject.DisposeNativeResources')
   - [Finalize()](#M-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject-Finalize 'Microsoft.VisualStudio.Extensibility.Helpers.DisposableObject.Finalize')
-- [DoesNotReturnAttribute](#T-System-Diagnostics-CodeAnalysis-DoesNotReturnAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute')
-  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-DoesNotReturnAttribute-#ctor 'System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute.#ctor')
-- [DoesNotReturnIfAttribute](#T-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute')
-  - [#ctor(parameterValue)](#M-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-#ctor-System-Boolean- 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.#ctor(System.Boolean)')
-  - [ParameterValue](#P-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-ParameterValue 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.ParameterValue')
 - [EmptyResourceDictionary](#T-Microsoft-VisualStudio-Extensibility-Helpers-EmptyResourceDictionary 'Microsoft.VisualStudio.Extensibility.Helpers.EmptyResourceDictionary')
   - [#ctor()](#M-Microsoft-VisualStudio-Extensibility-Helpers-EmptyResourceDictionary-#ctor 'Microsoft.VisualStudio.Extensibility.Helpers.EmptyResourceDictionary.#ctor')
   - [Instance](#P-Microsoft-VisualStudio-Extensibility-Helpers-EmptyResourceDictionary-Instance 'Microsoft.VisualStudio.Extensibility.Helpers.EmptyResourceDictionary.Instance')
@@ -111,11 +102,16 @@
   - [GetOrCreateExtensibilityPoint\`\`1(extensibilityPoint)](#M-Microsoft-VisualStudio-Extensibility-ExtensibilityPointManager-GetOrCreateExtensibilityPoint``1-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint- 'Microsoft.VisualStudio.Extensibility.ExtensibilityPointManager.GetOrCreateExtensibilityPoint``1(Microsoft.VisualStudio.Extensibility.ExtensibilityPoint)')
 - [ExtensionCore](#T-Microsoft-VisualStudio-Extensibility-ExtensionCore 'Microsoft.VisualStudio.Extensibility.ExtensionCore')
   - [#ctor()](#M-Microsoft-VisualStudio-Extensibility-ExtensionCore-#ctor 'Microsoft.VisualStudio.Extensibility.ExtensionCore.#ctor')
+  - [ExtensionConfiguration](#P-Microsoft-VisualStudio-Extensibility-ExtensionCore-ExtensionConfiguration 'Microsoft.VisualStudio.Extensibility.ExtensionCore.ExtensionConfiguration')
+  - [HostServiceBrokerClient](#P-Microsoft-VisualStudio-Extensibility-ExtensionCore-HostServiceBrokerClient 'Microsoft.VisualStudio.Extensibility.ExtensionCore.HostServiceBrokerClient')
+  - [HostServiceProvider](#P-Microsoft-VisualStudio-Extensibility-ExtensionCore-HostServiceProvider 'Microsoft.VisualStudio.Extensibility.ExtensionCore.HostServiceProvider')
   - [ResourceDictionary](#P-Microsoft-VisualStudio-Extensibility-ExtensionCore-ResourceDictionary 'Microsoft.VisualStudio.Extensibility.ExtensionCore.ResourceDictionary')
   - [ResourceManager](#P-Microsoft-VisualStudio-Extensibility-ExtensionCore-ResourceManager 'Microsoft.VisualStudio.Extensibility.ExtensionCore.ResourceManager')
   - [ServiceFactoryMap](#P-Microsoft-VisualStudio-Extensibility-ExtensionCore-ServiceFactoryMap 'Microsoft.VisualStudio.Extensibility.ExtensionCore.ServiceFactoryMap')
   - [ServiceProvider](#P-Microsoft-VisualStudio-Extensibility-ExtensionCore-ServiceProvider 'Microsoft.VisualStudio.Extensibility.ExtensionCore.ServiceProvider')
   - [CreateAsync()](#M-Microsoft-VisualStudio-Extensibility-ExtensionCore-CreateAsync-System-IServiceProvider,Microsoft-ServiceHub-Framework-ServiceMoniker,Microsoft-ServiceHub-Framework-ServiceActivationOptions,Microsoft-ServiceHub-Framework-IServiceBroker,Microsoft-ServiceHub-Framework-Services-AuthorizationServiceClient,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.ExtensionCore.CreateAsync(System.IServiceProvider,Microsoft.ServiceHub.Framework.ServiceMoniker,Microsoft.ServiceHub.Framework.ServiceActivationOptions,Microsoft.ServiceHub.Framework.IServiceBroker,Microsoft.ServiceHub.Framework.Services.AuthorizationServiceClient,System.Threading.CancellationToken)')
+  - [Dispose()](#M-Microsoft-VisualStudio-Extensibility-ExtensionCore-Dispose 'Microsoft.VisualStudio.Extensibility.ExtensionCore.Dispose')
+  - [Dispose(disposing)](#M-Microsoft-VisualStudio-Extensibility-ExtensionCore-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.ExtensionCore.Dispose(System.Boolean)')
   - [GetFactory(serviceMoniker)](#M-Microsoft-VisualStudio-Extensibility-ExtensionCore-GetFactory-Microsoft-ServiceHub-Framework-ServiceMoniker- 'Microsoft.VisualStudio.Extensibility.ExtensionCore.GetFactory(Microsoft.ServiceHub.Framework.ServiceMoniker)')
   - [GetServiceDescriptor()](#M-Microsoft-VisualStudio-Extensibility-ExtensionCore-GetServiceDescriptor-Microsoft-ServiceHub-Framework-ServiceMoniker- 'Microsoft.VisualStudio.Extensibility.ExtensionCore.GetServiceDescriptor(Microsoft.ServiceHub.Framework.ServiceMoniker)')
   - [InitializeServices(serviceCollection)](#M-Microsoft-VisualStudio-Extensibility-ExtensionCore-InitializeServices-Microsoft-Extensions-DependencyInjection-IServiceCollection- 'Microsoft.VisualStudio.Extensibility.ExtensionCore.InitializeServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)')
@@ -135,12 +131,12 @@
 - [IAsyncCommand](#T-Microsoft-VisualStudio-Extensibility-UI-IAsyncCommand 'Microsoft.VisualStudio.Extensibility.UI.IAsyncCommand')
   - [CanExecute](#P-Microsoft-VisualStudio-Extensibility-UI-IAsyncCommand-CanExecute 'Microsoft.VisualStudio.Extensibility.UI.IAsyncCommand.CanExecute')
   - [ExecuteAsync(parameter,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-UI-IAsyncCommand-ExecuteAsync-System-Object,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.UI.IAsyncCommand.ExecuteAsync(System.Object,System.Threading.CancellationToken)')
-- [IClientContext](#T-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext 'Microsoft.VisualStudio.Extensibility.Definitions.IClientContext')
-  - [Extensibility](#P-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext-Extensibility 'Microsoft.VisualStudio.Extensibility.Definitions.IClientContext.Extensibility')
-  - [Item](#P-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext-Item-System-String- 'Microsoft.VisualStudio.Extensibility.Definitions.IClientContext.Item(System.String)')
-  - [ServiceBrokerClient](#P-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext-ServiceBrokerClient 'Microsoft.VisualStudio.Extensibility.Definitions.IClientContext.ServiceBrokerClient')
-- [IClientContextPrivate](#T-Microsoft-Internal-VisualStudio-Extensibility-Definitions-IClientContextPrivate 'Microsoft.Internal.VisualStudio.Extensibility.Definitions.IClientContextPrivate')
-  - [AsDictionary()](#M-Microsoft-Internal-VisualStudio-Extensibility-Definitions-IClientContextPrivate-AsDictionary 'Microsoft.Internal.VisualStudio.Extensibility.Definitions.IClientContextPrivate.AsDictionary')
+- [IClientContext](#T-Microsoft-VisualStudio-Extensibility-IClientContext 'Microsoft.VisualStudio.Extensibility.IClientContext')
+  - [Extensibility](#P-Microsoft-VisualStudio-Extensibility-IClientContext-Extensibility 'Microsoft.VisualStudio.Extensibility.IClientContext.Extensibility')
+  - [Item](#P-Microsoft-VisualStudio-Extensibility-IClientContext-Item-System-String- 'Microsoft.VisualStudio.Extensibility.IClientContext.Item(System.String)')
+  - [ServiceBrokerClient](#P-Microsoft-VisualStudio-Extensibility-IClientContext-ServiceBrokerClient 'Microsoft.VisualStudio.Extensibility.IClientContext.ServiceBrokerClient')
+- [IClientContextPrivate](#T-Microsoft-VisualStudio-Extensibility-IClientContextPrivate 'Microsoft.VisualStudio.Extensibility.IClientContextPrivate')
+  - [AsDictionary()](#M-Microsoft-VisualStudio-Extensibility-IClientContextPrivate-AsDictionary 'Microsoft.VisualStudio.Extensibility.IClientContextPrivate.AsDictionary')
 - [INotificationsDispatcher](#T-Microsoft-VisualStudio-Extensibility-UI-INotificationsDispatcher 'Microsoft.VisualStudio.Extensibility.UI.INotificationsDispatcher')
   - [GetMetadataOrRegisterObject(obj)](#M-Microsoft-VisualStudio-Extensibility-UI-INotificationsDispatcher-GetMetadataOrRegisterObject-System-Object- 'Microsoft.VisualStudio.Extensibility.UI.INotificationsDispatcher.GetMetadataOrRegisterObject(System.Object)')
   - [GetObject(id)](#M-Microsoft-VisualStudio-Extensibility-UI-INotificationsDispatcher-GetObject-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId- 'Microsoft.VisualStudio.Extensibility.UI.INotificationsDispatcher.GetObject(Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectId)')
@@ -148,20 +144,6 @@
 - [IServiceFactory](#T-Microsoft-VisualStudio-Extensibility-IServiceFactory 'Microsoft.VisualStudio.Extensibility.IServiceFactory')
   - [CreateAsync(serviceMoniker,activationOptions,serviceProvider,instanceType,interfaceType)](#M-Microsoft-VisualStudio-Extensibility-IServiceFactory-CreateAsync-Microsoft-ServiceHub-Framework-ServiceMoniker,Microsoft-ServiceHub-Framework-ServiceActivationOptions,System-IServiceProvider,System-Type,System-Type- 'Microsoft.VisualStudio.Extensibility.IServiceFactory.CreateAsync(Microsoft.ServiceHub.Framework.ServiceMoniker,Microsoft.ServiceHub.Framework.ServiceActivationOptions,System.IServiceProvider,System.Type,System.Type)')
   - [GetServiceDescriptor(serviceMoniker)](#M-Microsoft-VisualStudio-Extensibility-IServiceFactory-GetServiceDescriptor-Microsoft-ServiceHub-Framework-ServiceMoniker- 'Microsoft.VisualStudio.Extensibility.IServiceFactory.GetServiceDescriptor(Microsoft.ServiceHub.Framework.ServiceMoniker)')
-- [MaybeNullAttribute](#T-System-Diagnostics-CodeAnalysis-MaybeNullAttribute 'System.Diagnostics.CodeAnalysis.MaybeNullAttribute')
-  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-MaybeNullAttribute-#ctor 'System.Diagnostics.CodeAnalysis.MaybeNullAttribute.#ctor')
-- [MaybeNullWhenAttribute](#T-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute')
-  - [#ctor(returnValue)](#M-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-#ctor-System-Boolean- 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.#ctor(System.Boolean)')
-  - [ReturnValue](#P-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-ReturnValue 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue')
-- [MemberNotNullAttribute](#T-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute 'System.Diagnostics.CodeAnalysis.MemberNotNullAttribute')
-  - [#ctor(member)](#M-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-#ctor-System-String- 'System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String)')
-  - [#ctor(members)](#M-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-#ctor-System-String[]- 'System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String[])')
-  - [Members](#P-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-Members 'System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.Members')
-- [MemberNotNullWhenAttribute](#T-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute 'System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute')
-  - [#ctor(returnValue,member)](#M-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-#ctor-System-Boolean,System-String- 'System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String)')
-  - [#ctor(returnValue,members)](#M-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-#ctor-System-Boolean,System-String[]- 'System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String[])')
-  - [Members](#P-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-Members 'System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.Members')
-  - [ReturnValue](#P-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-ReturnValue 'System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.ReturnValue')
 - [MessageContextJsonRpc](#T-Microsoft-VisualStudio-Extensibility-Framework-MessageContextJsonRpc 'Microsoft.VisualStudio.Extensibility.Framework.MessageContextJsonRpc')
   - [#ctor(messageHandler,messageVersionContext)](#M-Microsoft-VisualStudio-Extensibility-Framework-MessageContextJsonRpc-#ctor-StreamJsonRpc-IJsonRpcMessageHandler,Microsoft-Internal-VisualStudio-Extensibility-Framework-MessageVersionContext- 'Microsoft.VisualStudio.Extensibility.Framework.MessageContextJsonRpc.#ctor(StreamJsonRpc.IJsonRpcMessageHandler,Microsoft.Internal.VisualStudio.Extensibility.Framework.MessageVersionContext)')
   - [DispatchRequestAsync()](#M-Microsoft-VisualStudio-Extensibility-Framework-MessageContextJsonRpc-DispatchRequestAsync-StreamJsonRpc-Protocol-JsonRpcRequest,StreamJsonRpc-TargetMethod,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Framework.MessageContextJsonRpc.DispatchRequestAsync(StreamJsonRpc.Protocol.JsonRpcRequest,StreamJsonRpc.TargetMethod,System.Threading.CancellationToken)')
@@ -173,14 +155,6 @@
   - [Clone()](#M-Microsoft-VisualStudio-Extensibility-Framework-MultiTargetingServiceJsonRpcDescriptor-Clone 'Microsoft.VisualStudio.Extensibility.Framework.MultiTargetingServiceJsonRpcDescriptor.Clone')
   - [ConstructRpcConnection()](#M-Microsoft-VisualStudio-Extensibility-Framework-MultiTargetingServiceJsonRpcDescriptor-ConstructRpcConnection-System-IO-Pipelines-IDuplexPipe- 'Microsoft.VisualStudio.Extensibility.Framework.MultiTargetingServiceJsonRpcDescriptor.ConstructRpcConnection(System.IO.Pipelines.IDuplexPipe)')
   - [CreateJsonRpc()](#M-Microsoft-VisualStudio-Extensibility-Framework-MultiTargetingServiceJsonRpcDescriptor-CreateJsonRpc-StreamJsonRpc-IJsonRpcMessageHandler- 'Microsoft.VisualStudio.Extensibility.Framework.MultiTargetingServiceJsonRpcDescriptor.CreateJsonRpc(StreamJsonRpc.IJsonRpcMessageHandler)')
-- [NotNullAttribute](#T-System-Diagnostics-CodeAnalysis-NotNullAttribute 'System.Diagnostics.CodeAnalysis.NotNullAttribute')
-  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-NotNullAttribute-#ctor 'System.Diagnostics.CodeAnalysis.NotNullAttribute.#ctor')
-- [NotNullIfNotNullAttribute](#T-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute 'System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute')
-  - [#ctor(parameterName)](#M-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-#ctor-System-String- 'System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.#ctor(System.String)')
-  - [ParameterName](#P-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-ParameterName 'System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.ParameterName')
-- [NotNullWhenAttribute](#T-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute')
-  - [#ctor(returnValue)](#M-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-#ctor-System-Boolean- 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)')
-  - [ReturnValue](#P-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-ReturnValue 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue')
 - [NotificationDispatcherObjectMetadata](#T-Microsoft-VisualStudio-Extensibility-UI-NotificationDispatcherObjectMetadata 'Microsoft.VisualStudio.Extensibility.UI.NotificationDispatcherObjectMetadata')
   - [#ctor(id)](#M-Microsoft-VisualStudio-Extensibility-UI-NotificationDispatcherObjectMetadata-#ctor-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId- 'Microsoft.VisualStudio.Extensibility.UI.NotificationDispatcherObjectMetadata.#ctor(Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectId)')
   - [Id](#P-Microsoft-VisualStudio-Extensibility-UI-NotificationDispatcherObjectMetadata-Id 'Microsoft.VisualStudio.Extensibility.UI.NotificationDispatcherObjectMetadata.Id')
@@ -209,17 +183,18 @@
   - [ControlLoadedAsync()](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-ControlLoadedAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.ControlLoadedAsync(System.Threading.CancellationToken)')
   - [Dispose()](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-Dispose 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.Dispose')
   - [Dispose(disposing)](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.Dispose(System.Boolean)')
-  - [GetObjectAsync()](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-GetObjectAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.GetObjectAsync(Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectId,System.Threading.CancellationToken)')
   - [GetXamlAsync(cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-GetXamlAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.GetXamlAsync(System.Threading.CancellationToken)')
-  - [InitializeAsync()](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-InitializeAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControlClient,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.InitializeAsync(Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControlClient,System.Threading.CancellationToken)')
-  - [InvokeAsync()](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-InvokeAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId,Microsoft-VisualStudio-RpcContracts-RemoteUI-MessagePackFragment,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.InvokeAsync(Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectId,Microsoft.VisualStudio.RpcContracts.RemoteUI.MessagePackFragment,System.Threading.CancellationToken)')
+  - [Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteProxiedUserControl#GetObjectAsync()](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteProxiedUserControl#GetObjectAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteProxiedUserControl#GetObjectAsync(Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectId,System.Threading.CancellationToken)')
+  - [Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteProxiedUserControl#InvokeAsync()](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteProxiedUserControl#InvokeAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId,Microsoft-VisualStudio-RpcContracts-RemoteUI-MessagePackFragment,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteProxiedUserControl#InvokeAsync(Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectId,Microsoft.VisualStudio.RpcContracts.RemoteUI.MessagePackFragment,System.Threading.CancellationToken)')
+  - [Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteProxiedUserControl#SetCollectionEntryAsync()](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteProxiedUserControl#SetCollectionEntryAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId,System-Int32,Microsoft-VisualStudio-RpcContracts-RemoteUI-MessagePackFragment,System-Nullable{Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectVersion},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteProxiedUserControl#SetCollectionEntryAsync(Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectId,System.Int32,Microsoft.VisualStudio.RpcContracts.RemoteUI.MessagePackFragment,System.Nullable{Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectVersion},System.Threading.CancellationToken)')
+  - [Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteProxiedUserControl#SetObjectPropertyAsync()](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteProxiedUserControl#SetObjectPropertyAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId,System-String,Microsoft-VisualStudio-RpcContracts-RemoteUI-MessagePackFragment,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteProxiedUserControl#SetObjectPropertyAsync(Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectId,System.String,Microsoft.VisualStudio.RpcContracts.RemoteUI.MessagePackFragment,System.Threading.CancellationToken)')
+  - [Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteWpfUserControl#InitializeAsync()](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteWpfUserControl#InitializeAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteProxiedUserControlClient,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteWpfUserControl#InitializeAsync(Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteProxiedUserControlClient,System.Threading.CancellationToken)')
   - [SerializeValueAsync(value)](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-SerializeValueAsync-System-Object- 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.SerializeValueAsync(System.Object)')
-  - [SetCollectionEntryAsync()](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-SetCollectionEntryAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId,System-Int32,Microsoft-VisualStudio-RpcContracts-RemoteUI-MessagePackFragment,System-Nullable{Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectVersion},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.SetCollectionEntryAsync(Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectId,System.Int32,Microsoft.VisualStudio.RpcContracts.RemoteUI.MessagePackFragment,System.Nullable{Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectVersion},System.Threading.CancellationToken)')
-  - [SetObjectPropertyAsync()](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-SetObjectPropertyAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId,System-String,Microsoft-VisualStudio-RpcContracts-RemoteUI-MessagePackFragment,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.SetObjectPropertyAsync(Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectId,System.String,Microsoft.VisualStudio.RpcContracts.RemoteUI.MessagePackFragment,System.Threading.CancellationToken)')
 - [ResourceManagerDictionary](#T-Microsoft-VisualStudio-Extensibility-Helpers-ResourceManagerDictionary 'Microsoft.VisualStudio.Extensibility.Helpers.ResourceManagerDictionary')
   - [#ctor(resourceManager)](#M-Microsoft-VisualStudio-Extensibility-Helpers-ResourceManagerDictionary-#ctor-System-Resources-ResourceManager- 'Microsoft.VisualStudio.Extensibility.Helpers.ResourceManagerDictionary.#ctor(System.Resources.ResourceManager)')
   - [GetStringResourceAsync()](#M-Microsoft-VisualStudio-Extensibility-Helpers-ResourceManagerDictionary-GetStringResourceAsync-System-Globalization-CultureInfo,System-String,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Helpers.ResourceManagerDictionary.GetStringResourceAsync(System.Globalization.CultureInfo,System.String,System.Threading.CancellationToken)')
 - [Resources](#T-Microsoft-VisualStudio-Extensibility-Framework-Resources 'Microsoft.VisualStudio.Extensibility.Framework.Resources')
+  - [CannotLoadXamlFromResource](#P-Microsoft-VisualStudio-Extensibility-Framework-Resources-CannotLoadXamlFromResource 'Microsoft.VisualStudio.Extensibility.Framework.Resources.CannotLoadXamlFromResource')
   - [CollectionBeingUpdated](#P-Microsoft-VisualStudio-Extensibility-Framework-Resources-CollectionBeingUpdated 'Microsoft.VisualStudio.Extensibility.Framework.Resources.CollectionBeingUpdated')
   - [CommandIdAlreadyRegistered](#P-Microsoft-VisualStudio-Extensibility-Framework-Resources-CommandIdAlreadyRegistered 'Microsoft.VisualStudio.Extensibility.Framework.Resources.CommandIdAlreadyRegistered')
   - [ControlAlreadyInitialized](#P-Microsoft-VisualStudio-Extensibility-Framework-Resources-ControlAlreadyInitialized 'Microsoft.VisualStudio.Extensibility.Framework.Resources.ControlAlreadyInitialized')
@@ -240,6 +215,7 @@
   - [PropertyNameNull](#P-Microsoft-VisualStudio-Extensibility-Framework-Resources-PropertyNameNull 'Microsoft.VisualStudio.Extensibility.Framework.Resources.PropertyNameNull')
   - [RemoteUserControlAreadyInitialized](#P-Microsoft-VisualStudio-Extensibility-Framework-Resources-RemoteUserControlAreadyInitialized 'Microsoft.VisualStudio.Extensibility.Framework.Resources.RemoteUserControlAreadyInitialized')
   - [ResourceManager](#P-Microsoft-VisualStudio-Extensibility-Framework-Resources-ResourceManager 'Microsoft.VisualStudio.Extensibility.Framework.Resources.ResourceManager')
+  - [SnapshotVersionNotAvailable](#P-Microsoft-VisualStudio-Extensibility-Framework-Resources-SnapshotVersionNotAvailable 'Microsoft.VisualStudio.Extensibility.Framework.Resources.SnapshotVersionNotAvailable')
   - [TypeDoesntHaveProperty](#P-Microsoft-VisualStudio-Extensibility-Framework-Resources-TypeDoesntHaveProperty 'Microsoft.VisualStudio.Extensibility.Framework.Resources.TypeDoesntHaveProperty')
   - [TypeIsBothCollectionAndCommand](#P-Microsoft-VisualStudio-Extensibility-Framework-Resources-TypeIsBothCollectionAndCommand 'Microsoft.VisualStudio.Extensibility.Framework.Resources.TypeIsBothCollectionAndCommand')
   - [TypeIsCollectionWithDataMember](#P-Microsoft-VisualStudio-Extensibility-Framework-Resources-TypeIsCollectionWithDataMember 'Microsoft.VisualStudio.Extensibility.Framework.Resources.TypeIsCollectionWithDataMember')
@@ -249,11 +225,18 @@
   - [#ctor(serviceBroker)](#M-Microsoft-VisualStudio-Extensibility-Helpers-ServiceBrokerNonDisposableWrapper-#ctor-Microsoft-ServiceHub-Framework-IServiceBroker- 'Microsoft.VisualStudio.Extensibility.Helpers.ServiceBrokerNonDisposableWrapper.#ctor(Microsoft.ServiceHub.Framework.IServiceBroker)')
   - [GetPipeAsync()](#M-Microsoft-VisualStudio-Extensibility-Helpers-ServiceBrokerNonDisposableWrapper-GetPipeAsync-Microsoft-ServiceHub-Framework-ServiceMoniker,Microsoft-ServiceHub-Framework-ServiceActivationOptions,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Helpers.ServiceBrokerNonDisposableWrapper.GetPipeAsync(Microsoft.ServiceHub.Framework.ServiceMoniker,Microsoft.ServiceHub.Framework.ServiceActivationOptions,System.Threading.CancellationToken)')
   - [GetProxyAsync\`\`1()](#M-Microsoft-VisualStudio-Extensibility-Helpers-ServiceBrokerNonDisposableWrapper-GetProxyAsync``1-Microsoft-ServiceHub-Framework-ServiceRpcDescriptor,Microsoft-ServiceHub-Framework-ServiceActivationOptions,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Helpers.ServiceBrokerNonDisposableWrapper.GetProxyAsync``1(Microsoft.ServiceHub.Framework.ServiceRpcDescriptor,Microsoft.ServiceHub.Framework.ServiceActivationOptions,System.Threading.CancellationToken)')
+- [SnapshotVersionNotAvailableException](#T-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException 'Microsoft.VisualStudio.Extensibility.SnapshotVersionNotAvailableException')
+  - [#ctor()](#M-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException-#ctor 'Microsoft.VisualStudio.Extensibility.SnapshotVersionNotAvailableException.#ctor')
+  - [#ctor(message)](#M-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException-#ctor-System-String- 'Microsoft.VisualStudio.Extensibility.SnapshotVersionNotAvailableException.#ctor(System.String)')
+  - [#ctor(message,innerException)](#M-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException-#ctor-System-String,System-Exception- 'Microsoft.VisualStudio.Extensibility.SnapshotVersionNotAvailableException.#ctor(System.String,System.Exception)')
+  - [#ctor(resourceMoniker,version)](#M-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException-#ctor-System-Uri,System-Object- 'Microsoft.VisualStudio.Extensibility.SnapshotVersionNotAvailableException.#ctor(System.Uri,System.Object)')
+  - [#ctor(resourceMoniker,version,innerException)](#M-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException-#ctor-System-Uri,System-Object,System-Exception- 'Microsoft.VisualStudio.Extensibility.SnapshotVersionNotAvailableException.#ctor(System.Uri,System.Object,System.Exception)')
 - [TransientServiceProvider](#T-Microsoft-VisualStudio-Extensibility-Helpers-TransientServiceProvider 'Microsoft.VisualStudio.Extensibility.Helpers.TransientServiceProvider')
   - [#ctor(serviceProvider)](#M-Microsoft-VisualStudio-Extensibility-Helpers-TransientServiceProvider-#ctor-System-IServiceProvider- 'Microsoft.VisualStudio.Extensibility.Helpers.TransientServiceProvider.#ctor(System.IServiceProvider)')
   - [#ctor(serviceProviders)](#M-Microsoft-VisualStudio-Extensibility-Helpers-TransientServiceProvider-#ctor-System-Collections-Generic-IEnumerable{System-IServiceProvider}- 'Microsoft.VisualStudio.Extensibility.Helpers.TransientServiceProvider.#ctor(System.Collections.Generic.IEnumerable{System.IServiceProvider})')
   - [AddSingleton(type,value)](#M-Microsoft-VisualStudio-Extensibility-Helpers-TransientServiceProvider-AddSingleton-System-Type,System-Object- 'Microsoft.VisualStudio.Extensibility.Helpers.TransientServiceProvider.AddSingleton(System.Type,System.Object)')
   - [AddSingleton\`\`1(value)](#M-Microsoft-VisualStudio-Extensibility-Helpers-TransientServiceProvider-AddSingleton``1-``0- 'Microsoft.VisualStudio.Extensibility.Helpers.TransientServiceProvider.AddSingleton``1(``0)')
+  - [GetNonTransientSingleton(serviceType)](#M-Microsoft-VisualStudio-Extensibility-Helpers-TransientServiceProvider-GetNonTransientSingleton-System-Type- 'Microsoft.VisualStudio.Extensibility.Helpers.TransientServiceProvider.GetNonTransientSingleton(System.Type)')
   - [GetService()](#M-Microsoft-VisualStudio-Extensibility-Helpers-TransientServiceProvider-GetService-System-Type- 'Microsoft.VisualStudio.Extensibility.Helpers.TransientServiceProvider.GetService(System.Type)')
 - [VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility')
   - [#ctor(serviceBroker,serviceProvider,resourceDictionary)](#M-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility-#ctor-Microsoft-ServiceHub-Framework-IServiceBroker,System-IServiceProvider,Microsoft-VisualStudio-RpcContracts-IStringResourceDictionary- 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility.#ctor(Microsoft.ServiceHub.Framework.IServiceBroker,System.IServiceProvider,Microsoft.VisualStudio.RpcContracts.IStringResourceDictionary)')
@@ -276,29 +259,6 @@
   - [#ctor(xaml)](#M-Microsoft-VisualStudio-Extensibility-UI-XamlFragment-#ctor-System-String- 'Microsoft.VisualStudio.Extensibility.UI.XamlFragment.#ctor(System.String)')
   - [#ctor(xamlSerializable)](#M-Microsoft-VisualStudio-Extensibility-UI-XamlFragment-#ctor-System-Object- 'Microsoft.VisualStudio.Extensibility.UI.XamlFragment.#ctor(System.Object)')
   - [Xaml](#P-Microsoft-VisualStudio-Extensibility-UI-XamlFragment-Xaml 'Microsoft.VisualStudio.Extensibility.UI.XamlFragment.Xaml')
-
-<a name='T-System-Diagnostics-CodeAnalysis-AllowNullAttribute'></a>
-## AllowNullAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that `null` is allowed as an input even if the
-    corresponding type disallows it.
-
-<a name='M-System-Diagnostics-CodeAnalysis-AllowNullAttribute-#ctor'></a>
-### #ctor() `constructor`
-
-##### Summary
-
-Initializes a new instance of the [AllowNullAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.AllowNullAttribute 'System.Diagnostics.CodeAnalysis.AllowNullAttribute') class.
-
-##### Parameters
-
-This constructor has no parameters.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-UI-AsyncCommand'></a>
 ## AsyncCommand `type`
@@ -556,8 +516,8 @@ or [Invalid](#F-Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode-Invalid 'M
 | isSimpleValueTypeNullable | [System.Boolean@](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean@ 'System.Boolean@') | Returns whether `type` is a
 [Nullable\`1](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Nullable`1 'System.Nullable`1') where T is a type having a corresponding by [DataTypeCode](#T-Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode 'Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode'). |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-IsCollection-System-Type,System-Type@,System-Reflection-MethodInfo@-'></a>
-### IsCollection(type,itemType,getCountMethod) `method`
+<a name='M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-IsCollection-System-Type,System-Type@,System-Func{System-Object,System-ValueTuple{System-Collections-IEnumerable,System-Int32}}@-'></a>
+### IsCollection(type,itemType,getEnumerableAndCount) `method`
 
 ##### Summary
 
@@ -574,7 +534,7 @@ Whether `type` should be serialized as a collection.
 | type | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') to be evaluated. |
 | itemType | [System.Type@](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type@ 'System.Type@') | The [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') of the collection items if the collection implements
 [ICollection\`1](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.ICollection`1 'System.Collections.Generic.ICollection`1'), `null` otherwise. |
-| getCountMethod | [System.Reflection.MethodInfo@](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.MethodInfo@ 'System.Reflection.MethodInfo@') | The method that returns the Count for the collection. |
+| getEnumerableAndCount | [System.Func{System.Object,System.ValueTuple{System.Collections.IEnumerable,System.Int32}}@](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{System.Object,System.ValueTuple{System.Collections.IEnumerable,System.Int32}}@') | A function that returns the collection converted to a [IEnumerable](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.IEnumerable 'System.Collections.IEnumerable') and its count. |
 
 ##### Remarks
 
@@ -1079,29 +1039,6 @@ This method has no parameters.
 
 This method has no parameters.
 
-<a name='T-System-Diagnostics-CodeAnalysis-DisallowNullAttribute'></a>
-## DisallowNullAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that `null` is disallowed as an input even if the
-    corresponding type allows it.
-
-<a name='M-System-Diagnostics-CodeAnalysis-DisallowNullAttribute-#ctor'></a>
-### #ctor() `constructor`
-
-##### Summary
-
-Initializes a new instance of the [DisallowNullAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.DisallowNullAttribute 'System.Diagnostics.CodeAnalysis.DisallowNullAttribute') class.
-
-##### Parameters
-
-This constructor has no parameters.
-
 <a name='T-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject'></a>
 ## DisposableObject `type`
 
@@ -1185,65 +1122,6 @@ Finalizes an instance of the [DisposableObject](#T-Microsoft-VisualStudio-Extens
 ##### Parameters
 
 This method has no parameters.
-
-<a name='T-System-Diagnostics-CodeAnalysis-DoesNotReturnAttribute'></a>
-## DoesNotReturnAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that a method that will never return under any circumstance.
-
-<a name='M-System-Diagnostics-CodeAnalysis-DoesNotReturnAttribute-#ctor'></a>
-### #ctor() `constructor`
-
-##### Summary
-
-Initializes a new instance of the [DoesNotReturnAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute') class.
-
-##### Parameters
-
-This constructor has no parameters.
-
-<a name='T-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute'></a>
-## DoesNotReturnIfAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that the method will not return if the associated [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean')
-    parameter is passed the specified value.
-
-<a name='M-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-#ctor-System-Boolean-'></a>
-### #ctor(parameterValue) `constructor`
-
-##### Summary
-
-Initializes a new instance of the [DoesNotReturnIfAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute')
-    class with the specified parameter value.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| parameterValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The condition parameter value.
-    Code after the method is considered unreachable by diagnostics if the argument
-    to the associated parameter matches this value. |
-
-<a name='P-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-ParameterValue'></a>
-### ParameterValue `property`
-
-##### Summary
-
-Gets the condition parameter value.
-    Code after the method is considered unreachable by diagnostics if the argument
-    to the associated parameter matches this value.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Helpers-EmptyResourceDictionary'></a>
 ## EmptyResourceDictionary `type`
@@ -1571,7 +1449,7 @@ Microsoft.VisualStudio.Extensibility
 
 ##### Summary
 
-Base class for an extension that can host multiple service instances. This class is inteded for internal use only, extension developers should instead
+Base class for an extension that can host multiple service instances. This class is intended for internal use only, extension developers should instead
 inherit from Microsoft.VisualStudio.Extensibility.Extension.
 
 ##### Remarks
@@ -1588,6 +1466,27 @@ Initializes a new instance of the [ExtensionCore](#T-Microsoft-VisualStudio-Exte
 ##### Parameters
 
 This constructor has no parameters.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-ExtensionCore-ExtensionConfiguration'></a>
+### ExtensionConfiguration `property`
+
+##### Summary
+
+Gets the optional configuration for this extension.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-ExtensionCore-HostServiceBrokerClient'></a>
+### HostServiceBrokerClient `property`
+
+##### Summary
+
+Gets the service broker client instance that is associated with the host process.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-ExtensionCore-HostServiceProvider'></a>
+### HostServiceProvider `property`
+
+##### Summary
+
+Gets the service provider for host services.
 
 <a name='P-Microsoft-VisualStudio-Extensibility-ExtensionCore-ResourceDictionary'></a>
 ### ResourceDictionary `property`
@@ -1631,6 +1530,30 @@ This provider is in-process only and does not include brokered remote services.
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-ExtensionCore-Dispose'></a>
+### Dispose() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-ExtensionCore-Dispose-System-Boolean-'></a>
+### Dispose(disposing) `method`
+
+##### Summary
+
+Disposes the object.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | true to dispose both managed and native resources, false to dispose native resources only. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ExtensionCore-GetFactory-Microsoft-ServiceHub-Framework-ServiceMoniker-'></a>
 ### GetFactory(serviceMoniker) `method`
@@ -1886,25 +1809,25 @@ A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=
 | parameter | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Data used by the command. |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
-<a name='T-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext'></a>
+<a name='T-Microsoft-VisualStudio-Extensibility-IClientContext'></a>
 ## IClientContext `type`
 
 ##### Namespace
 
-Microsoft.VisualStudio.Extensibility.Definitions
+Microsoft.VisualStudio.Extensibility
 
 ##### Summary
 
 Container for client context at the time of a command invocation.
 
-<a name='P-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext-Extensibility'></a>
+<a name='P-Microsoft-VisualStudio-Extensibility-IClientContext-Extensibility'></a>
 ### Extensibility `property`
 
 ##### Summary
 
 Gets the extensibility instance that can be used by extension methods extending the client context.
 
-<a name='P-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext-Item-System-String-'></a>
+<a name='P-Microsoft-VisualStudio-Extensibility-IClientContext-Item-System-String-'></a>
 ### Item `property`
 
 ##### Summary
@@ -1921,25 +1844,25 @@ The category values in deserialized string format.
 | ---- | ---- | ----------- |
 | category | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Category identifier. |
 
-<a name='P-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext-ServiceBrokerClient'></a>
+<a name='P-Microsoft-VisualStudio-Extensibility-IClientContext-ServiceBrokerClient'></a>
 ### ServiceBrokerClient `property`
 
 ##### Summary
 
 Gets the service broker instance that can be used by extension methods extending the client context.
 
-<a name='T-Microsoft-Internal-VisualStudio-Extensibility-Definitions-IClientContextPrivate'></a>
+<a name='T-Microsoft-VisualStudio-Extensibility-IClientContextPrivate'></a>
 ## IClientContextPrivate `type`
 
 ##### Namespace
 
-Microsoft.Internal.VisualStudio.Extensibility.Definitions
+Microsoft.VisualStudio.Extensibility
 
 ##### Summary
 
 Container for client context at the time of a command invocation.
 
-<a name='M-Microsoft-Internal-VisualStudio-Extensibility-Definitions-IClientContextPrivate-AsDictionary'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-IClientContextPrivate-AsDictionary'></a>
 ### AsDictionary() `method`
 
 ##### Summary
@@ -2068,165 +1991,6 @@ An instance of a [ServiceRpcDescriptor](#T-Microsoft-ServiceHub-Framework-Servic
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | serviceMoniker | [Microsoft.ServiceHub.Framework.ServiceMoniker](#T-Microsoft-ServiceHub-Framework-ServiceMoniker 'Microsoft.ServiceHub.Framework.ServiceMoniker') | Service moniker that was requested. |
-
-<a name='T-System-Diagnostics-CodeAnalysis-MaybeNullAttribute'></a>
-## MaybeNullAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that an output may be `null` even if the
-    corresponding type disallows it.
-
-<a name='M-System-Diagnostics-CodeAnalysis-MaybeNullAttribute-#ctor'></a>
-### #ctor() `constructor`
-
-##### Summary
-
-Initializes a new instance of the [MaybeNullAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.MaybeNullAttribute 'System.Diagnostics.CodeAnalysis.MaybeNullAttribute') class.
-
-##### Parameters
-
-This constructor has no parameters.
-
-<a name='T-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute'></a>
-## MaybeNullWhenAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that when a method returns [ReturnValue](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue'), 
-    the parameter may be `null` even if the corresponding type disallows it.
-
-<a name='M-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-#ctor-System-Boolean-'></a>
-### #ctor(returnValue) `constructor`
-
-##### Summary
-
-Initializes the attribute with the specified return value condition.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| returnValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The return value condition.
-    If the method returns this value, the associated parameter may be `null`. |
-
-<a name='P-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-ReturnValue'></a>
-### ReturnValue `property`
-
-##### Summary
-
-Gets the return value condition.
-    If the method returns this value, the associated parameter may be `null`.
-
-<a name='T-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute'></a>
-## MemberNotNullAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that the method or property will ensure that the listed field and property members have
-    not-`null` values.
-
-<a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-#ctor-System-String-'></a>
-### #ctor(member) `constructor`
-
-##### Summary
-
-Initializes the attribute with a field or property member.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| member | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The field or property member that is promised to be not-null. |
-
-<a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-#ctor-System-String[]-'></a>
-### #ctor(members) `constructor`
-
-##### Summary
-
-Initializes the attribute with the list of field and property members.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| members | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | The list of field and property members that are promised to be not-null. |
-
-<a name='P-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-Members'></a>
-### Members `property`
-
-##### Summary
-
-Gets field or property member names.
-
-<a name='T-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute'></a>
-## MemberNotNullWhenAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that the method or property will ensure that the listed field and property members have
-    non-`null` values when returning with the specified return value condition.
-
-<a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-#ctor-System-Boolean,System-String-'></a>
-### #ctor(returnValue,member) `constructor`
-
-##### Summary
-
-Initializes the attribute with the specified return value condition and a field or property member.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| returnValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The return value condition. If the method returns this value,
-    the associated parameter will not be `null`. |
-| member | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The field or property member that is promised to be not-`null`. |
-
-<a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-#ctor-System-Boolean,System-String[]-'></a>
-### #ctor(returnValue,members) `constructor`
-
-##### Summary
-
-Initializes the attribute with the specified return value condition and list
-    of field and property members.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| returnValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The return value condition. If the method returns this value,
-    the associated parameter will not be `null`. |
-| members | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | The list of field and property members that are promised to be not-null. |
-
-<a name='P-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-Members'></a>
-### Members `property`
-
-##### Summary
-
-Gets field or property member names.
-
-<a name='P-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-ReturnValue'></a>
-### ReturnValue `property`
-
-##### Summary
-
-Gets the return value condition.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Framework-MessageContextJsonRpc'></a>
 ## MessageContextJsonRpc `type`
@@ -2380,99 +2144,6 @@ This method has no parameters.
 
 This method has no parameters.
 
-<a name='T-System-Diagnostics-CodeAnalysis-NotNullAttribute'></a>
-## NotNullAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that an output is not `null` even if the
-    corresponding type allows it.
-
-<a name='M-System-Diagnostics-CodeAnalysis-NotNullAttribute-#ctor'></a>
-### #ctor() `constructor`
-
-##### Summary
-
-Initializes a new instance of the [NotNullAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.NotNullAttribute 'System.Diagnostics.CodeAnalysis.NotNullAttribute') class.
-
-##### Parameters
-
-This constructor has no parameters.
-
-<a name='T-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute'></a>
-## NotNullIfNotNullAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that the output will be non-`null` if the
-    named parameter is non-`null`.
-
-<a name='M-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-#ctor-System-String-'></a>
-### #ctor(parameterName) `constructor`
-
-##### Summary
-
-Initializes the attribute with the associated parameter name.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| parameterName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The associated parameter name.
-    The output will be non-`null` if the argument to the
-    parameter specified is non-`null`. |
-
-<a name='P-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-ParameterName'></a>
-### ParameterName `property`
-
-##### Summary
-
-Gets the associated parameter name.
-    The output will be non-`null` if the argument to the
-    parameter specified is non-`null`.
-
-<a name='T-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute'></a>
-## NotNullWhenAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that when a method returns [ReturnValue](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue'),
-    the parameter will not be `null` even if the corresponding type allows it.
-
-<a name='M-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-#ctor-System-Boolean-'></a>
-### #ctor(returnValue) `constructor`
-
-##### Summary
-
-Initializes the attribute with the specified return value condition.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| returnValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The return value condition.
-    If the method returns this value, the associated parameter will not be `null`. |
-
-<a name='P-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-ReturnValue'></a>
-### ReturnValue `property`
-
-##### Summary
-
-Gets the return value condition.
-    If the method returns this value, the associated parameter will not be `null`.
-
 <a name='T-Microsoft-VisualStudio-Extensibility-UI-NotificationDispatcherObjectMetadata'></a>
 ## NotificationDispatcherObjectMetadata `type`
 
@@ -2539,11 +2210,11 @@ Initializes a new instance of the [NotificationDispatcherVersionedObjectMetadata
 ##### Summary
 
 Gets or sets a value indicating whether the curresponding object is currently being updated as an effect of a
- [SetCollectionEntryAsync](#M-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl-SetCollectionEntryAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId,System-Int32,Microsoft-VisualStudio-RpcContracts-RemoteUI-MessagePackFragment,System-Nullable{Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectVersion},System-Threading-CancellationToken- 'Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl.SetCollectionEntryAsync(Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectId,System.Int32,Microsoft.VisualStudio.RpcContracts.RemoteUI.MessagePackFragment,System.Nullable{Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectVersion},System.Threading.CancellationToken)')
+ [SetCollectionEntryAsync](#M-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteProxiedUserControl-SetCollectionEntryAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId,System-Int32,Microsoft-VisualStudio-RpcContracts-RemoteUI-MessagePackFragment,System-Nullable{Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectVersion},System-Threading-CancellationToken- 'Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteProxiedUserControl.SetCollectionEntryAsync(Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectId,System.Int32,Microsoft.VisualStudio.RpcContracts.RemoteUI.MessagePackFragment,System.Nullable{Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectVersion},System.Threading.CancellationToken)')
  notification.
 
  We don't need to send
- [RemoteCollectionChangedAsync](#M-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControlClient-RemoteCollectionChangedAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId,System-Nullable{Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectVersion},Microsoft-VisualStudio-RpcContracts-RemoteUI-RemoteCollectionChanges,System-Threading-CancellationToken- 'Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControlClient.RemoteCollectionChangedAsync(Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectId,System.Nullable{Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectVersion},Microsoft.VisualStudio.RpcContracts.RemoteUI.RemoteCollectionChanges,System.Threading.CancellationToken)')
+ [RemoteCollectionChangedAsync](#M-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteProxiedUserControlClient-RemoteCollectionChangedAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId,System-Nullable{Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectVersion},Microsoft-VisualStudio-RpcContracts-RemoteUI-RemoteCollectionChanges,System-Threading-CancellationToken- 'Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteProxiedUserControlClient.RemoteCollectionChangedAsync(Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectId,System.Nullable{Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectVersion},Microsoft.VisualStudio.RpcContracts.RemoteUI.RemoteCollectionChanges,System.Threading.CancellationToken)')
  notifications for an object having [BeingUpdated](#P-Microsoft-VisualStudio-Extensibility-UI-NotificationDispatcherVersionedObjectMetadata-BeingUpdated 'Microsoft.VisualStudio.Extensibility.UI.NotificationDispatcherVersionedObjectMetadata.BeingUpdated') set to `true`.
 
 <a name='P-Microsoft-VisualStudio-Extensibility-UI-NotificationDispatcherVersionedObjectMetadata-Version'></a>
@@ -2819,17 +2490,6 @@ Performs application-defined tasks associated with freeing, releasing, or resett
 `true` when [Dispose](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.Dispose(System.Boolean)') is called from a finalizer, `false`
 otherwise. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-GetObjectAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId,System-Threading-CancellationToken-'></a>
-### GetObjectAsync() `method`
-
-##### Summary
-
-*Inherit from parent.*
-
-##### Parameters
-
-This method has no parameters.
-
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-GetXamlAsync-System-Threading-CancellationToken-'></a>
 ### GetXamlAsync(cancellationToken) `method`
 
@@ -2851,8 +2511,8 @@ A xaml string describing a data template.
 
 This method can be overridden to implement a different mechanism for retrieving the control's xaml defintion.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-InitializeAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControlClient,System-Threading-CancellationToken-'></a>
-### InitializeAsync() `method`
+<a name='M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteProxiedUserControl#GetObjectAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId,System-Threading-CancellationToken-'></a>
+### Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteProxiedUserControl#GetObjectAsync() `method`
 
 ##### Summary
 
@@ -2862,8 +2522,41 @@ This method can be overridden to implement a different mechanism for retrieving 
 
 This method has no parameters.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-InvokeAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId,Microsoft-VisualStudio-RpcContracts-RemoteUI-MessagePackFragment,System-Threading-CancellationToken-'></a>
-### InvokeAsync() `method`
+<a name='M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteProxiedUserControl#InvokeAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId,Microsoft-VisualStudio-RpcContracts-RemoteUI-MessagePackFragment,System-Threading-CancellationToken-'></a>
+### Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteProxiedUserControl#InvokeAsync() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteProxiedUserControl#SetCollectionEntryAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId,System-Int32,Microsoft-VisualStudio-RpcContracts-RemoteUI-MessagePackFragment,System-Nullable{Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectVersion},System-Threading-CancellationToken-'></a>
+### Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteProxiedUserControl#SetCollectionEntryAsync() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteProxiedUserControl#SetObjectPropertyAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId,System-String,Microsoft-VisualStudio-RpcContracts-RemoteUI-MessagePackFragment,System-Threading-CancellationToken-'></a>
+### Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteProxiedUserControl#SetObjectPropertyAsync() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteWpfUserControl#InitializeAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteProxiedUserControlClient,System-Threading-CancellationToken-'></a>
+### Microsoft#VisualStudio#RpcContracts#RemoteUI#IRemoteWpfUserControl#InitializeAsync() `method`
 
 ##### Summary
 
@@ -2889,28 +2582,6 @@ The value of the requested object or property.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The object to serialize. |
-
-<a name='M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-SetCollectionEntryAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId,System-Int32,Microsoft-VisualStudio-RpcContracts-RemoteUI-MessagePackFragment,System-Nullable{Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectVersion},System-Threading-CancellationToken-'></a>
-### SetCollectionEntryAsync() `method`
-
-##### Summary
-
-*Inherit from parent.*
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-SetObjectPropertyAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId,System-String,Microsoft-VisualStudio-RpcContracts-RemoteUI-MessagePackFragment,System-Threading-CancellationToken-'></a>
-### SetObjectPropertyAsync() `method`
-
-##### Summary
-
-*Inherit from parent.*
-
-##### Parameters
-
-This method has no parameters.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Helpers-ResourceManagerDictionary'></a>
 ## ResourceManagerDictionary `type`
@@ -2957,6 +2628,13 @@ Microsoft.VisualStudio.Extensibility.Framework
 ##### Summary
 
 A strongly-typed resource class, for looking up localized strings, etc.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Framework-Resources-CannotLoadXamlFromResource'></a>
+### CannotLoadXamlFromResource `property`
+
+##### Summary
+
+Looks up a localized string similar to Could not find embedded resource '{0}'..
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Framework-Resources-CollectionBeingUpdated'></a>
 ### CollectionBeingUpdated `property`
@@ -3099,6 +2777,13 @@ Looks up a localized string similar to The control has already been initialized.
 
 Returns the cached ResourceManager instance used by this class.
 
+<a name='P-Microsoft-VisualStudio-Extensibility-Framework-Resources-SnapshotVersionNotAvailable'></a>
+### SnapshotVersionNotAvailable `property`
+
+##### Summary
+
+Looks up a localized string similar to Snapshot version {0} for {1} is not available..
+
 <a name='P-Microsoft-VisualStudio-Extensibility-Framework-Resources-TypeDoesntHaveProperty'></a>
 ### TypeDoesntHaveProperty `property`
 
@@ -3180,6 +2865,84 @@ This method has no parameters.
 
 This method has no parameters.
 
+<a name='T-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException'></a>
+## SnapshotVersionNotAvailableException `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility
+
+##### Summary
+
+An exception that indicates snapshot version is not available to operate on.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Initializes a new instance of the [SnapshotVersionNotAvailableException](#T-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException 'Microsoft.VisualStudio.Extensibility.SnapshotVersionNotAvailableException') class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException-#ctor-System-String-'></a>
+### #ctor(message) `constructor`
+
+##### Summary
+
+Initializes a new instance of the [SnapshotVersionNotAvailableException](#T-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException 'Microsoft.VisualStudio.Extensibility.SnapshotVersionNotAvailableException') class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Exception message. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException-#ctor-System-String,System-Exception-'></a>
+### #ctor(message,innerException) `constructor`
+
+##### Summary
+
+Initializes a new instance of the [SnapshotVersionNotAvailableException](#T-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException 'Microsoft.VisualStudio.Extensibility.SnapshotVersionNotAvailableException') class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Exception message. |
+| innerException | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Inner exception. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException-#ctor-System-Uri,System-Object-'></a>
+### #ctor(resourceMoniker,version) `constructor`
+
+##### Summary
+
+Initializes a new instance of the [SnapshotVersionNotAvailableException](#T-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException 'Microsoft.VisualStudio.Extensibility.SnapshotVersionNotAvailableException') class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| resourceMoniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | Moniker for the resource being queried. |
+| version | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Version for the resource being queried. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException-#ctor-System-Uri,System-Object,System-Exception-'></a>
+### #ctor(resourceMoniker,version,innerException) `constructor`
+
+##### Summary
+
+Initializes a new instance of the [SnapshotVersionNotAvailableException](#T-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException 'Microsoft.VisualStudio.Extensibility.SnapshotVersionNotAvailableException') class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| resourceMoniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | Moniker for the resource being queried. |
+| version | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Version for the resource being queried. |
+| innerException | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Inner exception. |
+
 <a name='T-Microsoft-VisualStudio-Extensibility-Helpers-TransientServiceProvider'></a>
 ## TransientServiceProvider `type`
 
@@ -3249,6 +3012,23 @@ Adds a singleton value to the service provider.
 | Name | Description |
 | ---- | ----------- |
 | T | Type of the value. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Helpers-TransientServiceProvider-GetNonTransientSingleton-System-Type-'></a>
+### GetNonTransientSingleton(serviceType) `method`
+
+##### Summary
+
+Gets one of the singleton services registered with this instance of [TransientServiceProvider](#T-Microsoft-VisualStudio-Extensibility-Helpers-TransientServiceProvider 'Microsoft.VisualStudio.Extensibility.Helpers.TransientServiceProvider').
+
+##### Returns
+
+A service object of type serviceType or `null` if there is no service object of type `serviceType`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| serviceType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | An object that specifies the type of service object to get. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Helpers-TransientServiceProvider-GetService-System-Type-'></a>
 ### GetService() `method`
