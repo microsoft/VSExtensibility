@@ -38,10 +38,7 @@
 
 			message.Append("\n \n === New File Added to ConsoleApp1 === \n");
 
-			await context.ShowPromptAsync(
-		   message.ToString(),
-		   PromptOptions.OK,
-		   cancellationToken);
+			await context.ShowPromptAsync(message.ToString(), PromptOptions.OK, cancellationToken);
 		}
 	}
 }

@@ -59,10 +59,7 @@
 				}
 			}
 
-			await context.ShowPromptAsync(
-		   message.ToString(),
-		   PromptOptions.OK,
-		   cancellationToken);
+			await context.ShowPromptAsync(message.ToString(), PromptOptions.OK, cancellationToken);
 		}
 	}
 }

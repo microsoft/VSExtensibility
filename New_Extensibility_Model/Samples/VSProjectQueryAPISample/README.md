@@ -41,7 +41,7 @@ var result = querySpace.Projects
 
 ## Modifying the Project System
 
-Using the same `querySpace`, users may modify data in their project system. `Where` is used to identify the value of a property/collection to be returned from the query and `AsUpdatable` is to update the object from the query result. These actions modifying the Project System may include creating/deleting files, building/cleaning/deploying solutions, setting properties, and more.
+Using the same `querySpace`, users may modify data in their project system. `Where` is used to filter the query result based on a predicate. `AsUpdatable` is to update the object from the query result. These actions modifying the Project System may include creating/deleting files, building/cleaning/deploying solutions, setting properties, and more.
 
 In our example, we call the `ExecuteAsync` method to create a new file. The file we want to add is called `CreatedFile.txt`, and we want to add it to our project called `ConsoleApp1`.
 
@@ -53,13 +53,13 @@ var result = await querySpace.Projects
 .ExecuteAsync();
 ```
 
-## Data Producers
+## Different Query Patterns
 
 Users can filter out the desired data they would like to collect through various data producers.
 
 ### Querying By Project
 
-Users may filter out metadata`By Project` in their solution.
+Users may filter out metadata By Project in their solution.
 
 In the snippet below, the result will contain information about query Output Groups' names about all projects in our Solution.
 
@@ -77,7 +77,7 @@ var result = querySpace.Projects
 
 If the users know which metadata they would like to obtain, they may filter that information `ByName` if that metadata contains a ByName method.
 
-In the snippet below, we call `OutputGroupsByName` to get specific Output Groups. The Project System Query API will add valid output group to the results, and invalid groups are skipped over. In this case, results will contain three output groups: `Build`, `XmlSerializer`, and `SourceFiles`.
+In the snippet below, we call `OutputGroupsByName` to get specific Output Groups. The Project System Query API will add valid output group to the results, and invalid groups are skipped over. In this case, results will contain three output groups: `Built`, `XmlSerializer`, and `SourceFiles`.
 
 ```csharp
 var result = querySpace.Projects
