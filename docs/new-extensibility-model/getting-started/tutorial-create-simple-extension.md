@@ -14,8 +14,8 @@ The completed sample for this tutorial may be found [here](~/New-Extensibility-M
 The tutorial contains the following steps:
 
 - [Create a simple extension](#create-a-simple-extension)
-	- [Configure the command](#configure-the-command)
-	- [Create the execution method](#create-the-execution-method)
+  - [Configure the command](#configure-the-command)
+  - [Create the execution method](#create-the-execution-method)
 
 ## Configure the command
 
@@ -26,7 +26,7 @@ The project template or the sample you created in the [Create your first extensi
 1. Rename the `Command1.cs` file to `InsertGuidCommand.cs`, rename the class `InsertGuidCommand`, update the `CommandConfiguration` property.
 
 ```csharp
-public override CommandConfiguration CommandConfiguration => new("%InsertGuidCommand.isplayName%")
+public override CommandConfiguration CommandConfiguration => new("%InsertGuidCommand.DisplayName%")
 {
     Placements = new[] { CommandPlacement.KnownPlacements.ExtensionsMenu },
 };
@@ -40,7 +40,7 @@ The argument to the `CommandConfiguration` constructor is the command's display 
 
 ```json
 {
-  "InsertGuidCommand.isplayName": "Insert new guid"
+  "InsertGuidCommand.DisplayName": "Insert new guid"
 }
 ```
 

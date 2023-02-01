@@ -5,6 +5,7 @@ date: 2022-7-18
 ---
 
 # Why *Remote UI*
+
 One of the main goals of the VisualSudio.Extensibility model is to allow extensions to run outside of the Visual Studio process. This introduces an obstacle for adding UI support to extensions since most UI frameworks are in-process.
 
 *Remote UI* is a set of classes allowing to define WPF controls in an *out-of-proc* extension and showing them as part of the Visual Studio UI.
@@ -14,6 +15,7 @@ One of the main goals of the VisualSudio.Extensibility model is to allow extensi
 While *Remote UI* was developed to support *out-of-proc* extensions, *VisualStudio.Extensibility* APIs that rely on *Remote UI*, like `ToolWindow`, will leverage *Remote UI* for *in-proc* extensions as well.
 
 The main differences between *Remote UI* and normal WPF development are:
+
 - Most *Remote UI* operations, including binding to the data context and command execution, are asynchronous.
 - When defining data types to be used in *Remote UI* data contexts they must be decorated with the `DataContract` and `DataMember` attributes.
 - *Remote UI* doesn't allow referencing your own custom controls.
@@ -22,13 +24,16 @@ The main differences between *Remote UI* and normal WPF development are:
 - A *Remote user control* is actually instantiated in the Visual Studio process, not the process hosting the extension: the XAML cannot reference types and assemblies from the extension but can reference types and assemblies from the Visual Studio process. 
 
 # Creating a *Remote UI* Hello World extension
+
 Let's start creating the most basic *Remote UI* extension.
 
 Follow the instructions in [Creating your first out-of-process Visual Studio extension](../getting-started/create-your-first-extension.md).
 
 You should now have a working extension with a single command, the next step is to add a `ToolWindow` and a `RemoteUserControl`. The `RemoteUserControl` is the *Remote UI* equivalent of a WPF user control.
 
-You will end up with 4 files: 
+You will end up with 5 files:
+
+1. a `.cs` file for the `Extension` class,
 1. a `.cs` file for the command which opens the tool window,
 1. a `.cs` file for the `ToolWindow` which provides the `RemoteUserControl` to Visual Studio,
 1. a `.cs` file for the `RemoteUserControl` which references its XAML definition,
@@ -39,6 +44,7 @@ Later on we will add a data context for the `RemoteUserControl` which represents
 ## Updating the command
 
 Update the code of the command to show the tool window using the `ShowToolWindowAsync`:
+
 ```CSharp
 public override Task ExecuteCommandAsync(IClientContext context, CancellationToken ancellationToken)
 {
@@ -46,11 +52,19 @@ public override Task ExecuteCommandAsync(IClientContext context, CancellationTok
 }
 ```
 
-You can also consider changing the `Command` attribute for a more appropriate display message and placement:
+You can also consider changing the `Command` configuration and `string-resources.json` for a more appropriate display message and placement:
+
 ```CSharp
-[Command(nameof(ShowMyToolWindowCommand), "Show Hello World Tool Window", placement: CommandPlacement.ViewOtherWindowsMenu)]
-internal class ShowMyToolWindowCommand : Command
+public override CommandConfiguration CommandConfiguration => new("%MyToolWindowCommand.DisplayName%")
 {
+    Placements = new[] { CommandPlacement.KnownPlacements.ViewOtherWindowsMenu },
+};
+```
+
+```json
+{
+  "MyToolWindowCommand.DisplayName": "My Tool Window"
+}
 ```
 
 ## Creating the tool window
@@ -66,7 +80,7 @@ using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.ToolWindows;
 using Microsoft.VisualStudio.RpcContracts.RemoteUI;
 
-[ToolWindow]
+[VisualStudioContribution]
 internal class MyToolWindow : ToolWindow
 {
     private readonly MyToolWindowContent content = new();
@@ -76,6 +90,11 @@ internal class MyToolWindow : ToolWindow
     {
         Title = "My Tool Window";
     }
+
+    public override ToolWindowConfiguration ToolWindowConfiguration => new()
+    {
+        Placement = ToolWindowPlacement.DocumentWell,
+    };
 
     public override async Task<IRemoteUserControl> GetContentAsync(CancellationToken cancellationToken)
         => content;
