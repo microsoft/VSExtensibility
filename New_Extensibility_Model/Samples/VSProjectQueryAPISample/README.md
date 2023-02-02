@@ -26,7 +26,7 @@ The `querySpace` requires a service broker to gain access to information in the 
 
 ## Accessing API Metadata
 
-Once a `querySpace` is established, users may query information about the Project System on the Solution and/or Project level. Using the keyword `With`, the user can specify the property and/or the collection they want to receive.
+Once a `querySpace` is established, the user may query information about the Project System on the Solution and/or Project level. Using the keyword `With`, the user can specify the property and/or the collection they want to receive.
 
 In our example, we call the `QueryAsync` method to get information from the projects, namely the Project Name, Project Path, Project Files, and File Names.
 
@@ -41,7 +41,7 @@ var result = querySpace.Projects
 
 ## Modifying the Project System
 
-Using the same `querySpace`, users may modify data in their project system. `Where` is used to filter the query result based on a predicate. `AsUpdatable` is to update the object from the query result. These actions modifying the Project System may include creating/deleting files, building/cleaning/deploying solutions, setting properties, and more.
+Using the same `querySpace`, the user may modify data in their project system. `Where` is used to filter the query result based on a predicate. `AsUpdatable` is to update the object from the query result. These actions modifying the Project System may include creating/deleting files, building/cleaning/deploying solutions, setting properties, and more.
 
 In our example, we call the `ExecuteAsync` method to create a new file. The file we want to add is called `CreatedFile.txt`, and we want to add it to our project called `ConsoleApp1`.
 
@@ -78,7 +78,7 @@ var result = querySpace.Projects
 
 ### Querying By Name
 
-If the users know which metadata they would like to obtain, they may filter that information `ByName` if that metadata contains a ByName method.
+If the user know which metadata they would like to obtain, they may filter that information `ByName` if that metadata contains a ByName method.
 
 In the snippet below, we call `OutputGroupsByName` to get specific Output Groups. The Project System Query API will add valid output group to the results, and invalid groups are skipped over. In this case, results will contain three output groups: `Built`, `XmlSerializer`, and `SourceFiles`.
 
@@ -94,7 +94,7 @@ var result = querySpace.Projects
 
 ### Querying By Id
 
-As usuages for project query becomes more complex, users may realize that the require more information from their query.
+As usuages for project query becomes more complex, the user may realize that the require more information from their query.
 
 In our example, let's say we already queried information about Output Groups.
 
