@@ -12,7 +12,7 @@ namespace Microsoft.VisualStudio.Extensions.MarkdownLinter
 	using System.Text.RegularExpressions;
 	using System.Threading.Tasks;
 
-	using Microsoft.VisualStudio.Extensibility.Editor.Data;
+	using Microsoft.VisualStudio.Extensibility.Editor;
 	using Microsoft.VisualStudio.Extensibility.Languages;
 	using Microsoft.VisualStudio.RpcContracts.DiagnosticManagement;
 	using Microsoft.VisualStudio.Threading;
@@ -80,7 +80,7 @@ namespace Microsoft.VisualStudio.Extensions.MarkdownLinter
 			using var linter = new Process();
 			var lineQueue = new AsyncQueue<string>();
 
-			var content = textDocument.CopyToString();
+			var content = textDocument.Text.CopyToString();
 
 			linter.StartInfo = new ProcessStartInfo()
 			{
@@ -137,13 +137,13 @@ namespace Microsoft.VisualStudio.Extensions.MarkdownLinter
 		{
 			foreach (var diagnostic in diagnostics)
 			{
-				var startindex = document.Lines[diagnostic.Range.StartLine].Start.Offset;
+				var startindex = document.Lines[diagnostic.Range.StartLine].Text.Start.Offset;
 				if (diagnostic.Range.StartColumn >= 0)
 				{
 					startindex += diagnostic.Range.StartColumn;
 				}
 
-				var endIndex = document.Lines[diagnostic.Range.EndLine].Start.Offset;
+				var endIndex = document.Lines[diagnostic.Range.EndLine].Text.Start.Offset;
 				if (diagnostic.Range.EndColumn >= 0)
 				{
 					endIndex += diagnostic.Range.EndColumn;

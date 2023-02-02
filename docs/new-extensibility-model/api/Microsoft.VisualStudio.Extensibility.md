@@ -284,6 +284,10 @@
   - [HideToolWindowAsync(toolWindowType,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-HideToolWindowAsync-System-Type,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.HideToolWindowAsync(System.Type,System.Threading.CancellationToken)')
   - [HideToolWindowAsync\`\`1(cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-HideToolWindowAsync``1-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.HideToolWindowAsync``1(System.Threading.CancellationToken)')
   - [ServiceAvailabilityChanged(sender,args)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ServiceAvailabilityChanged-System-Object,Microsoft-ServiceHub-Framework-BrokeredServicesChangedEventArgs- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.ServiceAvailabilityChanged(System.Object,Microsoft.ServiceHub.Framework.BrokeredServicesChangedEventArgs)')
+  - [ShowDialogAsync(content,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowDialogAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.ShowDialogAsync(Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl,System.Threading.CancellationToken)')
+  - [ShowDialogAsync(content,title,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowDialogAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl,System-String,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.ShowDialogAsync(Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl,System.String,System.Threading.CancellationToken)')
+  - [ShowDialogAsync(content,options,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowDialogAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl,Microsoft-VisualStudio-RpcContracts-Notifications-DialogOption,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.ShowDialogAsync(Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl,Microsoft.VisualStudio.RpcContracts.Notifications.DialogOption,System.Threading.CancellationToken)')
+  - [ShowDialogAsync(content,title,options,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowDialogAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl,System-String,Microsoft-VisualStudio-RpcContracts-Notifications-DialogOption,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.ShowDialogAsync(Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl,System.String,Microsoft.VisualStudio.RpcContracts.Notifications.DialogOption,System.Threading.CancellationToken)')
   - [ShowToolWindowAsync(toolWindowType,activate,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowToolWindowAsync-System-Type,System-Boolean,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.ShowToolWindowAsync(System.Type,System.Boolean,System.Threading.CancellationToken)')
   - [ShowToolWindowAsync\`\`1(activate,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowToolWindowAsync``1-System-Boolean,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.ShowToolWindowAsync``1(System.Boolean,System.Threading.CancellationToken)')
   - [StartProgressReportingAsync(workDisplayName,options,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-StartProgressReportingAsync-System-String,Microsoft-VisualStudio-RpcContracts-ProgressReporting-ProgressReporterOptions,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.StartProgressReportingAsync(System.String,Microsoft.VisualStudio.RpcContracts.ProgressReporting.ProgressReporterOptions,System.Threading.CancellationToken)')
@@ -3784,6 +3788,82 @@ Handles the service instance when availability of brokered services has changed.
 | ---- | ---- | ----------- |
 | sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Sender. |
 | args | [Microsoft.ServiceHub.Framework.BrokeredServicesChangedEventArgs](#T-Microsoft-ServiceHub-Framework-BrokeredServicesChangedEventArgs 'Microsoft.ServiceHub.Framework.BrokeredServicesChangedEventArgs') | BrokeredServicesChangedEventArgs. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowDialogAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl,System-Threading-CancellationToken-'></a>
+### ShowDialogAsync(content,cancellationToken) `method`
+
+##### Summary
+
+Shows a modal dialog.
+
+##### Returns
+
+The [DialogResult](#T-Microsoft-VisualStudio-RpcContracts-Notifications-DialogResult 'Microsoft.VisualStudio.RpcContracts.Notifications.DialogResult') that represents the button or action invoked by the user.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| content | [Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl](#T-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl 'Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl') | The content of the dialog. |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the dialog. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowDialogAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl,System-String,System-Threading-CancellationToken-'></a>
+### ShowDialogAsync(content,title,cancellationToken) `method`
+
+##### Summary
+
+Shows a modal dialog.
+
+##### Returns
+
+The [DialogResult](#T-Microsoft-VisualStudio-RpcContracts-Notifications-DialogResult 'Microsoft.VisualStudio.RpcContracts.Notifications.DialogResult') that represents the button or action invoked by the user.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| content | [Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl](#T-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl 'Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl') | The content of the dialog. |
+| title | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The title of the dialog. |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the dialog. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowDialogAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl,Microsoft-VisualStudio-RpcContracts-Notifications-DialogOption,System-Threading-CancellationToken-'></a>
+### ShowDialogAsync(content,options,cancellationToken) `method`
+
+##### Summary
+
+Shows a modal dialog.
+
+##### Returns
+
+The [DialogResult](#T-Microsoft-VisualStudio-RpcContracts-Notifications-DialogResult 'Microsoft.VisualStudio.RpcContracts.Notifications.DialogResult') that represents the button or action invoked by the user.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| content | [Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl](#T-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl 'Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl') | The content of the dialog. |
+| options | [Microsoft.VisualStudio.RpcContracts.Notifications.DialogOption](#T-Microsoft-VisualStudio-RpcContracts-Notifications-DialogOption 'Microsoft.VisualStudio.RpcContracts.Notifications.DialogOption') | The options for displaying the dialog. |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the dialog. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowDialogAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl,System-String,Microsoft-VisualStudio-RpcContracts-Notifications-DialogOption,System-Threading-CancellationToken-'></a>
+### ShowDialogAsync(content,title,options,cancellationToken) `method`
+
+##### Summary
+
+Shows a modal dialog.
+
+##### Returns
+
+The [DialogResult](#T-Microsoft-VisualStudio-RpcContracts-Notifications-DialogResult 'Microsoft.VisualStudio.RpcContracts.Notifications.DialogResult') that represents the button or action invoked by the user.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| content | [Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl](#T-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl 'Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl') | The content of the dialog. |
+| title | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The title of the dialog. |
+| options | [Microsoft.VisualStudio.RpcContracts.Notifications.DialogOption](#T-Microsoft-VisualStudio-RpcContracts-Notifications-DialogOption 'Microsoft.VisualStudio.RpcContracts.Notifications.DialogOption') | The options for displaying the dialog. |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the dialog. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowToolWindowAsync-System-Type,System-Boolean,System-Threading-CancellationToken-'></a>
 ### ShowToolWindowAsync(toolWindowType,activate,cancellationToken) `method`
