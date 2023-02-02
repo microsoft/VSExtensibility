@@ -6,7 +6,7 @@ date: 2022-1-20
 
 # Walkthrough: VS Project Query API Extension
 
-This extension demonstrates the most basic usage of the VS Project Query API into commands that query information and updates the project system.
+This extension demonstrates the most basic usage of the VS Project Query API into commands that query information and updates to the project system.
 
 ## Overview
 
@@ -26,7 +26,7 @@ The `querySpace` requires a service broker to gain access to information in the 
 
 ## Accessing API Metadata
 
-Once the user establishes a `querySpace`, users may query information about the Project System on the Solution and/or Project level. Using the keyword `With` the query can collect the value of a property/collection.
+Once a `querySpace` is established, users may query information about the Project System on the Solution and/or Project level. Using the keyword `With`, the user can specify the property and/or the collection they want to receive.
 
 In our example, we call the `QueryAsync` method to get information from the projects, namely the Project Name, Project Path, Project Files, and File Names.
 
@@ -55,7 +55,10 @@ var result = await querySpace.Projects
 
 ## Different Query Patterns
 
-Users can filter out the desired data they would like to collect through various data producers.
+There are various patterns to query information about the project system, such as querying by project, name, and id.
+
+For the following examples, we will be querying information about [Output Groups](https://learn.microsoft.com/en-us/dotnet/api/envdte.outputgroups?view=visualstudiosdk-2022), a group of built files for the project or the outputs for a project.
+
 
 ### Querying By Project
 
