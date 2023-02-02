@@ -99,7 +99,7 @@ The `Extension` class must be configured with the `RequiresInProcessHosting = tr
 
 ```CSharp
 [VisualStudioContribution]
-internal class ExtensionEntrypoint : Extension
+internal class MyExtension : Extension
 {
     public override ExtensionConfiguration? ExtensionConfiguration => new()
     {

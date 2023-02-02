@@ -110,7 +110,7 @@ internal static class MyDocumentTypes
     internal static DocumentTypeConfiguration MarkdownDocumentType => new("markdown")
     {
         FileExtensions = new[] { ".md", ".mdk", ".markdown" },
-        BaseDocumentTypes = new BaseDocumentType[] { "code++" },
+        BaseDocumentTypes = new BaseDocumentType[] { "text" },
     };
 }
 ```
@@ -146,7 +146,7 @@ public sealed class TextViewOperationListener
         AppliesTo = new[]
         {
             DocumentFilter.FromDocumentType(MyDocumentTypes.MarkdownDocumentType),
-            DocumentFilter.FromGlobPattern("docs/*.md", RelativePath=true),
+            DocumentFilter.FromGlobPattern("docs/*.md", relativePath: true),
         },
     };
 ```

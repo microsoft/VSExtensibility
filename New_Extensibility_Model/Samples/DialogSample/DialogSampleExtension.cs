@@ -1,16 +1,16 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-namespace CommandParentingSample;
+namespace DialogSample;
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.Extensibility;
 
 /// <summary>
-/// Extension entry point for the OutputWindowSampleExtension.
+/// Extension entry point for the DialogSample.
 /// </summary>
 [VisualStudioContribution]
-public class ExtensionEntrypoint : Extension
+public class DialogSampleExtension : Extension
 {
 	/// <inheritdoc/>
 	protected override void InitializeServices(IServiceCollection serviceCollection)

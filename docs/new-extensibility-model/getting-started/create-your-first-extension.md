@@ -27,11 +27,11 @@ At this point you are ready to start extending Visual Studio by adding commands 
 
 ## The Extension class
 
-The template creates `ExtensionEntrypoint.cs` which is the first class that is instantiated when your extension is loaded. In the `InitializeServices` method you can add your own services to the service collection to make them available for dependency injection.
+The template creates a class which extends `Extension`. This class is the first that is instantiated when your extension is loaded. In the `InitializeServices` method you can add your own services to the service collection to make them available for dependency injection.
 
 ```csharp
 [VisualStudioContribution]
-internal class ExtensionEntrypoint : Extension
+internal class MyExtension : Extension
 {
     protected override void InitializeServices(IServiceCollection serviceCollection)
     {
@@ -70,7 +70,7 @@ You can see that the display name of the command is `"%Command1.DisplayName%"`, 
 
 When the command is executed, Visual Studio will call in to `ExecuteCommandAsync` method where you can place a breakpoint. You can utilize `context` argument or `this.Extensibility` object to interact with Visual Studio.
 
-For example, an example command handler could be as below:
+For example, a command handler could be as below:
 
 ```csharp
 public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)

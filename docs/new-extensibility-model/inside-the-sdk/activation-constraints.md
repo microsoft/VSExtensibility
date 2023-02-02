@@ -45,16 +45,21 @@ EnabledWhen =
 
 ## Available terms
 
-Following is the list of currently supported activation constraints.
+Following is the list of currently supported activation constraints:
+
+| Term | Description
+| -- | -- |
+| [`SolutionHasProjectCapability`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-SolutionHasProjectCapability-Microsoft-VisualStudio-Extensibility-ProjectCapability-)(\<expression>=[`ProjectCapability`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#T-Microsoft-VisualStudio-Extensibility-ProjectCapability)) | True whenever solution has a project with  capabilities matching the provided subexpression. An expression can be something like VB | CSharp. |
+| [`SolutionState`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-SolutionState-Microsoft-VisualStudio-Extensibility-SolutionState-)(\<state>=[`SolutionState`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#T-Microsoft-VisualStudio-Extensibility-SolutionState)) | True when solution state matches to provided value, see [solution states](#solution-states) for list of values. |
+| [`ProjectAddedItem`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-ProjectAddedItem-System-String-)(\<pattern>=\<regex>) | The term is true when a file matching the "pattern" is added to a project in the solution that is opened. |
+| [`ClientContext`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-ClientContext-Microsoft-VisualStudio-Extensibility-ClientContextKey,System-String-)(\<key>=[`ClientContextKey`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#T-Microsoft-VisualStudio-Extensibility-ClientContextKey), \<pattern>=\<regex>) | True when the provided client context key matches to regular expression. See [client contexts](#client-contexts) for more details. |
+
+For compatibility reasons, the following legacy activation constraints are also supported:
 
 | Term | Description
 | -- | -- |
 | [`SolutionHasProjectBuildProperty`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-SolutionHasProjectBuildProperty-System-String,System-String-)(\<property>=\<regex>) | The term is true when solution has a loaded project with the specified build property and property value matches to regex filter provided. |
-| [`SolutionHasProjectCapability`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-SolutionHasProjectCapability-Microsoft-VisualStudio-Extensibility-ProjectCapability-)(\<expression>=[`ProjectCapability`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#T-Microsoft-VisualStudio-Extensibility-ProjectCapability)) | True whenever solution has a project with  capabilities matching the provided subexpression. An expression can be something like VB | CSharp. |
 | [`SolutionHasProjectFlavor`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-SolutionHasProjectFlavor-System-Guid-)(\<guid>) | True whenever a solution has project that is flavored (aggregated) and has a flavor matching the given project type GUID. |
-| [`SolutionState`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-SolutionState-Microsoft-VisualStudio-Extensibility-SolutionState-)(\<state>=[`SolutionState`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#T-Microsoft-VisualStudio-Extensibility-SolutionState)) | True when solution state matches to provided value, see [solution states](#solution-states) for list of values. |
-| [`ProjectAddedItem`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-ProjectAddedItem-System-String-)(\<pattern>=\<regex>) | The term is true when a file matching the "pattern" is added to a project in the solution that is opened. |
-| [`ClientContext`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-ClientContext-Microsoft-VisualStudio-Extensibility-ClientContextKey,System-String-)(\<key>=[`ClientContextKey`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#T-Microsoft-VisualStudio-Extensibility-ClientContextKey), \<pattern>=\<regex>) | True when the provided client context key matches to regular expression. See [client contexts](#client-contexts) for more details. |
 
 ## Solution states
 

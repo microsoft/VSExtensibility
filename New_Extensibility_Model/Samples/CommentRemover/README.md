@@ -67,7 +67,6 @@ This extension contributes six new commands to Visual Studio and I want them to 
 ```CSharp
 internal static class CommentRemoverMenuConfiguration
 {
-        
     public static MenuConfiguration CommentRemoverMenu => new("%CommentRemoverMenu.DisplayName%")
     {
         Priority = 1,

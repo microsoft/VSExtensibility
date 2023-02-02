@@ -6,7 +6,7 @@
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<NoWarn>$(NoWarn);CS1591;IDE0008;CA1812</NoWarn>
-		<RootNamespace>Microsoft.VisualStudio.Gladstone.InsertGuidExtension</RootNamespace>
+		<RootNamespace>Microsoft.VisualStudio.Gladstone.InsertGuid</RootNamespace>
 
 		<!-- The VisualStudio.Extensibility preview packages are available from the azure-public/vside/vssdk feed -->
 		<RestoreAdditionalProjectSources>https://pkgs.dev.azure.com/azure-public/vside/_packaging/vssdk/nuget/v3/index.json;$(RestoreAdditionalProjectSources)</RestoreAdditionalProjectSources>
