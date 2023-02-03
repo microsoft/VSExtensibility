@@ -153,7 +153,7 @@ public override CommandConfiguration CommandConfiguration => new("My Command!")
 
 ## Shortcuts
 
-Commands can be configured to be executed when a specific key combination is used. A Shortcut consists of one or two chords, where each chord consists of one or more `Microsoft.VisualStudio.Extensibility.Commands.ModifierKey` and one `Microsoft.VisualStudio.Extensibility.Commands.Key`. Possible values for `ModifierKey` are `LeftAlt`, `Shift`, `Control`, and `None`, where `None` is only valid when used in the second chord of a Shortcut. The `Key` used in a chord can be almost any other keyboard key.
+Commands can be configured to be executed when a specific key combination is used. A Shortcut consists of one or two chords, where each chord consists of a `Microsoft.VisualStudio.Extensibility.Commands.ModifierKey` and one `Microsoft.VisualStudio.Extensibility.Commands.Key`. Possible values for `ModifierKey` are `LeftAlt`, `Shift`, `Control`, `ControlShift`, `ControlShiftLeftAlt`, and `None`, where `None` is only valid when used in the second chord of a Shortcut. The `Key` used in a chord can be almost any other keyboard key.
 
 Many keyboard shortcuts are already used in Visual Studio. You should not assign the same shortcut to more than one command because duplicate bindings are hard to detect and may also cause unpredictable results. Therefore, it is a good idea to verify the availability of a shortcut before you assign it.
 
