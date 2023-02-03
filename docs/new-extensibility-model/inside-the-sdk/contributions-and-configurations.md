@@ -159,4 +159,13 @@ internal class TextViewEventListener : ExtensionPart, ITextViewOpenClosedListene
     ...
 ```
 
+Types that are meant to be used to define Visual Studio contribution properties implement the `IVisualStudioContributionProperty` interface and are marked with the `CompileTimeEvaluation` attribute to document that their value will be evaluated when the extension is built.
+
+```csharp
+[CompileTimeEvaluation]
+public sealed class DocumentTypeConfiguration : IVisualStudioContributionProperty ...
+```
+
+The guidance about not referencing *compile-time constant* configuration properties at run time applies to Visual Studio contribution properties as well.
+
 In case a unique identifier is required for a Visual Studio contribution property, its full name (containing type full name and property name) will be used by the VisualStudio.Extensibility infrastructure as identifier. For example, the unique identifier of the toolbar configuration above will be `CommandParentingSample.ExtensionCommandConfiguration.ToolbarConfiguration`.
