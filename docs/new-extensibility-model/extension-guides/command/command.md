@@ -96,7 +96,9 @@ public override CommandConfiguration CommandConfiguration => new("My Command!")
 };
 ```
 
-You may want to place your command somewhere inside of Visual Studio that isn't in the `KnownPlacements` property. To do this you can you use the `Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement.FromVsctParent` method and provide the GUID/Id pair of the group you would like to parent the command to.
+### Using an unlisted command placement (advanced)
+
+While we continue adding additional values to `KnownPlacements`, there might be certain cases where you want to place your command somewhere in the IDE that hasn't yet been added. To do this, you can use the `Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement.FromVsctParent` method, which requires the GUID and the ID of the group to which you would like to parent the command.
 
 ```csharp
 public override CommandConfiguration CommandConfiguration => new("My Command!")
@@ -151,9 +153,13 @@ public override CommandConfiguration CommandConfiguration => new("My Command!")
 
 ## Shortcuts
 
-Commands can be configured to be executed when a specific key combination is used. A Shortcut consists of one or two chords, where each chord consists of one or more `Microsoft.VisualStudio.Extensibility.Commands.ModifierKey` and one `Microsoft.VisualStudio.Extensibility.Commands.Key`. Possible values for `ModifierKey` are `LeftAlt`, `Shift`, `Control`, and `None`, where `None` is only valid when used in the second chord of a Shortcut. The `Key` used in a chord can be almost any other keyboard key. An activation constraint can be included in the configuration to have the Shortcut available in different contexts. Use the `Guid` "{5EFC7975-14BC-11CF-9B2B-00AA00573819}" to make the Shortcut available in the Visual Studio editor.
+Commands can be configured to be executed when a specific key combination is used. A Shortcut consists of one or two chords, where each chord consists of one or more `Microsoft.VisualStudio.Extensibility.Commands.ModifierKey` and one `Microsoft.VisualStudio.Extensibility.Commands.Key`. Possible values for `ModifierKey` are `LeftAlt`, `Shift`, `Control`, and `None`, where `None` is only valid when used in the second chord of a Shortcut. The `Key` used in a chord can be almost any other keyboard key.
 
 Many keyboard shortcuts are already used in Visual Studio. You should not assign the same shortcut to more than one command because duplicate bindings are hard to detect and may also cause unpredictable results. Therefore, it is a good idea to verify the availability of a shortcut before you assign it.
+
+### Shortcut Activation Constraint
+
+An activation constraint can be included in the configuration to have the Shortcut available in different contexts. These activation constraints are defined in the form of a `Guid`, and usually relate to an editor. When a Shortcut is given an activation constraint it will only be available in that specific context. For example, use the `Guid` "{5EFC7975-14BC-11CF-9B2B-00AA00573819}" to make the Shortcut available in the Visual Studio editor. In this case the Shortcut would only be available when the Visual Studio editor is focused.
 
 ### Shortcut Sample
 
@@ -163,7 +169,7 @@ public override CommandConfiguration CommandConfiguration => new("My Command!")
     Shortcuts = new CommandShortcutConfiguration[]
     {
         new(ModifierKey.LeftAlt, Key.M),
-        new(ModifierKey.Control | ModifierKey.LeftAlt, Key.Y, ModifierKey.Control | ModifierKey.Shift, Key.B),
+        new(ModifierKey.ControlShift, Key.Y, ModifierKey.ControlShift, Key.B),
     },
 };
 ```
