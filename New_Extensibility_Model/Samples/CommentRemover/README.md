@@ -62,10 +62,10 @@ internal class RemoveAllComments : CommentRemoverCommand
 
 ### Command placing
 
-This extension contributes six new commands to Visual Studio and I want them to be placed together in a sub-menu of the *Extensions* menu. This can be achieved by creating a static property of type `MenuConfiguration` and marking it with the `VisualStudioContribution` attribute. The property can be placed in any class, I have created a `CommentRemoverMenuConfiguration` class just for this purpose:
+This extension contributes six new commands to Visual Studio and I want them to be placed together in a sub-menu of the *Extensions* menu. This can be achieved by creating a static property of type `MenuConfiguration` and marking it with the `VisualStudioContribution` attribute. The property can be placed in any class, for organization purposes we recommend placing all manus and toolbar configurations in a single `ExtensionCommandConfiguration` static class.
 
 ```CSharp
-internal static class CommentRemoverMenuConfiguration
+internal static class ExtensionCommandConfiguration
 {
     public static MenuConfiguration CommentRemoverMenu => new("%CommentRemoverMenu.DisplayName%")
     {

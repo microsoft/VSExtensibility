@@ -64,6 +64,8 @@ Assuming you decide to implement both listeners, the finished class declaration 
       ...
 ```
 
+Since both `ITextViewOpenClosedListener` and `ITextViewChangedListener` declare the `TextViewExtensionConfiguration` property, the configuration applies to both listeners.
+
 When you run your extension, you should see:
 
 - [ITextViewOpenClosedListener.TextViewOpenedAsync()](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#M-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewOpenClosedListener-TextViewOpenedAsync-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView,System-Threading-CancellationToken-) called anytime an editor is opened by the user.
