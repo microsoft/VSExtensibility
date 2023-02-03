@@ -243,7 +243,7 @@ string-resources.json sample:
 
 ## Change the display name of a command
 
-While the display name for a command is initially set in the [`CommandConfiguration`](./../../api/Microsoft.VisualStudio.Extensibility.Contracts.md/#CommandConfiguration-type) (see [Creating a Command](#create-a-command)), it can be changed at runtime by setting the `DisplayName` property in your command. The `ToolTipText` property can updated in a similar way.
+While the display name for a command is initially set in the [`CommandConfiguration`](./../../api/Microsoft.VisualStudio.Extensibility.Contracts.md/#CommandConfiguration-type) (see [Creating a Command](#create-a-command)), it can be changed at runtime by setting the `DisplayName` property in your command. The `ToolTipText` property can be updated in a similar way.
 
 ### Change DisplayName Example
 
