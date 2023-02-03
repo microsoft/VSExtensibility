@@ -96,7 +96,7 @@ public override CommandConfiguration CommandConfiguration => new("My Command!")
 };
 ```
 
-You may want to place your command somewhere inside of Visual Studio that isn't in the `KnownPlacements`property. To do this you can you use the `Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement.FromVsctParent` method and provide the GUID/Id pair of the group you would like to parent the command to.
+You may want to place your command somewhere inside of Visual Studio that isn't in the `KnownPlacements` property. To do this you can you use the `Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement.FromVsctParent` method and provide the GUID/Id pair of the group you would like to parent the command to.
 
 ```csharp
 public override CommandConfiguration CommandConfiguration => new("My Command!")
