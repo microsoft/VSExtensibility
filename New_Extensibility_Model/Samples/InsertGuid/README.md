@@ -10,20 +10,30 @@ This extension is a simple extension that shows how a command that modifies an o
 
 ## Command definition
 
-The extension consist of a single code file that defines a command and its properties starting with class attributes as seen below:
+The extension contains a code file that defines a command and its properties starting with the `VisualStudioContribution` class attribute which makes the command available to Visual Studio:
 
 ```csharp
-[Command(
-	"Microsoft.VisualStudio.InsertGuidExtension.InsertGuidCommand",
-	"Insert new guid",
-	placement: CommandPlacement.ExtensionsMenu)]
-[CommandIcon("OfficeWebExtension", IconSettings.IconAndText)]
-[CommandVisibleWhen("AnyFile", new string[] { "AnyFile" }, new string[] { "ClientContext:Shell.ActiveEditorContentType=.+" })]
+[VisualStudioContribution]
+internal class InsertGuidCommand : Command
+{
 ```
 
-The first `Command` attribute registers the command using the unique name `Microsoft.VisualStudio.InsertGuidExtension.InsertGuidCommand` and id `1`. The command is placed in `Extensions` top menu and uses `OfficeWebExtension` icon moniker.
+The `VisualStudioContribution` attribute registers the command using the class full type name `Microsoft.VisualStudio.Gladstone.InsertGuid.InsertGuidCommand` as its unique identifier.
 
-`CommandVisibleWhen` attribute defines when the command is visible in `Extensions` menu. You can refer to [Activation Constraints](../inside-the-sdk/activation-constraints.md/) to learn about different options that you can use to determine command visibility and state. In this case, the command is enabled anytime there is an active editor in the IDE.
+The `CommandConfiguration` property defines information about the command that are available to Visual Studio even before the extension is loaded:
+
+```csharp
+    public override CommandConfiguration CommandConfiguration => new    ("%InsertGuidCommand.DisplayName%")
+    {
+        Placements = new[] { CommandPlacement.KnownPlacements.ExtensionsMenu },
+        Icon = new(ImageMoniker.KnownValues.OfficeWebExtension, IconSettings.    IconAndText),
+        VisibleWhen = ActivationConstraint.ClientContext(ClientContextKey.Shell.ActiveEditorContentType, ".+"),
+    };
+```
+
+The command is placed in `Extensions` top menu and uses `OfficeWebExtension` icon moniker.
+
+The `VisibleWhen` property defines when the command is visible in the `Extensions` menu. You can refer to [Activation Constraints](../inside-the-sdk/activation-constraints.md/) to learn about different options that you can use to determine command visibility and state. In this case, the command is enabled anytime there is an active editor in the IDE.
 
 ## Getting the active editor view
 
@@ -34,6 +44,7 @@ In our example, we utilize `GetActiveTextViewAsync` method to get the active tex
 ```csharp
 using var textView = await context.GetActiveTextViewAsync(cancellationToken);
 ```
+
 ## Mutating the text in active view
 
 Once we have the active text view, we can mutate the document attached to the view to replace the selection with a new guid string as below.
@@ -52,7 +63,6 @@ await this.Extensibility.Editor().MutateAsync(
 ## Logging errors
 
 Each extension part including command sets is assigned a `TraceSource` instance that can be utilized to log diagnostic errors. Please see [Logging](../inside-the-sdk/logging.md) section for more information.
-
 
 ## Usage
 

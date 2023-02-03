@@ -10,9 +10,7 @@ An extension utilizing the new extensibility SDK will have several components th
 ## Extension instance
 The starting point for each extension is an instance of `Microsoft.VisualStudio.Extensibility.Extension`. This instance contains the necessary methods for Visual Studio to query services provided by the extension and also provides virtual methods for extension to provide localized resources and extension owned local services to be shared between the components of the extension.
 
-For simple extensions that don't require such services, a default implementation will be created by code generators at build time. See `SimpleRemoteCommandSample` extension for such an example.
-
-In other cases, such as `MarkdownLinter` extension project will have its own class that derives from `Microsoft.VisualStudio.Extensibility.Extension` to customize certain aspects of the extension.
+Extension projects will have their own class that derives from `Microsoft.VisualStudio.Extensibility.Extension` to customize certain aspects of the extension.
 
 For extension developers that are familiar with the existing VS SDK APIs, this class is very similar to `AsyncPackage` class that is used in the in-process extensibility model.
 
