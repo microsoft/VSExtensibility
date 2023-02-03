@@ -141,6 +141,7 @@ A class extending `RemoteUserControl`, will automatically use the XAML embedded 
 ### XAML definition
 
 Next, let's create a file named `MyToolWindowContent.xaml`:
+
 ```xml
 <DataTemplate xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -156,6 +157,7 @@ The XAML definition of the *remote user control* is normal WPF xaml describing a
 ### Setting the XAML as an embedded resource
 
 Finally, let's open the `.csproj` file and make sure that the XAML file is treated as an embedded resource:
+
 ```xml
 <ItemGroup>
   <EmbeddedResource Include="MyToolWindowContent.xaml" />
@@ -176,6 +178,7 @@ You should now be able to press F5 and debug the extension.
 It is a good idea to write our UI keeping in mind that Visual Studio can be themed resulting in very different colors being used.
 
 Let's update the XAML to use the [styles](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.vsresourcekeys) and [colors](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.platformui.environmentcolors) used across Visual Studio:
+
 ```xml
 <DataTemplate xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -201,6 +204,7 @@ In order to get a better XAML editing experience, you can **temporarily** add a 
 # Adding a data context
 
 Let's now add a data context class for the *remote user control*:
+
 ```CSharp
 using System.Runtime.Serialization;
 
@@ -215,6 +219,7 @@ internal class MyToolWindowData
 ```
 
 and update `MyToolWindowContent.cs` and `MyToolWindowContent.xaml` to use it:
+
 ```CSharp
 internal class MyToolWindowContent : RemoteUserControl
 {
@@ -223,6 +228,7 @@ internal class MyToolWindowContent : RemoteUserControl
     {
     }
 ```
+
 ```xml
 <Label Content="{Binding LabelText}" />
 ```
@@ -279,6 +285,7 @@ We also need to add a command to the data context. In *Remote UI*, commands impl
 It's important to note that *Remote UI* doesn't support event handlers, so all notifications from the UI to the extension must be implemented through databinding and commands.
 
 This is the resulting code for `MyToolWindowData`.
+
 ```CSharp
 [DataContract]
 internal class MyToolWindowData : NotifyPropertyChangedObject
@@ -314,6 +321,7 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
 ```
 
 We also need to fix the `MyToolWindowContent` constructor:
+
 ```CSharp
 public MyToolWindowContent()
     : base(dataContext: new MyToolWindowData())
@@ -322,6 +330,7 @@ public MyToolWindowContent()
 ```
 
 Let's update `MyToolWindowContent.xaml` to use the new properties in the datacontext. This is all normal WPF XAML. Even the `IAsyncCommand` object is proxied as an `ICommand` in the Visual Studio process so it can be data-bound as usual.
+
 ```xml
 <DataTemplate xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -359,6 +368,7 @@ Let's update `MyToolWindowContent.xaml` to use the new properties in the datacon
 ## Understanding asynchronicity in *Remote UI*
 
 The whole *Remote UI* communication for this tool window follows these steps:
+
 1. The data context is proxied inside the Visual Studio process with its original content,
 1. The control created from `MyToolWindowContent.xaml` is data bound to the data context proxy,
 1. The user types some text in the text box which is assigned to the `Name` property of the data context proxy through databinding. The new value of `Name` is propagated to the `MyToolWindowData` object.
@@ -383,6 +393,7 @@ Let's make this change by binding the button's `CommandParameter` to `Name`:
 ```
 
 Then, let's modify the command's callback to use the parameter.
+
 ```CSharp
 HelloCommand = new AsyncCommand((parameter, cancellationToken) =>
 {
@@ -400,6 +411,7 @@ Using a command parameter is not an option if the command needs to consume multi
 The solution in this case is to retrieve, in the *async command* callback, the value of all the properties from the data context before yielding.
 
 Below you can see a sample where the `FirstName` and `LastName` property values are retrieved before yielding to make sure that the value at the time of the command invocation is used:
+
 ```CSharp
 HelloCommand = new(async (parameter, cancellationToken) =>
 {
