@@ -261,16 +261,6 @@ public static CommandGroupConfiguration MyGroup1 => new(GroupPlacement.KnownPlac
 public static CommandGroupConfiguration MyGroup2 => new(GroupPlacement.KnownPlacements.ExtensionsMenu, priority: 100);
 ```
 
-### Using an unlisted command placement (advanced)
-
-While we continue adding additional values to `KnownPlacements`, there might be certain cases where you want to place your command somewhere in the IDE that hasn't yet been added. To do this, you can use the `Microsoft.VisualStudio.Extensibility.Commands.GroupPlacement.FromVsctParent` method, which requires the `GUID` and the `ID` of the menu or toolbar to which you would like to parent the group to. Getting the `GUID` and the `ID` for the menu or toolbar is not straightforward, which makes this an advanced scenario. The easiest way is to use the [CommandExplorer](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.CommandExplorer) extension, which can give you metadata about menus, toolbars, commands and groups in Visual Studio.
-
-```csharp
-// A group parented to the "File" Menu
-[VisualStudioContribution]
-public static CommandGroupConfiguration MyGroup1 => new(GroupPlacement.FromVsctParent(new Guid("{d309f791-903f-11d0-9efc-00a0c911004f}"), 128));
-```
-
 ## Place items on a group
 
 Commands and menus can be placed onto groups using the `Children` array property on the `CommandGroupConfiguration`.
