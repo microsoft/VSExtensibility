@@ -7,11 +7,12 @@ date: 2022-11-22
 # Creating your first out-of-process Visual Studio extension
 
 ## Introduction
-This document is a quick walkthrough on how to create your first extension using the new out-of-process extensibility model.
+
+This document is a quick walkthrough on how to create your first extension using the VisualStudio.Extensibility model to create an out-of-process extension.
 
 ## Prerequisites
 
-* Visual Studio 2022.5 Preview 1 or higher with `.Net desktop development` workload. The latest minimum requirement will always be listed at [Announcements](../../announcements.md) page.
+* Visual Studio 2022 version 17.5 Preview 1 or higher with `.NET desktop development` workload. The latest minimum requirement will always be listed at [Announcements](../../announcements.md) page.
 
 * Install latest version of [VisualStudio.Extensibility Project System](https://marketplace.visualstudio.com/items?itemName=vsext.gladstone): This extension will allow you to debug extension projects using F5. There is currently no other deployment mechanism supported.
 
@@ -57,3 +58,7 @@ For more information on how to add commands, please refer to [Commands](../exten
 * You can find the command in `Tools` menu as shown.
 
 ![SampleCommand](extension-command.png "Sample Remote Command")
+
+## Next steps
+
+Try a slightly more complex example, [Create a simple extension](tutorial-create-simple-extension.md).
