@@ -11,7 +11,7 @@ This document is a quick walkthrough on how to create your first extension using
 
 ## Prerequisites
 
-* Visual Studio 2022.5 Preview 1 or higher with `.Net desktop development` workload. The latest minimum requirement will always be listed at [Announcements](../../announcements.md) page.
+* Visual Studio 2022.6 Preview 1 or higher with `.Net desktop development` workload. The latest minimum requirement will always be listed at [Announcements](../../announcements.md) page.
 
 * Install latest version of [VisualStudio.Extensibility Project System](https://marketplace.visualstudio.com/items?itemName=vsext.gladstone): This extension will allow you to debug extension projects using F5. There is currently no other deployment mechanism supported.
 
@@ -25,26 +25,60 @@ This document is a quick walkthrough on how to create your first extension using
 
 At this point you are ready to start extending Visual Studio by adding commands and editor components to your extension.
 
-## Add your first command
+## The Extension class
 
-The template creates `Command1.cs` as your first command handler which you can use as a starting point. The default attributes shown below will place the command in `Tools` menu with an extension icon. 
+The template creates a class which extends `Extension`. This class is the first that is instantiated when your extension is loaded. In the `InitializeServices` method you can add your own services to the service collection to make them available for dependency injection.
 
 ```csharp
-[CommandIcon(KnownMonikers.Extension, IconSettings.IconAndText)]
-[Command("Extension1.Command1", "Sample Remote Command", placement: CommandPlacement.ToolsMenu)]
+[VisualStudioContribution]
+internal class MyExtension : Extension
+{
+    protected override void InitializeServices(IServiceCollection serviceCollection)
+    {
+        base.InitializeServices(serviceCollection);
+
+        // You can configure dependency injection here by adding services to the serviceCollection.
+    }
+}
 ```
 
-When the command is executed, Visual Studio will call in to `ExecuteCommandAsync` method where you can place a breakpoint. You can utilize `context` argument or `this.Extensibility` object to interact with Visual Studio. 
+You can also see the `VisualStudioContribution` attribute that is used to mark extension components that are meant to be consumed by Visual Studio. This attribute can be applied to classes implementing `IVisualStudioContributionClass` or static properties of a type implementing `IVisualStudioContributionProperty`.
 
-For example, an example command handler could be as below:
+## Add your first command
+
+The template creates `Command1.cs` as your first command handler which you can use as a starting point. Since we want to make Visual Studio aware of this command, and the `Command` class implements `IVisualStudioContributionClass`, the command is marked with the `VisualStudioContribution` attribute.
+
+```csharp
+[VisualStudioContribution]
+internal class Command1 : Command
+{
+```
+
+The command has a configuration property named `CommandConfiguration` which defines it's display name, icon and placement under the `Tools` menu.
+
+```csharp
+    public override CommandConfiguration CommandConfiguration => new("%Command1.DisplayName%")
+    {
+        Icon = new(ImageMoniker.KnownValues.Extension, IconSettings.IconAndText),
+        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+    };
+```
+
+Configuration properties are evaluated by the C# compiler when building the extension and their value is saved as extension metadata so that Visual Studio can read it without loading the extension assembly. For this reason, configuration properties have additional restrictions compared to normal properties (for example, they must be readonly).
+
+You can see that the display name of the command is `"%Command1.DisplayName%"`, which references the `Command1.DisplayName` string in the `.vsextension/string-resources.json` file, allowing this string to be localized.
+
+When the command is executed, Visual Studio will call in to `ExecuteCommandAsync` method where you can place a breakpoint. You can utilize `context` argument or `this.Extensibility` object to interact with Visual Studio.
+
+For example, a command handler could be as below:
 
 ```csharp
 public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
 {
-	await context.ShowPromptAsync(
-		"Hello from another process!", 
-		PromptOptions.OK, 
-		cancellationToken);
+    await context.ShowPromptAsync(
+        "Hello from another process!", 
+        PromptOptions.OK, 
+        cancellationToken);
 }
 ```
 

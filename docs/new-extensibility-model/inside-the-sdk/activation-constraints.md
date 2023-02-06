@@ -6,53 +6,60 @@ date: 2021-8-16
 
 # Rule based activation constraints
 
-One of the common concepts in Visual Studio Extensibility SDK is use of context based activation rules in code attributes. An example of these would [CommandVisibleWhen](../api/Microsoft.VisualStudio.Extensibility.md#T-Microsoft-VisualStudio-Extensibility-Commands-CommandVisibleWhenAttribute) attribute declaring when a command is made visible.
+One of the common concepts in Visual Studio Extensibility SDK is use of context based activation rules in code attributes. An example of these would be the [`VisibleWhen`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#P-Microsoft-VisualStudio-Extensibility-Commands-CommandConfiguration-VisibleWhen) property in a command's configuratio declaring when the command is made visible.
 
-Our goal is to provide a common way to create such contexts, the current method is based on existing [Rule-based UI contexts](https://docs.microsoft.com/en-us/visualstudio/extensibility/how-to-use-rule-based-ui-context-for-visual-studio-extensions) with a different set of context terms.
+Our goal is to provide a common way to create such contexts.
 
 ## Constraint attribute arguments
 
-Each constraint attribute will contain at least 3 required arguments that defines the expression:
+Each constraint is defined as an instance of the [`ActivationConstraint`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#T-Microsoft-VisualStudio-Extensibility-ActivationConstraint) type created with one of the `ActivationConstraint`'s factory methods.
 
-* Expression string: A boolean expression using `and`, `or`, `not` operations and term names that are defined in later arguments. Each term must be a single word (without spaces) and expression can utilize parentheses for grouping and `&`, `|`, `!` operators for `and`, `or`, `not` operations.
-
-* Term names: An array that contains the name of the terms used in the expression above.
-
-* Term definitions: An array that defines the each term in the order terms are defined in the names array above.
+Multiple activation constraints can be combined together using the [`And`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-And-Microsoft-VisualStudio-Extensibility-ActivationConstraint[]-), [`Or`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-Or-Microsoft-VisualStudio-Extensibility-ActivationConstraint[]-), and [`Not`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-Not-Microsoft-VisualStudio-Extensibility-ActivationConstraint-) methods or the `&`, `|`, and `!` operators.
 
 ## Example definition
 
-In the example below, the code attributes defines when a command is in enabled state.
-
-* The expression indicates that command is enabled when both `SolutionLoaded` and `IsValidFile` terms are true.
-
-* `SolutionLoaded` term is defined as `SolutionState:Exists` which indicates, the term evaluates to `true` when a solution exists in the IDE.
-
-* `IsValidFile` term is true when selected file in Solution Explorer is a jpeg or text file as defined by the file extension.
+In the example below, the command configuration defines when the command is in the enabled state.
 
 ```csharp
-[CommandEnabledWhen(
-    "SolutionLoaded & IsValidFile",
-    new string[] { 
-        "SolutionLoaded", 
-        "IsValidFile" },
-    new string[] { 
-        "SolutionState:Exists", 
-        @"ClientContext:Shell.ActiveSelectionFileName=\.(jpg|jpeg|txt)$" })]
+public override CommandConfiguration CommandConfiguration => new("My command")
+{
+    EnabledWhen = ActivationConstraint.ClientContext(ClientContextKey.Shell.ActiveSelectionFileName, @"\.(jpg|jpeg|txt)$"),
+};
+```
+
+The example below shows how to combine multiple constraints:
+
+```csharp
+EnabledWhen = ActivationConstraint.And(
+    ActivationConstraint.SolutionState(SolutionState.Exists),
+    ActivationConstraint.ClientContext(ClientContextKey.Shell.ActiveEditorFileName, @"\.(jpg|jpeg|txt)$")),
+```
+
+or, more succintly, using the `&` operator:
+
+```csharp
+EnabledWhen =
+    ActivationConstraint.SolutionState(SolutionState.Exists) &
+    ActivationConstraint.ClientContext(ClientContextKey.Shell.ActiveEditorFileName, @"\.(jpg|jpeg|txt)$")),
 ```
 
 ## Available terms
 
-Following is the list of terms currently supported by expression engine.
+Following is the list of currently supported activation constraints:
 
 | Term | Description
 | -- | -- |
-| SolutionHasProjectBuildProperty:\<property>=\<regex> | The term is true when solution has a loaded project with the specified build property and property value matches to regex filter provided. |
-| SolutionHasProjectCapability:\<expression> | True whenever solution has a project with  capabilities matching the provided subexpression. An expression can be something like VB | CSharp. |
-| SolutionHasProjectFlavor:\<guid> | True whenever a solution has project that is flavored (aggregated) and has a flavor matching the given project type GUID. |
-| SolutionState:\<state> | True when solution state matches to provided value, see [solution states](#solution-states) for list of values. |
-| ProjectAddedItem:\<pattern> | The term is true when a file matching the "pattern" is added to a project in the solution that is opened. |
-| ClientContext:\<key>=\<pattern> | True when the provided client context key matches to regular expression. See [client contexts](#client-contexts) for more details. |
+| [`SolutionHasProjectCapability`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-SolutionHasProjectCapability-Microsoft-VisualStudio-Extensibility-ProjectCapability-)(\<expression>=[`ProjectCapability`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#T-Microsoft-VisualStudio-Extensibility-ProjectCapability)) | True whenever solution has a project with  capabilities matching the provided subexpression. An expression can be something like VB | CSharp. |
+| [`SolutionState`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-SolutionState-Microsoft-VisualStudio-Extensibility-SolutionState-)(\<state>=[`SolutionState`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#T-Microsoft-VisualStudio-Extensibility-SolutionState)) | True when solution state matches to provided value, see [solution states](#solution-states) for list of values. |
+| [`ProjectAddedItem`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-ProjectAddedItem-System-String-)(\<pattern>=\<regex>) | The term is true when a file matching the "pattern" is added to a project in the solution that is opened. |
+| [`ClientContext`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-ClientContext-Microsoft-VisualStudio-Extensibility-ClientContextKey,System-String-)(\<key>=[`ClientContextKey`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#T-Microsoft-VisualStudio-Extensibility-ClientContextKey), \<pattern>=\<regex>) | True when the provided client context key matches to regular expression. See [client contexts](#client-contexts) for more details. |
+
+For compatibility reasons, the following legacy activation constraints are also supported:
+
+| Term | Description
+| -- | -- |
+| [`SolutionHasProjectBuildProperty`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-SolutionHasProjectBuildProperty-System-String,System-String-)(\<property>=\<regex>) | The term is true when solution has a loaded project with the specified build property and property value matches to regex filter provided. |
+| [`SolutionHasProjectFlavor`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-SolutionHasProjectFlavor-System-Guid-)(\<guid>) | True whenever a solution has project that is flavored (aggregated) and has a flavor matching the given project type GUID. |
 
 ## Solution states
 

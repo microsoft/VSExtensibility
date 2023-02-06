@@ -3,7 +3,7 @@
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Commands;
 
-internal static class CommentRemoverMenuConfiguration
+internal static class ExtensionCommandConfiguration
 {
 	[VisualStudioContribution]
 	public static MenuConfiguration CommentRemoverMenu => new("%CommentRemoverMenu.DisplayName%")

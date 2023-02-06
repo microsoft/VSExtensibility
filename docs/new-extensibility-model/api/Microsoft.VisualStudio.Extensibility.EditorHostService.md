@@ -115,7 +115,7 @@ Microsoft.VisualStudio.Extensibility.EditorHostService
 ##### Summary
 
 Lightweight facade for exposing selected immutable elements of [ITextSnapshot](#T-Microsoft-VisualStudio-Text-ITextSnapshot 'Microsoft.VisualStudio.Text.ITextSnapshot') and
-[ITextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocumentSnapshot') to OOP language extensions hosted in Service Hub.
+[ITextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot') to OOP language extensions hosted in Service Hub.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot-Equals-System-Object-'></a>
 ### Equals() `method`

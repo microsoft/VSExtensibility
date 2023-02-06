@@ -9,6 +9,7 @@ date: 2022-8-4
 This extension shows how multiple components can interact together inside an extension and how different areas of Visual Studio can be extended.
 
 ## Summary
+
 Markdown Linter extension showcases samples of:
 
 * Creating a command handler
@@ -17,11 +18,13 @@ Markdown Linter extension showcases samples of:
 * Interacting with output window and Error List.
 
 ## Prerequisites
+
 This extension assumes `markdownlint-cli` npm package is installed globally in order to successfully run linter on markdown files.
 
 You can run `npm install -g markdownlint-cli` to install the package before running the sample.
 
 ## MarkdownLinterExtension instance
+
 Different to previous samples, this extension implements its own class that inherits from `ExtensionWithCommand` as our extension contains commands and also want to introduce local services.
 
 There are 2 interesting points in the implementation of `MarkdownLinterExtension`:
@@ -30,6 +33,7 @@ There are 2 interesting points in the implementation of `MarkdownLinterExtension
 * `InitializeServices` method is used to add local services to the dependency injection graph. As noted in [local services section](../inside-the-sdk/extension-anatomy.md/#local-extension-services), the extension utilizes a scoped `MarkdownDiagnosticsService` as the service instance injects `VisualStudioExtensibility` object.
 
 ## MarkdownDiagnosticsService local service
+
 In this example, this local service acts as the central for managing markdown file diagnostics. It is responsible for running markdown linter on the files requested and forward errors to diagnostic service.
 
 For more information on individual APIs used please refer to:
@@ -38,6 +42,7 @@ For more information on individual APIs used please refer to:
 * Languages API for diagnostics
 
 ## RunLinterOnCurrentFileCommand
+
 One part of the extension is a command that can run markdown linter on the current selected file in Solution Explorer.
 
 The command retrieves the selection from `IClientContext` instance and forwards the request to local `MarkdownDiagnosticsService` service instance.
@@ -51,19 +56,22 @@ foreach (var selectedItem in selectedItemPaths.Where(p => p.IsFile))
 {
     await this.diagnosticsProvider.ProcessFileAsync(selectedItem, cancellationToken);
 }
-```    
-
-## TextViewEventListener
-Another part of the extension is an editor component that listens for new editor view creation and changes to open views. This component monitors for events on `.md` files and routes the request to `MarkdownDiagnosticsService` as contents change.
-
-Note that because this extension part implements two contract interfaces, it must ensure that both contracts are specified as an extension part:
-
-```csharp
-[ExtensionPart(typeof(ITextViewLifetimeListener))]
-[ExtensionPart(typeof(ITextViewChangedListener))]
-[AppliesTo(ContentType = "markdown")]
 ```
 
-The extension part also utilizes `AppliesTo` attribute to indicate that it is interested in events from views with `text` content type. (Note, this is required as there is no `markdown` content type in Visual Studio)
+## TextViewEventListener
+
+Another part of the extension is an editor component that listens for new editor view creation and changes to open views. This component monitors for events on `.md` files and routes the request to `MarkdownDiagnosticsService` as contents change.
+
+The extension part also utilizes the `AppliesTo` configuration to indicate that it is interested in events from views with `markdown` content type. (The definition of `MarkdownLinterExtensionContributions.MarkdownDocumentType` as a custom content type is required as there is no `markdown` content type in Visual Studio)
+
+```csharp
+public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
+{
+    AppliesTo = new[]
+    {
+        DocumentFilter.FromDocumentType(MarkdownLinterExtensionContributions.MarkdownDocumentType),
+    },
+};
+```
 
 Even though this class implements 2 different contracts, a single instance of it will be created so that state can be shared between different editor components that interact together.
