@@ -23,6 +23,7 @@ This overview covers these top scenarios for working with commands:
 - [Create a command](#create-a-command)
 - [Place a command in the IDE](#place-a-command-in-the-ide)
 - [Add an icon to a Command](#add-an-icon-to-a-command)
+- [Add shortcuts to a command](#shortcuts)
 - [Configure a command](#configure-a-command)
 - [Localizing a Command](#localize-a-command)
 - [Change the display name of a command](#change-the-display-name-of-a-command)
@@ -49,11 +50,11 @@ The [`CommandConfiguration`](./../../api/Microsoft.VisualStudio.Extensibility.Co
 | DisplayName | String | Yes | The default display name of your command. Surround this string with the '%' character to enable localizing this string. See more on this at [Localize a command](#localize-a-command). |
 | TooltipText | String | No | The text to display as the tooltip when the command is hovered or focused. Surround this string with the '%' character to enable localizing this string. See more on this at [Localize a command](#localize-a-command) |
 | Flags | CommandFlags | No | Flags to set additional properties on the command. Some options include CanToggle and CanSelect. See more on this at [Command Flags](#command-flags). |
-| Placements | CommandPlacement[] | No | Specifies the existing Groups within Visual Studio that the Command will be parented to. See more on this at [Place a command in the IDE](#place-a-command-in-the-ide). Even without a placement, your command will still be available via the Visual Studio Search feature. Commands can also be placed onto [Menus, Toolbars, and Groups](TODO: add a doc for this) defined in your extension. |
+| Placements | CommandPlacement[] | No | Specifies the existing Groups within Visual Studio that the Command will be parented to. See more on this at [Place a command in the IDE](#place-a-command-in-the-ide). Even without a placement, your command will still be available via the Visual Studio Search feature. Commands can also be placed onto [Menus, Toolbars, and Groups](menus-and-toolbars.md) defined in your extension. |
 | Icon | CommandIconConfiguration | No | Commands can be displayed in the UI as either just an Icon, an Icon with text, or just text. This property configures what that icon should be, if any, and how it should be displayed. |
 | Shortcuts | CommandShortcutConfiguration[] | No | Defines the set of key combinations that can be used to execute the command. Shortcuts can be scoped down to only be applicable to specific IDE contexts. See more on this at [Shortcuts](#shortcuts). |
 | ClientContexts[] | String | No | Client contexts requested by the command. By default the Shell and Editor contexts are returned. A client context is a snapshot of specific IDE states at the time a command was originally executed. Since these commands are executed asynchronously this state could change between the time the user executed the command and the command handler running. See more on this at [Client contexts](./../../inside-the-sdk/activation-constraints.md/#client-contexts). |
-| Priority | uint | No | Describes the display order of the command relative to other commands parented to the same `CommandPlacement.KnownPlacements` or `CommandPlacement.FromVsctParent`. |
+| Priority | uint | No | Describes the display order of the command relative to other commands parented to the same `CommandPlacement.KnownPlacements`. |
 
 ### Example
 
@@ -94,6 +95,20 @@ public override CommandConfiguration CommandConfiguration => new("My Command!")
         CommandPlacement.KnownPlacements.ToolsMenu
     },
 };
+```
+
+### Using an unlisted command placement (advanced)
+
+While we continue adding additional values to `KnownPlacements`, there might be certain cases where you want to place your command somewhere in the IDE that hasn't yet been added. To do this, you can use the `Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement.FromVsctParent` method, which requires the `GUID` and the `ID` of the group to which you would like to parent the command. Getting the `GUID` and the `ID` for the group is not straightforward, which makes this an advanced scenario. The easiest way is to use the [CommandExplorer](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.CommandExplorer) extension, which can give you metadata about menus, toolbars, commands and groups in Visual Studio.
+
+```csharp
+public override CommandConfiguration CommandConfiguration => new("My Command!")
+{
+    Placements = new CommandPlacement[]
+    {
+        CommandPlacement.FromVsctParent(new Guid("{d309f791-903f-11d0-9efc-00a0c911004f}"), 363), // The "Help -> About" Group
+    },
+}
 ```
 
 ## Add an icon to a command
