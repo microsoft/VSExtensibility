@@ -96,20 +96,6 @@ public override CommandConfiguration CommandConfiguration => new("My Command!")
 };
 ```
 
-### Using an unlisted command placement (advanced)
-
-While we continue adding additional values to `KnownPlacements`, there might be certain cases where you want to place your command somewhere in the IDE that hasn't yet been added. To do this, you can use the `Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement.FromVsctParent` method, which requires the GUID and the ID of the group to which you would like to parent the command.
-
-```csharp
-public override CommandConfiguration CommandConfiguration => new("My Command!")
-{
-    Placements = new CommandPlacement[]
-    {
-        CommandPlacement.FromVsctParent(new Guid("{d309f791-903f-11d0-9efc-00a0c911004f}"), 363), // The "Help -> About" Group
-    },
-}
-```
-
 ## Add an icon to a command
 
 Commands support adding icons to their menu item, either in addition to or instead of the display name of the command. To add an icon to your command, set the `Icon` property on your command's [`Microsoft.VisualStudio.Extensibility.Commands.CommandConfiguration`](./../../api/Microsoft.VisualStudio.Extensibility.Contracts.md/#CommandConfiguration-type).
