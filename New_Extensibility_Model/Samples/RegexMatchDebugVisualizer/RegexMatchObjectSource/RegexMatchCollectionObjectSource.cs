@@ -1,12 +1,15 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
+namespace Microsoft.VisualStudio.Gladstone.RegexMatchVisualizer.ObjectSource;
+
 using System.IO;
 using System.Text.RegularExpressions;
 using Microsoft.VisualStudio.DebuggerVisualizers;
 
-namespace Microsoft.VisualStudio.Gladstone.RegexMatchVisualizer.ObjectSource;
-
+/// <summary>
+/// Debugger visualizer object source for <see cref="MatchCollection"/>.
+/// </summary>
 public class RegexMatchCollectionObjectSource : VisualizerObjectSource
 {
 	/// <inheritdoc/>

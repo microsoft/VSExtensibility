@@ -17,7 +17,7 @@ using Microsoft.VisualStudio.RpcContracts.RemoteUI;
 internal class RegexMatchCollectionDebuggerVisualizerProvider : DebuggerVisualizerProvider
 {
 	/// <summary>
-	/// Initializes a new instance of the <see cref="RegexMatchDebuggerVisualizerProvider"/> class.
+	/// Initializes a new instance of the <see cref="RegexMatchCollectionDebuggerVisualizerProvider"/> class.
 	/// </summary>
 	/// <param name="extension">Extension instance.</param>
 	/// <param name="extensibility">Extensibility object.</param>
@@ -33,8 +33,8 @@ internal class RegexMatchCollectionDebuggerVisualizerProvider : DebuggerVisualiz
 	};
 
 	/// <inheritdoc/>
-	public override async Task<IRemoteUserControl> GetVisualizerAsync(VisualizerTarget visualizerTarget, CancellationToken cancellationToken)
+	public override Task<IRemoteUserControl> GetVisualizerAsync(VisualizerTarget visualizerTarget, CancellationToken cancellationToken)
 	{
-		return new RegexMatchCollectionVisualizerUserControl(visualizerTarget);
+		return Task.FromResult<IRemoteUserControl>(new RegexMatchCollectionVisualizerUserControl(visualizerTarget));
 	}
 }
