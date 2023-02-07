@@ -47,34 +47,37 @@
 			</DataTemplate.Triggers>
 		</DataTemplate>
 	</DataTemplate.Resources>
-	<ScrollViewer>
-		<Grid>
-			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="Auto" />
-				<ColumnDefinition Width="*" />
-			</Grid.ColumnDefinitions>
-			<TextBlock Grid.Row="1" VerticalAlignment="Top" Text="Matches, Groups and Captures">
-				<TextBlock.LayoutTransform>
-					<RotateTransform Angle="90" />
-				</TextBlock.LayoutTransform>
-			</TextBlock>
-			<TreeView Grid.Column="1" ItemsSource="{Binding .}">
-				<TreeView.ItemTemplate>
-					<HierarchicalDataTemplate ItemsSource = "{Binding Path=Groups}">
-						<HierarchicalDataTemplate.ItemTemplate>
-							<HierarchicalDataTemplate ItemsSource = "{Binding Path=Captures}">
-								<HierarchicalDataTemplate.ItemTemplate>
-									<DataTemplate>
-										<ContentPresenter Content="{Binding .}" ContentTemplate="{StaticResource CaptureTemplate}" />
-									</DataTemplate>
-								</HierarchicalDataTemplate.ItemTemplate>
-								<ContentPresenter Content="{Binding .}" ContentTemplate="{StaticResource CaptureTemplate}" />
-							</HierarchicalDataTemplate>
-						</HierarchicalDataTemplate.ItemTemplate>
-						<ContentPresenter Content="{Binding .}" ContentTemplate="{StaticResource CaptureTemplate}" />
-					</HierarchicalDataTemplate>
-				</TreeView.ItemTemplate>
-			</TreeView>
-		</Grid>
-	</ScrollViewer>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		<TextBlock Grid.Row="1" VerticalAlignment="Top" Text="Matches, Groups and Captures">
+			<TextBlock.LayoutTransform>
+				<RotateTransform Angle="90" />
+			</TextBlock.LayoutTransform>
+		</TextBlock>
+		<TreeView Grid.Column="1" ItemsSource="{Binding .}">
+			<TreeView.ItemsPanel>
+				<ItemsPanelTemplate>
+					<VirtualizingStackPanel />
+				</ItemsPanelTemplate>
+			</TreeView.ItemsPanel>
+			<TreeView.ItemTemplate>
+				<HierarchicalDataTemplate ItemsSource = "{Binding Path=Groups}">
+					<HierarchicalDataTemplate.ItemTemplate>
+						<HierarchicalDataTemplate ItemsSource = "{Binding Path=Captures}">
+							<HierarchicalDataTemplate.ItemTemplate>
+								<DataTemplate>
+									<ContentPresenter Content="{Binding .}" ContentTemplate="{StaticResource CaptureTemplate}" />
+								</DataTemplate>
+							</HierarchicalDataTemplate.ItemTemplate>
+							<ContentPresenter Content="{Binding .}" ContentTemplate="{StaticResource CaptureTemplate}" />
+						</HierarchicalDataTemplate>
+					</HierarchicalDataTemplate.ItemTemplate>
+					<ContentPresenter Content="{Binding .}" ContentTemplate="{StaticResource CaptureTemplate}" />
+				</HierarchicalDataTemplate>
+			</TreeView.ItemTemplate>
+		</TreeView>
+	</Grid>
 </DataTemplate>

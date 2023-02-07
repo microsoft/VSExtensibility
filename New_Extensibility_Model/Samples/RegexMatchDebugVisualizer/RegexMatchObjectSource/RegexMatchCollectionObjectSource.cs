@@ -20,6 +20,7 @@ public class RegexMatchCollectionObjectSource : VisualizerObjectSource
 		if (target is MatchCollection matchCollection && index < matchCollection.Count)
 		{
 			var result = RegexMatchObjectSource.Convert(matchCollection[index]);
+			result.Name = $"[{index}]";
 			SerializeAsJson(outgoingData, result);
 		}
 		else
