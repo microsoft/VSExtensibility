@@ -5,7 +5,14 @@
 			  xmlns:colors="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0">
 	<DataTemplate.Resources>
 		<Style TargetType="TreeView" BasedOn="{StaticResource {x:Static styles:VsResourceKeys.ThemedDialogTreeViewStyleKey}}" />
-		<Style TargetType="TreeViewItem" BasedOn="{StaticResource {x:Static styles:VsResourceKeys.ThemedDialogTreeViewItemStyleKey}}" />
+		<Style TargetType="TreeViewItem" BasedOn="{StaticResource {x:Static styles:VsResourceKeys.ThemedDialogTreeViewItemStyleKey}}">
+			<Setter Property="IsExpanded" Value="True" />
+			<Style.Triggers>
+				<DataTrigger Binding="{Binding Items.Count, RelativeSource={RelativeSource Self}}" Value="1">
+					<Setter Property="IsExpanded" Value="False" />
+				</DataTrigger>
+			</Style.Triggers>
+		</Style>
 		<Style TargetType="TextBox" BasedOn="{StaticResource {x:Static styles:VsResourceKeys.TextBoxStyleKey}}" />
 		<DataTemplate x:Key="CaptureTemplate" >
 			<StackPanel Orientation="Horizontal">
