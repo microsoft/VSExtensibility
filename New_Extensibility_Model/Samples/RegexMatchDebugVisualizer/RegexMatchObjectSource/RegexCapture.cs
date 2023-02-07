@@ -16,4 +16,9 @@ internal class RegexCapture
 
 	[DataMember]
 	public string? Name { get; set; }
+
+#if VISUALIZER
+	[DataMember]
+	public string Range => $"{this.Index}-{this.Index + this.Length}";
+#endif
 }

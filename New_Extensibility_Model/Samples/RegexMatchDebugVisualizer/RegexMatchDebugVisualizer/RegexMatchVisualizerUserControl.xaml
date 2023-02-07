@@ -10,8 +10,34 @@
 		<DataTemplate x:Key="CaptureTemplate" >
 			<StackPanel Orientation="Horizontal">
 				<TextBlock Text="{Binding Path=Name}" Margin="0,0,5,0" VerticalAlignment="Center"/>
-				<TextBox Text="{Binding Path=Value}" IsReadOnly="True" VerticalAlignment="Center"/>
+				<TextBox x:Name="ValueBox" Text="{Binding Path=Value}" IsReadOnly="True" VerticalAlignment="Center"/>
+				<Border x:Name="FailureLabel" Background="Red" CornerRadius="5" VerticalAlignment="Center" Margin="0,2,0,0" Visibility="Collapsed">
+					<TextBlock Text="Failure" Margin="2,-2,2,0" Foreground="Black"/>
+				</Border>
+				<Border x:Name="EmptyLabel" Background="LightBlue" CornerRadius="5" VerticalAlignment="Center" Margin="0,2,0,0" Visibility="Collapsed">
+					<TextBlock Text="No text" Margin="2,-2,2,0" Foreground="Black"/>
+				</Border>
+				<Border x:Name="RangeLabel" Background="LightGreen" CornerRadius="5" VerticalAlignment="Center" Margin="5,2,0,0">
+					<TextBlock Text="{Binding Range}" Margin="2,-2,2,0" Foreground="Black"/>
+				</Border>
 			</StackPanel>
+			<DataTemplate.Triggers>
+				<DataTrigger Binding="{Binding Success, FallbackValue=True}" Value="False">
+					<Setter Property="Visibility" TargetName="ValueBox" Value="Collapsed" />
+					<Setter Property="Visibility" TargetName="RangeLabel" Value="Collapsed" />
+					<Setter Property="Visibility" TargetName="FailureLabel" Value="Visible" />
+				</DataTrigger>
+				<MultiDataTrigger>
+					<MultiDataTrigger.Conditions>
+						<Condition Binding="{Binding Success, FallbackValue=True}" Value="True" />
+						<Condition Binding="{Binding Value}" Value="" />
+					</MultiDataTrigger.Conditions>
+					<MultiDataTrigger.Setters>
+						<Setter Property="Visibility" TargetName="ValueBox" Value="Collapsed" />
+						<Setter Property="Visibility" TargetName="EmptyLabel" Value="Visible" />
+					</MultiDataTrigger.Setters>
+				</MultiDataTrigger>
+			</DataTemplate.Triggers>
 		</DataTemplate>
 	</DataTemplate.Resources>
 	<ScrollViewer>
