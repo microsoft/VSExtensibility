@@ -13,4 +13,7 @@ internal class RegexCapture
 
 	[DataMember]
 	public string? Value { get; set; }
+
+	[DataMember]
+	public string? Name { get; set; }
 }

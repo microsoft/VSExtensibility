@@ -4,8 +4,14 @@
 			  xmlns:styles="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
 			  xmlns:colors="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0">
 	<DataTemplate.Resources>
+		<Style TargetType="TreeView" BasedOn="{StaticResource {x:Static styles:VsResourceKeys.ThemedDialogTreeViewStyleKey}}" />
+		<Style TargetType="TreeViewItem" BasedOn="{StaticResource {x:Static styles:VsResourceKeys.ThemedDialogTreeViewItemStyleKey}}" />
+		<Style TargetType="TextBox" BasedOn="{StaticResource {x:Static styles:VsResourceKeys.TextBoxStyleKey}}" />
 		<DataTemplate x:Key="CaptureTemplate" >
-			<TextBlock Text="{Binding Path=Value}"/>
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="{Binding Path=Name}" Margin="0,0,5,0" VerticalAlignment="Center"/>
+				<TextBox Text="{Binding Path=Value}" IsReadOnly="True" VerticalAlignment="Center"/>
+			</StackPanel>
 		</DataTemplate>
 	</DataTemplate.Resources>
 	<ScrollViewer>

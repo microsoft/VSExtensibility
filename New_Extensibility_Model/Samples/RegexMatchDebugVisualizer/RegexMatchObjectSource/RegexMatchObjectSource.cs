@@ -1,8 +1,10 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
+using System;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using Microsoft.VisualStudio.DebuggerVisualizers;
 
@@ -10,6 +12,9 @@ namespace Microsoft.VisualStudio.Gladstone.RegexMatchVisualizer.ObjectSource;
 
 public class RegexMatchObjectSource : VisualizerObjectSource
 {
+	private static readonly Func<Group, string?>? GetGroupName =
+		(Func<Group, string?>?)typeof(Group).GetProperty("Name")?.GetGetMethod().CreateDelegate(typeof(Func<Group, string?>));
+
 	/// <inheritdoc/>
 	public override void GetData(object target, Stream outgoingData)
 	{
@@ -31,21 +36,23 @@ public class RegexMatchObjectSource : VisualizerObjectSource
 
 	private static RegexCapture[] Convert(CaptureCollection captures) =>
 		captures.OfType<Capture>()
-			.Select(c => new RegexCapture
+			.Select((c, i) => new RegexCapture
 			{
 				Index = c.Index,
 				Length = c.Length,
 				Value = c.Value,
+				Name = $"[{i}]",
 			}).ToArray();
 
 	private static RegexGroup[] Convert(GroupCollection groups) =>
 		groups.OfType<Group>()
-			.Select(g => new RegexGroup
+			.Select((g, i) => new RegexGroup
 			{
 				Success = g.Success,
 				Index = g.Index,
 				Length = g.Length,
 				Value = g.Value,
+				Name = $"[{GetGroupName?.Invoke(g) ?? i.ToString()}]",
 				Captures = Convert(g.Captures),
 			}).ToArray();
 }
