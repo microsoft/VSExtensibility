@@ -18,7 +18,7 @@ internal class RegexMatchVisualizerUserControl : RemoteUserControl
 	/// <summary>
 	/// Initializes a new instance of the <see cref="RegexMatchVisualizerUserControl"/> class.
 	/// </summary>
-	/// <param name="jToken">Data context of the remote control.</param>
+	/// <param name="dataContext">Data context of the remote control.</param>
 	public RegexMatchVisualizerUserControl(RegexMatch dataContext)
 		: base(dataContext)
 	{

@@ -46,26 +46,23 @@
 				<ColumnDefinition Width="Auto" />
 				<ColumnDefinition Width="*" />
 			</Grid.ColumnDefinitions>
-			<Grid.RowDefinitions>
-				<RowDefinition Height="Auto" />
-				<RowDefinition Height="*" />
-			</Grid.RowDefinitions>
-			<StackPanel Grid.Column="1" Orientation="Horizontal">
-				<TextBlock Text="Value:" VerticalAlignment="Center"/>
-				<ContentPresenter Content="{Binding .}" ContentTemplate="{StaticResource CaptureTemplate}" VerticalAlignment="Center"/>
-			</StackPanel>
-			<TextBlock Grid.Row="1" VerticalAlignment="Top" Text="Groups and Captures">
+			<TextBlock Grid.Row="1" VerticalAlignment="Top" Text="Matches, Groups and Captures">
 				<TextBlock.LayoutTransform>
 					<RotateTransform Angle="90" />
 				</TextBlock.LayoutTransform>
 			</TextBlock>
-			<TreeView Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Groups}">
+			<TreeView Grid.Column="1" ItemsSource="{Binding .}">
 				<TreeView.ItemTemplate>
-					<HierarchicalDataTemplate ItemsSource = "{Binding Path=Captures}">
+					<HierarchicalDataTemplate ItemsSource = "{Binding Path=Groups}">
 						<HierarchicalDataTemplate.ItemTemplate>
-							<DataTemplate>
+							<HierarchicalDataTemplate ItemsSource = "{Binding Path=Captures}">
+								<HierarchicalDataTemplate.ItemTemplate>
+									<DataTemplate>
+										<ContentPresenter Content="{Binding .}" ContentTemplate="{StaticResource CaptureTemplate}" />
+									</DataTemplate>
+								</HierarchicalDataTemplate.ItemTemplate>
 								<ContentPresenter Content="{Binding .}" ContentTemplate="{StaticResource CaptureTemplate}" />
-							</DataTemplate>
+							</HierarchicalDataTemplate>
 						</HierarchicalDataTemplate.ItemTemplate>
 						<ContentPresenter Content="{Binding .}" ContentTemplate="{StaticResource CaptureTemplate}" />
 					</HierarchicalDataTemplate>

@@ -20,19 +20,21 @@ public class RegexMatchObjectSource : VisualizerObjectSource
 	{
 		if (target is Match match)
 		{
-			var result = new RegexMatch
-			{
-				Success = match.Success,
-				Index = match.Index,
-				Length = match.Length,
-				Value = match.Value,
-				Captures = Convert(match.Captures),
-				Groups = Convert(match.Groups),
-			};
-
+			var result = Convert(match);
 			SerializeAsJson(outgoingData, result);
 		}
 	}
+
+	internal static RegexMatch Convert(Match match) =>
+		new RegexMatch
+		{
+			Success = match.Success,
+			Index = match.Index,
+			Length = match.Length,
+			Value = match.Value,
+			Captures = Convert(match.Captures),
+			Groups = Convert(match.Groups),
+		};
 
 	private static RegexCapture[] Convert(CaptureCollection captures) =>
 		captures.OfType<Capture>()

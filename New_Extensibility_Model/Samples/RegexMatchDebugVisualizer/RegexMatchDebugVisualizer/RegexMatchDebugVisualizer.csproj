@@ -21,6 +21,11 @@
     <Content Include=".vsextension\**\string-resources.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Remove="RegexMatchCollectionVisualizerUserControl.xaml" />
+    <EmbeddedResource Include="RegexMatchCollectionVisualizerUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
 
     <EmbeddedResource Include="RegexMatchVisualizerUserControl.xaml" />
     <Page Remove="RegexMatchVisualizerUserControl.xaml" />
