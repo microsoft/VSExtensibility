@@ -25,7 +25,6 @@ This overview covers these top scenarios for working with commands:
 - [Add an icon to a Command](#add-an-icon-to-a-command)
 - [Add shortcuts to a command](#shortcuts)
 - [Configure a command](#configure-a-command)
-- [Localizing a Command](#localize-a-command)
 - [Change the display name of a command](#change-the-display-name-of-a-command)
 
 ## Create a command
@@ -37,7 +36,7 @@ Creating a command with the new Extensibility Model begins with extending the ba
 public class MyCommand : Command
 {
   /// <inheritdoc />
-  public override CommandConfiguration CommandConfiguration => new("My Command!");
+  public override CommandConfiguration CommandConfiguration => new("%MyCommand.DisplayName%");
 }
 ```
 
@@ -47,8 +46,8 @@ The [`CommandConfiguration`](./../../api/Microsoft.VisualStudio.Extensibility.Co
 
 | Parameter | Type | Required | Description |
 | --------- |----- | -------- | ----------- |
-| DisplayName | String | Yes | The default display name of your command. Surround this string with the '%' character to enable localizing this string. See more on this at [Localize a command](#localize-a-command). |
-| TooltipText | String | No | The text to display as the tooltip when the command is hovered or focused. Surround this string with the '%' character to enable localizing this string. See more on this at [Localize a command](#localize-a-command) |
+| DisplayName | String | Yes | The default display name of your command. Surround this string with the '%' character to enable localizing this string. See more on this at [Localize a command](localize-a-command). |
+| TooltipText | String | No | The text to display as the tooltip when the command is hovered or focused. Surround this string with the '%' character to enable localizing this string. See more on this at [Localize a command](localize-a-command.md) |
 | Flags | CommandFlags | No | Flags to set additional properties on the command. Some options include CanToggle and CanSelect. See more on this at [Command Flags](#command-flags). |
 | Placements | CommandPlacement[] | No | Specifies the existing groups within Visual Studio that the Command will be parented to. See more on this at [Place a command in the IDE](#place-a-command-in-the-ide). Even without a placement, your command will still be available via the Visual Studio Search feature. Commands can also be placed onto [Menus, Toolbars, and Groups](menus-and-toolbars.md) defined in your extension. |
 | Icon | CommandIconConfiguration | No | Commands can be displayed in the UI as either just an Icon, an Icon with text, or just text. This property configures what that icon should be, if any, and how it should be displayed. |
@@ -65,7 +64,7 @@ The `Command` also needs a constructor that takes the `VisualStudioExtensibility
 public class MyCommand : Command
 {
     /// <inheritdoc />
-    public override CommandConfiguration CommandConfiguration => new("My Command!");
+    public override CommandConfiguration CommandConfiguration => new("%MyCommand.DisplayName%");
 
     public MyCommand(VisualStudioExtensibility extensibility)
         : base(extensibility)
@@ -90,7 +89,7 @@ There are a set of well-defined places in Visual Studio where commands can be pl
 Commands parented to the same placement are sorted based on their `Priority` property, relative to other commands or menus with the same placement.
 
 ```csharp
-public override CommandConfiguration CommandConfiguration => new("My Command!")
+public override CommandConfiguration CommandConfiguration => new("%MyCommand.DisplayName%")
 {
     Placements = new CommandPlacement[]
     {
@@ -115,7 +114,7 @@ The [`CommandIconConfiguration`](./../../api/Microsoft.VisualStudio.Extensibilit
 ### ImageMoniker.KnownValues Example
 
 ```csharp
-public override CommandConfiguration CommandConfiguration => new("My Command!")
+public override CommandConfiguration CommandConfiguration => new("%MyCommand.DisplayName%")
 {
     Icon = new CommandIconConfiguration(ImageMoniker.KnownValues.Extension, IconSettings.IconAndText),
 };
@@ -134,7 +133,7 @@ You can add custom images, which you can then reference with custom monikers by 
 ### ImageMoniker.Custom Example
 
 ```csharp
-public override CommandConfiguration CommandConfiguration => new("My Command!")
+public override CommandConfiguration CommandConfiguration => new("%MyCommand.DisplayName%")
 {
     Icon = new CommandIconConfiguration(ImageMoniker.Custom("MyImage"), IconSettings.IconAndText),
 };
@@ -153,7 +152,7 @@ An activation constraint can be included in the configuration to have the Shortc
 ### Shortcut Sample
 
 ```csharp
-public override CommandConfiguration CommandConfiguration => new("My Command!")
+public override CommandConfiguration CommandConfiguration => new("%MyCommand.DisplayName%")
 {
     Shortcuts = new CommandShortcutConfiguration[]
     {
@@ -207,34 +206,6 @@ Command flags help define additional properties on your commands that are used a
 
 - `CanToggle` - Indicates that the `IsChecked` property of the command can change so that screen readers can announce the command properly. Functionally, it ensures that the automation property `IsTogglePatternAvailable` returns true for the UI element.
 - `CanSelect` - Indicates that the `IsChecked` property of the command can change so that screen readers can announce the command properly. Functionally, it ensures that the automation property `IsSelectionPatternAvailable` returns true for the UI element.
-
-## Localize a command
-
-The text displayed on a command can be localized by including *string-resources.json* files with your extension and surrounding the `displayName` parameter with `%` characters in your [Microsoft.VisualStudio.Extensibility.Commands.CommandConfiguration](./../../api/Microsoft.VisualStudio.Extensibility.md/#CommandConfiguration-type) constructor. The `ToolTipText` property also supports localization.
-
-A `Command` with a localized `DisplayName` and `ToolTipText` looks like the following:
-
-```csharp
-public override CommandConfiguration CommandConfiguration => new("%Microsoft.VisualStudio.MyExtension.SampleRemoteCommand.DisplayName%")
-{
-    ToolTipText = "%Microsoft.VisualStudio.MyExtension.SampleRemoteCommand.ToolTipText%"
-}
-```
-
-### string-resources.json
-
-Your extension should provide a `string-resources.json` file for every language that your extension supports. This JSON file is a dictionary of key/value pairs where the key is a globally (all of Visual Studio) unique identifier for a string resource and the value is the localized string resource. These JSON files should be deployed with your extension under the ".vsextension" directory, with each language you support being shipped in a folder matching the name of the locale, that is, "de" for German, "it" for Italian, etc. The `string-resources.json` deployed at the root of the ".vsextension" directory is used as the default if your extension does not support the language that Visual Studio is currently set to. An example of what this directory structure would look like can be seen here:
-
-![Localization directory structure](localizing-a-command.png "Localization directory structure")
-
-string-resources.json sample:
-
-```json
-{
-    "Microsoft.VisualStudio.MyExtension.SampleRemoteCommand.DisplayName": "Sample Remote Command Display Name",
-    "Microsoft.VisualStudio.MyExtension.SampleRemoteCommand.ToolTipText": "Sample Remote Command ToolTip"
-}
-```
 
 ## Change the display name of a command
 

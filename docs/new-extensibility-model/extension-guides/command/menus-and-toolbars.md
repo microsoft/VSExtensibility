@@ -35,7 +35,7 @@ To create a menu with the new Extensibility Model, add a static [`Microsoft.Visu
 public class ExtensionEntrypoint : Extension
 {
   [VisualStudioContribution]
-  public static MenuConfiguration MyMenu => new("My Menu!");
+  public static MenuConfiguration MyMenu => new("%MyMenu.DisplayName%");
 }
 ```
 
@@ -45,8 +45,8 @@ The [`MenuConfiguration`](./../../api/Microsoft.VisualStudio.Extensibility.Contr
 
 | Parameter | Type | Required | Description |
 | --------- |----- | -------- | ----------- |
-| DisplayName | String | Yes | The default display name of your menu. Surround this string with the '%' character to enable localizing this string. See more on this at [Localize a command](command.md#localize-a-command). |
-| TooltipText | String | No | The text to display as the tooltip when the menu is hovered or focused. Surround this string with the '%' character to enable localizing this string. See more on this at [Localize a command](command.md#localize-a-command). |
+| DisplayName | String | Yes | The default display name of your menu. Surround this string with the '%' character to enable localizing this string. See more on this at [Localize a command](localize-a-command). |
+| TooltipText | String | No | The text to display as the tooltip when the menu is hovered or focused. Surround this string with the '%' character to enable localizing this string. See more on this at [Localize a command](localize-a-command). |
 | Placements | CommandPlacement[] | No | Specifies the existing Groups within Visual Studio that the menu will be parented to. See more on this at [Place a menu in the IDE](#place-a-menu-in-the-ide). |
 | Children | MenuChild[] | No | Describes the set of commands, menus and groups that should be parented to this menu. The order that these items are defined in the array represent the order that they will appear visually in the IDE. See more on this at [Place items on a menu](#place-items-on-a-menu) |
 | Priority | uint | No | Describes the display order of the menu relative to other manus/commands parented to the same `CommandPlacement.KnownPlacements`. |
@@ -56,7 +56,7 @@ The [`MenuConfiguration`](./../../api/Microsoft.VisualStudio.Extensibility.Contr
 Menus are placed in the IDE the same way commands are. See [Place a command in the IDE](command.md#place-a-command-in-the-ide) for more details.
 
 ```csharp
-public override MenuConfiguration MyMenu => new("My Menu!")
+public override MenuConfiguration MyMenu => new("%MyMenu.DisplayName%")
 {
     Placements = new CommandPlacement[]
     {
@@ -75,7 +75,7 @@ Placing commands on a menu is done using the `MenuChild.Command<T>` method, repl
 
 ```csharp
 [VisualStudioContribution]
-public static MenuConfiguration MyMenu => new("My Menu!")
+public static MenuConfiguration MyMenu => new("%MyMenu.DisplayName%")
 {
     Children = new[]
     {
@@ -108,7 +108,7 @@ Items within a menu can be grouped together by having a `MenuChild.Separator` be
 
 ```csharp
 [VisualStudioContribution]
-public static MenuConfiguration MyMenu1 => new("My Menu!")
+public static MenuConfiguration MyMenu1 => new("%MyMenu.DisplayName%")
 {
     Children = new[]
     {
@@ -125,7 +125,7 @@ This can also be accomplished by using the `MenuChild.Group` method to define a 
 
 ```csharp
 [VisualStudioContribution]
-public static MenuConfiguration MyMenu1 => new("My Menu 1")
+public static MenuConfiguration MyMenu1 => new("%MyMenu.DisplayName%")
 {
     Children = new[]
     {
@@ -152,7 +152,7 @@ To create a toolbar with the new Extensibility Model, add a static [`Microsoft.V
 public class ExtensionEntrypoint : Extension
 {
   [VisualStudioContribution]
-  public static ToolbarConfiguration MyToolbar => new("My Toolbar!");
+  public static ToolbarConfiguration MyToolbar => new("%MyToolbar.DisplayName%");
 }
 ```
 
@@ -176,7 +176,7 @@ Placing commands on a toolbar is done using the `ToolbarChild.Command<T>` method
 
 ```csharp
 [VisualStudioContribution]
-public static ToolbarConfiguration MyToolbar => new("My Toolbar!")
+public static ToolbarConfiguration MyToolbar => new("%MyToolbar.DisplayName%")
 {
     Children = new[]
     {
@@ -191,7 +191,7 @@ Items within a toolbar can be grouped together by having a `ToolbarChild.Separat
 
 ```csharp
 [VisualStudioContribution]
-public static ToolbarConfiguration MyToolbar => new("My Toolbar!")
+public static ToolbarConfiguration MyToolbar => new("%MyToolbar.DisplayName%")
 {
     Children = new[]
     {
@@ -206,7 +206,7 @@ This can also be accomplished by using the `ToolbarChild.Group` method to define
 
 ```csharp
 [VisualStudioContribution]
-public static ToolbarConfiguration MyToolbar => new("My Toolbar 1")
+public static ToolbarConfiguration MyToolbar => new("%MyToolbar.DisplayName%")
 {
     Children = new[]
     {
@@ -286,7 +286,7 @@ Placing menus on a group is done using the `GroupChild.Menu` method, passing in 
 
 ```csharp
 [VisualStudioContribution]
-public static MenuConfiguration MyMenu => new("My Menu!");
+public static MenuConfiguration MyMenu => new("%MyMenu.DisplayName%");
 
 [VisualStudioContribution]
 public static CommandGroupConfiguration MyGroup => new(GroupPlacement.KnownPlacements.ToolsMenu)
@@ -303,10 +303,17 @@ public static CommandGroupConfiguration MyGroup => new(GroupPlacement.KnownPlace
 Placing a group on a menu is done using the `MenuChild.Group` method, passing in a `CommandGroupConfiguration` as a parameter. Placing a group on a toolbar is done using the `ToolbarChild.Group`  method, passing in a `CommandGroupConfiguration` as a parameter. Groups parented to menus or toolbars in this way cannot have the `Placement` property of the `CommandGroupConfiguration` set to any value except `null`, and it should not be adorned with the `VisualStudioContribution` attribute.
 
 ```csharp
-private static CommandGroupConfiguration MyGroup => new();
+private static CommandGroupConfiguration MyGroup => new()
+{
+    Children = new[]
+    {
+        GroupChild.Command<MyCommand1>(), // Assuming there is a `Command` defined in the extension called `MyCommand1`
+        GroupChild.Command<MyCommand2>(), // Assuming there is a `Command` defined in the extension called `MyCommand2`
+    },
+};
 
 [VisualStudioContribution]
-public static MenuConfiguration MyMenu => new("My Menu!")
+public static MenuConfiguration MyMenu => new("%MyMenu.DisplayName%")
 {
     Children = new[]
     {
@@ -316,10 +323,17 @@ public static MenuConfiguration MyMenu => new("My Menu!")
 ```
 
 ```csharp
-private static CommandGroupConfiguration MyGroup => new();
+private static CommandGroupConfiguration MyGroup => new()
+{
+    Children = new[]
+    {
+        GroupChild.Command<MyCommand1>(), // Assuming there is a `Command` defined in the extension called `MyCommand1`
+        GroupChild.Command<MyCommand2>(), // Assuming there is a `Command` defined in the extension called `MyCommand2`
+    },
+}
 
 [VisualStudioContribution]
-public static ToolbarConfiguration MyToolbar => new("My Toolbar!")
+public static ToolbarConfiguration MyToolbar => new("%MyToolbar.DisplayName%")
 {
     Children = new[]
     {
