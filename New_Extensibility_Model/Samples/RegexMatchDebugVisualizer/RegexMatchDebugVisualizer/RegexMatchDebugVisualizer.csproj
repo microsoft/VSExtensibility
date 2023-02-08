@@ -21,18 +21,14 @@
     <Content Include=".vsextension\**\string-resources.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Remove="RegexMatchCollectionVisualizerUserControl.xaml" />
-    <EmbeddedResource Include="RegexMatchCollectionVisualizerUserControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </EmbeddedResource>
-
-    <EmbeddedResource Include="RegexMatchVisualizerUserControl.xaml" />
     <Page Remove="RegexMatchVisualizerUserControl.xaml" />
+    <EmbeddedResource Include="RegexMatch\RegexMatchVisualizerUserControl.xaml" LogicalName="$(RootNamespace).RegexMatchVisualizerUserControl.xaml" />
+    <Page Remove="RegexMatchCollectionVisualizerUserControl.xaml" />
+    <EmbeddedResource Include="RegexMatchCollection\RegexMatchCollectionVisualizerUserControl.xaml" LogicalName="$(RootNamespace).RegexMatchCollectionVisualizerUserControl.xaml" />
 
-    <Compile Include="..\RegexMatchObjectSource\RegexGroup.cs" Link="RegexGroup.cs" />
-    <Compile Include="..\RegexMatchObjectSource\RegexCapture.cs" Link="RegexCapture.cs" />
-    <Compile Include="..\RegexMatchObjectSource\RegexMatch.cs" Link="RegexMatch.cs" />
+    <Compile Include="..\RegexMatchObjectSource\RegexGroup.cs" Link="SharedFiles\RegexGroup.cs" />
+    <Compile Include="..\RegexMatchObjectSource\RegexCapture.cs" Link="SharedFiles\RegexCapture.cs" />
+    <Compile Include="..\RegexMatchObjectSource\RegexMatch.cs" Link="SharedFiles\RegexMatch.cs" />
 
     <Content Include="..\..\..\..\bin\samples\RegexMatchObjectSource\$(Configuration)\netstandard2.0\RegexMatchObjectSource.dll" Link="netstandard2.0\RegexMatchObjectSource.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

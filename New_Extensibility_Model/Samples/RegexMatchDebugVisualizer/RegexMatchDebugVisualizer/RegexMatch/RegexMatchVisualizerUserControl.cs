@@ -12,7 +12,6 @@ using Newtonsoft.Json.Linq;
 /// <summary>
 /// Remote user control to visualize the <see cref="Match"/> value.
 /// </summary>
-[VisualStudioContribution]
 internal class RegexMatchVisualizerUserControl : RemoteUserControl
 {
 	/// <summary>
