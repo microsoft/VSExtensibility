@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>10</LangVersion>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <RootNamespace>Microsoft.VisualStudio.Gladstone.RegexMatchVisualizer</RootNamespace>
+    <DefineConstants>$(DefineConstants);VISUALIZER</DefineConstants>
+
+    <!-- The VisualStudio.Extensibility preview packages are available from the azure-public/vside/vssdk feed -->
+    <RestoreAdditionalProjectSources>https://pkgs.dev.azure.com/azure-public/vside/_packaging/vssdk/nuget/v3/index.json;$(RestoreAdditionalProjectSources)</RestoreAdditionalProjectSources>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.6.6-preview-1" />
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.6.6-preview-1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include=".vsextension\**\string-resources.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Page Remove="RegexMatchVisualizerUserControl.xaml" />
+    <EmbeddedResource Include="RegexMatch\RegexMatchVisualizerUserControl.xaml" LogicalName="$(RootNamespace).RegexMatchVisualizerUserControl.xaml" />
+    <Page Remove="RegexMatchCollectionVisualizerUserControl.xaml" />
+    <EmbeddedResource Include="RegexMatchCollection\RegexMatchCollectionVisualizerUserControl.xaml" LogicalName="$(RootNamespace).RegexMatchCollectionVisualizerUserControl.xaml" />
+
+    <Compile Include="..\RegexMatchObjectSource\RegexGroup.cs" Link="SharedFiles\RegexGroup.cs" />
+    <Compile Include="..\RegexMatchObjectSource\RegexCapture.cs" Link="SharedFiles\RegexCapture.cs" />
+    <Compile Include="..\RegexMatchObjectSource\RegexMatch.cs" Link="SharedFiles\RegexMatch.cs" />
+
+    <Content Include="..\..\..\..\bin\samples\RegexMatchObjectSource\$(Configuration)\netstandard2.0\RegexMatchObjectSource.dll" Link="netstandard2.0\RegexMatchObjectSource.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RegexMatchObjectSource\RegexMatchObjectSource.csproj" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+</Project>

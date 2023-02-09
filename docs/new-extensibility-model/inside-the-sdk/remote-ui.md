@@ -141,6 +141,7 @@ A class extending `RemoteUserControl`, will automatically use the XAML embedded 
 ### XAML definition
 
 Next, let's create a file named `MyToolWindowContent.xaml`:
+
 ```xml
 <DataTemplate xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -149,13 +150,21 @@ Next, let's create a file named `MyToolWindowContent.xaml`:
 </DataTemplate>
 ```
 
-As described above, this file must have the same name as the `RemoteUserControl` class.
+As described above, this file must have the same name as the *remote user control* class. To be precise, the full name of the class extending `RemoteUserControl` must match the name of the embedded resource. For example, if the full name of the *remote user control class* is `MyToolWindowExtension.MyToolWindowContent`, the embedded resource name should be `MyToolWindowExtension.MyToolWindowContent.xaml`. By default, embedded resources are assigned a name that is composed by the root namespace for the project, any subfolder path they may be under, and their file name. This may create problems if your *remote user control class* is using a namespace different from the project's root namespace or if the xaml file is not in the project's root folder. If necessary, you can force a name for the embedded resource by using the `LogicalName` tag:
+
+```xml
+<ItemGroup>
+  <EmbeddedResource Include="MyToolWindowContent.xaml" LogicalName="MyToolWindowExtension.MyToolWindowContent.xaml" />
+  <Page Remove="MyToolWindowContent.xaml" />
+</ItemGroup>
+```
 
 The XAML definition of the *remote user control* is normal WPF xaml describing a `DataTemplate`. This XAML will be sent to Visual Studio and used to fill the tool window content. We use a special `xmlns` for *Remote UI* XAML: `http://schemas.microsoft.com/visualstudio/extensibility/2022/xaml`.
 
 ### Setting the XAML as an embedded resource
 
 Finally, let's open the `.csproj` file and make sure that the XAML file is treated as an embedded resource:
+
 ```xml
 <ItemGroup>
   <EmbeddedResource Include="MyToolWindowContent.xaml" />
@@ -176,6 +185,7 @@ You should now be able to press F5 and debug the extension.
 It is a good idea to write our UI keeping in mind that Visual Studio can be themed resulting in very different colors being used.
 
 Let's update the XAML to use the [styles](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.vsresourcekeys) and [colors](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.platformui.environmentcolors) used across Visual Studio:
+
 ```xml
 <DataTemplate xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -201,6 +211,7 @@ In order to get a better XAML editing experience, you can **temporarily** add a 
 # Adding a data context
 
 Let's now add a data context class for the *remote user control*:
+
 ```CSharp
 using System.Runtime.Serialization;
 
@@ -215,6 +226,7 @@ internal class MyToolWindowData
 ```
 
 and update `MyToolWindowContent.cs` and `MyToolWindowContent.xaml` to use it:
+
 ```CSharp
 internal class MyToolWindowContent : RemoteUserControl
 {
@@ -223,6 +235,7 @@ internal class MyToolWindowContent : RemoteUserControl
     {
     }
 ```
+
 ```xml
 <Label Content="{Binding LabelText}" />
 ```
@@ -273,12 +286,14 @@ A data context usually has a mix of readonly properties and observable propertie
 We also need to add a command to the data context. In *Remote UI*, commands implement `IAsyncCommand` but it is often easier to simply create an instance of the `AsyncCommand` class.
 
 `IAsyncCommand` differs from [ICommand](https://docs.microsoft.com/en-us/dotnet/api/system.windows.input.icommand) in two ways:
+
 1. The `Execute` method is replaced with `ExecuteAsync` because everything in *Remote UI* is async!
 1. The `CanExecute(object)` method is replaced by a `CanExecute` property. The `AsyncCommand` class takes care of making `CanExecute` observable.
 
 It's important to note that *Remote UI* doesn't support event handlers, so all notifications from the UI to the extension must be implemented through databinding and commands.
 
 This is the resulting code for `MyToolWindowData`.
+
 ```CSharp
 [DataContract]
 internal class MyToolWindowData : NotifyPropertyChangedObject
@@ -314,6 +329,7 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
 ```
 
 We also need to fix the `MyToolWindowContent` constructor:
+
 ```CSharp
 public MyToolWindowContent()
     : base(dataContext: new MyToolWindowData())
@@ -322,6 +338,7 @@ public MyToolWindowContent()
 ```
 
 Let's update `MyToolWindowContent.xaml` to use the new properties in the datacontext. This is all normal WPF XAML. Even the `IAsyncCommand` object is proxied as an `ICommand` in the Visual Studio process so it can be data-bound as usual.
+
 ```xml
 <DataTemplate xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -359,6 +376,7 @@ Let's update `MyToolWindowContent.xaml` to use the new properties in the datacon
 ## Understanding asynchronicity in *Remote UI*
 
 The whole *Remote UI* communication for this tool window follows these steps:
+
 1. The data context is proxied inside the Visual Studio process with its original content,
 1. The control created from `MyToolWindowContent.xaml` is data bound to the data context proxy,
 1. The user types some text in the text box which is assigned to the `Name` property of the data context proxy through databinding. The new value of `Name` is propagated to the `MyToolWindowData` object.
@@ -378,11 +396,13 @@ All the operations that involve communication between Visual Studio and the exte
 For this reason, if consistency is important, it is better to use command parameters, instead of two-way binding, to retrieve data context state at the time of the execution of a command.
 
 Let's make this change by binding the button's `CommandParameter` to `Name`:
+
 ```xml
 <Button Content="Say Hello" Command="{Binding HelloCommand}" CommandParameter="{Binding Name}" Grid.Column="2" />
 ```
 
 Then, let's modify the command's callback to use the parameter.
+
 ```CSharp
 HelloCommand = new AsyncCommand((parameter, cancellationToken) =>
 {
@@ -400,6 +420,7 @@ Using a command parameter is not an option if the command needs to consume multi
 The solution in this case is to retrieve, in the *async command* callback, the value of all the properties from the data context before yielding.
 
 Below you can see a sample where the `FirstName` and `LastName` property values are retrieved before yielding to make sure that the value at the time of the command invocation is used:
+
 ```CSharp
 HelloCommand = new(async (parameter, cancellationToken) =>
 {

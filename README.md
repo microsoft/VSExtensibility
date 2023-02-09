@@ -39,6 +39,7 @@ For future updates please bookmark our [announcements](docs/announcements.md) pa
 * [Rule based conditions](docs/new-extensibility-model/inside-the-sdk/activation-constraints.md)
 * [Remote UI](docs/new-extensibility-model/inside-the-sdk/remote-ui.md)
 * [Advanced Remote UI concepts](docs/new-extensibility-model/inside-the-sdk/advanced-remote-ui.md)
+* [Debugger Visualizers](docs/new-extensibility-model/extension-guides/debuggerVisualizers/debuggerVisualizers.md)
 
 ## Samples and walkthroughs
 
@@ -53,6 +54,7 @@ A Visual Studio solution containing all samples can be found at [Samples.sln](./
 * [Tool Window sample](./New_Extensibility_Model/Samples/ToolWindowSample/)
 * [User Prompt sample](./New_Extensibility_Model/Samples/UserPromptSample/)
 * [Document Selector sample](./New_Extensibility_Model/Samples/DocumentSelectorSample/)
+* [Regex Match Debugger Visualizer sample](./New_Extensibility_Model/Samples/RegexMatchDebugVisualizer/)
 
 ## API Docs
 

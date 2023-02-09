@@ -1,0 +1,83 @@
+﻿<DataTemplate xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+			  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+			  xmlns:vs="http://schemas.microsoft.com/visualstudio/extensibility/2022/xaml"
+			  xmlns:styles="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
+			  xmlns:colors="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0">
+	<DataTemplate.Resources>
+		<Style TargetType="TreeView" BasedOn="{StaticResource {x:Static styles:VsResourceKeys.ThemedDialogTreeViewStyleKey}}" />
+		<Style TargetType="TreeViewItem" BasedOn="{StaticResource {x:Static styles:VsResourceKeys.ThemedDialogTreeViewItemStyleKey}}">
+			<Setter Property="IsExpanded" Value="True" />
+			<Style.Triggers>
+				<DataTrigger Binding="{Binding Items.Count, RelativeSource={RelativeSource Self}}" Value="1">
+					<Setter Property="IsExpanded" Value="False" />
+				</DataTrigger>
+			</Style.Triggers>
+		</Style>
+		<Style TargetType="TextBox" BasedOn="{StaticResource {x:Static styles:VsResourceKeys.TextBoxStyleKey}}" />
+		<DataTemplate x:Key="CaptureTemplate" >
+			<StackPanel Orientation="Horizontal">
+				<TextBlock Text="{Binding Path=Name}" Margin="0,0,5,0" VerticalAlignment="Center"/>
+				<TextBox x:Name="ValueBox" Text="{Binding Path=Value}" IsReadOnly="True" VerticalAlignment="Center"/>
+				<Border x:Name="FailureLabel" Background="Red" CornerRadius="5" VerticalAlignment="Center" Margin="0,2,0,0" Visibility="Collapsed">
+					<TextBlock Text="Failure" Margin="2,-2,2,0" Foreground="Black"/>
+				</Border>
+				<Border x:Name="EmptyLabel" Background="LightBlue" CornerRadius="5" VerticalAlignment="Center" Margin="0,2,0,0" Visibility="Collapsed">
+					<TextBlock Text="No text" Margin="2,-2,2,0" Foreground="Black"/>
+				</Border>
+				<Border x:Name="RangeLabel" Background="LightGreen" CornerRadius="5" VerticalAlignment="Center" Margin="5,2,0,0">
+					<TextBlock Text="{Binding Range}" Margin="2,-2,2,0" Foreground="Black"/>
+				</Border>
+			</StackPanel>
+			<DataTemplate.Triggers>
+				<DataTrigger Binding="{Binding Success, FallbackValue=True}" Value="False">
+					<Setter Property="Visibility" TargetName="ValueBox" Value="Collapsed" />
+					<Setter Property="Visibility" TargetName="RangeLabel" Value="Collapsed" />
+					<Setter Property="Visibility" TargetName="FailureLabel" Value="Visible" />
+				</DataTrigger>
+				<MultiDataTrigger>
+					<MultiDataTrigger.Conditions>
+						<Condition Binding="{Binding Success, FallbackValue=True}" Value="True" />
+						<Condition Binding="{Binding Value}" Value="" />
+					</MultiDataTrigger.Conditions>
+					<MultiDataTrigger.Setters>
+						<Setter Property="Visibility" TargetName="ValueBox" Value="Collapsed" />
+						<Setter Property="Visibility" TargetName="EmptyLabel" Value="Visible" />
+					</MultiDataTrigger.Setters>
+				</MultiDataTrigger>
+			</DataTemplate.Triggers>
+		</DataTemplate>
+	</DataTemplate.Resources>
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		<TextBlock Grid.Row="1" VerticalAlignment="Top" Text="Matches, Groups and Captures">
+			<TextBlock.LayoutTransform>
+				<RotateTransform Angle="90" />
+			</TextBlock.LayoutTransform>
+		</TextBlock>
+		<TreeView Grid.Column="1" ItemsSource="{Binding .}">
+			<TreeView.ItemsPanel>
+				<ItemsPanelTemplate>
+					<VirtualizingStackPanel />
+				</ItemsPanelTemplate>
+			</TreeView.ItemsPanel>
+			<TreeView.ItemTemplate>
+				<HierarchicalDataTemplate ItemsSource = "{Binding Path=Groups}">
+					<HierarchicalDataTemplate.ItemTemplate>
+						<HierarchicalDataTemplate ItemsSource = "{Binding Path=Captures}">
+							<HierarchicalDataTemplate.ItemTemplate>
+								<DataTemplate>
+									<ContentPresenter Content="{Binding .}" ContentTemplate="{StaticResource CaptureTemplate}" />
+								</DataTemplate>
+							</HierarchicalDataTemplate.ItemTemplate>
+							<ContentPresenter Content="{Binding .}" ContentTemplate="{StaticResource CaptureTemplate}" />
+						</HierarchicalDataTemplate>
+					</HierarchicalDataTemplate.ItemTemplate>
+					<ContentPresenter Content="{Binding .}" ContentTemplate="{StaticResource CaptureTemplate}" />
+				</HierarchicalDataTemplate>
+			</TreeView.ItemTemplate>
+		</TreeView>
+	</Grid>
+</DataTemplate>
