@@ -33,7 +33,7 @@ internal class RegexMatchCollectionDebuggerVisualizerProvider : DebuggerVisualiz
 	};
 
 	/// <inheritdoc/>
-	public override Task<IRemoteUserControl> GetVisualizerAsync(VisualizerTarget visualizerTarget, CancellationToken cancellationToken)
+	public override Task<IRemoteUserControl> CreateVisualizerAsync(VisualizerTarget visualizerTarget, CancellationToken cancellationToken)
 	{
 		return Task.FromResult<IRemoteUserControl>(new RegexMatchCollectionVisualizerUserControl(visualizerTarget));
 	}

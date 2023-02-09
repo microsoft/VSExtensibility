@@ -39,7 +39,7 @@ internal class StringDebuggerVisualizerProvider : DebuggerVisualizerProvider
     public override DebuggerVisualizerProviderConfiguration DebuggerVisualizerProviderConfiguration => new("My string visualizer", typeof(string));
 
     /// <inheritdoc/>
-    public override async Task<IRemoteUserControl> GetVisualizerAsync(VisualizerTarget visualizerTarget, CancellationToken cancellationToken)
+    public override async Task<IRemoteUserControl> CreateVisualizerAsync(VisualizerTarget visualizerTarget, CancellationToken cancellationToken)
     {
         string targetObjectValue = await visualizerTarget.ObjectSource.RequestDataAsync<string>(jsonSerializer: null, cancellationToken);
 
@@ -51,7 +51,7 @@ internal class StringDebuggerVisualizerProvider : DebuggerVisualizerProvider
 The sample above defines a new debugger visualizer which applies to objects of type `string`:
 
 - The `DebuggerVisualizerProviderConfiguration` property defines the visualizer display name and the supported .NET type.
-- The `GetVisualizerAsync` is invoked by Visual Studio when the user requests the display of the debugger visualizer for a certain value. `GetVisualizerAsync` uses the `VisualizerTarget` object to retrieve the value to be visualized and passes it to a custom remote user control (reference the [Remote UI](./../../inside-the-sdk/remote-ui.md) documentation). The remote user control is then returned and will be shown in a popup window in Visual Studio.
+- The `CreateVisualizerAsync` is invoked by Visual Studio when the user requests the display of the debugger visualizer for a certain value. `CreateVisualizerAsync` uses the `VisualizerTarget` object to retrieve the value to be visualized and passes it to a custom remote user control (reference the [Remote UI](./../../inside-the-sdk/remote-ui.md) documentation). The remote user control is then returned and will be shown in a popup window in Visual Studio.
 
 ## The visualizer object source
 
@@ -127,7 +127,7 @@ You can then update your `DebuggerVisualizerProviderConfiguration` configuration
         VisualizerObjectSourceType = new(typeof(MyObjectSource)),
     };
 
-    public override async Task<IRemoteUserControl> GetVisualizerAsync(VisualizerTarget visualizerTarget, CancellationToken cancellationToken)
+    public override async Task<IRemoteUserControl> CreateVisualizerAsync(VisualizerTarget visualizerTarget, CancellationToken cancellationToken)
     {
         MySerializableType result = await visualizerTarget.ObjectSource.RequestDataAsync<MySerializableType>(jsonSerializer: null, cancellationToken);
         return new MyVisualizerUserControl(result);
@@ -188,7 +188,7 @@ The *visualizer object source* above leverages the `VisualizerObjectSource.Deser
 When implementing a debugger visualizer provider that performs complex message interaction with the *visualizer object source*, it's usually better to pass the `VisualizerTarget` to the visualizer's `RemoteUserControl` so that the message exchange can happen asynchronously while the control is loaded. This also allow to send messages to the *visualizer object source* to retrieve data based on the user's interactions with the visualizer's UI.
 
 ```csharp
-public override Task<IRemoteUserControl> GetVisualizerAsync(VisualizerTarget isualizerTarget, CancellationToken cancellationToken)
+public override Task<IRemoteUserControl> CreateVisualizerAsync(VisualizerTarget isualizerTarget, CancellationToken cancellationToken)
 {
     return Task.FromResult<IRemoteUserControl>(new MyVisualizerUserControl(visualizerTarget));
 }

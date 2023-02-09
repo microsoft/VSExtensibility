@@ -34,7 +34,7 @@ internal class RegexMatchDebuggerVisualizerProvider : DebuggerVisualizerProvider
 	};
 
 	/// <inheritdoc/>
-	public override async Task<IRemoteUserControl> GetVisualizerAsync(VisualizerTarget visualizerTarget, CancellationToken cancellationToken)
+	public override async Task<IRemoteUserControl> CreateVisualizerAsync(VisualizerTarget visualizerTarget, CancellationToken cancellationToken)
 	{
 		var regexMatch = await visualizerTarget.ObjectSource.RequestDataAsync<RegexMatch>(jsonSerializer: null, cancellationToken);
 
