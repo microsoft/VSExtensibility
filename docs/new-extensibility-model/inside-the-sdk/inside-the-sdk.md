@@ -17,14 +17,17 @@ The new Visual Studio Extensibility SDK is built on top of brokered services inf
 * A code generator framework to generate `.vsextension/extension.json` metadata file based on extension parts and its attributes. This file declares the services, extension parts and other services exposed by the extension.
 
 ## Nuget Packages
-The new extensibilty model for Visual Studio depends on a set of new nuget packages to provide APIs, build tooling, code generation and analyzers. 
+
+The new extensibilty model for Visual Studio depends on a set of new nuget packages to provide APIs, build tooling, code generation and analyzers.
 
 ### Microsoft.VisualStudio.Extensibility.Sdk
+
 Link: [Microsoft.VisualStudio.Extensibility.Sdk 17.xxxxx](https://www.nuget.org/packages/Microsoft.VisualStudio.Extensibility.Sdk/17.xxxxx)
 
 This is the primary package that contains dependencies to all pre-requisite packages mentioned below. We strongly recommend extension developers to have a reference to this meta-package instead of individual references.
 
 #### Microsoft.VisualStudio.Extensibility.Build
+
 Link: [Microsoft.VisualStudio.Extensibility.Build 17.xxxxx](https://www.nuget.org/packages/Microsoft.VisualStudio.Extensibility.Build/17.xxxxx)
 
 This package contains the build tooling, project capabilities code generators that is necessary for extension to work with F5 debugging in Visual Studio IDE.
@@ -32,13 +35,17 @@ This package contains the build tooling, project capabilities code generators th
 ### Dependencies
 
 #### Microsoft.VisualStudio.Extensibility
+
 This package contains the SDK APIs and utility libraries to help develop extensions using the out-of-process extensibility model. Every extension should include a reference to this package as a starting point.
 
 #### Microsoft.VisualStudio.Extensibility.JsonGenerators.Sdk
+
 This package contains the code generators that is necessary for extension metadata to be generated during build. Without this package, a compiled extension may not work correctly as it will not contain the necessary metadata files.
 
 #### Microsoft.VisualStudio.Extensibility.Editor
-This package contains the editor related SDK APIs and utilities and is included as a dependency from `Microsoft.VisualStudio.Extensibility`. 
+
+This package contains the editor related SDK APIs and utilities and is included as a dependency from `Microsoft.VisualStudio.Extensibility`.
 
 ### Optional packages
+
 In future previews, we may have nuget packages that are not included as a required dependency from `Microsoft.VisualStudio.Extensibility.Sdk` package but can be added as needed to provide APIs for certain feature areas such as debugger, source control.
