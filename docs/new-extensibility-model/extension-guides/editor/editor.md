@@ -112,7 +112,7 @@ internal static class MyDocumentTypes
     internal static DocumentTypeConfiguration MarkdownDocumentType => new("markdown")
     {
         FileExtensions = new[] { ".md", ".mdk", ".markdown" },
-        BaseDocumentTypes = new BaseDocumentType[] { "text" },
+        BaseDocumentType = DocumentType.KnownValues.Text,
     };
 }
 ```

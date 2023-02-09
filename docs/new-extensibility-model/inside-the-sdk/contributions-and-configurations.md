@@ -141,7 +141,7 @@ internal static class MarkdownLinterExtensionContributions
     internal static DocumentTypeConfiguration MarkdownDocumentType => new("markdown")
     {
         FileExtensions = new[] { ".md", ".mdk", ".markdown" },
-        BaseDocumentType = new BaseDocumentType[] { "text" },
+        BaseDocumentType = DocumentType.KnownValues.Text,
     };
 }
 
