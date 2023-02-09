@@ -6,7 +6,7 @@ date: 2022-07-29
 
 # User Prompts Overview
 
-User Prompts are a simple UI mechanism for prompting the user during the execution of a [Command](../command/command.md). Prompting the user creates a dialog box with a message, one to three buttons for the choices, and a dismiss button. 
+User Prompts are a simple UI mechanism for prompting the user during the execution of a [Command](../command/command.md). Prompting the user creates a dialog box with a message, one to three buttons for the choices, and a dismiss button.
 
 **Note:** The exact UI used to prompt users may change in future versions based on user feedback or other factors.
 

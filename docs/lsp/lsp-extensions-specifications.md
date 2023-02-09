@@ -17,8 +17,8 @@ These extensions are composed of:
 A .NET implementation of these extensions can be found on [NuGet](https://www.nuget.org/packages/Microsoft.VisualStudio.LanguageServer.Protocol.Extensions). Add a reference to these packages into the language server csproj file (and, if necessary, into the Visual Studio extension csproj file) using the latest package version available on NuGet:
 ```xml
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.LanguageServer.Protocol" Version="17.0.4103-g225b54d231" />
-    <PackageReference Include="Microsoft.VisualStudio.LanguageServer.Protocol.Extensions" Version="17.0.4103-g225b54d231" />
+    <PackageReference Include="Microsoft.VisualStudio.LanguageServer.Protocol" Version="17.2.8" />
+    <PackageReference Include="Microsoft.VisualStudio.LanguageServer.Protocol.Extensions" Version="17.2.8" />
   </ItemGroup>
 ```
 

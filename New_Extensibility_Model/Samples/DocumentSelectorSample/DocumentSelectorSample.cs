@@ -31,7 +31,7 @@ internal class DocumentSelectorSample : ExtensionPart, ITextViewOpenClosedListen
 	{
 		AppliesTo = new[]
 		{
-			DocumentFilter.FromGlobPattern("**/tests/*.cs"),
+			DocumentFilter.FromGlobPattern("**/tests/*.cs", relativePath: true),
 		},
 	};
 
