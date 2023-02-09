@@ -45,8 +45,8 @@ The [`MenuConfiguration`](./../../api/Microsoft.VisualStudio.Extensibility.Contr
 
 | Parameter | Type | Required | Description |
 | --------- |----- | -------- | ----------- |
-| DisplayName | String | Yes | The default display name of your menu. Surround this string with the '%' character to enable localizing this string. See more on this at [Localize a command](localize-a-command). |
-| TooltipText | String | No | The text to display as the tooltip when the menu is hovered or focused. Surround this string with the '%' character to enable localizing this string. See more on this at [Localize a command](localize-a-command). |
+| DisplayName | String | Yes | The default display name of your menu. Surround this string with the '%' character to enable localizing this string. See more on this at [Localize metadata](localize-metadata.md). |
+| TooltipText | String | No | The text to display as the tooltip when the menu is hovered or focused. Surround this string with the '%' character to enable localizing this string. See more on this at [Localize metadata](localize-metadata.md). |
 | Placements | CommandPlacement[] | No | Specifies the existing Groups within Visual Studio that the menu will be parented to. See more on this at [Place a menu in the IDE](#place-a-menu-in-the-ide). |
 | Children | MenuChild[] | No | Describes the set of commands, menus and groups that should be parented to this menu. The order that these items are defined in the array represent the order that they will appear visually in the IDE. See more on this at [Place items on a menu](#place-items-on-a-menu) |
 | Priority | uint | No | Describes the display order of the menu relative to other manus/commands parented to the same `CommandPlacement.KnownPlacements`. |
@@ -164,8 +164,8 @@ The [`ToolbarConfiguration`](./../../api/Microsoft.VisualStudio.Extensibility.Co
 
 | Parameter | Type | Required | Description |
 | --------- |----- | -------- | ----------- |
-| DisplayName | String | Yes | The default display name of your toolbar. Surround this string with the '%' character to enable localizing this string. See more on this at [Localize a command](command.md#localize-a-command). |
-| TooltipText | String | No | The text to display as the tooltip when the toolbar is hovered or focused. Surround this string with the '%' character to enable localizing this string. See more on this at [Localize a command](command.md#localize-a-command). |
+| DisplayName | String | Yes | The default display name of your toolbar. Surround this string with the '%' character to enable localizing this string. See more on this at [Localize metadata](localize-metadata.md). |
+| TooltipText | String | No | The text to display as the tooltip when the toolbar is hovered or focused. Surround this string with the '%' character to enable localizing this string. See more on this at [Localize metadata](localize-metadata.md). |
 | Placements | CommandPlacement[] | No | Specifies the existing Groups within Visual Studio that the toolbar will be parented to. See more on this at [Place a command in the IDE](command.md#place-a-command-in-the-ide). Leaving this property as `null` will place the toolbar on the Standard Toolbar Bar and can be made visible by selecting the toolbar in the `View -> Toolbars` menu |
 | Children | ToolbarChild[] | No | Describes the set of commands, menus and groups that should be parented to this toolbar. The order that these items are defined in the array represent the order that they will appear visually in the IDE. See more on this at [Place items on a toolbar](#place-items-on-a-toolbar) |
 | Priority | uint | No | Describes the display order of the toolbar relative to other toolbar with the same placement. |

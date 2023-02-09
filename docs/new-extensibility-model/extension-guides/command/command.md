@@ -46,8 +46,8 @@ The [`CommandConfiguration`](./../../api/Microsoft.VisualStudio.Extensibility.Co
 
 | Parameter | Type | Required | Description |
 | --------- |----- | -------- | ----------- |
-| DisplayName | String | Yes | The default display name of your command. Surround this string with the '%' character to enable localizing this string. See more on this at [Localize a command](localize-a-command). |
-| TooltipText | String | No | The text to display as the tooltip when the command is hovered or focused. Surround this string with the '%' character to enable localizing this string. See more on this at [Localize a command](localize-a-command.md) |
+| DisplayName | String | Yes | The default display name of your command. Surround this string with the '%' character to enable localizing this string. See more on this at [Localize metadata](localize-metadata.md). |
+| TooltipText | String | No | The text to display as the tooltip when the command is hovered or focused. Surround this string with the '%' character to enable localizing this string. See more on this at [Localize metadata](localize-metadata.md) |
 | Flags | CommandFlags | No | Flags to set additional properties on the command. Some options include CanToggle and CanSelect. See more on this at [Command Flags](#command-flags). |
 | Placements | CommandPlacement[] | No | Specifies the existing groups within Visual Studio that the Command will be parented to. See more on this at [Place a command in the IDE](#place-a-command-in-the-ide). Even without a placement, your command will still be available via the Visual Studio Search feature. Commands can also be placed onto [Menus, Toolbars, and Groups](menus-and-toolbars.md) defined in your extension. |
 | Icon | CommandIconConfiguration | No | Commands can be displayed in the UI as either just an Icon, an Icon with text, or just text. This property configures what that icon should be, if any, and how it should be displayed. |
