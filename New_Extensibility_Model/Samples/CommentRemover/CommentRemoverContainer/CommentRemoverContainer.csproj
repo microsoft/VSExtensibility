@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.VisualStudio.Sdk.Build/17.5.2046-preview2">
+﻿<Project Sdk="Microsoft.VisualStudio.Sdk.Build/17.5.4065">
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
     <TargetVsixContainerName>CommentRemover.vsix</TargetVsixContainerName>

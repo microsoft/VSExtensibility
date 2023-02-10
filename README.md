@@ -56,7 +56,7 @@ A Visual Studio solution containing all samples can be found at [Samples.sln](./
 * [Tool Window sample](./New_Extensibility_Model/Samples/ToolWindowSample/)
 * [User Prompt sample](./New_Extensibility_Model/Samples/UserPromptSample/)
 * [Document Selector sample](./New_Extensibility_Model/Samples/DocumentSelectorSample/)
-* [Regex Match Debugger Visualizer sample](./New_Extensibility_Model/Samples/RegexMatchDebugVisualizer/)
+* [Regex Match Debugger Visualizer sample](./New_Extensibility_Model/Samples/RegexMatchDebugVisualizer//README.md) ([Source](./New_Extensibility_Model/Samples/RegexMatchDebugVisualizer/))
 
 ## API Docs
 
