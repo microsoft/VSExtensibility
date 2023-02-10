@@ -179,22 +179,16 @@ public override Task ControlLoadedAsync(CancellationToken cancellationToken)
     {
         for (int i = 0; ; i++)
         {
-            RegexMatch? regexMatch;
-            try
-            {
-                regexMatch = await this.visualizerTarget.ObjectSource.RequestDataAsync<int, RegexMatch?>(i, jsonSerializer: null, this.disposalCancellationTokenSource.Token);
-            }
-            catch (OperationCanceledException)
-            {
-                break;
-            }
+            RegexMatch? regexMatch = await this.visualizerTarget.ObjectSource.RequestDataAsync<int, RegexMatch?>(i, jsonSerializer: null, CancellationToken.None);
             if (regexMatch is null)
             {
                 break;
             }
+
             this.RegexMatches.Add(regexMatch);
         }
     });
+
     return Task.CompletedTask;
 }
 ```

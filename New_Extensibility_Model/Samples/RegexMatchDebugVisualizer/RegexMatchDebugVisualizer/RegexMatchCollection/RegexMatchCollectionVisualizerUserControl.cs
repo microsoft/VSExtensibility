@@ -20,10 +20,6 @@ internal class RegexMatchCollectionVisualizerUserControl : RemoteUserControl
 {
 	private readonly VisualizerTarget visualizerTarget;
 
-	private readonly CancellationTokenSource disposalCancellationTokenSource = new();
-
-	private int disposed = 0;
-
 	/// <summary>
 	/// Initializes a new instance of the <see cref="RegexMatchCollectionVisualizerUserControl"/> class.
 	/// </summary>
@@ -43,16 +39,7 @@ internal class RegexMatchCollectionVisualizerUserControl : RemoteUserControl
 		{
 			for (int i = 0; ; i++)
 			{
-				RegexMatch? regexMatch;
-				try
-				{
-					regexMatch = await this.visualizerTarget.ObjectSource.RequestDataAsync<int, RegexMatch?>(i, jsonSerializer: null, this.disposalCancellationTokenSource.Token);
-				}
-				catch (OperationCanceledException)
-				{
-					break;
-				}
-
+				RegexMatch? regexMatch = await this.visualizerTarget.ObjectSource.RequestDataAsync<int, RegexMatch?>(i, jsonSerializer: null, CancellationToken.None);
 				if (regexMatch is null)
 				{
 					break;
@@ -63,20 +50,5 @@ internal class RegexMatchCollectionVisualizerUserControl : RemoteUserControl
 		});
 
 		return Task.CompletedTask;
-	}
-
-	/// <inheritdoc/>
-	protected override void Dispose(bool disposing)
-	{
-		if (disposing)
-		{
-			if (disposing && Interlocked.Exchange(ref this.disposed, 1) == 0)
-			{
-				this.disposalCancellationTokenSource.Cancel();
-				this.disposalCancellationTokenSource.Dispose();
-			}
-		}
-
-		base.Dispose(disposing);
 	}
 }
