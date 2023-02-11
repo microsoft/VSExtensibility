@@ -5,7 +5,8 @@ The new project query API allows for querying information from the project syste
 The goal of the Project Query API is to:
 1. Work with Project Systems 
 1. Retrieve data from projects
-1. Make changes to projects
+1. Make changes to projects 
+
 Some examples include understanding files included in a project, NuGet packages referenced by a project, adding new files to a project, or changing project properties.
 
 Find further information on project systems [here](https://github.com/microsoft/VSProjectSystem).
@@ -15,19 +16,18 @@ Find conceptual documentation about what the project system is, usages, and its 
 
 This overview covers top scenarios for working with the Project Query API:
 
-- [Set up: Querying for a single project from your workspace](#set-up)
+- [Set up: Querying for a single project from your workspace using project guid](#set-up)
 - [Getting the project query space in Gladstone](#project-query-space)
 - [Selecting specific properties from Extensions](#selecting-specific-properties)
 - [Conditional filtering for Extensions](#conditional-filtering)
 - [Using an Extension to recursively access a collection of children in one query](#recursive-collection)
 - [Using the Get method](#the-get-method)
-- [Using the IAsyncEnumerable method](#the-iasyncenumerable-method)
 - [Querying information from a previous item](#querying-from-previous)
 - [Modifying a project](#modify-a-project)
 - [Getting information from the Solution File](#get-info-from-solution-file)
 - [Getting projects and project properties](#get-projects-properties)
-- [Getting solution filters](#get-solution-filters)
-- [Enumerating source files with additional information in a project/solution folder](#source-files-additional-information)
+- [Getting solution folders](#get-solution-folders)
+- [Enumerating source files with additional information in a project](#source-files-additional-information)
 - [Finding all projects owning a specific source file](#find-all-projects)
 - [Accessing project configurations and their properties](#access-project-configurations)
 - [Enumerating project to project references](#project-to-project-references)
@@ -49,7 +49,7 @@ var queryService = await package.GetServiceAsync<IProjectSystemQueryService, IPr
 var workSpace = queryService.QueryableSpace;
 ```
 
-## Set up: Querying for a single project from your workspace 
+## Set up: Querying for a single project from your workspace using project guid
 
 ```csharp
 IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> projectList =
@@ -61,7 +61,6 @@ IProjectSnapshot myProject = null;
 await foreach (IQueryResultItem<IProjectSnapshot> project in projectList)
 {
     myProject = project.Value;
-    break;
 }
 ```
 
@@ -80,16 +79,14 @@ IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> allProjects = workSpace
     .With(p => p.TypeGuid)  // VSHPROPID_TypeGuid
     .With(p => p.Capabilities)
     .QueryAsync(cancellationToken);
-await foreach (IQueryResultItem<IProjectSnapshot> project in allProjects)
-{
-    var projectGuid = project.Value.Guid;
-    // Checking whether 'Capabilities' property has been retrieved.
-    // Otherwise, it can throw for projects which do not support it. (Like SQL projects)
-    if (project.Value.PropertiesAvailableStatus.Capabilities)
+
+    await foreach (IQueryResultItem<IProjectSnapshot> project in allProjects)
     {
+        var projectGuid = project.Value.Guid;
+        // Checking whether 'Capabilities' property has been retrieved.
+        // Otherwise, it can throw for projects which do not support it. (Like SQL projects)
         bool capabilities = project.Value.PropertiesAvailableStatus.Capabilities;
     }
-}
 ```
 
 Or multiple properties can be requested in a single line:
@@ -112,7 +109,6 @@ IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> projectWithFiles = workSpac
 ```
 
 When no properties are selected, the default set of properties will be returned. 
-For example, both Name and Value properties will be retrieved in the following query:
 
 ```csharp
 IAsyncEnumerable<IQueryResultItem<IPropertySnapshot>> properties =
@@ -123,12 +119,12 @@ IAsyncEnumerable<IQueryResultItem<IPropertySnapshot>> properties =
 
 ## Conditional filtering for Extensions
 
-Extensions can get information from a smaller set of projects through using conditional filtering.
+Extensions can get information from a smaller set of projects using conditional filtering.
 Here is an example of finding all Net Core web projects. Not all projects support Capabilities, and this query will filter them out, instead of causing the query to fail.
 
 ```csharp
 IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> webProjects =
-        workSpace.Projects
+    workSpace.Projects
     .Where(p => p.Capabilities.Contains("DotNetCoreWeb"))
     .With(p => new { p.Path, p.Guid })
     .QueryAsync(cancellationToken);
@@ -154,22 +150,23 @@ workSpace.ProjectsByCapabilities("CPS")
         .Where(f => f.Extension == ".ico")
         .With(f => new { f.Path, f.IsHidden }))
     .QueryAsync(cancellationToken);
-                await foreach (IQueryResultItem<IProjectSnapshot> project in projects)
-                {
-                    IPropertySnapshot property = project.Value.Properties.FirstOrDefault();
-                    string? applicationIcon = (string?)property?.Value;
-                    // Here we can only files with the matched file extension.
-                    foreach (var iconFile in project.Value.Files)
-                    {
-                        string filePath = iconFile.Path;
-                        bool isHidden = iconFile.IsHidden;
-                    }
-                }
+
+    await foreach (IQueryResultItem<IProjectSnapshot> project in projects)
+    {
+        IPropertySnapshot property = project.Value.Properties.FirstOrDefault();
+        string? applicationIcon = (string?)property?.Value;
+
+        foreach (var iconFile in project.Value.Files)
+        {
+            string filePath = iconFile.Path;
+            bool isHidden = iconFile.IsHidden;
+        }
+    }
 ```
 
 ## Retrieve a child collection using the Get method
 
-Extensions can only retrieve a child collection through using the 'Get' method in the query
+Extensions can only retrieve a child collection through using the 'Get' method in the query.
 Here is an example getting a set of files included in a project as well as extra information about those files:
 
 ```csharp
@@ -179,27 +176,10 @@ workSpace.Projects
     .Get(p => p.Files
         .With(f => new { f.Path, f.IsHidden, f.IsSearchable }))
     .QueryAsync(cancellationToken);
-            await foreach (var file in files)
-            {
-                string filePath = file.Value.Path;
-            }
-```
 
-## Retrieve a child collection using the IAsyncEnumerable method
-
-This example is similar to the last example, but using the IAsyncEnumerable instead:
-
-```csharp
-IAsyncEnumerable<IQueryResultItem<IFileSnapshot>> fileResults =
-    workSpace.ProjectsByProjectGuid(knownGuid)
-        .Get(p => p.Files
-            .With(f => new { f.Path, f.IsHidden, f.IsSearchable }))
-        .QueryAsync(cancellationToken);
-    await foreach (var fileResult in fileResults)
+    await foreach (var file in files)
     {
-        IFileSnapshot file = fileResult.Value;
-        string filePath = file.Path;
-        ...
+        string filePath = file.Value.Path;
     }
 ```
 
@@ -214,6 +194,7 @@ IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> allProjects = workSpace
         .With(p => p.Path)
         .With(p => p.Guid)
         .QueryAsync(cancellationToken);
+
 await foreach (IQueryResultItem<IProjectSnapshot> project in allProjects)
 {
     // Gets child collections
@@ -221,24 +202,13 @@ await foreach (IQueryResultItem<IProjectSnapshot> project in allProjects)
             project.Value.Files
             .With(f => new { f.Path, f.ItemType })
             .QueryAsync(cancellationToken);
+
     await foreach (IQueryResultItem<IFileSnapshot> file in files)
     {
         string path = file.Value.Path;
         ...
     }
 }
-// query multiple of them
-// this pattern allows a client doing filtering
-IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> interestedProjects = allProjects
-        .Where(p => /* client side filtering */)
-        .ToList();
-IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> projectsWithOutputGroupData =
-    workSpace.QueryFrom(interestedProjects)
-        .With (p => p.ActiveConfigurations
-            .With(c => c.OutputGroupsByName("Built")
-                .With(g => g.Outputs
-                    .With(item => item.FinalOutputPath))))
-        .QueryAsync();
 ```
 
 ## Modifying a project
@@ -279,16 +249,16 @@ workSpace.Solutions
 Example:
 
 ```csharp
+// We assume that we can find "RootNamespace" in the result.
+// However it is not true from query API point of view.
+// The query tries to retrieve items based on the condition, and if there is no such item, it will run successfully only without returning items.
 IAsyncEnumerable<IQueryResultItem<IPropertySnapshot>> properties = 
     myProject.AsQueryable()  
     .Get(p => p.PropertiesByName("RootNamespace", "AssemblyVersion"))
     .QueryAsync(cancellationToken);
-// We assume that we can find "RootNamespace" in the result.
-// However it is not true from query API point of view.
-// The query tries to retrieve items based on the condition, and if there is no such item, it will run successfully only without returning items.
 ```
 
-## Getting solution filters
+## Getting solution folders
 
 Here is an example of getting all solution folders, regardless of whether they are nested or not:
 
@@ -328,7 +298,7 @@ IAsyncEnumerable<IQueryResultItem<ISolutionFolderSnapshot>> recursivelyNestedFol
         .QueryAsync(cancellationToken);
 ```
 
-## Enumerating source files with additional information in a project/solution folder
+## Enumerating source files with additional information in a project
 
 Here is an example enumerating all .xaml files in a project and its code generator:
 
@@ -361,7 +331,7 @@ IAsyncEnumerable<IQueryResultItem<IFileSnapshot>> files =
         .QueryAsync(cancellationToken);
 ```
 
-Or to enumerate all Xml Schema files in all projects through async enumerable:
+Or to enumerate all Xml Schema files in all projects:
 
 ```csharp
 IAsyncEnumerable<IQueryResultItem<IFileSnapshot>> schemaFiles =
@@ -369,6 +339,7 @@ workSpace.Projects
     .Get(proj => proj.FilesEndingWith(".xsd"))
     .With(file => file.Path)
     .QueryAsync(cancellationToken);
+
     await foreach (IQueryResultItem<IFileSnapshot> fileResult in schemaFiles)
     {
         DoSomething(fileResult.Value.Path);
@@ -380,7 +351,7 @@ workSpace.Projects
 Example:
 
 ```csharp
-string myFilePath = ...;
+string myFilePath = [Location of the file I want];
 IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> projects =
     workSpace.Projects
         .WithRequired(proj => proj.FilesByPath(myFilePath))
@@ -391,7 +362,7 @@ IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> projects =
 Note: this doesn't include SolutionFolders, which must be queried separately:
 
 ```csharp
-string myFilePath = ...;
+string myFilePath = [Location of the file I want];
 IAsyncEnumerable<IQueryResultItem<ISolutionFolderSnapshot>> solutionFolders =
     workSpace.Solutions
         .Get(s => s.SolutionFolders)
@@ -414,9 +385,10 @@ IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> projects =
             .With(c => c.PropertiesByName("OutputPath"))
             .With(c => c.ConfigurationDimensions)) // ConfigurationDimension is essentially Name, Value pairs, both are default properties.
         .QueryAsync(cancellationToken);
+
     await foreach (IQueryResultItem<IProjectSnapshot> project in projects)
     {
-        foreach (var configuration in project.Configurations)
+        foreach (var configuration in project.Value.Configuration)
         {
             // ...
         }
