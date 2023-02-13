@@ -6,18 +6,17 @@ date: 2021-8-19
 
 # Welcome to the VisualStudio.Extensibility documentation
 
-VisualStudio.Extensibility is a new framework for developing Visual Studio extensions. The new framework focuses primarily on extensions that run out-of-process from the IDE for improved performance and reliability, and it features a modern, asynchronous API that has been streamlined and carefully engineered to maximize developer productivity. VisualStudio.Extensibility is currently in active development and is now made available as a preview, which you can download by cloning this code repository and installing []().
+VisualStudio.Extensibility is a new framework for developing Visual Studio extensions. The new framework focuses primarily on extensions that run out-of-process from the IDE for improved performance and reliability, and it features a modern, asynchronous API that has been streamlined and carefully engineered to maximize developer productivity. VisualStudio.Extensibility is currently in active development and is now made available as a preview, which you can download by cloning this code repository and installing the [VisualStudio.Extensibility Project System](https://marketplace.visualstudio.com/items?itemName=vsext.gladstone).
 
 With the current preview, you can develop a wide range of extensions to Visual Studio, including creating a simple command and exposing it in the IDE, working with code or text in the editor, exposing the functionality of a tool in the IDE, creating debugger visualizers, and more.
 
-VisualStudio.Extensibility aims to address many of the problems both developers experience when using and writing extensions in Visual Studio using the old model.  These issues include:
+VisualStudio.Extensibility aims to address many of the problems developers experience when using and writing extensions in Visual Studio:
 
-* Extension-caused crashes and hangs of Visual Studio and other installed extensions
-* Inconsistent hard-to-find docs and APIs, tribal knowledge requirements, and overwhelming architecture
-* Lack of secure extensions
-* Having to restart Visual Studio when installing extensions
+* Visual Studio remains responsive and won't crash if an extension crashes or hangs
+* Simplified architecture, consistent APIs, and clear documentation
+* Extensions can be installed without restarting Visual Studio
 
-Eventually, the VisualStudio.Extensibility SDK will ultimately replace the VS SDK. However, until that time, you might encounter situations where the functionality you need in your extension is not yet available in VisualStudio.Extensibility. In that case, you can develop an in-process extension by leveraging the new VisualStudio.Extensibility APIs while relying on [Microsoft.VisualStudio.Sdk](https://www.nuget.org/packages/Microsoft.VisualStudio.Sdk) to cover any feature gap.
+Eventually, the VisualStudio.Extensibility SDK will ultimately allow you to write any extension you could write using the VS SDK. However, until that time, you might encounter situations where the functionality you need in your extension is not yet available in VisualStudio.Extensibility. In that case, you can develop an in-process extension by leveraging the new VisualStudio.Extensibility APIs while relying on [Microsoft.VisualStudio.Sdk](https://www.nuget.org/packages/Microsoft.VisualStudio.Sdk) to cover any feature gap.
 
 This site is your hub for all documentation for the VisualStudio.Extensibility SDK. Documentation is currently available for the following:
 
@@ -35,16 +34,14 @@ This site is your hub for all documentation for the VisualStudio.Extensibility S
 | [API reference](#api-docs) | Browse the VisualStudio.Extensibility API documentation. |
 | [Advanced topics](#advanced) | Learn implementation details of the VisualStudio.Extensibility SDK. |
 
-In addition, we recommend a thorough understanding of [asynchronous programming with async and await](https://learn.microsoft.com/dotnet/csharp/programming-guide/concepts/async/) and [dependency injection](https://learn.microsoft.com/dotnet/core/extensions/dependency-injection). The UI Framework used in Visual Studio is Windows Presentation Foundation (WPF), so you might want to review the [WPF documentation](/dotnet/desktop/wpf/).
-
 ## Get Started
 
 The following articles will help you get oriented and started.
 
 * [Create your first extension](new-extensibility-model/getting-started/create-your-first-extension.md) shows how to create the equivalent of "Hello, world" as an extension.
-* Next , follow a tutorial and create a more interesting extension that adds a GUID to the editor window. See [Create a simple extension](new-extensibility-model/getting-started/tutorial-create-simple-extension.md).
+* Next, follow a tutorial and create a more interesting extension that adds a GUID to the editor window. See [Create a simple extension](new-extensibility-model/getting-started/tutorial-create-simple-extension.md).
 
-To understand how to work with the new extensibility model, we recommend a thorough understanding of [asynchronous programming with async and await](https://learn.microsoft.com/dotnet/csharp/programming-guide/concepts/async/) and [dependency injection](https://learn.microsoft.com/dotnet/core/extensions/dependency-injection). In addition, the UI framework we use is Windows Presentation Foundation (WPF), so you should review the [WPF documentation](/dotnet/desktop/wpf/). Knowledge of the [MVVM model](/archive/msdn-magazine/2009/february/patterns-wpf-apps-with-the-model-view-viewmodel-design-pattern) might be helpful.
+To understand how to work with VisualStudio.Extensibility, we recommend a thorough understanding of [asynchronous programming with async and await](https://learn.microsoft.com/dotnet/csharp/programming-guide/concepts/async/) and [dependency injection](https://learn.microsoft.com/dotnet/core/extensions/dependency-injection). In addition, the UI framework we use is Windows Presentation Foundation (WPF), so you should review the [WPF documentation](/dotnet/desktop/wpf/).
 
 ## Concepts
 
@@ -52,9 +49,11 @@ If you're familiar with the Visual Studio SDK, see [Introduction to VisualStudio
 
 Build your mental model of how Visual Studio extensions work. See [Parts of a new Visual Studio extension](new-extensibility-model/inside-the-sdk/extension-anatomy.md).
 
-Learn what's in the SDK at [Functional areas of the SDK](new-extensibility-model/inside-the-sdk/inside-the-sdk.md)
+Learn what's in the SDK at [Functional areas of the SDK](new-extensibility-model/inside-the-sdk/inside-the-sdk.md).
 
 When and where should your extension appear in the IDE? Visual Studio extensions surface in the IDE at when certain conditions are met. To control how and when your extension appears in the IDE, see [Rule-based activation constraints](new-extensibility-model/inside-the-sdk/activation-constraints.md).
+
+Learn about the [Remote UI](new-extensibility-model/inside-the-sdk/remote-ui.md) model used in the VisualStudio.Extensibility.
 
 ## Overviews
 
@@ -101,7 +100,6 @@ The following assemblies contain classes related to infrastructure and underlyin
 
 | Article | Description|
 |-|-|
-| [Remote UI](new-extensibility-model/inside-the-sdk/remote-ui.md) | Start learning about remote UI model used in the VisualStudio.Extensibility SDK.|
 | [Advanced Remote UI](new-extensibility-model/inside-the-sdk/advanced-remote-ui.md) | In-depth information on the remote UI model. |
 | [In-proc extensions](new-extensibility-model/getting-started/in-proc-extensions.md) | Learn how to make extension that run in-process. |
 
