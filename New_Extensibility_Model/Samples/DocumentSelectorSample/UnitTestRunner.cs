@@ -6,6 +6,7 @@ namespace Microsoft.VisualStudio.Gladstone.DocumentSelectorSample;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Extensibility;
+using Microsoft.VisualStudio.Extensibility.Documents;
 using Microsoft.VisualStudio.Extensibility.Editor;
 
 /// <summary>
@@ -14,14 +15,16 @@ using Microsoft.VisualStudio.Extensibility.Editor;
 /// unit tests in these files.
 /// </summary>
 [VisualStudioContribution]
-internal class DocumentSelectorSample : ExtensionPart, ITextViewOpenClosedListener, ITextViewChangedListener
+internal class UnitTestRunner : ExtensionPart, ITextViewOpenClosedListener, ITextViewChangedListener
 {
+	private OutputWindow? outputWindow;
+
 	/// <summary>
-	/// Initializes a new instance of the <see cref="DocumentSelectorSample"/> class.
+	/// Initializes a new instance of the <see cref="UnitTestRunner"/> class.
 	/// </summary>
 	/// <param name="extension">Extension instance.</param>
 	/// <param name="extensibility">Extensibility object.</param>
-	public DocumentSelectorSample(Extension extension, VisualStudioExtensibility extensibility)
+	public UnitTestRunner(Extension extension, VisualStudioExtensibility extensibility)
 		: base(extension, extensibility)
 	{
 	}
@@ -30,16 +33,10 @@ internal class DocumentSelectorSample : ExtensionPart, ITextViewOpenClosedListen
 	public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
 	{
 		AppliesTo = new[]
-		{
-			DocumentFilter.FromGlobPattern("**/tests/*.cs", relativePath: true),
-		},
+			{
+				DocumentFilter.FromGlobPattern("**/tests/*.cs", relativePath: false),
+			},
 	};
-
-	/// <inheritdoc />
-	public Task TextViewOpenedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
-	{
-		return this.RunUnitTestsAfterDelayAsync(textViewSnapshot, cancellationToken);
-	}
 
 	/// <inheritdoc />
 	public Task TextViewChangedAsync(TextViewChangedArgs args, CancellationToken cancellationToken)
@@ -48,14 +45,27 @@ internal class DocumentSelectorSample : ExtensionPart, ITextViewOpenClosedListen
 	}
 
 	/// <inheritdoc />
-	public async Task TextViewClosedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
+	public Task TextViewOpenedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
 	{
-		await this.StopUnitTestsAsync(textViewSnapshot, cancellationToken);
+		return this.RunUnitTestsAfterDelayAsync(textViewSnapshot, cancellationToken);
+	}
+
+	/// <inheritdoc />
+	public Task TextViewClosedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
+	{
+		return this.StopUnitTestsAsync(textViewSnapshot, cancellationToken);
+	}
+
+	/// <inheritdoc />
+	protected override void Dispose(bool isDisposing)
+	{
+		base.Dispose(isDisposing);
+		this.outputWindow?.Dispose();
 	}
 
 	private async Task RunUnitTestsAfterDelayAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
 	{
-		await Task.Delay(500);
+		await Task.Delay(500, cancellationToken);
 		var document = await textViewSnapshot.GetTextDocumentAsync(cancellationToken);
 		await this.WriteToOutputWindowAsync($"Running unit tests in {document.Uri.LocalPath}", cancellationToken);
 	}
@@ -66,12 +76,17 @@ internal class DocumentSelectorSample : ExtensionPart, ITextViewOpenClosedListen
 		await this.WriteToOutputWindowAsync($"Stop running unit tests in {document.Uri.LocalPath}", cancellationToken);
 	}
 
-	private async Task WriteToOutputWindowAsync(string message, CancellationToken cancellationToken)
+	private async Task<OutputWindow> GetOutputWindowAsync(CancellationToken cancellationToken)
 	{
-		var channel = await this.Extensibility.Views().Output.GetChannelAsync(
+		return this.outputWindow ??= await this.Extensibility.Views().Output.GetChannelAsync(
 			identifier: nameof(DocumentSelectorSample),
 			displayNameResourceId: nameof(Resources.OutputWindowPaneName),
 			cancellationToken);
+	}
+
+	private async Task WriteToOutputWindowAsync(string message, CancellationToken cancellationToken)
+	{
+		var channel = await this.GetOutputWindowAsync(cancellationToken);
 		Assumes.NotNull(channel);
 		await channel.Writer.WriteLineAsync(message);
 	}

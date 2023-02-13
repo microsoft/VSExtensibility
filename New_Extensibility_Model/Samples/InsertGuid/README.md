@@ -1,6 +1,6 @@
 ---
 title: Insert Guid Extension Sample reference
-description: A reference for Insert Guid sample reference
+description: A reference for Insert Guid sample
 date: 2022-8-4
 ---
 
