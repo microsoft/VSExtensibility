@@ -6,7 +6,7 @@ date: 2022-2-6
 
 # Visual Studio.Extensibility overview
 
-While the existing model in the VS SDK loads extensions in-process, the new extensibility model, VisualStudio.Extensibility, brings most Visual Studio extensions out-of-process. This out-of-proc model gives you the opportunity to create more reliable, secure, and easier-to-write extensions while still providing the in-depth functionality the old model provides. The following documentation describes:
+While extensions have typically been loaded into the Visual Studio process, VisualStudio.Extensibility, brings most Visual Studio extensions out-of-process. This out-of-proc model gives you the opportunity to create more reliable, secure, and easier-to-write extensions. The following documentation describes:
 
 * The general architecture of the new extensibility model
 * How to take advantage of the new extensibility model's APIs
@@ -18,10 +18,10 @@ While the existing model in the VS SDK loads extensions in-process, the new exte
 The new VisualStudio.Extensibility model aims to address many of the problems both developers experience when using and writing extensions in Visual Studio using the old model. These issues include:
 
 * Extension-caused crashes and hangs of Visual Studio and other installed extensions
-* Inconsistent hard-to-find docs and APIs, tribal knowledge requirements, and overwhelming architecture
+* Inconsistent hard-to-find docs and APIs, requirements for specialized expertise, and overwhelming architecture
 * Having to restart Visual Studio when installing extensions
 
-Writing extensions using the VisualStudio.Extensibility provides the following benefits:
+Writing extensions using VisualStudio.Extensibility provides the following benefits:
 
 * **Increased reliability** – Extensions written with the new model are out-of-proc and will not block the Visual Studio UI.  This means that if the extension crashes, VS will not crash as a result. 
 * **Reduced API complexity** – The new model’s wrapper API has been built from the ground-up to be more cohesive and simpler to implement while retaining the old model’s advanced functionality.
