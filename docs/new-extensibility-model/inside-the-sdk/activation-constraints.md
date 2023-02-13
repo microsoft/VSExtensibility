@@ -6,13 +6,13 @@ date: 2021-8-16
 
 # Rule-based activation constraints
 
-One of the common concepts in Visual Studio Extensibility SDK is use of context based activation rules in code attributes. An example of these would [CommandVisibleWhen](../api/Microsoft.VisualStudio.Extensibility.md#T-Microsoft-VisualStudio-Extensibility-Commands-CommandVisibleWhenAttribute) attribute declaring when a command is made visible.
+One of the common concepts in Visual Studio Extensibility is use of context-based activation rules in code attributes. An example of these would be the [CommandVisibleWhen](../api/Microsoft.VisualStudio.Extensibility.md#T-Microsoft-VisualStudio-Extensibility-Commands-CommandVisibleWhenAttribute) attribute that declares when a command is made visible.
 
-Our goal is to provide a common way to create such contexts, the current method is based on existing [Rule-based UI contexts](https://docs.microsoft.com/en-us/visualstudio/extensibility/how-to-use-rule-based-ui-context-for-visual-studio-extensions) with a different set of context terms.
+Our goal is to provide a common way to create such contexts, the current method is based on existing [Rule-based UI contexts](https://docs.microsoft.com/visualstudio/extensibility/how-to-use-rule-based-ui-context-for-visual-studio-extensions) with a different set of context terms.
 
 ## Constraint attribute arguments
 
-Each constraint attribute will contain at least 3 required arguments that defines the expression:
+Each constraint attribute will contain at least three required arguments that define the expression:
 
 * Expression string: A boolean expression using `and`, `or`, `not` operations and term names that are defined in later arguments. Each term must be a single word (without spaces) and expression can utilize parentheses for grouping and `&`, `|`, `!` operators for `and`, `or`, `not` operations.
 
@@ -48,13 +48,15 @@ Following is the list of terms currently supported by expression engine.
 | Term | Description
 | -- | -- |
 | SolutionHasProjectBuildProperty:\<property>=\<regex> | The term is true when solution has a loaded project with the specified build property and property value matches to regex filter provided. |
-| SolutionHasProjectCapability:\<expression> | True whenever solution has a project with  capabilities matching the provided subexpression. An expression can be something like VB | CSharp. |
+| SolutionHasProjectCapability:\<expression> | True whenever solution has a project with  capabilities matching the provided subexpression. An expression can be something like `VB | CSharp`. |
 | SolutionHasProjectFlavor:\<guid> | True whenever a solution has project that is flavored (aggregated) and has a flavor matching the given project type GUID. |
 | SolutionState:\<state> | True when solution state matches to provided value, see [solution states](#solution-states) for list of values. |
 | ProjectAddedItem:\<pattern> | The term is true when a file matching the "pattern" is added to a project in the solution that is opened. |
 | ClientContext:\<key>=\<pattern> | True when the provided client context key matches to regular expression. See [client contexts](#client-contexts) for more details. |
 
 ## Solution states
+
+The following table shows the possible solution states:
 
 | State | Description |
 | -- | -- |
@@ -67,6 +69,7 @@ Following is the list of terms currently supported by expression engine.
 | Building | Solution is building. |
 
 ## Client contexts
+
 Activation rules can also utilize the [client context](extension-anatomy.md#client-context) contents as parts of its expression. 
 
 Currently, the client context is limited to a small set of values in IDE state:
