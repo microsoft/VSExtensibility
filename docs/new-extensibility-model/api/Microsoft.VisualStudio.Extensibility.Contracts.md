@@ -43,23 +43,6 @@
   - [Equals()](#M-Microsoft-VisualStudio-Extensibility-Commands-BaseControlConfiguration-Equals-Microsoft-VisualStudio-Extensibility-Commands-BaseControlConfiguration- 'Microsoft.VisualStudio.Extensibility.Commands.BaseControlConfiguration.Equals(Microsoft.VisualStudio.Extensibility.Commands.BaseControlConfiguration)')
   - [Equals()](#M-Microsoft-VisualStudio-Extensibility-Commands-BaseControlConfiguration-Equals-System-Object- 'Microsoft.VisualStudio.Extensibility.Commands.BaseControlConfiguration.Equals(System.Object)')
   - [GetHashCode()](#M-Microsoft-VisualStudio-Extensibility-Commands-BaseControlConfiguration-GetHashCode 'Microsoft.VisualStudio.Extensibility.Commands.BaseControlConfiguration.GetHashCode')
-- [BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType')
-  - [CodeRemoteBase](#P-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-CodeRemoteBase 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType.CodeRemoteBase')
-  - [CodeRemoteContent](#P-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-CodeRemoteContent 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType.CodeRemoteContent')
-  - [CodeRemoteTextMateBraceCompletion](#P-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-CodeRemoteTextMateBraceCompletion 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType.CodeRemoteTextMateBraceCompletion')
-  - [CodeRemoteTextMateColorization](#P-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-CodeRemoteTextMateColorization 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType.CodeRemoteTextMateColorization')
-  - [CodeRemoteTextMateIndentation](#P-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-CodeRemoteTextMateIndentation 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType.CodeRemoteTextMateIndentation')
-  - [CodeRemoteTextMateStructure](#P-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-CodeRemoteTextMateStructure 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType.CodeRemoteTextMateStructure')
-  - [RemoteBase](#P-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-RemoteBase 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType.RemoteBase')
-  - [Custom(value)](#M-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-Custom-System-String- 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType.Custom(System.String)')
-  - [Equals()](#M-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-Equals-System-Object- 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType.Equals(System.Object)')
-  - [Equals()](#M-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-Equals-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType- 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType.Equals(Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType)')
-  - [GetHashCode()](#M-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-GetHashCode 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType.GetHashCode')
-  - [ToString()](#M-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-ToString 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType.ToString')
-  - [op_Equality(a,b)](#M-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-op_Equality-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType,Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType- 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType.op_Equality(Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType,Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType)')
-  - [op_Implicit(value)](#M-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-op_Implicit-System-String-~Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType.op_Implicit(System.String)~Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType')
-  - [op_Implicit(value)](#M-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-op_Implicit-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-~System-String 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType.op_Implicit(Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType)~System.String')
-  - [op_Inequality(a,b)](#M-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-op_Inequality-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType,Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType- 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType.op_Inequality(Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType,Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType)')
 - [ClientContextKey](#T-Microsoft-VisualStudio-Extensibility-ClientContextKey 'Microsoft.VisualStudio.Extensibility.ClientContextKey')
   - [Custom(value)](#M-Microsoft-VisualStudio-Extensibility-ClientContextKey-Custom-System-String- 'Microsoft.VisualStudio.Extensibility.ClientContextKey.Custom(System.String)')
   - [Equals()](#M-Microsoft-VisualStudio-Extensibility-ClientContextKey-Equals-System-Object- 'Microsoft.VisualStudio.Extensibility.ClientContextKey.Equals(System.Object)')
@@ -132,6 +115,16 @@
   - [CommandGroupConfiguration](#P-Microsoft-VisualStudio-Extensibility-Commands-ContainerChild-CommandGroupConfiguration 'Microsoft.VisualStudio.Extensibility.Commands.ContainerChild.CommandGroupConfiguration')
   - [IsSeparator](#P-Microsoft-VisualStudio-Extensibility-Commands-ContainerChild-IsSeparator 'Microsoft.VisualStudio.Extensibility.Commands.ContainerChild.IsSeparator')
   - [GetSeparatorId(owningFullClassName)](#M-Microsoft-VisualStudio-Extensibility-Commands-ContainerChild-GetSeparatorId-System-String- 'Microsoft.VisualStudio.Extensibility.Commands.ContainerChild.GetSeparatorId(System.String)')
+- [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement')
+  - [Custom(value)](#M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-Custom-System-String- 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.Custom(System.String)')
+  - [Equals()](#M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-Equals-System-Object- 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.Equals(System.Object)')
+  - [Equals()](#M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-Equals-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement- 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.Equals(Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement)')
+  - [GetHashCode()](#M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-GetHashCode 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.GetHashCode')
+  - [ToString()](#M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-ToString 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.ToString')
+  - [op_Equality(a,b)](#M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-op_Equality-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement,Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement- 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.op_Equality(Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement,Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement)')
+  - [op_Implicit(value)](#M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-op_Implicit-System-String-~Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.op_Implicit(System.String)~Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement')
+  - [op_Implicit(value)](#M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-op_Implicit-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-~System-String 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.op_Implicit(Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement)~System.String')
+  - [op_Inequality(a,b)](#M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-op_Inequality-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement,Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement- 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.op_Inequality(Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement,Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement)')
 - [ControlContainerConfiguration](#T-Microsoft-VisualStudio-Extensibility-Commands-ControlContainerConfiguration 'Microsoft.VisualStudio.Extensibility.Commands.ControlContainerConfiguration')
   - [#ctor(displayName)](#M-Microsoft-VisualStudio-Extensibility-Commands-ControlContainerConfiguration-#ctor-System-String- 'Microsoft.VisualStudio.Extensibility.Commands.ControlContainerConfiguration.#ctor(System.String)')
   - [DisplayName](#P-Microsoft-VisualStudio-Extensibility-Commands-ControlContainerConfiguration-DisplayName 'Microsoft.VisualStudio.Extensibility.Commands.ControlContainerConfiguration.DisplayName')
@@ -176,12 +169,22 @@
   - [Equals()](#M-Microsoft-VisualStudio-Extensibility-DocumentFilter-Equals-Microsoft-VisualStudio-Extensibility-DocumentFilter- 'Microsoft.VisualStudio.Extensibility.DocumentFilter.Equals(Microsoft.VisualStudio.Extensibility.DocumentFilter)')
   - [Equals()](#M-Microsoft-VisualStudio-Extensibility-DocumentFilter-Equals-System-Object- 'Microsoft.VisualStudio.Extensibility.DocumentFilter.Equals(System.Object)')
   - [FromDocumentType(documentType)](#M-Microsoft-VisualStudio-Extensibility-DocumentFilter-FromDocumentType-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeConfiguration- 'Microsoft.VisualStudio.Extensibility.DocumentFilter.FromDocumentType(Microsoft.VisualStudio.Extensibility.Editor.DocumentTypeConfiguration)')
-  - [FromDocumentType(documentType)](#M-Microsoft-VisualStudio-Extensibility-DocumentFilter-FromDocumentType-System-String- 'Microsoft.VisualStudio.Extensibility.DocumentFilter.FromDocumentType(System.String)')
+  - [FromDocumentType(documentType)](#M-Microsoft-VisualStudio-Extensibility-DocumentFilter-FromDocumentType-Microsoft-VisualStudio-Extensibility-Editor-DocumentType- 'Microsoft.VisualStudio.Extensibility.DocumentFilter.FromDocumentType(Microsoft.VisualStudio.Extensibility.Editor.DocumentType)')
   - [FromGlobPattern(pattern,relativePath)](#M-Microsoft-VisualStudio-Extensibility-DocumentFilter-FromGlobPattern-System-String,System-Boolean- 'Microsoft.VisualStudio.Extensibility.DocumentFilter.FromGlobPattern(System.String,System.Boolean)')
   - [GetHashCode()](#M-Microsoft-VisualStudio-Extensibility-DocumentFilter-GetHashCode 'Microsoft.VisualStudio.Extensibility.DocumentFilter.GetHashCode')
+- [DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType')
+  - [Custom(value)](#M-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-Custom-System-String- 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType.Custom(System.String)')
+  - [Equals()](#M-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-Equals-System-Object- 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType.Equals(System.Object)')
+  - [Equals()](#M-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-Equals-Microsoft-VisualStudio-Extensibility-Editor-DocumentType- 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType.Equals(Microsoft.VisualStudio.Extensibility.Editor.DocumentType)')
+  - [GetHashCode()](#M-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-GetHashCode 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType.GetHashCode')
+  - [ToString()](#M-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-ToString 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType.ToString')
+  - [op_Equality(a,b)](#M-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-op_Equality-Microsoft-VisualStudio-Extensibility-Editor-DocumentType,Microsoft-VisualStudio-Extensibility-Editor-DocumentType- 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType.op_Equality(Microsoft.VisualStudio.Extensibility.Editor.DocumentType,Microsoft.VisualStudio.Extensibility.Editor.DocumentType)')
+  - [op_Implicit(value)](#M-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-op_Implicit-System-String-~Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType.op_Implicit(System.String)~Microsoft.VisualStudio.Extensibility.Editor.DocumentType')
+  - [op_Implicit(value)](#M-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-op_Implicit-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-~System-String 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType.op_Implicit(Microsoft.VisualStudio.Extensibility.Editor.DocumentType)~System.String')
+  - [op_Inequality(a,b)](#M-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-op_Inequality-Microsoft-VisualStudio-Extensibility-Editor-DocumentType,Microsoft-VisualStudio-Extensibility-Editor-DocumentType- 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType.op_Inequality(Microsoft.VisualStudio.Extensibility.Editor.DocumentType,Microsoft.VisualStudio.Extensibility.Editor.DocumentType)')
 - [DocumentTypeConfiguration](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeConfiguration 'Microsoft.VisualStudio.Extensibility.Editor.DocumentTypeConfiguration')
   - [#ctor(name)](#M-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeConfiguration-#ctor-System-String- 'Microsoft.VisualStudio.Extensibility.Editor.DocumentTypeConfiguration.#ctor(System.String)')
-  - [BaseDocumentTypes](#P-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeConfiguration-BaseDocumentTypes 'Microsoft.VisualStudio.Extensibility.Editor.DocumentTypeConfiguration.BaseDocumentTypes')
+  - [BaseDocumentType](#P-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeConfiguration-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentTypeConfiguration.BaseDocumentType')
   - [FileExtensions](#P-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeConfiguration-FileExtensions 'Microsoft.VisualStudio.Extensibility.Editor.DocumentTypeConfiguration.FileExtensions')
   - [Name](#P-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeConfiguration-Name 'Microsoft.VisualStudio.Extensibility.Editor.DocumentTypeConfiguration.Name')
   - [Equals()](#M-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeConfiguration-Equals-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeConfiguration- 'Microsoft.VisualStudio.Extensibility.Editor.DocumentTypeConfiguration.Equals(Microsoft.VisualStudio.Extensibility.Editor.DocumentTypeConfiguration)')
@@ -265,21 +268,31 @@
   - [ExtensionsMenu](#P-Microsoft-VisualStudio-Extensibility-Commands-GroupPlacement-KnownPlacements-ExtensionsMenu 'Microsoft.VisualStudio.Extensibility.Commands.GroupPlacement.KnownPlacements.ExtensionsMenu')
   - [ToolsMenu](#P-Microsoft-VisualStudio-Extensibility-Commands-GroupPlacement-KnownPlacements-ToolsMenu 'Microsoft.VisualStudio.Extensibility.Commands.GroupPlacement.KnownPlacements.ToolsMenu')
   - [ViewOtherWindowsMenu](#P-Microsoft-VisualStudio-Extensibility-Commands-GroupPlacement-KnownPlacements-ViewOtherWindowsMenu 'Microsoft.VisualStudio.Extensibility.Commands.GroupPlacement.KnownPlacements.ViewOtherWindowsMenu')
+- [KnownValues](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.KnownValues')
+- [KnownValues](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-KnownValues 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType.KnownValues')
 - [KnownValues](#T-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues')
 - [KnownValues](#T-Microsoft-VisualStudio-Extensibility-ImageMoniker-KnownValues 'Microsoft.VisualStudio.Extensibility.ImageMoniker.KnownValues')
-  - [Bottom](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-Bottom 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.Bottom')
-  - [BottomControl](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-BottomControl 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.BottomControl')
-  - [BottomRightCorner](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-BottomRightCorner 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.BottomRightCorner')
+  - [Bottom](#P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-Bottom 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.KnownValues.Bottom')
+  - [BottomControl](#P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-BottomControl 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.KnownValues.BottomControl')
+  - [BottomRightCorner](#P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-BottomRightCorner 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.KnownValues.BottomRightCorner')
+  - [HorizontalScrollBarContainer](#P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-HorizontalScrollBarContainer 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.KnownValues.HorizontalScrollBarContainer')
+  - [Left](#P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-Left 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.KnownValues.Left')
+  - [LeftSelection](#P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-LeftSelection 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.KnownValues.LeftSelection')
+  - [Right](#P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-Right 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.KnownValues.Right')
+  - [RightControl](#P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-RightControl 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.KnownValues.RightControl')
+  - [Top](#P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-Top 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.KnownValues.Top')
+  - [VerticalScrollBar](#P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-VerticalScrollBar 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.KnownValues.VerticalScrollBar')
+  - [VerticalScrollBarContainer](#P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-VerticalScrollBarContainer 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.KnownValues.VerticalScrollBarContainer')
+  - [Code](#P-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-KnownValues-Code 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType.KnownValues.Code')
+  - [PlainText](#P-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-KnownValues-PlainText 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType.KnownValues.PlainText')
+  - [Text](#P-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-KnownValues-Text 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType.KnownValues.Text')
   - [ChrMargin](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-ChrMargin 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.ChrMargin')
   - [ColMargin](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-ColMargin 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.ColMargin')
   - [FileHealthIndicator](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-FileHealthIndicator 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.FileHealthIndicator')
   - [Glyph](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-Glyph 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.Glyph')
   - [HorizontalScrollBar](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-HorizontalScrollBar 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.HorizontalScrollBar')
-  - [HorizontalScrollBarContainer](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-HorizontalScrollBarContainer 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.HorizontalScrollBarContainer')
   - [IndentationCharacterMargin](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-IndentationCharacterMargin 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.IndentationCharacterMargin')
   - [InsertModeMargin](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-InsertModeMargin 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.InsertModeMargin')
-  - [Left](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-Left 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.Left')
-  - [LeftSelection](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-LeftSelection 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.LeftSelection')
   - [LineEndingMargin](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-LineEndingMargin 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.LineEndingMargin')
   - [LineNumber](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-LineNumber 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.LineNumber')
   - [Outlining](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-Outlining 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.Outlining')
@@ -287,15 +300,11 @@
   - [OverviewError](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-OverviewError 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.OverviewError')
   - [OverviewMark](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-OverviewMark 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.OverviewMark')
   - [OverviewSourceImage](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-OverviewSourceImage 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.OverviewSourceImage')
-  - [Right](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-Right 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.Right')
-  - [RightControl](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-RightControl 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.RightControl')
   - [RowMargin](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-RowMargin 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.RowMargin')
   - [SelectionStateMargin](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-SelectionStateMargin 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.SelectionStateMargin')
   - [Spacer](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-Spacer 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.Spacer')
   - [Suggestion](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-Suggestion 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.Suggestion')
-  - [Top](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-Top 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.Top')
   - [VerticalScrollBar](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-VerticalScrollBar 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.VerticalScrollBar')
-  - [VerticalScrollBarContainer](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-VerticalScrollBarContainer 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.VerticalScrollBarContainer')
   - [ZoomControl](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-ZoomControl 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.ZoomControl')
 - [LocalizableStringAttribute](#T-Microsoft-VisualStudio-Extensibility-LocalizableStringAttribute 'Microsoft.VisualStudio.Extensibility.LocalizableStringAttribute')
 - [MarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement')
@@ -473,9 +482,9 @@
   - [Pixel](#F-Microsoft-VisualStudio-Extensibility-Editor-TextViewMarginGridUnitType-Pixel 'Microsoft.VisualStudio.Extensibility.Editor.TextViewMarginGridUnitType.Pixel')
   - [Star](#F-Microsoft-VisualStudio-Extensibility-Editor-TextViewMarginGridUnitType-Star 'Microsoft.VisualStudio.Extensibility.Editor.TextViewMarginGridUnitType.Star')
 - [TextViewMarginProviderConfiguration](#T-Microsoft-VisualStudio-Extensibility-Editor-TextViewMarginProviderConfiguration 'Microsoft.VisualStudio.Extensibility.Editor.TextViewMarginProviderConfiguration')
-  - [#ctor(marginContainer)](#M-Microsoft-VisualStudio-Extensibility-Editor-TextViewMarginProviderConfiguration-#ctor-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement- 'Microsoft.VisualStudio.Extensibility.Editor.TextViewMarginProviderConfiguration.#ctor(Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement)')
-  - [AfterMargin](#P-Microsoft-VisualStudio-Extensibility-Editor-TextViewMarginProviderConfiguration-AfterMargin 'Microsoft.VisualStudio.Extensibility.Editor.TextViewMarginProviderConfiguration.AfterMargin')
-  - [BeforeMargin](#P-Microsoft-VisualStudio-Extensibility-Editor-TextViewMarginProviderConfiguration-BeforeMargin 'Microsoft.VisualStudio.Extensibility.Editor.TextViewMarginProviderConfiguration.BeforeMargin')
+  - [#ctor(marginContainer)](#M-Microsoft-VisualStudio-Extensibility-Editor-TextViewMarginProviderConfiguration-#ctor-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement- 'Microsoft.VisualStudio.Extensibility.Editor.TextViewMarginProviderConfiguration.#ctor(Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement)')
+  - [After](#P-Microsoft-VisualStudio-Extensibility-Editor-TextViewMarginProviderConfiguration-After 'Microsoft.VisualStudio.Extensibility.Editor.TextViewMarginProviderConfiguration.After')
+  - [Before](#P-Microsoft-VisualStudio-Extensibility-Editor-TextViewMarginProviderConfiguration-Before 'Microsoft.VisualStudio.Extensibility.Editor.TextViewMarginProviderConfiguration.Before')
   - [GridCellLength](#P-Microsoft-VisualStudio-Extensibility-Editor-TextViewMarginProviderConfiguration-GridCellLength 'Microsoft.VisualStudio.Extensibility.Editor.TextViewMarginProviderConfiguration.GridCellLength')
   - [GridUnitType](#P-Microsoft-VisualStudio-Extensibility-Editor-TextViewMarginProviderConfiguration-GridUnitType 'Microsoft.VisualStudio.Extensibility.Editor.TextViewMarginProviderConfiguration.GridUnitType')
   - [MarginContainer](#P-Microsoft-VisualStudio-Extensibility-Editor-TextViewMarginProviderConfiguration-MarginContainer 'Microsoft.VisualStudio.Extensibility.Editor.TextViewMarginProviderConfiguration.MarginContainer')
@@ -1070,197 +1079,6 @@ This method has no parameters.
 ##### Parameters
 
 This method has no parameters.
-
-<a name='T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType'></a>
-## BaseDocumentType `type`
-
-##### Namespace
-
-Microsoft.VisualStudio.Extensibility.Editor
-
-##### Summary
-
-A base that a document type inherits from.
-
-##### See Also
-
-- [Microsoft.VisualStudio.Extensibility.Editor.DocumentTypeConfiguration](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeConfiguration 'Microsoft.VisualStudio.Extensibility.Editor.DocumentTypeConfiguration')
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-CodeRemoteBase'></a>
-### CodeRemoteBase `property`
-
-##### Summary
-
-Gets the code code remote [BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType'). Lights up language server features without activating TextMate.
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-CodeRemoteContent'></a>
-### CodeRemoteContent `property`
-
-##### Summary
-
-Gets the code remote [BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType'). Lights up all TextMate features (colorization, brace completion, folding ranges).
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-CodeRemoteTextMateBraceCompletion'></a>
-### CodeRemoteTextMateBraceCompletion `property`
-
-##### Summary
-
-Gets the code remote brace completion [BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType') Activates TextMate brace completion.
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-CodeRemoteTextMateColorization'></a>
-### CodeRemoteTextMateColorization `property`
-
-##### Summary
-
-Gets the code remote colorization [BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType'). Activates TextMate colorization.
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-CodeRemoteTextMateIndentation'></a>
-### CodeRemoteTextMateIndentation `property`
-
-##### Summary
-
-Gets the code remote smart indentation [BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType'). Activates TextMate smart indentation.
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-CodeRemoteTextMateStructure'></a>
-### CodeRemoteTextMateStructure `property`
-
-##### Summary
-
-Gets the code remote structure [BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType'). Activates TextMate folding ranges.
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-RemoteBase'></a>
-### RemoteBase `property`
-
-##### Summary
-
-Gets the code remote [BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType'). Lights up language server features without activating TextMate.
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-Custom-System-String-'></a>
-### Custom(value) `method`
-
-##### Summary
-
-Initializes a [BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType') value.
-
-##### Returns
-
-The [BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType') value.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The string value of [BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType'). |
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-Equals-System-Object-'></a>
-### Equals() `method`
-
-##### Summary
-
-*Inherit from parent.*
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-Equals-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-'></a>
-### Equals() `method`
-
-##### Summary
-
-*Inherit from parent.*
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-GetHashCode'></a>
-### GetHashCode() `method`
-
-##### Summary
-
-*Inherit from parent.*
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-ToString'></a>
-### ToString() `method`
-
-##### Summary
-
-Returns the string value of [BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType').
-
-##### Returns
-
-The string value of [BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType').
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-op_Equality-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType,Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-'></a>
-### op_Equality(a,b) `method`
-
-##### Summary
-
-Compares two [BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType') values returning whether they are equal.
-
-##### Returns
-
-Whether the two values are equal.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| a | [Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType') | The first value to compare. |
-| b | [Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType') | The second value to compare. |
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-op_Implicit-System-String-~Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType'></a>
-### op_Implicit(value) `method`
-
-##### Summary
-
-Implicitly converts a `string` to a [BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType').
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| value | [System.String)~Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String)~Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType 'System.String)~Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType') | The string value of [BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType'). |
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-op_Implicit-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-~System-String'></a>
-### op_Implicit(value) `method`
-
-##### Summary
-
-Implicitly converts a [BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType') to a `string`.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| value | [Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType)~System.String](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-~System-String 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType)~System.String') | The [BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType') to be converted. |
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-op_Inequality-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType,Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType-'></a>
-### op_Inequality(a,b) `method`
-
-##### Summary
-
-Compares two [BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType') values returning whether they are different.
-
-##### Returns
-
-Whether the two values are different.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| a | [Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType') | The first instance to compare. |
-| b | [Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-BaseDocumentType 'Microsoft.VisualStudio.Extensibility.Editor.BaseDocumentType') | The second instance to compare. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-ClientContextKey'></a>
 ## ClientContextKey `type`
@@ -2040,6 +1858,144 @@ The separator id.
 | ---- | ---- | ----------- |
 | owningFullClassName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The full class name of the class owning the separator. |
 
+<a name='T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement'></a>
+## ContainerMarginPlacement `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.Editor
+
+##### Summary
+
+Identifies a text view margin that contains other margins.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-Custom-System-String-'></a>
+### Custom(value) `method`
+
+##### Summary
+
+Initializes a [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement') value.
+
+##### Returns
+
+The [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement') value.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The string value of [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement'). |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-Equals-System-Object-'></a>
+### Equals() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-Equals-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-'></a>
+### Equals() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-GetHashCode'></a>
+### GetHashCode() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-ToString'></a>
+### ToString() `method`
+
+##### Summary
+
+Returns the string value of [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement').
+
+##### Returns
+
+The string value of [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement').
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-op_Equality-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement,Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-'></a>
+### op_Equality(a,b) `method`
+
+##### Summary
+
+Compares two [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement') values returning whether they are equal.
+
+##### Returns
+
+Whether the two values are equal.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | [Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement') | The first value to compare. |
+| b | [Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement') | The second value to compare. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-op_Implicit-System-String-~Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement'></a>
+### op_Implicit(value) `method`
+
+##### Summary
+
+Implicitly converts a `string` to a [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement').
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| value | [System.String)~Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String)~Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement 'System.String)~Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement') | The string value of [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement'). |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-op_Implicit-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-~System-String'></a>
+### op_Implicit(value) `method`
+
+##### Summary
+
+Implicitly converts a [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement') to a `string`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| value | [Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement)~System.String](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-~System-String 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement)~System.String') | The [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement') to be converted. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-op_Inequality-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement,Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-'></a>
+### op_Inequality(a,b) `method`
+
+##### Summary
+
+Compares two [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement') values returning whether they are different.
+
+##### Returns
+
+Whether the two values are different.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | [Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement') | The first instance to compare. |
+| b | [Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement') | The second instance to compare. |
+
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-ControlContainerConfiguration'></a>
 ## ControlContainerConfiguration `type`
 
@@ -2506,7 +2462,7 @@ The [DocumentFilter](#T-Microsoft-VisualStudio-Extensibility-DocumentFilter 'Mic
 | documentType | [Microsoft.VisualStudio.Extensibility.Editor.DocumentTypeConfiguration](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeConfiguration 'Microsoft.VisualStudio.Extensibility.Editor.DocumentTypeConfiguration') | The type of a document. Document type is frequently used to target specific
 languages. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-DocumentFilter-FromDocumentType-System-String-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-DocumentFilter-FromDocumentType-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-'></a>
 ### FromDocumentType(documentType) `method`
 
 ##### Summary
@@ -2521,7 +2477,7 @@ The [DocumentFilter](#T-Microsoft-VisualStudio-Extensibility-DocumentFilter 'Mic
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| documentType | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The type of a document. Document type is frequently used to target specific
+| documentType | [Microsoft.VisualStudio.Extensibility.Editor.DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType') | The type of a document. Document type is frequently used to target specific
 languages. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DocumentFilter-FromGlobPattern-System-String,System-Boolean-'></a>
@@ -2529,7 +2485,7 @@ languages. |
 
 ##### Summary
 
-Creates a [DocumentFilter](#T-Microsoft-VisualStudio-Extensibility-DocumentFilter 'Microsoft.VisualStudio.Extensibility.DocumentFilter') from a glob pattern matchihing the document file path.
+Creates a [DocumentFilter](#T-Microsoft-VisualStudio-Extensibility-DocumentFilter 'Microsoft.VisualStudio.Extensibility.DocumentFilter') from a glob pattern matching the document file path.
 
 ##### Returns
 
@@ -2567,6 +2523,149 @@ The [DocumentFilter](#T-Microsoft-VisualStudio-Extensibility-DocumentFilter 'Mic
 
 This method has no parameters.
 
+<a name='T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType'></a>
+## DocumentType `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.Editor
+
+##### Summary
+
+A document type identifies document content as belonging to a specific
+category, such as of some programming language or more generally just as code
+or as text. Visual Studio enables various features based on current document type,
+while extensions use document type to define their activation criteria.
+An extension can define a new document type and map it to file extensions
+using [DocumentTypeConfiguration](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeConfiguration 'Microsoft.VisualStudio.Extensibility.Editor.DocumentTypeConfiguration').
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-Custom-System-String-'></a>
+### Custom(value) `method`
+
+##### Summary
+
+Initializes a [DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType') value.
+
+##### Returns
+
+The [DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType') value.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The string value of [DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType'). |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-Equals-System-Object-'></a>
+### Equals() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-Equals-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-'></a>
+### Equals() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-GetHashCode'></a>
+### GetHashCode() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-ToString'></a>
+### ToString() `method`
+
+##### Summary
+
+Returns the string value of [DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType').
+
+##### Returns
+
+The string value of [DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType').
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-op_Equality-Microsoft-VisualStudio-Extensibility-Editor-DocumentType,Microsoft-VisualStudio-Extensibility-Editor-DocumentType-'></a>
+### op_Equality(a,b) `method`
+
+##### Summary
+
+Compares two [DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType') values returning whether they are equal.
+
+##### Returns
+
+Whether the two values are equal.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | [Microsoft.VisualStudio.Extensibility.Editor.DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType') | The first value to compare. |
+| b | [Microsoft.VisualStudio.Extensibility.Editor.DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType') | The second value to compare. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-op_Implicit-System-String-~Microsoft-VisualStudio-Extensibility-Editor-DocumentType'></a>
+### op_Implicit(value) `method`
+
+##### Summary
+
+Implicitly converts a `string` to a [DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType').
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| value | [System.String)~Microsoft.VisualStudio.Extensibility.Editor.DocumentType](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String)~Microsoft.VisualStudio.Extensibility.Editor.DocumentType 'System.String)~Microsoft.VisualStudio.Extensibility.Editor.DocumentType') | The string value of [DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType'). |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-op_Implicit-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-~System-String'></a>
+### op_Implicit(value) `method`
+
+##### Summary
+
+Implicitly converts a [DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType') to a `string`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| value | [Microsoft.VisualStudio.Extensibility.Editor.DocumentType)~System.String](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-~System-String 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType)~System.String') | The [DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType') to be converted. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-op_Inequality-Microsoft-VisualStudio-Extensibility-Editor-DocumentType,Microsoft-VisualStudio-Extensibility-Editor-DocumentType-'></a>
+### op_Inequality(a,b) `method`
+
+##### Summary
+
+Compares two [DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType') values returning whether they are different.
+
+##### Returns
+
+Whether the two values are different.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| a | [Microsoft.VisualStudio.Extensibility.Editor.DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType') | The first instance to compare. |
+| b | [Microsoft.VisualStudio.Extensibility.Editor.DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType') | The second instance to compare. |
+
 <a name='T-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeConfiguration'></a>
 ## DocumentTypeConfiguration `type`
 
@@ -2591,12 +2690,12 @@ Initializes a new instance of the [DocumentTypeConfiguration](#T-Microsoft-Visua
 | ---- | ---- | ----------- |
 | name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The document type name. Document type names are case-insensitive. |
 
-<a name='P-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeConfiguration-BaseDocumentTypes'></a>
-### BaseDocumentTypes `property`
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeConfiguration-BaseDocumentType'></a>
+### BaseDocumentType `property`
 
 ##### Summary
 
-Gets or sets bases this document type inherits from.
+Gets or sets base this document type inherits from.
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeConfiguration-FileExtensions'></a>
 ### FileExtensions `property`
@@ -3563,6 +3662,29 @@ Gets the Tools top level menu.
 
 Gets the View -> Other Windows menu.
 
+<a name='T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues'></a>
+## KnownValues `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement
+
+##### Summary
+
+Well-known [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement') values for container margins supplied by Visual Studio.
+
+<a name='T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-KnownValues'></a>
+## KnownValues `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.Editor.DocumentType
+
+##### Summary
+
+Known document types extensions can target or derive their custom
+document types from.
+
 <a name='T-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues'></a>
 ## KnownValues `type`
 
@@ -3585,31 +3707,122 @@ Microsoft.VisualStudio.Extensibility.ImageMoniker
 
 Well-known [ImageMoniker](#T-Microsoft-VisualStudio-Extensibility-ImageMoniker 'Microsoft.VisualStudio.Extensibility.ImageMoniker') values for images supplied with the Visual Studio image catalog.
 
-<a name='P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-Bottom'></a>
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-Bottom'></a>
 ### Bottom `property`
 
 ##### Summary
 
-The margin below the text view.
+The container margin below the text view.
 
-<a name='P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-BottomControl'></a>
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-BottomControl'></a>
 ### BottomControl `property`
 
 ##### Summary
 
-A horizontal margin container in the [Bottom](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-Bottom 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.Bottom') margin that contains the [HorizontalScrollBarContainer](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-HorizontalScrollBarContainer 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.HorizontalScrollBarContainer').
+A horizontal margin container in the [Bottom](#P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-Bottom 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.KnownValues.Bottom') margin that contains the [HorizontalScrollBarContainer](#P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-HorizontalScrollBarContainer 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.KnownValues.HorizontalScrollBarContainer').
 
 ##### Remarks
 
 Margins that wish to appear to the left or right of the horizontal scrollbar and all its siblings should be added to
 this container margin.
 
-<a name='P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-BottomRightCorner'></a>
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-BottomRightCorner'></a>
 ### BottomRightCorner `property`
 
 ##### Summary
 
-The margin to the right of the "Bottom" margin and below the "Right" margin.
+The container margin to the right of the "Bottom" margin and below the "Right" margin.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-HorizontalScrollBarContainer'></a>
+### HorizontalScrollBarContainer `property`
+
+##### Summary
+
+The container margin that contains the [HorizontalScrollBar](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-HorizontalScrollBar 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.HorizontalScrollBar') by default.
+
+##### Remarks
+
+Other margins can be placed to the left or right of the [HorizontalScrollBar](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-HorizontalScrollBar 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.HorizontalScrollBar') depending on their order attribute.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-Left'></a>
+### Left `property`
+
+##### Summary
+
+The container margin to the left of the text view.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-LeftSelection'></a>
+### LeftSelection `property`
+
+##### Summary
+
+The container margin to the left of the text view that implements mouse handlers for line selection.
+This behavior is inherited by margins contained in the left selection margin.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-Right'></a>
+### Right `property`
+
+##### Summary
+
+The container margin to the right of the text view.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-RightControl'></a>
+### RightControl `property`
+
+##### Summary
+
+A vertical margin container in the [Right](#P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-Right 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.KnownValues.Right') margin that contains the [VerticalScrollBarContainer](#P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-VerticalScrollBarContainer 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.KnownValues.VerticalScrollBarContainer').
+
+##### Remarks
+
+Margins that wish to appear on top or bottom of the vertical scrollbar and all its siblings should be added
+to this container margin.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-Top'></a>
+### Top `property`
+
+##### Summary
+
+The container margin above the text view.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-VerticalScrollBar'></a>
+### VerticalScrollBar `property`
+
+##### Summary
+
+The standard vertical scrollbar.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-VerticalScrollBarContainer'></a>
+### VerticalScrollBarContainer `property`
+
+##### Summary
+
+The container margin that contains the [VerticalScrollBar](#P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-VerticalScrollBar 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.KnownValues.VerticalScrollBar') by default.
+
+##### Remarks
+
+Other margins can be placed above or below the [VerticalScrollBar](#P-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-KnownValues-VerticalScrollBar 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement.KnownValues.VerticalScrollBar') depending on their order attribute.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-KnownValues-Code'></a>
+### Code `property`
+
+##### Summary
+
+Gets base document type of any document containing code. Derives from [Text](#P-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-KnownValues-Text 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType.KnownValues.Text').
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-KnownValues-PlainText'></a>
+### PlainText `property`
+
+##### Summary
+
+Gets base document type of plain text files.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-KnownValues-Text'></a>
+### Text `property`
+
+##### Summary
+
+Gets base document type of any text based document.
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-ChrMargin'></a>
 ### ChrMargin `property`
@@ -3646,17 +3859,6 @@ The margin to the left of the text view that shows breakpoint and other glyphs.
 
 The standard horizontal scrollbar.
 
-<a name='P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-HorizontalScrollBarContainer'></a>
-### HorizontalScrollBarContainer `property`
-
-##### Summary
-
-The container margin that contains the [HorizontalScrollBar](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-HorizontalScrollBar 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.HorizontalScrollBar') by default.
-
-##### Remarks
-
-Other margins can be placed to the left or right of the [HorizontalScrollBar](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-HorizontalScrollBar 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.HorizontalScrollBar') depending on their order attribute.
-
 <a name='P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-IndentationCharacterMargin'></a>
 ### IndentationCharacterMargin `property`
 
@@ -3670,21 +3872,6 @@ The margin to the right of the horizontal scrollbar describing what character ge
 ##### Summary
 
 The margin to the right of the horizontal scrollbar containing the state of Insert/Overwrite mode.
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-Left'></a>
-### Left `property`
-
-##### Summary
-
-The margin to the left of the text view.
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-LeftSelection'></a>
-### LeftSelection `property`
-
-##### Summary
-
-The margin to the left of the text view that implements mouse handlers for line selection.
-This behavior is inherited by margins contained in the left selection margin.
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-LineEndingMargin'></a>
 ### LineEndingMargin `property`
@@ -3735,25 +3922,6 @@ Name of the margin that shows marks in the entire file.
 
 Name of the margin that shows a zoomed-out image of the entire file.
 
-<a name='P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-Right'></a>
-### Right `property`
-
-##### Summary
-
-The margin to the right of the text view.
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-RightControl'></a>
-### RightControl `property`
-
-##### Summary
-
-A vertical margin container in the [Right](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-Right 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.Right') margin that contains the [VerticalScrollBarContainer](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-VerticalScrollBarContainer 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.VerticalScrollBarContainer').
-
-##### Remarks
-
-Margins that wish to appear on top or bottom of the vertical scrollbar and all its siblings should be added
-to this container margin.
-
 <a name='P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-RowMargin'></a>
 ### RowMargin `property`
 
@@ -3783,30 +3951,12 @@ has changed in the current session.
 
 The margin to the left of the text view that shows suggestion glyphs such as the Light Bulb.
 
-<a name='P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-Top'></a>
-### Top `property`
-
-##### Summary
-
-The margin above the text view.
-
 <a name='P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-VerticalScrollBar'></a>
 ### VerticalScrollBar `property`
 
 ##### Summary
 
 The standard vertical scrollbar.
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-VerticalScrollBarContainer'></a>
-### VerticalScrollBarContainer `property`
-
-##### Summary
-
-The container margin that contains the [VerticalScrollBar](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-VerticalScrollBar 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.VerticalScrollBar') by default.
-
-##### Remarks
-
-Other margins can be placed above or below the [VerticalScrollBar](#P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-VerticalScrollBar 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement.KnownValues.VerticalScrollBar') depending on their order attribute.
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-KnownValues-ZoomControl'></a>
 ### ZoomControl `property`
@@ -3838,7 +3988,7 @@ Microsoft.VisualStudio.Extensibility.Editor
 
 ##### Summary
 
-Identifies a text view margin that contains other margins.
+Identifies a text view margin placement.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-Custom-System-String-'></a>
 ### Custom(value) `method`
@@ -5486,9 +5636,9 @@ Microsoft.VisualStudio.Extensibility.Editor
 
 ##### Summary
 
-Configuration for an ITextViewListener extension part.
+Configuration for an ITextViewMarginProvider extension part.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Editor-TextViewMarginProviderConfiguration-#ctor-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-TextViewMarginProviderConfiguration-#ctor-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-'></a>
 ### #ctor(marginContainer) `constructor`
 
 ##### Summary
@@ -5503,17 +5653,17 @@ The [TextViewMarginProviderConfiguration](#T-Microsoft-VisualStudio-Extensibilit
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| marginContainer | [Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement') | The margin that contains this margin. |
+| marginContainer | [Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement') | The margin that contains this margin. |
 
-<a name='P-Microsoft-VisualStudio-Extensibility-Editor-TextViewMarginProviderConfiguration-AfterMargin'></a>
-### AfterMargin `property`
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-TextViewMarginProviderConfiguration-After'></a>
+### After `property`
 
 ##### Summary
 
 Gets or sets the optional margin after which this margin should be placed.
 
-<a name='P-Microsoft-VisualStudio-Extensibility-Editor-TextViewMarginProviderConfiguration-BeforeMargin'></a>
-### BeforeMargin `property`
+<a name='P-Microsoft-VisualStudio-Extensibility-Editor-TextViewMarginProviderConfiguration-Before'></a>
+### Before `property`
 
 ##### Summary
 

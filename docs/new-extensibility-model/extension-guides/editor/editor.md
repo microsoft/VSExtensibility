@@ -242,7 +242,7 @@ For more information, see [StreamJsonRpc Default Ordering and Concurrency](https
 ## Extending Visual Studio editor with a new margin
 Extensions can contribute new text view margins to the Visual Studio editor. A text view margin is a rectangular UI control attached to a text wiew on one of its four sides. 
 
-Text view margins are placed into a margin container (see ContainerMarginPlacement.KnownValues) and ordered before or after relatively to other margins (see MarginPlacement.KnownValues).
+Text view margins are placed into a margin container (see [ContainerMarginPlacement.KnownValues](../../api/Microsoft.VisualStudio.Extensibility.Contracts.md#knownvalues-type)) and ordered before or after relatively to other margins (see [MarginPlacement.KnownValues](../../api/Microsoft.VisualStudio.Extensibility.Contracts.md#knownvalues-type-2)).
 
 Text view margin providers implement [ITextViewMarginProvider](../../api/Microsoft.VisualStudio.Extensibility.Editor.md#itextviewmarginprovider-type) interface, configure the margin they provide by implementing [TextViewMarginProviderConfiguration](../../api/Microsoft.VisualStudio.Extensibility.Editor.md#textviewmarginproviderconfiguration-property) and when activated, provide UI control to be hosted in the margin via [CreateVisualElementAsync](../../api/Microsoft.VisualStudio.Extensibility.Editor.md#createvisualelementasync-method).
 
@@ -271,11 +271,13 @@ public async Task<IRemoteUserControl> CreateVisualElementAsync(ITextViewSnapshot
 }
 ```
 
-Text view margins typically visualize some data related to the text view (e.g. current line number or the count of errors) so most text view margin providers would also need to [listen to text view events](#add-a-text-view-listener) to react to opening, closing of text views and user typing.
+Text view margins typically visualize some data related to the text view (e.g. current line number or the count of errors) so most text view margin providers would also want to [listen to text view events](#add-a-text-view-listener) to react to opening, closing of text views and user typing.
 
 There will be only one instance of your text view margin provider instantiated regardless of how many applicable text views user opens so if your margin displays some statefull data, your provider will need to keep the state of currently open text views.
 
 See [Word Count Margin Sample](../../../../New_Extensibility_Model/Samples/ToolWindowSample/) for more details.
+
+Note that vertical text view margins whose content needs to be aligned with text view lines are not yet supported.
 
 ## Next steps
 
