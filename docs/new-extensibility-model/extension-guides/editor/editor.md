@@ -252,8 +252,7 @@ Because extensions in VisualStudio.Extensibility might be out-of-process from th
 /// <summary>
 /// Configures the margin to be placed to the left of built-in Visual Studio line number margin.
 /// </summary>
-public TextViewMarginProviderConfiguration TextViewMarginProviderConfiguration =>
-    new(marginContainer: ContainerMarginPlacement.KnownValues.BottomRightCorner)
+public TextViewMarginProviderConfiguration TextViewMarginProviderConfiguration => new(marginContainer: ContainerMarginPlacement.KnownValues.BottomRightCorner)
 {
     Before = new[] { MarginPlacement.KnownValues.RowMargin },
 };
@@ -263,7 +262,7 @@ public TextViewMarginProviderConfiguration TextViewMarginProviderConfiguration =
 /// </summary>
 public async Task<IRemoteUserControl> CreateVisualElementAsync(ITextViewSnapshot textView, CancellationToken cancellationToken)
 {
-    var documentSnapshot = await textView.GetTextDocumentAsync(cancellationToken).ConfigureAwait(false);
+    var documentSnapshot = await textView.GetTextDocumentAsync(cancellationToken);
     var dataModel = new WordCountData();
     dataModel.WordCount = CountWords(documentSnapshot);
     this.dataModels[textView.Uri] = dataModel;
@@ -271,11 +270,13 @@ public async Task<IRemoteUserControl> CreateVisualElementAsync(ITextViewSnapshot
 }
 ```
 
+In addition to configuring margin placement, text view margin providers can also configure the size of the grid cell in which the margin should be placed using [GridCellLength](../../api/Microsoft.VisualStudio.Extensibility.Contracts.md#gridcelllength-property) and [GridUnitType](../../api/Microsoft.VisualStudio.Extensibility.Contracts.md#gridunittype-property) properties.
+
 Text view margins typically visualize some data related to the text view (e.g. current line number or the count of errors) so most text view margin providers would also want to [listen to text view events](#add-a-text-view-listener) to react to opening, closing of text views and user typing.
 
 There will be only one instance of your text view margin provider instantiated regardless of how many applicable text views user opens so if your margin displays some statefull data, your provider will need to keep the state of currently open text views.
 
-See [Word Count Margin Sample](../../../../New_Extensibility_Model/Samples/ToolWindowSample/) for more details.
+See [Word Count Margin Sample](../../../../New_Extensibility_Model/Samples/WordCountMargin/) for more details.
 
 Note that vertical text view margins whose content needs to be aligned with text view lines are not yet supported.
 
