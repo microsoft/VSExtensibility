@@ -1,21 +1,36 @@
-# Project System and Project Query API Documentation
-Conceptual documentation about what the project system is, usages, and its various terms.
+---
+title: Project query conceptual reference
+description: 2023-2-13
+author: hgwelliver
+ms.author: hgwelliver
+ms.technology: vs-ide-sdk
+ms.topic: conceptual
+ms.date: 02/13/2023
+ms.custom: template-concept
+---
 
-## What is a project system?
-A project system sits between a project file on disk (for example, .csproj and .vbproj) and various Visual Studio features including, but not limited to, Solution Explorer, designers, the debugger, language services, build and deployment. Almost all interaction that occurs with files contained in a project file, happens through the project system.
-Find further information on project systems [here](https://github.com/microsoft/VSProjectSystem).
+# Project query API
 
-Project systems are a part of VS components to help users work with and maintain projects, run builds to produce results, and to test output.
+In Visual Studio, projects are collections of files that are compiled together into an executable or some other form of output, and solutions are collections of projects. Projects and solutions are represented on disk by project files and solution files, respectively. For more information, see [What are solutions and projects in Visual Studio?](https://learn.microsoft.com/visualstudio/ide/solutions-and-projects-in-visual-studio).
 
-The goal of the Project Query API is to:
-1. Work with Project Systems 
-1. Retrieve data from projects
-1. Make changes to projects
-Some examples include understanding files included in a project, NuGet packages referenced by a project, adding new files to a project, or changing project properties.
+The project system sits between a project or solution file on disk (for example, .csproj and .vbproj) and various Visual Studio features including, but not limited to, the Solution Explorer, designers, the debugger, language services, build and deployment. Project systems are a part of VS components to help users work with and maintain projects, run builds to produce results, and to test output, and almost all interaction that occurs with files contained in a project file happens through the project system. You can find more information on project systems [here](https://github.com/microsoft/VSProjectSystem).
 
-The new project query API allows for querying information from the project system.
+The goal of the project query API is to enable extensions to retrieve data about- and make changes to projects and solutions.
 
-## Project Query Specific Nouns
+Some examples of what you might do with a project query:
+
+- Enumerate the source files in a project
+- Check which NuGet packages are referenced by a project
+- Find all projects that have a given set of capabilities
+- Add new files to a project
+- Modify the properties of a project
+
+A project query is a series of clauses that reference various items. Please see the [Project Query Overview](./tutorial.md) for more information and for examples of project queries for common tasks.
+
+## Project query item types
+
+There are many different items you can reference in your project queries. Some items have children or child collections that can also be referenced. For example, a `WorkSpace` contains a collection of `Projects`, each of which contains a collection of `Files`.
+
 |Term|Description
 |---|---
 |WorkSpace| The top level workspace of the API to provide the entry point.
@@ -39,7 +54,10 @@ The new project query API allows for querying information from the project syste
 |LaunchProfile| Represents launch profiles defined in a project.
 |PropertyPage| Represents property pages shown for the project.
 
-## Project Query Specific Verbs
+## Project query clause types
+
+Clauses in your project query determine what kind of items should be returned in the output, which collection they should come from, which properties they should have, and whether the returned items should be mutable. Clauses are also used to limit and filter the output.
+
 |Term|Description
 |---|---
 |With| Requests value of a property/collection to be returned from the query.
@@ -51,3 +69,9 @@ The new project query API allows for querying information from the project syste
 |QueryFrom| Starts a query from a collection of previous retrieved objects.
 |AsUpdatable| Starts to update object from a query result.
 |ExecuteAsync| Executes an update query.
+
+## Next Steps
+
+To see some examples of project queries for common tasks, see the [Project Query Overview](./tutorial.md)
+
+For a sample extension that uses the project query API, see [Project Query Sample]()
