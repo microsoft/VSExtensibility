@@ -33,7 +33,7 @@ public override async Task<IRemoteUserControl> CreateVisualizerAsync(VisualizerT
 }
 ```
 
-Unfortunately `Match` is not serializable as-is, so we need a new serializable class [`RegexMatch`](RegexMatchObjectSource/RegexMatch.cs). And we will need to create a *visualizer object source* library to convert the `Match` into a serializable `RegexMatch`, more about this in [a later paragraph](#the-visualizer-object-source). For not let's just update the `RequestDataAsync` call to use `RegexMatch`:
+Unfortunately `Match` is not serializable as-is, so we need a new serializable class [`RegexMatch`](RegexMatchObjectSource/RegexMatch.cs). And we will need to create a *visualizer object source* library to convert the `Match` into a serializable `RegexMatch`, more about this in [a later paragraph](#the-visualizer-object-source). For now let's just update the `RequestDataAsync` call to use `RegexMatch`:
 
 ```csharp
 var regexMatch = await visualizerTarget.ObjectSource.RequestDataAsync<RegexMatch>(jsonSerializer: null, cancellationToken);
@@ -108,7 +108,7 @@ First, we need to make sure that the *visualizer object source* library is packa
 
 The `ProjectReference` guarantees that the *visualizer object source* library is built before the extension and the `Content` item makes sure that the *visualizer object source* DLL is copied into the `netstandard2.0` extension's subfolder where it will be discoverable by the debugger.
 
-I have decided to use `ReferenceOutputAssembly="false"` to avoid a dependency of the extension assembly from the *visualizer object source* one. Because of this, I will need to
+I have decided to use `ReferenceOutputAssembly="false"` to avoid a dependency of the extension assembly from the *visualizer object source* one. This allows using conditional compilation (`#if`) to have slightly different definitions of [`RegexCapture`](./RegexMatchObjectSource/RegexCapture.cs) in the two projects. Since I decided to avoid the dependency, I will need to:
 
 1. link the `RegexMatch.cs` file (and the related `RegexCapture` and `RegexGroup` ones) so that they are available in both projects:
 
@@ -129,7 +129,7 @@ I have decided to use `ReferenceOutputAssembly="false"` to avoid a dependency of
     };
 ```
 
-Using `ReferenceOutputAssembly="false"` to avoid the dependency from the *visualizer object source* library allows the extension to use conditional compilation (`#if`) to have slightly different definitions of [`RegexMatch`](./RegexMatchObjectSource/RegexMatch.cs) in the two projects. If I hadn't used `ReferenceOutputAssembly="false"`, I could have simplified the `DebuggerVisualizerProviderConfiguration` to:
+In most cases, having the extension project dependend on the *visualizer object source* library is simpler: I could have simplified the `DebuggerVisualizerProviderConfiguration` to:
 
 ```csharp
     public override DebuggerVisualizerProviderConfiguration DebuggerVisualizerProviderConfiguration => new("Regex Match visualizer", typeof(Match))
@@ -142,7 +142,7 @@ Using `ReferenceOutputAssembly="false"` to avoid the dependency from the *visual
 
 Now that the `Match` visualizer is complete, we can add a second visualizer for the [`MatchCollection`](https://learn.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.matchcollection) class. The process is exactly the same: I have created [a new `DebuggerVisualizerProvider`](./RegexMatchDebugVisualizer/RegexMatchCollection/RegexMatchCollectionDebuggerVisualizerProvider.cs) and its [remote user control](./RegexMatchDebugVisualizer/RegexMatchCollection/RegexMatchCollectionVisualizerUserControl.cs). I also added [a new `VisualizerObjectSource`](./RegexMatchObjectSource/RegexMatchCollectionObjectSource.cs) to the *visualizer object source* library.
 
-Since the `MatchCollection` could contain many entry, I have implemented the *visualizer object source* using the `TransferData` method instead of `GetData`: `TransferData` accepts a parameter which allows my visualizer to query the collection entries one by one:
+Each call to `RequestDataAsync` is allowed only 5 seconds to complete or will result in a timeout exception. Since the `MatchCollection` could contain many entries, I have implemented the *visualizer object source* using the `TransferData` method instead of `GetData`: `TransferData` accepts a parameter which allows my visualizer to query the collection entries one by one:
 
 ```csharp
 public override void TransferData(object target, Stream incomingData, Stream outgoingData)
@@ -161,7 +161,7 @@ public override void TransferData(object target, Stream incomingData, Stream out
 }
 ```
 
-The `DebuggerVisualizerProvider`, instead of using the `VisualizerTarget` to request the value to the *visualizer object source*, passes the `VisualizerTarget` to the remote user control. This allows the remote user control to asynchronously request the collection entries without delaying the display of the visualizer UI to the user.
+Instead of using the `VisualizerTarget` directly, the `DebuggerVisualizerProvider` passes it to the remote user control so that it can asynchronously request the collection entries without delaying the display of the visualizer UI to the user.
 
 ```csharp
 public override Task<IRemoteUserControl> CreateVisualizerAsync(VisualizerTarget visualizerTarget, CancellationToken cancellationToken)
@@ -170,7 +170,7 @@ public override Task<IRemoteUserControl> CreateVisualizerAsync(VisualizerTarget 
 }
 ```
 
-The remote user control will simply loop, invoking `RequestDataAsync` for increasing index numbers until the *visualizer object source* returns `null`, indicating the end of the collection:
+The remote user control uses the `RequestDataAsync` override that takes a `message` parameter, which results in `TransferData` being invoked on the *visualizer object source*. The remote user control will loop, invoking `RequestDataAsync` for increasing index numbers until the *visualizer object source* returns `null`, indicating the end of the collection:
 
 ```csharp
 public override Task ControlLoadedAsync(CancellationToken cancellationToken)
@@ -179,7 +179,7 @@ public override Task ControlLoadedAsync(CancellationToken cancellationToken)
     {
         for (int i = 0; ; i++)
         {
-            RegexMatch? regexMatch = await this.visualizerTarget.ObjectSource.RequestDataAsync<int, RegexMatch?>(i, jsonSerializer: null, CancellationToken.None);
+            RegexMatch? regexMatch = await this.visualizerTarget.ObjectSource.RequestDataAsync<int, RegexMatch?>(message: i, jsonSerializer: null, CancellationToken.None);
             if (regexMatch is null)
             {
                 break;

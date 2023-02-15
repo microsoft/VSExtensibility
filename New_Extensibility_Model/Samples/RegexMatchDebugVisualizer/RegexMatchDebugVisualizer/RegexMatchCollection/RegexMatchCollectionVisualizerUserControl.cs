@@ -39,7 +39,7 @@ internal class RegexMatchCollectionVisualizerUserControl : RemoteUserControl
 		{
 			for (int i = 0; ; i++)
 			{
-				RegexMatch? regexMatch = await this.visualizerTarget.ObjectSource.RequestDataAsync<int, RegexMatch?>(i, jsonSerializer: null, CancellationToken.None);
+				RegexMatch? regexMatch = await this.visualizerTarget.ObjectSource.RequestDataAsync<int, RegexMatch?>(message: i, jsonSerializer: null, CancellationToken.None);
 				if (regexMatch is null)
 				{
 					break;
