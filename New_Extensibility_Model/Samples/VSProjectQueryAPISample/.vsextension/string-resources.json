@@ -1,0 +1,7 @@
+{
+	"AddFileCommand.DisplayName": "Add File",
+	"QueryFileCommand.DisplayName": "Query File",
+	"QueryOutputGroupByIdCommand.DisplayName": "Query Output Group by ID",
+	"QueryOutputGroupByNameCommand.DisplayName": "Query Output Group by Name",
+	"QueryOutputGroupByProjectCommand.DisplayName": "Query Output Group by Project"
+}
