@@ -31,8 +31,8 @@ In our example, we call the `QueryProjectsAsync` method to get information from 
 ```csharp
 var result = await this.Extensibility.Workspaces().QueryProjectsAsync(
 	project => project.With(project => project.Name)
-						.With(project => project.Path)
-						.With(project => project.Files.With(file => file.FileName)),
+		.With(project => project.Path)
+		.With(project => project.Files.With(file => file.FileName)),
 	cancellationToken);
 ```
 
@@ -65,9 +65,9 @@ In the snippet below, the result will contain information about Output Groups' n
 ```csharp
 var result = await this.Extensibility.Workspaces().QueryProjectsAsync(
 	project => project.With(p => p.Name)
-						.With(p => p.ActiveConfigurations
-						.With(c => c.Name)
-						.With(c => c.OutputGroups.With(g => g.Name))),
+		.With(p => p.ActiveConfigurations
+		.With(c => c.Name)
+		.With(c => c.OutputGroups.With(g => g.Name))),
 	cancellationToken);
 ```
 
@@ -80,10 +80,10 @@ In the snippet below, we call `OutputGroupsByName` to get specific Output Groups
 ```csharp
 var result = await this.Extensibility.Workspaces().QueryProjectsAsync(
 	project => project.With(p => p.Name)
-						.With(p => p.ActiveConfigurations
-						.With(c => c.Name)
-						.With(c => c.OutputGroupsByName("Built", "XmlSerializer", "SourceFiles", "RandomNameShouldntBePickedUp")
-						.With(g => g.Name))),
+		.With(p => p.ActiveConfigurations
+		.With(c => c.Name)
+		.With(c => c.OutputGroupsByName("Built", "XmlSerializer", "SourceFiles", "RandomNameShouldntBePickedUp")
+		.With(g => g.Name))),
 	cancellationToken);
 ```
 
