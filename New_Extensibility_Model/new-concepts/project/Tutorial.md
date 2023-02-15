@@ -1,73 +1,84 @@
-# Working with the Project Query API
+---
+title: Project query reference
+description: An overview of the project query API
+date: 2023-2-13
+author: hgwelliver
+ms.author: hgwelliver
+ms.technology: vs-ide-sdk
+ms.topic: overview
+ms.date: 02/13/2023
+ms.custom: template-overview
+---
+
+# Project query overview
 
 The new project query API allows for querying information from the project system. Project systems are a part of VS components to help users work with and maintain projects, run builds to produce results, and to test output.
 
 The goal of the Project Query API is to:
-1. Work with Project Systems 
+
+1. Work with Project Systems
 1. Retrieve data from projects
-1. Make changes to projects 
+1. Make changes to projects
 
 Some examples include understanding files included in a project, NuGet packages referenced by a project, adding new files to a project, or changing project properties.
 
 Find further information on project systems [here](https://github.com/microsoft/VSProjectSystem).
 Find conceptual documentation about what the project system is, usages, and its various terms [here](https://github.com/microsoft/VSProjectSystem).
 
-## Common User Scenarios
+## Work with the project query API
 
-This overview covers top scenarios for working with the Project Query API:
+This overview covers top scenarios for working with the project query API:
 
-- [Set up: Querying for a single project from your workspace using project guid](#set-up)
-- [Getting the project query space in Gladstone](#project-query-space)
-- [Selecting specific properties from Extensions](#selecting-specific-properties)
-- [Conditional filtering for Extensions](#conditional-filtering)
-- [Using an Extension to recursively access a collection of children in one query](#recursive-collection)
-- [Using the Get method](#the-get-method)
-- [Querying information from a previous item](#querying-from-previous)
-- [Modifying a project](#modify-a-project)
-- [Getting information from the Solution File](#get-info-from-solution-file)
-- [Getting projects and project properties](#get-projects-properties)
-- [Getting solution folders](#get-solution-folders)
-- [Enumerating source files with additional information in a project](#source-files-additional-information)
-- [Finding all projects owning a specific source file](#find-all-projects)
-- [Accessing project configurations and their properties](#access-project-configurations)
-- [Enumerating project to project references](#project-to-project-references)
-- [Enumerating package references of projects](#package-references)
-- [Getting project output groups](#get-project-output-groups)
+- [Access the project query space](#access-the-project-query-space)
+- [Query the project system for a project](#query-the-project-system-for-a-project)
+- [Specify the project parameters to be included in the query result](#specify-the-project-parameters-to-be-included-in-the-query-result)
+- [Filter the query result](#filter-the-query-result)
+- [Use nested queries to specify desired properties](#use-nested-queries-to-specify-desired-properties)
+- [Retrieve a child collection using the Get method](#retrieve-a-child-collection-using-the-get-method)
+- [Query additional information from a previously-returned item](#query-additional-information-from-a-previously-returned-item)
+- [Modify a project](#modify-a-project)
+- [Query for project properties](#query-for-project-properties)
+- [Query for solutions](#query-for-solutions)
+- [Query for solution folders](#query-for-solution-folders)
+- [Enumerating source files with additional information in a project](#enumerating-source-files-with-additional-information-in-a-project)
+- [Query for projects that own a specific source file](#query-for-projects-that-own-a-specific-source-file)
+- [Query for project configurations and their properties](#query-for-project-configurations-and-their-properties)
+- [Query for project-to-project references](#query-for-project-to-project-references)
+- [Query for package references](#query-for-package-references)
+- [Query for project output groups](#query-for-project-output-groups)
 
-## Getting the project query space in Gladstone
+## Access the project query space
 
-Before running queries on the project system, it is neccesary to obtain an instance of the project query space object.
-The following shows an example of getting the project query space in Gladstone:
+Before you can query the project system, you need to obtain an instance of the project query space object, which has several asynchronous methods that query or update the project system.
 
 ```csharp
-var workSpace = this.Extensibility.Workspaces();
-```
-Gladstone will wrap QueryableSpace functions through its top level workspace object.
-Note that the entry point for in-proc usage is slightly different:
-```csharp
-var queryService = await package.GetServiceAsync<IProjectSystemQueryService, IProjectSystemQueryService>();
-var workSpace = queryService.QueryableSpace;
+WorkspacesExtensibility workSpace = this.Extensibility.Workspaces();
 ```
 
-## Set up: Querying for a single project from your workspace using project guid
+### Project query space access in an in-process extension
+
+If you've created an [in-process extension](../../getting-started/in-proc-extensions.md), you'll instead access the project query space as shown below. Unless you have specifically created an in-process extension, use the snippet above to get an instance of the project query space object.
 
 ```csharp
-IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> projectList =
-workSpace.ProjectsByProjectGuid(knownGuid) 
+IProjectSystemQueryService queryService = await package.GetServiceAsync<IProjectSystemQueryService, IProjectSystemQueryService>();
+ProjectQueryableSpace workSpace = queryService.QueryableSpace;
+```
+
+## Query the project system for a project
+
+The `WorkspacesExtensibility` object lets you query for an individual project if you have the project GUID.
+
+```csharp
+IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> projectList = workspace
+    .ProjectsByProjectGuid(knownGuid) 
     .QueryAsync(cancellationToken);
-
-IProjectSnapshot myProject = null;
-
-await foreach (IQueryResultItem<IProjectSnapshot> project in projectList)
-{
-    myProject = project.Value;
-}
 ```
 
-## Selecting specific properties from Extensions
+## Specify the project parameters to be included in the query result
 
-Extensions can retrieve necessary information from projects by selecting specific properties needed.
-Here is an example enumerating all projects, so the caller can divide them into various catalogs:
+When querying the project system, you can use `With` clauses to control which parameters or metadata are included in the query results. There are several valid ways to specify which parameters should be included.
+
+### Example using a separate `With` clause for each parameter
 
 ```csharp
 IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> allProjects = workSpace
@@ -89,7 +100,9 @@ IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> allProjects = workSpace
     }
 ```
 
-Or multiple properties can be requested in a single line:
+### Example using a single `With` clause to specify multiple parameters
+
+You can also specify multiple desired parameters in a single `With` clause.
 
 ```csharp
 IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> allProjects = workSpace
@@ -98,7 +111,9 @@ IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> allProjects = workSpace
     .QueryAsync(cancellationToken);
 ```
 
-Using WithRequired, only projects supporting specific properties will be returned:
+### Example using a `WithRequired` clause
+
+When using `WithRequired`, only projects with the required properties will be returned.
 
 ```csharp
 IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> projectWithFiles = workSpace
@@ -108,42 +123,54 @@ IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> projectWithFiles = workSpac
     .QueryAsync(cancellationToken);
 ```
 
-When no properties are selected, the default set of properties will be returned. 
+### Example when no properties are specified
+
+When no properties are specified, the default set of properties will be returned.
 
 ```csharp
-IAsyncEnumerable<IQueryResultItem<IPropertySnapshot>> properties =
-    myProject
+IAsyncEnumerable<IQueryResultItem<IPropertySnapshot>> properties = myproject
     .PropertiesByName("RootNamespace", "AssemblyVersion")
     .QueryAsync(cancellationToken);
 ```
 
-## Conditional filtering for Extensions
+## Filter the query result
 
-Extensions can get information from a smaller set of projects using conditional filtering.
-Here is an example of finding all Net Core web projects. Not all projects support Capabilities, and this query will filter them out, instead of causing the query to fail.
+To limit query results, there are two ways to apply conditional filtering: `Where` statements and query methods with built-in filtering.
+
+### Example using a `Where` clause
+
+Different project types support different sets of capabilities. With a `Where` clause, you can filter out projects that don't support the desired capabilities, which would otherwise cause the query to fail.
 
 ```csharp
-IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> webProjects =
-    workSpace.Projects
+IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> webProjects = workspace
+    .Projects
     .Where(p => p.Capabilities.Contains("DotNetCoreWeb"))
     .With(p => new { p.Path, p.Guid })
     .QueryAsync(cancellationToken);
+```
 
-// Or use built-in filtering
-IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> webProjects =
-        workSpace.ProjectsByCapabilities("DotNetCoreWeb | DotNetCoreRazor")
+### Example using built-in filtering
+
+You can also use query methods like `ProjectsByCapabilities` that have filtering built into the query.
+
+```csharp
+IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> webProjects = workspace
+        .ProjectsByCapabilities("DotNetCoreWeb | DotNetCoreRazor")
         .With(p => new { p.Path, p.Guid })
         .QueryAsync(cancellationToken);
 ```
 
-## Using an Extension to recursively access a collection of children in one query
+## Use nested queries to specify desired properties
 
-Extensions can access a collection of children recursively in one query.
-Here is an example getting project information along with source files and properties:
+Some parameters are themselves collections, and you can use nested queries to do similar specification and filtering on those child collections.
+
+### Example
+
+In this example, a nested query lets you filter and specify the collection of files to be included with each project returned by the outer query.
 
 ```csharp
-IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> projects =
-workSpace.ProjectsByCapabilities("CPS")
+IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> projects = workspace
+    .ProjectsByCapabilities("CPS")
     .With(p => new { p.Path, p.IsProjectFileSearchable })
     .With(p => p.PropertiesByName("ApplicationIcon"))        // We only retrieve a single property, if it exists
     .With(p => p.Files                          // without any condition, we retrieve all files in the project, but we can filter them
@@ -166,12 +193,13 @@ workSpace.ProjectsByCapabilities("CPS")
 
 ## Retrieve a child collection using the Get method
 
-Extensions can only retrieve a child collection through using the 'Get' method in the query.
-Here is an example getting a set of files included in a project as well as extra information about those files:
+To retrieve a child collection itself, you can use a `Get` clause. Like other query types, the `Get` clause lets you use other clauses such as the `With` clause to shape or limit the results.
+
+### Example
 
 ```csharp
-IAsyncEnumerable<IQueryResultItem<IFileSnapshot>> files =
-workSpace.Projects
+IAsyncEnumerable<IQueryResultItem<IFileSnapshot>> files = workspace
+    .Projects
     .Where(p => p.Guid == knownGuid)
     .Get(p => p.Files
         .With(f => new { f.Path, f.IsHidden, f.IsSearchable }))
@@ -183,119 +211,117 @@ workSpace.Projects
     }
 ```
 
-## Querying information from a previous item
+## Query additional information from a previously-returned item
 
-Extensions may query further information from an item returned earlier in the session.
-Here is an example of how to do so:
+You can use the results from a previous query as the base for additional queries.
+
+### Example
 
 ```csharp
 IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> allProjects = workSpace
-        .Projects
-        .With(p => p.Path)
-        .With(p => p.Guid)
-        .QueryAsync(cancellationToken);
+    .Projects
+    .With(p => p.Path)
+    .With(p => p.Guid)
+    .QueryAsync(cancellationToken);
 
 await foreach (IQueryResultItem<IProjectSnapshot> project in allProjects)
 {
     // Gets child collections
-    IAsyncEnumerable<IQueryResultItem<IFileSnapshot>> files =
-            project.Value.Files
-            .With(f => new { f.Path, f.ItemType })
-            .QueryAsync(cancellationToken);
-
-    await foreach (IQueryResultItem<IFileSnapshot> file in files)
-    {
-        string path = file.Value.Path;
-        ...
-    }
+    IAsyncEnumerable<IQueryResultItem<IFileSnapshot>> files = project.Value
+        .Files
+        .With(f => new { f.Path, f.ItemType })
+        .QueryAsync(cancellationToken);
 }
 ```
 
-## Modifying a project
+## Modify a project
 
-Here is an example of extensions making changes through the query API:
+In addition to making queries, you can also use the query API to make changes using the `AsUpdatable` clause to access updatable versions of the query results.
 
-```csharp
-IQueryResult<IProjectSnapshot> updatedProjects =
-    workSpace.ProjectsByProjectGuid(knownGuid)
-        .AsUpdatable()
-        .CreateFile("AdditionalInformation.txt", textContent)
-        .ExecuteAsync(cancellationToken);
-```
-
-And to make a change based on an item returned previously:
+### Example of adding a file to a project in a query result
 
 ```csharp
-IQueryResult<IProjectSnapshot> updatedProjects =
-    myProject
-        .AsUpdatable()
-        .CreateFile("AdditionalInformation2.txt", textContent)
-        .ExecuteAsync(cancellationToken);
+IQueryResult<IProjectSnapshot> updatedProjects = workSpace
+    .ProjectsByProjectGuid(knownGuid)
+    .AsUpdatable()
+    .CreateFile("AdditionalInformation.txt", textContent)
+    .ExecuteAsync(cancellationToken);
 ```
 
-## Getting information from the Solution File
-
-Example:
+### Example of adding a file to a previously-returned project
 
 ```csharp
-IAsyncEnumerable<IQueryResultItem<ISolutionSnapshot>> solutions =
-workSpace.Solutions
-    .With(s => new { s.Path, s.Guid, s.ActiveConfiguration, s.ActivePlatform })
-    .QueryAsync(cancellationToken);
+IQueryResult<IProjectSnapshot> updatedProjects = myproject
+    .AsUpdatable()
+    .CreateFile("AdditionalInformation2.txt", textContent)
+    .ExecuteAsync(cancellationToken);
 ```
 
-## Getting projects and project properties
+## Query for project properties
 
-Example:
+You can use a `Get` clause to query for project properties.
+
+### Example
 
 ```csharp
 // We assume that we can find "RootNamespace" in the result.
 // However it is not true from query API point of view.
 // The query tries to retrieve items based on the condition, and if there is no such item, it will run successfully only without returning items.
-IAsyncEnumerable<IQueryResultItem<IPropertySnapshot>> properties = 
-    myProject.AsQueryable()  
+IAsyncEnumerable<IQueryResultItem<IPropertySnapshot>> properties = myProject
+    .AsQueryable()  
     .Get(p => p.PropertiesByName("RootNamespace", "AssemblyVersion"))
     .QueryAsync(cancellationToken);
 ```
 
-## Getting solution folders
+## Query for solutions
 
-Here is an example of getting all solution folders, regardless of whether they are nested or not:
+In addition to working with projects as shown above, you can use similar techniques to work with solutions.
 
 ```csharp
-IAsyncEnumerable<IQueryResultItem<ISolutionFolderSnapshot>> solutionFolders =
-workSpace.Solutions
+IAsyncEnumerable<IQueryResultItem<ISolutionSnapshot>> solutions = workpSpace
+    .Solutions
+    .With(s => new { s.Path, s.Guid, s.ActiveConfiguration, s.ActivePlatform })
+    .QueryAsync(cancellationToken);
+```
+
+## Query for solution folders
+
+Likewise, you can use a `Get` clause to query for solution folders. The `IsNested` property lets you include or exclude nested folders from your results.
+
+```csharp
+IAsyncEnumerable<IQueryResultItem<ISolutionFolderSnapshot>> solutionFolders = workSpace
+    .Solutions
     .Get(s => s.SolutionFolders)
     .With(folder => folder.Name)
-    .With(folder => folder.IsNested)        // if we only want top level folders, we can filter on this property.
-    .With(folder => folder.VisualPath)      // it is a relative (virtual) path to represent how the folder is nested.
+    .With(folder => folder.IsNested)   // if we only want top level folders, we can filter on this property.
+    .With(folder => folder.VisualPath) // it is a relative (virtual) path to represent how the folder is nested.
     .QueryAsync(cancellationToken);
 ```
 
 Here we are getting all nested solution folders, projects, files inside a solution folder (not recursively nested):
 
 ```csharp
-IAsyncEnumerable<IQueryResultItem<ISolutionSnapshot>> solutionFoldWithExtraInformation = mySolutionFolder
-        .AsQueryable()
-        .With(folder => folder.Files
-            .With(f => f.Path))
-        .With(folder => folder.Projects
-            .With(p => new { p.Name, p.Guid }))
-        .With(folder => folder.SolutionFolders
-            .With(nested => nested.Name))
-        .QueryAsync(cancellationToken);
+IAsyncEnumerable<IQueryResultItem<ISolutionSnapshot>> solutionFoldersWithExtraInformation = mySolutionFolder
+    .AsQueryable()
+    .With(folder => folder.Files
+        .With(f => f.Path))
+    .With(folder => folder.Projects
+        .With(p => new { p.Name, p.Guid }))
+    .With(folder => folder.SolutionFolders
+        .With(nested => nested.Name))
+    .QueryAsync(cancellationToken);
 ```
 
 Here we are getting all recursively nested solution folders:
 
 ```csharp
 string visualPath = mySolutionFolder.VisualPath;
-IAsyncEnumerable<IQueryResultItem<ISolutionFolderSnapshot>> recursivelyNestedFolders =
-    await workSpace.Solutions
-        .Get(s => s.SolutionFolders)
-        .Where(f => f.VisualPath.StartsWith(visualPath) && f.VisualPath != visualPath)
-        .With(f => f.Name)
-        .QueryAsync(cancellationToken);
+IAsyncEnumerable<IQueryResultItem<ISolutionFolderSnapshot>> recursivelyNestedFolders = await workSpace
+    .Solutions
+    .Get(s => s.SolutionFolders)
+    .Where(f => f.VisualPath.StartsWith(visualPath) && f.VisualPath != visualPath)
+    .With(f => f.Name)
+    .QueryAsync(cancellationToken);
 ```
 
 ## Enumerating source files with additional information in a project
@@ -315,11 +341,11 @@ workSpace.ProjectsByProjectGuid(knownGuid)
 Another example is to start with a project returned from previous query:
 
 ```csharp
-IAsyncEnumerable<IQueryResultItem<IFileSnapshot>> files =
-    myProject.FilesEndingWith(".xaml")     // use built-in filter instead of 'Where' condition
-        .With(file => file.Path)
-        .With(file => file.PropertiesByName("Generator"))
-        .QueryAsync(cancellationToken);
+IAsyncEnumerable<IQueryResultItem<IFileSnapshot>> files = myProject
+    .FilesEndingWith(".xaml")     // use built-in filter instead of 'Where' condition
+    .With(file => file.Path)
+    .With(file => file.PropertiesByName("Generator"))
+    .QueryAsync(cancellationToken);
 ```
 
 Or to get all content files:
@@ -346,45 +372,47 @@ workSpace.Projects
     }
 ```
 
-## Finding all projects owning a specific source file
+## Query for projects that own a specific source file
 
-Example:
+Projects and folders have information about which files they own or contain, so you can use a `WithRequired` clause to query for projects that include certain files.
+
+### Example of finding projects that own a given file
 
 ```csharp
-string myFilePath = [Location of the file I want];
-IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> projects =
-    workSpace.Projects
-        .WithRequired(proj => proj.FilesByPath(myFilePath))
-        .With(proj => proj.Guid)
-        .QueryAsync(cancellationToken);
+IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> projects = workspace
+    .Projects
+    .WithRequired(proj => proj.FilesByPath(myFilePath))
+    .With(proj => proj.Guid)
+    .QueryAsync(cancellationToken);
 ```
 
-Note: this doesn't include SolutionFolders, which must be queried separately:
+### Example of finding solution folders that contain a given file
 
 ```csharp
-string myFilePath = [Location of the file I want];
-IAsyncEnumerable<IQueryResultItem<ISolutionFolderSnapshot>> solutionFolders =
-    workSpace.Solutions
-        .Get(s => s.SolutionFolders)
-        .WithRequired(folder => folder.FilesByPath(myFilePath))
-        .With(folder => folder.Name)
-        .With(folder => folder.Guid)
-        .QueryAsync(cancellationToken);
+IAsyncEnumerable<IQueryResultItem<ISolutionFolderSnapshot>> solutionFolders = workspace
+    .Solutions
+    .Get(s => s.SolutionFolders)
+    .WithRequired(folder => folder.FilesByPath(myFilePath))
+    .With(folder => folder.Name)
+    .With(folder => folder.Guid)
+    .QueryAsync(cancellationToken);
 ```
 
-## Accessing project configurations and their properties
+## Query for project configurations and their properties
 
-Here is an example enumerating configurations of all known projects:
+Projects have a ConfigurationDimension property, which you can use to find project configuration information.
+
+### Example
 
 ```csharp
-IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> projects =
-    workSpace.Projects
-        .With(p => new { p.Guid, p.Name })
-        .With(p => p.Configurations
-            .With(c => c.Name)
-            .With(c => c.PropertiesByName("OutputPath"))
-            .With(c => c.ConfigurationDimensions)) // ConfigurationDimension is essentially Name, Value pairs, both are default properties.
-        .QueryAsync(cancellationToken);
+IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> projects = workspace
+    .Projects
+    .With(p => new { p.Guid, p.Name })
+    .With(p => p.Configurations
+        .With(c => c.Name)
+        .With(c => c.PropertiesByName("OutputPath"))
+        .With(c => c.ConfigurationDimensions)) // ConfigurationDimension is essentially Name, Value pairs, both are default properties.
+    .QueryAsync(cancellationToken);
 
     await foreach (IQueryResultItem<IProjectSnapshot> project in projects)
     {
@@ -395,79 +423,84 @@ IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> projects =
     }
 ```
 
-## Enumerating project to project references
+## Query for project-to-project references
 
-Here is an example enumerating all projects referenced by the current project:
+You can also query to find projects that reference a given project.
 
-```csharp
-IAsyncEnumerable<IQueryResultItem<IProjectReferenceSnapshot>> projectReferences =
-    myProject.ProjectReferences
-        .With(r => r.ProjectGuid)
-        .With(r => r.ReferencedProjectId)
-        .QueryAsync(cancellationToken);
-```
-
-Here is an example of finding all projects referencing the current project:
+### Example of finding all projects referenced by the current project
 
 ```csharp
-IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> projects =
-    workSpace.Projects
-        .With(p => p.Guid)
-        .WithRequired(p => p.ProjectReferences
-            .Where(r => r.ProjectGuid == knownGuid))
-        .QueryAsync(cancellationToken);
-```
-
-## Enumerating package references of projects
-
-Here is an example enumerating all package references by the current project:
-
-```csharp
-IAsyncEnumerable<IQueryResultItem<IProjectConfigurationSnapshot>> configurationsWithPackageReferences =
-    myProject.ActiveConfigurations
-        .With(c => c.Name)
-        .With(c => c.PackageReferences
-            .With(p => new { p.Name, p.Version }))
-        .QueryAsync(cancellationToken);
-```
-
-This example finds all projects referencing a specific NuGet package:
-
-```csharp
-string packageName = "Newtonsoft.Json";
-IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> projects =
-    workSpace.Projects
-        .With(p => p.Guid)
-        .WithRequired(p => p.ActiveConfigurations
-            .WithRequired(c => c.PackageReferences
-                .Where(package => package.Name == packageName)))
+IAsyncEnumerable<IQueryResultItem<IProjectReferenceSnapshot>> projectReferences = myProject
+    .ProjectReferences
+    .With(r => r.ProjectGuid)
+    .With(r => r.ReferencedProjectId)
     .QueryAsync(cancellationToken);
 ```
 
-## Getting project output groups
-
-Example:
+### Example of finding all projects referencing the current project
 
 ```csharp
+IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> projects = workSpace
+    .Projects
+    .With(p => p.Guid)
+    .WithRequired(p => p.ProjectReferences
+        .Where(r => r.ProjectGuid == knownGuid))
+    .QueryAsync(cancellationToken);
+```
 
+## Query for package references
+
+Likewise, you can query for NuGet package references.
+
+### Example of finding all packages referenced by the current project
+
+```csharp
+IAsyncEnumerable<IQueryResultItem<IProjectConfigurationSnapshot>> configurationsWithPackageReferences = myProject
+    .ActiveConfigurations
+    .With(c => c.Name)
+    .With(c => c.PackageReferences
+        .With(p => new { p.Name, p.Version }))
+    .QueryAsync(cancellationToken);
+```
+
+### Example of finding all projects referencing a specific NuGet package
+
+```csharp
+string packageName = "Newtonsoft.Json";
+
+IAsyncEnumerable<IQueryResultItem<IProjectSnapshot>> projects = workSpace
+    .Projects
+    .With(p => p.Guid)
+    .WithRequired(p => p.ActiveConfigurations
+        .WithRequired(c => c.PackageReferences
+            .Where(package => package.Name == packageName)))
+    .QueryAsync(cancellationToken);
+```
+
+## Query for project output groups
+
+Project configurations have information about project output groups.
+
+### Example
+
+```csharp
 // From our list of active configurations, we need to get the first one in the list
-IAsyncEnumerable<IQueryResultItem<IProjectConfigurationSnapshot>> configurations =
-    myProject.ActiveConfigurations
+IAsyncEnumerable<IQueryResultItem<IProjectConfigurationSnapshot>> configurations = myProject
+    .ActiveConfigurations
+    .QueryAsync(cancellationToken);
+
+    IProjectConfigurationSnapshot myConfiguration = null;
+
+    await foreach (IQueryResultItem<IProjectConfigurationSnapshot> config in configurations)
+    {
+        myConfiguration = config.Value;
+        break;
+    }
+
+    // A multi-target project may have multiple active configurations
+    IAsyncEnumerable<IQueryResultItem<IOutputGroupSnapshot>> outputGroups = myConfiguration
+        .OutputGroupsByName("Built", "Symbols")
+        .With(g => g.Name)
+        .With(g => g.Outputs)
         .QueryAsync(cancellationToken);
-
-        IProjectConfigurationSnapshot myConfiguration = null;
-
-        await foreach (IQueryResultItem<IProjectConfigurationSnapshot> config in configurations)
-        {
-            myConfiguration = config.Value;
-            break;
-        }
-
-        // A multi-target project may have multiple active configurations
-        IAsyncEnumerable<IQueryResultItem<IOutputGroupSnapshot>> outputGroups =
-                    myConfiguration
-                        .OutputGroupsByName("Built", "Symbols")
-                        .With(g => g.Name)
-                        .With(g => g.Outputs)
-                        .QueryAsync(cancellationToken);
 ```
