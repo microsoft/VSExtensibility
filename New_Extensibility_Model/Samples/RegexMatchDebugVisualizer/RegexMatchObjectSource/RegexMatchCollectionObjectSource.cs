@@ -13,26 +13,26 @@ using Microsoft.VisualStudio.DebuggerVisualizers;
 /// </summary>
 public class RegexMatchCollectionObjectSource : VisualizerObjectSource
 {
+	private const int MaxPageSize = 10;
+
 	/// <inheritdoc/>
 	public override void TransferData(object target, Stream incomingData, Stream outgoingData)
 	{
 		var index = (int)DeserializeFromJson(incomingData, typeof(int))!;
 
+		RegexMatch[]? results = null;
 		if (target is MatchCollection matchCollection)
 		{
-			var results = new RegexMatch[Math.Max(0, Math.Min(10, matchCollection.Count - index))];
+			int pageSize = Math.Max(0, Math.Min(MaxPageSize, matchCollection.Count - index));
+			results = new RegexMatch[pageSize];
 			for (int i = 0; i < results.Length; i++)
 			{
 				var result = RegexMatchObjectSource.Convert(matchCollection[index + i]);
 				result.Name = $"[{index + i}]";
 				results[i] = result;
 			}
+		}
 
-			SerializeAsJson(outgoingData, results);
-		}
-		else
-		{
-			SerializeAsJson(outgoingData, null);
-		}
+		SerializeAsJson(outgoingData, results);
 	}
 }

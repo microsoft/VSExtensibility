@@ -142,22 +142,29 @@ In most cases, having the extension project dependend on the *visualizer object 
 
 Now that the `Match` visualizer is complete, we can add a second visualizer for the [`MatchCollection`](https://learn.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.matchcollection) class. The process is exactly the same: I have created [a new `DebuggerVisualizerProvider`](./RegexMatchDebugVisualizer/RegexMatchCollection/RegexMatchCollectionDebuggerVisualizerProvider.cs) and its [remote user control](./RegexMatchDebugVisualizer/RegexMatchCollection/RegexMatchCollectionVisualizerUserControl.cs). I also added [a new `VisualizerObjectSource`](./RegexMatchObjectSource/RegexMatchCollectionObjectSource.cs) to the *visualizer object source* library.
 
-Each call to `RequestDataAsync` is allowed only 5 seconds to complete or will result in a timeout exception. Since the `MatchCollection` could contain many entries, I have implemented the *visualizer object source* using the `TransferData` method instead of `GetData`: `TransferData` accepts a parameter which allows my visualizer to query the collection entries one by one:
+Each call to `RequestDataAsync` is allowed only 5 seconds to complete or will result in a timeout exception. Since the `MatchCollection` could contain many entries, I have implemented the *visualizer object source* using the `TransferData` method instead of `GetData`: `TransferData` accepts a parameter which allows my visualizer to query the collection entries in a paginated fashion:
 
 ```csharp
+private const int MaxPageSize = 10;
+
 public override void TransferData(object target, Stream incomingData, Stream outgoingData)
 {
     var index = (int)DeserializeFromJson(incomingData, typeof(int))!;
-    if (target is MatchCollection matchCollection && index < matchCollection.Count)
+
+    RegexMatch[]? results = null;
+    if (target is MatchCollection matchCollection)
     {
-        var result = RegexMatchObjectSource.Convert(matchCollection[index]);
-        result.Name = $"[{index}]";
-        SerializeAsJson(outgoingData, result);
+        int pageSize = Math.Max(0, Math.Min(MaxPageSize, matchCollection.Count - index));
+        results = new RegexMatch[pageSize];
+        for (int i = 0; i < results.Length; i++)
+        {
+            var result = RegexMatchObjectSource.Convert(matchCollection[index + i]);
+            result.Name = $"[{index + i}]";
+            results[i] = result;
+        }
     }
-    else
-    {
-        SerializeAsJson(outgoingData, null);
-    }
+
+    SerializeAsJson(outgoingData, results);
 }
 ```
 
@@ -170,22 +177,30 @@ public override Task<IRemoteUserControl> CreateVisualizerAsync(VisualizerTarget 
 }
 ```
 
-The remote user control uses the `RequestDataAsync` override that takes a `message` parameter, which results in `TransferData` being invoked on the *visualizer object source*. The remote user control will loop, invoking `RequestDataAsync` for increasing index numbers until the *visualizer object source* returns `null`, indicating the end of the collection:
+The remote user control uses the `RequestDataAsync` override that takes a `message` parameter, which results in `TransferData` being invoked on the *visualizer object source*. The remote user control will loop, invoking `RequestDataAsync` for increasing index numbers until the *visualizer object source* returns an empty array, indicating the end of the collection:
 
 ```csharp
 public override Task ControlLoadedAsync(CancellationToken cancellationToken)
 {
     _ = Task.Run(async () =>
     {
-        for (int i = 0; ; i++)
+        int i = 0;
+        while (true)
         {
-            RegexMatch? regexMatch = await this.visualizerTarget.ObjectSource.RequestDataAsync<int, RegexMatch?>(message: i, jsonSerializer: null, CancellationToken.None);
-            if (regexMatch is null)
+            RegexMatch[]? regexMatches = await this.visualizerTarget.ObjectSource.RequestDataAsync<int, RegexMatch[]?>(message: i, jsonSerializer: null, CancellationToken.None);
+            if (regexMatches?.Length > 0)
+            {
+                foreach (var regexMatch in regexMatches)
+                {
+                    this.RegexMatches.Add(regexMatch);
+                }
+
+                i += regexMatches.Length;
+            }
+            else
             {
                 break;
             }
-
-            this.RegexMatches.Add(regexMatch);
         }
     });
 
