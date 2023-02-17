@@ -37,15 +37,23 @@ internal class RegexMatchCollectionVisualizerUserControl : RemoteUserControl
 	{
 		_ = Task.Run(async () =>
 		{
-			for (int i = 0; ; i++)
+			int i = 0;
+			while (true)
 			{
-				RegexMatch? regexMatch = await this.visualizerTarget.ObjectSource.RequestDataAsync<int, RegexMatch?>(message: i, jsonSerializer: null, CancellationToken.None);
-				if (regexMatch is null)
+				RegexMatch[]? regexMatches = await this.visualizerTarget.ObjectSource.RequestDataAsync<int, RegexMatch[]?>(message: i, jsonSerializer: null, CancellationToken.None);
+				if (regexMatches?.Length > 0)
+				{
+					foreach (var regexMatch in regexMatches)
+					{
+						this.RegexMatches.Add(regexMatch);
+					}
+
+					i += regexMatches.Length;
+				}
+				else
 				{
 					break;
 				}
-
-				this.RegexMatches.Add(regexMatch);
 			}
 		});
 
