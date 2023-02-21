@@ -59,8 +59,8 @@ Learn about the [Remote UI](new-extensibility-model/inside-the-sdk/remote-ui.md)
 
 Read an overview of the areas of the SDK that you might need for your extension development projects:
 
-* To learn how to create extension functions and expose them to users in the IDE, see [Commands](new-extensibility-model/extension-guides/command/command.md).
-* To learn how to extend the code editor, see [Editor extensions](new-extensibility-model/extension-guides/editor/editor.md).
+* To learn how to create commands and expose them to users in the IDE, see [Commands](new-extensibility-model/extension-guides/command/command.md).
+* To learn how to work with files and documents, see [Editor extensions](new-extensibility-model/extension-guides/editor/editor.md).
 * To learn how to use the output window in an extension, see [Output window](new-extensibility-model/extension-guides/outputWindow/outputWindow.md).
 * To learn how to work with tool windows, dockable windows hosted within the Visual Studio IDE, see [Tool windows](new-extensibility-model/extension-guides/toolWindow/toolWindow.md).
 * To learn how to use prompts to interact with the user, see [User prompts](new-extensibility-model/extension-guides/userPrompts/userPrompts.md).
