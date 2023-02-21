@@ -4,7 +4,7 @@ description: A reference for OOP Extensibility Model
 date: 2022-2-6
 ---
 
-# Visual Studio.Extensibility overview
+# Introduction to VisualStudio.Extensibility for VS SDK users
 
 While extensions have typically been loaded into the Visual Studio process, VisualStudio.Extensibility, brings most Visual Studio extensions out-of-process. This out-of-proc model gives you the opportunity to create more reliable, secure, and easier-to-write extensions. The following documentation describes:
 
@@ -35,8 +35,6 @@ Writing extensions using VisualStudio.Extensibility provides the following benef
 The VisualStudio.Extensibility model is primarily built on top remote RPC contracts that are provided as brokered services from Visual Studio. The extensions are hosted in an external ServiceHub process that communicates with Visual Studio via RPC and both utilize services provided by Visual Studio and may also provide services to Visual Studio process in certain cases.
 
 Extensibility packages that are provided as part of the SDK consist of base classes, utility methods and wrapper objects around these RPC contracts with the goal of making the extensibility surface area easier to use, easier to discover, and also to be able to quickly contribute to Visual Studio ecosystem such as creating a new command handler.
-
-To understand how to work with the new extensibility model, we recommend a thorough understanding of [asynchronous programming with async and await](https://learn.microsoft.com/dotnet/csharp/programming-guide/concepts/async/) and [dependency injection](https://learn.microsoft.com/dotnet/core/extensions/dependency-injection).
 
 ## Next Steps
 

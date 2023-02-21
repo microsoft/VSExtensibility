@@ -59,4 +59,6 @@ For more information on how to add commands, please refer to [Commands](../exten
 
 ## Next steps
 
-Try a slightly more complex example, [Create a simple extension](tutorial-create-simple-extension.md).
+If you missed the introductory overviews, see [Welcome to the VisualStudio.Extensibility documentation](../index.md) and [Out-of-Process Extensibility Model Overview](oop-extensibility-model-overview.md).
+
+Now create a slightly more interesting extension; see [Create a simple extension](tutorial-create-simple-extension.md).

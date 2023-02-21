@@ -170,7 +170,7 @@ See [Rule-based activation constraints](../../inside-the-sdk/activation-constrai
 
 ## Next steps
 
-Be sure to read about [Remote UI](./../../inside-the-sdk/remote-ui.md) works in the VisualStudio.Extensibility framework.
+Be sure to read about how [Remote UI](./../../inside-the-sdk/remote-ui.md) works in the VisualStudio.Extensibility framework.
 
 Tool window content is created using WPF, so refer to the [WPF documentation](https://learn.microsoft.com/dotnet/desktop/wpf/overview/) for guidance.
 
