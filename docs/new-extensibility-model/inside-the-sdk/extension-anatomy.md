@@ -14,7 +14,7 @@ The starting point for each extension is an instance of `Microsoft.VisualStudio.
 
 Extension projects will have their own class that derives from `Microsoft.VisualStudio.Extensibility.Extension` to customize certain aspects of the extension.
 
-Extensions must have a class that derives from `Microsoft.VisualStudio.Extensibility.Extension. See [MarkdownLinter](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/MarkdownLinter) for an example implementation.
+Extensions must have a class that derives from `Microsoft.VisualStudio.Extensibility.Extension`. See [MarkdownLinter](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/MarkdownLinter) for an example implementation.
 
 For extension developers that are familiar with the existing VS SDK APIs, this class is very similar to `AsyncPackage` class that is used in the VS SDK extensibility model.
 
