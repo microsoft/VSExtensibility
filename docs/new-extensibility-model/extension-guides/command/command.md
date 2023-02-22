@@ -170,7 +170,7 @@ You can configure visibility and the enabled/disabled state of a command, and se
 
 The visibility of a command can be controlled by setting the `VisibleWhen` property on your command's [`Microsoft.VisualStudio.Extensibility.Commands.CommandConfiguration`](./../../api/Microsoft.VisualStudio.Extensibility.Contracts.md/#CommandConfiguration-type).
 
-This type of configuration is called a *rule-based activation constraint* and is fully described at [Using rule based activation constraints](../../inside-the-sdk/activation-constraints.md/#rule-based-activation-constraints).
+The attribute supports specifying a condition through a number of individual parameters that together specify the condition and all its logic and inputs. To specify the condition, you specify an expression in one parameter, define a set of terms (strings) used in the expression in another parameter, and what values those terms should be replaced with upon evaluation in a third parameter. The combination of the expression, terms, and values is called a *rule-based activation constraint* and is fully described at [Rule-based activation constraints](../../inside-the-sdk/activation-constraints.md/#rule-based-activation-constraints).
 
 If this property is omitted from your configuration, the default is for the command to always be visible.
 
@@ -199,6 +199,8 @@ public override CommandConfiguration CommandConfiguration => new("My command")
     EnabledWhen = ActivationConstraint.ClientContext(ClientContextKey.Shell.ActiveSelectionFileName, @"\.(jpg|jpeg|txt)$"),
 };
 ```
+
+For more information on valid term values, see [Rule-based activation constraints](./../../inside-the-sdk/activation-constraints.md/#rule-based-activation-constraints).
 
 ### Command flags
 
