@@ -23,13 +23,13 @@ The editor object model is described at [Editor concepts](editor-concepts.md).
 
 ## Get started
 
-Your extension code can be configured to run in response to various situations that a occur when a user interacts with Visual Studio. These are known as entry points. Editor extensibility currently supports three entry points: listeners, the [EditorExtensibility](#EditorExtensibility) service object, and commands.
+Your extension code can be configured to run in response to various situations that a occur when a user interacts with Visual Studio. These are known as entry points. Editor extensibility currently supports three entry points: listeners, the [EditorExtensibility](#access-editor-functionality) service object, and commands.
 
 Event listeners get triggered when certain actions occur in an editor window, represented in code by a `TextView`. For example, when a user types something into the editor, a `TextViewChanged` event occurs. When an editor window is opened or closed, `TextViewOpened` and `TextViewClosed` events occur.
 
 The editor service object is an instance of the `EditorExtensibility` class, which exposes real-time editor functionality, such as performing text edits.
 
-[Commands](commands.md) are initiated by the user by clicking on an item which you can place on a menu, context menu, or toolbar.
+[Commands](../command/command.md) are initiated by the user by clicking on an item which you can place on a menu, context menu, or toolbar.
 
 ### Add a text view listener
 
@@ -283,5 +283,9 @@ Note that vertical text view margins whose content needs to be aligned with text
 ## Next steps
 
 Learn about the editor interfaces and types at [Editor concepts](editor-concepts.md).
+
+Review sample code for a simple editor-based extension:
+
+- [DocumentSelectorSample](../../../../New_Extensibility_Model/Samples/DocumentSelectorSample/)
 
 Advanced users might wish to learn about the [Editor RPC support](editor-rpc.md).

@@ -1,18 +1,16 @@
 ---
 title: Advanced Remote UI concepts
-description: A walkthrough of more advanced Remote UI concepts
-date: 2022-7-20
+description: A tutorial demonstrating more advanced Remote UI concepts
+date: 2022-2-6
 ---
 
-# Advanced Remote UI concepts
+# Tutorial: Advanced remote UI
 
-## Setting up the project
-
-In this walkthrough, we will go over advanced *Remote UI* concepts by incrementally modifying a tool window that shows a list of random colors:
+In this tutorial, we will go over advanced *Remote UI* concepts by incrementally modifying a tool window that shows a list of random colors:
 
 ![Random colors tool window](colors-tool-window.png "Random colors tool window")
 
-We will discuss:
+You'll learn about:
 
 - How multiple *async commands* executions can run in parallel and how to disable UI elements when a command is running.
 - How to bind multiple buttons to the same *async command*.
@@ -22,7 +20,7 @@ We will discuss:
 - How to use WPF types, like complex brushes, in the *Remote UI* data context.
 - How *Remote UI* handles threading.
 
-This walkthrough is based on the introductory [*Remote UI*](remote-ui.md) article and expects that you have a working *VisualStudio.Extensibility* extension including:
+This tutorial is based on the introductory [*Remote UI*](remote-ui.md) article and expects that you have a working VisualStudio.Extensibility extension including:
 
 1. a `.cs` file for the command which opens the tool window,
 1. a `MyToolWindow.cs` file for the `ToolWindow` class,
@@ -30,7 +28,7 @@ This walkthrough is based on the introductory [*Remote UI*](remote-ui.md) articl
 1. a `MyToolWindowContent.xaml` embedded resource file for the `RemoteUserControl` xaml definition,
 1. a `MyToolWindowData.cs` file for the data context of the `RemoteUserControl`.
 
-Let's start with updating `MyToolWindowContent.xaml` to show a list view and a button":
+To start, update `MyToolWindowContent.xaml` to show a list view and a button":
 
 ```xml
 <DataTemplate xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -71,7 +69,7 @@ Let's start with updating `MyToolWindowContent.xaml` to show a list view and a b
 </DataTemplate>
 ```
 
-Then, let's update the data context class `MyToolWindowData.cs`:
+Then, update the data context class `MyToolWindowData.cs`:
 
 ```CSharp
 using Microsoft.VisualStudio.Extensibility.UI;
@@ -129,7 +127,7 @@ There are just a few noteworthy things in this code:
 1. We use [ObservableCollection\<T\>](https://docs.microsoft.com/en-us/dotnet/api/system.collections.objectmodel.observablecollection-1), which is supported by *Remote UI*, to dynamically update the list view.
 1. `MyToolWindowData` and `MyColor` don't implement [INotifyPropertyChanged](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.inotifypropertychanged) because, at the moment, all properties are readonly.
 
-## Handling long-running async commands
+## Handle long-running async commands
 
 One of the most important differences between *Remote UI* and normal WPF is that all operations that involve communication between the UI and the extension are async.
 
@@ -173,9 +171,9 @@ Because all *Remote UI* commands execute asynchronously, the best practice is to
 
 ## *Async commands* and data templates
 
-Now let's implement the "Remove" button which allows the user to delete an entry from the list. We can either create one *async command* for each `MyColor` object or we can have a single *async command* in `MyToolWindowData` and use a parameter to identify which color should be removed. The latter option is a cleaner design, so let's implement that.
+In this section, you'll implement the "Remove" button which allows the user to delete an entry from the list. We can either create one *async command* for each `MyColor` object or we can have a single *async command* in `MyToolWindowData` and use a parameter to identify which color should be removed. The latter option is a cleaner design, so let's implement that.
 
-First we update the button XAML in the data template:
+1. Update the button XAML in the data template:
 
 ```xml
 <Button Content="Remove" Grid.Column="2"
@@ -186,14 +184,14 @@ First we update the button XAML in the data template:
             RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ListView}}}" />
 ```
 
-Then we add the corresponding `AsyncCommand` to `MyToolWindowData`:
+2. Add the corresponding `AsyncCommand` to `MyToolWindowData`:
 
 ```CSharp
 [DataMember]
 public AsyncCommand RemoveColorCommand { get; }
 ```
 
-And set the command's async callback in the constructor of `MyToolWindowData`:
+3. Set the command's async callback in the constructor of `MyToolWindowData`:
 
 ```CSharp
 RemoveColorCommand = new AsyncCommand(async (parameter, ancellationToken) =>
@@ -204,11 +202,11 @@ RemoveColorCommand = new AsyncCommand(async (parameter, ancellationToken) =>
 });
 ```
 
-We are again using a `Task.Delay` to simulate a long running *async command* execution.
+This code uses a `Task.Delay` to simulate a long running *async command* execution.
 
 ## Reference types in the data context
 
-In the code above, a `MyColor` object is received as the parameter of an *async command* and used as parameter of a `List<T>.Remove` call which employs reference equality (since `MyColor` is a rererence type that doesn't override `Equals`) to identify the element to remove. This is possible because, even if the parameter is received from the UI, the exact instance of `MyColor` that is currently part of the data context is received, not a copy.
+In the previous code, a `MyColor` object is received as the parameter of an *async command* and used as parameter of a `List<T>.Remove` call which employs reference equality (since `MyColor` is a rererence type that doesn't override `Equals`) to identify the element to remove. This is possible because, even if the parameter is received from the UI, the exact instance of `MyColor` that is currently part of the data context is received, not a copy.
 
 The processes of
 
@@ -225,10 +223,11 @@ In the picture above, you can see how every reference type object in the data co
 
 ## RunningCommandsCount with multiple bindings and event handling
 
-If we test the extension at this point, we will notice that when one of the "Remove" buttons is clicked, all "Remove" buttons are disabled:
+If you test the extension at this point, you'll notice that when one of the "Remove" buttons is clicked, all "Remove" buttons are disabled:
+
 ![Async Command with multiple bindings](async-commands-multiple-bindings.gif "Async Command with multiple bindings")
 
-This may be the desired behavior. But, let's say that we want only the current button to be disabled and we will allow the user to queue multiple colors for removal: we cannot use the *async command*'s `RunningCommandsCount` property because we have a single command shared between all the buttons.
+This may be the desired behavior. But, suppose you want only the current button to be disabled and you'll allow the user to queue multiple colors for removal: we cannot use the *async command*'s `RunningCommandsCount` property because we have a single command shared between all the buttons.
 
 We can achieve our goal by attaching a `RunningCommandsCount` property to each button so that we have a separate counter for each color. These features are provided by the `http://schemas.microsoft.com/visualstudio/extensibility/2022/xaml` namespace which allows to consume *Remote UI* types from XAML:
 
@@ -256,7 +255,7 @@ In this case, we use `vs:EventHandler` to attach to each button its own separate
 
 ![Async Command with targeted RunningCommandsCount](targeted-counter.gif "Async Command with targeted RunningCommandsCount")
 
-## Using WPF types in the data context
+## Use WPF types in the data context
 
 Until now, the data context of our *remote user control* has been composed of primitives (numbers, strings, etc.), observable collections and our own classes marked with `DataContract`. It is sometimes useful to include simple WPF types in the data context like complex brushes.
 
@@ -286,7 +285,7 @@ public class MyColor
 }
 ```
 
-With the code above, the `Color` property value will be converted to a `LinearGradientBrush` object in the data context proxy:
+With the code above, the `Color` property value is converted to a `LinearGradientBrush` object in the data context proxy:
 ![WPF types in data context](wpf-types-in-data-context.png "WPF types in data context")
 
 ## *Remote UI* and threads

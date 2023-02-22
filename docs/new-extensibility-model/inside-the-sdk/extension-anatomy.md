@@ -1,26 +1,30 @@
 ---
-title: Extension Anatomy Reference
-description: A reference for extension anatomy
-date: 2021-8-16
+title: Components of a VisualStudio.Extensibility extension
+description: Learn the components of a Visual Studio extension created with the VisualStudio.Extensibility model, and how they interact with each other.
+date: 2023-2-6
 ---
 
-# Anatomy of a new Visual Studio Extension
+# Components of a VisualStudio.Extensibility extension
 
-An extension utilizing the new extensibility SDK will have several components that interact together and also with Visual Studio.
+An extension utilizing VisualStudio.Extensibility will have several components that interact together and also with Visual Studio. 
 
 ## Extension instance
 
-The starting point for each extension is an instance of `Microsoft.VisualStudio.Extensibility.Extension`. This instance contains the necessary methods for Visual Studio to query services provided by the extension and also provides virtual methods for extension to provide localized resources and extension owned local services to be shared between the components of the extension.
+The starting point for each extension is an instance of `Microsoft.VisualStudio.Extensibility.Extension`. This instance contains the necessary methods for Visual Studio to query services provided by the extension and also provides virtual methods for extension to provide localized resources and extension-owned local services to be shared between the components of the extension.
 
 Extension projects will have their own class that derives from `Microsoft.VisualStudio.Extensibility.Extension` to customize certain aspects of the extension.
 
-For extension developers that are familiar with the existing VS SDK APIs, this class is very similar to `AsyncPackage` class that is used in the in-process extensibility model.
+Extensions must have a class that derives from `Microsoft.VisualStudio.Extensibility.Extension`. See [MarkdownLinter](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/MarkdownLinter) for an example implementation.
+
+For extension developers that are familiar with the existing VS SDK APIs, this class is very similar to `AsyncPackage` class that is used in the VS SDK extensibility model.
 
 ## VisualStudioExtensibility object
 
 The object `Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility` acts as the entry point for extensibility features exposed by Visual Studio. This class will have various extension methods, properties to quickly enumerate through available features in extensibility SDK. Please see the (TBD:link) API documentation for available methods.
 
 ## Extension parts
+
+For features where an extension contributes components to Visual Studio such as commands, editor listeners, extensions will utilize attributed classes. Build process will generate the correct metadata to ensure these components can be discovered by Visual Studio.
 
 For features where an extension contributes components to Visual Studio such as commands, editor listeners, tool windows, etc., extensions will utilize classes marked with the `VisualStudioContribution` attribute. The build process will generate the correct metadata to ensure these components can be discovered by Visual Studio.
 
@@ -33,13 +37,13 @@ Currently the SDK supports a limited set of components to be contributed:
 * [Margin providers](../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-ITextViewMarginProvider)
 * [Debugger visualizers](../api/Microsoft.VisualStudio.Extensibility.md#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProvider)
 
-Instances for these classes will be created as part of the extensibility framework provided by the SDK using dependency injection library and constructors can be used to retrieve instances of services provided by either the SDK or by the extension itself to share state across components.
+Instances for these classes will be created as part of the extensibility framework provided by the SDK using a dependency injection library, and constructors can be used to retrieve instances of services provided by either the SDK or by the extension itself to share state across components.
 
 ### Lifetime of extension parts
 
-Lifetime of each part is managed by the respective component that loads those parts inside Visual Studio IDE process.
+The lifetime of each part is managed by the respective component that loads those parts inside Visual Studio IDE process.
 
-* Command handlers will be initialized when the corresponding command set is activated which can be during the first execution of the command. Once activated, command handlers should only be disposed when IDE is shutdown.
+* Command handlers will be initialized when the corresponding command set is activated, which can be during the first execution of the command. Once activated, command handlers should only be disposed when IDE is shutdown.
 
 * Similarly text view event listeners will be initialized when the first text view matching the content type specified is loaded in the IDE. Currently, such listeners will be active until IDE is shutdown but this behavior may change in future.
 
@@ -57,7 +61,7 @@ The following services are provided by the SDK that can be used in constructor f
 
 * Local services: Any local services provided by the extension itself will also be available for dependency injection.
 
-* `MefInjection<TService>` and `AsyncServiceProviderInjection<TService, TInterface>`: In-proc extensions can inject [Visual Studio SDK](https://www.nuget.org/packages/Microsoft.VisualStudio.SDK) services that would be traditionally consumed through either [MEF](https://docs.microsoft.com/en-us/visualstudio/extensibility/managed-extensibility-framework-in-the-editor) or the [AsyncServiceProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.asyncserviceprovider).
+* `MefInjection<TService>` and `AsyncServiceProviderInjection<TService, TInterface>`: In-proc extensions can inject [Visual Studio SDK](https://www.nuget.org/packages/Microsoft.VisualStudio.SDK) services that would be traditionally consumed through either [MEF](https://docs.microsoft.com/visualstudio/extensibility/managed-extensibility-framework-in-the-editor) or the [AsyncServiceProvider](https://docs.microsoft.com/dotnet/api/microsoft.visualstudio.shell.asyncserviceprovider).
 
 ## Local extension services
 

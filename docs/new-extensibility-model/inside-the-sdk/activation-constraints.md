@@ -4,9 +4,9 @@ description: A reference for activation constraints
 date: 2021-8-16
 ---
 
-# Rule based activation constraints
+# Rule-based activation constraints
 
-One of the common concepts in Visual Studio Extensibility SDK is use of context based activation rules in code attributes. An example of these would be the [`VisibleWhen`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#P-Microsoft-VisualStudio-Extensibility-Commands-CommandConfiguration-VisibleWhen) property in a command's configuratio declaring when the command is made visible.
+One of the common concepts in Visual Studio Extensibility is use of context based activation rules in code attributes. An example of these would be the [`VisibleWhen`](../api/Microsoft.VisualStudio.Extensibility.Contracts.md#P-Microsoft-VisualStudio-Extensibility-Commands-CommandConfiguration-VisibleWhen) property in a command's configuratio declaring when the command is made visible.
 
 Our goal is to provide a common way to create such contexts.
 
@@ -63,6 +63,8 @@ For compatibility reasons, the following legacy activation constraints are also 
 
 ## Solution states
 
+The following table shows the possible solution states:
+
 | State | Description |
 | -- | -- |
 | NoSolution | No solution loaded. |
@@ -74,6 +76,7 @@ For compatibility reasons, the following legacy activation constraints are also 
 | Building | Solution is building. |
 
 ## Client contexts
+
 Activation rules can also utilize the [client context](extension-anatomy.md#client-context) contents as parts of its expression. 
 
 Currently, the client context is limited to a small set of values in IDE state:

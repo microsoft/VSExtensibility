@@ -4,9 +4,9 @@ description: A reference for extensibility user prompts
 date: 2022-07-29
 ---
 
-# User Prompts Overview
+# User prompts overview
 
-User Prompts are a simple UI mechanism for prompting the user during the execution of a [Command](../command/command.md). Prompting the user creates a dialog box with a message, one to three buttons for the choices, and a dismiss button.
+User prompts are a simple UI mechanism for prompting the user during the execution of a [Command](../command/command.md). Prompting the user creates a dialog box with a message, one to three buttons for the choices, and a dismiss button.
 
 **Note:** The exact UI used to prompt users may change in future versions based on user feedback or other factors.
 
@@ -16,7 +16,7 @@ The user always has the option of dismissing the prompt without making a selecti
 
 The choices presented to the user are mapped to return values of the type defined in the `TResult` type parameter.
 
-## Parts of a User Prompt
+## Parts of a user prompt
 
 ![User Prompt Parts](user_prompt_parts.png)
 
@@ -24,25 +24,23 @@ The choices presented to the user are mapped to return values of the type define
 2. Choice Buttons
 3. Dismiss Button
 
-# Getting Started
+## Get started
 
 User Prompts can only be created inside of a [Command](../command/command.md). To get started, [Create the extension project](../../getting-started/create-your-first-extension.md#create-the-extension-project) and [Add your first command](../../getting-started/create-your-first-extension.md#add-your-first-command).
 
-Next, see the [UserPromptSample](./../../../../New_Extensibility_Model/Samples/UserPromptSample) sample for a full example of creating an extension that displays a User Prompt.
-
-# Working with User Prompts
+## Work with user prompts
 
 This guide covers the following scenarios for working with User Prompts:
 
-- [Displaying a User Prompt](#displaying-a-user-prompt)
-- [Using Built-in Options](#using-built-in-options)
-- [Creating Custom Options](#creating-custom-options)
+- [Display a user prompt](#display-a-user-prompt)
+- [Use built-in options](#use-built-in-options)
+- [Create a prompt with custom options](#create-a-prompt-with-custom-options)
 
-# Displaying a User Prompt
+## Display a user prompt
 
 As discussed above, User Prompts can be shown inside of Commands, where you have access to an `IClientContext` instance. To show a user prompt, call the `IClientContext.ShowPromptAsync<TResult>()` method inside the `ExecuteCommandAsync()` method for the Command. 
 
-## `IClientContext.ShowPromptAsync<TResult>()`
+### `IClientContext.ShowPromptAsync<TResult>()`
 
 The `ShowPromptAsync()` method takes three parameters:
 
@@ -52,7 +50,7 @@ The `ShowPromptAsync()` method takes three parameters:
 | options   | `PromptOptions<TResult>` | yes | Defines the user choices, mapping them to return values. |
 | cancellationToken | [`CancellationToken`](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) | Yes | The [`CancellationToken`](https://docs.microsoft.com/en-us/dotnet/api/system.threading.cancellationtoken) for the async operation. When triggered, the prompt is force closed. |
 
-## Example
+### Example
 
 The following code inside a Command will show a User Prompt with a simple message and an OK button.
 
@@ -63,18 +61,18 @@ public override async Task ExecuteCommandAsync(IClientContext context, Cancellat
 }
 ```
 
-# Using Built-in Options
+## Use built-in options
 
 Several sets of pre-defined `PromptOptions` are available in the SDK.
 
-## OK
+### OK
 
 | Choice | Default | Return Value |
 |--------|---------|--------------|
 | "OK"   | Yes | true |
 | _Dismissed_ | | false |
 
-## OKCancel
+### OKCancel
 
 | Choice | Default | Return Value |
 |--------|---------|--------------|
@@ -82,7 +80,7 @@ Several sets of pre-defined `PromptOptions` are available in the SDK.
 | "Cancel" | No | false |
 | _Dismissed_ | | false |
 
-## RetryCancel
+### RetryCancel
 
 | Choice | Default | Return Value |
 |--------|---------|--------------|
@@ -90,7 +88,7 @@ Several sets of pre-defined `PromptOptions` are available in the SDK.
 | "Cancel" | No | false |
 | _Dismissed_ | | false |
 
-## Example
+### Example
 
 ![User Prompt With OK](user_prompt_ok.png)
 
@@ -111,7 +109,7 @@ public override async Task ExecuteCommandAsync(IClientContext context, Cancellat
 
 If the user clicks "OK", `ShowPromptAsync` will return `true` when awaited. If the user clicks the dismiss button, it will return `false`.
 
-### Change the default choice of a built-in option to "Cancel"
+#### Change the default choice of a built-in option to "Cancel"
 
 ```csharp
 public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken ct)
@@ -126,7 +124,7 @@ public override async Task ExecuteCommandAsync(IClientContext context, Cancellat
 }
 ```
 
-# Creating Custom Options
+## Create a prompt with custom options
 
 ![Custom User Prompt](user_prompt_custom.png)
 
@@ -134,7 +132,7 @@ In addition to the built-in options, you can customize the choices presented to 
 
 Instead of using the sets defined in `PromptOptions`, create a new instance of `PromptOptions<TResult>` and pass it to `ShowPromptAsync`.
 
-## Example
+### Example
 
 Start by creating a value type to define the return values:
 
@@ -175,7 +173,9 @@ public override async Task ExecuteCommandAsync(IClientContext context, Cancellat
 
 The `Choices` collection maps the user choices to values in the `TokenThemeResult` enum. `DismissedReturns` sets the value that is returned if the user clicks the dismiss button. `DefaultChoiceIndex` is a zero-based index into the `Choices` collection that defines the default choice.
 
-# Samples
+## Next steps
 
-* [UserPromptSample](../../../../New_Extensibility_Model/Samples/UserPromptSample/SampleCommand.cs)
-* [MarkdownLinter](../../../../New_Extensibility_Model/Samples/MarkdownLinter/RunLinterOnSolutionCommand.cs)
+The following samples demonstrate how to work with user prompts:
+
+- [UserPromptSample](../../../../New_Extensibility_Model/Samples/UserPromptSample/)
+- [MarkdownLinter](../../../../New_Extensibility_Model/Samples/MarkdownLinter/)
