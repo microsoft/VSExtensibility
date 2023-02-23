@@ -1,4 +1,4 @@
 ﻿{
-	"SampleCommand.DisplayName": "My Command",
-	"ToolBar.DisplayName": "Command Parenting Sample Toolbar"
+	"CommandParentingSample.SampleCommand.DisplayName": "My Command",
+	"CommandParentingSample.ToolBar.DisplayName": "Command Parenting Sample Toolbar"
 }

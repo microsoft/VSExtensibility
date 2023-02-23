@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 [VisualStudioContribution]
 internal class RemoveRegions : CommentRemoverCommand
 {
-	private const string CommandDescription = "%RemoveRegions.DisplayName%";
+	private const string CommandDescription = "%CommentRemover.RemoveRegions.DisplayName%";
 
 	public RemoveRegions(
 		VisualStudioExtensibility extensibility,

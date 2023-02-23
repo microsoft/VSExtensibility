@@ -27,7 +27,7 @@ public class QueryOutputGroupByIdCommand : Command
 	}
 
 	/// <inheritdoc />
-	public override CommandConfiguration CommandConfiguration => new("%QueryOutputGroupByIdCommand.DisplayName%")
+	public override CommandConfiguration CommandConfiguration => new("%VSProjectQueryAPISample.QueryOutputGroupByIdCommand.DisplayName%")
 	{
 		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
 		Icon = new(ImageMoniker.KnownValues.Extension, IconSettings.IconAndText),

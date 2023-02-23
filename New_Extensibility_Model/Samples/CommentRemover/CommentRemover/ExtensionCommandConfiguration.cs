@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.Extensibility.Commands;
 internal static class ExtensionCommandConfiguration
 {
 	[VisualStudioContribution]
-	public static MenuConfiguration CommentRemoverMenu => new("%CommentRemoverMenu.DisplayName%")
+	public static MenuConfiguration CommentRemoverMenu => new("%CommentRemover.CommentRemoverMenu.DisplayName%")
 	{
 		Priority = 1,
 		Placements = new[]

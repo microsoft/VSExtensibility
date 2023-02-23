@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-namespace Microsoft.VisualStudio.Extensions.MarkdownLinter;
+namespace MarkdownLinter;
 
 using System;
 using System.Collections.Generic;
@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Commands;
 using Microsoft.VisualStudio.Extensibility.Shell;
@@ -43,7 +44,7 @@ internal class RunLinterOnSolutionCommand : Command
 	}
 
 	/// <inheritdoc />
-	public override CommandConfiguration CommandConfiguration => new("%RunLinterOnSolutionCommand.DisplayName%")
+	public override CommandConfiguration CommandConfiguration => new("%MarkdownLinter.RunLinterOnSolutionCommand.DisplayName%")
 	{
 		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
 		Icon = new(ImageMoniker.Custom("MarkdownIcon"), IconSettings.IconAndText),

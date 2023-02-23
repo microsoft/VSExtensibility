@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 [VisualStudioContribution]
 internal class RemoveAllExceptXmlDocComments : CommentRemoverCommand
 {
-	private const string CommandDescription = "%RemoveAllExceptXmlDocComments.DisplayName%";
+	private const string CommandDescription = "%CommentRemover.RemoveAllExceptXmlDocComments.DisplayName%";
 
 	public RemoveAllExceptXmlDocComments(
 		VisualStudioExtensibility extensibility,

@@ -1,4 +1,4 @@
 ﻿{
-	"RunLinterOnCurrentFileCommand.DisplayName": "Run Linter on open file",
-	"RunLinterOnSolutionCommand.DisplayName": "Run Linter on solution"
+	"MarkdownLinter.RunLinterOnCurrentFileCommand.DisplayName": "Run Linter on open file",
+	"MarkdownLinter.RunLinterOnSolutionCommand.DisplayName": "Run Linter on solution"
 }

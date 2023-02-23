@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 [VisualStudioContribution]
 internal class RemoveAllExceptTaskComments : CommentRemoverCommand
 {
-	private const string CommandDescription = "%RemoveAllExceptTaskComments.DisplayName%";
+	private const string CommandDescription = "%CommentRemover.RemoveAllExceptTaskComments.DisplayName%";
 
 	public RemoveAllExceptTaskComments(
 		VisualStudioExtensibility extensibility,

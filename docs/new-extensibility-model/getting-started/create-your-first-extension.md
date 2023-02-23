@@ -30,7 +30,7 @@ The template creates a class which extends `Extension`. This class is the first 
 
 ```csharp
 [VisualStudioContribution]
-internal class MyExtension : Extension
+internal class ExtensionEntrypoint : Extension
 {
     protected override void InitializeServices(IServiceCollection serviceCollection)
     {
@@ -53,19 +53,21 @@ internal class Command1 : Command
 {
 ```
 
-The command has a configuration property named `CommandConfiguration` which defines it's display name, icon and placement under the `Tools` menu.
+The command has a configuration property named `CommandConfiguration` which defines it's display name, icon and placement under the `Extensions` menu.
 
 ```csharp
-    public override CommandConfiguration CommandConfiguration => new("%Command1.DisplayName%")
+    public override CommandConfiguration CommandConfiguration => new("%MyExtension.Command1.DisplayName%")
     {
+        // Use this object initializer to set optional parameters for the command. The required parameter,
+        // displayName, is set above. DisplayName is localized and references an entry in .vsextension\string-resources.json.
         Icon = new(ImageMoniker.KnownValues.Extension, IconSettings.IconAndText),
-        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+        Placements = new[] { CommandPlacement.KnownPlacements.ExtensionsMenu },
     };
 ```
 
 Configuration properties are evaluated by the C# compiler when building the extension and their value is saved as extension metadata so that Visual Studio can read it without loading the extension assembly. For this reason, configuration properties have additional restrictions compared to normal properties (for example, they must be readonly).
 
-You can see that the display name of the command is `"%Command1.DisplayName%"`, which references the `Command1.DisplayName` string in the `.vsextension/string-resources.json` file, allowing this string to be localized.
+You can see that the display name of the command is `"%MyExtension.Command1.DisplayName%"`, which references the `MyExtension.Command1.DisplayName` string in the `.vsextension/string-resources.json` file, allowing this string to be localized.
 
 When the command is executed, Visual Studio will call in to `ExecuteCommandAsync` method where you can place a breakpoint. You can utilize `context` argument or `this.Extensibility` object to interact with Visual Studio.
 
@@ -75,7 +77,7 @@ For example, a command handler could be as below:
 public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
 {
     await context.ShowPromptAsync(
-        "Hello from another process!", 
+        "Hello from an extension!", 
         PromptOptions.OK, 
         cancellationToken);
 }
