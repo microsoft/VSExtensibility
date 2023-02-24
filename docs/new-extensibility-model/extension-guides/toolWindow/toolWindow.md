@@ -190,4 +190,4 @@ Be sure to read about how [Remote UI](./../../inside-the-sdk/remote-ui.md) works
 
 Tool window content is created using WPF, so refer to the [WPF documentation](https://learn.microsoft.com/dotnet/desktop/wpf/overview/) for guidance.
 
-See the [ToolWindowExtension](./../../../../New_Extensibility_Model/Samples/ToolWindowExtension) sample for a full example of creating an extension with a tool window.
+See the [ToolWindow](./../../../../New_Extensibility_Model/Samples/ToolWindowSample) sample for a full example of creating an extension with a tool window.
