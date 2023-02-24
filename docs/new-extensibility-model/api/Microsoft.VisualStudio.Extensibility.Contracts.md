@@ -1185,7 +1185,7 @@ Implicitly converts a `string` to a [ClientContextKey](#T-Microsoft-VisualStudio
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String)~Microsoft.VisualStudio.Extensibility.ClientContextKey 'System.String') | The string value of [ClientContextKey](#T-Microsoft-VisualStudio-Extensibility-ClientContextKey 'Microsoft.VisualStudio.Extensibility.ClientContextKey'). |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The string value of [ClientContextKey](#T-Microsoft-VisualStudio-Extensibility-ClientContextKey 'Microsoft.VisualStudio.Extensibility.ClientContextKey'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ClientContextKey-op_Implicit-Microsoft-VisualStudio-Extensibility-ClientContextKey-~System-String'></a>
 ### op_Implicit(value) `method`
@@ -1198,7 +1198,7 @@ Implicitly converts a [ClientContextKey](#T-Microsoft-VisualStudio-Extensibility
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [Microsoft.VisualStudio.Extensibility.ClientContextKey)~System.String](#T-Microsoft-VisualStudio-Extensibility-ClientContextKey-~System-String 'Microsoft.VisualStudio.Extensibility.ClientContextKey)~System.String') | The [ClientContextKey](#T-Microsoft-VisualStudio-Extensibility-ClientContextKey 'Microsoft.VisualStudio.Extensibility.ClientContextKey') to be converted. |
+| value | [Microsoft.VisualStudio.Extensibility.ClientContextKey](#T-Microsoft-VisualStudio-Extensibility-ClientContextKey-~System-String 'Microsoft.VisualStudio.Extensibility.ClientContextKey') | The [ClientContextKey](#T-Microsoft-VisualStudio-Extensibility-ClientContextKey 'Microsoft.VisualStudio.Extensibility.ClientContextKey') to be converted. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ClientContextKey-op_Inequality-Microsoft-VisualStudio-Extensibility-ClientContextKey,Microsoft-VisualStudio-Extensibility-ClientContextKey-'></a>
 ### op_Inequality(a,b) `method`
@@ -1963,7 +1963,7 @@ Implicitly converts a `string` to a [ContainerMarginPlacement](#T-Microsoft-Visu
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String)~Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement 'System.String') | The string value of [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement'). |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String) 'System.String') | The string value of [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-op_Implicit-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-~System-String'></a>
 ### op_Implicit(value) `method`
@@ -1976,7 +1976,7 @@ Implicitly converts a [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Exten
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement)~System.String](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-~System-String 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement)~System.String') | The [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement') to be converted. |
+| value | [Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement') | The [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement') to be converted. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-op_Inequality-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement,Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-'></a>
 ### op_Inequality(a,b) `method`
@@ -2255,7 +2255,7 @@ Initializes a new instance of the [DebuggerVisualizerProviderConfiguration](#T-M
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| targets | [Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTargetType[]](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetType[] 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTargetType[]') | Types that a debugger visualizer will target and the corresponding display names for the
+| targets | [Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTargetType[]](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetType 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTargetType[]') | Types that a debugger visualizer will target and the corresponding display names for the
 visualizer. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProviderConfiguration-Targets'></a>
@@ -2495,17 +2495,15 @@ The [DocumentFilter](#T-Microsoft-VisualStudio-Extensibility-DocumentFilter 'Mic
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| pattern | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The glob pattern to match document file path.
- Glob patterns can have the following syntax:
-
- * to match one or more characters in a path segment
- ? to match on one character in a path segment
- ** to match any number of path segments, including none
- {} to group conditions (e.g. **/*.{ts,js} matches all TypeScript and JavaScript files)
- [] to declare a range of characters to match in a path segment (e.g., example.[0-9]
- to match on example.0, example.1, …)
- [!...] to negate a range of characters to match in a path segment (e.g., example.[!0-9]
- to match on example.a, example.b, but not example.0)
+| pattern | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The glob pattern to match document file path. Glob patterns can have the following syntax:
+<br/><br/>
+- * to match one or more characters in a path segment
+- ? to match on one character in a path segment
+- ** to match any number of path segments, including none
+- {} to group conditions (e.g. **/*.{ts,js} matches all TypeScript and JavaScript files)
+- [] to declare a range of characters to match in a path segment (e.g., example.[0-9] to match on example.0, example.1, …)
+ [!...] to negate a range of characters to match in a path segment (e.g., example.[!0-9] to match on example.a, example.b, but not example.0)
+ <br/><br/>
  Note: a backslash (\) is not valid within a glob pattern. If you have an existing file path to match against,
  consider to use the relative pattern support that takes care of converting any backslash into slash.
  Otherwise, make sure to convert any backslash to slash when creating the glob pattern. |
@@ -2633,7 +2631,7 @@ Implicitly converts a `string` to a [DocumentType](#T-Microsoft-VisualStudio-Ext
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String)~Microsoft.VisualStudio.Extensibility.Editor.DocumentType 'System.String') | The string value of [DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType'). |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String) 'System.String') | The string value of [DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-op_Implicit-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-~System-String'></a>
 ### op_Implicit(value) `method`
@@ -2646,7 +2644,7 @@ Implicitly converts a [DocumentType](#T-Microsoft-VisualStudio-Extensibility-Edi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [Microsoft.VisualStudio.Extensibility.Editor.DocumentType)~System.String](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-~System-String 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType)~System.String') | The [DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType') to be converted. |
+| value | [Microsoft.VisualStudio.Extensibility.Editor.DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType') | The [DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType') to be converted. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-op_Inequality-Microsoft-VisualStudio-Extensibility-Editor-DocumentType,Microsoft-VisualStudio-Extensibility-Editor-DocumentType-'></a>
 ### op_Inequality(a,b) `method`
@@ -2888,7 +2886,7 @@ The hash.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| enumerable | [System.Collections.Generic.IEnumerable{\`\`0}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{``0}') | The enumerable to calculate the hash for, or null. |
+| enumerable | [System.Collections.Generic.IEnumerable<T>](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable<T>') | The enumerable to calculate the hash for, or null. |
 
 ##### Generic Types
 
@@ -3432,7 +3430,7 @@ Implicitly converts a `string` to a [ImageMoniker](#T-Microsoft-VisualStudio-Ext
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String)~Microsoft.VisualStudio.Extensibility.ImageMoniker 'System.String') | The string value of [ImageMoniker](#T-Microsoft-VisualStudio-Extensibility-ImageMoniker 'Microsoft.VisualStudio.Extensibility.ImageMoniker'). |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String) 'System.String') | The string value of [ImageMoniker](#T-Microsoft-VisualStudio-Extensibility-ImageMoniker 'Microsoft.VisualStudio.Extensibility.ImageMoniker'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ImageMoniker-op_Implicit-Microsoft-VisualStudio-Extensibility-ImageMoniker-~System-String'></a>
 ### op_Implicit(value) `method`
@@ -3445,7 +3443,7 @@ Implicitly converts a [ImageMoniker](#T-Microsoft-VisualStudio-Extensibility-Ima
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [Microsoft.VisualStudio.Extensibility.ImageMoniker)~System.String](#T-Microsoft-VisualStudio-Extensibility-ImageMoniker-~System-String 'Microsoft.VisualStudio.Extensibility.ImageMoniker)~System.String') | The [ImageMoniker](#T-Microsoft-VisualStudio-Extensibility-ImageMoniker 'Microsoft.VisualStudio.Extensibility.ImageMoniker') to be converted. |
+| value | [Microsoft.VisualStudio.Extensibility.ImageMoniker](#T-Microsoft-VisualStudio-Extensibility-ImageMoniker 'Microsoft.VisualStudio.Extensibility.ImageMoniker') | The [ImageMoniker](#T-Microsoft-VisualStudio-Extensibility-ImageMoniker 'Microsoft.VisualStudio.Extensibility.ImageMoniker') to be converted. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ImageMoniker-op_Inequality-Microsoft-VisualStudio-Extensibility-ImageMoniker,Microsoft-VisualStudio-Extensibility-ImageMoniker-'></a>
 ### op_Inequality(a,b) `method`
@@ -3578,7 +3576,7 @@ Implicitly converts a [Key](#T-Microsoft-VisualStudio-Extensibility-Commands-Key
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [Microsoft.VisualStudio.Extensibility.Commands.Key)~System.String](#T-Microsoft-VisualStudio-Extensibility-Commands-Key-~System-String 'Microsoft.VisualStudio.Extensibility.Commands.Key)~System.String') | The [Key](#T-Microsoft-VisualStudio-Extensibility-Commands-Key 'Microsoft.VisualStudio.Extensibility.Commands.Key') to be converted. |
+| value | [Microsoft.VisualStudio.Extensibility.Commands.Key](#T-Microsoft-VisualStudio-Extensibility-Commands-Key 'Microsoft.VisualStudio.Extensibility.Commands.Key') | The [Key](#T-Microsoft-VisualStudio-Extensibility-Commands-Key 'Microsoft.VisualStudio.Extensibility.Commands.Key') to be converted. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-Key-op_Inequality-Microsoft-VisualStudio-Extensibility-Commands-Key,Microsoft-VisualStudio-Extensibility-Commands-Key-'></a>
 ### op_Inequality(a,b) `method`
@@ -4118,7 +4116,7 @@ Implicitly converts a [MarginPlacement](#T-Microsoft-VisualStudio-Extensibility-
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement)~System.String](#T-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-~System-String 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement)~System.String') | The [MarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement') to be converted. |
+| value | [Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement') | The [MarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement') to be converted. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-op_Inequality-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement,Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-'></a>
 ### op_Inequality(a,b) `method`
@@ -4389,7 +4387,7 @@ The menu child placement for a group.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| groupChildren | [Microsoft.VisualStudio.Extensibility.Commands.GroupChild[]](#T-Microsoft-VisualStudio-Extensibility-Commands-GroupChild[] 'Microsoft.VisualStudio.Extensibility.Commands.GroupChild[]') | The set of children to be parented to the group. |
+| groupChildren | [Microsoft.VisualStudio.Extensibility.Commands.GroupChild[]](#T-Microsoft-VisualStudio-Extensibility-Commands-GroupChild 'Microsoft.VisualStudio.Extensibility.Commands.GroupChild[]') | The set of children to be parented to the group. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-MenuChild-Menu-Microsoft-VisualStudio-Extensibility-Commands-MenuConfiguration-'></a>
 ### Menu(menuConfiguration) `method`
@@ -5104,7 +5102,7 @@ Implicitly converts a `string` to a [ProjectCapability](#T-Microsoft-VisualStudi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String)~Microsoft.VisualStudio.Extensibility.ProjectCapability') | The string value of [ProjectCapability](#T-Microsoft-VisualStudio-Extensibility-ProjectCapability 'Microsoft.VisualStudio.Extensibility.ProjectCapability'). |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The string value of [ProjectCapability](#T-Microsoft-VisualStudio-Extensibility-ProjectCapability 'Microsoft.VisualStudio.Extensibility.ProjectCapability'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ProjectCapability-op_Implicit-Microsoft-VisualStudio-Extensibility-ProjectCapability-~System-String'></a>
 ### op_Implicit(value) `method`
@@ -5117,7 +5115,7 @@ Implicitly converts a [ProjectCapability](#T-Microsoft-VisualStudio-Extensibilit
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [Microsoft.VisualStudio.Extensibility.ProjectCapability)~System.String](#T-Microsoft-VisualStudio-Extensibility-ProjectCapability-~System-String 'Microsoft.VisualStudio.Extensibility.ProjectCapability)~System.String') | The [ProjectCapability](#T-Microsoft-VisualStudio-Extensibility-ProjectCapability 'Microsoft.VisualStudio.Extensibility.ProjectCapability') to be converted. |
+| value | [Microsoft.VisualStudio.Extensibility.ProjectCapability](#T-Microsoft-VisualStudio-Extensibility-ProjectCapability 'Microsoft.VisualStudio.Extensibility.ProjectCapability') | The [ProjectCapability](#T-Microsoft-VisualStudio-Extensibility-ProjectCapability 'Microsoft.VisualStudio.Extensibility.ProjectCapability') to be converted. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ProjectCapability-op_Inequality-Microsoft-VisualStudio-Extensibility-ProjectCapability,Microsoft-VisualStudio-Extensibility-ProjectCapability-'></a>
 ### op_Inequality(a,b) `method`
@@ -5941,7 +5939,7 @@ Implicitly converts a [Guid](https://learn.microsoft.com/dotnet/api/System.Guid 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.Guid](https://learn.microsoft.com/dotnet/api/System.Guid) 'System.Guid') | The modifier key name. |
+| value | [System.Guid](https://learn.microsoft.com/dotnet/api/System.Guid 'System.Guid') | The modifier key name. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement-op_Implicit-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement-~System-String'></a>
 ### op_Implicit(value) `method`
@@ -5954,7 +5952,7 @@ Implicitly converts a [ToolWindowPlacement](#T-Microsoft-VisualStudio-Extensibil
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement)~System.String](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement-~System-String 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement)~System.String') | The [ToolWindowPlacement](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement') to be converted. |
+| value | [Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement') | The [ToolWindowPlacement](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement') to be converted. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement-op_Inequality-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement,Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement-'></a>
 ### op_Inequality(a,b) `method`
@@ -6066,7 +6064,7 @@ The menu child placement for a group.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| groupChildren | [Microsoft.VisualStudio.Extensibility.Commands.GroupChild[]](#T-Microsoft-VisualStudio-Extensibility-Commands-GroupChild[] 'Microsoft.VisualStudio.Extensibility.Commands.GroupChild[]') | The set of children to be parented to the group. |
+| groupChildren | [Microsoft.VisualStudio.Extensibility.Commands.GroupChild[]](#T-Microsoft-VisualStudio-Extensibility-Commands-GroupChild 'Microsoft.VisualStudio.Extensibility.Commands.GroupChild[]') | The set of children to be parented to the group. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-ToolbarChild-Toolbar-Microsoft-VisualStudio-Extensibility-Commands-MenuConfiguration-'></a>
 ### Toolbar(menuConfiguration) `method`
