@@ -586,7 +586,7 @@ A constraint that is `true` when all `constraints` are
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| constraints | [Microsoft.VisualStudio.Extensibility.ActivationConstraint[]](#T-Microsoft-VisualStudio-Extensibility-ActivationConstraint[] 'Microsoft.VisualStudio.Extensibility.ActivationConstraint[]') | The operands of the logical AND operation. |
+| constraints | [Microsoft.VisualStudio.Extensibility.ActivationConstraint[]](#T-Microsoft-VisualStudio-Extensibility-ActivationConstraint 'Microsoft.VisualStudio.Extensibility.ActivationConstraint[]') | The operands of the logical AND operation. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-ClientContext-Microsoft-VisualStudio-Extensibility-ClientContextKey,System-String-'></a>
 ### ClientContext(key,regexPattern) `method`
@@ -677,7 +677,7 @@ A constraint that is `true` when at least one of `constraints` is
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| constraints | [Microsoft.VisualStudio.Extensibility.ActivationConstraint[]](#T-Microsoft-VisualStudio-Extensibility-ActivationConstraint[] 'Microsoft.VisualStudio.Extensibility.ActivationConstraint[]') | The operands of the logical OR operation. |
+| constraints | [Microsoft.VisualStudio.Extensibility.ActivationConstraint[]](#T-Microsoft-VisualStudio-Extensibility-ActivationConstraint 'Microsoft.VisualStudio.Extensibility.ActivationConstraint[]') | The operands of the logical OR operation. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-ProjectAddedItem-System-String-'></a>
 ### ProjectAddedItem(regexPattern) `method`
@@ -2213,14 +2213,7 @@ Initializes a new instance of the [DebuggerVisualizerProviderConfiguration](#T-M
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | visualizerDisplayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The display name of the debugger visualizer. |
-| targetType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') that is supported by this debugger visualizer.
-
-`targetType` must be a concrete type. The debugger visualizer will only
-support objects of type `targetType`, not objects of types extending `targetType`.
-
-If `targetType` is a generic type, it must be unbound.
-
-Trailing compoments of the [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') can be omitted. |
+| targetType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') that is supported by this debugger visualizer.<br/><br/>`targetType` must be a concrete type. The debugger visualizer will only support objects of type `targetType`, not objects of types extending `targetType`.<br/><br/>If `targetType` is a generic type, it must be unbound.<br/><br/>Trailing compoments of the [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') can be omitted. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProviderConfiguration-#ctor-System-String,System-String-'></a>
 ### #ctor(visualizerDisplayName,targetType) `constructor`
@@ -2235,10 +2228,7 @@ Initializes a new instance of the [DebuggerVisualizerProviderConfiguration](#T-M
 | ---- | ---- | ----------- |
 | visualizerDisplayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The display name of the debugger visualizer. |
 | targetType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') of the type that is supported by this
-debugger visualizer.
-
-`targetType` must be a concrete type. The debugger visualizer will only
-support objects of type `targetType`, not objects of types extending `targetType`.
+debugger visualizer.<br/><br/>`targetType` must be a concrete type. The debugger visualizer will only support objects of type `targetType`, not objects of types extending `targetType`.
 
 If `targetType` is a generic type, it must be unbound.
 
@@ -2272,7 +2262,7 @@ Gets types that a debugger visualizer will target and the corresponding display 
 
 Gets the type of the visualizer object source loaded in the debug target process to access the object to be
 visualized. When `null`, the default visualizer object source, which performs
-serialization using Newtonsoft.Json, will be used.
+seribaalization using Newtonsoft.Json, will be used.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProviderConfiguration-Equals-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProviderConfiguration-'></a>
 ### Equals() `method`
@@ -2408,7 +2398,7 @@ Gets the glob pattern to match document file path. Glob patterns can have the fo
 - [] to declare a range of characters to match in a path segment (e.g., example.[0-9] to match on example.0, example.1, …)
  [!...] to negate a range of characters to match in a path segment (e.g., example.[!0-9] to match on example.a, example.b, but not example.0)
 
- Note: a backslash (\) is not valid within a glob pattern. If you have an existing file path to match against, consider to use the relative pattern support that takes care of converting any backslash into slash. Otherwise, make sure to convert any backslash to slash when creating the glob pattern.
+ Note: a backslash (\\) is not valid within a glob pattern. If you have an existing file path to match against, consider to use the relative pattern support that takes care of converting any backslash into slash. Otherwise, make sure to convert any backslash to slash when creating the glob pattern.
 
 <a name='P-Microsoft-VisualStudio-Extensibility-DocumentFilter-RelativePath'></a>
 ### RelativePath `property`
@@ -2491,16 +2481,7 @@ The [DocumentFilter](#T-Microsoft-VisualStudio-Extensibility-DocumentFilter 'Mic
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| pattern | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The glob pattern to match document file path. Glob patterns can have the following syntax:
-<br/><br/>
-- \* to match one or more characters in a path segment
-- ? to match on one character in a path segment
-- ** to match any number of path segments, including none
-- {} to group conditions (e.g. **/*.{ts,js} matches all TypeScript and JavaScript files)
-- [] to declare a range of characters to match in a path segment (e.g., example.[0-9] to match on example.0, example.1, …)
- [!...] to negate a range of characters to match in a path segment (e.g., example.[!0-9] to match on example.a, example.b, but not example.0)
- <br/><br/>
- Note: a backslash (\) is not valid within a glob pattern. If you have an existing file path to match against, consider to use the relative pattern support that takes care of converting any backslash into slash. Otherwise, make sure to convert any backslash to slash when creating the glob pattern. |
+| pattern | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The glob pattern to match document file path. Glob patterns can have the following syntax:<br/><br/>- \* to match one or more characters in a path segment<br/>- ? to match on one character in a path segment<br/>- ** to match any number of path segments, including none<br/>- {} to group conditions (e.g. **/*.{ts,js} matches all TypeScript and JavaScript files)<br/>- [] to declare a range of characters to match in a path segment (e.g., example.[0-9] to match on example.0, example.1, …)<br/>- [!...] to negate a range of characters to match in a path segment (e.g., example.[!0-9] to match on example.a, example.b, but not example.0) <br/><br/> Note: a backslash (\\) is not valid within a glob pattern. If you have an existing file path to match against, consider to use the relative pattern support that takes care of converting any backslash into slash. Otherwise, make sure to convert any backslash to slash when creating the glob pattern. |
 | relativePath | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Defines whether the pattern should be applied to the absolute path of a file or to a path
  relative to the solution folder. |
 
@@ -2782,9 +2763,7 @@ Initializes a new instance of the [DoesNotReturnIfAttribute](https://learn.micro
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| parameterValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The condition parameter value.
-    Code after the method is considered unreachable by diagnostics if the argument
-    to the associated parameter matches this value. |
+| parameterValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The condition parameter value. Code after the method is considered unreachable by diagnostics if the argument to the associated parameter matches this value. |
 
 <a name='P-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-ParameterValue'></a>
 ### ParameterValue `property`
@@ -4253,8 +4232,7 @@ Initializes the attribute with the specified return value condition and a field 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value,
-    the associated parameter will not be `null`. |
+| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value, the associated parameter will not be `null`. |
 | member | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The field or property member that is promised to be not-`null`. |
 
 <a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-#ctor-System-Boolean,System-String[]-'></a>
@@ -4269,8 +4247,7 @@ Initializes the attribute with the specified return value condition and list
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value,
-    the associated parameter will not be `null`. |
+| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value, the associated parameter will not be `null`. |
 | members | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | The list of field and property members that are promised to be not-null. |
 
 <a name='P-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-Members'></a>
@@ -4639,8 +4616,7 @@ Initializes the attribute with the specified return value condition.
 
 ##### Summary
 
-Gets the return value condition.
-    If the method returns this value, the associated parameter will not be `null`.
+Gets the return value condition. If the method returns this value, the associated parameter will not be `null`.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-ActivationConstraint-OrActivationConstraint'></a>
 ## OrActivationConstraint `type`
@@ -6339,14 +6315,7 @@ Initializes a new instance of the [VisualizerTargetType](#T-Microsoft-VisualStud
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | visualizerDisplayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The display name of the debugger visualizer. |
-| targetType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') that is supported by this debugger visualizer.
-
-`targetType` must be a concrete type. The debugger visualizer will only
-support objects of type `targetType`, not objects of types extending `targetType`.
-
-If `targetType` is a generic type, it must be unbound.
-
-Trailing compoments of the [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') can be omitted. |
+| targetType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') that is supported by this debugger visualizer.<br/><br/>`targetType` must be a concrete type. The debugger visualizer will only support objects of type `targetType`, not objects of types extending `targetType`.<br/><br/>If `targetType` is a generic type, it must be unbound.<br/><br/>Trailing compoments of the [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') can be omitted. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetType-#ctor-System-String,System-String-'></a>
 ### #ctor(visualizerDisplayName,targetType) `constructor`
@@ -6361,14 +6330,7 @@ Initializes a new instance of the [VisualizerTargetType](#T-Microsoft-VisualStud
 | ---- | ---- | ----------- |
 | visualizerDisplayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The display name of the debugger visualizer. |
 | targetType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') of the type that is supported by this
-debugger visualizer.
-
-`targetType` must be a concrete type. The debugger visualizer will only
-support objects of type `targetType`, not objects of types extending `targetType`.
-
-If `targetType` is a generic type, it must be unbound.
-
-Trailing compoments of the [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') can be omitted. |
+debugger visualizer.<br/><br/>`targetType` must be a concrete type. The debugger visualizer will only support objects of type `targetType`, not objects of types extending `targetType`.<br/><br/>If `targetType` is a generic type, it must be unbound.<br/><br/>Trailing compoments of the [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') can be omitted. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetType-TargetType'></a>
 ### TargetType `property`
