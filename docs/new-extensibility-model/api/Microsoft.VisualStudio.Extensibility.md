@@ -511,7 +511,7 @@ Wraps `choiceText` in an [ChoiceDescription](#T-Microsoft-VisualStudio-Extensibi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| choiceText | [System.String](https://learn.microsoft.com/dotnet/api/System.String) 'System.String') | The option text. |
+| choiceText | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The option text. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Shell-ChoiceResultCollection`1'></a>
 ## ChoiceResultCollection\`1 `type`
@@ -1333,8 +1333,7 @@ An [IRemoteUserControl](#T-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteU
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| visualizerTarget | [Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget') | The [VisualizerTarget](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget') provides information about the target process
- and object, and can be used to request the data of the target object or replace it. |
+| visualizerTarget | [Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget') | The [VisualizerTarget](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget') provides information about the target process and object, and can be used to request the data of the target object or replace it. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
 ##### Remarks
@@ -2065,9 +2064,7 @@ Initializes a new instance of the [DoesNotReturnIfAttribute](https://learn.micro
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| parameterValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The condition parameter value.
-    Code after the method is considered unreachable by diagnostics if the argument
-    to the associated parameter matches this value. |
+| parameterValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The condition parameter value. Code after the method is considered unreachable by diagnostics if the argument to the associated parameter matches this value. |
 
 <a name='P-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-ParameterValue'></a>
 ### ParameterValue `property`
@@ -2544,7 +2541,7 @@ The result of the prompt.
 | ---- | ---- | ----------- |
 | clientContext | [Microsoft.VisualStudio.Extensibility.IClientContext](#T-Microsoft-VisualStudio-Extensibility-IClientContext 'Microsoft.VisualStudio.Extensibility.IClientContext') | Client context to utilize. |
 | message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The prompt to show to the user. |
-| options | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption}') | The options. |
+| options | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList-1 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption}') | The options. |
 | defaultOptionIndex | [System.UInt32](https://learn.microsoft.com/dotnet/api/System.UInt32 'System.UInt32') | The index of the default option. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token. |
 
@@ -2903,7 +2900,7 @@ Initializes the attribute with the list of field and property members.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| members | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String[] 'System.String[]') | The list of field and property members that are promised to be not-null. |
+| members | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | The list of field and property members that are promised to be not-null. |
 
 <a name='P-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-Members'></a>
 ### Members `property`
@@ -2935,8 +2932,7 @@ Initializes the attribute with the specified return value condition and a field 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value,
-    the associated parameter will not be `null`. |
+| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value, the associated parameter will not be `null`. |
 | member | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The field or property member that is promised to be not-`null`. |
 
 <a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-#ctor-System-Boolean,System-String[]-'></a>
@@ -2944,15 +2940,13 @@ Initializes the attribute with the specified return value condition and a field 
 
 ##### Summary
 
-Initializes the attribute with the specified return value condition and list
-    of field and property members.
+Initializes the attribute with the specified return value condition and list    of field and property members.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value,
-    the associated parameter will not be `null`. |
+| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value, the associated parameter will not be `null`. |
 | members | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String[] 'System.String[]') | The list of field and property members that are promised to be not-null. |
 
 <a name='P-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-Members'></a>
@@ -3015,9 +3009,7 @@ Initializes the attribute with the associated parameter name.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| parameterName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The associated parameter name.
-    The output will be non-`null` if the argument to the
-    parameter specified is non-`null`. |
+| parameterName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The associated parameter name. The output will be non-`null` if the argument to the parameter specified is non-`null`. |
 
 <a name='P-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-ParameterName'></a>
 ### ParameterName `property`
@@ -3051,8 +3043,7 @@ Initializes the attribute with the specified return value condition.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition.
-    If the method returns this value, the associated parameter will not be `null`. |
+| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value, the associated parameter will not be `null`. |
 
 <a name='P-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-ReturnValue'></a>
 ### ReturnValue `property`
@@ -4305,8 +4296,7 @@ Performs application-defined tasks associated with freeing, releasing, or resett
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether managed resources should be disposed. This should be `false` when
-[Dispose](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.Dispose(System.Boolean)') is called from a finalizer, `true` otherwise. |
+| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether managed resources should be disposed. This should be `false` when [Dispose](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.Dispose(System.Boolean)') is called from a finalizer, `true` otherwise. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-GetContentAsync-System-Threading-CancellationToken-'></a>
 ### GetContentAsync(cancellationToken) `method`
@@ -4668,8 +4658,7 @@ A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'Sys
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| message | [System.Buffers.ReadOnlySequence{System.Byte}](https://learn.microsoft.com/dotnet/api/System.Buffers.ReadOnlySequence-1 'System.Buffers.ReadOnlySequence{System.Byte}') | The content of the message sent to the visualizer object source. The format of
-`message` is defined by the chosen visualizer object source. |
+| message | [System.Buffers.ReadOnlySequence{System.Byte}](https://learn.microsoft.com/dotnet/api/System.Buffers.ReadOnlySequence-1 'System.Buffers.ReadOnlySequence{System.Byte}') | The content of the message sent to the visualizer object source. The format of `message` is defined by the chosen visualizer object source. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-ReplaceTargetObjectAsync-Newtonsoft-Json-Linq-JToken,System-Threading-CancellationToken-'></a>
@@ -4687,8 +4676,7 @@ A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'Sys
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| message | [Newtonsoft.Json.Linq.JToken](#T-Newtonsoft-Json-Linq-JToken 'Newtonsoft.Json.Linq.JToken') | The content of the message sent to the visualizer object source. The format of
-`message` is defined by the chosen visualizer object source. |
+| message | [Newtonsoft.Json.Linq.JToken](#T-Newtonsoft-Json-Linq-JToken 'Newtonsoft.Json.Linq.JToken') | The content of the message sent to the visualizer object source. The format of `message` is defined by the chosen visualizer object source. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-ReplaceTargetObjectAsync``1-``0,Newtonsoft-Json-JsonSerializer,System-Threading-CancellationToken-'></a>
@@ -4742,8 +4730,7 @@ The optional response to the message. The format of the returned data is defined
 
 | Name | Description |
 | ---- | ----------- |
-| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes
- unavailable before the call can be completed.
+| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes unavailable before the call can be completed.
 
  When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be
  aborted since the visualizer target is now unavailable. When the visualizer target becomes available again, the
@@ -4774,8 +4761,7 @@ The optional response to the message. The format of the returned data is defined
 
 | Name | Description |
 | ---- | ----------- |
-| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes
- unavailable before the call can be completed.
+| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes unavailable before the call can be completed.
 
  When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be
  aborted since the visualizer target is now unavailable. When the visualizer target becomes available
@@ -4804,8 +4790,7 @@ The optional response to the message. The format of the returned data is defined
 
 | Name | Description |
 | ---- | ----------- |
-| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes
- unavailable before the call can be completed.
+| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes unavailable before the call can be completed.
 
  When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be
  aborted since the visualizer target is now unavailable. When the visualizer target becomes available
@@ -4841,8 +4826,7 @@ The optional response to the message. If `TResponse` is a reference type, this
 
 | Name | Description |
 | ---- | ----------- |
-| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes
- unavailable before the call can be completed.
+| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes unavailable before the call can be completed.
 
  When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be
  aborted since the visualizer target is now unavailable. When the visualizer target becomes available
@@ -4881,8 +4865,7 @@ The optional response to the message. If `TResponse` is a reference type, this
 
 | Name | Description |
 | ---- | ----------- |
-| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes
- unavailable before the call can be completed.
+| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes unavailable before the call can be completed.
 
  When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be
  aborted since the visualizer target is now unavailable. When the visualizer target becomes available
@@ -4957,8 +4940,7 @@ Initializes a new instance of the [VisualizerTarget](#T-Microsoft-VisualStudio-E
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| objectSource | [Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient') | The object source client which can be used to query the object source for the value of
-the target object or request the target object to be replaced. |
+| objectSource | [Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient') | The object source client which can be used to query the object source for the value of the target object or request the target object to be replaced. |
 | targetTypeFullName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The [FullName](https://learn.microsoft.com/dotnet/api/System.Type.FullName 'System.Type.FullName') of the target type of the debugger visualizer. |
 | targetTypeModuleName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the assembly that defines the [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type')`targetTypeFullName`. |
 | targetTypeModuleVersion | [System.Version](https://learn.microsoft.com/dotnet/api/System.Version 'System.Version') | The version of the assembly that defines the [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type')`targetTypeFullName`. |

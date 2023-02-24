@@ -532,9 +532,9 @@ Whether `type` should be serialized as a collection.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | type | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') to be evaluated. |
-| itemType | [System.Type@](https://learn.microsoft.com/dotnet/api/System.Type@ 'System.Type@') | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') of the collection items if the collection implements
+| itemType | [System.Type@](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type@') | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') of the collection items if the collection implements
 [ICollection\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.ICollection`1 'System.Collections.Generic.ICollection`1'), `null` otherwise. |
-| getEnumerableAndCount | [System.Func{System.Object,System.ValueTuple{System.Collections.IEnumerable,System.Int32}}@](https://learn.microsoft.com/dotnet/api/System.Func 'System.Func{System.Object,System.ValueTuple{System.Collections.IEnumerable,System.Int32}}@') | A function that returns the collection converted to a [IEnumerable](https://learn.microsoft.com/dotnet/api/System.Collections.IEnumerable-1 'System.Collections.IEnumerable') and its count. |
+| getEnumerableAndCount | [System.Func{System.Object,System.ValueTuple{System.Collections.IEnumerable,System.Int32}}@](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{System.Object,System.ValueTuple{System.Collections.IEnumerable,System.Int32}}@') | A function that returns the collection converted to a [IEnumerable](https://learn.microsoft.com/dotnet/api/System.Collections.IEnumerable-1 'System.Collections.IEnumerable') and its count. |
 
 ##### Remarks
 
@@ -593,8 +593,7 @@ used by [GetTypeSerializer](#M-Microsoft-VisualStudio-Extensibility-UI-DataConte
 Serialization method for uniquely identifiable objects. This is used by [GetTypeSerializer](#M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-GetTypeSerializer-System-Type,System-Boolean,Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode@,System-Boolean@- 'Microsoft.VisualStudio.Extensibility.UI.DataContextSerializerOptions.DataContextFormatter.GetTypeSerializer(System.Type,System.Boolean,Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode@,System.Boolean@)') to
  construct [SerializeMethod](#T-Microsoft-Internal-VisualStudio-RemoteUI-SimpleDataTypesSerializer-SerializeMethod 'Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeMethod') delegates.
 
- This method may write the full object or only a [Reference](#F-Microsoft-Internal-VisualStudio-RemoteUI-SerializerFieldCode-Reference 'Microsoft.Internal.VisualStudio.RemoteUI.SerializerFieldCode.Reference') depending upon
- whether the object has already been serialized before and on
+ This method may write the full object or only a [Reference](#F-Microsoft-Internal-VisualStudio-RemoteUI-SerializerFieldCode-Reference 'Microsoft.Internal.VisualStudio.RemoteUI.SerializerFieldCode.Reference') depending upon whether the object has already been serialized before and on
  [ForceRootSerialization](#P-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-ForceRootSerialization 'Microsoft.VisualStudio.Extensibility.UI.DataContextSerializerOptions.ForceRootSerialization').
 
 ##### Parameters
@@ -730,8 +729,7 @@ Initializes a new instance of the [DataContextSerializerOptions](#T-Microsoft-Vi
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | dispatcher | [Microsoft.VisualStudio.Extensibility.UI.INotificationsDispatcher](#T-Microsoft-VisualStudio-Extensibility-UI-INotificationsDispatcher 'Microsoft.VisualStudio.Extensibility.UI.INotificationsDispatcher') | An instance of [NotificationsDispatcher](#T-Microsoft-VisualStudio-Extensibility-UI-NotificationsDispatcher 'Microsoft.VisualStudio.Extensibility.UI.NotificationsDispatcher'). |
-| forceRootSerialization | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether the serialized data should always include the full content of the
-first uniquely identifiable object encountered even if such object has already an assigned id and would
+| forceRootSerialization | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether the serialized data should always include the full content of the first uniquely identifiable object encountered even if such object has already an assigned id and would
 normally be serialized as a reference. |
 
 ##### Remarks
@@ -819,7 +817,7 @@ Whether `type` will be serialized as a collection.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | type | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The [Type](https://learn.microsoft.com/dotnet/api/ 'System.Type') to evaluate. |
-| itemType | [System.Type@](https://learn.microsoft.com/dotnet/api/System.Type@ 'System.Type@') | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') of the collection items if the collection implements
+| itemType | [System.Type@](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type@') | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') of the collection items if the collection implements
 [ICollection\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.ICollection-1 'System.Collections.Generic.ICollection`1'), `null` otherwise. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-IsPropertySerializable-System-Type,System-Reflection-PropertyInfo,System-Reflection-MethodInfo@,System-Boolean-'></a>
@@ -1079,8 +1077,7 @@ Standard virtual overload for [IDisposable](https://learn.microsoft.com/dotnet/a
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | `True` means this is a call to [Dispose](#M-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject-Dispose 'Microsoft.VisualStudio.Extensibility.Helpers.DisposableObject.Dispose').
-`False` means it has been called from the finalizer. |
+| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | `True` means this is a call to [Dispose](#M-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject-Dispose 'Microsoft.VisualStudio.Extensibility.Helpers.DisposableObject.Dispose').`False` means it has been called from the finalizer. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject-DisposeManagedResources'></a>
 ### DisposeManagedResources() `method`
@@ -2486,8 +2483,7 @@ Performs application-defined tasks associated with freeing, releasing, or resett
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether managed resources should be disposed. `disposing` should be
-`true` when [Dispose](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.Dispose(System.Boolean)') is called from a finalizer, `false`
+| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether managed resources should be disposed. `disposing` should be`true` when [Dispose](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.Dispose(System.Boolean)') is called from a finalizer, `false`
 otherwise. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-GetXamlAsync-System-Threading-CancellationToken-'></a>
