@@ -1963,7 +1963,7 @@ Implicitly converts a `string` to a [ContainerMarginPlacement](#T-Microsoft-Visu
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String) 'System.String') | The string value of [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement'). |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The string value of [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-op_Implicit-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-~System-String'></a>
 ### op_Implicit(value) `method`
@@ -2399,20 +2399,16 @@ Gets the document type of an object. Document type is frequently used to target 
 
 ##### Summary
 
-Gets the glob pattern to match document file path.
- Glob patterns can have the following syntax:
+Gets the glob pattern to match document file path. Glob patterns can have the following syntax:
 
- * to match one or more characters in a path segment
- ? to match on one character in a path segment
- ** to match any number of path segments, including none
- {} to group conditions (e.g. **/*.{ts,js} matches all TypeScript and JavaScript files)
- [] to declare a range of characters to match in a path segment (e.g., example.[0-9]
- to match on example.0, example.1, …)
- [!...] to negate a range of characters to match in a path segment (e.g., example.[!0-9]
- to match on example.a, example.b, but not example.0)
- Note: a backslash (\) is not valid within a glob pattern. If you have an existing file path to match against,
- consider to use the relative pattern support that takes care of converting any backslash into slash.
- Otherwise, make sure to convert any backslash to slash when creating the glob pattern.
+- * to match one or more characters in a path segment
+- ? to match on one character in a path segment
+- ** to match any number of path segments, including none
+- {} to group conditions (e.g. **/*.{ts,js} matches all TypeScript and JavaScript files)
+- [] to declare a range of characters to match in a path segment (e.g., example.[0-9] to match on example.0, example.1, …)
+ [!...] to negate a range of characters to match in a path segment (e.g., example.[!0-9] to match on example.a, example.b, but not example.0)
+
+ Note: a backslash (\) is not valid within a glob pattern. If you have an existing file path to match against, consider to use the relative pattern support that takes care of converting any backslash into slash. Otherwise, make sure to convert any backslash to slash when creating the glob pattern.
 
 <a name='P-Microsoft-VisualStudio-Extensibility-DocumentFilter-RelativePath'></a>
 ### RelativePath `property`
@@ -2497,16 +2493,14 @@ The [DocumentFilter](#T-Microsoft-VisualStudio-Extensibility-DocumentFilter 'Mic
 | ---- | ---- | ----------- |
 | pattern | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The glob pattern to match document file path. Glob patterns can have the following syntax:
 <br/><br/>
-- * to match one or more characters in a path segment
+- \* to match one or more characters in a path segment
 - ? to match on one character in a path segment
 - ** to match any number of path segments, including none
 - {} to group conditions (e.g. **/*.{ts,js} matches all TypeScript and JavaScript files)
 - [] to declare a range of characters to match in a path segment (e.g., example.[0-9] to match on example.0, example.1, …)
  [!...] to negate a range of characters to match in a path segment (e.g., example.[!0-9] to match on example.a, example.b, but not example.0)
  <br/><br/>
- Note: a backslash (\) is not valid within a glob pattern. If you have an existing file path to match against,
- consider to use the relative pattern support that takes care of converting any backslash into slash.
- Otherwise, make sure to convert any backslash to slash when creating the glob pattern. |
+ Note: a backslash (\) is not valid within a glob pattern. If you have an existing file path to match against, consider to use the relative pattern support that takes care of converting any backslash into slash. Otherwise, make sure to convert any backslash to slash when creating the glob pattern. |
 | relativePath | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Defines whether the pattern should be applied to the absolute path of a file or to a path
  relative to the solution folder. |
 
@@ -4182,16 +4176,14 @@ Initializes the attribute with the specified return value condition.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition.
-    If the method returns this value, the associated parameter may be `null`. |
+| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value, the associated parameter may be `null`. |
 
 <a name='P-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-ReturnValue'></a>
 ### ReturnValue `property`
 
 ##### Summary
 
-Gets the return value condition.
-    If the method returns this value, the associated parameter may be `null`.
+Gets the return value condition. If the method returns this value, the associated parameter may be `null`.
 
 <a name='T-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute'></a>
 ## MemberNotNullAttribute `type`
@@ -4595,8 +4587,7 @@ System.Diagnostics.CodeAnalysis
 
 ##### Summary
 
-Specifies that the output will be non-`null` if the
-    named parameter is non-`null`.
+Specifies that the output will be non-`null` if the named parameter is non-`null`.
 
 <a name='M-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-#ctor-System-String-'></a>
 ### #ctor(parameterName) `constructor`
@@ -4609,18 +4600,14 @@ Initializes the attribute with the associated parameter name.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| parameterName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The associated parameter name.
-    The output will be non-`null` if the argument to the
-    parameter specified is non-`null`. |
+| parameterName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The associated parameter name. The output will be non-`null` if the argument to the parameter specified is non-`null`. |
 
 <a name='P-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-ParameterName'></a>
 ### ParameterName `property`
 
 ##### Summary
 
-Gets the associated parameter name.
-    The output will be non-`null` if the argument to the
-    parameter specified is non-`null`.
+Gets the associated parameter name. The output will be non-`null` if the argument to the parameter specified is non-`null`.
 
 <a name='T-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute'></a>
 ## NotNullWhenAttribute `type`
@@ -4645,8 +4632,7 @@ Initializes the attribute with the specified return value condition.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition.
-    If the method returns this value, the associated parameter will not be `null`. |
+| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value, the associated parameter will not be `null`. |
 
 <a name='P-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-ReturnValue'></a>
 ### ReturnValue `property`
