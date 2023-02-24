@@ -282,7 +282,7 @@ Initializes a new instance of the [AsyncCommand](#T-Microsoft-VisualStudio-Exten
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| executeCallback | [System.Func{System.Object,System.Threading.CancellationToken,System.Threading.Tasks.Task}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{System.Object,System.Threading.CancellationToken,System.Threading.Tasks.Task}') | The callback to be invoked when the command is executed. |
+| executeCallback | [System.Func{System.Object,System.Threading.CancellationToken,System.Threading.Tasks.Task}](https://learn.microsoft.com/dotnet/api/System.Func-3 'System.Func{System.Object,System.Threading.CancellationToken,System.Threading.Tasks.Task}') | The callback to be invoked when the command is executed. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-UI-AsyncCommand-CanExecute'></a>
 ### CanExecute `property`
@@ -324,7 +324,7 @@ Initializes a new instance of the [ClientContext](#T-Microsoft-VisualStudio-Exte
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| contextProperties | [System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyDictionary 'System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}') | Client context bag passed by remote commands provider. |
+| contextProperties | [System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyDictionary-2 'System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}') | Client context bag passed by remote commands provider. |
 | extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility object instance. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-ClientContext-Extensibility'></a>
@@ -380,7 +380,7 @@ Microsoft.VisualStudio.Extensibility.UI.NotificationsDispatcher
 ##### Summary
 
 Delegate type for the [](#E-Microsoft-VisualStudio-Extensibility-UI-NotificationsDispatcher-CollectionChanged 'Microsoft.VisualStudio.Extensibility.UI.NotificationsDispatcher.CollectionChanged') event. This is equivalent to
- [NotifyCollectionChangedEventHandler](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Specialized.NotifyCollectionChangedEventHandler 'System.Collections.Specialized.NotifyCollectionChangedEventHandler').
+ [NotifyCollectionChangedEventHandler](https://learn.microsoft.com/dotnet/api/System.Collections.Specialized.NotifyCollectionChangedEventHandler 'System.Collections.Specialized.NotifyCollectionChangedEventHandler').
 
 ##### Parameters
 
@@ -456,7 +456,7 @@ A [SerializeMethod](#T-Microsoft-Internal-VisualStudio-RemoteUI-SimpleDataTypesS
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | `type` for which the serialize method should be generated. |
+| type | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | `type` for which the serialize method should be generated. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-GetSerializeMethodForCollection-System-Type-'></a>
 ### GetSerializeMethodForCollection(type) `method`
@@ -474,7 +474,7 @@ not a collection.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | `type` for which the serialize method should be generated. |
+| type | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | `type` for which the serialize method should be generated. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-GetSerializeMethodForMapObject-System-Type-'></a>
 ### GetSerializeMethodForMapObject(type) `method`
@@ -491,7 +491,7 @@ A [SerializeMethod](#T-Microsoft-Internal-VisualStudio-RemoteUI-SimpleDataTypesS
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | `type` for which the serialize method should be generated. |
+| type | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | `type` for which the serialize method should be generated. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-GetTypeSerializer-System-Type,System-Boolean,Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode@,System-Boolean@-'></a>
 ### GetTypeSerializer(type,omitNullableHeader,dataTypeCode,isSimpleValueTypeNullable) `method`
@@ -508,13 +508,13 @@ A [SerializeMethod](#T-Microsoft-Internal-VisualStudio-RemoteUI-SimpleDataTypesS
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | `type` for which the serialize method should be generated. |
-| omitNullableHeader | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | When `true` the returned delegate will write nullable
-values as Nil or their non-nullable equivalent. This is used when writing [ICollection\`1](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.ICollection`1 'System.Collections.Generic.ICollection`1'). |
+| type | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | `type` for which the serialize method should be generated. |
+| omitNullableHeader | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | When `true` the returned delegate will write nullable
+values as Nil or their non-nullable equivalent. This is used when writing [ICollection\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.ICollection-1 'System.Collections.Generic.ICollection`1'). |
 | dataTypeCode | [Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode@](#T-Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode@ 'Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode@') | Returns the [DataTypeCode](#T-Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode 'Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode') corresponding to `type`
 or [Invalid](#F-Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode-Invalid 'Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode.Invalid'). |
-| isSimpleValueTypeNullable | [System.Boolean@](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean@ 'System.Boolean@') | Returns whether `type` is a
-[Nullable\`1](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Nullable`1 'System.Nullable`1') where T is a type having a corresponding by [DataTypeCode](#T-Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode 'Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode'). |
+| isSimpleValueTypeNullable | [System.Boolean@](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean@') | Returns whether `type` is a
+[Nullable\`1](https://learn.microsoft.com/dotnet/api/System.Nullable-1 'System.Nullable`1') where T is a type having a corresponding by [DataTypeCode](#T-Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode 'Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-IsCollection-System-Type,System-Type@,System-Func{System-Object,System-ValueTuple{System-Collections-IEnumerable,System-Int32}}@-'></a>
 ### IsCollection(type,itemType,getEnumerableAndCount) `method`
@@ -531,14 +531,14 @@ Whether `type` should be serialized as a collection.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') to be evaluated. |
-| itemType | [System.Type@](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type@ 'System.Type@') | The [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') of the collection items if the collection implements
-[ICollection\`1](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.ICollection`1 'System.Collections.Generic.ICollection`1'), `null` otherwise. |
-| getEnumerableAndCount | [System.Func{System.Object,System.ValueTuple{System.Collections.IEnumerable,System.Int32}}@](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{System.Object,System.ValueTuple{System.Collections.IEnumerable,System.Int32}}@') | A function that returns the collection converted to a [IEnumerable](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.IEnumerable 'System.Collections.IEnumerable') and its count. |
+| type | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') to be evaluated. |
+| itemType | [System.Type@](https://learn.microsoft.com/dotnet/api/System.Type@ 'System.Type@') | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') of the collection items if the collection implements
+[ICollection\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.ICollection`1 'System.Collections.Generic.ICollection`1'), `null` otherwise. |
+| getEnumerableAndCount | [System.Func{System.Object,System.ValueTuple{System.Collections.IEnumerable,System.Int32}}@](https://learn.microsoft.com/dotnet/api/System.Func 'System.Func{System.Object,System.ValueTuple{System.Collections.IEnumerable,System.Int32}}@') | A function that returns the collection converted to a [IEnumerable](https://learn.microsoft.com/dotnet/api/System.Collections.IEnumerable-1 'System.Collections.IEnumerable') and its count. |
 
 ##### Remarks
 
-Objects implementing [ICollection](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.ICollection 'System.Collections.ICollection') or [ICollection\`1](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.ICollection`1 'System.Collections.Generic.ICollection`1') are serialized as
+Objects implementing [ICollection](https://learn.microsoft.com/dotnet/api/System.Collections.ICollection 'System.Collections.ICollection') or [ICollection\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.ICollection-1 'System.Collections.Generic.ICollection`1') are serialized as
 collections.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-Serialize-MessagePack-MessagePackWriter@,System-Object,MessagePack-MessagePackSerializerOptions-'></a>
@@ -557,14 +557,14 @@ This method has no parameters.
 
 ##### Summary
 
-Serialization method for objects that can be written to XAML by [XamlWriter](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Markup.XamlWriter 'System.Windows.Markup.XamlWriter').
+Serialization method for objects that can be written to XAML by [XamlWriter](https://learn.microsoft.com/dotnet/api/System.Windows.Markup.XamlWriter 'System.Windows.Markup.XamlWriter').
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | writer | [MessagePack.MessagePackWriter@](#T-MessagePack-MessagePackWriter@ 'MessagePack.MessagePackWriter@') | MessagePack writer to which `value` is serialized. |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The value to be serialized. |
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The value to be serialized. |
 | options | [MessagePack.MessagePackSerializerOptions](#T-MessagePack-MessagePackSerializerOptions 'MessagePack.MessagePackSerializerOptions') | [DataContextSerializerOptions](#T-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions 'Microsoft.VisualStudio.Extensibility.UI.DataContextSerializerOptions') used for the serialization. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-SerializeComplexNullable-MessagePack-MessagePackWriter@,System-Object,MessagePack-MessagePackSerializerOptions,Microsoft-Internal-VisualStudio-RemoteUI-SimpleDataTypesSerializer-SerializeMethod-'></a>
@@ -580,7 +580,7 @@ used by [GetTypeSerializer](#M-Microsoft-VisualStudio-Extensibility-UI-DataConte
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | writer | [MessagePack.MessagePackWriter@](#T-MessagePack-MessagePackWriter@ 'MessagePack.MessagePackWriter@') | MessagePack writer to which `value` is serialized. |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The value to be serialized. |
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The value to be serialized. |
 | options | [MessagePack.MessagePackSerializerOptions](#T-MessagePack-MessagePackSerializerOptions 'MessagePack.MessagePackSerializerOptions') | [DataContextSerializerOptions](#T-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions 'Microsoft.VisualStudio.Extensibility.UI.DataContextSerializerOptions') used for the serialization. |
 | serializeMethod | [Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeMethod](#T-Microsoft-Internal-VisualStudio-RemoteUI-SimpleDataTypesSerializer-SerializeMethod 'Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeMethod') | Delegate to be used for serializing the object value when not
 `null`. |
@@ -602,17 +602,17 @@ Serialization method for uniquely identifiable objects. This is used by [GetType
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | writer | [MessagePack.MessagePackWriter@](#T-MessagePack-MessagePackWriter@ 'MessagePack.MessagePackWriter@') | MessagePack writer to which `value` is serialized. |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The value to be serialized. |
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The value to be serialized. |
 | options | [MessagePack.MessagePackSerializerOptions](#T-MessagePack-MessagePackSerializerOptions 'MessagePack.MessagePackSerializerOptions') | [DataContextSerializerOptions](#T-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions 'Microsoft.VisualStudio.Extensibility.UI.DataContextSerializerOptions') used for the serialization. |
 | fieldCode | [Microsoft.Internal.VisualStudio.RemoteUI.SerializerFieldCode](#T-Microsoft-Internal-VisualStudio-RemoteUI-SerializerFieldCode 'Microsoft.Internal.VisualStudio.RemoteUI.SerializerFieldCode') | Either [Object](#F-Microsoft-Internal-VisualStudio-RemoteUI-SerializerFieldCode-Object 'Microsoft.Internal.VisualStudio.RemoteUI.SerializerFieldCode.Object'),
  [Command](#F-Microsoft-Internal-VisualStudio-RemoteUI-SerializerFieldCode-Command 'Microsoft.Internal.VisualStudio.RemoteUI.SerializerFieldCode.Command'),
  [Collection](#F-Microsoft-Internal-VisualStudio-RemoteUI-SerializerFieldCode-Collection 'Microsoft.Internal.VisualStudio.RemoteUI.SerializerFieldCode.Collection') or
  [NullableCollection](#F-Microsoft-Internal-VisualStudio-RemoteUI-SerializerFieldCode-NullableCollection 'Microsoft.Internal.VisualStudio.RemoteUI.SerializerFieldCode.NullableCollection'). |
-| isUniquelyIdentifiable | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether `value` is a uniquely identifiable object: a
+| isUniquelyIdentifiable | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether `value` is a uniquely identifiable object: a
  non-empty reference type object. |
 | serializeMethod | [Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeNonNullMethod](#T-Microsoft-Internal-VisualStudio-RemoteUI-SimpleDataTypesSerializer-SerializeNonNullMethod 'Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeNonNullMethod') | Delegate to be used for serializing the object value. |
-| collectionDataTypeCode | [Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode](#T-Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode 'Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode') | Type of entries when serializing an [ICollection\`1](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.ICollection`1 'System.Collections.Generic.ICollection`1') or an
- [ICollection\`1](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.ICollection`1 'System.Collections.Generic.ICollection`1') of nullable values. |
+| collectionDataTypeCode | [Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode](#T-Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode 'Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode') | Type of entries when serializing an [ICollection\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.ICollection`1 'System.Collections.Generic.ICollection`1') or an
+ [ICollection\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.ICollection`1 'System.Collections.Generic.ICollection`1') of nullable values. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-SerializeConvertible-MessagePack-MessagePackWriter@,System-Object,MessagePack-MessagePackSerializerOptions,System-Func{System-Object,System-Object},Microsoft-Internal-VisualStudio-RemoteUI-SimpleDataTypesSerializer-SerializeMethod-'></a>
 ### SerializeConvertible(writer,value,options,convertMethod,serializeMethod) `method`
@@ -626,9 +626,9 @@ Serialization method for types that should be converted to a different type befo
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | writer | [MessagePack.MessagePackWriter@](#T-MessagePack-MessagePackWriter@ 'MessagePack.MessagePackWriter@') | MessagePack writer to which `value` is serialized. |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The value to be serialized. |
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The value to be serialized. |
 | options | [MessagePack.MessagePackSerializerOptions](#T-MessagePack-MessagePackSerializerOptions 'MessagePack.MessagePackSerializerOptions') | [DataContextSerializerOptions](#T-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions 'Microsoft.VisualStudio.Extensibility.UI.DataContextSerializerOptions') used for the serialization. |
-| convertMethod | [System.Func{System.Object,System.Object}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{System.Object,System.Object}') | Delegate that will be used to perform the conversion. |
+| convertMethod | [System.Func{System.Object,System.Object}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{System.Object,System.Object}') | Delegate that will be used to perform the conversion. |
 | serializeMethod | [Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeMethod](#T-Microsoft-Internal-VisualStudio-RemoteUI-SimpleDataTypesSerializer-SerializeMethod 'Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeMethod') | Delegate that will be used to perform the serialization of the converted
 value. |
 
@@ -644,7 +644,7 @@ Serialization method for [XamlFragment](#T-Microsoft-VisualStudio-Extensibility-
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | writer | [MessagePack.MessagePackWriter@](#T-MessagePack-MessagePackWriter@ 'MessagePack.MessagePackWriter@') | MessagePack writer to which `value` is serialized. |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The value to be serialized. |
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The value to be serialized. |
 | options | [MessagePack.MessagePackSerializerOptions](#T-MessagePack-MessagePackSerializerOptions 'MessagePack.MessagePackSerializerOptions') | [DataContextSerializerOptions](#T-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions 'Microsoft.VisualStudio.Extensibility.UI.DataContextSerializerOptions') used for the serialization. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-WriteClass-MessagePack-MessagePackWriter@,System-Object,MessagePack-MessagePackSerializerOptions,System-Collections-Generic-Dictionary{System-String,System-ValueTuple{System-Reflection-MethodInfo,Microsoft-Internal-VisualStudio-RemoteUI-SimpleDataTypesSerializer-SerializeMethod}}-'></a>
@@ -660,9 +660,9 @@ Serialization method for reference types objects with fields. This is used by
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | writer | [MessagePack.MessagePackWriter@](#T-MessagePack-MessagePackWriter@ 'MessagePack.MessagePackWriter@') | MessagePack writer to which `value` is serialized. |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The value to be serialized. |
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The value to be serialized. |
 | options | [MessagePack.MessagePackSerializerOptions](#T-MessagePack-MessagePackSerializerOptions 'MessagePack.MessagePackSerializerOptions') | [DataContextSerializerOptions](#T-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions 'Microsoft.VisualStudio.Extensibility.UI.DataContextSerializerOptions') used for the serialization. |
-| propertySerializers | [System.Collections.Generic.Dictionary{System.String,System.ValueTuple{System.Reflection.MethodInfo,Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeMethod}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.Dictionary 'System.Collections.Generic.Dictionary{System.String,System.ValueTuple{System.Reflection.MethodInfo,Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeMethod}}') | Properties of the type to be serialized and how to serialize them. |
+| propertySerializers | [System.Collections.Generic.Dictionary{System.String,System.ValueTuple{System.Reflection.MethodInfo,Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeMethod}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary{System.String,System.ValueTuple{System.Reflection.MethodInfo,Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeMethod}}') | Properties of the type to be serialized and how to serialize them. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-WriteUntypedField-MessagePack-MessagePackWriter@,System-Object,MessagePack-MessagePackSerializerOptions-'></a>
 ### WriteUntypedField(writer,value,options) `method`
@@ -676,7 +676,7 @@ Serialization method for property values not having a sealed type.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | writer | [MessagePack.MessagePackWriter@](#T-MessagePack-MessagePackWriter@ 'MessagePack.MessagePackWriter@') | MessagePack writer to which `value` is serialized. |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The value to be serialized. |
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The value to be serialized. |
 | options | [MessagePack.MessagePackSerializerOptions](#T-MessagePack-MessagePackSerializerOptions 'MessagePack.MessagePackSerializerOptions') | [DataContextSerializerOptions](#T-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions 'Microsoft.VisualStudio.Extensibility.UI.DataContextSerializerOptions') used for the serialization. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatterResolver'></a>
@@ -716,7 +716,7 @@ Microsoft.VisualStudio.Extensibility.UI
 MessagePack options used to serialize data sent by the extension to Visual studio.
 
  This [MessagePackSerializerOptions](#T-MessagePack-MessagePackSerializerOptions 'MessagePack.MessagePackSerializerOptions') doesn't support deserialization and only support serialization of
- values or references cast to [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type')`object`.
+ values or references cast to [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type')`object`.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-#ctor-Microsoft-VisualStudio-Extensibility-UI-INotificationsDispatcher,System-Boolean-'></a>
 ### #ctor(dispatcher,forceRootSerialization) `constructor`
@@ -730,7 +730,7 @@ Initializes a new instance of the [DataContextSerializerOptions](#T-Microsoft-Vi
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | dispatcher | [Microsoft.VisualStudio.Extensibility.UI.INotificationsDispatcher](#T-Microsoft-VisualStudio-Extensibility-UI-INotificationsDispatcher 'Microsoft.VisualStudio.Extensibility.UI.INotificationsDispatcher') | An instance of [NotificationsDispatcher](#T-Microsoft-VisualStudio-Extensibility-UI-NotificationsDispatcher 'Microsoft.VisualStudio.Extensibility.UI.NotificationsDispatcher'). |
-| forceRootSerialization | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether the serialized data should always include the full content of the
+| forceRootSerialization | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether the serialized data should always include the full content of the
 first uniquely identifiable object encountered even if such object has already an assigned id and would
 normally be serialized as a reference. |
 
@@ -792,16 +792,16 @@ Whether the object will have its properties serialized.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') to evaluate. |
+| type | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') to evaluate. |
 
 ##### Remarks
 
-If the type isn't marked with a [DataContractAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Runtime.Serialization.DataContractAttribute 'System.Runtime.Serialization.DataContractAttribute') we serialize it as an empty object.
+If the type isn't marked with a [DataContractAttribute](https://learn.microsoft.com/dotnet/api/System.Runtime.Serialization.DataContractAttribute 'System.Runtime.Serialization.DataContractAttribute') we serialize it as an empty object.
 
  Types implementing [IAsyncCommand](#T-Microsoft-VisualStudio-Extensibility-UI-IAsyncCommand 'Microsoft.VisualStudio.Extensibility.UI.IAsyncCommand') are always serializable.
 
- [DataContractAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Runtime.Serialization.DataContractAttribute 'System.Runtime.Serialization.DataContractAttribute') has [Inherited](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.AttributeUsageAttribute.Inherited 'System.AttributeUsageAttribute.Inherited') set to
- `false` so we don't consider a [DataContractAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Runtime.Serialization.DataContractAttribute 'System.Runtime.Serialization.DataContractAttribute') defined in a base class.
+ [DataContractAttribute](https://learn.microsoft.com/dotnet/api/System.Runtime.Serialization.DataContractAttribute 'System.Runtime.Serialization.DataContractAttribute') has [Inherited](https://learn.microsoft.com/dotnet/api/System.AttributeUsageAttribute.Inherited 'System.AttributeUsageAttribute.Inherited') set to
+ `false` so we don't consider a [DataContractAttribute](https://learn.microsoft.com/dotnet/api/System.Runtime.Serialization.DataContractAttribute 'System.Runtime.Serialization.DataContractAttribute') defined in a base class.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-IsCollection-System-Type,System-Type@-'></a>
 ### IsCollection(type,itemType) `method`
@@ -818,9 +818,9 @@ Whether `type` will be serialized as a collection.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') to evaluate. |
-| itemType | [System.Type@](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type@ 'System.Type@') | The [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') of the collection items if the collection implements
-[ICollection\`1](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.ICollection`1 'System.Collections.Generic.ICollection`1'), `null` otherwise. |
+| type | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The [Type](https://learn.microsoft.com/dotnet/api/ 'System.Type') to evaluate. |
+| itemType | [System.Type@](https://learn.microsoft.com/dotnet/api/System.Type@ 'System.Type@') | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') of the collection items if the collection implements
+[ICollection\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.ICollection-1 'System.Collections.Generic.ICollection`1'), `null` otherwise. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-IsPropertySerializable-System-Type,System-Reflection-PropertyInfo,System-Reflection-MethodInfo@,System-Boolean-'></a>
 ### IsPropertySerializable(owningType,property,getter,includeSpecialProperties) `method`
@@ -838,18 +838,18 @@ Whether the property should be serialized.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| owningType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The type owning `property`. |
-| property | [System.Reflection.PropertyInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.PropertyInfo 'System.Reflection.PropertyInfo') | The property to evaluate. |
-| getter | [System.Reflection.MethodInfo@](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Reflection.MethodInfo@ 'System.Reflection.MethodInfo@') | If the property should be serialized, returns its getter method. |
-| includeSpecialProperties | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether include properties, like [CanExecute](#P-Microsoft-VisualStudio-Extensibility-UI-IAsyncCommand-CanExecute 'Microsoft.VisualStudio.Extensibility.UI.IAsyncCommand.CanExecute'),
- that are always considered serializable even if they lack [DataMemberAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Runtime.Serialization.DataMemberAttribute 'System.Runtime.Serialization.DataMemberAttribute'). |
+| owningType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The type owning `property`. |
+| property | [System.Reflection.PropertyInfo](https://learn.microsoft.com/dotnet/api/System.Reflection.PropertyInfo 'System.Reflection.PropertyInfo') | The property to evaluate. |
+| getter | [System.Reflection.MethodInfo@](https://learn.microsoft.com/dotnet/api/System.Reflection.MethodInfo 'System.Reflection.MethodInfo@') | If the property should be serialized, returns its getter method. |
+| includeSpecialProperties | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether include properties, like [CanExecute](#P-Microsoft-VisualStudio-Extensibility-UI-IAsyncCommand-CanExecute 'Microsoft.VisualStudio.Extensibility.UI.IAsyncCommand.CanExecute'),
+ that are always considered serializable even if they lack [DataMemberAttribute](https://learn.microsoft.com/dotnet/api/System.Runtime.Serialization.DataMemberAttribute 'System.Runtime.Serialization.DataMemberAttribute'). |
 
 ##### Remarks
 
-We only serialize properties having a [DataMemberAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Runtime.Serialization.DataMemberAttribute 'System.Runtime.Serialization.DataMemberAttribute').
+We only serialize properties having a [DataMemberAttribute](https://learn.microsoft.com/dotnet/api/System.Runtime.Serialization.DataMemberAttribute 'System.Runtime.Serialization.DataMemberAttribute').
 
- [DataMemberAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Runtime.Serialization.DataMemberAttribute 'System.Runtime.Serialization.DataMemberAttribute') has [Inherited](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.AttributeUsageAttribute.Inherited 'System.AttributeUsageAttribute.Inherited') set to
- `false` so we don't consider a [DataMemberAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Runtime.Serialization.DataMemberAttribute 'System.Runtime.Serialization.DataMemberAttribute') defined for an overridden
+ [DataMemberAttribute](https://learn.microsoft.com/dotnet/api/System.Runtime.Serialization.DataMemberAttribute 'System.Runtime.Serialization.DataMemberAttribute') has [Inherited](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.AttributeUsageAttribute.Inherited 'System.AttributeUsageAttribute.Inherited') set to
+ `false` so we don't consider a [DataMemberAttribute](https://learn.microsoft.com/dotnet/api/System.Runtime.Serialization.DataMemberAttribute 'System.Runtime.Serialization.DataMemberAttribute') defined for an overridden
  property in a base class.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-UI-DataContextUpdateSerializerOptions-DataContextUpdateFormatter'></a>
@@ -936,7 +936,7 @@ Microsoft.VisualStudio.Extensibility.UI
 MessagePack options used to deserialize data sent by Visual studio to the extension.
 
  This [MessagePackSerializerOptions](#T-MessagePack-MessagePackSerializerOptions 'MessagePack.MessagePackSerializerOptions') doesn't support serialization and only support
- deserialization to target [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type')`object`.
+ deserialization to target [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type')`object`.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-DataContextUpdateSerializerOptions-#ctor-Microsoft-VisualStudio-Extensibility-UI-INotificationsDispatcher-'></a>
 ### #ctor(dispatcher) `constructor`
@@ -1073,13 +1073,13 @@ This method has no parameters.
 
 ##### Summary
 
-Standard virtual overload for [IDisposable](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IDisposable 'System.IDisposable') pattern.
+Standard virtual overload for [IDisposable](https://learn.microsoft.com/dotnet/api/System.IDisposable 'System.IDisposable') pattern.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | `True` means this is a call to [Dispose](#M-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject-Dispose 'Microsoft.VisualStudio.Extensibility.Helpers.DisposableObject.Dispose').
+| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | `True` means this is a call to [Dispose](#M-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject-Dispose 'Microsoft.VisualStudio.Extensibility.Helpers.DisposableObject.Dispose').
 `False` means it has been called from the finalizer. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject-DisposeManagedResources'></a>
@@ -1235,7 +1235,7 @@ Initializes a new instance of the [ExtensibilityPoint](#T-Microsoft-VisualStudio
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | serviceBroker | [Microsoft.ServiceHub.Framework.IServiceBroker](#T-Microsoft-ServiceHub-Framework-IServiceBroker 'Microsoft.ServiceHub.Framework.IServiceBroker') | Underlying service broker instance to use for the extensibility wrapper. |
-| localServiceProvider | [System.IServiceProvider](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IServiceProvider 'System.IServiceProvider') | Service provider for local services. |
+| localServiceProvider | [System.IServiceProvider](https://learn.microsoft.com/dotnet/api/System.IServiceProvider 'System.IServiceProvider') | Service provider for local services. |
 | resourceDictionary | [Microsoft.VisualStudio.RpcContracts.IStringResourceDictionary](#T-Microsoft-VisualStudio-RpcContracts-IStringResourceDictionary 'Microsoft.VisualStudio.RpcContracts.IStringResourceDictionary') | Resource dictionary instance to utilize for accessing localized resources. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint-#ctor-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint-'></a>
@@ -1340,7 +1340,7 @@ Disposes the instane and underlying proxies.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| isDisposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | If false only native resources should be disposed. |
+| isDisposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | If false only native resources should be disposed. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint-ThrowIfDisposed'></a>
 ### ThrowIfDisposed() `method`
@@ -1381,8 +1381,8 @@ The newly created or already attached instance.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | extensibilityPoint | [Microsoft.VisualStudio.Extensibility.ExtensibilityPoint](#T-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoint') | Instance to attach the new object. |
-| key | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Optional key to identify the instance in addition to type. |
-| factory | [System.Func{\`\`0}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{``0}') | Factory to create the new instance. |
+| key | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Optional key to identify the instance in addition to type. |
+| factory | [System.Func{\`\`0}](https://learn.microsoft.com/dotnet/api/System.Func-1 'System.Func{``0}') | Factory to create the new instance. |
 
 ##### Generic Types
 
@@ -1407,7 +1407,7 @@ The newly created or already attached instance.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | extensibilityPoint | [Microsoft.VisualStudio.Extensibility.ExtensibilityPoint](#T-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoint') | Instance to attach the new object. |
-| factory | [System.Func{\`\`0}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{``0}') | Factory to create the new instance. |
+| factory | [System.Func{\`\`0}](https://learn.microsoft.com/dotnet/api/System.Func-1 'System.Func{``0}') | Factory to create the new instance. |
 
 ##### Generic Types
 
@@ -1553,7 +1553,7 @@ Disposes the object.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | true to dispose both managed and native resources, false to dispose native resources only. |
+| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | true to dispose both managed and native resources, false to dispose native resources only. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ExtensionCore-GetFactory-Microsoft-ServiceHub-Framework-ServiceMoniker-'></a>
 ### GetFactory(serviceMoniker) `method`
@@ -1576,7 +1576,7 @@ an instance of [IServiceFactory](#T-Microsoft-VisualStudio-Extensibility-IServic
 
 | Name | Description |
 | ---- | ----------- |
-| [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown when a factory registration is not present for the queried moniker. |
+| [System.InvalidOperationException](https://learn.microsoft.com/dotnet/api/System.InvalidOperationException 'System.InvalidOperationException') | Thrown when a factory registration is not present for the queried moniker. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ExtensionCore-GetServiceDescriptor-Microsoft-ServiceHub-Framework-ServiceMoniker-'></a>
 ### GetServiceDescriptor() `method`
@@ -1618,7 +1618,7 @@ Helper extension methods.
 
 ##### Summary
 
-Creates a string resource dictionary from a [ResourceManager](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Resources.ResourceManager 'System.Resources.ResourceManager') instance.
+Creates a string resource dictionary from a [ResourceManager](https://learn.microsoft.com/dotnet/api/System.Resources.ResourceManager 'System.Resources.ResourceManager') instance.
 
 ##### Returns
 
@@ -1628,19 +1628,19 @@ an instance of [IStringResourceDictionary](#T-Microsoft-VisualStudio-RpcContract
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| resman | [System.Resources.ResourceManager](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Resources.ResourceManager 'System.Resources.ResourceManager') | Resource manager instance. |
+| resman | [System.Resources.ResourceManager](https://learn.microsoft.com/dotnet/api/System.Resources.ResourceManager 'System.Resources.ResourceManager') | Resource manager instance. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Helpers-ExtensionMethods-CloneAsNonDisposable-Microsoft-ServiceHub-Framework-IServiceBroker-'></a>
 ### CloneAsNonDisposable(serviceBroker) `method`
 
 ##### Summary
 
-Create a clone of [IServiceBroker](#T-Microsoft-ServiceHub-Framework-IServiceBroker 'Microsoft.ServiceHub.Framework.IServiceBroker') that does not implement any other interface including [IDisposable](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IDisposable 'System.IDisposable').
+Create a clone of [IServiceBroker](#T-Microsoft-ServiceHub-Framework-IServiceBroker 'Microsoft.ServiceHub.Framework.IServiceBroker') that does not implement any other interface including [IDisposable](https://learn.microsoft.com/dotnet/api/System.IDisposable 'System.IDisposable').
 This clone could be used to avoid accidental disposal.
 
 ##### Returns
 
-An [IServiceBroker](#T-Microsoft-ServiceHub-Framework-IServiceBroker 'Microsoft.ServiceHub.Framework.IServiceBroker') that does not implement [IDisposable](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IDisposable 'System.IDisposable').
+An [IServiceBroker](#T-Microsoft-ServiceHub-Framework-IServiceBroker 'Microsoft.ServiceHub.Framework.IServiceBroker') that does not implement [IDisposable](https://learn.microsoft.com/dotnet/api/System.IDisposable 'System.IDisposable').
 
 ##### Parameters
 
@@ -1729,7 +1729,7 @@ Disposes the instane and underlying services.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| isDisposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | If false only native resources should be disposed. |
+| isDisposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | If false only native resources should be disposed. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ExtensionPart-InitializeAsync-System-Threading-CancellationToken-'></a>
 ### InitializeAsync(cancellationToken) `method`
@@ -1747,7 +1747,7 @@ a Task indicating completion.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ExtensionPart-InitializeInternalAsync-System-Threading-CancellationToken-'></a>
 ### InitializeInternalAsync(cancellationToken) `method`
@@ -1765,7 +1765,7 @@ a Task indicating completion.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-UI-IAsyncCommand'></a>
 ## IAsyncCommand `type`
@@ -1777,7 +1777,7 @@ Microsoft.VisualStudio.Extensibility.UI
 ##### Summary
 
 An object implementing [IAsyncCommand](#T-Microsoft-VisualStudio-Extensibility-UI-IAsyncCommand 'Microsoft.VisualStudio.Extensibility.UI.IAsyncCommand') in the DataContext of a control is converted to a
-[ICommand](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Input.ICommand 'System.Windows.Input.ICommand') in the Visual Studio process and can be databound in xaml.
+[ICommand](https://learn.microsoft.com/dotnet/api/System.Windows.Input.ICommand 'System.Windows.Input.ICommand') in the Visual Studio process and can be databound in xaml.
 
 <a name='P-Microsoft-VisualStudio-Extensibility-UI-IAsyncCommand-CanExecute'></a>
 ### CanExecute `property`
@@ -1788,7 +1788,7 @@ Gets a value indicating whether the command can execute in its current state.
 
 ##### Remarks
 
-If [CanExecute](#P-Microsoft-VisualStudio-Extensibility-UI-IAsyncCommand-CanExecute 'Microsoft.VisualStudio.Extensibility.UI.IAsyncCommand.CanExecute') is not constant, implement [INotifyPropertyChanged](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.INotifyPropertyChanged 'System.ComponentModel.INotifyPropertyChanged') and raise
+If [CanExecute](#P-Microsoft-VisualStudio-Extensibility-UI-IAsyncCommand-CanExecute 'Microsoft.VisualStudio.Extensibility.UI.IAsyncCommand.CanExecute') is not constant, implement [INotifyPropertyChanged](https://learn.microsoft.com/dotnet/api/System.ComponentModel.INotifyPropertyChanged 'System.ComponentModel.INotifyPropertyChanged') and raise
 [](#E-System-ComponentModel-INotifyPropertyChanged-PropertyChanged 'System.ComponentModel.INotifyPropertyChanged.PropertyChanged') when the value of [CanExecute](#P-Microsoft-VisualStudio-Extensibility-UI-IAsyncCommand-CanExecute 'Microsoft.VisualStudio.Extensibility.UI.IAsyncCommand.CanExecute') changes.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-IAsyncCommand-ExecuteAsync-System-Object,System-Threading-CancellationToken-'></a>
@@ -1800,14 +1800,14 @@ Defines the method to be called when the command is invoked.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') tracking the completion of the async call execution.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') tracking the completion of the async call execution.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| parameter | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Data used by the command. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
+| parameter | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | Data used by the command. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-IClientContext'></a>
 ## IClientContext `type`
@@ -1842,7 +1842,7 @@ The category values in deserialized string format.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| category | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Category identifier. |
+| category | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Category identifier. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-IClientContext-ServiceBrokerClient'></a>
 ### ServiceBrokerClient `property`
@@ -1905,7 +1905,7 @@ registered by this call.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| obj | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The object to retrieve attached data for and to register if necessary. |
+| obj | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The object to retrieve attached data for and to register if necessary. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-INotificationsDispatcher-GetObject-Microsoft-VisualStudio-RpcContracts-RemoteUI-ObjectId-'></a>
 ### GetObject(id) `method`
@@ -1938,10 +1938,10 @@ Handles the update, initiated by Visual Studio, of an entry of a uniquely identi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| obj | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The object to be udpated. |
-| index | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The index of the collection entry to be updated. |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The new value to assign to the collection entry. |
-| version | [System.Nullable{Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectVersion}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Nullable 'System.Nullable{Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectVersion}') | Current version of the object. |
+| obj | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The object to be udpated. |
+| index | [System.Int32](https://learn.microsoft.com/dotnet/api/System.Int32 'System.Int32') | The index of the collection entry to be updated. |
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The new value to assign to the collection entry. |
+| version | [System.Nullable{Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectVersion}](https://learn.microsoft.com/dotnet/api/System.Nullable-1 'System.Nullable{Microsoft.VisualStudio.RpcContracts.RemoteUI.ObjectVersion}') | Current version of the object. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-IServiceFactory'></a>
 ## IServiceFactory `type`
@@ -1971,9 +1971,9 @@ a Task returning instance of the service object.
 | ---- | ---- | ----------- |
 | serviceMoniker | [Microsoft.ServiceHub.Framework.ServiceMoniker](#T-Microsoft-ServiceHub-Framework-ServiceMoniker 'Microsoft.ServiceHub.Framework.ServiceMoniker') | Service moniker that was requested. |
 | activationOptions | [Microsoft.ServiceHub.Framework.ServiceActivationOptions](#T-Microsoft-ServiceHub-Framework-ServiceActivationOptions 'Microsoft.ServiceHub.Framework.ServiceActivationOptions') | Service activation options. |
-| serviceProvider | [System.IServiceProvider](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IServiceProvider 'System.IServiceProvider') | Service provider for extension host services including service broker assigned to instance being created. |
-| instanceType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | Optional instance type if it was specified in the service registration. |
-| interfaceType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | Optional interface type if it was specified in the service registration to indicate the interface being queried. |
+| serviceProvider | [System.IServiceProvider](https://learn.microsoft.com/dotnet/api/System.IServiceProvider 'System.IServiceProvider') | Service provider for extension host services including service broker assigned to instance being created. |
+| instanceType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | Optional instance type if it was specified in the service registration. |
+| interfaceType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | Optional interface type if it was specified in the service registration to indicate the interface being queried. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-IServiceFactory-GetServiceDescriptor-Microsoft-ServiceHub-Framework-ServiceMoniker-'></a>
 ### GetServiceDescriptor(serviceMoniker) `method`
@@ -2120,7 +2120,7 @@ This method has no parameters.
 ##### Remarks
 
 Needed to ensure that this object survives ServiceHub's attempts
-to re-wrap it for [TraceSource](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.TraceSource 'System.Diagnostics.TraceSource') configuration.
+to re-wrap it for [TraceSource](https://learn.microsoft.com/dotnet/api/System.Diagnostics.TraceSource 'System.Diagnostics.TraceSource') configuration.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Framework-MultiTargetingServiceJsonRpcDescriptor-ConstructRpcConnection-System-IO-Pipelines-IDuplexPipe-'></a>
 ### ConstructRpcConnection() `method`
@@ -2236,7 +2236,7 @@ Microsoft.VisualStudio.Extensibility.UI
 Keeps a registry of uniquely identifiable objects that were serialized and sent by the extension to Visual Studio.
 
  When registered, each object is assigned a unique identifier and, if the object implements
- [INotifyPropertyChanged](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.INotifyPropertyChanged 'System.ComponentModel.INotifyPropertyChanged'), [NotificationsDispatcher](#T-Microsoft-VisualStudio-Extensibility-UI-NotificationsDispatcher 'Microsoft.VisualStudio.Extensibility.UI.NotificationsDispatcher') subscribes to its notifications.
+ [INotifyPropertyChanged](https://learn.microsoft.com/dotnet/api/System.ComponentModel.INotifyPropertyChanged 'System.ComponentModel.INotifyPropertyChanged'), [NotificationsDispatcher](#T-Microsoft-VisualStudio-Extensibility-UI-NotificationsDispatcher 'Microsoft.VisualStudio.Extensibility.UI.NotificationsDispatcher') subscribes to its notifications.
 
  [NotificationsDispatcher](#T-Microsoft-VisualStudio-Extensibility-UI-NotificationsDispatcher 'Microsoft.VisualStudio.Extensibility.UI.NotificationsDispatcher') also allows to lookup a registered object based on its unique identifier.
 
@@ -2311,7 +2311,7 @@ Microsoft.VisualStudio.Extensibility.UI
 
 ##### Summary
 
-Abstract class implementing [INotifyPropertyChanged](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.INotifyPropertyChanged 'System.ComponentModel.INotifyPropertyChanged') support.
+Abstract class implementing [INotifyPropertyChanged](https://learn.microsoft.com/dotnet/api/System.ComponentModel.INotifyPropertyChanged 'System.ComponentModel.INotifyPropertyChanged') support.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-NotifyPropertyChangedObject-SetProperty``1-``0@,``0,System-String-'></a>
 ### SetProperty\`\`1(storage,value,propertyName) `method`
@@ -2322,8 +2322,8 @@ Sets the value of a property's backing field and raises [](#E-System-ComponentMo
 
  If the value of `storage` is already the same as `value`,
  `storage` is not updated and [](#E-System-ComponentModel-INotifyPropertyChanged-PropertyChanged 'System.ComponentModel.INotifyPropertyChanged.PropertyChanged') is not raised.
- This comparison is performed with the default [EqualityComparer\`1](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.EqualityComparer`1 'System.Collections.Generic.EqualityComparer`1') when `T`
- is a value types or a `string`, with [ReferenceEquals](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object.ReferenceEquals 'System.Object.ReferenceEquals(System.Object,System.Object)')
+ This comparison is performed with the default [EqualityComparer\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.EqualityComparer-1 'System.Collections.Generic.EqualityComparer`1') when `T`
+ is a value types or a `string`, with [ReferenceEquals](https://learn.microsoft.com/dotnet/api/System.Object.ReferenceEquals 'System.Object.ReferenceEquals(System.Object,System.Object)')
  otherwise.
 
  This method should be called from inside a property setter.
@@ -2339,7 +2339,7 @@ Whether `storage` was updated and
 | ---- | ---- | ----------- |
 | storage | [\`\`0@](#T-``0@ '``0@') | The backing field for the property being set. |
 | value | [\`\`0](#T-``0 '``0') | The new value to assign to `storage`. |
-| propertyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the property being set to be used when raising
+| propertyName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the property being set to be used when raising
  [](#E-System-ComponentModel-INotifyPropertyChanged-PropertyChanged 'System.ComponentModel.INotifyPropertyChanged.PropertyChanged').
 
  This parameter should be onitted value when this method is called from a property's setter. |
@@ -2360,7 +2360,7 @@ Microsoft.VisualStudio.Extensibility.UI.NotificationsDispatcher
 ##### Summary
 
 Delegate type for the [](#E-Microsoft-VisualStudio-Extensibility-UI-NotificationsDispatcher-PropertyChanged 'Microsoft.VisualStudio.Extensibility.UI.NotificationsDispatcher.PropertyChanged') event. This is equivalent to
-[PropertyChangedEventHandler](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.PropertyChangedEventHandler 'System.ComponentModel.PropertyChangedEventHandler') but also provides the new value of the property.
+[PropertyChangedEventHandler](https://learn.microsoft.com/dotnet/api/System.ComponentModel.PropertyChangedEventHandler 'System.ComponentModel.PropertyChangedEventHandler') but also provides the new value of the property.
 
 ##### Parameters
 
@@ -2397,9 +2397,9 @@ Initializes a new instance of the [RemoteUserControl](#T-Microsoft-VisualStudio-
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| dataContext | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Data context of the remote control which can be referenced from xaml through data
+| dataContext | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | Data context of the remote control which can be referenced from xaml through data
 binding. |
-| synchronizationContext | [System.Threading.SynchronizationContext](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.SynchronizationContext 'System.Threading.SynchronizationContext') | Optional [synchronizationContext](#F-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-synchronizationContext 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.synchronizationContext') that the extender can
+| synchronizationContext | [System.Threading.SynchronizationContext](https://learn.microsoft.com/dotnet/api/System.Threading.SynchronizationContext 'System.Threading.SynchronizationContext') | Optional [synchronizationContext](#F-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-synchronizationContext 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.synchronizationContext') that the extender can
 provide to ensure that [IAsyncCommand](#T-Microsoft-VisualStudio-Extensibility-UI-IAsyncCommand 'Microsoft.VisualStudio.Extensibility.UI.IAsyncCommand') are executed and properties are read and updated from the
 extension main thread. |
 
@@ -2407,7 +2407,7 @@ extension main thread. |
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | When `dataContext` is a value type. |
+| [System.ArgumentException](https://learn.microsoft.com/dotnet/api/System.ArgumentException 'System.ArgumentException') | When `dataContext` is a value type. |
 
 <a name='F-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-extToVsSerializerOption'></a>
 ### extToVsSerializerOption `constants`
@@ -2486,7 +2486,7 @@ Performs application-defined tasks associated with freeing, releasing, or resett
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether managed resources should be disposed. `disposing` should be
+| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether managed resources should be disposed. `disposing` should be
 `true` when [Dispose](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.Dispose(System.Boolean)') is called from a finalizer, `false`
 otherwise. |
 
@@ -2505,7 +2505,7 @@ A xaml string describing a data template.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
 ##### Remarks
 
@@ -2581,7 +2581,7 @@ The value of the requested object or property.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The object to serialize. |
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The object to serialize. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Helpers-ResourceManagerDictionary'></a>
 ## ResourceManagerDictionary `type`
@@ -2605,7 +2605,7 @@ Initializes a new instance of the [ResourceManagerDictionary](#T-Microsoft-Visua
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| resourceManager | [System.Resources.ResourceManager](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Resources.ResourceManager 'System.Resources.ResourceManager') | Resource manager instance to utilize. |
+| resourceManager | [System.Resources.ResourceManager](https://learn.microsoft.com/dotnet/api/System.Resources.ResourceManager 'System.Resources.ResourceManager') | Resource manager instance to utilize. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Helpers-ResourceManagerDictionary-GetStringResourceAsync-System-Globalization-CultureInfo,System-String,System-Threading-CancellationToken-'></a>
 ### GetStringResourceAsync() `method`
@@ -2898,7 +2898,7 @@ Initializes a new instance of the [SnapshotVersionNotAvailableException](#T-Micr
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Exception message. |
+| message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Exception message. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException-#ctor-System-String,System-Exception-'></a>
 ### #ctor(message,innerException) `constructor`
@@ -2911,8 +2911,8 @@ Initializes a new instance of the [SnapshotVersionNotAvailableException](#T-Micr
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Exception message. |
-| innerException | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Inner exception. |
+| message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Exception message. |
+| innerException | [System.Exception](https://learn.microsoft.com/dotnet/api/System.Exception 'System.Exception') | Inner exception. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException-#ctor-System-Uri,System-Object-'></a>
 ### #ctor(resourceMoniker,version) `constructor`
@@ -2925,8 +2925,8 @@ Initializes a new instance of the [SnapshotVersionNotAvailableException](#T-Micr
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| resourceMoniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | Moniker for the resource being queried. |
-| version | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Version for the resource being queried. |
+| resourceMoniker | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | Moniker for the resource being queried. |
+| version | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | Version for the resource being queried. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException-#ctor-System-Uri,System-Object,System-Exception-'></a>
 ### #ctor(resourceMoniker,version,innerException) `constructor`
@@ -2939,9 +2939,9 @@ Initializes a new instance of the [SnapshotVersionNotAvailableException](#T-Micr
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| resourceMoniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | Moniker for the resource being queried. |
-| version | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Version for the resource being queried. |
-| innerException | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | Inner exception. |
+| resourceMoniker | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | Moniker for the resource being queried. |
+| version | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | Version for the resource being queried. |
+| innerException | [System.Exception](https://learn.microsoft.com/dotnet/api/System.Exception 'System.Exception') | Inner exception. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Helpers-TransientServiceProvider'></a>
 ## TransientServiceProvider `type`
@@ -2965,7 +2965,7 @@ Initializes a new instance of the [TransientServiceProvider](#T-Microsoft-Visual
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| serviceProvider | [System.IServiceProvider](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IServiceProvider 'System.IServiceProvider') | Service provider to pass queries to. |
+| serviceProvider | [System.IServiceProvider](https://learn.microsoft.com/dotnet/api/System.IServiceProvider 'System.IServiceProvider') | Service provider to pass queries to. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Helpers-TransientServiceProvider-#ctor-System-Collections-Generic-IEnumerable{System-IServiceProvider}-'></a>
 ### #ctor(serviceProviders) `constructor`
@@ -2978,7 +2978,7 @@ Initializes a new instance of the [TransientServiceProvider](#T-Microsoft-Visual
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| serviceProviders | [System.Collections.Generic.IEnumerable{System.IServiceProvider}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.IServiceProvider}') | Service providers to pass queries to. |
+| serviceProviders | [System.Collections.Generic.IEnumerable{System.IServiceProvider}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.IServiceProvider}') | Service providers to pass queries to. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Helpers-TransientServiceProvider-AddSingleton-System-Type,System-Object-'></a>
 ### AddSingleton(type,value) `method`
@@ -2991,8 +2991,8 @@ Adds a singleton value to the service provider.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | Type of the object. |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Value to add. |
+| type | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | Type of the object. |
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | Value to add. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Helpers-TransientServiceProvider-AddSingleton``1-``0-'></a>
 ### AddSingleton\`\`1(value) `method`
@@ -3028,7 +3028,7 @@ A service object of type serviceType or `null` if there is no service object of 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| serviceType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | An object that specifies the type of service object to get. |
+| serviceType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | An object that specifies the type of service object to get. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Helpers-TransientServiceProvider-GetService-System-Type-'></a>
 ### GetService() `method`
@@ -3064,7 +3064,7 @@ Initializes a new instance of the [VisualStudioExtensibility](#T-Microsoft-Visua
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | serviceBroker | [Microsoft.ServiceHub.Framework.IServiceBroker](#T-Microsoft-ServiceHub-Framework-IServiceBroker 'Microsoft.ServiceHub.Framework.IServiceBroker') | Underlying service broker instance to use for the extensibility wrapper. |
-| serviceProvider | [System.IServiceProvider](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IServiceProvider 'System.IServiceProvider') | Service provider for local services. |
+| serviceProvider | [System.IServiceProvider](https://learn.microsoft.com/dotnet/api/System.IServiceProvider 'System.IServiceProvider') | Service provider for local services. |
 | resourceDictionary | [Microsoft.VisualStudio.RpcContracts.IStringResourceDictionary](#T-Microsoft-VisualStudio-RpcContracts-IStringResourceDictionary 'Microsoft.VisualStudio.RpcContracts.IStringResourceDictionary') | Resource dictionary instance to utilize for accessing localized resources. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-UI-WeakDoubleDictionary`3'></a>
@@ -3109,7 +3109,7 @@ Initializes a new instance of the [WeakDoubleDictionary\`3](#T-Microsoft-VisualS
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| keyExtractor | [System.Func{\`2,\`0}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{`2,`0}') | Delegate that calculates the value of the secondary key given the corresponding
+| keyExtractor | [System.Func{\`2,\`0}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{`2,`0}') | Delegate that calculates the value of the secondary key given the corresponding
 value. |
 
 <a name='F-Microsoft-VisualStudio-Extensibility-UI-WeakDoubleDictionary`3-ArraySizes'></a>
@@ -3207,7 +3207,7 @@ The value associanted with `reference` and whether the entry was newly added.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | reference | [\`1](#T-`1 '`1') | The primary key to use for the lookup. |
-| valueFactory | [System.Func{\`1,\`2}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{`1,`2}') | The delegate used to create the value. This delegate will be invoked only when the
+| valueFactory | [System.Func{\`1,\`2}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{`1,`2}') | The delegate used to create the value. This delegate will be invoked only when the
 object is added to the dictionary and is only invoked once. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-WeakDoubleDictionary`3-TryGetByReference-`1,`2@-'></a>
@@ -3271,7 +3271,7 @@ Initializes a new instance of the [XamlFragment](#T-Microsoft-VisualStudio-Exten
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| xaml | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The XAML document text. |
+| xaml | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The XAML document text. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-XamlFragment-#ctor-System-Object-'></a>
 ### #ctor(xamlSerializable) `constructor`
@@ -3284,7 +3284,7 @@ Initializes a new instance of the [XamlFragment](#T-Microsoft-VisualStudio-Exten
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| xamlSerializable | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The object to be converted to XAML using [Save](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Markup.XamlWriter.Save 'System.Windows.Markup.XamlWriter.Save(System.Object)'). |
+| xamlSerializable | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The object to be converted to XAML using [Save](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Windows.Markup.XamlWriter.Save 'System.Windows.Markup.XamlWriter.Save(System.Object)'). |
 
 ##### Remarks
 

@@ -606,7 +606,7 @@ pattern provided.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | key | [Microsoft.VisualStudio.Extensibility.ClientContextKey](#T-Microsoft-VisualStudio-Extensibility-ClientContextKey 'Microsoft.VisualStudio.Extensibility.ClientContextKey') | The client context key. |
-| regexPattern | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The regex pattern to match. |
+| regexPattern | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The regex pattern to match. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-Equals-Microsoft-VisualStudio-Extensibility-ActivationConstraint-'></a>
 ### Equals() `method`
@@ -696,7 +696,7 @@ added to a project in the solution that is opened.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| regexPattern | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The regex pattern to match. |
+| regexPattern | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The regex pattern to match. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-SolutionHasProjectBuildProperty-System-String,System-String-'></a>
 ### SolutionHasProjectBuildProperty(property,regexPattern) `method`
@@ -715,8 +715,8 @@ specified build property and the property value matches the regex pattern provid
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| property | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The solution build property. |
-| regexPattern | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The regex pattern to match. |
+| property | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The solution build property. |
+| regexPattern | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The regex pattern to match. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ActivationConstraint-SolutionHasProjectCapability-Microsoft-VisualStudio-Extensibility-ProjectCapability-'></a>
 ### SolutionHasProjectCapability(capability) `method`
@@ -753,7 +753,7 @@ capability.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| flavor | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | The project flavor GUID. |
+| flavor | [System.Guid](https://learn.microsoft.com/dotnet/api/System.Guid 'System.Guid') | The project flavor GUID. |
 
 ##### Remarks
 
@@ -892,7 +892,7 @@ Specifies that `null` is allowed as an input even if the
 
 ##### Summary
 
-Initializes a new instance of the [AllowNullAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.AllowNullAttribute 'System.Diagnostics.CodeAnalysis.AllowNullAttribute') class.
+Initializes a new instance of the [AllowNullAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.AllowNullAttribute 'System.Diagnostics.CodeAnalysis.AllowNullAttribute') class.
 
 ##### Parameters
 
@@ -960,7 +960,7 @@ Initializes a new instance of the [BaseCommandConfiguration](#T-Microsoft-Visual
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| displayName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The initial display name for the command. |
+| displayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The initial display name for the command. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-BaseCommandConfiguration-ClientContexts'></a>
 ### ClientContexts `property`
@@ -1024,7 +1024,7 @@ Initializes a new instance of the [BaseControlConfiguration](#T-Microsoft-Visual
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| displayName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The initial display name for the command. |
+| displayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The initial display name for the command. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-BaseControlConfiguration-DisplayName'></a>
 ### DisplayName `property`
@@ -1106,7 +1106,7 @@ The [ClientContextKey](#T-Microsoft-VisualStudio-Extensibility-ClientContextKey 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The string value of [ClientContextKey](#T-Microsoft-VisualStudio-Extensibility-ClientContextKey 'Microsoft.VisualStudio.Extensibility.ClientContextKey'). |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The string value of [ClientContextKey](#T-Microsoft-VisualStudio-Extensibility-ClientContextKey 'Microsoft.VisualStudio.Extensibility.ClientContextKey'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ClientContextKey-Equals-System-Object-'></a>
 ### Equals() `method`
@@ -1185,7 +1185,7 @@ Implicitly converts a `string` to a [ClientContextKey](#T-Microsoft-VisualStudio
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.String)~Microsoft.VisualStudio.Extensibility.ClientContextKey](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String)~Microsoft.VisualStudio.Extensibility.ClientContextKey 'System.String)~Microsoft.VisualStudio.Extensibility.ClientContextKey') | The string value of [ClientContextKey](#T-Microsoft-VisualStudio-Extensibility-ClientContextKey 'Microsoft.VisualStudio.Extensibility.ClientContextKey'). |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String)~Microsoft.VisualStudio.Extensibility.ClientContextKey 'System.String') | The string value of [ClientContextKey](#T-Microsoft-VisualStudio-Extensibility-ClientContextKey 'Microsoft.VisualStudio.Extensibility.ClientContextKey'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ClientContextKey-op_Implicit-Microsoft-VisualStudio-Extensibility-ClientContextKey-~System-String'></a>
 ### op_Implicit(value) `method`
@@ -1240,7 +1240,7 @@ Initializes a new instance of the [CommandConfiguration](#T-Microsoft-VisualStud
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| displayName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The initial display name for the command. |
+| displayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The initial display name for the command. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandConfiguration-EnabledWhen'></a>
 ### EnabledWhen `property`
@@ -1397,7 +1397,7 @@ Initializes a new instance of the [CommandGroupConfiguration](#T-Microsoft-Visua
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | placement | [Microsoft.VisualStudio.Extensibility.Commands.GroupPlacement](#T-Microsoft-VisualStudio-Extensibility-Commands-GroupPlacement 'Microsoft.VisualStudio.Extensibility.Commands.GroupPlacement') | The control container that this group should be parented to. |
-| priority | [System.UInt32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.UInt32 'System.UInt32') | The display order of the group relative to other groups parented to the same control. |
+| priority | [System.UInt32](https://learn.microsoft.com/dotnet/api/System.UInt32 'System.UInt32') | The display order of the group relative to other groups parented to the same control. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandGroupConfiguration-#ctor'></a>
 ### #ctor() `constructor`
@@ -1611,8 +1611,8 @@ A [CommandPlacement](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandPla
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| guid | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | The guid of the group. |
-| id | [System.UInt32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.UInt32 'System.UInt32') | The id of the group. |
+| guid | [System.Guid](https://learn.microsoft.com/dotnet/api/System.Guid 'System.Guid') | The guid of the group. |
+| id | [System.UInt32](https://learn.microsoft.com/dotnet/api/System.UInt32 'System.UInt32') | The id of the group. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement-GetHashCode'></a>
 ### GetHashCode() `method`
@@ -1663,7 +1663,7 @@ Initializes a new instance of the [CommandShortcutConfiguration](#T-Microsoft-Vi
 | ---- | ---- | ----------- |
 | mod1 | [Microsoft.VisualStudio.Extensibility.Commands.ModifierKey](#T-Microsoft-VisualStudio-Extensibility-Commands-ModifierKey 'Microsoft.VisualStudio.Extensibility.Commands.ModifierKey') | First modifier key. |
 | key1 | [Microsoft.VisualStudio.Extensibility.Commands.Key](#T-Microsoft-VisualStudio-Extensibility-Commands-Key 'Microsoft.VisualStudio.Extensibility.Commands.Key') | First key. |
-| activationConstraint | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | Optional UI context for the shortcut. |
+| activationConstraint | [System.Guid](https://learn.microsoft.com/dotnet/api/System.Guid 'System.Guid') | Optional UI context for the shortcut. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandShortcutConfiguration-#ctor-Microsoft-VisualStudio-Extensibility-Commands-ModifierKey,Microsoft-VisualStudio-Extensibility-Commands-Key,Microsoft-VisualStudio-Extensibility-Commands-ModifierKey,Microsoft-VisualStudio-Extensibility-Commands-Key-'></a>
 ### #ctor(mod1,key1,mod2,key2) `constructor`
@@ -1696,7 +1696,7 @@ Initializes a new instance of the [CommandShortcutConfiguration](#T-Microsoft-Vi
 | key1 | [Microsoft.VisualStudio.Extensibility.Commands.Key](#T-Microsoft-VisualStudio-Extensibility-Commands-Key 'Microsoft.VisualStudio.Extensibility.Commands.Key') | First key. |
 | mod2 | [Microsoft.VisualStudio.Extensibility.Commands.ModifierKey](#T-Microsoft-VisualStudio-Extensibility-Commands-ModifierKey 'Microsoft.VisualStudio.Extensibility.Commands.ModifierKey') | Second modifier key. |
 | key2 | [Microsoft.VisualStudio.Extensibility.Commands.Key](#T-Microsoft-VisualStudio-Extensibility-Commands-Key 'Microsoft.VisualStudio.Extensibility.Commands.Key') | Second key. |
-| activationConstraint | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | Optional UI context for the shortcut. |
+| activationConstraint | [System.Guid](https://learn.microsoft.com/dotnet/api/System.Guid 'System.Guid') | Optional UI context for the shortcut. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandShortcutConfiguration-ActivationConstraint'></a>
 ### ActivationConstraint `property`
@@ -1805,7 +1805,7 @@ Initializes a new instance of the [ContainerChild](#T-Microsoft-VisualStudio-Ext
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| childIdentifier | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The identifier of the item to be parented to the container. |
+| childIdentifier | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The identifier of the item to be parented to the container. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-ContainerChild-#ctor-Microsoft-VisualStudio-Extensibility-Commands-CommandGroupConfiguration-'></a>
 ### #ctor(group) `constructor`
@@ -1856,7 +1856,7 @@ The separator id.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| owningFullClassName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The full class name of the class owning the separator. |
+| owningFullClassName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The full class name of the class owning the separator. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement'></a>
 ## ContainerMarginPlacement `type`
@@ -1884,7 +1884,7 @@ The [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-Co
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The string value of [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement'). |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The string value of [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-Equals-System-Object-'></a>
 ### Equals() `method`
@@ -1963,7 +1963,7 @@ Implicitly converts a `string` to a [ContainerMarginPlacement](#T-Microsoft-Visu
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.String)~Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String)~Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement 'System.String)~Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement') | The string value of [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement'). |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String)~Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement 'System.String') | The string value of [ContainerMarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.ContainerMarginPlacement'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-op_Implicit-Microsoft-VisualStudio-Extensibility-Editor-ContainerMarginPlacement-~System-String'></a>
 ### op_Implicit(value) `method`
@@ -2018,7 +2018,7 @@ Initializes a new instance of the [ControlContainerConfiguration](#T-Microsoft-V
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| displayName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The initial display name for the container. |
+| displayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The initial display name for the container. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-ControlContainerConfiguration-DisplayName'></a>
 ### DisplayName `property`
@@ -2123,7 +2123,7 @@ Initializes a new instance of the [ControlContainerConfiguration\`1](#T-Microsof
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| displayName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The initial display name for the container. |
+| displayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The initial display name for the container. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-ControlContainerConfiguration`1-Children'></a>
 ### Children `property`
@@ -2212,15 +2212,15 @@ Initializes a new instance of the [DebuggerVisualizerProviderConfiguration](#T-M
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| visualizerDisplayName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The display name of the debugger visualizer. |
-| targetType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') that is supported by this debugger visualizer.
+| visualizerDisplayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The display name of the debugger visualizer. |
+| targetType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') that is supported by this debugger visualizer.
 
 `targetType` must be a concrete type. The debugger visualizer will only
 support objects of type `targetType`, not objects of types extending `targetType`.
 
 If `targetType` is a generic type, it must be unbound.
 
-Trailing compoments of the [AssemblyQualifiedName](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') can be omitted. |
+Trailing compoments of the [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') can be omitted. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProviderConfiguration-#ctor-System-String,System-String-'></a>
 ### #ctor(visualizerDisplayName,targetType) `constructor`
@@ -2233,8 +2233,8 @@ Initializes a new instance of the [DebuggerVisualizerProviderConfiguration](#T-M
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| visualizerDisplayName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The display name of the debugger visualizer. |
-| targetType | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The [AssemblyQualifiedName](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') of the type that is supported by this
+| visualizerDisplayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The display name of the debugger visualizer. |
+| targetType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') of the type that is supported by this
 debugger visualizer.
 
 `targetType` must be a concrete type. The debugger visualizer will only
@@ -2242,7 +2242,7 @@ support objects of type `targetType`, not objects of types extending `targetType
 
 If `targetType` is a generic type, it must be unbound.
 
-Trailing compoments of the [AssemblyQualifiedName](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') can be omitted. |
+Trailing compoments of the [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') can be omitted. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProviderConfiguration-#ctor-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetType[]-'></a>
 ### #ctor(targets) `constructor`
@@ -2324,7 +2324,7 @@ Specifies that `null` is disallowed as an input even if the
 
 ##### Summary
 
-Initializes a new instance of the [DisallowNullAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.DisallowNullAttribute 'System.Diagnostics.CodeAnalysis.DisallowNullAttribute') class.
+Initializes a new instance of the [DisallowNullAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.DisallowNullAttribute 'System.Diagnostics.CodeAnalysis.DisallowNullAttribute') class.
 
 ##### Parameters
 
@@ -2495,7 +2495,7 @@ The [DocumentFilter](#T-Microsoft-VisualStudio-Extensibility-DocumentFilter 'Mic
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| pattern | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The glob pattern to match document file path.
+| pattern | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The glob pattern to match document file path.
  Glob patterns can have the following syntax:
 
  * to match one or more characters in a path segment
@@ -2509,7 +2509,7 @@ The [DocumentFilter](#T-Microsoft-VisualStudio-Extensibility-DocumentFilter 'Mic
  Note: a backslash (\) is not valid within a glob pattern. If you have an existing file path to match against,
  consider to use the relative pattern support that takes care of converting any backslash into slash.
  Otherwise, make sure to convert any backslash to slash when creating the glob pattern. |
-| relativePath | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Defines whether the pattern should be applied to the absolute path of a file or to a path
+| relativePath | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Defines whether the pattern should be applied to the absolute path of a file or to a path
  relative to the solution folder. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DocumentFilter-GetHashCode'></a>
@@ -2554,7 +2554,7 @@ The [DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType '
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The string value of [DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType'). |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The string value of [DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-Equals-System-Object-'></a>
 ### Equals() `method`
@@ -2633,7 +2633,7 @@ Implicitly converts a `string` to a [DocumentType](#T-Microsoft-VisualStudio-Ext
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.String)~Microsoft.VisualStudio.Extensibility.Editor.DocumentType](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String)~Microsoft.VisualStudio.Extensibility.Editor.DocumentType 'System.String)~Microsoft.VisualStudio.Extensibility.Editor.DocumentType') | The string value of [DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType'). |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String)~Microsoft.VisualStudio.Extensibility.Editor.DocumentType 'System.String') | The string value of [DocumentType](#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentType 'Microsoft.VisualStudio.Extensibility.Editor.DocumentType'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-op_Implicit-Microsoft-VisualStudio-Extensibility-Editor-DocumentType-~System-String'></a>
 ### op_Implicit(value) `method`
@@ -2688,7 +2688,7 @@ Initializes a new instance of the [DocumentTypeConfiguration](#T-Microsoft-Visua
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The document type name. Document type names are case-insensitive. |
+| name | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The document type name. Document type names are case-insensitive. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeConfiguration-BaseDocumentType'></a>
 ### BaseDocumentType `property`
@@ -2760,7 +2760,7 @@ Specifies that a method that will never return under any circumstance.
 
 ##### Summary
 
-Initializes a new instance of the [DoesNotReturnAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute') class.
+Initializes a new instance of the [DoesNotReturnAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute') class.
 
 ##### Parameters
 
@@ -2775,7 +2775,7 @@ System.Diagnostics.CodeAnalysis
 
 ##### Summary
 
-Specifies that the method will not return if the associated [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean')
+Specifies that the method will not return if the associated [Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean')
     parameter is passed the specified value.
 
 <a name='M-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-#ctor-System-Boolean-'></a>
@@ -2783,14 +2783,14 @@ Specifies that the method will not return if the associated [Boolean](http://msd
 
 ##### Summary
 
-Initializes a new instance of the [DoesNotReturnIfAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute')
+Initializes a new instance of the [DoesNotReturnIfAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute')
     class with the specified parameter value.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| parameterValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The condition parameter value.
+| parameterValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The condition parameter value.
     Code after the method is considered unreachable by diagnostics if the argument
     to the associated parameter matches this value. |
 
@@ -2825,7 +2825,7 @@ Initializes a new instance of the [DynamicCommandAnchorConfiguration](#T-Microso
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| displayName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The initial display name for the command. |
+| displayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The initial display name for the command. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommandAnchorConfiguration-Equals-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommandAnchorConfiguration-'></a>
 ### Equals() `method`
@@ -2888,7 +2888,7 @@ The hash.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| enumerable | [System.Collections.Generic.IEnumerable{\`\`0}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{``0}') | The enumerable to calculate the hash for, or null. |
+| enumerable | [System.Collections.Generic.IEnumerable{\`\`0}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{``0}') | The enumerable to calculate the hash for, or null. |
 
 ##### Generic Types
 
@@ -2976,8 +2976,8 @@ Initializes a new instance of the [ExtensionContractAttribute](#T-Microsoft-Visu
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| rpcContractType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | Type of the rpc contract interface. |
-| wrapperObjectType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | Type of the wrapper object. |
+| rpcContractType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | Type of the rpc contract interface. |
+| wrapperObjectType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | Type of the wrapper object. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-ExtensionContractAttribute-RpcContractType'></a>
 ### RpcContractType `property`
@@ -3015,8 +3015,8 @@ Initializes a new instance of the [ExtensionPartAttribute](#T-Microsoft-VisualSt
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| interfaceType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The contract interface [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') for the extension part. |
-| configurationProperties | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | The name of the properties containing the configuration of the type this
+| interfaceType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The contract interface [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') for the extension part. |
+| configurationProperties | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | The name of the properties containing the configuration of the type this
 attribute is applied to. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-ExtensionPartAttribute-ConfigurationProperties'></a>
@@ -3031,7 +3031,7 @@ Gets the name of the properties containing the configuration of the type this at
 
 ##### Summary
 
-Gets the contract interface [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') for the extension part.
+Gets the contract interface [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') for the extension part.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-GroupChild'></a>
 ## GroupChild `type`
@@ -3145,8 +3145,8 @@ Initializes a new instance of the [GroupPlacement](#T-Microsoft-VisualStudio-Ext
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| parent | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique identifier of the group's parent. |
-| relativeDisplayOrder | [System.UInt32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.UInt32 'System.UInt32') | The display order of the group relative to other groups parented to the same control. |
+| parent | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Unique identifier of the group's parent. |
+| relativeDisplayOrder | [System.UInt32](https://learn.microsoft.com/dotnet/api/System.UInt32 'System.UInt32') | The display order of the group relative to other groups parented to the same control. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-GroupPlacement-ParentIdentifier'></a>
 ### ParentIdentifier `property`
@@ -3218,7 +3218,7 @@ A [GroupPlacement](#T-Microsoft-VisualStudio-Extensibility-Commands-GroupPlaceme
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | configuration | [Microsoft.VisualStudio.Extensibility.Commands.MenuConfiguration](#T-Microsoft-VisualStudio-Extensibility-Commands-MenuConfiguration 'Microsoft.VisualStudio.Extensibility.Commands.MenuConfiguration') | The menu configuration. |
-| relativeDisplayOrder | [System.UInt32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.UInt32 'System.UInt32') | The display order of the group relative to other groups inside of the menu. |
+| relativeDisplayOrder | [System.UInt32](https://learn.microsoft.com/dotnet/api/System.UInt32 'System.UInt32') | The display order of the group relative to other groups inside of the menu. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-GroupPlacement-Toolbar-Microsoft-VisualStudio-Extensibility-Commands-ToolbarConfiguration,System-UInt32-'></a>
 ### Toolbar(configuration,relativeDisplayOrder) `method`
@@ -3236,7 +3236,7 @@ A [GroupPlacement](#T-Microsoft-VisualStudio-Extensibility-Commands-GroupPlaceme
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | configuration | [Microsoft.VisualStudio.Extensibility.Commands.ToolbarConfiguration](#T-Microsoft-VisualStudio-Extensibility-Commands-ToolbarConfiguration 'Microsoft.VisualStudio.Extensibility.Commands.ToolbarConfiguration') | The toolbar configuration. |
-| relativeDisplayOrder | [System.UInt32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.UInt32 'System.UInt32') | The display order of the group relative to other groups inside of the toolbar. |
+| relativeDisplayOrder | [System.UInt32](https://learn.microsoft.com/dotnet/api/System.UInt32 'System.UInt32') | The display order of the group relative to other groups inside of the toolbar. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-GroupPlacement-VsctParent-System-Guid,System-UInt32-'></a>
 ### VsctParent(guid,id) `method`
@@ -3253,8 +3253,8 @@ A [GroupPlacement](#T-Microsoft-VisualStudio-Extensibility-Commands-GroupPlaceme
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| guid | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | The guid of the menu/toolbar. |
-| id | [System.UInt32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.UInt32 'System.UInt32') | The id of the menu/toolbar. |
+| guid | [System.Guid](https://learn.microsoft.com/dotnet/api/System.Guid 'System.Guid') | The guid of the menu/toolbar. |
+| id | [System.UInt32](https://learn.microsoft.com/dotnet/api/System.UInt32 'System.UInt32') | The id of the menu/toolbar. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Editor-ITextViewMarginProviderBase'></a>
 ## ITextViewMarginProviderBase `type`
@@ -3353,7 +3353,7 @@ The [ImageMoniker](#T-Microsoft-VisualStudio-Extensibility-ImageMoniker 'Microso
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The string value of [ImageMoniker](#T-Microsoft-VisualStudio-Extensibility-ImageMoniker 'Microsoft.VisualStudio.Extensibility.ImageMoniker'). |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The string value of [ImageMoniker](#T-Microsoft-VisualStudio-Extensibility-ImageMoniker 'Microsoft.VisualStudio.Extensibility.ImageMoniker'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ImageMoniker-Equals-System-Object-'></a>
 ### Equals() `method`
@@ -3432,7 +3432,7 @@ Implicitly converts a `string` to a [ImageMoniker](#T-Microsoft-VisualStudio-Ext
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.String)~Microsoft.VisualStudio.Extensibility.ImageMoniker](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String)~Microsoft.VisualStudio.Extensibility.ImageMoniker 'System.String)~Microsoft.VisualStudio.Extensibility.ImageMoniker') | The string value of [ImageMoniker](#T-Microsoft-VisualStudio-Extensibility-ImageMoniker 'Microsoft.VisualStudio.Extensibility.ImageMoniker'). |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String)~Microsoft.VisualStudio.Extensibility.ImageMoniker 'System.String') | The string value of [ImageMoniker](#T-Microsoft-VisualStudio-Extensibility-ImageMoniker 'Microsoft.VisualStudio.Extensibility.ImageMoniker'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ImageMoniker-op_Implicit-Microsoft-VisualStudio-Extensibility-ImageMoniker-~System-String'></a>
 ### op_Implicit(value) `method`
@@ -4005,7 +4005,7 @@ The [MarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-MarginPlace
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The string value of [MarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement'). |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The string value of [MarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-Equals-System-Object-'></a>
 ### Equals() `method`
@@ -4048,7 +4048,7 @@ This method has no parameters.
 
 | Name | Description |
 | ---- | ----------- |
-| T | The [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') of an extension part which implements ITextViewMarginProvider. |
+| T | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') of an extension part which implements ITextViewMarginProvider. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-GetHashCode'></a>
 ### GetHashCode() `method`
@@ -4105,7 +4105,7 @@ Implicitly converts a `string` to a [MarginPlacement](#T-Microsoft-VisualStudio-
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.String)~Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String)~Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement 'System.String)~Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement') | The string value of [MarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement'). |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The string value of [MarginPlacement](#T-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement 'Microsoft.VisualStudio.Extensibility.Editor.MarginPlacement'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-op_Implicit-Microsoft-VisualStudio-Extensibility-Editor-MarginPlacement-~System-String'></a>
 ### op_Implicit(value) `method`
@@ -4155,7 +4155,7 @@ Specifies that an output may be `null` even if the
 
 ##### Summary
 
-Initializes a new instance of the [MaybeNullAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.MaybeNullAttribute 'System.Diagnostics.CodeAnalysis.MaybeNullAttribute') class.
+Initializes a new instance of the [MaybeNullAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.MaybeNullAttribute 'System.Diagnostics.CodeAnalysis.MaybeNullAttribute') class.
 
 ##### Parameters
 
@@ -4170,7 +4170,7 @@ System.Diagnostics.CodeAnalysis
 
 ##### Summary
 
-Specifies that when a method returns [ReturnValue](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue'), 
+Specifies that when a method returns [ReturnValue](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue'), 
     the parameter may be `null` even if the corresponding type disallows it.
 
 <a name='M-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-#ctor-System-Boolean-'></a>
@@ -4184,7 +4184,7 @@ Initializes the attribute with the specified return value condition.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| returnValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The return value condition.
+| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition.
     If the method returns this value, the associated parameter may be `null`. |
 
 <a name='P-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-ReturnValue'></a>
@@ -4218,7 +4218,7 @@ Initializes the attribute with a field or property member.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| member | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The field or property member that is promised to be not-null. |
+| member | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The field or property member that is promised to be not-null. |
 
 <a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-#ctor-System-String[]-'></a>
 ### #ctor(members) `constructor`
@@ -4231,7 +4231,7 @@ Initializes the attribute with the list of field and property members.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| members | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | The list of field and property members that are promised to be not-null. |
+| members | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | The list of field and property members that are promised to be not-null. |
 
 <a name='P-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-Members'></a>
 ### Members `property`
@@ -4263,9 +4263,9 @@ Initializes the attribute with the specified return value condition and a field 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| returnValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The return value condition. If the method returns this value,
+| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value,
     the associated parameter will not be `null`. |
-| member | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The field or property member that is promised to be not-`null`. |
+| member | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The field or property member that is promised to be not-`null`. |
 
 <a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-#ctor-System-Boolean,System-String[]-'></a>
 ### #ctor(returnValue,members) `constructor`
@@ -4279,9 +4279,9 @@ Initializes the attribute with the specified return value condition and list
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| returnValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The return value condition. If the method returns this value,
+| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value,
     the associated parameter will not be `null`. |
-| members | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | The list of field and property members that are promised to be not-null. |
+| members | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | The list of field and property members that are promised to be not-null. |
 
 <a name='P-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-Members'></a>
 ### Members `property`
@@ -4430,7 +4430,7 @@ Initializes a new instance of the [MenuConfiguration](#T-Microsoft-VisualStudio-
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| displayName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The initial display name for the container. |
+| displayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The initial display name for the container. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-MenuConfiguration-Type'></a>
 ### Type `property`
@@ -4582,7 +4582,7 @@ Specifies that an output is not `null` even if the
 
 ##### Summary
 
-Initializes a new instance of the [NotNullAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.NotNullAttribute 'System.Diagnostics.CodeAnalysis.NotNullAttribute') class.
+Initializes a new instance of the [NotNullAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.NotNullAttribute 'System.Diagnostics.CodeAnalysis.NotNullAttribute') class.
 
 ##### Parameters
 
@@ -4611,7 +4611,7 @@ Initializes the attribute with the associated parameter name.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| parameterName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The associated parameter name.
+| parameterName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The associated parameter name.
     The output will be non-`null` if the argument to the
     parameter specified is non-`null`. |
 
@@ -4633,7 +4633,7 @@ System.Diagnostics.CodeAnalysis
 
 ##### Summary
 
-Specifies that when a method returns [ReturnValue](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue'),
+Specifies that when a method returns [ReturnValue](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue'),
     the parameter will not be `null` even if the corresponding type allows it.
 
 <a name='M-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-#ctor-System-Boolean-'></a>
@@ -4647,7 +4647,7 @@ Initializes the attribute with the specified return value condition.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| returnValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The return value condition.
+| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition.
     If the method returns this value, the associated parameter will not be `null`. |
 
 <a name='P-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-ReturnValue'></a>
@@ -5025,7 +5025,7 @@ The [ProjectCapability](#T-Microsoft-VisualStudio-Extensibility-ProjectCapabilit
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The string value of [ProjectCapability](#T-Microsoft-VisualStudio-Extensibility-ProjectCapability 'Microsoft.VisualStudio.Extensibility.ProjectCapability'). |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The string value of [ProjectCapability](#T-Microsoft-VisualStudio-Extensibility-ProjectCapability 'Microsoft.VisualStudio.Extensibility.ProjectCapability'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ProjectCapability-Equals-System-Object-'></a>
 ### Equals() `method`
@@ -5104,7 +5104,7 @@ Implicitly converts a `string` to a [ProjectCapability](#T-Microsoft-VisualStudi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.String)~Microsoft.VisualStudio.Extensibility.ProjectCapability](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String)~Microsoft.VisualStudio.Extensibility.ProjectCapability 'System.String)~Microsoft.VisualStudio.Extensibility.ProjectCapability') | The string value of [ProjectCapability](#T-Microsoft-VisualStudio-Extensibility-ProjectCapability 'Microsoft.VisualStudio.Extensibility.ProjectCapability'). |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String)~Microsoft.VisualStudio.Extensibility.ProjectCapability') | The string value of [ProjectCapability](#T-Microsoft-VisualStudio-Extensibility-ProjectCapability 'Microsoft.VisualStudio.Extensibility.ProjectCapability'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ProjectCapability-op_Implicit-Microsoft-VisualStudio-Extensibility-ProjectCapability-~System-String'></a>
 ### op_Implicit(value) `method`
@@ -5339,11 +5339,11 @@ Initializes a new instance of the [ServiceFactoryRegistrationAttribute](#T-Micro
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| serviceName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Name of the service. |
-| serviceVersion | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Version of the service. |
-| factoryType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | Factory class type. |
-| instanceType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | Optional service object instance class type, if specified the type info will be passed to the factory. |
-| interfaceType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | Optional interface type, if specified the type info will be passed to factory to determine the wrapper type. |
+| serviceName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Name of the service. |
+| serviceVersion | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Version of the service. |
+| factoryType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | Factory class type. |
+| instanceType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | Optional service object instance class type, if specified the type info will be passed to the factory. |
+| interfaceType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | Optional interface type, if specified the type info will be passed to factory to determine the wrapper type. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-ServiceFactoryRegistrationAttribute-FactoryType'></a>
 ### FactoryType `property`
@@ -5395,8 +5395,8 @@ Initializes a new instance of the [ServiceHubServiceMoniker](#T-Microsoft-Visual
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Service name. |
-| version | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Service version. |
+| name | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Service name. |
+| version | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Service version. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-ServiceHubServiceMoniker-Name'></a>
 ### Name `property`
@@ -5540,8 +5540,8 @@ Initializes a new instance of the [StringBasedEnumAttribute](#T-Microsoft-Visual
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| defaultValue | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The default value of the uninitialized enumeration struct. |
-| allowsConversionFromString | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether a Custom(string) method and an implicit convesion are generated
+| defaultValue | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The default value of the uninitialized enumeration struct. |
+| allowsConversionFromString | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether a Custom(string) method and an implicit convesion are generated
 allowing the extender to create enumeration values from an arbitrary string. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Editor-TextViewExtensionConfiguration'></a>
@@ -5862,7 +5862,7 @@ The [ToolWindowPlacement](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-To
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | The [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') of the tool window to dock to. |
+| value | [System.Guid](https://learn.microsoft.com/dotnet/api/System.Guid 'System.Guid') | The [Guid](https://learn.microsoft.com/dotnet/api/System.Guid 'System.Guid') of the tool window to dock to. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement-Equals-System-Object-'></a>
 ### Equals() `method`
@@ -5935,13 +5935,13 @@ Whether the two values are equal.
 
 ##### Summary
 
-Implicitly converts a [Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') to a [ToolWindowPlacement](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement').
+Implicitly converts a [Guid](https://learn.microsoft.com/dotnet/api/System.Guid 'System.Guid') to a [ToolWindowPlacement](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement').
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.Guid)~Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid)~Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement 'System.Guid)~Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowPlacement') | The modifier key name. |
+| value | [System.Guid](https://learn.microsoft.com/dotnet/api/System.Guid) 'System.Guid') | The modifier key name. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement-op_Implicit-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement-~System-String'></a>
 ### op_Implicit(value) `method`
@@ -6107,7 +6107,7 @@ Initializes a new instance of the [ToolbarConfiguration](#T-Microsoft-VisualStud
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| displayName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The initial display name for the container. |
+| displayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The initial display name for the container. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-ToolbarConfiguration-Type'></a>
 ### Type `property`
@@ -6158,7 +6158,7 @@ Microsoft.VisualStudio.Extensibility
 
 ##### Summary
 
-Utility methods for interacting with [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') instances that may be a UserDefinedType.
+Utility methods for interacting with [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') instances that may be a UserDefinedType.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UserDefinedTypeUtilities-AreEquivalent-System-Type,System-Type-'></a>
 ### AreEquivalent(first,second) `method`
@@ -6175,8 +6175,8 @@ Whether `first` and `second` represent the same type.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| first | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The first type to compare. |
-| second | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The second type to compare. |
+| first | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The first type to compare. |
+| second | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The second type to compare. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UserDefinedTypeUtilities-ImplementsInterface-System-Type,System-String-'></a>
 ### ImplementsInterface(implementer,interfaceTypeName) `method`
@@ -6193,8 +6193,8 @@ Whether `implementer` implements `interfaceTypeName`.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| implementer | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The type to be checked. |
-| interfaceTypeName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The type name of the interface as provided by [ToString](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type.ToString 'System.Type.ToString'). |
+| implementer | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The type to be checked. |
+| interfaceTypeName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The type name of the interface as provided by [ToString](https://learn.microsoft.com/dotnet/api/System.Type.ToString 'System.Type.ToString'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UserDefinedTypeUtilities-IsAssignableTo-System-Type,System-Type-'></a>
 ### IsAssignableTo(assignee,target) `method`
@@ -6211,8 +6211,8 @@ Whether `assignee` can be assigned to `target`.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| assignee | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The type of the object to be assigned. |
-| target | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The type of the variable being assigned to. |
+| assignee | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The type of the object to be assigned. |
+| target | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The type of the variable being assigned to. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UserDefinedTypeUtilities-IsOrExtends-System-Type,System-String-'></a>
 ### IsOrExtends(extender,baseTypeName) `method`
@@ -6230,46 +6230,46 @@ Whether `extender` is or extends `baseTypeName`.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| extender | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The type to be checked. |
-| baseTypeName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The type name of the base class as provided by [ToString](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type.ToString 'System.Type.ToString'). |
+| extender | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The type to be checked. |
+| baseTypeName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The type name of the base class as provided by [ToString](https://learn.microsoft.com/dotnet/api/System.Type.ToString 'System.Type.ToString'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UserDefinedTypeUtilities-ValidateTypeRepresentsAnchor-System-Type-'></a>
 ### ValidateTypeRepresentsAnchor(t) `method`
 
 ##### Summary
 
-Validates that the provided [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') extends the DynamicCommandAnchor class.
+Validates that the provided [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') extends the DynamicCommandAnchor class.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| t | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The type to validate. |
+| t | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The type to validate. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the provided type does not extend the DynamicCommandAnchor class. |
+| [System.ArgumentException](https://learn.microsoft.com/dotnet/api/System.ArgumentException 'System.ArgumentException') | Thrown if the provided type does not extend the DynamicCommandAnchor class. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UserDefinedTypeUtilities-ValidateTypeRepresentsCommand-System-Type-'></a>
 ### ValidateTypeRepresentsCommand(t) `method`
 
 ##### Summary
 
-Validates that the provided [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') extends the Command class.
+Validates that the provided [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') extends the Command class.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| t | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The type to validate. |
+| t | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The type to validate. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the provided type does not extend the Command class. |
+| [System.ArgumentException](https://learn.microsoft.com/dotnet/api/System.ArgumentException 'System.ArgumentException') | Thrown if the provided type does not extend the Command class. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-VisualStudioContributionAttribute'></a>
 ## VisualStudioContributionAttribute `type`
@@ -6307,7 +6307,7 @@ Initializes a new instance of the [VisualizerObjectSourceType](#T-Microsoft-Visu
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The [AssemblyQualifiedName](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') of the type of the visualizer object source loaded in the debug
+| type | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') of the type of the visualizer object source loaded in the debug
 target process to access the object to be visualized. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceType-#ctor-System-String-'></a>
@@ -6321,7 +6321,7 @@ Initializes a new instance of the [VisualizerObjectSourceType](#T-Microsoft-Visu
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| type | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The [Type](#P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceType-Type 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceType.Type') of the visualizer object source loaded in the debug target process to
+| type | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The [Type](#P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceType-Type 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceType.Type') of the visualizer object source loaded in the debug target process to
 access the object to be visualized. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceType-Type'></a>
@@ -6329,7 +6329,7 @@ access the object to be visualized. |
 
 ##### Summary
 
-Gets the [AssemblyQualifiedName](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') of the type of the visualizer object source loaded in the debug
+Gets the [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') of the type of the visualizer object source loaded in the debug
 target process to access the object to be visualized.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetType'></a>
@@ -6341,7 +6341,7 @@ Microsoft.VisualStudio.Extensibility.DebuggerVisualizers
 
 ##### Summary
 
-The [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') that a debugger visualizer will target and the corresponding display name for the visualizer.
+The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') that a debugger visualizer will target and the corresponding display name for the visualizer.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetType-#ctor-System-String,System-Type-'></a>
 ### #ctor(visualizerDisplayName,targetType) `constructor`
@@ -6354,15 +6354,15 @@ Initializes a new instance of the [VisualizerTargetType](#T-Microsoft-VisualStud
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| visualizerDisplayName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The display name of the debugger visualizer. |
-| targetType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') that is supported by this debugger visualizer.
+| visualizerDisplayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The display name of the debugger visualizer. |
+| targetType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') that is supported by this debugger visualizer.
 
 `targetType` must be a concrete type. The debugger visualizer will only
 support objects of type `targetType`, not objects of types extending `targetType`.
 
 If `targetType` is a generic type, it must be unbound.
 
-Trailing compoments of the [AssemblyQualifiedName](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') can be omitted. |
+Trailing compoments of the [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') can be omitted. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetType-#ctor-System-String,System-String-'></a>
 ### #ctor(visualizerDisplayName,targetType) `constructor`
@@ -6375,8 +6375,8 @@ Initializes a new instance of the [VisualizerTargetType](#T-Microsoft-VisualStud
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| visualizerDisplayName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The display name of the debugger visualizer. |
-| targetType | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The [AssemblyQualifiedName](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') of the type that is supported by this
+| visualizerDisplayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The display name of the debugger visualizer. |
+| targetType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') of the type that is supported by this
 debugger visualizer.
 
 `targetType` must be a concrete type. The debugger visualizer will only
@@ -6384,14 +6384,14 @@ support objects of type `targetType`, not objects of types extending `targetType
 
 If `targetType` is a generic type, it must be unbound.
 
-Trailing compoments of the [AssemblyQualifiedName](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') can be omitted. |
+Trailing compoments of the [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') can be omitted. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetType-TargetType'></a>
 ### TargetType `property`
 
 ##### Summary
 
-Gets the [AssemblyQualifiedName](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') of the type that is supported by this debugger visualizer.
+Gets the [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') of the type that is supported by this debugger visualizer.
 
 <a name='P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetType-VisualizerDisplayName'></a>
 ### VisualizerDisplayName `property`
@@ -6504,8 +6504,8 @@ Initializes a new instance of the [VsctId](#T-Microsoft-VisualStudio-Extensibili
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| guid | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | Identifying guid. |
-| id | [System.UInt32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.UInt32 'System.UInt32') | Identifying id. |
+| guid | [System.Guid](https://learn.microsoft.com/dotnet/api/System.Guid 'System.Guid') | Identifying guid. |
+| id | [System.UInt32](https://learn.microsoft.com/dotnet/api/System.UInt32 'System.UInt32') | Identifying id. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-VsctId-Guid'></a>
 ### Guid `property`

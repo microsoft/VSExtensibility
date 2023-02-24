@@ -201,5 +201,5 @@ Microsoft.VisualStudio.Extensibility.EditorHostService
 
 ##### Summary
 
-Facade that presents as if it was a [IReadOnlyList\`1](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyList`1 'System.Collections.Generic.IReadOnlyList`1')
+Facade that presents as if it was a [IReadOnlyList\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList-1 'System.Collections.Generic.IReadOnlyList`1')
 but actually creates the wrapper objects on demand.
