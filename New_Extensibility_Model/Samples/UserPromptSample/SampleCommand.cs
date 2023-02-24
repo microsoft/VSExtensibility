@@ -19,9 +19,9 @@ public class SampleCommand : Command
 	}
 
 	/// <inheritdoc />
-	public override CommandConfiguration CommandConfiguration => new("%SampleCommand.DisplayName%")
+	public override CommandConfiguration CommandConfiguration => new("%UserPromptSample.SampleCommand.DisplayName%")
 	{
-		TooltipText = "%SampleCommand.ToolTip%",
+		TooltipText = "%UserPromptSample.SampleCommand.ToolTip%",
 		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
 	};
 

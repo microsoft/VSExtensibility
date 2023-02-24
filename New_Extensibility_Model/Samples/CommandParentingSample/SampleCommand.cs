@@ -17,7 +17,7 @@ internal class SampleCommand : Command
 	}
 
 	/// <inheritdoc />
-	public override CommandConfiguration CommandConfiguration => new("%SampleCommand.DisplayName%")
+	public override CommandConfiguration CommandConfiguration => new("%CommandParentingSample.SampleCommand.DisplayName%")
 	{
 		Placements = new[]
 		{

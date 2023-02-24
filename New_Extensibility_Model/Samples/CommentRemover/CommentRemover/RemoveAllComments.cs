@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 [VisualStudioContribution]
 internal class RemoveAllComments : CommentRemoverCommand
 {
-	private const string CommandDescription = "%RemoveAllComments.DisplayName%";
+	private const string CommandDescription = "%CommentRemover.RemoveAllComments.DisplayName%";
 
 	public RemoveAllComments(
 		VisualStudioExtensibility extensibility,
