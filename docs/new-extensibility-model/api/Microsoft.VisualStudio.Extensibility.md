@@ -382,7 +382,7 @@ Specifies that `null` is allowed as an input even if the
 
 ##### Summary
 
-Initializes a new instance of the [AllowNullAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.AllowNullAttribute 'System.Diagnostics.CodeAnalysis.AllowNullAttribute') class.
+Initializes a new instance of the [AllowNullAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.AllowNullAttribute 'System.Diagnostics.CodeAnalysis.AllowNullAttribute') class.
 
 ##### Parameters
 
@@ -411,7 +411,7 @@ Initializes a new instance of the [AnchoredCommandAddedEventArgs](#T-Microsoft-V
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | command | [Microsoft.VisualStudio.Extensibility.Commands.IDynamicCommand](#T-Microsoft-VisualStudio-Extensibility-Commands-IDynamicCommand 'Microsoft.VisualStudio.Extensibility.Commands.IDynamicCommand') | The command that is being added. |
-| dynamicCommandAnchorIdentifier | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the dynamic command anchor that the command should be anchored to. |
+| dynamicCommandAnchorIdentifier | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the dynamic command anchor that the command should be anchored to. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-AnchoredCommandAddedEventArgs-DynamicCommandAnchorIdentifier'></a>
 ### DynamicCommandAnchorIdentifier `property`
@@ -442,7 +442,7 @@ Initializes a new instance of the [ChoiceDescription](#T-Microsoft-VisualStudio-
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| text | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The text to present to the user. |
+| text | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The text to present to the user. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Shell-ChoiceDescription-Text'></a>
 ### Text `property`
@@ -466,7 +466,7 @@ The option description.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| choiceText | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The option text. |
+| choiceText | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The option text. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ChoiceDescription-FromUserPrompOption-Microsoft-VisualStudio-RpcContracts-Notifications-UserPromptOption-'></a>
 ### FromUserPrompOption(rpcOption) `method`
@@ -511,7 +511,7 @@ Wraps `choiceText` in an [ChoiceDescription](#T-Microsoft-VisualStudio-Extensibi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| choiceText | [System.String)~Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String)~Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription 'System.String)~Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription') | The option text. |
+| choiceText | [System.String](https://learn.microsoft.com/dotnet/api/System.String) 'System.String') | The option text. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Shell-ChoiceResultCollection`1'></a>
 ## ChoiceResultCollection\`1 `type`
@@ -553,7 +553,7 @@ Initializes a new instance of the [ChoiceResultCollection\`1](#T-Microsoft-Visua
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| choiceResultPairs | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription,\`0}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription,`0}}') | A collection of pairs mapping [ChoiceDescription](#T-Microsoft-VisualStudio-Extensibility-Shell-ChoiceDescription 'Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription') to `TResult` values. |
+| choiceResultPairs | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription,\`0}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription,`0}}') | A collection of pairs mapping [ChoiceDescription](#T-Microsoft-VisualStudio-Extensibility-Shell-ChoiceDescription 'Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription') to `TResult` values. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ChoiceResultCollection`1-#ctor-System-Collections-Generic-List{System-Collections-Generic-KeyValuePair{Microsoft-VisualStudio-RpcContracts-Notifications-UserPromptOption,`0}}-'></a>
 ### #ctor(internalMap) `constructor`
@@ -566,7 +566,7 @@ Initializes a new instance of the [ChoiceResultCollection\`1](#T-Microsoft-Visua
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| internalMap | [System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption,\`0}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.List 'System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption,`0}}') | The mappings from result to [UserPromptOption](#T-Microsoft-VisualStudio-RpcContracts-Notifications-UserPromptOption 'Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption'). |
+| internalMap | [System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption,\`0}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption,`0}}') | The mappings from result to [UserPromptOption](#T-Microsoft-VisualStudio-RpcContracts-Notifications-UserPromptOption 'Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption'). |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Shell-ChoiceResultCollection`1-Count'></a>
 ### Count `property`
@@ -803,7 +803,7 @@ Initializes a new instance of the [CommandSet](#T-Microsoft-VisualStudio-Extensi
 | ---- | ---- | ----------- |
 | extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility instance. |
 | container | [Microsoft.VisualStudio.Extensibility.Extension](#T-Microsoft-VisualStudio-Extensibility-Extension 'Microsoft.VisualStudio.Extensibility.Extension') | Extension instance that can be used for sharing state across parts. |
-| serviceProvider | [System.IServiceProvider](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IServiceProvider 'System.IServiceProvider') | Extension host service provider. |
+| serviceProvider | [System.IServiceProvider](https://learn.microsoft.com/dotnet/api/System.IServiceProvider 'System.IServiceProvider') | Extension host service provider. |
 | commandSetFactory | [Microsoft.VisualStudio.Extensibility.Commands.ICommandSetFactory](#T-Microsoft-VisualStudio-Extensibility-Commands-ICommandSetFactory 'Microsoft.VisualStudio.Extensibility.Commands.ICommandSetFactory') | Factory instance that is used to create the command set (could be same as container instance). |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-Item-System-String-'></a>
@@ -821,7 +821,7 @@ an instance of [ICommand](#T-Microsoft-VisualStudio-Extensibility-Commands-IComm
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| commandId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique ID of the command in scope of the command set. |
+| commandId | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Unique ID of the command in scope of the command set. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-Microsoft#VisualStudio#Extensibility#Commands#ICommandSet#Commands'></a>
 ### Microsoft#VisualStudio#Extensibility#Commands#ICommandSet#Commands `property`
@@ -841,13 +841,13 @@ It also calls initialize on all registered commands and command anchors.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A token to signal cancellation. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A token to signal cancellation. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-Dispose-System-Boolean-'></a>
 ### Dispose() `method`
@@ -904,7 +904,7 @@ Register an existing command implementation that is to be parented to a dynamic 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | command | [Microsoft.VisualStudio.Extensibility.Commands.IDynamicCommand](#T-Microsoft-VisualStudio-Extensibility-Commands-IDynamicCommand 'Microsoft.VisualStudio.Extensibility.Commands.IDynamicCommand') | Command instance to register. |
-| dynamicCommandAnchorIdentifier | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The identifier of the dynamic command anchor that the command should be anchored to. |
+| dynamicCommandAnchorIdentifier | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The identifier of the dynamic command anchor that the command should be anchored to. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-RegisterCommand-Microsoft-VisualStudio-Extensibility-Commands-ICommand-'></a>
 ### RegisterCommand(command) `method`
@@ -934,7 +934,7 @@ Created command instance.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| commandType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | Type of the command to register. |
+| commandType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | Type of the command to register. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-RegisterCommandAsync``1'></a>
 ### RegisterCommandAsync\`\`1() `method`
@@ -972,7 +972,7 @@ Created command anchor instance.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| dynamicCommandAnchorType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | Type of the command to register. |
+| dynamicCommandAnchorType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | Type of the command to register. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-UnregisterDynamicCommand-System-String-'></a>
 ### UnregisterDynamicCommand(commandId) `method`
@@ -985,13 +985,13 @@ Unregister a command.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| commandId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The ID of the command to unregister. |
+| commandId | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The ID of the command to unregister. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the command to unregister does not exist. |
+| [System.ArgumentException](https://learn.microsoft.com/dotnet/api/System.ArgumentException 'System.ArgumentException') | Thrown if the command to unregister does not exist. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-CommandSetFactory'></a>
 ## CommandSetFactory `type`
@@ -1015,7 +1015,7 @@ Initializes a new instance of the [CommandSetFactory](#T-Microsoft-VisualStudio-
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| serviceProvider | [System.IServiceProvider](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IServiceProvider 'System.IServiceProvider') | Local service provider for extension host services. |
+| serviceProvider | [System.IServiceProvider](https://learn.microsoft.com/dotnet/api/System.IServiceProvider 'System.IServiceProvider') | Local service provider for extension host services. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandSetFactory-ServiceMoniker'></a>
 ### ServiceMoniker `property`
@@ -1089,7 +1089,7 @@ Initializes a new instance of the [CommandSetProvider](#T-Microsoft-VisualStudio
 | updateReceiver | [Microsoft.VisualStudio.RpcContracts.Commands.IUpdateReceiver](#T-Microsoft-VisualStudio-RpcContracts-Commands-IUpdateReceiver 'Microsoft.VisualStudio.RpcContracts.Commands.IUpdateReceiver') | The callback to the client to send updates. |
 | extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Visual Studio extensibility object. |
 | container | [Microsoft.VisualStudio.Extensibility.Extension](#T-Microsoft-VisualStudio-Extensibility-Extension 'Microsoft.VisualStudio.Extensibility.Extension') | Extension instance that can be used for sharing state across parts. |
-| commandSetCreator | [System.Func{Microsoft.VisualStudio.Extensibility.Commands.ICommandSet}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{Microsoft.VisualStudio.Extensibility.Commands.ICommandSet}') | A delegate to create the command set on demand. |
+| commandSetCreator | [System.Func{Microsoft.VisualStudio.Extensibility.Commands.ICommandSet}](https://learn.microsoft.com/dotnet/api/System.Func 'System.Func{Microsoft.VisualStudio.Extensibility.Commands.ICommandSet}') | A delegate to create the command set on demand. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetProvider-ActivateCommandSetAsync-System-Threading-CancellationToken-'></a>
 ### ActivateCommandSetAsync() `method`
@@ -1120,8 +1120,8 @@ ValueTask returning the ICommandSetProvider service.
 | options | [Microsoft.ServiceHub.Framework.ServiceActivationOptions](#T-Microsoft-ServiceHub-Framework-ServiceActivationOptions 'Microsoft.ServiceHub.Framework.ServiceActivationOptions') | Additional options that alter how the service may be activated or provide additional data to the service constructor. |
 | extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility object. |
 | container | [Microsoft.VisualStudio.Extensibility.Extension](#T-Microsoft-VisualStudio-Extensibility-Extension 'Microsoft.VisualStudio.Extensibility.Extension') | Extension instance that can be used for sharing state across parts. |
-| commandSetCreator | [System.Func{Microsoft.VisualStudio.Extensibility.Commands.ICommandSet}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{Microsoft.VisualStudio.Extensibility.Commands.ICommandSet}') | Delegate to create the command set. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
+| commandSetCreator | [System.Func{Microsoft.VisualStudio.Extensibility.Commands.ICommandSet}](https://learn.microsoft.com/dotnet/api/System.Func-1 'System.Func{Microsoft.VisualStudio.Extensibility.Commands.ICommandSet}') | Delegate to create the command set. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetProvider-CreateFactoryAsync``1-Microsoft-ServiceHub-Framework-ServiceActivationOptions,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,Microsoft-VisualStudio-Extensibility-Extension,System-Threading-CancellationToken-'></a>
 ### CreateFactoryAsync\`\`1(options,extensibility,container,cancellationToken) `method`
@@ -1141,7 +1141,7 @@ ValueTask returning the ICommandSetProvider service.
 | options | [Microsoft.ServiceHub.Framework.ServiceActivationOptions](#T-Microsoft-ServiceHub-Framework-ServiceActivationOptions 'Microsoft.ServiceHub.Framework.ServiceActivationOptions') | Additional options that alter how the service may be activated or provide additional data to the service constructor. |
 | extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility object. |
 | container | [Microsoft.VisualStudio.Extensibility.Extension](#T-Microsoft-VisualStudio-Extensibility-Extension 'Microsoft.VisualStudio.Extensibility.Extension') | Extension instance that can be used for sharing state across parts. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
 
 ##### Generic Types
 
@@ -1171,7 +1171,7 @@ Disposes managed and native resources held by this instance.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | `true` if being disposed; `false` if being finalized. |
+| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | `true` if being disposed; `false` if being finalized. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetProvider-ExecuteCommandAsync-System-String,System-Collections-Generic-IReadOnlyDictionary{System-String,System-Object},System-Threading-CancellationToken-'></a>
 ### ExecuteCommandAsync() `method`
@@ -1240,9 +1240,9 @@ Value of the moniker if found in persisted state or default value if not found.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| moniker | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Moniker for the entry to get. |
+| moniker | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Moniker for the entry to get. |
 | defaultValue | [\`\`0](#T-``0 '``0') | Default value to return if moniker is not found. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
 ##### Generic Types
 
@@ -1270,9 +1270,9 @@ A task indicating completion.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| moniker | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Moniker for the entry to write. |
+| moniker | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Moniker for the entry to write. |
 | value | [\`\`0](#T-``0 '``0') | Value to write. The value is serialized/deserialized using [](#N-System-Text-Json 'System.Text.Json') library. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
 ##### Generic Types
 
@@ -1335,7 +1335,7 @@ An [IRemoteUserControl](#T-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteU
 | ---- | ---- | ----------- |
 | visualizerTarget | [Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget') | The [VisualizerTarget](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget') provides information about the target process
  and object, and can be used to request the data of the target object or replace it. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
 ##### Remarks
 
@@ -1418,7 +1418,7 @@ an instance of [DiagnosticsReporter](#T-Microsoft-VisualStudio-Extensibility-Doc
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | extensibilityPoint | [Microsoft.VisualStudio.Extensibility.Documents.LanguagesExtensibility](#T-Microsoft-VisualStudio-Extensibility-Documents-LanguagesExtensibility 'Microsoft.VisualStudio.Extensibility.Documents.LanguagesExtensibility') | Extensibility object instance. |
-| generatorId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique identifier for the component that owns the reporter to be created. |
+| generatorId | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Unique identifier for the component that owns the reporter to be created. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter'></a>
 ## DiagnosticsReporter `type`
@@ -1442,7 +1442,7 @@ Initializes a new instance of the [DiagnosticsReporter](#T-Microsoft-VisualStudi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| generatorId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique identifier associated with the owner of this reporter. |
+| generatorId | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Unique identifier associated with the owner of this reporter. |
 | extensibilityPoint | [Microsoft.VisualStudio.Extensibility.ExtensibilityPoint](#T-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoint') | Another instance of extensibility point object to use for initialization. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-GeneratorId'></a>
@@ -1461,14 +1461,14 @@ Clears all previous reported diagnostics by this generator for a given open docu
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | textDocument | [Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot') | Text document to clear diagnostic entries for. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-ClearDiagnosticsAsync-System-Uri,System-Threading-CancellationToken-'></a>
 ### ClearDiagnosticsAsync(documentMoniker,cancellationToken) `method`
@@ -1479,14 +1479,14 @@ Clears all previous reported diagnostics by this generator for a given closed do
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| documentMoniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | Document URI to clear diagnostic entries for. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
+| documentMoniker | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | Document URI to clear diagnostic entries for. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-Dispose-System-Boolean-'></a>
 ### Dispose() `method`
@@ -1508,14 +1508,14 @@ Reports a single diagnostic with `diagnostic` by adding them to the previously r
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | diagnostic | [Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic](#T-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic') | New diagnostic to report. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-ReportDiagnosticsAsync-System-Collections-Generic-IEnumerable{Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic},System-Threading-CancellationToken-'></a>
 ### ReportDiagnosticsAsync(diagnostics,cancellationToken) `method`
@@ -1526,14 +1526,14 @@ Reports diagnostics with `diagnostics` by adding them to the previously reported
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| diagnostics | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic}') | New diagnostics to report. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
+| diagnostics | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic}') | New diagnostics to report. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
 
 <a name='T-System-Diagnostics-CodeAnalysis-DisallowNullAttribute'></a>
 ## DisallowNullAttribute `type`
@@ -1552,7 +1552,7 @@ Specifies that `null` is disallowed as an input even if the
 
 ##### Summary
 
-Initializes a new instance of the [DisallowNullAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.DisallowNullAttribute 'System.Diagnostics.CodeAnalysis.DisallowNullAttribute') class.
+Initializes a new instance of the [DisallowNullAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.DisallowNullAttribute 'System.Diagnostics.CodeAnalysis.DisallowNullAttribute') class.
 
 ##### Parameters
 
@@ -1582,11 +1582,11 @@ Initializes a new instance of the [DocumentDiagnostic](#T-Microsoft-VisualStudio
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | span | [Microsoft.VisualStudio.Extensibility.Editor.TextRange](#T-Microsoft-VisualStudio-Extensibility-Editor-TextRange 'Microsoft.VisualStudio.Extensibility.Editor.TextRange') | Span that the diagnostic is located on in a specific ITextDocument. |
-| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | String of text to be shown as the diagnostic description. |
-| errorCode | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique error code associated with this type of diagnostic. |
+| message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | String of text to be shown as the diagnostic description. |
+| errorCode | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Unique error code associated with this type of diagnostic. |
 | severity | [Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity](#T-Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity 'Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity') | Level of severity of the Diagnostic. |
-| providerName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Localized string describing the tool that generated the diagnostic. |
-| helpLink | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Uri to a help page to understand the diagnostic further. |
+| providerName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Localized string describing the tool that generated the diagnostic. |
+| helpLink | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Uri to a help page to understand the diagnostic further. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-#ctor-System-Uri,Microsoft-VisualStudio-RpcContracts-Utilities-Range,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String-'></a>
 ### #ctor(uri,range,message,errorCode,severity,providerName,helpLink) `constructor`
@@ -1599,13 +1599,13 @@ Initializes a new instance of the [DocumentDiagnostic](#T-Microsoft-VisualStudio
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| uri | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | Uri of the document the diagnostic belongs on. |
+| uri | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | Uri of the document the diagnostic belongs on. |
 | range | [Microsoft.VisualStudio.RpcContracts.Utilities.Range](#T-Microsoft-VisualStudio-RpcContracts-Utilities-Range 'Microsoft.VisualStudio.RpcContracts.Utilities.Range') | Location of the document that contains the diagnostic. |
-| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | String of text to be shown as the diagnostic description. |
-| errorCode | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique error code associated with this type of diagnostic. |
+| message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | String of text to be shown as the diagnostic description. |
+| errorCode | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Unique error code associated with this type of diagnostic. |
 | severity | [Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity](#T-Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity 'Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity') | Level of severity of the Diagnostic. |
-| providerName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Localized string describing the tool that generated the diagnostic. |
-| helpLink | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Uri to a help page to understand the diagnostic further. |
+| providerName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Localized string describing the tool that generated the diagnostic. |
+| helpLink | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Uri to a help page to understand the diagnostic further. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-DocumentVersion'></a>
 ### DocumentVersion `property`
@@ -1679,11 +1679,11 @@ Newly created [DocumentDiagnostic](#T-Microsoft-VisualStudio-Extensibility-Langu
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | range | [Microsoft.VisualStudio.Extensibility.Editor.TextRange](#T-Microsoft-VisualStudio-Extensibility-Editor-TextRange 'Microsoft.VisualStudio.Extensibility.Editor.TextRange') | Range that the diagnostic is located on in a specific ITextDocumentSnapshot. |
-| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | String of text to be shown as the diagnostic description. |
-| errorCode | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique error code associated with this type of diagnostic. |
+| message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | String of text to be shown as the diagnostic description. |
+| errorCode | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Unique error code associated with this type of diagnostic. |
 | severity | [Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity](#T-Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity 'Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity') | Level of severity of the Diagnostic. |
-| providerName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Localized string describing the tool that generated the diagnostic. |
-| helpLink | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Uri to a help page to understand the diagnostic further. |
+| providerName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Localized string describing the tool that generated the diagnostic. |
+| helpLink | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Uri to a help page to understand the diagnostic further. |
 
 ##### Remarks
 
@@ -1704,13 +1704,13 @@ Newly created [DocumentDiagnostic](#T-Microsoft-VisualStudio-Extensibility-Langu
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| uri | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | Uri of the document the diagnostic belongs on. |
+| uri | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | Uri of the document the diagnostic belongs on. |
 | range | [Microsoft.VisualStudio.RpcContracts.Utilities.Range](#T-Microsoft-VisualStudio-RpcContracts-Utilities-Range 'Microsoft.VisualStudio.RpcContracts.Utilities.Range') | Location of the document that contains the diagnostic. |
-| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | String of text to be shown as the diagnostic description. |
-| errorCode | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique error code associated with this type of diagnostic. |
+| message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | String of text to be shown as the diagnostic description. |
+| errorCode | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Unique error code associated with this type of diagnostic. |
 | severity | [Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity](#T-Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity 'Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity') | Level of severity of the Diagnostic. |
-| providerName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Localized string describing the tool that generated the diagnostic. |
-| helpLink | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Uri to a help page to understand the diagnostic further. |
+| providerName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Localized string describing the tool that generated the diagnostic. |
+| helpLink | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Uri to a help page to understand the diagnostic further. |
 
 ##### Remarks
 
@@ -1740,7 +1740,7 @@ Exteension methods for [DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts
 | ---- | ---- | ----------- |
 | documentSnapshot | [Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot') | The document snapshot to operate on. |
 | extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility object. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions-CloseAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken-'></a>
 ### CloseAsync(document,option,extensibility,token) `method`
@@ -1751,7 +1751,7 @@ Closes the view(s) for a [DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContrac
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task').representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task').representing the asynchronous operation.
 
 ##### Parameters
 
@@ -1760,7 +1760,7 @@ A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=
 | document | [Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot') | The document to close. |
 | option | [Microsoft.VisualStudio.RpcContracts.Documents.SaveDocumentOption](#T-Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption 'Microsoft.VisualStudio.RpcContracts.Documents.SaveDocumentOption') | An option controlling if and how the document will be saved, if it has unsaved changes. |
 | extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility object. |
-| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions-SaveAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken-'></a>
 ### SaveAsync(document,extensibility,token) `method`
@@ -1771,7 +1771,7 @@ Saves the contents of a [DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContract
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task').representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task').representing the asynchronous operation.
 
 ##### Parameters
 
@@ -1779,7 +1779,7 @@ A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=
 | ---- | ---- | ----------- |
 | document | [Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot') | The document to save. |
 | extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility object. |
-| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility'></a>
 ## DocumentsExtensibility `type`
@@ -1814,15 +1814,15 @@ Closes the tab(s) for the document specified by `moniker`.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| moniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | The moniker of the document to search for. |
+| moniker | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | The moniker of the document to search for. |
 | option | [Microsoft.VisualStudio.RpcContracts.Documents.SaveDocumentOption](#T-Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption 'Microsoft.VisualStudio.RpcContracts.Documents.SaveDocumentOption') | An option controlling if and how the document will be saved, if it has unsaved changes. |
-| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-GetOpenDocumentAsync-System-Uri,System-Threading-CancellationToken-'></a>
 ### GetOpenDocumentAsync(moniker,token) `method`
@@ -1839,8 +1839,8 @@ The matching document, or `null` if a matching document isn't found.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| moniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | The moniker of the document to search for. |
-| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| moniker | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | The moniker of the document to search for. |
+| token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-GetOpenDocumentsAsync-System-Threading-CancellationToken-'></a>
 ### GetOpenDocumentsAsync(token) `method`
@@ -1857,7 +1857,7 @@ A collection of open documents.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-GetTextDocumentSnapshotAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,System-Threading-CancellationToken-'></a>
 ### GetTextDocumentSnapshotAsync(documentSnapshot,cancellationToken) `method`
@@ -1875,7 +1875,7 @@ A text document snapshot matching the version of the document snapshot.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | documentSnapshot | [Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot') | The document to operate on. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 ##### Exceptions
 
@@ -1908,7 +1908,7 @@ Most recent initialized snapshot for the document moniker in the snapshot. May r
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | documentSnapshot | [Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot') | Document snapshot to initialize that was retrieved from one of the Open methods. |
-| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-OpenDocumentAsync-System-Uri,System-Threading-CancellationToken-'></a>
 ### OpenDocumentAsync(moniker,token) `method`
@@ -1925,8 +1925,8 @@ The document.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| moniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | The moniker of the document to search for. |
-| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| moniker | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | The moniker of the document to search for. |
+| token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 ##### Remarks
 
@@ -1948,9 +1948,9 @@ The document.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| moniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | The moniker of the document to search for. |
+| moniker | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | The moniker of the document to search for. |
 | options | [Microsoft.VisualStudio.RpcContracts.OpenDocument.OpenDocumentOptions](#T-Microsoft-VisualStudio-RpcContracts-OpenDocument-OpenDocumentOptions 'Microsoft.VisualStudio.RpcContracts.OpenDocument.OpenDocumentOptions') | Options defining how to open the document. |
-| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 ##### Remarks
 
@@ -1966,13 +1966,13 @@ Saves all open documents that have unsaved changes.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-SaveDocumentAsync-System-Uri,System-Threading-CancellationToken-'></a>
 ### SaveDocumentAsync(moniker,token) `method`
@@ -1983,14 +1983,14 @@ Saves the document specified by `moniker`.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| moniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | The moniker of the document to search for. |
-| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| moniker | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | The moniker of the document to search for. |
+| token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-SubscribeAsync-Microsoft-VisualStudio-RpcContracts-Documents-IDocumentEventsListener,System-String,System-Threading-CancellationToken-'></a>
 ### SubscribeAsync(listener,filterRegex,token) `method`
@@ -2001,7 +2001,7 @@ Adds a listener for document events.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.  The result of the
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.  The result of the
 task is an object which, when disposed, will remove the event listener.
 
 ##### Parameters
@@ -2009,9 +2009,9 @@ task is an object which, when disposed, will remove the event listener.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | listener | [Microsoft.VisualStudio.RpcContracts.Documents.IDocumentEventsListener](#T-Microsoft-VisualStudio-RpcContracts-Documents-IDocumentEventsListener 'Microsoft.VisualStudio.RpcContracts.Documents.IDocumentEventsListener') | The event listener. |
-| filterRegex | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | An optional regular expression string used to filter events.  If this string is not `null` and
+| filterRegex | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | An optional regular expression string used to filter events.  If this string is not `null` and
 not empty, then events will only be raised for documents whose monikers match the regular expression. |
-| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 ##### Remarks
 
@@ -2035,7 +2035,7 @@ Specifies that a method that will never return under any circumstance.
 
 ##### Summary
 
-Initializes a new instance of the [DoesNotReturnAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute') class.
+Initializes a new instance of the [DoesNotReturnAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute') class.
 
 ##### Parameters
 
@@ -2050,7 +2050,7 @@ System.Diagnostics.CodeAnalysis
 
 ##### Summary
 
-Specifies that the method will not return if the associated [Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean')
+Specifies that the method will not return if the associated [Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean')
     parameter is passed the specified value.
 
 <a name='M-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-#ctor-System-Boolean-'></a>
@@ -2058,14 +2058,14 @@ Specifies that the method will not return if the associated [Boolean](http://msd
 
 ##### Summary
 
-Initializes a new instance of the [DoesNotReturnIfAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute')
+Initializes a new instance of the [DoesNotReturnIfAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute')
     class with the specified parameter value.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| parameterValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The condition parameter value.
+| parameterValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The condition parameter value.
     Code after the method is considered unreachable by diagnostics if the argument
     to the associated parameter matches this value. |
 
@@ -2197,13 +2197,13 @@ Unregister a command.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| commandId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The ID of the command to unregister. |
+| commandId | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The ID of the command to unregister. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the command to unregister does not exist. |
+| [System.ArgumentException](https://learn.microsoft.com/dotnet/api/System.ArgumentException 'System.ArgumentException') | Thrown if the command to unregister does not exist. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommandHandler'></a>
 ## ExecutableCommandHandler `type`
@@ -2228,7 +2228,7 @@ Initializes a new instance of the [ExecutableCommandHandler](#T-Microsoft-Visual
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility point to be used for command execution. |
-| id | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The unique ID of the command or `null` to use the full name of the command class. |
+| id | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The unique ID of the command or `null` to use the full name of the command class. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommandHandler-DisableDuringExecution'></a>
 ### DisableDuringExecution `property`
@@ -2282,7 +2282,7 @@ a Task indication completion.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | context | [Microsoft.VisualStudio.Extensibility.IClientContext](#T-Microsoft-VisualStudio-Extensibility-IClientContext 'Microsoft.VisualStudio.Extensibility.IClientContext') | Client context at the time of command execution. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-ExtensibilityPoints'></a>
 ## ExtensibilityPoints `type`
@@ -2474,7 +2474,7 @@ an instance of [ITextViewSnapshot](#T-Microsoft-VisualStudio-Extensibility-Edito
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | clientContext | [Microsoft.VisualStudio.Extensibility.IClientContext](#T-Microsoft-VisualStudio-Extensibility-IClientContext 'Microsoft.VisualStudio.Extensibility.IClientContext') | Client context to utilize. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ExtensionMethods-GetSelectedPathAsync-Microsoft-VisualStudio-Extensibility-IClientContext,System-Threading-CancellationToken-'></a>
 ### GetSelectedPathAsync(clientContext,cancellationToken) `method`
@@ -2492,7 +2492,7 @@ A collection of workspace item monikers that can be used across workspace querie
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | clientContext | [Microsoft.VisualStudio.Extensibility.IClientContext](#T-Microsoft-VisualStudio-Extensibility-IClientContext 'Microsoft.VisualStudio.Extensibility.IClientContext') | Client context to utilize. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor,. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor,. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ExtensionMethods-ShowPromptAsync``1-Microsoft-VisualStudio-Extensibility-IClientContext,System-String,Microsoft-VisualStudio-Extensibility-Shell-PromptOptions{``0},System-Threading-CancellationToken-'></a>
 ### ShowPromptAsync\`\`1(clientContext,message,options,cancellationToken) `method`
@@ -2511,9 +2511,9 @@ The mapped result value of the choice defined in `options`.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | clientContext | [Microsoft.VisualStudio.Extensibility.IClientContext](#T-Microsoft-VisualStudio-Extensibility-IClientContext 'Microsoft.VisualStudio.Extensibility.IClientContext') | Client context to utilize. |
-| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The prompt message to show the user. |
+| message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The prompt message to show the user. |
 | options | [Microsoft.VisualStudio.Extensibility.Shell.PromptOptions{\`\`0}](#T-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions{``0} 'Microsoft.VisualStudio.Extensibility.Shell.PromptOptions{``0}') | The options to configure the prompt. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token. |
 
 ##### Generic Types
 
@@ -2543,10 +2543,10 @@ The result of the prompt.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | clientContext | [Microsoft.VisualStudio.Extensibility.IClientContext](#T-Microsoft-VisualStudio-Extensibility-IClientContext 'Microsoft.VisualStudio.Extensibility.IClientContext') | Client context to utilize. |
-| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The prompt to show to the user. |
-| options | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption}') | The options. |
-| defaultOptionIndex | [System.UInt32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.UInt32 'System.UInt32') | The index of the default option. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token. |
+| message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The prompt to show to the user. |
+| options | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption}') | The options. |
+| defaultOptionIndex | [System.UInt32](https://learn.microsoft.com/dotnet/api/System.UInt32 'System.UInt32') | The index of the default option. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-ICommand'></a>
 ## ICommand `type`
@@ -2614,7 +2614,7 @@ Task indication completion of initialization.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
 ##### Remarks
 
@@ -2655,7 +2655,7 @@ Task to track the asyncronous call status.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | serviceBroker | [Microsoft.ServiceHub.Framework.IServiceBroker](#T-Microsoft-ServiceHub-Framework-IServiceBroker 'Microsoft.ServiceHub.Framework.IServiceBroker') | A service broker that can be used to load external servies. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-ICommandSetFactory'></a>
 ## ICommandSetFactory `type`
@@ -2753,8 +2753,8 @@ Task to track the asynchronous call status.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| contextProperties | [System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyDictionary 'System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}') | Captured context properties for this command. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
+| contextProperties | [System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyDictionary 'System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}') | Captured context properties for this command. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-IToggleCommand'></a>
 ## IToggleCommand `type`
@@ -2827,7 +2827,7 @@ Specifies that an output may be `null` even if the
 
 ##### Summary
 
-Initializes a new instance of the [MaybeNullAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.MaybeNullAttribute 'System.Diagnostics.CodeAnalysis.MaybeNullAttribute') class.
+Initializes a new instance of the [MaybeNullAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.MaybeNullAttribute 'System.Diagnostics.CodeAnalysis.MaybeNullAttribute') class.
 
 ##### Parameters
 
@@ -2842,7 +2842,7 @@ System.Diagnostics.CodeAnalysis
 
 ##### Summary
 
-Specifies that when a method returns [ReturnValue](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue'), 
+Specifies that when a method returns [ReturnValue](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue'), 
     the parameter may be `null` even if the corresponding type disallows it.
 
 <a name='M-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-#ctor-System-Boolean-'></a>
@@ -2856,7 +2856,7 @@ Initializes the attribute with the specified return value condition.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| returnValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The return value condition.
+| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition.
     If the method returns this value, the associated parameter may be `null`. |
 
 <a name='P-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-ReturnValue'></a>
@@ -2890,7 +2890,7 @@ Initializes the attribute with a field or property member.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| member | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The field or property member that is promised to be not-null. |
+| member | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The field or property member that is promised to be not-null. |
 
 <a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-#ctor-System-String[]-'></a>
 ### #ctor(members) `constructor`
@@ -2903,7 +2903,7 @@ Initializes the attribute with the list of field and property members.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| members | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | The list of field and property members that are promised to be not-null. |
+| members | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String[] 'System.String[]') | The list of field and property members that are promised to be not-null. |
 
 <a name='P-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-Members'></a>
 ### Members `property`
@@ -2935,9 +2935,9 @@ Initializes the attribute with the specified return value condition and a field 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| returnValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The return value condition. If the method returns this value,
+| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value,
     the associated parameter will not be `null`. |
-| member | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The field or property member that is promised to be not-`null`. |
+| member | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The field or property member that is promised to be not-`null`. |
 
 <a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-#ctor-System-Boolean,System-String[]-'></a>
 ### #ctor(returnValue,members) `constructor`
@@ -2951,9 +2951,9 @@ Initializes the attribute with the specified return value condition and list
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| returnValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The return value condition. If the method returns this value,
+| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value,
     the associated parameter will not be `null`. |
-| members | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | The list of field and property members that are promised to be not-null. |
+| members | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String[] 'System.String[]') | The list of field and property members that are promised to be not-null. |
 
 <a name='P-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-Members'></a>
 ### Members `property`
@@ -2986,7 +2986,7 @@ Specifies that an output is not `null` even if the
 
 ##### Summary
 
-Initializes a new instance of the [NotNullAttribute](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.NotNullAttribute 'System.Diagnostics.CodeAnalysis.NotNullAttribute') class.
+Initializes a new instance of the [NotNullAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.NotNullAttribute 'System.Diagnostics.CodeAnalysis.NotNullAttribute') class.
 
 ##### Parameters
 
@@ -3015,7 +3015,7 @@ Initializes the attribute with the associated parameter name.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| parameterName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The associated parameter name.
+| parameterName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The associated parameter name.
     The output will be non-`null` if the argument to the
     parameter specified is non-`null`. |
 
@@ -3037,7 +3037,7 @@ System.Diagnostics.CodeAnalysis
 
 ##### Summary
 
-Specifies that when a method returns [ReturnValue](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue'),
+Specifies that when a method returns [ReturnValue](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue'),
     the parameter will not be `null` even if the corresponding type allows it.
 
 <a name='M-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-#ctor-System-Boolean-'></a>
@@ -3051,7 +3051,7 @@ Initializes the attribute with the specified return value condition.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| returnValue | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The return value condition.
+| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition.
     If the method returns this value, the associated parameter will not be `null`. |
 
 <a name='P-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-ReturnValue'></a>
@@ -3162,15 +3162,15 @@ an instance of [OutputWindowInternal](#T-Microsoft-VisualStudio-Extensibility-Do
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| identifier | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique channel identifiers. |
-| displayNameResourceId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Resource id to be used as display name for the output window channel. Consider using a pattern like nameof(Resources.MyChannelName). |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+| identifier | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Unique channel identifiers. |
+| displayNameResourceId | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Resource id to be used as display name for the output window channel. Consider using a pattern like nameof(Resources.MyChannelName). |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown when output channel is already created in the environment by another component. |
+| [System.InvalidOperationException](https://learn.microsoft.com/dotnet/api/System.InvalidOperationException 'System.InvalidOperationException') | Thrown when output channel is already created in the environment by another component. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Documents-OutputWindowInternal'></a>
 ## OutputWindowInternal `type`
@@ -3194,9 +3194,9 @@ Initializes a new instance of the [OutputWindowInternal](#T-Microsoft-VisualStud
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| identifier | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Service broker instance to utilize. |
-| writer | [System.IO.Pipelines.PipeWriter](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.Pipelines.PipeWriter 'System.IO.Pipelines.PipeWriter') | Pipe writer instance to use for writing. |
-| encoding | [System.Text.Encoding](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Text.Encoding 'System.Text.Encoding') | Text encoding of the channel. |
+| identifier | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Service broker instance to utilize. |
+| writer | [System.IO.Pipelines.PipeWriter](https://learn.microsoft.com/dotnet/api/System.IO.Pipelines.PipeWriter 'System.IO.Pipelines.PipeWriter') | Pipe writer instance to use for writing. |
+| encoding | [System.Text.Encoding](https://learn.microsoft.com/dotnet/api/System.Text.Encoding 'System.Text.Encoding') | Text encoding of the channel. |
 | outputChannelStore | [Microsoft.VisualStudio.RpcContracts.OutputChannel.IOutputChannelStore](#T-Microsoft-VisualStudio-RpcContracts-OutputChannel-IOutputChannelStore 'Microsoft.VisualStudio.RpcContracts.OutputChannel.IOutputChannelStore') | Output channel store service instance assigned to this channel. |
 | serviceBroker | [Microsoft.ServiceHub.Framework.IServiceBroker](#T-Microsoft-ServiceHub-Framework-IServiceBroker 'Microsoft.ServiceHub.Framework.IServiceBroker') | Service broker that was used to create the channel store. |
 
@@ -3229,18 +3229,18 @@ an instance of [OutputWindowInternal](#T-Microsoft-VisualStudio-Extensibility-Do
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| identifier | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique channel identifiers. |
-| resourceId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Resource id to be used as display name for the output window channel. |
-| encoding | [System.Text.Encoding](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Text.Encoding 'System.Text.Encoding') | Text encoding. |
+| identifier | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Unique channel identifiers. |
+| resourceId | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Resource id to be used as display name for the output window channel. |
+| encoding | [System.Text.Encoding](https://learn.microsoft.com/dotnet/api/System.Text.Encoding 'System.Text.Encoding') | Text encoding. |
 | serviceBroker | [Microsoft.ServiceHub.Framework.IServiceBroker](#T-Microsoft-ServiceHub-Framework-IServiceBroker 'Microsoft.ServiceHub.Framework.IServiceBroker') | Underlying service broker instance to utilize. |
 | stringResourceDictionary | [Microsoft.VisualStudio.RpcContracts.IStringResourceDictionary](#T-Microsoft-VisualStudio-RpcContracts-IStringResourceDictionary 'Microsoft.VisualStudio.RpcContracts.IStringResourceDictionary') | Resoruce dictionary instance to use. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown when output channel is already created in the environment. |
+| [System.InvalidOperationException](https://learn.microsoft.com/dotnet/api/System.InvalidOperationException 'System.InvalidOperationException') | Thrown when output channel is already created in the environment. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-OutputWindowInternal-DisposeManagedResources'></a>
 ### DisposeManagedResources() `method`
@@ -3301,7 +3301,7 @@ Initializes a new instance of the [PlaceholderCommand](#T-Microsoft-VisualStudio
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| id | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The unique ID of the command or `null` to use the full name of the command class. |
+| id | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The unique ID of the command or `null` to use the full name of the command class. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-PlaceholderCommand-DisplayName'></a>
 ### DisplayName `property`
@@ -3367,7 +3367,7 @@ Disposes the command instance.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | If true, managed instances should be disposed. |
+| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | If true, managed instances should be disposed. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-PlaceholderCommand-InitializeAsync-System-Threading-CancellationToken-'></a>
 ### InitializeAsync() `method`
@@ -3391,7 +3391,7 @@ Fires [](#E-Microsoft-VisualStudio-Extensibility-Commands-PlaceholderCommand-Pro
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| eventArgs | [System.ComponentModel.PropertyChangedEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.PropertyChangedEventArgs 'System.ComponentModel.PropertyChangedEventArgs') | The arg to pass to the event. |
+| eventArgs | [System.ComponentModel.PropertyChangedEventArgs](https://learn.microsoft.com/dotnet/api/System.ComponentModel.PropertyChangedEventArgs 'System.ComponentModel.PropertyChangedEventArgs') | The arg to pass to the event. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Shell-ProgressReporter'></a>
 ## ProgressReporter `type`
@@ -3402,7 +3402,7 @@ Microsoft.VisualStudio.Extensibility.Shell
 
 ##### Summary
 
-An entity that inherits [IProgress\`1](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IProgress`1 'System.IProgress`1') used by background work running on an extension to report progress.
+An entity that inherits [IProgress\`1](https://learn.microsoft.com/dotnet/api/System.IProgress-1 'System.IProgress`1') used by background work running on an extension to report progress.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ProgressReporter-#ctor-System-Guid,Microsoft-VisualStudio-RpcContracts-ProgressReporting-IWorkProgressHandler-'></a>
 ### #ctor(workId,workProgressHandler) `constructor`
@@ -3415,7 +3415,7 @@ Initializes a new instance of the [ProgressReporter](#T-Microsoft-VisualStudio-E
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| workId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | Work Id. |
+| workId | [System.Guid](https://learn.microsoft.com/dotnet/api/System.Guid 'System.Guid') | Work Id. |
 | workProgressHandler | [Microsoft.VisualStudio.RpcContracts.ProgressReporting.IWorkProgressHandler](#T-Microsoft-VisualStudio-RpcContracts-ProgressReporting-IWorkProgressHandler 'Microsoft.VisualStudio.RpcContracts.ProgressReporting.IWorkProgressHandler') | WorkProgressHandler service. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Shell-ProgressReporter-CancellationToken'></a>
@@ -3454,7 +3454,7 @@ Disposes the instance and underlying proxies.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| isDisposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | If false only native resources should be disposed. |
+| isDisposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | If false only native resources should be disposed. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ProgressReporter-OnWorkCanceled-System-Object,Microsoft-VisualStudio-RpcContracts-ProgressReporting-WorkCanceledEventArgs-'></a>
 ### OnWorkCanceled(sender,args) `method`
@@ -3467,7 +3467,7 @@ Cancel the ongoing background work in the extension after [](#E-Microsoft-Visual
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Sender. |
+| sender | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | Sender. |
 | args | [Microsoft.VisualStudio.RpcContracts.ProgressReporting.WorkCanceledEventArgs](#T-Microsoft-VisualStudio-RpcContracts-ProgressReporting-WorkCanceledEventArgs 'Microsoft.VisualStudio.RpcContracts.ProgressReporting.WorkCanceledEventArgs') | WorkCancelledEventArgs. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ProgressReporter-Report-Microsoft-VisualStudio-RpcContracts-ProgressReporting-ProgressStatus-'></a>
@@ -3475,7 +3475,7 @@ Cancel the ongoing background work in the extension after [](#E-Microsoft-Visual
 
 ##### Summary
 
-Inherited from [IProgress\`1](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IProgress`1 'System.IProgress`1').
+Inherited from [IProgress\`1](https://learn.microsoft.com/dotnet/api/System.IProgress-1 'System.IProgress`1').
 
 ##### Parameters
 
@@ -3516,7 +3516,7 @@ Initializes a new instance of the [PromptException](#T-Microsoft-VisualStudio-Ex
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | An error message. |
+| message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | An error message. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-PromptException-#ctor-System-String,System-Exception-'></a>
 ### #ctor(message,innerException) `constructor`
@@ -3529,8 +3529,8 @@ Initializes a new instance of the [PromptException](#T-Microsoft-VisualStudio-Ex
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | An error message. |
-| innerException | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | An inner exception that is the cause of the exception. |
+| message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | An error message. |
+| innerException | [System.Exception](https://learn.microsoft.com/dotnet/api/System.Exception 'System.Exception') | An inner exception that is the cause of the exception. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-PromptException-#ctor-System-Runtime-Serialization-SerializationInfo,System-Runtime-Serialization-StreamingContext-'></a>
 ### #ctor(info,context) `constructor`
@@ -3543,8 +3543,8 @@ Initializes a new instance of the [PromptException](#T-Microsoft-VisualStudio-Ex
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| info | [System.Runtime.Serialization.SerializationInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Runtime.Serialization.SerializationInfo 'System.Runtime.Serialization.SerializationInfo') | The serialization info. |
-| context | [System.Runtime.Serialization.StreamingContext](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Runtime.Serialization.StreamingContext 'System.Runtime.Serialization.StreamingContext') | The streaming context. |
+| info | [System.Runtime.Serialization.SerializationInfo](https://learn.microsoft.com/dotnet/api/System.Runtime.Serialization.SerializationInfo 'System.Runtime.Serialization.SerializationInfo') | The serialization info. |
+| context | [System.Runtime.Serialization.StreamingContext](https://learn.microsoft.com/dotnet/api/System.Runtime.Serialization.StreamingContext 'System.Runtime.Serialization.StreamingContext') | The streaming context. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions'></a>
 ## PromptOptions `type`
@@ -3683,7 +3683,7 @@ Initializes a new instance of the [PromptOptions\`1](#T-Microsoft-VisualStudio-E
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | choices | [Microsoft.VisualStudio.Extensibility.Shell.ChoiceResultCollection{\`0}](#T-Microsoft-VisualStudio-Extensibility-Shell-ChoiceResultCollection{`0} 'Microsoft.VisualStudio.Extensibility.Shell.ChoiceResultCollection{`0}') | The choices to present to the user. |
-| defaultChoiceIndex | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The index in `choices` of the choice to present as the default. |
+| defaultChoiceIndex | [System.Int32](https://learn.microsoft.com/dotnet/api/System.Int32 'System.Int32') | The index in `choices` of the choice to present as the default. |
 | dismissedReturns | [\`0](#T-`0 '`0') | The result value to return when the user dismisses the prompt without making a selection. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions`1-#ctor-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions{`0}-'></a>
@@ -3763,7 +3763,7 @@ A new instance of [PromptOptionsWithCancel\`1](#T-Microsoft-VisualStudio-Extensi
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | cancelReturns | [\`0](#T-`0 '`0') | The result value to return when selects the "Cancel" choice. |
-| cancelIsDefault | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether the "Cancel" choice should be presented as the default choice. |
+| cancelIsDefault | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether the "Cancel" choice should be presented as the default choice. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Resources'></a>
 ## Resources `type`
@@ -3947,14 +3947,14 @@ Hides the tool window of the given type.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| toolWindowType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The type of the tool window. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the in-progress request. |
+| toolWindowType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The type of the tool window. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the in-progress request. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-HideToolWindowAsync``1-System-Threading-CancellationToken-'></a>
 ### HideToolWindowAsync\`\`1(cancellationToken) `method`
@@ -3965,13 +3965,13 @@ Hides the tool window of the given type.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the in-progress request. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the in-progress request. |
 
 ##### Generic Types
 
@@ -3990,7 +3990,7 @@ Handles the service instance when availability of brokered services has changed.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Sender. |
+| sender | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | Sender. |
 | args | [Microsoft.ServiceHub.Framework.BrokeredServicesChangedEventArgs](#T-Microsoft-ServiceHub-Framework-BrokeredServicesChangedEventArgs 'Microsoft.ServiceHub.Framework.BrokeredServicesChangedEventArgs') | BrokeredServicesChangedEventArgs. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowDialogAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl,System-Threading-CancellationToken-'></a>
@@ -4009,7 +4009,7 @@ The [DialogResult](#T-Microsoft-VisualStudio-RpcContracts-Notifications-DialogRe
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | content | [Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl](#T-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl 'Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl') | The content of the dialog. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the dialog. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the dialog. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowDialogAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl,System-String,System-Threading-CancellationToken-'></a>
 ### ShowDialogAsync(content,title,cancellationToken) `method`
@@ -4027,8 +4027,8 @@ The [DialogResult](#T-Microsoft-VisualStudio-RpcContracts-Notifications-DialogRe
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | content | [Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl](#T-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl 'Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl') | The content of the dialog. |
-| title | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The title of the dialog. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the dialog. |
+| title | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The title of the dialog. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the dialog. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowDialogAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl,Microsoft-VisualStudio-RpcContracts-Notifications-DialogOption,System-Threading-CancellationToken-'></a>
 ### ShowDialogAsync(content,options,cancellationToken) `method`
@@ -4047,7 +4047,7 @@ The [DialogResult](#T-Microsoft-VisualStudio-RpcContracts-Notifications-DialogRe
 | ---- | ---- | ----------- |
 | content | [Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl](#T-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl 'Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl') | The content of the dialog. |
 | options | [Microsoft.VisualStudio.RpcContracts.Notifications.DialogOption](#T-Microsoft-VisualStudio-RpcContracts-Notifications-DialogOption 'Microsoft.VisualStudio.RpcContracts.Notifications.DialogOption') | The options for displaying the dialog. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the dialog. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the dialog. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowDialogAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl,System-String,Microsoft-VisualStudio-RpcContracts-Notifications-DialogOption,System-Threading-CancellationToken-'></a>
 ### ShowDialogAsync(content,title,options,cancellationToken) `method`
@@ -4065,9 +4065,9 @@ The [DialogResult](#T-Microsoft-VisualStudio-RpcContracts-Notifications-DialogRe
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | content | [Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl](#T-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl 'Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl') | The content of the dialog. |
-| title | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The title of the dialog. |
+| title | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The title of the dialog. |
 | options | [Microsoft.VisualStudio.RpcContracts.Notifications.DialogOption](#T-Microsoft-VisualStudio-RpcContracts-Notifications-DialogOption 'Microsoft.VisualStudio.RpcContracts.Notifications.DialogOption') | The options for displaying the dialog. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the dialog. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the dialog. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowToolWindowAsync-System-Type,System-Boolean,System-Threading-CancellationToken-'></a>
 ### ShowToolWindowAsync(toolWindowType,activate,cancellationToken) `method`
@@ -4078,15 +4078,15 @@ Shows the tool window of the given type.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| toolWindowType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The type of the tool window. |
-| activate | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether or not to activate the tool window during the show. Activating a tool window will move focus into it. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the in-progress request. |
+| toolWindowType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The type of the tool window. |
+| activate | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether or not to activate the tool window during the show. Activating a tool window will move focus into it. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the in-progress request. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowToolWindowAsync``1-System-Boolean,System-Threading-CancellationToken-'></a>
 ### ShowToolWindowAsync\`\`1(activate,cancellationToken) `method`
@@ -4097,14 +4097,14 @@ Shows the tool window of the given type.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| activate | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether or not to activate the tool window during the show. Activating a tool window will move focus into it. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the in-progress request. |
+| activate | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether or not to activate the tool window during the show. Activating a tool window will move focus into it. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the in-progress request. |
 
 ##### Generic Types
 
@@ -4127,9 +4127,9 @@ Progress reporter used to report progress for the background work.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| workDisplayName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Name of the background work. |
+| workDisplayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Name of the background work. |
 | options | [Microsoft.VisualStudio.RpcContracts.ProgressReporting.ProgressReporterOptions](#T-Microsoft-VisualStudio-RpcContracts-ProgressReporting-ProgressReporterOptions 'Microsoft.VisualStudio.RpcContracts.ProgressReporting.ProgressReporterOptions') | Options for customizing progress reporting behaviors. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-StartProgressReportingAsync-System-String,System-Threading-CancellationToken-'></a>
 ### StartProgressReportingAsync(workDisplayName,cancellationToken) `method`
@@ -4146,8 +4146,8 @@ Progress reporter used to report progress for the background work.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| workDisplayName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Name of the background work. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
+| workDisplayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Name of the background work. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Documents-SynchronizedBufferTextWriter'></a>
 ## SynchronizedBufferTextWriter `type`
@@ -4171,8 +4171,8 @@ Initializes a new instance of the [SynchronizedBufferTextWriter](#T-Microsoft-Vi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| pipeWriter | [System.IO.Pipelines.PipeWriter](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.Pipelines.PipeWriter 'System.IO.Pipelines.PipeWriter') | Pipe writer instance. |
-| encoding | [System.Text.Encoding](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Text.Encoding 'System.Text.Encoding') | Encoding for strings. |
+| pipeWriter | [System.IO.Pipelines.PipeWriter](https://learn.microsoft.com/dotnet/api/System.IO.Pipelines.PipeWriter 'System.IO.Pipelines.PipeWriter') | Pipe writer instance. |
+| encoding | [System.Text.Encoding](https://learn.microsoft.com/dotnet/api/System.Text.Encoding 'System.Text.Encoding') | Encoding for strings. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-SynchronizedBufferTextWriter-Dispose-System-Boolean-'></a>
 ### Dispose() `method`
@@ -4305,7 +4305,7 @@ Performs application-defined tasks associated with freeing, releasing, or resett
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether managed resources should be disposed. This should be `false` when
+| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether managed resources should be disposed. This should be `false` when
 [Dispose](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.Dispose(System.Boolean)') is called from a finalizer, `true` otherwise. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-GetContentAsync-System-Threading-CancellationToken-'></a>
@@ -4323,7 +4323,7 @@ An [IRemoteUserControl](#T-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteU
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress content creation. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress content creation. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-HideAsync-System-Threading-CancellationToken-'></a>
 ### HideAsync(cancellationToken) `method`
@@ -4334,13 +4334,13 @@ Hides the tool window.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress hide. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress hide. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-InitializeAsync-System-Threading-CancellationToken-'></a>
 ### InitializeAsync(cancellationToken) `method`
@@ -4351,13 +4351,13 @@ Initializes the tool window.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress initialization. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress initialization. |
 
 ##### Remarks
 
@@ -4373,13 +4373,13 @@ Notifies that the tool window is being hidden.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress hide. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress hide. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-OnShowAsync-System-Threading-CancellationToken-'></a>
 ### OnShowAsync(cancellationToken) `method`
@@ -4390,13 +4390,13 @@ Notifies that the tool window is being shown.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress show. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress show. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-ShowAsync-System-Boolean,System-Threading-CancellationToken-'></a>
 ### ShowAsync(activate,cancellationToken) `method`
@@ -4407,14 +4407,14 @@ Shows the tool window.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| activate | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether or not to activate the tool window during the show. Activating a tool window will move focus into it. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress hide. |
+| activate | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether or not to activate the tool window during the show. Activating a tool window will move focus into it. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress hide. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowContainer'></a>
 ## ToolWindowContainer `type`
@@ -4438,7 +4438,7 @@ Initializes a new instance of the [ToolWindowContainer](#T-Microsoft-VisualStudi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| traceSource | [System.Diagnostics.TraceSource](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.TraceSource 'System.Diagnostics.TraceSource') | Logger instance that can be used to trace extension actions. |
+| traceSource | [System.Diagnostics.TraceSource](https://learn.microsoft.com/dotnet/api/System.Diagnostics.TraceSource 'System.Diagnostics.TraceSource') | Logger instance that can be used to trace extension actions. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowContainer-Dispose'></a>
 ### Dispose() `method`
@@ -4462,7 +4462,7 @@ Disposes managed and native resources held by this instance.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | True if the container is being disposed, false if it's being finalized. |
+| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | True if the container is being disposed, false if it's being finalized. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowContainer-GetToolWindow-System-IServiceProvider,System-Type-'></a>
 ### GetToolWindow(serviceProvider,toolWindowType) `method`
@@ -4479,8 +4479,8 @@ The tool window matching the given type or null if not found.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| serviceProvider | [System.IServiceProvider](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IServiceProvider 'System.IServiceProvider') | Extension host service provider. |
-| toolWindowType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The type of the tool window. |
+| serviceProvider | [System.IServiceProvider](https://learn.microsoft.com/dotnet/api/System.IServiceProvider 'System.IServiceProvider') | Extension host service provider. |
+| toolWindowType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The type of the tool window. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-ToolWindows-Implementation-ToolWindowProvider'></a>
 ## ToolWindowProvider `type`
@@ -4506,8 +4506,8 @@ Initializes a new instance of the [ToolWindowProvider](#T-Microsoft-VisualStudio
 | ---- | ---- | ----------- |
 | container | [Microsoft.VisualStudio.Extensibility.ExtensionCore](#T-Microsoft-VisualStudio-Extensibility-ExtensionCore 'Microsoft.VisualStudio.Extensibility.ExtensionCore') | Extension instance that can be used for sharing state across parts. |
 | extensibilityObject | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility instance to be used by the service implementation. |
-| serviceProvider | [System.IServiceProvider](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IServiceProvider 'System.IServiceProvider') | Extension host service provider. |
-| traceSource | [System.Diagnostics.TraceSource](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.TraceSource 'System.Diagnostics.TraceSource') | Logger instance that can be used to trace extension actions. |
+| serviceProvider | [System.IServiceProvider](https://learn.microsoft.com/dotnet/api/System.IServiceProvider 'System.IServiceProvider') | Extension host service provider. |
+| traceSource | [System.Diagnostics.TraceSource](https://learn.microsoft.com/dotnet/api/System.Diagnostics.TraceSource 'System.Diagnostics.TraceSource') | Logger instance that can be used to trace extension actions. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-Implementation-ToolWindowProvider-CreateToolWindowAsync-System-String,System-Threading-CancellationToken-'></a>
 ### CreateToolWindowAsync() `method`
@@ -4557,13 +4557,13 @@ The tool window matching the identifier.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| identifier | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The tool window identifier. |
+| identifier | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The tool window identifier. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the identifier doesn't match a registered tool window. |
+| [System.ArgumentException](https://learn.microsoft.com/dotnet/api/System.ArgumentException 'System.ArgumentException') | Thrown if the identifier doesn't match a registered tool window. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-Implementation-ToolWindowProvider-OnHideAsync-System-String,System-Threading-CancellationToken-'></a>
 ### OnHideAsync() `method`
@@ -4598,7 +4598,7 @@ Registers a tool window with the tool window provider.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| toolWindowType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The type of the tool window. |
+| toolWindowType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The type of the tool window. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-Implementation-ToolWindowProvider-SubscribeAsync-System-IObserver{Microsoft-VisualStudio-RpcContracts-ToolWindows-ToolWindowPropertyChangedArgs},System-Threading-CancellationToken-'></a>
 ### SubscribeAsync() `method`
@@ -4662,15 +4662,15 @@ Requests the visualizer object source in the debug target process to replace the
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') tracking the completion of the async call.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') tracking the completion of the async call.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| message | [System.Buffers.ReadOnlySequence{System.Byte}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Buffers.ReadOnlySequence 'System.Buffers.ReadOnlySequence{System.Byte}') | The content of the message sent to the visualizer object source. The format of
+| message | [System.Buffers.ReadOnlySequence{System.Byte}](https://learn.microsoft.com/dotnet/api/System.Buffers.ReadOnlySequence-1 'System.Buffers.ReadOnlySequence{System.Byte}') | The content of the message sent to the visualizer object source. The format of
 `message` is defined by the chosen visualizer object source. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-ReplaceTargetObjectAsync-Newtonsoft-Json-Linq-JToken,System-Threading-CancellationToken-'></a>
 ### ReplaceTargetObjectAsync(message,cancellationToken) `method`
@@ -4681,7 +4681,7 @@ Requests the visualizer object source in the debug target process to replace the
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') tracking the completion of the async call.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') tracking the completion of the async call.
 
 ##### Parameters
 
@@ -4689,7 +4689,7 @@ A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=
 | ---- | ---- | ----------- |
 | message | [Newtonsoft.Json.Linq.JToken](#T-Newtonsoft-Json-Linq-JToken 'Newtonsoft.Json.Linq.JToken') | The content of the message sent to the visualizer object source. The format of
 `message` is defined by the chosen visualizer object source. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-ReplaceTargetObjectAsync``1-``0,Newtonsoft-Json-JsonSerializer,System-Threading-CancellationToken-'></a>
 ### ReplaceTargetObjectAsync\`\`1(message,jsonSerializer,cancellationToken) `method`
@@ -4700,7 +4700,7 @@ Requests the visualizer object source in the debug target process to replace the
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') tracking the completion of the async call.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') tracking the completion of the async call.
 
 ##### Parameters
 
@@ -4709,7 +4709,7 @@ A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=
 | message | [\`\`0](#T-``0 '``0') | The object to be encoded into JSON and sent to the visualizer object source. |
 | jsonSerializer | [Newtonsoft.Json.JsonSerializer](#T-Newtonsoft-Json-JsonSerializer 'Newtonsoft.Json.JsonSerializer') | Optional json serializer used to convert `message` to JSON and
 convert the returned object from JSON. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
 ##### Generic Types
 
@@ -4734,9 +4734,9 @@ The optional response to the message. The format of the returned data is defined
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| message | [System.Nullable{System.Buffers.ReadOnlySequence{System.Byte}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Nullable 'System.Nullable{System.Buffers.ReadOnlySequence{System.Byte}}') | The optional content of the message. The format of `message` is defined
+| message | [System.Nullable{System.Buffers.ReadOnlySequence{System.Byte}}](https://learn.microsoft.com/dotnet/api/System.Nullable-1 'System.Nullable{System.Buffers.ReadOnlySequence{System.Byte}}') | The optional content of the message. The format of `message` is defined
  by the chosen visualizer object source. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
 ##### Exceptions
 
@@ -4768,7 +4768,7 @@ The optional response to the message. The format of the returned data is defined
 | ---- | ---- | ----------- |
 | message | [Newtonsoft.Json.Linq.JToken](#T-Newtonsoft-Json-Linq-JToken 'Newtonsoft.Json.Linq.JToken') | The content of the message. The format of `message` is defined by the
  chosen visualizer object source. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
 ##### Exceptions
 
@@ -4798,7 +4798,7 @@ The optional response to the message. The format of the returned data is defined
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
 ##### Exceptions
 
@@ -4829,7 +4829,7 @@ The optional response to the message. If `TResponse` is a reference type, this
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | jsonSerializer | [Newtonsoft.Json.JsonSerializer](#T-Newtonsoft-Json-JsonSerializer 'Newtonsoft.Json.JsonSerializer') | Optional json serializer used to convert the returned object from JSON. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
 ##### Generic Types
 
@@ -4868,7 +4868,7 @@ The optional response to the message. If `TResponse` is a reference type, this
 | message | [\`\`0](#T-``0 '``0') | The object to be encoded into JSON and sent to the visualizer object source. |
 | jsonSerializer | [Newtonsoft.Json.JsonSerializer](#T-Newtonsoft-Json-JsonSerializer 'Newtonsoft.Json.JsonSerializer') | Optional json serializer used to convert `message` to JSON and
  convert the returned object from JSON. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
 ##### Generic Types
 
@@ -4959,9 +4959,9 @@ Initializes a new instance of the [VisualizerTarget](#T-Microsoft-VisualStudio-E
 | ---- | ---- | ----------- |
 | objectSource | [Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient') | The object source client which can be used to query the object source for the value of
 the target object or request the target object to be replaced. |
-| targetTypeFullName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The [FullName](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type.FullName 'System.Type.FullName') of the target type of the debugger visualizer. |
-| targetTypeModuleName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the assembly that defines the [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type')`targetTypeFullName`. |
-| targetTypeModuleVersion | [System.Version](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Version 'System.Version') | The version of the assembly that defines the [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type')`targetTypeFullName`. |
+| targetTypeFullName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The [FullName](https://learn.microsoft.com/dotnet/api/System.Type.FullName 'System.Type.FullName') of the target type of the debugger visualizer. |
+| targetTypeModuleName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the assembly that defines the [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type')`targetTypeFullName`. |
+| targetTypeModuleVersion | [System.Version](https://learn.microsoft.com/dotnet/api/System.Version 'System.Version') | The version of the assembly that defines the [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type')`targetTypeFullName`. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-ObjectSource'></a>
 ### ObjectSource `property`
@@ -4976,7 +4976,7 @@ request the target object to be replaced.
 
 ##### Summary
 
-Gets the [FullName](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type.FullName 'System.Type.FullName') of the target type of the debugger visualizer.
+Gets the [FullName](https://learn.microsoft.com/dotnet/api/System.Type.FullName 'System.Type.FullName') of the target type of the debugger visualizer.
 
  This is always one of the types for which the debugger visualizer provider declares support: it may not be the
  actual type of the target object but one of its base types or implemented interfaces.
@@ -4986,14 +4986,14 @@ Gets the [FullName](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1
 
 ##### Summary
 
-Gets the name of the assembly that defines the [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type')[TargetTypeFullName](#P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-TargetTypeFullName 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget.TargetTypeFullName').
+Gets the name of the assembly that defines the [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type')[TargetTypeFullName](#P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-TargetTypeFullName 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget.TargetTypeFullName').
 
 <a name='P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-TargetTypeModuleVersion'></a>
 ### TargetTypeModuleVersion `property`
 
 ##### Summary
 
-Gets the version of the assembly that defines the [Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type')[TargetTypeFullName](#P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-TargetTypeFullName 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget.TargetTypeFullName').
+Gets the version of the assembly that defines the [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type')[TargetTypeFullName](#P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-TargetTypeFullName 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget.TargetTypeFullName').
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-Dispose'></a>
 ### Dispose() `method`
@@ -5015,7 +5015,7 @@ Raises the [](#E-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-Visual
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') tracking the async operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') tracking the async operation.
 
 ##### Parameters
 
@@ -5110,8 +5110,8 @@ Results of the project query.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| queryFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}}') | Function to prepare query. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+| queryFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}}') | Function to prepare query. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
 ##### Generic Types
 
@@ -5140,8 +5140,8 @@ Results of the solution query.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| queryFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}}') | Function to prepare query. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+| queryFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}}') | Function to prepare query. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
 ##### Generic Types
 
@@ -5170,9 +5170,9 @@ Results of the solution update actions.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| queryFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}}') | Function to select items to update. |
-| updateFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`1}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``1}}') | Function to update selected items. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+| queryFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}}') | Function to select items to update. |
+| updateFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`1}}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``1}}') | Function to update selected items. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
 ##### Generic Types
 
@@ -5202,9 +5202,9 @@ Results of the solution update actions.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| queryFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}}') | Function to select items to update. |
-| updateFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`1}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``1}}') | Function to update selected items. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+| queryFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}}') | Function to select items to update. |
+| updateFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`1}}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``1}}') | Function to update selected items. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
 ##### Generic Types
 

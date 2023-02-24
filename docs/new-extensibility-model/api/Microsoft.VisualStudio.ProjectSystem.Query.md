@@ -2132,7 +2132,7 @@ Initializes a new instance of the [ActionExecutorByQueryActionDataProvider](#T-M
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| providersWithZoneInfo | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Providers.IProviderWithZoneInfo{Microsoft.VisualStudio.ProjectSystem.Query.Providers.IQueryActionProvider}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Providers.IProviderWithZoneInfo{Microsoft.VisualStudio.ProjectSystem.Query.Providers.IQueryActionProvider}}') | A provider from an extension. |
+| providersWithZoneInfo | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Providers.IProviderWithZoneInfo{Microsoft.VisualStudio.ProjectSystem.Query.Providers.IQueryActionProvider}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList-1 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Providers.IProviderWithZoneInfo{Microsoft.VisualStudio.ProjectSystem.Query.Providers.IQueryActionProvider}}') | A provider from an extension. |
 | executableStep | [Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep](#T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-ExecutableStep 'Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep') | Extra data to describe the action. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-Actions-AddAssemblyReferenceByName'></a>
@@ -2186,10 +2186,10 @@ Initializes a new instance of the [AddConfigurationDimensionValue](#T-Microsoft-
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| dimensionName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The [ConfigurationDimensionNames](#T-Microsoft-VisualStudio-ProjectSystem-Query-ConfigurationDimensionNames 'Microsoft.VisualStudio.ProjectSystem.Query.ConfigurationDimensionNames') to add a new value to. |
-| newValue | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The new value to be added. |
-| existingValue | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | An existing value to copy properties from. Empty string if properties should not be copied. |
-| propagate | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Specifies if the project configuration change to be propagated to the solution file. |
+| dimensionName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The [ConfigurationDimensionNames](#T-Microsoft-VisualStudio-ProjectSystem-Query-ConfigurationDimensionNames 'Microsoft.VisualStudio.ProjectSystem.Query.ConfigurationDimensionNames') to add a new value to. |
+| newValue | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The new value to be added. |
+| existingValue | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | An existing value to copy properties from. Empty string if properties should not be copied. |
+| propagate | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Specifies if the project configuration change to be propagated to the solution file. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-Framework-Actions-AddConfigurationDimensionValue-DimensionName'></a>
 ### DimensionName `property`
@@ -2291,9 +2291,9 @@ Initializes a new instance of the [AddLaunchProfile](#T-Microsoft-VisualStudio-P
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| newProfileName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the new profile. If not provided, the action executor will choose a
+| newProfileName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the new profile. If not provided, the action executor will choose a
 unique default name. |
-| commandName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The debugger command name to associate with the new profile. |
+| commandName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The debugger command name to associate with the new profile. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-Framework-Actions-AddLaunchProfile-CommandName'></a>
 ### CommandName `property`
@@ -2728,7 +2728,7 @@ Initializes a new instance of the [AsyncExecutable](#T-Microsoft-VisualStudio-Pr
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable') | A query to describe items where the action applies to |
-| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Immutable.ImmutableQueue 'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') | A collection of actions to take during execution. |
+| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableQueue-1 'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') | A collection of actions to take during execution. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-AsyncExecutable-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable,System-Collections-Immutable-ImmutableQueue{Microsoft-VisualStudio-ProjectSystem-Query-Framework-ExecutableStep}-'></a>
 ### #ctor(source,steps) `constructor`
@@ -2742,7 +2742,7 @@ Initializes a new instance of the [AsyncExecutable](#T-Microsoft-VisualStudio-Pr
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable') | A query to describe items where the action applies to |
-| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Immutable.ImmutableQueue 'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') | A collection of actions to take during execution. |
+| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableQueue-1 'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') | A collection of actions to take during execution. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-AsyncExecutable-IsUpdate'></a>
 ### IsUpdate `property`
@@ -2802,7 +2802,7 @@ Initializes a new instance of the [AsyncExecutable\`1](#T-Microsoft-VisualStudio
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable') | A query to describe items where the action applies to |
-| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Immutable.ImmutableQueue 'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') | A collection of actions to take during execution. |
+| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableQueue-1 'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') | A collection of actions to take during execution. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-AsyncExecutable`1-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{`0},System-Collections-Immutable-ImmutableQueue{Microsoft-VisualStudio-ProjectSystem-Query-Framework-ExecutableStep}-'></a>
 ### #ctor(source,steps) `constructor`
@@ -2816,7 +2816,7 @@ Initializes a new instance of the [AsyncExecutable\`1](#T-Microsoft-VisualStudio
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`0}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{`0} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{`0}') | A query to describe items where the action applies to |
-| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Immutable.ImmutableQueue 'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') | A collection of actions to take during execution. |
+| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableQueue-1 'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') | A collection of actions to take during execution. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Remoting-AsyncQueryJsonSerializer'></a>
 ## AsyncQueryJsonSerializer `type`
@@ -2939,7 +2939,7 @@ Microsoft.VisualStudio.ProjectSystem.Query.Execution
 
 ##### Summary
 
-Implements a way to return query results as [IAsyncEnumerable\`1](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IAsyncEnumerable`1 'System.Collections.Generic.IAsyncEnumerable`1').
+Implements a way to return query results as [IAsyncEnumerable\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IAsyncEnumerable-1 'System.Collections.Generic.IAsyncEnumerable`1').
 
 ##### Generic Types
 
@@ -3199,7 +3199,7 @@ A new attached query, which is executable.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}') | The source query. |
-| selectFunction | [System.Linq.Expressions.Expression{System.Func{\`\`0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`1}}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Linq.Expressions.Expression 'System.Linq.Expressions.Expression{System.Func{``0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``1}}}') | An expression to describe what data should be selected from a child collection. |
+| selectFunction | [System.Linq.Expressions.Expression{System.Func{\`\`0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`1}}}](https://learn.microsoft.com/dotnet/api/System.Linq.Expressions.Expression 'System.Linq.Expressions.Expression{System.Func{``0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``1}}}') | An expression to describe what data should be selected from a child collection. |
 
 ##### Generic Types
 
@@ -3224,7 +3224,7 @@ A new query where the new filter will be applied.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}') | The query provides the elements to be filtered by the new predicate. |
-| filter | [System.Linq.Expressions.Expression{System.Func{\`\`0,System.Boolean}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Linq.Expressions.Expression 'System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}}') | The predicate to filter out data. |
+| filter | [System.Linq.Expressions.Expression{System.Func{\`\`0,System.Boolean}}](https://learn.microsoft.com/dotnet/api/System.Linq.Expressions.Expression 'System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}}') | The predicate to filter out data. |
 
 ##### Generic Types
 
@@ -3248,8 +3248,8 @@ A query to retrieve the additional collection (with the child query specified).
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}') | A source collection or query. |
-| spanSelection | [System.Linq.Expressions.Expression{System.Func{\`\`0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Linq.Expressions.Expression 'System.Linq.Expressions.Expression{System.Func{``0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable}}') | A lamda expression to represent a child query applied to the child collection. |
-| isRequiredNotEmpty | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether it must not be an empty collection. |
+| spanSelection | [System.Linq.Expressions.Expression{System.Func{\`\`0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable}}](https://learn.microsoft.com/dotnet/api/System.Linq.Expressions.Expression 'System.Linq.Expressions.Expression{System.Func{``0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable}}') | A lamda expression to represent a child query applied to the child collection. |
+| isRequiredNotEmpty | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether it must not be an empty collection. |
 
 ##### Generic Types
 
@@ -3273,7 +3273,7 @@ A query to retrieve the additional collection (with the child query specified).
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}') | A source collection or query. |
-| spanSelection | [System.Linq.Expressions.Expression{System.Func{\`\`0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Linq.Expressions.Expression 'System.Linq.Expressions.Expression{System.Func{``0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable}}') | A lamda expression to represent a child query applied to the child collection. |
+| spanSelection | [System.Linq.Expressions.Expression{System.Func{\`\`0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable}}](https://learn.microsoft.com/dotnet/api/System.Linq.Expressions.Expression 'System.Linq.Expressions.Expression{System.Func{``0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable}}') | A lamda expression to represent a child query applied to the child collection. |
 
 ##### Generic Types
 
@@ -3297,7 +3297,7 @@ A query to retrieve the additional property.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}') | A source collection or query. |
-| spanSelection | [System.Linq.Expressions.Expression{System.Func{\`\`0,System.Object}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Linq.Expressions.Expression 'System.Linq.Expressions.Expression{System.Func{``0,System.Object}}') | A lamda expression to pick up a property. |
+| spanSelection | [System.Linq.Expressions.Expression{System.Func{\`\`0,System.Object}}](https://learn.microsoft.com/dotnet/api/System.Linq.Expressions.Expression-1 'System.Linq.Expressions.Expression{System.Func{``0,System.Object}}') | A lamda expression to pick up a property. |
 
 ##### Generic Types
 
@@ -3321,7 +3321,7 @@ A query to retrieve the additional collection (with the child query specified).
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}') | A source collection or query. |
-| spanSelection | [System.Linq.Expressions.Expression{System.Func{\`\`0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Linq.Expressions.Expression 'System.Linq.Expressions.Expression{System.Func{``0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable}}') | A lamda expression to represent a child query applied to the child collection. |
+| spanSelection | [System.Linq.Expressions.Expression{System.Func{\`\`0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable}}](https://learn.microsoft.com/dotnet/api/System.Linq.Expressions.Expression-1 'System.Linq.Expressions.Expression{System.Func{``0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable}}') | A lamda expression to represent a child query applied to the child collection. |
 
 ##### Generic Types
 
@@ -3345,8 +3345,8 @@ A query to retrieve the additional collection (with the child query specified).
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}') | A source collection or query. |
-| spanSelection | [System.Linq.Expressions.Expression{System.Func{\`\`0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Linq.Expressions.Expression 'System.Linq.Expressions.Expression{System.Func{``0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable}}') | A lamda expression to represent a child query applied to the child collection. |
-| isRequiredNotEmpty | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether it must not be an empty collection. |
+| spanSelection | [System.Linq.Expressions.Expression{System.Func{\`\`0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable}}](https://learn.microsoft.com/dotnet/api/System.Linq.Expressions.Expression-1 'System.Linq.Expressions.Expression{System.Func{``0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable}}') | A lamda expression to represent a child query applied to the child collection. |
+| isRequiredNotEmpty | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether it must not be an empty collection. |
 
 ##### Generic Types
 
@@ -3381,7 +3381,7 @@ A new query with the new condition applied.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable{\`\`0}](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable{``0} 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable{``0}') | The original query. |
-| filter | [System.Linq.Expressions.Expression{System.Func{\`\`0,System.Boolean}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Linq.Expressions.Expression 'System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}}') | The new filter expression. |
+| filter | [System.Linq.Expressions.Expression{System.Func{\`\`0,System.Boolean}}](https://learn.microsoft.com/dotnet/api/System.Linq.Expressions.Expression-1 'System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}}') | The new filter expression. |
 
 ##### Generic Types
 
@@ -3427,7 +3427,7 @@ An async query matching the expression.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | runtimeModel | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityRuntimeModel](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityRuntimeModel 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityRuntimeModel') | The runtime model that provides the workspace for the query. |
-| selectionFunction | [System.Linq.Expressions.Expression{System.Func{\`\`0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Linq.Expressions.Expression 'System.Linq.Expressions.Expression{System.Func{``0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable}}') | The LinQ expression. |
+| selectionFunction | [System.Linq.Expressions.Expression{System.Func{\`\`0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable}}](https://learn.microsoft.com/dotnet/api/System.Linq.Expressions.Expression-1 'System.Linq.Expressions.Expression{System.Func{``0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable}}') | The LinQ expression. |
 
 ##### Generic Types
 
@@ -3451,8 +3451,8 @@ An async query matching the expression.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | runtimeModel | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityRuntimeModel](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityRuntimeModel 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityRuntimeModel') | The runtime model that provides the workspace for the query. |
-| parameterName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The source element parameter name. |
-| expression | [System.Linq.Expressions.Expression](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Linq.Expressions.Expression 'System.Linq.Expressions.Expression') | The expression. |
+| parameterName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The source element parameter name. |
+| expression | [System.Linq.Expressions.Expression](https://learn.microsoft.com/dotnet/api/System.Linq.Expressions.Expression-1 'System.Linq.Expressions.Expression') | The expression. |
 
 ##### Generic Types
 
@@ -3476,7 +3476,7 @@ An async query matching the expression.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | runtimeModel | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityRuntimeModel](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityRuntimeModel 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityRuntimeModel') | The runtime model that provides the workspace for the query. |
-| selectionFunction | [System.Linq.Expressions.Expression{System.Func{\`\`0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`1}}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Linq.Expressions.Expression 'System.Linq.Expressions.Expression{System.Func{``0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``1}}}') | The LinQ expression. |
+| selectionFunction | [System.Linq.Expressions.Expression{System.Func{\`\`0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`1}}}](https://learn.microsoft.com/dotnet/api/System.Linq.Expressions.Expression-1 'System.Linq.Expressions.Expression{System.Func{``0,Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``1}}}') | The LinQ expression. |
 
 ##### Generic Types
 
@@ -3535,7 +3535,7 @@ This is a query starting from a set of known entities.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | entityRuntime | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityRuntimeModel](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityRuntimeModel 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityRuntimeModel') | Runtime context. |
-| entityIdentities | [System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}') | A collection of entity identities. |
+| entityIdentities | [System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection-1 'System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}') | A collection of entity identities. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable`1-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-IEntityRuntimeModel,System-String-'></a>
 ### #ctor(entityRuntime,modelRootCollectionName) `constructor`
@@ -3550,7 +3550,7 @@ This is a query starting from a root collection in the model.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | entityRuntime | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityRuntimeModel](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityRuntimeModel 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityRuntimeModel') | Runtime context. |
-| modelRootCollectionName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A collection defined in the root of the model. |
+| modelRootCollectionName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A collection defined in the root of the model. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable`1-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable,System-String-'></a>
 ### #ctor(parentQuery,relationship) `constructor`
@@ -3565,7 +3565,7 @@ This is a sub-query expanding data of entities in the result of the parent query
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | parentQuery | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable') | Parent query. |
-| relationship | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A collection defined in the result item of the parent query. |
+| relationship | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A collection defined in the result item of the parent query. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable`1-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable,System-String,System-Collections-Generic-IReadOnlyCollection{`0}-'></a>
 ### #ctor(parentQuery,relationship,retrievedData) `constructor`
@@ -3580,8 +3580,8 @@ This is a sub-query expanding data of entities in the result of the parent query
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | parentQuery | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable') | Parent query. |
-| relationship | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A collection defined in the result item of the parent query. |
-| retrievedData | [System.Collections.Generic.IReadOnlyCollection{\`0}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{`0}') | Data retrieved, this can be `null`. |
+| relationship | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A collection defined in the result item of the parent query. |
+| retrievedData | [System.Collections.Generic.IReadOnlyCollection{\`0}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection-1 'System.Collections.Generic.IReadOnlyCollection{`0}') | Data retrieved, this can be `null`. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable`1-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable,System-String,Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelCollectionMemberExpression-'></a>
 ### #ctor(parentQuery,relationship,collectionMemberExpression) `constructor`
@@ -3596,7 +3596,7 @@ This is a sub-query expanding data of entities in the result of the parent query
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | parentQuery | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable') | Parent query. |
-| relationship | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A collection defined in the result item of the parent query. |
+| relationship | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A collection defined in the result item of the parent query. |
 | collectionMemberExpression | [Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelCollectionMemberExpression](#T-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelCollectionMemberExpression 'Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelCollectionMemberExpression') | A filtering method. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable`1-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-IEntityRuntimeModel,Microsoft-VisualStudio-ProjectSystem-Query-IEntityType,System-String-'></a>
@@ -3715,7 +3715,7 @@ A new query, or the current one, if the property has already been selected.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| propertyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A property defined in the entity. |
+| propertyName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A property defined in the entity. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncUpdatable`1'></a>
 ## AsyncUpdatable\`1 `type`
@@ -3746,7 +3746,7 @@ Initializes a new instance of the [AsyncUpdatable\`1](#T-Microsoft-VisualStudio-
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable') | A query to describe items where the action applies to |
-| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Immutable.ImmutableQueue 'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') | A collection of actions to take during execution. |
+| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableQueue 'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') | A collection of actions to take during execution. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-AsyncUpdatable`1-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{`0},System-Collections-Immutable-ImmutableQueue{Microsoft-VisualStudio-ProjectSystem-Query-Framework-ExecutableStep}-'></a>
 ### #ctor(source,steps) `constructor`
@@ -3760,7 +3760,7 @@ Initializes a new instance of the [AsyncUpdatable\`1](#T-Microsoft-VisualStudio-
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`0}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{`0} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{`0}') | A query to describe items where the action applies to |
-| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Immutable.ImmutableQueue 'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') | A collection of actions to take during execution. |
+| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableQueue 'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') | A collection of actions to take during execution. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-AttachChildQueryResultProcess'></a>
 ## AttachChildQueryResultProcess `type`
@@ -3784,9 +3784,9 @@ Initializes a new instance of the [AttachChildQueryResultProcess](#T-Microsoft-V
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| collectionName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The collection to be filled. |
+| collectionName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The collection to be filled. |
 | childDataProducer | [Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryDataProducer{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue,Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}](#T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-IQueryDataProducer{Microsoft-VisualStudio-ProjectSystem-Query-IEntityValue,Microsoft-VisualStudio-ProjectSystem-Query-IEntityValue} 'Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryDataProducer{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue,Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}') | The data producer to collect the data for the collection. |
-| isRequiredNotEmpty | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The collection must not be empty. |
+| isRequiredNotEmpty | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The collection must not be empty. |
 
 <a name='F-Microsoft-VisualStudio-ProjectSystem-Query-Execution-AttachChildQueryResultProcess-childDataProducer'></a>
 ### childDataProducer `constants`
@@ -3903,7 +3903,7 @@ An attachable query cannot execute, it must attach to a parent query and execute
 | ---- | ---- | ----------- |
 | runtimeModel | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityRuntimeModel](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityRuntimeModel 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityRuntimeModel') | The model where the query is created. |
 | parentEntityType | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityType](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityType 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityType') | The type of the entities that contains the data collection. |
-| relationship | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The relationship between parent entity and entities queried. |
+| relationship | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The relationship between parent entity and entities queried. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-AttachableChildQueryContext-ParentEntityType'></a>
 ### ParentEntityType `property`
@@ -3942,7 +3942,7 @@ Initializes a new instance of the [AttachedChildQueryContext](#T-Microsoft-Visua
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | parentQuery | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable') | A parent query provides parent entities which contains connections for this query to run against. |
-| relationship | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The relationship between parent entity and entities queried. |
+| relationship | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The relationship between parent entity and entities queried. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-AttachedChildQueryContext-ParentQuery'></a>
 ### ParentQuery `property`
@@ -3984,7 +3984,7 @@ The number of set bits in `value`.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.UInt64](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.UInt64 'System.UInt64') | The value to inspect. |
+| value | [System.UInt64](https://learn.microsoft.com/dotnet/api/System.UInt64 'System.UInt64') | The value to inspect. |
 
 ##### Remarks
 
@@ -4408,8 +4408,8 @@ Initializes a new instance of the [CollectionPropertyMethodAttribute](#T-Microso
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| propertyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the collection. |
-| filterName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Name of the filter (by default, it uses the name of the method). By default, the method name will be used.
+| propertyName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the collection. |
+| filterName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Name of the filter (by default, it uses the name of the method). By default, the method name will be used.
 However, a filter name with additional parameter types is needed to allow query engine to deserialize JSON correctly.
 A filter method with only string, boolean, integer parameters will not need extra parameter descriptions, but if other types are used in parameters, it will be required to declare them within the filter name. |
 
@@ -4984,14 +4984,14 @@ Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression
 
 ##### Summary
 
-The [Ordinal](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.StringComparison.Ordinal 'System.StringComparison.Ordinal') expression
+The [Ordinal](https://learn.microsoft.com/dotnet/api/System.StringComparison.Ordinal 'System.StringComparison.Ordinal') expression
 
 <a name='F-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ConstantExpressions-StringComparisonOrdinalIgnoreCase'></a>
 ### StringComparisonOrdinalIgnoreCase `constants`
 
 ##### Summary
 
-The [OrdinalIgnoreCase](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.StringComparison.OrdinalIgnoreCase 'System.StringComparison.OrdinalIgnoreCase') expression
+The [OrdinalIgnoreCase](https://learn.microsoft.com/dotnet/api/System.StringComparison.OrdinalIgnoreCase 'System.StringComparison.OrdinalIgnoreCase') expression
 
 <a name='F-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ConstantExpressions-Zero'></a>
 ### Zero `constants`
@@ -5022,8 +5022,8 @@ Initializes a new instance of the [ConstantValueExpression](#T-Microsoft-VisualS
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| valueType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The CLR type of the value. (Value can be null, so a type must be provided.) |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The real value. |
+| valueType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The CLR type of the value. (Value can be null, so a type must be provided.) |
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The real value. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ConstantValueExpression-RuntimeType'></a>
 ### RuntimeType `property`
@@ -5236,8 +5236,8 @@ Initializes a new instance of the [DeleteConfigurationDimensionValue](#T-Microso
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| dimensionName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The [ConfigurationDimensionNames](#T-Microsoft-VisualStudio-ProjectSystem-Query-ConfigurationDimensionNames 'Microsoft.VisualStudio.ProjectSystem.Query.ConfigurationDimensionNames') to delete the value from. |
-| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The value to be deleted. |
+| dimensionName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The [ConfigurationDimensionNames](#T-Microsoft-VisualStudio-ProjectSystem-Query-ConfigurationDimensionNames 'Microsoft.VisualStudio.ProjectSystem.Query.ConfigurationDimensionNames') to delete the value from. |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The value to be deleted. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-Framework-Actions-DeleteConfigurationDimensionValue-DimensionName'></a>
 ### DimensionName `property`
@@ -5309,10 +5309,10 @@ Initializes a new instance of the [DuplicateLaunchProfile](#T-Microsoft-VisualSt
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| currentProfileName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the existing profile to duplicate. |
-| newProfileName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name to assign to the new profile. If not provided the executor will choose
+| currentProfileName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the existing profile to duplicate. |
+| newProfileName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name to assign to the new profile. If not provided the executor will choose
 a unique default name. |
-| newProfileCommandName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The debugger command to associate with the new profile. If not provided the
+| newProfileCommandName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The debugger command to associate with the new profile. If not provided the
 debugger command will be copied from the existing profile. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-Framework-Actions-DuplicateLaunchProfile-CurrentProfileName'></a>
@@ -5365,10 +5365,10 @@ Initializes a new instance of the [EntityCollectionChanges\`2](#T-Microsoft-Visu
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| hasChanged | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | A boolean representing the entity collection has changed. |
-| added | [System.Collections.Generic.IReadOnlyCollection{\`0}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{`0}') | A collection of added entities. |
-| removed | [System.Collections.Generic.IReadOnlyCollection{\`0}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{`0}') | A collection of removed entities. |
-| changed | [System.Collections.Generic.IReadOnlyCollection{\`1}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{`1}') | A collection of changed entities. |
+| hasChanged | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | A boolean representing the entity collection has changed. |
+| added | [System.Collections.Generic.IReadOnlyCollection{\`0}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection-1 'System.Collections.Generic.IReadOnlyCollection{`0}') | A collection of added entities. |
+| removed | [System.Collections.Generic.IReadOnlyCollection{\`0}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection-1 'System.Collections.Generic.IReadOnlyCollection{`0}') | A collection of removed entities. |
+| changed | [System.Collections.Generic.IReadOnlyCollection{\`1}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection-1 'System.Collections.Generic.IReadOnlyCollection{`1}') | A collection of changed entities. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-EntityCollectionChanges`2-Added'></a>
 ### Added `property`
@@ -5487,7 +5487,7 @@ Initializes a new instance of the [EntityIdentity](#T-Microsoft-VisualStudio-Pro
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| identityValues | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}') | The set of key value pairs to compose a new identity. |
+| identityValues | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}') | The set of key value pairs to compose a new identity. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity-#ctor-System-String,System-String-'></a>
 ### #ctor(key,value) `constructor`
@@ -5500,8 +5500,8 @@ Initializes a new instance of the [EntityIdentity](#T-Microsoft-VisualStudio-Pro
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| key | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the key. |
-| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The value. |
+| key | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the key. |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The value. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity,System-Collections-Generic-IEnumerable{System-Collections-Generic-KeyValuePair{System-String,System-String}}-'></a>
 ### #ctor(context,localValues) `constructor`
@@ -5515,7 +5515,7 @@ Initializes a new instance of the [EntityIdentity](#T-Microsoft-VisualStudio-Pro
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | context | [Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity](#T-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity 'Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity') | The identity provides the identity of the context of the current item |
-| localValues | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}') | Additional values to be appended to the context. |
+| localValues | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}') | Additional values to be appended to the context. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity,System-String,System-String-'></a>
 ### #ctor(context,key,value) `constructor`
@@ -5529,8 +5529,8 @@ Initializes a new instance of the [EntityIdentity](#T-Microsoft-VisualStudio-Pro
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | context | [Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity](#T-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity 'Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity') | The identity provides the identity of the context of the current item |
-| key | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the additional key to be appended to the identity. |
-| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The value of the new value pair in the identity. |
+| key | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the additional key to be appended to the identity. |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The value of the new value pair in the identity. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity-Empty'></a>
 ### Empty `property`
@@ -5554,7 +5554,7 @@ The value
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| key | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A key in the identity. It is case-sensitive. |
+| key | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A key in the identity. It is case-sensitive. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity-Keys'></a>
 ### Keys `property`
@@ -5585,7 +5585,7 @@ Gets whether a key is valid in this identity.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| key | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of a key. |
+| key | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of a key. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity-ReadEntityIdentitiesFromJson-Newtonsoft-Json-JsonReader-'></a>
 ### ReadEntityIdentitiesFromJson() `method`
@@ -5614,7 +5614,7 @@ An entitty identity.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | reader | [Newtonsoft.Json.JsonReader](#T-Newtonsoft-Json-JsonReader 'Newtonsoft.Json.JsonReader') | JsonReader |
-| onTheFirstToken | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether the first has already been read. |
+| onTheFirstToken | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether the first has already been read. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity-TryGetValue-System-String,System-String@-'></a>
 ### TryGetValue(key,value) `method`
@@ -5631,8 +5631,8 @@ True, if the key is valid.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| key | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the key. |
-| value | [System.String@](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String@ 'System.String@') | The output of the value. |
+| key | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the key. |
+| value | [System.String@](https://learn.microsoft.com/dotnet/api/System.String@ 'System.String@') | The output of the value. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity-WriteToJson-Newtonsoft-Json-JsonWriter-'></a>
 ### WriteToJson(writer) `method`
@@ -5691,7 +5691,7 @@ Initialize the type list. This is expected to be called by inherited model class
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| types | [System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityType}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityType}') | A complete list of types in the model. |
+| types | [System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityType}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityType}') | A complete list of types in the model. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-EntityPathBasedValueProperty`3'></a>
 ## EntityPathBasedValueProperty\`3 `type`
@@ -5723,11 +5723,11 @@ Initializes a new instance of the [EntityPathBasedValueProperty\`3](#T-Microsoft
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| index | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The index of the property in its host type. |
-| propertyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the property. |
+| index | [System.Int32](https://learn.microsoft.com/dotnet/api/System.Int32 'System.Int32') | The index of the property in its host type. |
+| propertyName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the property. |
 | valueType | [Microsoft.VisualStudio.ProjectSystem.Query.ValueTypes.IValueType{\`2}](#T-Microsoft-VisualStudio-ProjectSystem-Query-ValueTypes-IValueType{`2} 'Microsoft.VisualStudio.ProjectSystem.Query.ValueTypes.IValueType{`2}') | The model value type. |
-| getValue | [System.Func{\`0,\`2}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{`0,`2}') | A function to retrieve the value of the property from an object. |
-| setValue | [System.Action{\`1,\`2}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Action 'System.Action{`1,`2}') | A function to set the value of the property to an object. |
+| getValue | [System.Func{\`0,\`2}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{`0,`2}') | A function to retrieve the value of the property from an object. |
+| setValue | [System.Action{\`1,\`2}](https://learn.microsoft.com/dotnet/api/System.Action-2 'System.Action{`1,`2}') | A function to set the value of the property to an object. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-EntityProperty'></a>
 ## EntityProperty `type`
@@ -5751,8 +5751,8 @@ Initializes a new instance of the [EntityProperty](#T-Microsoft-VisualStudio-Pro
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| index | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The index of the property (starts from 0). |
-| propertyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the property. |
+| index | [System.Int32](https://learn.microsoft.com/dotnet/api/System.Int32 'System.Int32') | The index of the property (starts from 0). |
+| propertyName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the property. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-EntityRelationshipProperty'></a>
 ## EntityRelationshipProperty `type`
@@ -5776,8 +5776,8 @@ Initializes a new instance of the [EntityRelationshipProperty](#T-Microsoft-Visu
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| index | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The index of the property (starts from 0). |
-| propertyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the property. |
+| index | [System.Int32](https://learn.microsoft.com/dotnet/api/System.Int32 'System.Int32') | The index of the property (starts from 0). |
+| propertyName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the property. |
 | elementType | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityType](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityType 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityType') | The entity type on the other side of the relationship. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-AttachChildQueryResultProcess-EntityStitcherRequest'></a>
@@ -5822,12 +5822,12 @@ Initializes a new instance of the [EntityStringBasedValueProperty\`3](#T-Microso
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| index | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The index of the property in its host type. |
-| propertyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the property. |
-| valueType | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The model value type. |
+| index | [System.Int32](https://learn.microsoft.com/dotnet/api/System.Int32 'System.Int32') | The index of the property in its host type. |
+| propertyName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the property. |
+| valueType | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The model value type. |
 | getValue | [Microsoft.VisualStudio.ProjectSystem.Query.ValueTypes.IValueType{\`2}](#T-Microsoft-VisualStudio-ProjectSystem-Query-ValueTypes-IValueType{`2} 'Microsoft.VisualStudio.ProjectSystem.Query.ValueTypes.IValueType{`2}') | A function to retrieve the value of the property from an object. |
-| setValue | [System.Func{\`0,\`2}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{`0,`2}') | A function to set the value of the property to an object. |
-| isCaseSensitive | [System.Action{\`1,\`2}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Action 'System.Action{`1,`2}') | Whether the property is considered to be case-sensitive. |
+| setValue | [System.Func{\`0,\`2}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{`0,`2}') | A function to set the value of the property to an object. |
+| isCaseSensitive | [System.Action{\`1,\`2}](https://learn.microsoft.com/dotnet/api/System.Action-2 'System.Action{`1,`2}') | Whether the property is considered to be case-sensitive. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-EntityType'></a>
 ## EntityType `type`
@@ -5852,8 +5852,8 @@ Initializes a new instance of the [EntityType](#T-Microsoft-VisualStudio-Project
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | model | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityModel](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityModel 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityModel') | The model root. |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the type. |
-| hasId | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether the entity contains an id. |
+| name | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the type. |
+| hasId | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether the entity contains an id. |
 | baseType | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityType](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityType 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityType') | The base type, if the entity type is inherited from it. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Framework-EntityType-CreateConditionFilter-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression-'></a>
@@ -5884,7 +5884,7 @@ Initialize the properties collection.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| properties | [System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityProperty}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityProperty}') | A collection of properties defined in the entity type. Properties from base type are included here. |
+| properties | [System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityProperty}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection-1 'System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityProperty}') | A collection of properties defined in the entity type. Properties from base type are included here. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-EntityType`2'></a>
 ## EntityType\`2 `type`
@@ -5905,8 +5905,8 @@ Initializes a new instance of the [EntityType\`2](#T-Microsoft-VisualStudio-Proj
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | model | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityModel](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityModel 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityModel') | The model root. |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the type. |
-| hasId | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether the entity contains an id. |
+| name | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the type. |
+| hasId | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether the entity contains an id. |
 | baseType | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityType](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityType 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityType') | The base type, if the entity type is inherited from it. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-EntityValueBase'></a>
@@ -5963,7 +5963,7 @@ A specific collection.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| children | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}') | A generic entity collection. |
+| children | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}') | A generic entity collection. |
 
 ##### Generic Types
 
@@ -6021,7 +6021,7 @@ The property state.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| needMutable | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether the state should be mutable. |
+| needMutable | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether the state should be mutable. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Framework-EntityValueBase-ReadProperty-System-String,Newtonsoft-Json-JsonReader-'></a>
 ### ReadProperty(propertyName,reader) `method`
@@ -6038,7 +6038,7 @@ True: if the property is supported; otherwise, `false`.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| propertyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The property name |
+| propertyName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The property name |
 | reader | [Newtonsoft.Json.JsonReader](#T-Newtonsoft-Json-JsonReader 'Newtonsoft.Json.JsonReader') | The reader to retrieve Json data. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Framework-EntityValueBase-SetRelatedEntities-System-String,System-Collections-Generic-IEnumerable{Microsoft-VisualStudio-ProjectSystem-Query-IEntityValue}-'></a>
@@ -6052,8 +6052,8 @@ Sets related entities. This method is used by query engine to fill data.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| collectionName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The collection name. |
-| entityValues | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}') | Entity values in the collection. |
+| collectionName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The collection name. |
+| entityValues | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}') | Entity values in the collection. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Framework-EntityValueBase-TryGetRelatedEntities-System-String,System-Collections-Generic-IEnumerable{Microsoft-VisualStudio-ProjectSystem-Query-IEntity}@-'></a>
 ### TryGetRelatedEntities(collectionName,entities) `method`
@@ -6070,8 +6070,8 @@ Try to get related entities saved through earlier [SetRelatedEntities](#M-Micros
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| collectionName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The collection name. |
-| entities | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntity}@](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntity}@') | Entity values in the collection. |
+| collectionName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The collection name. |
+| entities | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntity}@](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntity}@') | Entity values in the collection. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-EntityValueBase`1'></a>
 ## EntityValueBase\`1 `type`
@@ -6164,11 +6164,11 @@ Initializes a new instance of the [EntityValueProperty\`3](#T-Microsoft-VisualSt
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| index | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The index of the property in its host type. |
-| propertyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the property. |
+| index | [System.Int32](https://learn.microsoft.com/dotnet/api/System.Int32 'System.Int32') | The index of the property in its host type. |
+| propertyName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the property. |
 | valueType | [Microsoft.VisualStudio.ProjectSystem.Query.ValueTypes.IValueType{\`2}](#T-Microsoft-VisualStudio-ProjectSystem-Query-ValueTypes-IValueType{`2} 'Microsoft.VisualStudio.ProjectSystem.Query.ValueTypes.IValueType{`2}') | The model value type. |
-| getValue | [System.Func{\`0,\`2}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{`0,`2}') | A function to retrieve the value of the property from an object. |
-| setValue | [System.Action{\`1,\`2}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Action 'System.Action{`1,`2}') | A function to set the value of the property to an object. |
+| getValue | [System.Func{\`0,\`2}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{`0,`2}') | A function to retrieve the value of the property from an object. |
+| setValue | [System.Action{\`1,\`2}](https://learn.microsoft.com/dotnet/api/System.Action-2 'System.Action{`1,`2}') | A function to set the value of the property to an object. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-EntityValueWithId'></a>
 ## EntityValueWithId `type`
@@ -6292,8 +6292,8 @@ A merged results collection.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| asyncQueries | [System.Collections.Generic.IEnumerable{System.Collections.Generic.IAsyncEnumerable{\`\`0}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.IAsyncEnumerable{``0}}') | A set of query results. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the enumeration. |
+| asyncQueries | [System.Collections.Generic.IEnumerable{System.Collections.Generic.IAsyncEnumerable{\`\`0}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.IAsyncEnumerable{``0}}') | A set of query results. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the enumeration. |
 
 ##### Generic Types
 
@@ -6531,7 +6531,7 @@ A project query with additional properties.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | file | [Microsoft.VisualStudio.ProjectSystem.Query.IFileSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-IFileSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.IFileSnapshot') | A source file |
-| propertyNames | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | One or more name of properties. |
+| propertyNames | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | One or more name of properties. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-FileQueryResultsExtensions'></a>
 ## FileQueryResultsExtensions `type`
@@ -7045,7 +7045,7 @@ The result.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the execution in the middle. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the execution in the middle. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncExecutable`1-ExecuteAsync'></a>
 ### ExecuteAsync() `method`
@@ -7078,7 +7078,7 @@ The result.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | queryableSpace | [Microsoft.VisualStudio.ProjectSystem.Query.ICommonQueryableSpace](#T-Microsoft-VisualStudio-ProjectSystem-Query-ICommonQueryableSpace 'Microsoft.VisualStudio.ProjectSystem.Query.ICommonQueryableSpace') | The model space to execute the action. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the execution in the middle. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the execution in the middle. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncExecutable`1-ExecuteAsync-Microsoft-VisualStudio-ProjectSystem-Query-ICommonQueryableSpace-'></a>
 ### ExecuteAsync(queryableSpace) `method`
@@ -7139,8 +7139,8 @@ Whether the filtering condition is used.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| filterMethodName | [System.String@](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String@ 'System.String@') | The name of the filter method. |
-| parameters | [System.Collections.Immutable.ImmutableArray{System.Object}@](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{System.Object}@') | Parameter values to be applied. |
+| filterMethodName | [System.String@](https://learn.microsoft.com/dotnet/api/System.String 'System.String@') | The name of the filter method. |
+| parameters | [System.Collections.Immutable.ImmutableArray{System.Object}@](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{System.Object}@') | Parameter values to be applied. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable'></a>
 ## IAsyncQueryable `type`
@@ -7199,7 +7199,7 @@ The query result.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the execution in the middle. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the execution in the middle. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable`1-ExecuteQueryAsync'></a>
 ### ExecuteQueryAsync() `method`
@@ -7232,7 +7232,7 @@ The query result.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | queryableSpace | [Microsoft.VisualStudio.ProjectSystem.Query.ICommonQueryableSpace](#T-Microsoft-VisualStudio-ProjectSystem-Query-ICommonQueryableSpace 'Microsoft.VisualStudio.ProjectSystem.Query.ICommonQueryableSpace') | The model space to execute the query. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the execution in the middle. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the execution in the middle. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable`1-ExecuteQueryAsync-Microsoft-VisualStudio-ProjectSystem-Query-ICommonQueryableSpace-'></a>
 ### ExecuteQueryAsync(queryableSpace) `method`
@@ -7267,7 +7267,7 @@ An enuerable to allow retrieving data asynchronously.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the query when the left behind part of the results is no longer needed. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the query when the left behind part of the results is no longer needed. |
 
 ##### Remarks
 
@@ -7290,7 +7290,7 @@ An enuerable to allow retrieving data asynchronously.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | queryableSpace | [Microsoft.VisualStudio.ProjectSystem.Query.ICommonQueryableSpace](#T-Microsoft-VisualStudio-ProjectSystem-Query-ICommonQueryableSpace 'Microsoft.VisualStudio.ProjectSystem.Query.ICommonQueryableSpace') | The model space to execute the query. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the query when the left behind part of the results is no longer needed. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the query when the left behind part of the results is no longer needed. |
 
 ##### Remarks
 
@@ -7311,8 +7311,8 @@ A way to cancel the subscription.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| resultsReceiver | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{\`0}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IObserver 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{`0}}') | A component which recieves updates. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the subscription before it is done. |
+| resultsReceiver | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{\`0}}](https://learn.microsoft.com/dotnet/api/System.IObserver 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{`0}}') | A component which recieves updates. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the subscription before it is done. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable`1-SubscribeAsync-System-IObserver{Microsoft-VisualStudio-ProjectSystem-Query-IQueryResults{`0}}-'></a>
 ### SubscribeAsync(resultsReceiver) `method`
@@ -7329,7 +7329,7 @@ A way to cancel the subscription.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| resultsReceiver | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{\`0}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IObserver 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{`0}}') | A component which recieves updates. |
+| resultsReceiver | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{\`0}}](https://learn.microsoft.com/dotnet/api/System.IObserver-1 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{`0}}') | A component which recieves updates. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable`1-SubscribeAsync-Microsoft-VisualStudio-ProjectSystem-Query-ICommonQueryableSpace,System-IObserver{Microsoft-VisualStudio-ProjectSystem-Query-IQueryResults{`0}},System-Threading-CancellationToken-'></a>
 ### SubscribeAsync(queryableSpace,resultsReceiver,cancellationToken) `method`
@@ -7347,8 +7347,8 @@ A way to cancel the subscription.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | queryableSpace | [Microsoft.VisualStudio.ProjectSystem.Query.ICommonQueryableSpace](#T-Microsoft-VisualStudio-ProjectSystem-Query-ICommonQueryableSpace 'Microsoft.VisualStudio.ProjectSystem.Query.ICommonQueryableSpace') | The model space to execute the query. |
-| resultsReceiver | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{\`0}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IObserver 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{`0}}') | A component which recieves updates. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the subscription before it is done. |
+| resultsReceiver | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{\`0}}](https://learn.microsoft.com/dotnet/api/System.IObserver-1 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{`0}}') | A component which recieves updates. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the subscription before it is done. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable`1-SubscribeAsync-Microsoft-VisualStudio-ProjectSystem-Query-ICommonQueryableSpace,System-IObserver{Microsoft-VisualStudio-ProjectSystem-Query-IQueryResults{`0}}-'></a>
 ### SubscribeAsync(queryableSpace,resultsReceiver) `method`
@@ -7366,7 +7366,7 @@ A way to cancel the subscription.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | queryableSpace | [Microsoft.VisualStudio.ProjectSystem.Query.ICommonQueryableSpace](#T-Microsoft-VisualStudio-ProjectSystem-Query-ICommonQueryableSpace 'Microsoft.VisualStudio.ProjectSystem.Query.ICommonQueryableSpace') | The model space to execute the query. |
-| resultsReceiver | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{\`0}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IObserver 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{`0}}') | A component which recieves updates. |
+| resultsReceiver | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{\`0}}](https://learn.microsoft.com/dotnet/api/System.IObserver-1 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{`0}}') | A component which recieves updates. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable`1'></a>
 ## IAsyncUpdatable\`1 `type`
@@ -7554,7 +7554,7 @@ A new query.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| identities | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}') | A collection of object identities. |
+| identities | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}') | A collection of object identities. |
 
 ##### Generic Types
 
@@ -7577,7 +7577,7 @@ A new query.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| items | [System.Collections.Generic.IEnumerable{\`\`0}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{``0}') | A collection of objects from previous queries. |
+| items | [System.Collections.Generic.IEnumerable{\`\`0}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{``0}') | A collection of objects from previous queries. |
 
 ##### Generic Types
 
@@ -7826,7 +7826,7 @@ The entity type metadata.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The type name. |
+| name | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The type name. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-IEntityModel-GetEntityType-System-Type-'></a>
 ### GetEntityType(contractType) `method`
@@ -7843,7 +7843,7 @@ The entity type metadata.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| contractType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The contract type generated from the model. |
+| contractType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The contract type generated from the model. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-ValueTypes-IEntityPathBasedValueMetadata'></a>
 ## IEntityPathBasedValueMetadata `type`
@@ -7931,7 +7931,7 @@ A new query.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | parentEntity | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityType](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityType 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityType') | The parent entity type. |
-| relationship | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A relationship between the parent entity and the collection of entities which the query applies to. |
+| relationship | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A relationship between the parent entity and the collection of entities which the query applies to. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-IEntitySite'></a>
 ## IEntitySite `type`
@@ -7961,7 +7961,7 @@ A collection of items retrieved. It can throw [MissingDataException](#T-Microsof
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| relationshipName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Relationship between this entity item and related items. |
+| relationshipName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Relationship between this entity item and related items. |
 
 ##### Generic Types
 
@@ -8128,8 +8128,8 @@ A new strong type executable object.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | queryable | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable') | Where the execution will apply to. |
-| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Immutable.ImmutableQueue 'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') |  |
-| isUpdate | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether it is an update operation. |
+| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableQueue 'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') |  |
+| isUpdate | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether it is an update operation. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-IEntityType-GetProperty-System-String-'></a>
 ### GetProperty(propertyName) `method`
@@ -8146,7 +8146,7 @@ A [IEntityProperty](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityPropert
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| propertyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A property name |
+| propertyName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A property name |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-IEntityType-GetRelationshipProperty-System-String-'></a>
 ### GetRelationshipProperty(propertyName) `method`
@@ -8163,7 +8163,7 @@ A [IEntityRelationshipProperty](#T-Microsoft-VisualStudio-ProjectSystem-Query-IE
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| propertyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A property name |
+| propertyName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A property name |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-IEntityType-TryGetProperty-System-String,Microsoft-VisualStudio-ProjectSystem-Query-IEntityProperty@-'></a>
 ### TryGetProperty(propertyName,entityProperty) `method`
@@ -8180,7 +8180,7 @@ Tries to get information about a property.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| propertyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A property name |
+| propertyName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A property name |
 | entityProperty | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityProperty@](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityProperty@ 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityProperty@') | A [IEntityProperty](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityProperty 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityProperty') object, if it exists. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityValue'></a>
@@ -8226,8 +8226,8 @@ Sets related entities. This method is used by query engine to fill data.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| collectionName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The collection name. |
-| entityValues | [System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}') | Entity values in the collection. |
+| collectionName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The collection name. |
+| entityValues | [System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection-1 'System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}') | Entity values in the collection. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-IEntityValue-SetSite-Microsoft-VisualStudio-ProjectSystem-Query-IEntitySite-'></a>
 ### SetSite(site) `method`
@@ -8257,8 +8257,8 @@ Try to get related entities saved through earlier [SetRelatedEntities](#M-Micros
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| collectionName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The collection name. |
-| entityValues | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}@](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}@') | Entity values in the collection. |
+| collectionName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The collection name. |
+| entityValues | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}@](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}@') | Entity values in the collection. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-IEntityValueFromProvider'></a>
 ## IEntityValueFromProvider `type`
@@ -8820,7 +8820,7 @@ Write a value to the JSON
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The value to be written. |
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The value to be written. |
 | jsonWriter | [Newtonsoft.Json.JsonWriter](#T-Newtonsoft-Json-JsonWriter 'Newtonsoft.Json.JsonWriter') | The writer to persist the JSON. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-ValueTypes-IJsonValueSerializer`1'></a>
@@ -10092,7 +10092,7 @@ Queryable model root.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the operation. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the operation. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-IProjectUpdateActionExecutor'></a>
 ## IProjectUpdateActionExecutor `type`
@@ -10120,8 +10120,8 @@ A task finishes when it is done.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| allItems | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Execution.QueryProcessResult{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Execution.QueryProcessResult{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}') | All items to be updated. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to be triggered when the operation is aborted. |
+| allItems | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Execution.QueryProcessResult{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList-1 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Execution.QueryProcessResult{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}') | All items to be updated. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to be triggered when the operation is aborted. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-IPropertiesAvailableStatus'></a>
 ## IPropertiesAvailableStatus `type`
@@ -10189,7 +10189,7 @@ True means the property contains a valid value.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| propertyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Name of the property |
+| propertyName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Name of the property |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-IPropertiesAvailableStatus-IsSubsetOf-Microsoft-VisualStudio-ProjectSystem-Query-IPropertiesAvailableStatus-'></a>
 ### IsSubsetOf(otherPropertiesState) `method`
@@ -10258,7 +10258,7 @@ Adds a property to the available properties list.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| propertyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of a property. |
+| propertyName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of a property. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Framework-IPropertiesFilter-RequireProperty-Microsoft-VisualStudio-ProjectSystem-Query-IEntityProperty-'></a>
 ### RequireProperty(entityProperty) `method`
@@ -10326,10 +10326,10 @@ A string to describe how to construct the metadata for a property.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| typeName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The model type name. |
-| implementationTypeName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The model type name. |
-| propertyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The property name. |
-| propertyIndex | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The index of the property. |
+| typeName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The model type name. |
+| implementationTypeName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The model type name. |
+| propertyName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The property name. |
+| propertyIndex | [System.Int32](https://learn.microsoft.com/dotnet/api/System.Int32 'System.Int32') | The index of the property. |
 | additionalMetadata | [Microsoft.VisualStudio.ProjectSystem.Query.ValueTypes.IPropertyTypeMetadata](#T-Microsoft-VisualStudio-ProjectSystem-Query-ValueTypes-IPropertyTypeMetadata 'Microsoft.VisualStudio.ProjectSystem.Query.ValueTypes.IPropertyTypeMetadata') | Additional metadata associated with the property. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-IPropertyPagePropertiesAvailableStatus'></a>
@@ -10556,7 +10556,7 @@ True, if it is retrieved.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| metadataName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the metadata. |
+| metadataName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the metadata. |
 | value | [\`\`0@](#T-``0@ '``0@') | Value retrieved. |
 
 ##### Generic Types
@@ -10917,8 +10917,8 @@ A data filter, if supported.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| filterMethodName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the filtering method. |
-| parameters | [System.Collections.Immutable.ImmutableArray{System.Object}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{System.Object}') | Parameters used in the query. |
+| filterMethodName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the filtering method. |
+| parameters | [System.Collections.Immutable.ImmutableArray{System.Object}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{System.Object}') | Parameters used in the query. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Providers-IQueryCollectionFilterFallbackProvider-TryGetRequiredProperties-System-String,System-Collections-Immutable-ImmutableArray{System-Object}-'></a>
 ### TryGetRequiredProperties(filterMethodName,parameters) `method`
@@ -10935,8 +10935,8 @@ Required fields, if the filter method is supported.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| filterMethodName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the filtering method. |
-| parameters | [System.Collections.Immutable.ImmutableArray{System.Object}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{System.Object}') | Parameters used in the query. |
+| filterMethodName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the filtering method. |
+| parameters | [System.Collections.Immutable.ImmutableArray{System.Object}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{System.Object}') | Parameters used in the query. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-IQueryDataProducer`1'></a>
 ## IQueryDataProducer\`1 `type`
@@ -11082,7 +11082,7 @@ A description object.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | targetType | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityType](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityType 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityType') | The type of entities where the action applies to. |
-| action | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The action. |
+| action | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The action. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Providers-IQueryDataProvidersManager-GetQueryActionProviders-Microsoft-VisualStudio-ProjectSystem-Query-IEntityType,System-String-'></a>
 ### GetQueryActionProviders(targetType,action) `method`
@@ -11100,7 +11100,7 @@ A list of providers.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | targetType | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityType](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityType 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityType') | The type of entities where the action applies to. |
-| action | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The action. |
+| action | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The action. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Providers-IQueryDataProvidersManager-GetQueryBatchProviders'></a>
 ### GetQueryBatchProviders() `method`
@@ -11150,7 +11150,7 @@ A list of providers.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | parentType | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityType](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityType 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityType') | The type of parent entities. |
-| relationship | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The relationship. |
+| relationship | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The relationship. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Providers-IQueryDataProvidersManager-GetQueryCollectionFilterFallbackProviders-Microsoft-VisualStudio-ProjectSystem-Query-IEntityType-'></a>
 ### GetQueryCollectionFilterFallbackProviders(entityType) `method`
@@ -11184,7 +11184,7 @@ A provider to notify query engine that the source has changed.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The data source key group name. |
+| name | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The data source key group name. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Providers-IQueryDataSourceVersionProvider'></a>
 ## IQueryDataSourceVersionProvider `type`
@@ -11214,7 +11214,7 @@ A reference to an interface that allows observers to stop receiving notification
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| observer | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.Providers.QueryDataSourceChangeNotification}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IObserver 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.Providers.QueryDataSourceChangeNotification}') | The object that is to receive notifications. |
+| observer | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.Providers.QueryDataSourceChangeNotification}](https://learn.microsoft.com/dotnet/api/System.IObserver-1 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.Providers.QueryDataSourceChangeNotification}') | The object that is to receive notifications. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Providers-IQueryDataSourceVersionProvider-TryGetVersion-System-String,System-Int64@-'></a>
 ### TryGetVersion(versionKey,version) `method`
@@ -11231,8 +11231,8 @@ True if the version key is valid.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versionKey | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A version key. |
-| version | [System.Int64@](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int64@ 'System.Int64@') | returns the current version number. |
+| versionKey | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A version key. |
+| version | [System.Int64@](https://learn.microsoft.com/dotnet/api/System.Int64 'System.Int64@') | returns the current version number. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Providers-IQueryDataSourceVersionProviderMetadataView'></a>
 ## IQueryDataSourceVersionProviderMetadataView `type`
@@ -11358,7 +11358,7 @@ Report an exception happened during the execution, which will fail this query ex
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| exception | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | An error to be reported. |
+| exception | [System.Exception](https://learn.microsoft.com/dotnet/api/System.Exception 'System.Exception') | An error to be reported. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Execution-IQueryExecutionContext-ReportInputDataVersion-System-String,System-Int64-'></a>
 ### ReportInputDataVersion(dataSourceKey,version) `method`
@@ -11372,8 +11372,8 @@ Reports the execution of the query depending on a specific version of a data sou
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| dataSourceKey | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The key to identify the source. |
-| version | [System.Int64](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int64 'System.Int64') | The version number. |
+| dataSourceKey | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The key to identify the source. |
+| version | [System.Int64](https://learn.microsoft.com/dotnet/api/System.Int64 'System.Int64') | The version number. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Execution-IQueryExecutionContext-ReportUpdatedDataVersion-System-String,System-Int64-'></a>
 ### ReportUpdatedDataVersion(dataSourceKey,version) `method`
@@ -11387,8 +11387,8 @@ The execution context will retain the newest version number.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| dataSourceKey | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The data source key. |
-| version | [System.Int64](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int64 'System.Int64') | The new version number. |
+| dataSourceKey | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The data source key. |
+| version | [System.Int64](https://learn.microsoft.com/dotnet/api/System.Int64 'System.Int64') | The new version number. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-IQueryExecutionEngine'></a>
 ## IQueryExecutionEngine `type`
@@ -11420,7 +11420,7 @@ The result from the action.
 | ---- | ---- | ----------- |
 | executable | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncExecutable{\`\`0}](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncExecutable{``0} 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncExecutable{``0}') | The set of actions to execute. |
 | remoteContext | [Microsoft.VisualStudio.ProjectSystem.Query.Remoting.IQueryExecutionRemoteContext](#T-Microsoft-VisualStudio-ProjectSystem-Query-Remoting-IQueryExecutionRemoteContext 'Microsoft.VisualStudio.ProjectSystem.Query.Remoting.IQueryExecutionRemoteContext') | The context of the execution, if the query is original from a client. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token which can be triggered to cancel the request |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token which can be triggered to cancel the request |
 
 ##### Generic Types
 
@@ -11446,7 +11446,7 @@ A task finishes when the execution is done.
 | executable | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncExecutable](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncExecutable 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncExecutable') | A remote execution. |
 | resultReceiver | [Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryResultReceiver{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}](#T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-IQueryResultReceiver{Microsoft-VisualStudio-ProjectSystem-Query-IEntityValue} 'Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryResultReceiver{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}') | A component which can receive result from the query execution. |
 | remoteContext | [Microsoft.VisualStudio.ProjectSystem.Query.Remoting.IQueryExecutionRemoteContext](#T-Microsoft-VisualStudio-ProjectSystem-Query-Remoting-IQueryExecutionRemoteContext 'Microsoft.VisualStudio.ProjectSystem.Query.Remoting.IQueryExecutionRemoteContext') | The context of the execution, if the query is original from a client. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token which can be triggered to cancel the request. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token which can be triggered to cancel the request. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Framework-IQueryExecutionEngine-ExecuteQueryAsync``1-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable{``0},Microsoft-VisualStudio-ProjectSystem-Query-Remoting-IQueryExecutionRemoteContext,System-Threading-CancellationToken-'></a>
 ### ExecuteQueryAsync\`\`1(query,remoteContext,cancellationToken) `method`
@@ -11465,7 +11465,7 @@ The result from the query, if it succeeded.
 | ---- | ---- | ----------- |
 | query | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable{\`\`0}](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable{``0} 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable{``0}') | The query to execute. |
 | remoteContext | [Microsoft.VisualStudio.ProjectSystem.Query.Remoting.IQueryExecutionRemoteContext](#T-Microsoft-VisualStudio-ProjectSystem-Query-Remoting-IQueryExecutionRemoteContext 'Microsoft.VisualStudio.ProjectSystem.Query.Remoting.IQueryExecutionRemoteContext') | The context of the execution, if the query is original from a client. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token which can be triggered to cancel the request. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token which can be triggered to cancel the request. |
 
 ##### Generic Types
 
@@ -11491,7 +11491,7 @@ A task finishes when the query execution is done.
 | query | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable') | The query to execute. |
 | resultsReceiver | [Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryResultReceiver{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}](#T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-IQueryResultReceiver{Microsoft-VisualStudio-ProjectSystem-Query-IEntityValue} 'Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryResultReceiver{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}') | A component which can receive result from the query execution. |
 | remoteContext | [Microsoft.VisualStudio.ProjectSystem.Query.Remoting.IQueryExecutionRemoteContext](#T-Microsoft-VisualStudio-ProjectSystem-Query-Remoting-IQueryExecutionRemoteContext 'Microsoft.VisualStudio.ProjectSystem.Query.Remoting.IQueryExecutionRemoteContext') | The context of the execution, if the query is original from a client. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token which can be triggered to cancel the request. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token which can be triggered to cancel the request. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Framework-IQueryExecutionEngine-QueryAsync``1-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable,Microsoft-VisualStudio-ProjectSystem-Query-Remoting-IQueryExecutionRemoteContext,System-Threading-CancellationToken-'></a>
 ### QueryAsync\`\`1(query,remoteContext,cancellationToken) `method`
@@ -11507,7 +11507,7 @@ Note: the result can only be accessed once, and cannot be reset.
 | ---- | ---- | ----------- |
 | query | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable') | The query to execute. |
 | remoteContext | [Microsoft.VisualStudio.ProjectSystem.Query.Remoting.IQueryExecutionRemoteContext](#T-Microsoft-VisualStudio-ProjectSystem-Query-Remoting-IQueryExecutionRemoteContext 'Microsoft.VisualStudio.ProjectSystem.Query.Remoting.IQueryExecutionRemoteContext') | The context of the execution, if the query is original from a client. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token which can be triggered to cancel the request. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token which can be triggered to cancel the request. |
 
 ##### Generic Types
 
@@ -11531,9 +11531,9 @@ A task finishes when the subscription is done.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | query | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable') | The query to execute. |
-| resultsReceiver | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{\`\`0}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IObserver 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{``0}}') | The component subscribes receive data and updates. |
+| resultsReceiver | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{\`\`0}}](https://learn.microsoft.com/dotnet/api/System.IObserver-1 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{``0}}') | The component subscribes receive data and updates. |
 | remoteContext | [Microsoft.VisualStudio.ProjectSystem.Query.Remoting.IQueryExecutionRemoteContext](#T-Microsoft-VisualStudio-ProjectSystem-Query-Remoting-IQueryExecutionRemoteContext 'Microsoft.VisualStudio.ProjectSystem.Query.Remoting.IQueryExecutionRemoteContext') | The context of the execution, if the query is original from a client. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token which can be triggered to cancel the request. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token which can be triggered to cancel the request. |
 
 ##### Generic Types
 
@@ -11599,8 +11599,8 @@ Query result in Json.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| query | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The Query string. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token. |
+| query | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The Query string. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Remoting-IQueryExecutionService-ExecuteRemoteExecutableAsync-System-String,System-Threading-CancellationToken-'></a>
 ### ExecuteRemoteExecutableAsync(remoteExecutable,cancellationToken) `method`
@@ -11617,8 +11617,8 @@ Execution result in JSON.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| remoteExecutable | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A remote executable string. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token. |
+| remoteExecutable | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A remote executable string. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Remoting-IQueryExecutionService-GetServiceIdentityAsync-System-Threading-CancellationToken-'></a>
 ### GetServiceIdentityAsync(cancellationToken) `method`
@@ -11635,7 +11635,7 @@ The Service Identity.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') |  |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') |  |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Remoting-IQueryExecutionService-QueryAsync-System-String,System-Threading-CancellationToken-'></a>
 ### QueryAsync(query,cancellationToken) `method`
@@ -11648,8 +11648,8 @@ Starts a query and receive results asynchronously.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| query | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The Query string. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token. |
+| query | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The Query string. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Remoting-IQueryExecutionService-SubscribeQueryResultsAsync-System-String,System-IObserver{System-String},System-Threading-CancellationToken-'></a>
 ### SubscribeQueryResultsAsync(query,resultsReceiver,cancellationToken) `method`
@@ -11666,9 +11666,9 @@ A disposable subscription, which can be disposed to stop receiving further data.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| query | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The Query string. |
-| resultsReceiver | [System.IObserver{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IObserver 'System.IObserver{System.String}') | A component to receive results. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token. |
+| query | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The Query string. |
+| resultsReceiver | [System.IObserver{System.String}](https://learn.microsoft.com/dotnet/api/System.IObserver-1 'System.IObserver{System.String}') | A component to receive results. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-IQueryProcessRequest'></a>
 ## IQueryProcessRequest `type`
@@ -11739,7 +11739,7 @@ Microsoft.VisualStudio.ProjectSystem.Query
 
 ##### Summary
 
-Represents items inside [IAsyncEnumerable\`1](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IAsyncEnumerable`1 'System.Collections.Generic.IAsyncEnumerable`1') of a query result.
+Represents items inside [IAsyncEnumerable\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IAsyncEnumerable-1 'System.Collections.Generic.IAsyncEnumerable`1') of a query result.
 The interface is a placeholder so further version information can be added into it.
 
 ##### Generic Types
@@ -11965,7 +11965,7 @@ A query execution context.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | remoteContext | [Microsoft.VisualStudio.ProjectSystem.Query.Remoting.IQueryExecutionRemoteContext](#T-Microsoft-VisualStudio-ProjectSystem-Query-Remoting-IQueryExecutionRemoteContext 'Microsoft.VisualStudio.ProjectSystem.Query.Remoting.IQueryExecutionRemoteContext') | A remote context if the caller is coming from remote side. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the execution later. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the execution later. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Remoting-IQuerySessionContext'></a>
 ## IQuerySessionContext `type`
@@ -12002,7 +12002,7 @@ is outside one of the shared roots.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| localPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A local file/directory path. |
+| localPath | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A local file/directory path. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Remoting-IQuerySessionContext-ConvertSharedUriToLocalPath-System-Uri-'></a>
 ### ConvertSharedUriToLocalPath() `method`
@@ -12041,7 +12041,7 @@ A collection of zone.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A way to abort the operation. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A way to abort the operation. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Providers-IQuerySpaceZoneController-GetDataZoneAsync-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity,System-Threading-CancellationToken-'></a>
 ### GetDataZoneAsync(entityIdentity,cancellationToken) `method`
@@ -12065,7 +12065,7 @@ if it is unknown.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | entityIdentity | [Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity](#T-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity 'Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity') | entity item |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A way to abort the operation. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A way to abort the operation. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Providers-IQuerySpaceZoneController-IsActivatedAsync-System-String,System-Threading-CancellationToken-'></a>
 ### IsActivatedAsync(zone,cancellationToken) `method`
@@ -12082,8 +12082,8 @@ True, if the specific zone is activated in the current space.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| zone | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of a data zone. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A way to abort the operation. |
+| zone | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of a data zone. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A way to abort the operation. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-IQuerySubscriptionExecutionManager'></a>
 ## IQuerySubscriptionExecutionManager `type`
@@ -12112,7 +12112,7 @@ A task completes when data sources are updated beyond the condition.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | currentVersions | [Microsoft.VisualStudio.ProjectSystem.Query.QueryDataVersions](#T-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions 'Microsoft.VisualStudio.ProjectSystem.Query.QueryDataVersions') | The version condition, and when data sources go beyond the condition, the task should be completed. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the waiting. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the waiting. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Providers-IQueryUpdateBatchProvider'></a>
 ## IQueryUpdateBatchProvider `type`
@@ -12173,7 +12173,7 @@ True if it is valid input data for this data processor.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| zone | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A data zone. |
+| zone | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A data zone. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Providers-IRelationshipQueryDataProviderMetadataView'></a>
 ## IRelationshipQueryDataProviderMetadataView `type`
@@ -13161,7 +13161,7 @@ The runtime value represented as the current list type.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| collection | [System.Collections.IEnumerable](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.IEnumerable 'System.Collections.IEnumerable') | A collection of value. |
+| collection | [System.Collections.IEnumerable](https://learn.microsoft.com/dotnet/api/System.Collections.IEnumerable-1 'System.Collections.IEnumerable') | A collection of value. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-ValueTypes-IValueSetType'></a>
 ## IValueSetType `type`
@@ -13333,7 +13333,7 @@ Initializes a new instance of the [InvalidEntityTypeException](#T-Microsoft-Visu
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| typeName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the type. |
+| typeName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the type. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-InvalidEntityTypeException-#ctor-System-Runtime-Serialization-SerializationInfo,System-Runtime-Serialization-StreamingContext-'></a>
 ### #ctor() `constructor`
@@ -13368,7 +13368,7 @@ Initializes a new instance of the [InvalidPropertyException](#T-Microsoft-Visual
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| propertyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of a property. |
+| propertyName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of a property. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-InvalidPropertyException-#ctor-System-Runtime-Serialization-SerializationInfo,System-Runtime-Serialization-StreamingContext-'></a>
 ### #ctor() `constructor`
@@ -13441,7 +13441,7 @@ The result.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the type. |
+| name | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the type. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-ValueTypes-KnownValueTypes-TryGetValueType-System-Object,Microsoft-VisualStudio-ProjectSystem-Query-ValueTypes-IValueType@-'></a>
 ### TryGetValueType(value,valueType) `method`
@@ -13458,7 +13458,7 @@ True, if it can be resolved.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The value. |
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The value. |
 | valueType | [Microsoft.VisualStudio.ProjectSystem.Query.ValueTypes.IValueType@](#T-Microsoft-VisualStudio-ProjectSystem-Query-ValueTypes-IValueType@ 'Microsoft.VisualStudio.ProjectSystem.Query.ValueTypes.IValueType@') | The result |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-ValueTypes-KnownValueTypes-TryGetValueType-System-Type,Microsoft-VisualStudio-ProjectSystem-Query-ValueTypes-IValueType@-'></a>
@@ -13476,7 +13476,7 @@ True, if it can be resolved.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| runtimeType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | A runtime type. |
+| runtimeType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | A runtime type. |
 | valueType | [Microsoft.VisualStudio.ProjectSystem.Query.ValueTypes.IValueType@](#T-Microsoft-VisualStudio-ProjectSystem-Query-ValueTypes-IValueType@ 'Microsoft.VisualStudio.ProjectSystem.Query.ValueTypes.IValueType@') | The result |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-ValueTypes-KnownValueTypes-TryResolveType-System-String,Microsoft-VisualStudio-ProjectSystem-Query-ValueTypes-IValueType@-'></a>
@@ -13494,7 +13494,7 @@ True: if the type name is resolved.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the type. |
+| name | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the type. |
 | valueType | [Microsoft.VisualStudio.ProjectSystem.Query.ValueTypes.IValueType@](#T-Microsoft-VisualStudio-ProjectSystem-Query-ValueTypes-IValueType@ 'Microsoft.VisualStudio.ProjectSystem.Query.ValueTypes.IValueType@') | The result |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-LaunchProfileChanges'></a>
@@ -13976,7 +13976,7 @@ Initializes a new instance of the [MergedQueryByIdDataProducer](#T-Microsoft-Vis
 | ---- | ---- | ----------- |
 | query | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable') | The current query. |
 | zoneController | [Microsoft.VisualStudio.ProjectSystem.Query.Providers.IQuerySpaceZoneController](#T-Microsoft-VisualStudio-ProjectSystem-Query-Providers-IQuerySpaceZoneController 'Microsoft.VisualStudio.ProjectSystem.Query.Providers.IQuerySpaceZoneController') | A controller to detect the zone of identities. |
-| queryByIdDataProducers | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryDataProducer{System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity},Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryDataProducer{System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity},Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}') | A collection of inner blocks to be wrapped into one block. |
+| queryByIdDataProducers | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryDataProducer{System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity},Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryDataProducer{System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity},Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}') | A collection of inner blocks to be wrapped into one block. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-MergedRelationshipQueryDataProducer'></a>
 ## MergedRelationshipQueryDataProducer `type`
@@ -14071,7 +14071,7 @@ Initializes a new instance of the [ModelAndExpression](#T-Microsoft-VisualStudio
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | A set of expressions. |
+| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | A set of expressions. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelAndExpression-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression,Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression-'></a>
 ### #ctor(left,right) `constructor`
@@ -14187,8 +14187,8 @@ Initializes a new instance of the [ModelCollectionMemberExpression](#T-Microsoft
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| memberName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the property. |
-| parameters | [System.Collections.Immutable.ImmutableArray{System.Object}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{System.Object}') | Values of parameters |
+| memberName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the property. |
+| parameters | [System.Collections.Immutable.ImmutableArray{System.Object}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{System.Object}') | Values of parameters |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelConstantExpression'></a>
 ## ModelConstantExpression `type`
@@ -14229,8 +14229,8 @@ A new constant expression in the model tree.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| runtimeType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | CLR type. |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The value. |
+| runtimeType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | CLR type. |
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The value. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelConstantExpression-CreateInstance-Microsoft-VisualStudio-ProjectSystem-Query-ValueTypes-IValueType,System-Object-'></a>
 ### CreateInstance(valueType,value) `method`
@@ -14248,7 +14248,7 @@ A new constant expression in the model tree.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | valueType | [Microsoft.VisualStudio.ProjectSystem.Query.ValueTypes.IValueType](#T-Microsoft-VisualStudio-ProjectSystem-Query-ValueTypes-IValueType 'Microsoft.VisualStudio.ProjectSystem.Query.ValueTypes.IValueType') | The value type in the model. |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The value. |
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The value. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelConstantExpression-GetValue'></a>
 ### GetValue() `method`
@@ -14298,7 +14298,7 @@ Initializes a new instance of the [ModelConstantExpression\`1](#T-Microsoft-Visu
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | valueType | [Microsoft.VisualStudio.ProjectSystem.Query.ValueTypes.IValueType](#T-Microsoft-VisualStudio-ProjectSystem-Query-ValueTypes-IValueType 'Microsoft.VisualStudio.ProjectSystem.Query.ValueTypes.IValueType') | The model value type. |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The value. |
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The value. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelConstantExpression`1-Value'></a>
 ### Value `property`
@@ -14379,7 +14379,7 @@ Initializes a new instance of the [ModelEndsWithExpression](#T-Microsoft-VisualS
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | A set of expressions. |
+| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | A set of expressions. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelEndsWithExpression-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression,System-Collections-Immutable-ImmutableArray{Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression}-'></a>
 ### #ctor(source,parameters) `constructor`
@@ -14393,7 +14393,7 @@ Initializes a new instance of the [ModelEndsWithExpression](#T-Microsoft-VisualS
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression](#T-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression 'Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression') | The source item of the operation. |
-| parameters | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | The method parameters of the operation. |
+| parameters | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | The method parameters of the operation. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelEqualExpression'></a>
 ## ModelEqualExpression `type`
@@ -14513,7 +14513,7 @@ Initializes a new instance of the [ModelMemberExpression](#T-Microsoft-VisualStu
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| memberName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the property. |
+| memberName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the property. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelMemberExpression-MemberName'></a>
 ### MemberName `property`
@@ -14544,7 +14544,7 @@ Initializes a new instance of the [ModelMultaryExpression](#T-Microsoft-VisualSt
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | Child expressions. |
+| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | Child expressions. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelMultaryExpression-Expressions'></a>
 ### Expressions `property`
@@ -14624,7 +14624,7 @@ Initializes a new instance of the [ModelOrExpression](#T-Microsoft-VisualStudio-
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | Child expressions. |
+| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | Child expressions. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelOrExpression-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression,Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression-'></a>
 ### #ctor(left,right) `constructor`
@@ -14679,7 +14679,7 @@ Initializes a new instance of the [ModelStartsEndsWithBaseExpression](#T-Microso
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | A set of expressions. |
+| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | A set of expressions. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelStartsEndsWithBaseExpression-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression,System-Collections-Immutable-ImmutableArray{Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression}-'></a>
 ### #ctor(source,parameters) `constructor`
@@ -14693,7 +14693,7 @@ Initializes a new instance of the [ModelStartsEndsWithBaseExpression](#T-Microso
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression](#T-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression 'Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression') | The source item of the operation. |
-| parameters | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | The method parameters of the operation. |
+| parameters | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | The method parameters of the operation. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelStartsWithExpression'></a>
 ## ModelStartsWithExpression `type`
@@ -14717,7 +14717,7 @@ Initializes a new instance of the [ModelStartsWithExpression](#T-Microsoft-Visua
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | A set of expressions. |
+| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | A set of expressions. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelStartsWithExpression-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression,System-Collections-Immutable-ImmutableArray{Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression}-'></a>
 ### #ctor(source,parameters) `constructor`
@@ -14731,7 +14731,7 @@ Initializes a new instance of the [ModelStartsWithExpression](#T-Microsoft-Visua
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression](#T-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression 'Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression') | The source item of the operation. |
-| parameters | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | The method parameters of the operation. |
+| parameters | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | The method parameters of the operation. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelStringMatchesExpression'></a>
 ## ModelStringMatchesExpression `type`
@@ -14751,7 +14751,7 @@ Initializes a new instance of the [ModelStringMatchesExpression](#T-Microsoft-Vi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| parameters | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | a set of parameter expressions |
+| parameters | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | a set of parameter expressions |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Metadata-ModelType'></a>
 ## ModelType `type`
@@ -15606,7 +15606,7 @@ The result uri, or null, if the file path is not shared between two sides.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | executionContext | [Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryExecutionContext](#T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-IQueryExecutionContext 'Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryExecutionContext') | The context carries LiveShare connection information. |
-| localPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A local file path. |
+| localPath | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A local file path. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Providers-PathUtilities-ConvertSharedPathToLocalPathIfNecessary-Microsoft-VisualStudio-ProjectSystem-Query-Execution-IQueryExecutionContext,System-String-'></a>
 ### ConvertSharedPathToLocalPathIfNecessary(executionContext,path) `method`
@@ -15624,7 +15624,7 @@ A local file path.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | executionContext | [Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryExecutionContext](#T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-IQueryExecutionContext 'Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryExecutionContext') | The context of the query. |
-| path | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A path, the path can be a normal file path or a vsls:// uri. |
+| path | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A path, the path can be a normal file path or a vsls:// uri. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-ValueTypes-PathValueType'></a>
 ## PathValueType `type`
@@ -15903,8 +15903,8 @@ A project query with additional properties.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projectConfiguration | [Microsoft.VisualStudio.ProjectSystem.Query.IProjectConfigurationSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-IProjectConfigurationSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.IProjectConfigurationSnapshot') | ProjectConfiguration |
-| storageType | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The persistence storage type. |
-| buildPropertyNames | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | One or more name of properties. |
+| storageType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The persistence storage type. |
+| buildPropertyNames | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | One or more name of properties. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-ProjectConfigurationPropertiesFilterExtensions-OutputGroupsByName-Microsoft-VisualStudio-ProjectSystem-Query-IProjectConfigurationSnapshot,System-String[]-'></a>
 ### OutputGroupsByName(projectConfiguration,outputGroupNames) `method`
@@ -15922,7 +15922,7 @@ A new query with OutputGroups conditions applied.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projectConfiguration | [Microsoft.VisualStudio.ProjectSystem.Query.IProjectConfigurationSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-IProjectConfigurationSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.IProjectConfigurationSnapshot') | ProjectConfiguration |
-| outputGroupNames | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | One or more output group names. |
+| outputGroupNames | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | One or more output group names. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-ProjectConfigurationPropertiesFilterExtensions-PropertiesByName-Microsoft-VisualStudio-ProjectSystem-Query-IProjectConfigurationSnapshot,System-String[]-'></a>
 ### PropertiesByName(projectConfiguration,propertyNames) `method`
@@ -15940,7 +15940,7 @@ A project query with additional properties.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projectConfiguration | [Microsoft.VisualStudio.ProjectSystem.Query.IProjectConfigurationSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-IProjectConfigurationSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.IProjectConfigurationSnapshot') | ProjectConfiguration |
-| propertyNames | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | One or more name of properties. |
+| propertyNames | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | One or more name of properties. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-ProjectConfigurationQueryResultsExtensions'></a>
 ## ProjectConfigurationQueryResultsExtensions `type`
@@ -16644,7 +16644,7 @@ A project query with additional configurations.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | project | [Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot') | A project |
-| configurationNameExpressions | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | One or more name expressions. |
+| configurationNameExpressions | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | One or more name expressions. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-ProjectPropertiesFilterExtensions-FilesByPath-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot,System-String[]-'></a>
 ### FilesByPath(project,filePaths) `method`
@@ -16662,7 +16662,7 @@ A new query with Files conditions applied.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | project | [Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot') | The project. |
-| filePaths | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | One or more source files paths. Relative paths are supported for some project systems such as CPS and traditional projects.
+| filePaths | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | One or more source files paths. Relative paths are supported for some project systems such as CPS and traditional projects.
 The fallback provider supports absolute paths only. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-ProjectPropertiesFilterExtensions-FilesEndingWith-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot,System-String[]-'></a>
@@ -16681,7 +16681,7 @@ A new query with Files conditions applied.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | project | [Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot') | The project. |
-| endingWithExpressions | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | One or more ending with expressions. |
+| endingWithExpressions | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | One or more ending with expressions. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-ProjectPropertiesFilterExtensions-FilesUnderDirectory-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot,System-String,System-Boolean-'></a>
 ### FilesUnderDirectory(project,relativeOrPhysicalDirectoryPath,recursive) `method`
@@ -16699,8 +16699,8 @@ A new query with Files conditions applied.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | project | [Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot') | The project. |
-| relativeOrPhysicalDirectoryPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Project relative or physical path of the directory to retrieve the source files from. |
-| recursive | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Indicates if the retrieval is recursive or not. |
+| relativeOrPhysicalDirectoryPath | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Project relative or physical path of the directory to retrieve the source files from. |
+| recursive | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Indicates if the retrieval is recursive or not. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-ProjectPropertiesFilterExtensions-FilesUnderView-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot,System-String,System-Boolean-'></a>
 ### FilesUnderView(project,relativePath,recursive) `method`
@@ -16718,8 +16718,8 @@ A new query with Files conditions applied.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | project | [Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot') | The project. |
-| relativePath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Project relative path to retrieve the source files from. |
-| recursive | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Indicates if the retrieval is recursive or not. |
+| relativePath | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Project relative path to retrieve the source files from. |
+| recursive | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Indicates if the retrieval is recursive or not. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-ProjectPropertiesFilterExtensions-FilesWithItemTypes-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot,System-String[]-'></a>
 ### FilesWithItemTypes(project,itemTypes) `method`
@@ -16737,7 +16737,7 @@ A new query with Files conditions applied.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | project | [Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot') | The project. |
-| itemTypes | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | One or more item types. |
+| itemTypes | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | One or more item types. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-ProjectPropertiesFilterExtensions-PropertiesByName-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot,System-String[]-'></a>
 ### PropertiesByName(project,propertyNames) `method`
@@ -16755,7 +16755,7 @@ A project query with additional properties.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | project | [Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot') | A project |
-| propertyNames | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | One or more name of properties. |
+| propertyNames | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | One or more name of properties. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-ProjectQueryResultsExtensions'></a>
 ## ProjectQueryResultsExtensions `type`
@@ -16848,7 +16848,7 @@ A project query with additional properties.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | queryableSpace | [Microsoft.VisualStudio.ProjectSystem.Query.IProjectModelQueryableSpace](#T-Microsoft-VisualStudio-ProjectSystem-Query-IProjectModelQueryableSpace 'Microsoft.VisualStudio.ProjectSystem.Query.IProjectModelQueryableSpace') | The top level workspace. |
-| applyToExpression | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Capabilities condition string. |
+| applyToExpression | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Capabilities condition string. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-ProjectQueryableSpacePropertiesFilterExtensions-ProjectsByPath-Microsoft-VisualStudio-ProjectSystem-Query-IProjectModelQueryableSpace,System-String[]-'></a>
 ### ProjectsByPath(queryableSpace,projectFilePaths) `method`
@@ -16866,7 +16866,7 @@ A project query with additional properties.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | queryableSpace | [Microsoft.VisualStudio.ProjectSystem.Query.IProjectModelQueryableSpace](#T-Microsoft-VisualStudio-ProjectSystem-Query-IProjectModelQueryableSpace 'Microsoft.VisualStudio.ProjectSystem.Query.IProjectModelQueryableSpace') | The top level workspace. |
-| projectFilePaths | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | Paths to match projects to be retrieved from the query. |
+| projectFilePaths | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | Paths to match projects to be retrieved from the query. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-ProjectQueryableSpacePropertiesFilterExtensions-ProjectsByProjectGuid-Microsoft-VisualStudio-ProjectSystem-Query-IProjectModelQueryableSpace,System-Guid[]-'></a>
 ### ProjectsByProjectGuid(queryableSpace,projectGuids) `method`
@@ -16884,7 +16884,7 @@ A project query with additional properties.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | queryableSpace | [Microsoft.VisualStudio.ProjectSystem.Query.IProjectModelQueryableSpace](#T-Microsoft-VisualStudio-ProjectSystem-Query-IProjectModelQueryableSpace 'Microsoft.VisualStudio.ProjectSystem.Query.IProjectModelQueryableSpace') | The top level workspace. |
-| projectGuids | [System.Guid[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid[] 'System.Guid[]') | A collection of Project Guids. |
+| projectGuids | [System.Guid[]](https://learn.microsoft.com/dotnet/api/System.Guid 'System.Guid[]') | A collection of Project Guids. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-ProjectReferenceChanges'></a>
 ## ProjectReferenceChanges `type`
@@ -17513,7 +17513,7 @@ Initializes a new instance of the [PropertiesAvailableStatus](#T-Microsoft-Visua
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | entityType | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityType](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityType 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityType') | The entity type this filter bound to. |
-| excludeId | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether or not the Id Property should be excluded from available properties |
+| excludeId | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether or not the Id Property should be excluded from available properties |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-Framework-PropertiesAvailableStatus-DefinedEntityType'></a>
 ### DefinedEntityType `property`
@@ -17601,7 +17601,7 @@ Initializes a new instance of the [PropertiesAvailableStatus\`1](#T-Microsoft-Vi
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | entityType | [\`0](#T-`0 '`0') | The entity type this filter bound to. |
-| excludeId | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether or not the Id Property should be excluded from available properties |
+| excludeId | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether or not the Id Property should be excluded from available properties |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-Framework-PropertiesAvailableStatus`1-EntityType'></a>
 ### EntityType `property`
@@ -18029,8 +18029,8 @@ Initializes a new instance of the [QueryActionProviderAttribute](#T-Microsoft-Vi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| action | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The action supported by the provider. |
-| parametersType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The type carries additional parameters of the action. |
+| action | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The action supported by the provider. |
+| parametersType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The type carries additional parameters of the action. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-Providers-QueryActionProviderAttribute-Action'></a>
 ### Action `property`
@@ -18079,7 +18079,7 @@ A task which completes when operations are done.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| sourceItems | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Execution.QueryProcessResult{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Execution.QueryProcessResult{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}') | Results from earlier query. |
+| sourceItems | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Execution.QueryProcessResult{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList-2 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Execution.QueryProcessResult{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}') | Results from earlier query. |
 | request | [Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryProcessRequest](#T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-IQueryProcessRequest 'Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryProcessRequest') | The top request. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-QueryByIdDataProducer'></a>
@@ -18187,7 +18187,7 @@ Initializes a new instance of the [QueryClientExecutionEngine](#T-Microsoft-Visu
 | joinableTaskContext | [Microsoft.VisualStudio.Threading.JoinableTaskContext](#T-Microsoft-VisualStudio-Threading-JoinableTaskContext 'Microsoft.VisualStudio.Threading.JoinableTaskContext') | A joinable task context. |
 | runtimeModel | [Microsoft.VisualStudio.ProjectSystem.Query.Framework.IQueryRuntimeModelInternal](#T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-IQueryRuntimeModelInternal 'Microsoft.VisualStudio.ProjectSystem.Query.Framework.IQueryRuntimeModelInternal') | The project runtime model. It provides necessary information to do serialization work. |
 | remoteExecutionService | [Microsoft.VisualStudio.ProjectSystem.Query.Remoting.IQueryExecutionService](#T-Microsoft-VisualStudio-ProjectSystem-Query-Remoting-IQueryExecutionService 'Microsoft.VisualStudio.ProjectSystem.Query.Remoting.IQueryExecutionService') | A remote service to execute queries. |
-| serviceVersion | [System.Version](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Version 'System.Version') | The version of the server. |
+| serviceVersion | [System.Version](https://learn.microsoft.com/dotnet/api/System.Version 'System.Version') | The version of the server. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Remoting-QueryClientExecutionEngine-#ctor-Microsoft-VisualStudio-Threading-JoinableTaskContext,Microsoft-VisualStudio-ProjectSystem-Query-Framework-IQueryRuntimeModelInternal,Microsoft-ServiceHub-Framework-IServiceBroker-'></a>
 ### #ctor(joinableTaskContext,runtimeModel,serviceBroker) `constructor`
@@ -18336,7 +18336,7 @@ Sends out a piece of the result from the data provider.
 | ---- | ---- | ----------- |
 | result | [\`0](#T-`0 '`0') | The query result data. |
 | request | [Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryProcessRequest](#T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-IQueryProcessRequest 'Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryProcessRequest') | The query request that lead to this result. |
-| zone | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Result data zone |
+| zone | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Result data zone |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Execution-QueryDataProducerBase`1-PublishResultAsync-Microsoft-VisualStudio-ProjectSystem-Query-Execution-QueryProcessResult{`0}-'></a>
 ### PublishResultAsync(result) `method`
@@ -18425,7 +18425,7 @@ Sends out a piece of the result from the data provider.
 | result | [\`0](#T-`0 '`0') | The query result data. |
 | processState | [\`1](#T-`1 '`1') | A state used by further processing the query. |
 | request | [Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryProcessRequest](#T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-IQueryProcessRequest 'Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryProcessRequest') | The query request that lead to this result. |
-| overrideZone | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The result zone, if need override the default one. |
+| overrideZone | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The result zone, if need override the default one. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Providers-QueryDataProviderAttribute'></a>
 ## QueryDataProviderAttribute `type`
@@ -18449,8 +18449,8 @@ Initializes a new instance of the [QueryDataProviderAttribute](#T-Microsoft-Visu
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| entityType | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The type of data produced by the data provider. |
-| model | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The data model. Pass in [ModelName](#F-Microsoft-VisualStudio-ProjectSystem-Query-Metadata-ProjectModel-ModelName 'Microsoft.VisualStudio.ProjectSystem.Query.Metadata.ProjectModel.ModelName'). |
+| entityType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The type of data produced by the data provider. |
+| model | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The data model. Pass in [ModelName](#F-Microsoft-VisualStudio-ProjectSystem-Query-Metadata-ProjectModel-ModelName 'Microsoft.VisualStudio.ProjectSystem.Query.Metadata.ProjectModel.ModelName'). |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-Providers-QueryDataProviderAttribute-EntityType'></a>
 ### EntityType `property`
@@ -18488,7 +18488,7 @@ Initializes a new instance of the [QueryDataProviderZoneAttribute](#T-Microsoft-
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| zone | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The data zone, which helps to prevent to load providers if unnecessary. |
+| zone | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The data zone, which helps to prevent to load providers if unnecessary. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-Providers-QueryDataProviderZoneAttribute-Zone'></a>
 ### Zone `property`
@@ -18571,7 +18571,7 @@ Resolves ActionParametersType.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| parameterType | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') |  |
+| parameterType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') |  |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Providers-QueryDataSourceChangeNotification'></a>
 ## QueryDataSourceChangeNotification `type`
@@ -18596,7 +18596,7 @@ Initializes a new instance of the [QueryDataSourceChangeNotification](#T-Microso
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | updates | [Microsoft.VisualStudio.ProjectSystem.Query.QueryDataVersions](#T-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions 'Microsoft.VisualStudio.ProjectSystem.Query.QueryDataVersions') | Updated source versions |
-| removedSources | [System.Collections.Generic.IReadOnlyCollection{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{System.String}') | Immutable list of removed sources. |
+| removedSources | [System.Collections.Generic.IReadOnlyCollection{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection-1 'System.Collections.Generic.IReadOnlyCollection{System.String}') | Immutable list of removed sources. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-Providers-QueryDataSourceChangeNotification-Removes'></a>
 ### Removes `property`
@@ -18635,8 +18635,8 @@ Initializes a new instance of the [QueryDataVersions](#T-Microsoft-VisualStudio-
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versions | [System.Collections.Immutable.ImmutableDictionary{System.String,System.Int64}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Immutable.ImmutableDictionary 'System.Collections.Immutable.ImmutableDictionary{System.String,System.Int64}') | Version data. |
-| isMixed | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether it is a mixed version data. |
+| versions | [System.Collections.Immutable.ImmutableDictionary{System.String,System.Int64}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableDictionary-2 'System.Collections.Immutable.ImmutableDictionary{System.String,System.Int64}') | Version data. |
+| isMixed | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether it is a mixed version data. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-Empty'></a>
 ### Empty `property`
@@ -18675,8 +18675,8 @@ New version set if it is changed.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versionKey | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A version key |
-| version | [System.Int64](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int64 'System.Int64') | The version value. |
+| versionKey | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A version key |
+| version | [System.Int64](https://learn.microsoft.com/dotnet/api/System.Int64 'System.Int64') | The version value. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-AddRange-System-Collections-Generic-IEnumerable{System-Collections-Generic-KeyValuePair{System-String,System-Int64}}-'></a>
 ### AddRange(versions) `method`
@@ -18693,7 +18693,7 @@ New version set if it is changed.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A set of versions to be added. |
+| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A set of versions to be added. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-IsNewerOrEqualThan-System-Collections-Generic-IEnumerable{System-Collections-Generic-KeyValuePair{System-String,System-Int64}},System-Boolean-'></a>
 ### IsNewerOrEqualThan(versions,containsAllVersions) `method`
@@ -18710,8 +18710,8 @@ A boolean value indicates whether the version is newer than or matches the condi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A version set as the condition. |
-| containsAllVersions | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether all version key must appear |
+| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A version set as the condition. |
+| containsAllVersions | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether all version key must appear |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-IsNewerThan-System-Collections-Generic-IEnumerable{System-Collections-Generic-KeyValuePair{System-String,System-Int64}},System-Boolean-'></a>
 ### IsNewerThan(versions,containsAllVersions) `method`
@@ -18728,8 +18728,8 @@ A boolean value indicates whether the version is newer than the condition.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A version set as the condition. |
-| containsAllVersions | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether all version key must appear |
+| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A version set as the condition. |
+| containsAllVersions | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether all version key must appear |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-IsOlderOrEqualThan-System-Collections-Generic-IEnumerable{System-Collections-Generic-KeyValuePair{System-String,System-Int64}},System-Boolean-'></a>
 ### IsOlderOrEqualThan(versions,containsAllVersions) `method`
@@ -18746,8 +18746,8 @@ A boolean value indicates whether the version is older than or matches the condi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A version set as the condition. |
-| containsAllVersions | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether all version key must appear |
+| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A version set as the condition. |
+| containsAllVersions | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether all version key must appear |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-IsOlderThan-System-Collections-Generic-IEnumerable{System-Collections-Generic-KeyValuePair{System-String,System-Int64}},System-Boolean-'></a>
 ### IsOlderThan(versions,containsAllVersions) `method`
@@ -18764,8 +18764,8 @@ A boolean value indicates whether the version is older than the condition.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A version set as the condition. |
-| containsAllVersions | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether all version key must appear |
+| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A version set as the condition. |
+| containsAllVersions | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether all version key must appear |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-Matches-System-Collections-Generic-IEnumerable{System-Collections-Generic-KeyValuePair{System-String,System-Int64}},System-Boolean-'></a>
 ### Matches(versions,containsAllVersions) `method`
@@ -18782,8 +18782,8 @@ A boolean value indicates whether the version matches the condition.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A version set as the condition. |
-| containsAllVersions | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether all version key must appear |
+| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A version set as the condition. |
+| containsAllVersions | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether all version key must appear |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-Merge-System-Collections-Generic-IEnumerable{System-Collections-Generic-KeyValuePair{System-String,System-Int64}}-'></a>
 ### Merge(versions) `method`
@@ -18800,7 +18800,7 @@ A combined version set.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A new set of versions to be mixed in. |
+| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A new set of versions to be mixed in. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-Merge-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-'></a>
 ### Merge(versions) `method`
@@ -18834,7 +18834,7 @@ New version set if it is changed.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versionKey | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A version key. |
+| versionKey | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A version key. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-RemoveRange-System-Collections-Generic-IEnumerable{System-String}-'></a>
 ### RemoveRange(versionKeys) `method`
@@ -18851,7 +18851,7 @@ New version set if it is changed.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versionKeys | [System.Collections.Generic.IEnumerable{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | A set of version keys to be excluded. |
+| versionKeys | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.String}') | A set of version keys to be excluded. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-Set-System-String,System-Int64-'></a>
 ### Set(versionKey,version) `method`
@@ -18868,8 +18868,8 @@ New version set if it is changed.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versionKey | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A version key. |
-| version | [System.Int64](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int64 'System.Int64') | A new version value. |
+| versionKey | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A version key. |
+| version | [System.Int64](https://learn.microsoft.com/dotnet/api/System.Int64 'System.Int64') | A new version value. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-Set-System-Collections-Generic-IEnumerable{System-Collections-Generic-KeyValuePair{System-String,System-Int64}}-'></a>
 ### Set(versions) `method`
@@ -18882,7 +18882,7 @@ Overrides versions to the version set.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A set of versions |
+| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A set of versions |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-SetIsMixed-System-Boolean-'></a>
 ### SetIsMixed(isMixed) `method`
@@ -18899,7 +18899,7 @@ An update version set.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| isMixed | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The new state. |
+| isMixed | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The new state. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersionsJsonConverter'></a>
 ## QueryDataVersionsJsonConverter `type`
@@ -19026,8 +19026,8 @@ Initializes a new instance of the [QueryExecutionException](#T-Microsoft-VisualS
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The error message. |
-| innerException | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | An inner exception, if any. |
+| message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The error message. |
+| innerException | [System.Exception](https://learn.microsoft.com/dotnet/api/System.Exception 'System.Exception') | An inner exception, if any. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryExecutionException-#ctor-System-String-'></a>
 ### #ctor(message) `constructor`
@@ -19040,7 +19040,7 @@ Initializes a new instance of the [QueryExecutionException](#T-Microsoft-VisualS
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The error message. |
+| message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The error message. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryExecutionException-#ctor-System-Runtime-Serialization-SerializationInfo,System-Runtime-Serialization-StreamingContext-'></a>
 ### #ctor() `constructor`
@@ -19087,8 +19087,8 @@ Initializes a new instance of the [QueryExecutionService](#T-Microsoft-VisualStu
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| identity | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | The local execution service manager which manage service broker connections. |
-| serviceVersion | [System.Version](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Version 'System.Version') | The version of the service. |
+| identity | [System.Guid](https://learn.microsoft.com/dotnet/api/System.Guid 'System.Guid') | The local execution service manager which manage service broker connections. |
+| serviceVersion | [System.Version](https://learn.microsoft.com/dotnet/api/System.Version 'System.Version') | The version of the service. |
 | entityRuntimeModel | [Microsoft.VisualStudio.ProjectSystem.Query.Framework.IQueryRuntimeModelInternal](#T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-IQueryRuntimeModelInternal 'Microsoft.VisualStudio.ProjectSystem.Query.Framework.IQueryRuntimeModelInternal') | The local runtime model. |
 | joinableTaskFactory | [Microsoft.VisualStudio.Threading.JoinableTaskFactory](#T-Microsoft-VisualStudio-Threading-JoinableTaskFactory 'Microsoft.VisualStudio.Threading.JoinableTaskFactory') | The JoinableTask context. |
 | sessionContext | [Microsoft.VisualStudio.ProjectSystem.Query.Remoting.IQuerySessionContext](#T-Microsoft-VisualStudio-ProjectSystem-Query-Remoting-IQuerySessionContext 'Microsoft.VisualStudio.ProjectSystem.Query.Remoting.IQuerySessionContext') | The connection session state. |
@@ -19175,8 +19175,8 @@ Indicates whether the specified regular expression finds a match in the specifie
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The input string to search for a match |
-| regularExpression | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The regulat expression pattern to match |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The input string to search for a match |
+| regularExpression | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The regulat expression pattern to match |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Remoting-QueryExpressionJsonSerializer'></a>
 ## QueryExpressionJsonSerializer `type`
@@ -19253,7 +19253,7 @@ Initializes a new instance of the [QueryFromEntitiesContext](#T-Microsoft-Visual
 | ---- | ---- | ----------- |
 | runtimeModel | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityRuntimeModel](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityRuntimeModel 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityRuntimeModel') | The model where the query is created. |
 | entityType | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityType](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityType 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityType') | The type of the existing set of entity items. |
-| itemIdentities | [System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}') | The id of existing items. |
+| itemIdentities | [System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection-1 'System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}') | The id of existing items. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-QueryFromEntitiesContext-ElementType'></a>
 ### ElementType `property`
@@ -19292,7 +19292,7 @@ Initializes a new instance of the [QueryFromModelRootContext](#T-Microsoft-Visua
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | runtimeModel | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityRuntimeModel](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityRuntimeModel 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityRuntimeModel') | The model where the query is created. |
-| modelRootCollectionName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The collection defined in the root of the model. |
+| modelRootCollectionName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The collection defined in the root of the model. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-QueryFromModelRootContext-Relationship'></a>
 ### Relationship `property`
@@ -19323,7 +19323,7 @@ Initializes a new instance of the [QueryInputProviderStateAttribute](#T-Microsof
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| inputProviderStateType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The expected provider state type. |
+| inputProviderStateType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The expected provider state type. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-Providers-QueryInputProviderStateAttribute-InputProviderState'></a>
 ### InputProviderState `property`
@@ -19456,7 +19456,7 @@ Creates a query result item.
 | ---- | ---- | ----------- |
 | result | [\`\`0](#T-``0 '``0') | The query result data. |
 | request | [Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryProcessRequest](#T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-IQueryProcessRequest 'Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryProcessRequest') | The query request that lead to this result. |
-| zone | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The zone of the data it belongs to. |
+| zone | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The zone of the data it belongs to. |
 
 ##### Generic Types
 
@@ -19478,7 +19478,7 @@ Creates a query result item.
 | result | [\`\`0](#T-``0 '``0') | The query result data. |
 | processState | [\`\`1](#T-``1 '``1') | A state used by further processing the query. |
 | request | [Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryProcessRequest](#T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-IQueryProcessRequest 'Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryProcessRequest') | The query request that lead to this result. |
-| zone | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The zone of the data it belongs to. |
+| zone | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The zone of the data it belongs to. |
 
 ##### Generic Types
 
@@ -19518,7 +19518,7 @@ Initializes a new instance of the [QueryProcessResult\`1](#T-Microsoft-VisualStu
 | ---- | ---- | ----------- |
 | result | [\`0](#T-`0 '`0') | The query result data. |
 | request | [Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryProcessRequest](#T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-IQueryProcessRequest 'Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryProcessRequest') | The query request that lead to this result. |
-| zone | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The zone of the data it belongs to. |
+| zone | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The zone of the data it belongs to. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-Execution-QueryProcessResult`1-Request'></a>
 ### Request `property`
@@ -19630,7 +19630,7 @@ Initializes a new instance of the [QueryResultCollector\`1](#T-Microsoft-VisualS
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | itemType | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityType](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityType 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityType') | The type of elements inside the result. |
-| isUpdateQuery | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether it is a query to update model or it reads the model. |
+| isUpdateQuery | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether it is a query to update model or it reads the model. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Execution-QueryResultCollector`1-CollectResult'></a>
 ### CollectResult() `method`
@@ -19671,8 +19671,8 @@ Initializes a new instance of the [QueryResultToJsonConverter](#T-Microsoft-Visu
 | ---- | ---- | ----------- |
 | entityRuntimeModel | [Microsoft.VisualStudio.ProjectSystem.Query.Framework.IQueryRuntimeModelInternal](#T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-IQueryRuntimeModelInternal 'Microsoft.VisualStudio.ProjectSystem.Query.Framework.IQueryRuntimeModelInternal') | The runtime model root. |
 | elementType | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityType](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityType 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityType') | The type of element expected to be returned from the query. |
-| withResultDataVersion | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Need version information. |
-| isUpdateQuery | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether it is a query to update model or it reads the model. |
+| withResultDataVersion | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Need version information. |
+| isUpdateQuery | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether it is a query to update model or it reads the model. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Remoting-QueryExecutionService-QueryResultToJsonConverter-CloseAndGetResult'></a>
 ### CloseAndGetResult() `method`
@@ -19715,8 +19715,8 @@ The set of added Entities.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| Entities1 | [System.Collections.Generic.Dictionary{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity,\`\`0}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.Dictionary 'System.Collections.Generic.Dictionary{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity,``0}') | Dictionary of [EntityIdentity](#T-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity 'Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity') and [IEntity](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntity 'Microsoft.VisualStudio.ProjectSystem.Query.IEntity'). |
-| Entities2 | [System.Collections.Generic.Dictionary{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity,\`\`0}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.Dictionary 'System.Collections.Generic.Dictionary{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity,``0}') | Dictionary of [EntityIdentity](#T-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity 'Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity') and [IEntity](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntity 'Microsoft.VisualStudio.ProjectSystem.Query.IEntity'). |
+| Entities1 | [System.Collections.Generic.Dictionary{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity,\`\`0}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity,``0}') | Dictionary of [EntityIdentity](#T-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity 'Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity') and [IEntity](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntity 'Microsoft.VisualStudio.ProjectSystem.Query.IEntity'). |
+| Entities2 | [System.Collections.Generic.Dictionary{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity,\`\`0}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity,``0}') | Dictionary of [EntityIdentity](#T-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity 'Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity') and [IEntity](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntity 'Microsoft.VisualStudio.ProjectSystem.Query.IEntity'). |
 
 ##### Generic Types
 
@@ -19739,8 +19739,8 @@ The set of removed Entities.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| Entities1 | [System.Collections.Generic.Dictionary{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity,\`\`0}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.Dictionary 'System.Collections.Generic.Dictionary{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity,``0}') | Dictionary of [EntityIdentity](#T-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity 'Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity') and [IEntity](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntity 'Microsoft.VisualStudio.ProjectSystem.Query.IEntity'). |
-| Entities2 | [System.Collections.Generic.Dictionary{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity,\`\`0}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.Dictionary 'System.Collections.Generic.Dictionary{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity,``0}') | Dictionary of [EntityIdentity](#T-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity 'Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity') and [IEntity](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntity 'Microsoft.VisualStudio.ProjectSystem.Query.IEntity'). |
+| Entities1 | [System.Collections.Generic.Dictionary{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity,\`\`0}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity,``0}') | Dictionary of [EntityIdentity](#T-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity 'Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity') and [IEntity](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntity 'Microsoft.VisualStudio.ProjectSystem.Query.IEntity'). |
+| Entities2 | [System.Collections.Generic.Dictionary{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity,\`\`0}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.Dictionary-2 'System.Collections.Generic.Dictionary{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity,``0}') | Dictionary of [EntityIdentity](#T-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity 'Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity') and [IEntity](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntity 'Microsoft.VisualStudio.ProjectSystem.Query.IEntity'). |
 
 ##### Generic Types
 
@@ -19963,7 +19963,7 @@ Posts Telemetry for a Write Query execution.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | activity | [Microsoft.VisualStudio.Telemetry.TelemetryActivity](#T-Microsoft-VisualStudio-Telemetry-TelemetryActivity 'Microsoft.VisualStudio.Telemetry.TelemetryActivity') | The [TelemetryActivity](#T-Microsoft-VisualStudio-Telemetry-TelemetryActivity 'Microsoft.VisualStudio.Telemetry.TelemetryActivity'). |
-| exception | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | An [Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception')(if any). |
+| exception | [System.Exception](https://learn.microsoft.com/dotnet/api/System.Exception 'System.Exception') | An [Exception](https://learn.microsoft.com/dotnet/api/System.Exception 'System.Exception')(if any). |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryTelemetry-FinishQueryExecution-Microsoft-VisualStudio-Telemetry-TelemetryActivity,System-Exception-'></a>
 ### FinishQueryExecution(activity,exception) `method`
@@ -19977,7 +19977,7 @@ Posts Telemetry for a Read Query execution.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | activity | [Microsoft.VisualStudio.Telemetry.TelemetryActivity](#T-Microsoft-VisualStudio-Telemetry-TelemetryActivity 'Microsoft.VisualStudio.Telemetry.TelemetryActivity') | The [TelemetryActivity](#T-Microsoft-VisualStudio-Telemetry-TelemetryActivity 'Microsoft.VisualStudio.Telemetry.TelemetryActivity'). |
-| exception | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | An [Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception')(if any). |
+| exception | [System.Exception](https://learn.microsoft.com/dotnet/api/System.Exception 'System.Exception') | An [Exception](https://learn.microsoft.com/dotnet/api/System.Exception 'System.Exception')(if any). |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryTelemetry-StartQueryExecutableExecution-System-String,System-Boolean-'></a>
 ### StartQueryExecutableExecution(entityTypeName,fromClient) `method`
@@ -19994,8 +19994,8 @@ A [TelemetryActivity](#T-Microsoft-VisualStudio-Telemetry-TelemetryActivity 'Mic
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| entityTypeName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The [IEntityType](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityType 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityType') Name. |
-| fromClient | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether the Query is run from the client. |
+| entityTypeName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The [IEntityType](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityType 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityType') Name. |
+| fromClient | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether the Query is run from the client. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryTelemetry-StartQueryExecution-System-String,System-Boolean-'></a>
 ### StartQueryExecution(entityTypeName,fromClient) `method`
@@ -20012,8 +20012,8 @@ A [TelemetryActivity](#T-Microsoft-VisualStudio-Telemetry-TelemetryActivity 'Mic
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| entityTypeName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The [IEntityType](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityType 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityType') Name. |
-| fromClient | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether the Query is run from the client. |
+| entityTypeName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The [IEntityType](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityType 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityType') Name. |
+| fromClient | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether the Query is run from the client. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-QueryTelemetryEvents'></a>
 ## QueryTelemetryEvents `type`
@@ -20070,8 +20070,8 @@ Creates a data transformer block to run actions declared in an AsyncExecutable.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| zone | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The zone. |
-| disableBatchExecution | [System.Boolean@](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean@ 'System.Boolean@') | True if any of the steps doesn't support batch execution. |
+| zone | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The zone. |
+| disableBatchExecution | [System.Boolean@](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean@') | True if any of the steps doesn't support batch execution. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-Actions-Rebuild'></a>
 ## Rebuild `type`
@@ -20157,8 +20157,8 @@ Initializes a new instance of the [RelationshipQueryDataProviderAttribute](#T-Mi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| parentType | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The parent type where the relationship is defined. |
-| relationship | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the relationship, from which we retrieve the collection data. |
+| parentType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The parent type where the relationship is defined. |
+| relationship | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the relationship, from which we retrieve the collection data. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-Providers-RelationshipQueryDataProviderAttribute-ParentType'></a>
 ### ParentType `property`
@@ -20196,7 +20196,7 @@ Initializes a new instance of the [RemoveLaunchProfile](#T-Microsoft-VisualStudi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| profileName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the profile to remove. |
+| profileName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the profile to remove. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-Framework-Actions-RemoveLaunchProfile-ProfileName'></a>
 ### ProfileName `property`
@@ -20227,8 +20227,8 @@ Initializes a new instance of the [RenameLaunchProfile](#T-Microsoft-VisualStudi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| currentProfileName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The current name of the profile to rename. |
-| newProfileName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The new name to assign to the profile. |
+| currentProfileName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The current name of the profile to rename. |
+| newProfileName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The new name to assign to the profile. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-Framework-Actions-RenameLaunchProfile-CurrentProfileName'></a>
 ### CurrentProfileName `property`
@@ -20311,7 +20311,7 @@ Microsoft.VisualStudio.ProjectSystem.Query.Execution.AsyncQueryResultCollector`1
 
 ##### Summary
 
-Implements [IAsyncEnumerator\`1](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IAsyncEnumerator`1 'System.Collections.Generic.IAsyncEnumerator`1').
+Implements [IAsyncEnumerator\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IAsyncEnumerator-1 'System.Collections.Generic.IAsyncEnumerator`1').
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-Actions-Run'></a>
 ## Run `type`
@@ -20462,11 +20462,11 @@ Initializes a new instance of the [SetEvaluatedUIPropertyValue](#T-Microsoft-Vis
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| page | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the page containing the property. |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the property to set. |
-| dimensions | [System.Collections.ObjectModel.ReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.Framework.Actions.ConfigurationDimensionValue}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.ObjectModel.ReadOnlyCollection 'System.Collections.ObjectModel.ReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.Framework.Actions.ConfigurationDimensionValue}') | A set of (dimension, value) pairs used to select which project configurations
+| page | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the page containing the property. |
+| name | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the property to set. |
+| dimensions | [System.Collections.ObjectModel.ReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.Framework.Actions.ConfigurationDimensionValue}](https://learn.microsoft.com/dotnet/api/System.Collections.ObjectModel.ReadOnlyCollection-1 'System.Collections.ObjectModel.ReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.Framework.Actions.ConfigurationDimensionValue}') | A set of (dimension, value) pairs used to select which project configurations
 the new value is applied to. |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The new value for the property. May be null to indicate that the property
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The new value for the property. May be null to indicate that the property
 should be removed entirely and/or reset to a default value. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-Framework-Actions-SetEvaluatedUIPropertyValue-Dimensions'></a>
@@ -20622,11 +20622,11 @@ Initializes a new instance of the [SetUnevaluatedUIPropertyValue](#T-Microsoft-V
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| page | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the page containing the property. |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the property to set. |
-| dimensions | [System.Collections.ObjectModel.ReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.Framework.Actions.ConfigurationDimensionValue}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.ObjectModel.ReadOnlyCollection 'System.Collections.ObjectModel.ReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.Framework.Actions.ConfigurationDimensionValue}') | A set of (dimension, value) pairs used to select which project configurations
+| page | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the page containing the property. |
+| name | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the property to set. |
+| dimensions | [System.Collections.ObjectModel.ReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.Framework.Actions.ConfigurationDimensionValue}](https://learn.microsoft.com/dotnet/api/System.Collections.ObjectModel.ReadOnlyCollection-1 'System.Collections.ObjectModel.ReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.Framework.Actions.ConfigurationDimensionValue}') | A set of (dimension, value) pairs used to select which project configurations
 the new value is applied to. |
-| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The new value for the property. May be null to indicate that the property
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The new value for the property. May be null to indicate that the property
 should be removed entirely and/or reset to a default value. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-Framework-Actions-SetUnevaluatedUIPropertyValue-Dimensions'></a>
@@ -20775,7 +20775,7 @@ A new query with Files conditions applied.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutionFolder | [Microsoft.VisualStudio.ProjectSystem.Query.ISolutionFolderSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-ISolutionFolderSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.ISolutionFolderSnapshot') | The project. |
-| filePaths | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | One or more source files paths. Relative paths are supported for some project systems such as CPS and traditional projects.
+| filePaths | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | One or more source files paths. Relative paths are supported for some project systems such as CPS and traditional projects.
 The fallback provider supports absolute paths only. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-SolutionFolderPropertiesFilterExtensions-FilesEndingWith-Microsoft-VisualStudio-ProjectSystem-Query-ISolutionFolderSnapshot,System-String[]-'></a>
@@ -20794,7 +20794,7 @@ A new query with Files conditions applied.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutionFolder | [Microsoft.VisualStudio.ProjectSystem.Query.ISolutionFolderSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-ISolutionFolderSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.ISolutionFolderSnapshot') | The project. |
-| endingWithExpressions | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | One or more ending with expressions. |
+| endingWithExpressions | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | One or more ending with expressions. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-SolutionFolderQueryResultsExtensions'></a>
 ## SolutionFolderQueryResultsExtensions `type`
@@ -21025,7 +21025,7 @@ A project query with additional properties.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solution | [Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot') | A solution |
-| applyToExpression | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Capabilities condition string. |
+| applyToExpression | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Capabilities condition string. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-SolutionPropertiesFilterExtensions-ProjectsByPath-Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot,System-String[]-'></a>
 ### ProjectsByPath(solution,paths) `method`
@@ -21043,7 +21043,7 @@ A project query with additional properties.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solution | [Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot') | A solution. |
-| paths | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | Paths to match projects to be retrieved from the query. |
+| paths | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | Paths to match projects to be retrieved from the query. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-SolutionPropertiesFilterExtensions-ProjectsByProjectGuid-Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot,System-Guid[]-'></a>
 ### ProjectsByProjectGuid(solution,projectGuids) `method`
@@ -21061,7 +21061,7 @@ A project query with additional properties.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solution | [Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot') | A solution. |
-| projectGuids | [System.Guid[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid[] 'System.Guid[]') | A collection of Project Guids. |
+| projectGuids | [System.Guid[]](https://learn.microsoft.com/dotnet/api/System.Guid 'System.Guid[]') | A collection of Project Guids. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-SolutionPropertiesFilterExtensions-PropertiesByName-Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot,System-String[]-'></a>
 ### PropertiesByName(solution,propertyNames) `method`
@@ -21079,7 +21079,7 @@ A project query with additional properties.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solution | [Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot') | A solution |
-| propertyNames | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | One or more name of properties. |
+| propertyNames | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | One or more name of properties. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-SolutionQueryResultsExtensions'></a>
 ## SolutionQueryResultsExtensions `type`
@@ -22596,10 +22596,10 @@ Adds a new value to a configuration dimension.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects to be updated with the new configuration dimension. |
-| dimensionName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The [ConfigurationDimensionNames](#T-Microsoft-VisualStudio-ProjectSystem-Query-ConfigurationDimensionNames 'Microsoft.VisualStudio.ProjectSystem.Query.ConfigurationDimensionNames') to add value to. |
-| newValue | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The new value to be added. |
-| existingValue | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | An existing value to copy properties from. Empty string if properties should not be copied. |
-| propagate | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Specifies if the project configuration change to be propagated to the solution file. |
+| dimensionName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The [ConfigurationDimensionNames](#T-Microsoft-VisualStudio-ProjectSystem-Query-ConfigurationDimensionNames 'Microsoft.VisualStudio.ProjectSystem.Query.ConfigurationDimensionNames') to add value to. |
+| newValue | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The new value to be added. |
+| existingValue | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | An existing value to copy properties from. Empty string if properties should not be copied. |
+| propagate | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Specifies if the project configuration change to be propagated to the solution file. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddFile-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},System-String,System-String-'></a>
 ### AddFile(projects,itemPath,itemType) `method`
@@ -22617,8 +22617,8 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects where this change should apply to. |
-| itemPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The path of the file item |
-| itemType | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The optional item type of the new file. |
+| itemPath | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The path of the file item |
+| itemType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The optional item type of the new file. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddFile-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionFolderSnapshot},System-String-'></a>
 ### AddFile(solutionFolders,itemPath) `method`
@@ -22636,7 +22636,7 @@ A set of solution folders updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutionFolders | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionFolderSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionFolderSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionFolderSnapshot}') | A set of solution folders where this change should apply to. |
-| itemPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The path of the file item |
+| itemPath | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The path of the file item |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddFile-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},System-String-'></a>
 ### AddFile(solutions,itemPath) `method`
@@ -22654,7 +22654,7 @@ A set of solutions updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutions | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}') | A set of solutions where this change should apply to. |
-| itemPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The path of the file item |
+| itemPath | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The path of the file item |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddFileFromCopy-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},System-String,System-String,System-String-'></a>
 ### AddFileFromCopy(projects,originalFilePath,targetFolderPath,itemType) `method`
@@ -22672,9 +22672,9 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects where this change should apply to. |
-| originalFilePath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The path of the file item on the file system of the project system. |
-| targetFolderPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A relative path of a folder inside the project. |
-| itemType | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The optional item type of the new file. (This might not be supported by all project systems.) |
+| originalFilePath | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The path of the file item on the file system of the project system. |
+| targetFolderPath | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A relative path of a folder inside the project. |
+| itemType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The optional item type of the new file. (This might not be supported by all project systems.) |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddFiles-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},System-Collections-Generic-IEnumerable{System-String},System-String-'></a>
 ### AddFiles(projects,itemPaths,itemType) `method`
@@ -22692,8 +22692,8 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects where this change should apply to. |
-| itemPaths | [System.Collections.Generic.IEnumerable{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | A set of paths of file items |
-| itemType | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The optional item type of new files. (This might not be supported by all project systems.) |
+| itemPaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.String}') | A set of paths of file items |
+| itemType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The optional item type of new files. (This might not be supported by all project systems.) |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddFiles-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionFolderSnapshot},System-Collections-Generic-IEnumerable{System-String}-'></a>
 ### AddFiles(solutionFolders,itemPaths) `method`
@@ -22711,7 +22711,7 @@ A set of solution folders updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutionFolders | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionFolderSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionFolderSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionFolderSnapshot}') | A set of solution folders where this change should apply to. |
-| itemPaths | [System.Collections.Generic.IEnumerable{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | A set of paths of file items |
+| itemPaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.String}') | A set of paths of file items |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddFiles-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},System-Collections-Generic-IEnumerable{System-String}-'></a>
 ### AddFiles(solutions,itemPaths) `method`
@@ -22729,7 +22729,7 @@ A set of solution folders updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutions | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}') | A set of solutions where this change should apply to. |
-| itemPaths | [System.Collections.Generic.IEnumerable{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | A set of paths of file items |
+| itemPaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.String}') | A set of paths of file items |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddFilesFromCopy-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},System-Collections-Generic-IEnumerable{System-String},System-String,System-String-'></a>
 ### AddFilesFromCopy(projects,originalFilePaths,targetFolderPath,itemType) `method`
@@ -22747,9 +22747,9 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects where this change should apply to. |
-| originalFilePaths | [System.Collections.Generic.IEnumerable{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | A set of paths of file items on the file system of the project system. |
-| targetFolderPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A relative path of a folder inside the project. |
-| itemType | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The optional item type of new files. (This might not be supported by all project systems.) |
+| originalFilePaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.String}') | A set of paths of file items on the file system of the project system. |
+| targetFolderPath | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A relative path of a folder inside the project. |
+| itemType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The optional item type of new files. (This might not be supported by all project systems.) |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddLaunchProfile-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},System-String,System-String-'></a>
 ### AddLaunchProfile(projects,newProfileName,commandName) `method`
@@ -22763,9 +22763,9 @@ Adds a new launch profile.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects to be updated with the new profile. |
-| newProfileName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the new profile, or `null` if a default name should
+| newProfileName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the new profile, or `null` if a default name should
 be provided. |
-| commandName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The debugger command name to associate with the new profile. |
+| commandName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The debugger command name to associate with the new profile. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddLinkFile-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},System-String,System-String,System-String-'></a>
 ### AddLinkFile(projects,itemPath,targetFolder,itemType) `method`
@@ -22783,9 +22783,9 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects where this change should apply to. |
-| itemPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The path of the file item. It must be outside of the project cone. |
-| targetFolder | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A relative path of a folder inside the project. |
-| itemType | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The optional item type of the new file. (This might not be supported by all project systems.) |
+| itemPath | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The path of the file item. It must be outside of the project cone. |
+| targetFolder | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A relative path of a folder inside the project. |
+| itemType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The optional item type of the new file. (This might not be supported by all project systems.) |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddLinkFiles-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},System-Collections-Generic-IEnumerable{System-String},System-String,System-String-'></a>
 ### AddLinkFiles(projects,itemPaths,targetFolder,itemType) `method`
@@ -22803,9 +22803,9 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects where this change should apply to. |
-| itemPaths | [System.Collections.Generic.IEnumerable{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | Path of file items. They must be outside of the project cone. |
-| targetFolder | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A relative path of a folder inside the project. |
-| itemType | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The optional item type of new files. (This might not be supported by all project systems.) |
+| itemPaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.String}') | Path of file items. They must be outside of the project cone. |
+| targetFolder | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A relative path of a folder inside the project. |
+| itemType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The optional item type of new files. (This might not be supported by all project systems.) |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddPackageReference-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},System-String,System-String-'></a>
 ### AddPackageReference(projects,packageIdentity,version) `method`
@@ -22823,8 +22823,8 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects where this change should apply to. |
-| packageIdentity | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The identity of the package reference to be added. |
-| version | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The version of the package reference to be added. |
+| packageIdentity | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The identity of the package reference to be added. |
+| version | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The version of the package reference to be added. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddProject-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},System-String-'></a>
 ### AddProject(solutions,projectFilePath) `method`
@@ -22842,7 +22842,7 @@ Solution updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutions | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}') | A query to retrieve solutions. |
-| projectFilePath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A relative or absolute path to the project file. |
+| projectFilePath | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A relative or absolute path to the project file. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddProject-Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot,System-String-'></a>
 ### AddProject(solution,projectFilePath) `method`
@@ -22860,7 +22860,7 @@ Solution updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solution | [Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot') | The current solution. |
-| projectFilePath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A relative or absolute path to the project file. |
+| projectFilePath | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A relative or absolute path to the project file. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddProject-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionFolderSnapshot},System-String-'></a>
 ### AddProject(solutionFolders,projectFilePath) `method`
@@ -22878,7 +22878,7 @@ Solution folders updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutionFolders | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionFolderSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionFolderSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionFolderSnapshot}') | A query to retrieve the solution folder. |
-| projectFilePath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A relative or absolute path to the project file. |
+| projectFilePath | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A relative or absolute path to the project file. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddProjectReference-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot-'></a>
 ### AddProjectReference(projects,referencedProject) `method`
@@ -22914,7 +22914,7 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects where this change should apply to. |
-| referencedProjectPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The path of a project to be referenced. |
+| referencedProjectPath | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The path of a project to be referenced. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddProjectReferences-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},System-Collections-Generic-IEnumerable{System-String}-'></a>
 ### AddProjectReferences(projects,referencedProjectPaths) `method`
@@ -22932,7 +22932,7 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects where this change should apply to. |
-| referencedProjectPaths | [System.Collections.Generic.IEnumerable{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | The paths of a project to be referenced. |
+| referencedProjectPaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.String}') | The paths of a project to be referenced. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddReference-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectConfigurationSnapshot},System-String-'></a>
 ### AddReference(project,assemblyNameOrPath) `method`
@@ -22950,7 +22950,7 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | project | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectConfigurationSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectConfigurationSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectConfigurationSnapshot}') | A set of projects where this change should apply to. |
-| assemblyNameOrPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the assembly or the path of the assembly. |
+| assemblyNameOrPath | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the assembly or the path of the assembly. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddReferences-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectConfigurationSnapshot},System-Collections-Generic-IEnumerable{System-String}-'></a>
 ### AddReferences(project,assemblyNameOrPaths) `method`
@@ -22968,7 +22968,7 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | project | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectConfigurationSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectConfigurationSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectConfigurationSnapshot}') | A set of projects where this change should apply to. |
-| assemblyNameOrPaths | [System.Collections.Generic.IEnumerable{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | The name of the assembly or the path of the assembly. |
+| assemblyNameOrPaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.String}') | The name of the assembly or the path of the assembly. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddSharedProjectReference-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot-'></a>
 ### AddSharedProjectReference(projects,referencedProject) `method`
@@ -23004,7 +23004,7 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects where this change should apply to. |
-| referencedProjectPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The path of a shared project to be referenced. |
+| referencedProjectPath | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The path of a shared project to be referenced. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddSharedProjectReferences-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},System-Collections-Generic-IEnumerable{System-String}-'></a>
 ### AddSharedProjectReferences(projects,referencedProjectPaths) `method`
@@ -23022,7 +23022,7 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects where this change should apply to. |
-| referencedProjectPaths | [System.Collections.Generic.IEnumerable{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | The paths of a shared project to be referenced. |
+| referencedProjectPaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.String}') | The paths of a shared project to be referenced. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-BuildAsync-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},System-Threading-CancellationToken-'></a>
 ### BuildAsync(solutions,cancellationToken) `method`
@@ -23040,7 +23040,7 @@ A task which is completed when the operation is completed.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutions | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}') | A collection of solutions. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the operation. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the operation. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-CleanAsync-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},System-Threading-CancellationToken-'></a>
 ### CleanAsync(solutions,cancellationToken) `method`
@@ -23058,7 +23058,7 @@ A task which is completed when the operation is completed.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutions | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}') | A collection of solutions. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the operation. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the operation. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-CreateFile-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},System-String,System-String,System-String-'></a>
 ### CreateFile(projects,itemPath,content,itemType) `method`
@@ -23076,9 +23076,9 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects where this change should apply to. |
-| itemPath | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The path of the new item (relative path to the project root folder). |
-| content | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The initial content of the file. |
-| itemType | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The item type of the new file. |
+| itemPath | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The path of the new item (relative path to the project root folder). |
+| content | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The initial content of the file. |
+| itemType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The item type of the new file. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-CreateSolutionFolder-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},System-String-'></a>
 ### CreateSolutionFolder(solutions,name) `method`
@@ -23096,7 +23096,7 @@ Solution updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutions | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}') | A query to retrieve solutions. |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the new solution folder. |
+| name | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the new solution folder. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-CreateSolutionFolder-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionFolderSnapshot},System-String-'></a>
 ### CreateSolutionFolder(solutionFolders,name) `method`
@@ -23114,7 +23114,7 @@ Solution folders updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutionFolders | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionFolderSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionFolderSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionFolderSnapshot}') | A query to retrieve solution folders. |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the new solution folder. |
+| name | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the new solution folder. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-DebugLaunchAsync-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},System-Threading-CancellationToken-'></a>
 ### DebugLaunchAsync(solutions,cancellationToken) `method`
@@ -23132,7 +23132,7 @@ A task which is completed when the operation is completed.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutions | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}') | A collection of solutions. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the operation. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the operation. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-Delete-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectReferenceSnapshot}-'></a>
 ### Delete(projectReferences) `method`
@@ -23229,8 +23229,8 @@ Deletes a value from a configuration dimension.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects to be updated with the new configuration dimension. |
-| dimensionName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The [ConfigurationDimensionNames](#T-Microsoft-VisualStudio-ProjectSystem-Query-ConfigurationDimensionNames 'Microsoft.VisualStudio.ProjectSystem.Query.ConfigurationDimensionNames') to delete the value from. |
-| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The value to be deleted. |
+| dimensionName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The [ConfigurationDimensionNames](#T-Microsoft-VisualStudio-ProjectSystem-Query-ConfigurationDimensionNames 'Microsoft.VisualStudio.ProjectSystem.Query.ConfigurationDimensionNames') to delete the value from. |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The value to be deleted. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-DeployAsync-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},System-Threading-CancellationToken-'></a>
 ### DeployAsync(solutions,cancellationToken) `method`
@@ -23248,7 +23248,7 @@ A task which is completed when the operation is completed.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutions | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}') | A collection of solutions. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the operation. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the operation. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-DuplicateLaunchProfile-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},System-String,System-String,System-String-'></a>
 ### DuplicateLaunchProfile(projects,currentProfileName,newProfileName,newProfileCommandName) `method`
@@ -23262,10 +23262,10 @@ Duplicates an existing launch profile.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects to be updated with the new profile. |
-| currentProfileName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the profile to duplicate. |
-| newProfileName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the new profile, or `null` if a default name should
+| currentProfileName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the profile to duplicate. |
+| newProfileName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the new profile, or `null` if a default name should
 be provided. |
-| newProfileCommandName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The debugger command name to associate with the new profile, or `null`
+| newProfileCommandName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The debugger command name to associate with the new profile, or `null`
 if the command should be copied from the existing profile. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-Exclude-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot}-'></a>
@@ -23335,7 +23335,7 @@ A task which is completed when the operation is completed.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutions | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}') | A collection of solutions. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the operation. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the operation. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-RebuildAsync-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},System-Threading-CancellationToken-'></a>
 ### RebuildAsync(solutions,cancellationToken) `method`
@@ -23353,7 +23353,7 @@ A task which is completed when the operation is completed.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutions | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}') | A collection of solutions. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the operation. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the operation. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-RemoveLaunchProfile-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},System-String-'></a>
 ### RemoveLaunchProfile(projects,profileName) `method`
@@ -23367,7 +23367,7 @@ Removes an existing launch profile.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects from which to remove the profile. |
-| profileName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the profile to remove. |
+| profileName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the profile to remove. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-RenameLaunchProfile-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},System-String,System-String-'></a>
 ### RenameLaunchProfile(projects,currentProfileName,newProfileName) `method`
@@ -23381,8 +23381,8 @@ Renames an existing launch profile.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects to be updated with the renamed profile. |
-| currentProfileName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The current name of the profile. |
-| newProfileName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The new name of the profile. |
+| currentProfileName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The current name of the profile. |
+| newProfileName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The new name of the profile. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-RenameSolutionFolder-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},System-String,System-String-'></a>
 ### RenameSolutionFolder(solutions,oldName,newName) `method`
@@ -23400,8 +23400,8 @@ Solution updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutions | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}') | A query to retrieve solutions. |
-| oldName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The current name of the solution folder. |
-| newName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The new name of the new solution folder. |
+| oldName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The current name of the solution folder. |
+| newName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The new name of the new solution folder. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-RunCustomTool-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-IFileSnapshot}-'></a>
 ### RunCustomTool(files) `method`
@@ -23436,7 +23436,7 @@ A task which is completed when the operation is completed.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | files | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IFileSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-IFileSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IFileSnapshot}') | A collection of the source files. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the operation. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the operation. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-RunCustomToolAsync-Microsoft-VisualStudio-ProjectSystem-Query-IFileSnapshot,System-Threading-CancellationToken-'></a>
 ### RunCustomToolAsync(file,cancellationToken) `method`
@@ -23454,7 +23454,7 @@ A task which is completed when the operation is completed.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | file | [Microsoft.VisualStudio.ProjectSystem.Query.IFileSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-IFileSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.IFileSnapshot') | A single source file. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the operation. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the operation. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-SaveAsync-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},System-Threading-CancellationToken-'></a>
 ### SaveAsync(projects,cancellationToken) `method`
@@ -23472,7 +23472,7 @@ A task to complete when the operation is done, and returns the set of projects t
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects to be saved. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the operation. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the operation. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-SaveAsync-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot,System-Threading-CancellationToken-'></a>
 ### SaveAsync(project,cancellationToken) `method`
@@ -23490,7 +23490,7 @@ A task to finish when the project is saved.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | project | [Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot') | A project to be saved. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the operation. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the operation. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-SetBuildPropertyValue-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectConfigurationSnapshot},System-String,System-String,System-String-'></a>
 ### SetBuildPropertyValue(configurations,name,value,storageType) `method`
@@ -23508,9 +23508,9 @@ A set of project updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | configurations | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectConfigurationSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectConfigurationSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectConfigurationSnapshot}') | A set of project configurations to be updated. |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the property. |
-| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The new value of the property. |
-| storageType | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The storage type for file persistence. |
+| name | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the property. |
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The new value of the property. |
+| storageType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The storage type for file persistence. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-SetCopyToLocal-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectReferenceSnapshot},System-Boolean-'></a>
 ### SetCopyToLocal(projectReferences,copyLocal) `method`
@@ -23528,7 +23528,7 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projectReferences | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectReferenceSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectReferenceSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectReferenceSnapshot}') | A set of projects references where this change should apply to. |
-| copyLocal | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | A flag to determine copy to local. |
+| copyLocal | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | A flag to determine copy to local. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-SetCopyToLocal-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IAssemblyReferenceSnapshot},System-Boolean-'></a>
 ### SetCopyToLocal(projectReferences,copyLocal) `method`
@@ -23546,7 +23546,7 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projectReferences | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IAssemblyReferenceSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IAssemblyReferenceSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IAssemblyReferenceSnapshot}') | A set of projects references where this change should apply to. |
-| copyLocal | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | A flag to determine copy to local. |
+| copyLocal | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | A flag to determine copy to local. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-SetEvaluatedUIPropertyValue-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},System-String,System-String,System-Collections-ObjectModel-ReadOnlyCollection{Microsoft-VisualStudio-ProjectSystem-Query-Framework-Actions-ConfigurationDimensionValue},System-Object-'></a>
 ### SetEvaluatedUIPropertyValue(projects,page,name,dimensions,value) `method`
@@ -23564,11 +23564,11 @@ The set of updated projects.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects to update with the new value. |
-| page | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the page containing the property. |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the property to set. |
-| dimensions | [System.Collections.ObjectModel.ReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.Framework.Actions.ConfigurationDimensionValue}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.ObjectModel.ReadOnlyCollection 'System.Collections.ObjectModel.ReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.Framework.Actions.ConfigurationDimensionValue}') | A set of (dimension, value) pairs used to select which project configurations
+| page | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the page containing the property. |
+| name | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the property to set. |
+| dimensions | [System.Collections.ObjectModel.ReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.Framework.Actions.ConfigurationDimensionValue}](https://learn.microsoft.com/dotnet/api/System.Collections.ObjectModel.ReadOnlyCollection-1 'System.Collections.ObjectModel.ReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.Framework.Actions.ConfigurationDimensionValue}') | A set of (dimension, value) pairs used to select which project configurations
 the new value is applied to. |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The new value for the property. May be null to indicate that the property
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The new value for the property. May be null to indicate that the property
 should be removed entirely and/or reset to a default value. |
 
 ##### Remarks
@@ -23590,8 +23590,8 @@ Sets the value of a property exposed through the launch profiles.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | profiles | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ILaunchProfileSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ILaunchProfileSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ILaunchProfileSnapshot}') | A set of profiles to be updated with the new value. |
-| propertyName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the property to update. |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The new value for the property. May be null to indicate that the property
+| propertyName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the property to update. |
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The new value for the property. May be null to indicate that the property
 should be reset to a default value. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-SetName-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionFolderSnapshot},System-String-'></a>
@@ -23610,7 +23610,7 @@ Solution folders updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutionFolders | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionFolderSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionFolderSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionFolderSnapshot}') | A query to retrieve solution folders. |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name to set the solution folders to. |
+| name | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name to set the solution folders to. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-SetPackageReferenceVersion-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},System-String,System-String-'></a>
 ### SetPackageReferenceVersion(projects,packageIdentity,version) `method`
@@ -23628,8 +23628,8 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects where this change should apply to. |
-| packageIdentity | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The identity of the package reference to be updated. |
-| version | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The updated version of the package reference. |
+| packageIdentity | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The identity of the package reference to be updated. |
+| version | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The updated version of the package reference. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-SetPropertyValue-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},System-String,System-Object-'></a>
 ### SetPropertyValue(projects,name,value) `method`
@@ -23647,8 +23647,8 @@ A set of project updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects to be updated. |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the property. |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The new value of the property. |
+| name | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the property. |
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The new value of the property. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-SetPropertyValue-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectConfigurationSnapshot},System-String,System-Object-'></a>
 ### SetPropertyValue(configurations,name,value) `method`
@@ -23666,8 +23666,8 @@ A set of project updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | configurations | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectConfigurationSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectConfigurationSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectConfigurationSnapshot}') | A set of project configurations to be updated. |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the property. |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The new value of the property. |
+| name | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the property. |
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The new value of the property. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-SetPropertyValue-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IFileSnapshot},System-String,System-Object-'></a>
 ### SetPropertyValue(files,name,value) `method`
@@ -23685,8 +23685,8 @@ A set of project updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | files | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IFileSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IFileSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IFileSnapshot}') | A set of source file item to be updated. |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the property. |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The new value of the property. |
+| name | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the property. |
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The new value of the property. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-SetPropertyValue-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},System-String,System-Object-'></a>
 ### SetPropertyValue(solutions,name,value) `method`
@@ -23704,8 +23704,8 @@ A set of solutions updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutions | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}') | A set of solutions to be updated. |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the property. |
-| value | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | The new value of the property. |
+| name | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the property. |
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The new value of the property. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-SetUnevaluatedUIPropertyValue-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},System-String,System-String,System-Collections-ObjectModel-ReadOnlyCollection{Microsoft-VisualStudio-ProjectSystem-Query-Framework-Actions-ConfigurationDimensionValue},System-String-'></a>
 ### SetUnevaluatedUIPropertyValue(projects,page,name,dimensions,value) `method`
@@ -23723,11 +23723,11 @@ The set of updated projects.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects to update with the new value. |
-| page | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the page containing the property. |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the property to set. |
-| dimensions | [System.Collections.ObjectModel.ReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.Framework.Actions.ConfigurationDimensionValue}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.ObjectModel.ReadOnlyCollection 'System.Collections.ObjectModel.ReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.Framework.Actions.ConfigurationDimensionValue}') | A set of (dimension, value) pairs used to select which project configurations
+| page | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the page containing the property. |
+| name | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the property to set. |
+| dimensions | [System.Collections.ObjectModel.ReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.Framework.Actions.ConfigurationDimensionValue}](https://learn.microsoft.com/dotnet/api/System.Collections.ObjectModel.ReadOnlyCollection-1 'System.Collections.ObjectModel.ReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.Framework.Actions.ConfigurationDimensionValue}') | A set of (dimension, value) pairs used to select which project configurations
 the new value is applied to. |
-| value | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The new value for the property. May be null to indicate that the property
+| value | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The new value for the property. May be null to indicate that the property
 should be removed entirely and/or reset to a default value. |
 
 ##### Remarks
@@ -23753,7 +23753,7 @@ A task to finish when the intellisense stage of the solution is ready.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutions | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}') | A collection of solutions. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the execution. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the execution. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-WaitIntellisenseReadyAsync-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},System-Threading-CancellationToken-'></a>
 ### WaitIntellisenseReadyAsync(projects,cancellationToken) `method`
@@ -23771,7 +23771,7 @@ A task which will be completed when the intellisense stage of projects are ready
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A collection of projects. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the execution. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the execution. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-WaitIntellisenseReadyAsync-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot,System-Threading-CancellationToken-'></a>
 ### WaitIntellisenseReadyAsync(project,cancellationToken) `method`
@@ -23789,7 +23789,7 @@ A task which will be completed when the intellisense stage of projects are ready
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | project | [Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot') | A project. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the execution. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the execution. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-UpdateResults`1'></a>
 ## UpdateResults\`1 `type`
@@ -23921,7 +23921,7 @@ The value.
 | ---- | ---- | ----------- |
 | jsonReader | [Newtonsoft.Json.JsonReader](#T-Newtonsoft-Json-JsonReader 'Newtonsoft.Json.JsonReader') | JsonReader |
 | valueMetadata | [Microsoft.VisualStudio.ProjectSystem.Query.ValueTypes.IValueTypeMetadata](#T-Microsoft-VisualStudio-ProjectSystem-Query-ValueTypes-IValueTypeMetadata 'Microsoft.VisualStudio.ProjectSystem.Query.ValueTypes.IValueTypeMetadata') | Additional metadata sometime necessary to know how to construct value correctly. |
-| onTheFirstToken | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether the first has already been read. |
+| onTheFirstToken | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether the first has already been read. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-Actions-WaitIntellisenseReady'></a>
 ## WaitIntellisenseReady `type`

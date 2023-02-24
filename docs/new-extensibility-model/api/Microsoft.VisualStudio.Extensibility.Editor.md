@@ -93,10 +93,10 @@ Initializes a new instance of [EditResponse](#T-Microsoft-VisualStudio-Extensibi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| succeeded | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | `true` if the cumulative operation completed successfully. |
-| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Any cumulative error message, `null`, or [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') if none. |
-| documentEditResults | [System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot,Microsoft.VisualStudio.Extensibility.Editor.TextDocumentSnapshotEditResponse}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyDictionary 'System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot,Microsoft.VisualStudio.Extensibility.Editor.TextDocumentSnapshotEditResponse}') |  |
-| textViewEditResults | [System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot,Microsoft.VisualStudio.Extensibility.Editor.TextViewEditResponse}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyDictionary 'System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot,Microsoft.VisualStudio.Extensibility.Editor.TextViewEditResponse}') | Per-document operation results including per document errors and updated [ITextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot')
+| succeeded | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | `true` if the cumulative operation completed successfully. |
+| message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Any cumulative error message, `null`, or [Empty](https://learn.microsoft.com/dotnet/api/System.String.Empty 'System.String.Empty') if none. |
+| documentEditResults | [System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot,Microsoft.VisualStudio.Extensibility.Editor.TextDocumentSnapshotEditResponse}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyDictionary-2 'System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot,Microsoft.VisualStudio.Extensibility.Editor.TextDocumentSnapshotEditResponse}') |  |
+| textViewEditResults | [System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot,Microsoft.VisualStudio.Extensibility.Editor.TextViewEditResponse}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyDictionary-2 'System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot,Microsoft.VisualStudio.Extensibility.Editor.TextViewEditResponse}') | Per-document operation results including per document errors and updated [ITextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot')
 versions. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Editor-EditResponse-DocumentEditResults'></a>
@@ -117,7 +117,7 @@ Key of dictionary is the version of the document prior to the edits.
 
 ##### Summary
 
-Any cumulative error message, `null`, or [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') if none.
+Any cumulative error message, `null`, or [Empty](https://learn.microsoft.com/dotnet/api/System.String.Empty 'System.String.Empty') if none.
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Editor-EditResponse-Succeeded'></a>
 ### Succeeded `property`
@@ -183,8 +183,8 @@ A response object detailing whether the operation was successful and which [ITex
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| editorSource | [System.Action{Microsoft.VisualStudio.Extensibility.Editor.IEditBatch}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Action 'System.Action{Microsoft.VisualStudio.Extensibility.Editor.IEditBatch}') | A service for obtaining editors for requesting changes to a [IEditable\`1](#T-Microsoft-VisualStudio-Extensibility-Editor-IEditable`1 'Microsoft.VisualStudio.Extensibility.Editor.IEditable`1') object, such as [ITextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot'). |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancels a pending request. |
+| editorSource | [System.Action{Microsoft.VisualStudio.Extensibility.Editor.IEditBatch}](https://learn.microsoft.com/dotnet/api/System.Action 'System.Action{Microsoft.VisualStudio.Extensibility.Editor.IEditBatch}') | A service for obtaining editors for requesting changes to a [IEditable\`1](#T-Microsoft-VisualStudio-Extensibility-Editor-IEditable`1 'Microsoft.VisualStudio.Extensibility.Editor.IEditable`1') object, such as [ITextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot'). |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancels a pending request. |
 
 ##### Remarks
 
@@ -212,7 +212,7 @@ An instance of [ITextViewSnapshot](#T-Microsoft-VisualStudio-Extensibility-Edito
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | clientContext | [Microsoft.VisualStudio.Extensibility.IClientContext](#T-Microsoft-VisualStudio-Extensibility-IClientContext 'Microsoft.VisualStudio.Extensibility.IClientContext') | The client context, usually passed to command handlers. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancels the request. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancels the request. |
 
 ##### Remarks
 
@@ -322,7 +322,7 @@ An [IRemoteUserControl](#T-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteU
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | textView | [Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextViewSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot') |  |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress content creation. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress content creation. |
 
 <a name='T-Microsoft-VisualStudio-RpcContracts-Editor-ITextViewMarginProviderContract'></a>
 ## ITextViewMarginProviderContract `type`
@@ -572,7 +572,7 @@ Creates a new instance of [TextViewChangedArgs](#T-Microsoft-VisualStudio-Extens
 | ---- | ---- | ----------- |
 | beforeTextView | [Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextViewSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot') | The state of the [ITextViewSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextViewSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot') before the change. |
 | afterTextView | [Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextViewSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot') | The state of the [ITextViewSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextViewSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot') after. |
-| edits | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Extensibility.Editor.TextEdit}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Extensibility.Editor.TextEdit}') | A list of changes applied to the text document. |
+| edits | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Extensibility.Editor.TextEdit}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList-1 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Extensibility.Editor.TextEdit}') | A list of changes applied to the text document. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Editor-TextViewChangedArgs-AfterTextView'></a>
 ### AfterTextView `property`
