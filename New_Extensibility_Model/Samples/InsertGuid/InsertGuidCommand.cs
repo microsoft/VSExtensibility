@@ -1,13 +1,14 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-namespace Microsoft.VisualStudio.Gladstone.InsertGuid;
+namespace InsertGuid;
 
 using System;
 using System.Diagnostics;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Commands;
 
@@ -31,7 +32,7 @@ internal class InsertGuidCommand : Command
 	}
 
 	/// <inheritdoc />
-	public override CommandConfiguration CommandConfiguration => new("%InsertGuidCommand.DisplayName%")
+	public override CommandConfiguration CommandConfiguration => new("%InsertGuid.InsertGuidCommand.DisplayName%")
 	{
 		Placements = new[] { CommandPlacement.KnownPlacements.ExtensionsMenu },
 		Icon = new(ImageMoniker.KnownValues.OfficeWebExtension, IconSettings.IconAndText),

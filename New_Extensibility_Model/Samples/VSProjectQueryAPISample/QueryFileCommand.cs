@@ -27,7 +27,7 @@ public class QueryFileCommand : Command
 	}
 
 	/// <inheritdoc />
-	public override CommandConfiguration CommandConfiguration => new("%QueryFileCommand.DisplayName%")
+	public override CommandConfiguration CommandConfiguration => new("%VSProjectQueryAPISample.QueryFileCommand.DisplayName%")
 	{
 		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
 		Icon = new(ImageMoniker.KnownValues.Extension, IconSettings.IconAndText),

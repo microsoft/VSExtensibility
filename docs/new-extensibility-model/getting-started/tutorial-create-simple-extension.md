@@ -47,7 +47,7 @@ The argument to the `CommandConfiguration` constructor is the command's display 
 1. Add the `Icon` property.
 
 ```csharp
-public override CommandConfiguration CommandConfiguration => new("%InsertGuidCommand.isplayName%")
+public override CommandConfiguration CommandConfiguration => new("%InsertGuidCommand.DisplayName%")
 {
     Placements = new[] { CommandPlacement.KnownPlacements.ExtensionsMenu },
     Icon = new(ImageMoniker.KnownValues.OfficeWebExtension, IconSettings.IconAndText),
@@ -59,7 +59,7 @@ You can specify a known built-in icon, in this case `OfficeWebExtension`, or upl
 1. Add the `VisibleWhen` property which specifies the conditions that must apply for the item to appear to the user.
 
 ```csharp
-public override CommandConfiguration CommandConfiguration => new("%InsertGuidCommand.isplayName%")
+public override CommandConfiguration CommandConfiguration => new("%InsertGuidCommand.DisplayName%")
 {
     Placements = new[] { CommandPlacement.KnownPlacements.ExtensionsMenu },
     Icon = new(ImageMoniker.KnownValues.OfficeWebExtension, IconSettings.IconAndText),

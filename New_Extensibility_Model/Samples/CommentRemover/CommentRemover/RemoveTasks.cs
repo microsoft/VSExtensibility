@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 [VisualStudioContribution]
 internal class RemoveTasks : CommentRemoverCommand
 {
-	private const string CommandDescription = "%RemoveTasks.DisplayName%";
+	private const string CommandDescription = "%CommentRemover.RemoveTasks.DisplayName%";
 
 	public RemoveTasks(
 		VisualStudioExtensibility extensibility,

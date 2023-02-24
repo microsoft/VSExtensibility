@@ -1,32 +1,32 @@
 ﻿<Project Sdk="Microsoft.VisualStudio.Sdk.Build/17.5.4065">
-  <PropertyGroup>
-    <TargetFramework>net472</TargetFramework>
-    <TargetVsixContainerName>CommentRemover.vsix</TargetVsixContainerName>
+	<PropertyGroup>
+		<TargetFramework>net472</TargetFramework>
+		<TargetVsixContainerName>CommentRemover.vsix</TargetVsixContainerName>
 
-    <GeneratePkgDefFile>false</GeneratePkgDefFile>
-    <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>
-    <IncludeDebugSymbolsInVSIXContainer>false</IncludeDebugSymbolsInVSIXContainer>
-    <IncludeDebugSymbolsInLocalVSIXDeployment>false</IncludeDebugSymbolsInLocalVSIXDeployment>
-    <CopyOutputSymbolsToOutputDirectory>false</CopyOutputSymbolsToOutputDirectory>
+		<GeneratePkgDefFile>false</GeneratePkgDefFile>
+		<IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>
+		<IncludeDebugSymbolsInVSIXContainer>false</IncludeDebugSymbolsInVSIXContainer>
+		<IncludeDebugSymbolsInLocalVSIXDeployment>false</IncludeDebugSymbolsInLocalVSIXDeployment>
+		<CopyOutputSymbolsToOutputDirectory>false</CopyOutputSymbolsToOutputDirectory>
 
-    <StartAction>Program</StartAction>
-    <StartProgram Condition="'$(DevEnvDir)' != ''">$(DevEnvDir)devenv.exe</StartProgram>
-    <StartArguments>/rootsuffix Exp</StartArguments>
-  </PropertyGroup>
+		<StartAction>Program</StartAction>
+		<StartProgram Condition="'$(DevEnvDir)' != ''">$(DevEnvDir)devenv.exe</StartProgram>
+		<StartArguments>/rootsuffix Exp</StartArguments>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Content Include="..\LICENSE">
-      <Link>Resources\LICENSE</Link>
-    </Content>
-    <Content Include="Resources\Icon.png" />
-    <Content Include="Resources\Preview.png" />
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="..\LICENSE">
+			<Link>Resources\LICENSE</Link>
+		</Content>
+		<Content Include="Resources\Icon.png" />
+		<Content Include="Resources\Preview.png" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\CommentRemover\CommentRemover.csproj">
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <IncludeInVSIX>true</IncludeInVSIX>
-      <IncludeOutputGroupsInVSIX>DeploymentAssetsOutputGroup</IncludeOutputGroupsInVSIX>
-    </ProjectReference>
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\CommentRemover\CommentRemover.csproj">
+			<ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+			<IncludeInVSIX>true</IncludeInVSIX>
+			<IncludeOutputGroupsInVSIX>DeploymentAssetsOutputGroup</IncludeOutputGroupsInVSIX>
+		</ProjectReference>
+	</ItemGroup>
 </Project>

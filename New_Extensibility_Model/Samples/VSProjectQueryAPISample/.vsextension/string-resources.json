@@ -1,7 +1,7 @@
 {
-	"AddFileCommand.DisplayName": "Add File",
-	"QueryFileCommand.DisplayName": "Query File",
-	"QueryOutputGroupByIdCommand.DisplayName": "Query Output Group by ID",
-	"QueryOutputGroupByNameCommand.DisplayName": "Query Output Group by Name",
-	"QueryOutputGroupByProjectCommand.DisplayName": "Query Output Group by Project"
+	"VSProjectQueryAPISample.AddFileCommand.DisplayName": "Add File",
+	"VSProjectQueryAPISample.QueryFileCommand.DisplayName": "Query File",
+	"VSProjectQueryAPISample.QueryOutputGroupByIdCommand.DisplayName": "Query Output Group by ID",
+	"VSProjectQueryAPISample.QueryOutputGroupByNameCommand.DisplayName": "Query Output Group by Name",
+	"VSProjectQueryAPISample.QueryOutputGroupByProjectCommand.DisplayName": "Query Output Group by Project"
 }

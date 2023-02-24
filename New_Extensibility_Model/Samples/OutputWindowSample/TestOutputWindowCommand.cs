@@ -31,7 +31,8 @@ public class TestOutputWindowCommand : Command
 	{
 	}
 
-	public override CommandConfiguration CommandConfiguration => new("%TestOutputWindowCommand.DisplayName%")
+	/// <inheritdoc />
+	public override CommandConfiguration CommandConfiguration => new("%OutputWindowSample.TestOutputWindowCommand.DisplayName%")
 	{
 		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
 		Icon = new(ImageMoniker.KnownValues.ToolWindow, IconSettings.IconAndText),

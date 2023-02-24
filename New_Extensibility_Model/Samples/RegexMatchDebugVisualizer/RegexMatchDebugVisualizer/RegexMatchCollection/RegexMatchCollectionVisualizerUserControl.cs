@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-namespace Microsoft.VisualStudio.Gladstone.RegexMatchVisualizer;
+namespace RegexMatchVisualizer;
 
 using System;
 using System.Collections.ObjectModel;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.DebuggerVisualizers;
 using Microsoft.VisualStudio.Extensibility.UI;
-using Microsoft.VisualStudio.Gladstone.RegexMatchVisualizer.ObjectSource;
+using RegexMatchVisualizer.ObjectSource;
 
 /// <summary>
 /// Remote user control to visualize the <see cref="Match"/> value.

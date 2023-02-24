@@ -23,7 +23,7 @@ The `VisualStudioContribution` attribute registers the command using the class f
 The `CommandConfiguration` property defines information about the command that are available to Visual Studio even before the extension is loaded:
 
 ```csharp
-    public override CommandConfiguration CommandConfiguration => new    ("%InsertGuidCommand.DisplayName%")
+    public override CommandConfiguration CommandConfiguration => new("%InsertGuid.InsertGuidCommand.DisplayName%")
     {
         Placements = new[] { CommandPlacement.KnownPlacements.ExtensionsMenu },
         Icon = new(ImageMoniker.KnownValues.OfficeWebExtension, IconSettings.    IconAndText),

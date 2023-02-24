@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 [VisualStudioContribution]
 internal class RemoveXmlDocComments : CommentRemoverCommand
 {
-	private const string CommandDescription = "%RemoveXmlDocComments.DisplayName%";
+	private const string CommandDescription = "%CommentRemover.RemoveXmlDocComments.DisplayName%";
 
 	public RemoveXmlDocComments(
 		VisualStudioExtensibility extensibility,
