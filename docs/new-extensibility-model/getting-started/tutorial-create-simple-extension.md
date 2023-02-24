@@ -7,15 +7,15 @@ date: 2022-2-6
 
 In [Create your first extension](create-your-first-extension.md), you learned how to use the VisualStudio.Extensibility project template to create an extension project, and learned how to build it and debug it in the experimental instance of Visual Studio.
 
-In this tutorial, you'll learn how to create an extension with a simple command that does something in the [Visual Studio editor](../editor/editor.md). In this case, it inserts a newly generated GUID. You'll also see how to tell Visual Studio what file types the GUID extension is enabled for, and how to make the new command show up as a toolbar or menu item.
+In this tutorial, you'll learn how to create an extension with a simple command that does something in the [Visual Studio editor](../extension-guides/editor/editor.md). In this case, it inserts a newly generated GUID. You'll also see how to tell Visual Studio what file types the GUID extension is enabled for, and how to make the new command show up as a toolbar or menu item.
 
-The completed sample for this tutorial may be found [here](~/New-Extensibility-Model/Samples.InsertGuidExtension).
+The completed sample for this tutorial may be found [here](../../../New-Extensibility-Model/InsertGuid).
 
 The tutorial contains the following steps:
 
 - [Create a simple extension](#create-a-simple-extension)
-  - [Configure the command](#configure-the-command)
-  - [Create the execution method](#create-the-execution-method)
+- [Configure the command](#configure-the-command)
+- [Create the execution method](#create-the-execution-method)
 
 ## Configure the command
 
@@ -123,6 +123,6 @@ await this.Extensibility.Editor().EditAsync(
 
 You could think of this call as specifying the code that you want to be run in the Visual Studio editor process. The lambda expression specifies what you want changed in the editor. The `batch` is of type `IEditBatch` and this implies that the lambda expression defined here makes a small set of changes that should be accomplished as a unit, rather than being interrupted by other edits by the user or language service. If the code executes too long, that can lead to unresponsiveness, so it's important to keep changes within this lambda expression limited and understand anything that could lead to delays.
 
-Using the `AsEditable` method on the document, you get a temporary editor object that you can use to specify the desired changes. Think of everything in the lambda expression as a request for Visual Studio to execute rather than as actually executing, because as described in the [Editor overview](../editor/editor.md), there's a particular protocol for handling these asynchronous edit requests from extensions, and there's a possibility of the changes not being accepted, such as if the user is making changes at the same time that create a conflict.
+Using the `AsEditable` method on the document, you get a temporary editor object that you can use to specify the desired changes. Think of everything in the lambda expression as a request for Visual Studio to execute rather than as actually executing, because as described in the [Editor overview](../extension-guides/editor/editor.md), there's a particular protocol for handling these asynchronous edit requests from extensions, and there's a possibility of the changes not being accepted, such as if the user is making changes at the same time that create a conflict.
 
 The `EditAsync` pattern can be used to modify text in general by specifying your modifications after the "specify your desired changes here" comment.

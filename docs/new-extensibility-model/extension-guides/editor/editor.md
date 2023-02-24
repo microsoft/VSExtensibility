@@ -100,7 +100,7 @@ DocumentTypes are hierarchical. That is, C# and C++ both descend from "code", so
 
 ### Define a new document type
 
-You can define a new document type, for example to support a custom code language, by adding a static [`DocumentTypeConfiguration`](/../../api/Microsoft.VisualStudio.Extensibility.Contracts.md#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeConfiguration) property to any class in the extension project, and marking the property with the `[VisualStudioContribution]` attribute.
+You can define a new document type, for example to support a custom code language, by adding a static [`DocumentTypeConfiguration`](../../api/Microsoft.VisualStudio.Extensibility.Contracts.md#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeConfiguration) property to any class in the extension project, and marking the property with the `[VisualStudioContribution]` attribute.
 
 `DocumentTypeConfiguration` allows you to define a new document type, specify that it inherits one or more other document types, and specify one or more file extensions that are used to identify the file type:
 
@@ -183,7 +183,7 @@ EditorExtensibility editorService = this.Extensibility.Editor();
 using ITextViewSnapshot textView = await this.Extensibility.Editor().GetActiveTextViewAsync(clientContext, cancellationToken);
 ```
 
-Once you have `ITextViewSnapshot`, you can access editor state. `ITextViewSnapshot` is an immutable view of editor state at a point in time, so you'll need to use the other interfaces in the [Editor object model](editor-object-model.md) to make edits.
+Once you have `ITextViewSnapshot`, you can access editor state. `ITextViewSnapshot` is an immutable view of editor state at a point in time, so you'll need to use the other interfaces in the [Editor object model](editor-concepts.md) to make edits.
 
 ## Make changes in a text document from an extension
 

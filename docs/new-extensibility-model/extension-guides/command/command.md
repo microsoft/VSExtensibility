@@ -238,7 +238,7 @@ public class MyCommand : Command
 
 ## Next steps
 
-- Follow the [create the project](../getting-started/create-your-first-extension.md) section in Getting Started section.
+- Follow the [create the project](../../getting-started/create-your-first-extension.md) section in Getting Started section.
 - Explore the documentation for configuring [Menus and Toolbars](menus-and-toolbars.md)
-- Next, see the [InsertGuidSample](./../../../../New_Extensibility_Model/Samples/InsertGuidExtension) sample for a more complete look at creating an extension with a command.
-- See an example of registering a command at [CommandRegistrationsSample](./../../../../New_Extensibility_Model/Samples/CommandRegistrationsSample/README.md).
+- Next, see the [InsertGuidSample](./../../../../New_Extensibility_Model/Samples/InsertGuid) sample for a more complete look at creating an extension with a command.
+- See an example of parenting a command at [CommandParentingSample](./../../../../New_Extensibility_Model/Samples/CommandParentingSample/).
