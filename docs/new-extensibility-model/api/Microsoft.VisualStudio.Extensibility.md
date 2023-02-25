@@ -746,7 +746,7 @@ a Task indicating completion of the task.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| command | [T:Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync](#T-T-Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync 'T:Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync') | Command instance being executed. |
+| command | [Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync](#T-T-Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync 'Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync') | Command instance being executed. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-CommandRemovedEventArgs'></a>
 ## CommandRemovedEventArgs `type`
@@ -2008,8 +2008,7 @@ task is an object which, when disposed, will remove the event listener.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | listener | [Microsoft.VisualStudio.RpcContracts.Documents.IDocumentEventsListener](#T-Microsoft-VisualStudio-RpcContracts-Documents-IDocumentEventsListener 'Microsoft.VisualStudio.RpcContracts.Documents.IDocumentEventsListener') | The event listener. |
-| filterRegex | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | An optional regular expression string used to filter events.  If this string is not `null` and
-not empty, then events will only be raised for documents whose monikers match the regular expression. |
+| filterRegex | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | An optional regular expression string used to filter events.  If this string is not `null` and not empty, then events will only be raised for documents whose monikers match the regular expression. |
 | token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 ##### Remarks
@@ -2853,16 +2852,14 @@ Initializes the attribute with the specified return value condition.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition.
-    If the method returns this value, the associated parameter may be `null`. |
+| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value, the associated parameter may be `null`. |
 
 <a name='P-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-ReturnValue'></a>
 ### ReturnValue `property`
 
 ##### Summary
 
-Gets the return value condition.
-    If the method returns this value, the associated parameter may be `null`.
+Gets the return value condition. If the method returns this value, the associated parameter may be `null`.
 
 <a name='T-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute'></a>
 ## MemberNotNullAttribute `type`
@@ -2873,8 +2870,7 @@ System.Diagnostics.CodeAnalysis
 
 ##### Summary
 
-Specifies that the method or property will ensure that the listed field and property members have
-    not-`null` values.
+Specifies that the method or property will ensure that the listed field and property members have not-`null` values.
 
 <a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-#ctor-System-String-'></a>
 ### #ctor(member) `constructor`

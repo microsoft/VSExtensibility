@@ -5630,7 +5630,7 @@ True, if the key is valid.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | key | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the key. |
-| value | [System.String@](https://learn.microsoft.com/dotnet/api/System.String@ 'System.String@') | The output of the value. |
+| value | [System.String@](https://learn.microsoft.com/dotnet/api/System.String 'System.String@') | The output of the value. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity-WriteToJson-Newtonsoft-Json-JsonWriter-'></a>
 ### WriteToJson(writer) `method`
@@ -7309,7 +7309,7 @@ A way to cancel the subscription.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| resultsReceiver | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{\`0}}](https://learn.microsoft.com/dotnet/api/System.IObserver 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{`0}}') | A component which recieves updates. |
+| resultsReceiver | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{\`0}}](https://learn.microsoft.com/dotnet/api/System.IObserver-1 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{`0}}') | A component which recieves updates. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the subscription before it is done. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable`1-SubscribeAsync-System-IObserver{Microsoft-VisualStudio-ProjectSystem-Query-IQueryResults{`0}}-'></a>
@@ -8179,7 +8179,7 @@ Tries to get information about a property.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | propertyName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A property name |
-| entityProperty | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityProperty@](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityProperty@ 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityProperty@') | A [IEntityProperty](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityProperty 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityProperty') object, if it exists. |
+| entityProperty | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityProperty@](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityProperty 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityProperty@') | A [IEntityProperty](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityProperty 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityProperty') object, if it exists. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityValue'></a>
 ## IEntityValue `type`

@@ -2227,8 +2227,7 @@ Initializes a new instance of the [DebuggerVisualizerProviderConfiguration](#T-M
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | visualizerDisplayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The display name of the debugger visualizer. |
-| targetType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') of the type that is supported by this
-debugger visualizer.<br/><br/>`targetType` must be a concrete type. The debugger visualizer will only support objects of type `targetType`, not objects of types extending `targetType`.<br/><br/>If `targetType` is a generic type, it must be unbound.<br/><br/>Trailing compoments of the [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') can be omitted. |
+| targetType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') of the type that is supported by this debugger visualizer.<br/><br/>`targetType` must be a concrete type. The debugger visualizer will only support objects of type `targetType`, not objects of types extending `targetType`.<br/><br/>If `targetType` is a generic type, it must be unbound.<br/><br/>Trailing compoments of the [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') can be omitted. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProviderConfiguration-#ctor-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetType[]-'></a>
 ### #ctor(targets) `constructor`
@@ -2386,12 +2385,12 @@ Gets the document type of an object. Document type is frequently used to target 
 
 Gets the glob pattern to match document file path. Glob patterns can have the following syntax:
 
-- * to match one or more characters in a path segment
+- \* to match one or more characters in a path segment
 - ? to match on one character in a path segment
 - ** to match any number of path segments, including none
 - {} to group conditions (e.g. **/*.{ts,js} matches all TypeScript and JavaScript files)
 - [] to declare a range of characters to match in a path segment (e.g., example.[0-9] to match on example.0, example.1, …)
- [!...] to negate a range of characters to match in a path segment (e.g., example.[!0-9] to match on example.a, example.b, but not example.0)
+- [!...] to negate a range of characters to match in a path segment (e.g., example.[!0-9] to match on example.a, example.b, but not example.0)
 
  Note: a backslash (\\) is not valid within a glob pattern. If you have an existing file path to match against, consider to use the relative pattern support that takes care of converting any backslash into slash. Otherwise, make sure to convert any backslash to slash when creating the glob pattern.
 
@@ -6323,8 +6322,7 @@ Initializes a new instance of the [VisualizerTargetType](#T-Microsoft-VisualStud
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | visualizerDisplayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The display name of the debugger visualizer. |
-| targetType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') of the type that is supported by this
-debugger visualizer.<br/><br/>`targetType` must be a concrete type. The debugger visualizer will only support objects of type `targetType`, not objects of types extending `targetType`.<br/><br/>If `targetType` is a generic type, it must be unbound.<br/><br/>Trailing compoments of the [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') can be omitted. |
+| targetType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') of the type that is supported by this debugger visualizer.<br/><br/>`targetType` must be a concrete type. The debugger visualizer will only support objects of type `targetType`, not objects of types extending `targetType`.<br/><br/>If `targetType` is a generic type, it must be unbound.<br/><br/>Trailing compoments of the [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') can be omitted. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetType-TargetType'></a>
 ### TargetType `property`
