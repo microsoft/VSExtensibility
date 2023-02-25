@@ -2947,7 +2947,7 @@ Initializes the attribute with the specified return value condition and list    
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value, the associated parameter will not be `null`. |
-| members | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String[] 'System.String[]') | The list of field and property members that are promised to be not-null. |
+| members | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | The list of field and property members that are promised to be not-null. |
 
 <a name='P-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-Members'></a>
 ### Members `property`

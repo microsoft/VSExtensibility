@@ -2228,11 +2228,7 @@ Initializes a new instance of the [DebuggerVisualizerProviderConfiguration](#T-M
 | ---- | ---- | ----------- |
 | visualizerDisplayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The display name of the debugger visualizer. |
 | targetType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') of the type that is supported by this
-debugger visualizer.<br/><br/>`targetType` must be a concrete type. The debugger visualizer will only support objects of type `targetType`, not objects of types extending `targetType`.
-
-If `targetType` is a generic type, it must be unbound.
-
-Trailing compoments of the [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') can be omitted. |
+debugger visualizer.<br/><br/>`targetType` must be a concrete type. The debugger visualizer will only support objects of type `targetType`, not objects of types extending `targetType`.<br/><br/>If `targetType` is a generic type, it must be unbound.<br/><br/>Trailing compoments of the [AssemblyQualifiedName](https://learn.microsoft.com/dotnet/api/System.Type.AssemblyQualifiedName 'System.Type.AssemblyQualifiedName') can be omitted. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProviderConfiguration-#ctor-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetType[]-'></a>
 ### #ctor(targets) `constructor`
@@ -2245,8 +2241,7 @@ Initializes a new instance of the [DebuggerVisualizerProviderConfiguration](#T-M
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| targets | [Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTargetType[]](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetType 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTargetType[]') | Types that a debugger visualizer will target and the corresponding display names for the
-visualizer. |
+| targets | [Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTargetType[]](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetType 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTargetType[]') | Types that a debugger visualizer will target and the corresponding display names for the visualizer. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProviderConfiguration-Targets'></a>
 ### Targets `property`
@@ -2262,7 +2257,7 @@ Gets types that a debugger visualizer will target and the corresponding display 
 
 Gets the type of the visualizer object source loaded in the debug target process to access the object to be
 visualized. When `null`, the default visualizer object source, which performs
-seribaalization using Newtonsoft.Json, will be used.
+serialization using Newtonsoft.Json, will be used.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProviderConfiguration-Equals-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProviderConfiguration-'></a>
 ### Equals() `method`
@@ -2405,8 +2400,7 @@ Gets the glob pattern to match document file path. Glob patterns can have the fo
 
 ##### Summary
 
-Gets a value indicating whether the pattern should be applied to the absolute path of a file or to a path
-relative to the solution folder.
+Gets a value indicating whether the pattern should be applied to the absolute path of a file or to a path relative to the solution folder.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DocumentFilter-Equals-Microsoft-VisualStudio-Extensibility-DocumentFilter-'></a>
 ### Equals() `method`

@@ -729,8 +729,7 @@ Initializes a new instance of the [DataContextSerializerOptions](#T-Microsoft-Vi
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | dispatcher | [Microsoft.VisualStudio.Extensibility.UI.INotificationsDispatcher](#T-Microsoft-VisualStudio-Extensibility-UI-INotificationsDispatcher 'Microsoft.VisualStudio.Extensibility.UI.INotificationsDispatcher') | An instance of [NotificationsDispatcher](#T-Microsoft-VisualStudio-Extensibility-UI-NotificationsDispatcher 'Microsoft.VisualStudio.Extensibility.UI.NotificationsDispatcher'). |
-| forceRootSerialization | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether the serialized data should always include the full content of the first uniquely identifiable object encountered even if such object has already an assigned id and would
-normally be serialized as a reference. |
+| forceRootSerialization | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether the serialized data should always include the full content of the first uniquely identifiable object encountered even if such object has already an assigned id and would normally be serialized as a reference. |
 
 ##### Remarks
 
@@ -817,8 +816,7 @@ Whether `type` will be serialized as a collection.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | type | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The [Type](https://learn.microsoft.com/dotnet/api/ 'System.Type') to evaluate. |
-| itemType | [System.Type@](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type@') | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') of the collection items if the collection implements
-[ICollection\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.ICollection-1 'System.Collections.Generic.ICollection`1'), `null` otherwise. |
+| itemType | [System.Type@](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type@') | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') of the collection items if the collection implements[ICollection\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.ICollection-1 'System.Collections.Generic.ICollection`1'), `null` otherwise. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-IsPropertySerializable-System-Type,System-Reflection-PropertyInfo,System-Reflection-MethodInfo@,System-Boolean-'></a>
 ### IsPropertySerializable(owningType,property,getter,includeSpecialProperties) `method`
@@ -2483,8 +2481,7 @@ Performs application-defined tasks associated with freeing, releasing, or resett
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether managed resources should be disposed. `disposing` should be`true` when [Dispose](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.Dispose(System.Boolean)') is called from a finalizer, `false`
-otherwise. |
+| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether managed resources should be disposed. `disposing` should be`true` when [Dispose](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.Dispose(System.Boolean)') is called from a finalizer, `false` otherwise. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-GetXamlAsync-System-Threading-CancellationToken-'></a>
 ### GetXamlAsync(cancellationToken) `method`
