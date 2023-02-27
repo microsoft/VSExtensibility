@@ -386,7 +386,7 @@ Delegate type for the [](#E-Microsoft-VisualStudio-Extensibility-UI-Notification
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| id | [T:Microsoft.VisualStudio.Extensibility.UI.NotificationsDispatcher.CollectionChangedDelegate](#T-T-Microsoft-VisualStudio-Extensibility-UI-NotificationsDispatcher-CollectionChangedDelegate 'T:Microsoft.VisualStudio.Extensibility.UI.NotificationsDispatcher.CollectionChangedDelegate') | Identifier of the uniquely identifiable object that was updated. |
+| id | [Microsoft.VisualStudio.Extensibility.UI.NotificationsDispatcher.CollectionChangedDelegate](#T-T-Microsoft-VisualStudio-Extensibility-UI-NotificationsDispatcher-CollectionChangedDelegate 'Microsoft.VisualStudio.Extensibility.UI.NotificationsDispatcher.CollectionChangedDelegate') | Identifier of the uniquely identifiable object that was updated. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter'></a>
 ## DataContextFormatter `type`
@@ -509,12 +509,9 @@ A [SerializeMethod](#T-Microsoft-Internal-VisualStudio-RemoteUI-SimpleDataTypesS
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | type | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | `type` for which the serialize method should be generated. |
-| omitNullableHeader | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | When `true` the returned delegate will write nullable
-values as Nil or their non-nullable equivalent. This is used when writing [ICollection\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.ICollection-1 'System.Collections.Generic.ICollection`1'). |
-| dataTypeCode | [Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode@](#T-Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode@ 'Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode@') | Returns the [DataTypeCode](#T-Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode 'Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode') corresponding to `type`
-or [Invalid](#F-Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode-Invalid 'Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode.Invalid'). |
-| isSimpleValueTypeNullable | [System.Boolean@](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean@') | Returns whether `type` is a
-[Nullable\`1](https://learn.microsoft.com/dotnet/api/System.Nullable-1 'System.Nullable`1') where T is a type having a corresponding by [DataTypeCode](#T-Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode 'Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode'). |
+| omitNullableHeader | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | When `true` the returned delegate will write nullable values as Nil or their non-nullable equivalent. This is used when writing [ICollection\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.ICollection-1 'System.Collections.Generic.ICollection`1'). |
+| dataTypeCode | [Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode@](#T-Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode@ 'Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode@') | Returns the [DataTypeCode](#T-Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode 'Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode') corresponding to `type` or [Invalid](#F-Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode-Invalid 'Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode.Invalid'). |
+| isSimpleValueTypeNullable | [System.Boolean@](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean@') | Returns whether `type` is a [Nullable\`1](https://learn.microsoft.com/dotnet/api/System.Nullable-1 'System.Nullable`1') where T is a type having a corresponding by [DataTypeCode](#T-Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode 'Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode'). |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-IsCollection-System-Type,System-Type@,System-Func{System-Object,System-ValueTuple{System-Collections-IEnumerable,System-Int32}}@-'></a>
 ### IsCollection(type,itemType,getEnumerableAndCount) `method`
@@ -532,9 +529,8 @@ Whether `type` should be serialized as a collection.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | type | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') to be evaluated. |
-| itemType | [System.Type@](https://learn.microsoft.com/dotnet/api/System.Type@ 'System.Type@') | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') of the collection items if the collection implements
-[ICollection\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.ICollection`1 'System.Collections.Generic.ICollection`1'), `null` otherwise. |
-| getEnumerableAndCount | [System.Func{System.Object,System.ValueTuple{System.Collections.IEnumerable,System.Int32}}@](https://learn.microsoft.com/dotnet/api/System.Func 'System.Func{System.Object,System.ValueTuple{System.Collections.IEnumerable,System.Int32}}@') | A function that returns the collection converted to a [IEnumerable](https://learn.microsoft.com/dotnet/api/System.Collections.IEnumerable-1 'System.Collections.IEnumerable') and its count. |
+| itemType | [System.Type@](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type@') | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') of the collection items if the collection implements [ICollection\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.ICollection`1 'System.Collections.Generic.ICollection`1'), `null` otherwise. |
+| getEnumerableAndCount | [System.Func{System.Object,System.ValueTuple{System.Collections.IEnumerable,System.Int32}}@](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{System.Object,System.ValueTuple{System.Collections.IEnumerable,System.Int32}}@') | A function that returns the collection converted to a [IEnumerable](https://learn.microsoft.com/dotnet/api/System.Collections.IEnumerable-1 'System.Collections.IEnumerable') and its count. |
 
 ##### Remarks
 
@@ -582,8 +578,7 @@ used by [GetTypeSerializer](#M-Microsoft-VisualStudio-Extensibility-UI-DataConte
 | writer | [MessagePack.MessagePackWriter@](#T-MessagePack-MessagePackWriter@ 'MessagePack.MessagePackWriter@') | MessagePack writer to which `value` is serialized. |
 | value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The value to be serialized. |
 | options | [MessagePack.MessagePackSerializerOptions](#T-MessagePack-MessagePackSerializerOptions 'MessagePack.MessagePackSerializerOptions') | [DataContextSerializerOptions](#T-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions 'Microsoft.VisualStudio.Extensibility.UI.DataContextSerializerOptions') used for the serialization. |
-| serializeMethod | [Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeMethod](#T-Microsoft-Internal-VisualStudio-RemoteUI-SimpleDataTypesSerializer-SerializeMethod 'Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeMethod') | Delegate to be used for serializing the object value when not
-`null`. |
+| serializeMethod | [Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeMethod](#T-Microsoft-Internal-VisualStudio-RemoteUI-SimpleDataTypesSerializer-SerializeMethod 'Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeMethod') | Delegate to be used for serializing the object value when not `null`. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-SerializeComplexObjectWithMetadata-MessagePack-MessagePackWriter@,System-Object,MessagePack-MessagePackSerializerOptions,Microsoft-Internal-VisualStudio-RemoteUI-SerializerFieldCode,System-Boolean,Microsoft-Internal-VisualStudio-RemoteUI-SimpleDataTypesSerializer-SerializeNonNullMethod,Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode-'></a>
 ### SerializeComplexObjectWithMetadata(writer,value,options,fieldCode,isUniquelyIdentifiable,serializeMethod,collectionDataTypeCode) `method`
@@ -593,8 +588,7 @@ used by [GetTypeSerializer](#M-Microsoft-VisualStudio-Extensibility-UI-DataConte
 Serialization method for uniquely identifiable objects. This is used by [GetTypeSerializer](#M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-GetTypeSerializer-System-Type,System-Boolean,Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode@,System-Boolean@- 'Microsoft.VisualStudio.Extensibility.UI.DataContextSerializerOptions.DataContextFormatter.GetTypeSerializer(System.Type,System.Boolean,Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode@,System.Boolean@)') to
  construct [SerializeMethod](#T-Microsoft-Internal-VisualStudio-RemoteUI-SimpleDataTypesSerializer-SerializeMethod 'Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeMethod') delegates.
 
- This method may write the full object or only a [Reference](#F-Microsoft-Internal-VisualStudio-RemoteUI-SerializerFieldCode-Reference 'Microsoft.Internal.VisualStudio.RemoteUI.SerializerFieldCode.Reference') depending upon
- whether the object has already been serialized before and on
+ This method may write the full object or only a [Reference](#F-Microsoft-Internal-VisualStudio-RemoteUI-SerializerFieldCode-Reference 'Microsoft.Internal.VisualStudio.RemoteUI.SerializerFieldCode.Reference') depending upon whether the object has already been serialized before and on
  [ForceRootSerialization](#P-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-ForceRootSerialization 'Microsoft.VisualStudio.Extensibility.UI.DataContextSerializerOptions.ForceRootSerialization').
 
 ##### Parameters
@@ -604,15 +598,10 @@ Serialization method for uniquely identifiable objects. This is used by [GetType
 | writer | [MessagePack.MessagePackWriter@](#T-MessagePack-MessagePackWriter@ 'MessagePack.MessagePackWriter@') | MessagePack writer to which `value` is serialized. |
 | value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The value to be serialized. |
 | options | [MessagePack.MessagePackSerializerOptions](#T-MessagePack-MessagePackSerializerOptions 'MessagePack.MessagePackSerializerOptions') | [DataContextSerializerOptions](#T-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions 'Microsoft.VisualStudio.Extensibility.UI.DataContextSerializerOptions') used for the serialization. |
-| fieldCode | [Microsoft.Internal.VisualStudio.RemoteUI.SerializerFieldCode](#T-Microsoft-Internal-VisualStudio-RemoteUI-SerializerFieldCode 'Microsoft.Internal.VisualStudio.RemoteUI.SerializerFieldCode') | Either [Object](#F-Microsoft-Internal-VisualStudio-RemoteUI-SerializerFieldCode-Object 'Microsoft.Internal.VisualStudio.RemoteUI.SerializerFieldCode.Object'),
- [Command](#F-Microsoft-Internal-VisualStudio-RemoteUI-SerializerFieldCode-Command 'Microsoft.Internal.VisualStudio.RemoteUI.SerializerFieldCode.Command'),
- [Collection](#F-Microsoft-Internal-VisualStudio-RemoteUI-SerializerFieldCode-Collection 'Microsoft.Internal.VisualStudio.RemoteUI.SerializerFieldCode.Collection') or
- [NullableCollection](#F-Microsoft-Internal-VisualStudio-RemoteUI-SerializerFieldCode-NullableCollection 'Microsoft.Internal.VisualStudio.RemoteUI.SerializerFieldCode.NullableCollection'). |
-| isUniquelyIdentifiable | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether `value` is a uniquely identifiable object: a
- non-empty reference type object. |
+| fieldCode | [Microsoft.Internal.VisualStudio.RemoteUI.SerializerFieldCode](#T-Microsoft-Internal-VisualStudio-RemoteUI-SerializerFieldCode 'Microsoft.Internal.VisualStudio.RemoteUI.SerializerFieldCode') | Either [Object](#F-Microsoft-Internal-VisualStudio-RemoteUI-SerializerFieldCode-Object 'Microsoft.Internal.VisualStudio.RemoteUI.SerializerFieldCode.Object'), [Command](#F-Microsoft-Internal-VisualStudio-RemoteUI-SerializerFieldCode-Command 'Microsoft.Internal.VisualStudio.RemoteUI.SerializerFieldCode.Command'), [Collection](#F-Microsoft-Internal-VisualStudio-RemoteUI-SerializerFieldCode-Collection 'Microsoft.Internal.VisualStudio.RemoteUI.SerializerFieldCode.Collection') or [NullableCollection](#F-Microsoft-Internal-VisualStudio-RemoteUI-SerializerFieldCode-NullableCollection 'Microsoft.Internal.VisualStudio.RemoteUI.SerializerFieldCode.NullableCollection'). |
+| isUniquelyIdentifiable | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether `value` is a uniquely identifiable object: a non-empty reference type object. |
 | serializeMethod | [Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeNonNullMethod](#T-Microsoft-Internal-VisualStudio-RemoteUI-SimpleDataTypesSerializer-SerializeNonNullMethod 'Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeNonNullMethod') | Delegate to be used for serializing the object value. |
-| collectionDataTypeCode | [Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode](#T-Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode 'Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode') | Type of entries when serializing an [ICollection\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.ICollection`1 'System.Collections.Generic.ICollection`1') or an
- [ICollection\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.ICollection`1 'System.Collections.Generic.ICollection`1') of nullable values. |
+| collectionDataTypeCode | [Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode](#T-Microsoft-Internal-VisualStudio-RemoteUI-DataTypeCode 'Microsoft.Internal.VisualStudio.RemoteUI.DataTypeCode') | Type of entries when serializing an [ICollection\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.ICollection`1 'System.Collections.Generic.ICollection`1') or an [ICollection\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.ICollection`1 'System.Collections.Generic.ICollection`1') of nullable values. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-SerializeConvertible-MessagePack-MessagePackWriter@,System-Object,MessagePack-MessagePackSerializerOptions,System-Func{System-Object,System-Object},Microsoft-Internal-VisualStudio-RemoteUI-SimpleDataTypesSerializer-SerializeMethod-'></a>
 ### SerializeConvertible(writer,value,options,convertMethod,serializeMethod) `method`
@@ -629,8 +618,7 @@ Serialization method for types that should be converted to a different type befo
 | value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The value to be serialized. |
 | options | [MessagePack.MessagePackSerializerOptions](#T-MessagePack-MessagePackSerializerOptions 'MessagePack.MessagePackSerializerOptions') | [DataContextSerializerOptions](#T-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions 'Microsoft.VisualStudio.Extensibility.UI.DataContextSerializerOptions') used for the serialization. |
 | convertMethod | [System.Func{System.Object,System.Object}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{System.Object,System.Object}') | Delegate that will be used to perform the conversion. |
-| serializeMethod | [Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeMethod](#T-Microsoft-Internal-VisualStudio-RemoteUI-SimpleDataTypesSerializer-SerializeMethod 'Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeMethod') | Delegate that will be used to perform the serialization of the converted
-value. |
+| serializeMethod | [Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeMethod](#T-Microsoft-Internal-VisualStudio-RemoteUI-SimpleDataTypesSerializer-SerializeMethod 'Microsoft.Internal.VisualStudio.RemoteUI.SimpleDataTypesSerializer.SerializeMethod') | Delegate that will be used to perform the serialization of the converted value. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-DataContextFormatter-SerializeXamlFragment-MessagePack-MessagePackWriter@,System-Object,MessagePack-MessagePackSerializerOptions-'></a>
 ### SerializeXamlFragment(writer,value,options) `method`
@@ -730,9 +718,7 @@ Initializes a new instance of the [DataContextSerializerOptions](#T-Microsoft-Vi
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | dispatcher | [Microsoft.VisualStudio.Extensibility.UI.INotificationsDispatcher](#T-Microsoft-VisualStudio-Extensibility-UI-INotificationsDispatcher 'Microsoft.VisualStudio.Extensibility.UI.INotificationsDispatcher') | An instance of [NotificationsDispatcher](#T-Microsoft-VisualStudio-Extensibility-UI-NotificationsDispatcher 'Microsoft.VisualStudio.Extensibility.UI.NotificationsDispatcher'). |
-| forceRootSerialization | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether the serialized data should always include the full content of the
-first uniquely identifiable object encountered even if such object has already an assigned id and would
-normally be serialized as a reference. |
+| forceRootSerialization | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether the serialized data should always include the full content of the first uniquely identifiable object encountered even if such object has already an assigned id and would normally be serialized as a reference. |
 
 ##### Remarks
 
@@ -819,8 +805,7 @@ Whether `type` will be serialized as a collection.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | type | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The [Type](https://learn.microsoft.com/dotnet/api/ 'System.Type') to evaluate. |
-| itemType | [System.Type@](https://learn.microsoft.com/dotnet/api/System.Type@ 'System.Type@') | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') of the collection items if the collection implements
-[ICollection\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.ICollection-1 'System.Collections.Generic.ICollection`1'), `null` otherwise. |
+| itemType | [System.Type@](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type@') | The [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') of the collection items if the collection implements[ICollection\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.ICollection-1 'System.Collections.Generic.ICollection`1'), `null` otherwise. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-DataContextSerializerOptions-IsPropertySerializable-System-Type,System-Reflection-PropertyInfo,System-Reflection-MethodInfo@,System-Boolean-'></a>
 ### IsPropertySerializable(owningType,property,getter,includeSpecialProperties) `method`
@@ -841,8 +826,7 @@ Whether the property should be serialized.
 | owningType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The type owning `property`. |
 | property | [System.Reflection.PropertyInfo](https://learn.microsoft.com/dotnet/api/System.Reflection.PropertyInfo 'System.Reflection.PropertyInfo') | The property to evaluate. |
 | getter | [System.Reflection.MethodInfo@](https://learn.microsoft.com/dotnet/api/System.Reflection.MethodInfo 'System.Reflection.MethodInfo@') | If the property should be serialized, returns its getter method. |
-| includeSpecialProperties | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether include properties, like [CanExecute](#P-Microsoft-VisualStudio-Extensibility-UI-IAsyncCommand-CanExecute 'Microsoft.VisualStudio.Extensibility.UI.IAsyncCommand.CanExecute'),
- that are always considered serializable even if they lack [DataMemberAttribute](https://learn.microsoft.com/dotnet/api/System.Runtime.Serialization.DataMemberAttribute 'System.Runtime.Serialization.DataMemberAttribute'). |
+| includeSpecialProperties | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether include properties, like [CanExecute](#P-Microsoft-VisualStudio-Extensibility-UI-IAsyncCommand-CanExecute 'Microsoft.VisualStudio.Extensibility.UI.IAsyncCommand.CanExecute'), that are always considered serializable even if they lack [DataMemberAttribute](https://learn.microsoft.com/dotnet/api/System.Runtime.Serialization.DataMemberAttribute 'System.Runtime.Serialization.DataMemberAttribute'). |
 
 ##### Remarks
 
@@ -1079,8 +1063,7 @@ Standard virtual overload for [IDisposable](https://learn.microsoft.com/dotnet/a
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | `True` means this is a call to [Dispose](#M-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject-Dispose 'Microsoft.VisualStudio.Extensibility.Helpers.DisposableObject.Dispose').
-`False` means it has been called from the finalizer. |
+| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | `True` means this is a call to [Dispose](#M-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject-Dispose 'Microsoft.VisualStudio.Extensibility.Helpers.DisposableObject.Dispose').`False` means it has been called from the finalizer. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Helpers-DisposableObject-DisposeManagedResources'></a>
 ### DisposeManagedResources() `method`
@@ -2399,8 +2382,7 @@ Initializes a new instance of the [RemoteUserControl](#T-Microsoft-VisualStudio-
 | ---- | ---- | ----------- |
 | dataContext | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | Data context of the remote control which can be referenced from xaml through data
 binding. |
-| synchronizationContext | [System.Threading.SynchronizationContext](https://learn.microsoft.com/dotnet/api/System.Threading.SynchronizationContext 'System.Threading.SynchronizationContext') | Optional [synchronizationContext](#F-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-synchronizationContext 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.synchronizationContext') that the extender can
-provide to ensure that [IAsyncCommand](#T-Microsoft-VisualStudio-Extensibility-UI-IAsyncCommand 'Microsoft.VisualStudio.Extensibility.UI.IAsyncCommand') are executed and properties are read and updated from the
+| synchronizationContext | [System.Threading.SynchronizationContext](https://learn.microsoft.com/dotnet/api/System.Threading.SynchronizationContext 'System.Threading.SynchronizationContext') | Optional [synchronizationContext](#F-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-synchronizationContext 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.synchronizationContext') that the extender can provide to ensure that [IAsyncCommand](#T-Microsoft-VisualStudio-Extensibility-UI-IAsyncCommand 'Microsoft.VisualStudio.Extensibility.UI.IAsyncCommand') are executed and properties are read and updated from the
 extension main thread. |
 
 ##### Exceptions
@@ -2486,9 +2468,7 @@ Performs application-defined tasks associated with freeing, releasing, or resett
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether managed resources should be disposed. `disposing` should be
-`true` when [Dispose](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.Dispose(System.Boolean)') is called from a finalizer, `false`
-otherwise. |
+| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether managed resources should be disposed. `disposing` should be`true` when [Dispose](#M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.UI.RemoteUserControl.Dispose(System.Boolean)') is called from a finalizer, `false` otherwise. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-RemoteUserControl-GetXamlAsync-System-Threading-CancellationToken-'></a>
 ### GetXamlAsync(cancellationToken) `method`
@@ -3207,8 +3187,7 @@ The value associanted with `reference` and whether the entry was newly added.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | reference | [\`1](#T-`1 '`1') | The primary key to use for the lookup. |
-| valueFactory | [System.Func{\`1,\`2}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{`1,`2}') | The delegate used to create the value. This delegate will be invoked only when the
-object is added to the dictionary and is only invoked once. |
+| valueFactory | [System.Func{\`1,\`2}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{`1,`2}') | The delegate used to create the value. This delegate will be invoked only when the object is added to the dictionary and is only invoked once. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-WeakDoubleDictionary`3-TryGetByReference-`1,`2@-'></a>
 ### TryGetByReference(reference,value) `method`
@@ -3226,8 +3205,7 @@ Whether the entry was found.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | reference | [\`1](#T-`1 '`1') | The primary key to use for the lookup. |
-| value | [\`2@](#T-`2@ '`2@') | The value associated with `reference` or `default` if not
-found. |
+| value | [\`2@](#T-`2@ '`2@') | The value associated with `reference` or `default` if not found. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-UI-WeakDoubleDictionary`3-TryGetBySecondaryKey-`0,`2@,`1@-'></a>
 ### TryGetBySecondaryKey(key,value,reference) `method`
@@ -3246,8 +3224,7 @@ Whether the entry was found.
 | ---- | ---- | ----------- |
 | key | [\`0](#T-`0 '`0') | The secondary key to use for the lookup. |
 | value | [\`2@](#T-`2@ '`2@') | The value associated with `key` or `default` if not found. |
-| reference | [\`1@](#T-`1@ '`1@') | The primary key associated with `key` or `null` if not
-found. |
+| reference | [\`1@](#T-`1@ '`1@') | The primary key associated with `key` or `null` if not found. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-UI-XamlFragment'></a>
 ## XamlFragment `type`
