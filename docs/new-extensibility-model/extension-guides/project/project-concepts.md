@@ -25,7 +25,7 @@ Some examples of what you might do with a project query:
 - Add new files to a project
 - Modify the properties of a project
 
-A project query is a series of clauses that reference various items. Please see the [Project Query Overview](./tutorial.md) for more information and for examples of project queries for common tasks.
+A project query is a series of clauses that reference various items. Please see the [Project Query Overview](./project.md) for more information and for examples of project queries for common tasks.
 
 ## Project query item types
 
@@ -72,6 +72,6 @@ Clauses in your project query determine what kind of items should be returned in
 
 ## Next Steps
 
-To see some examples of project queries for common tasks, see the [Project Query Overview](./tutorial.md)
+To see some examples of project queries for common tasks, see the [Project Query Overview](./project.md)
 
 For a sample extension that uses the project query API, see [Project Query Sample]()
