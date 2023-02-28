@@ -2728,7 +2728,7 @@ Initializes a new instance of the [AsyncExecutable](#T-Microsoft-VisualStudio-Pr
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable') | A query to describe items where the action applies to |
-| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableQueue-1-1 'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') | A collection of actions to take during execution. |
+| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutablQueue-1  'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') | A collection of actions to take during execution. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-AsyncExecutable-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable,System-Collections-Immutable-ImmutableQueue{Microsoft-VisualStudio-ProjectSystem-Query-Framework-ExecutableStep}-'></a>
 ### #ctor(source,steps) `constructor`
@@ -2742,7 +2742,7 @@ Initializes a new instance of the [AsyncExecutable](#T-Microsoft-VisualStudio-Pr
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable') | A query to describe items where the action applies to |
-| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableQueue-1-1 'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') | A collection of actions to take during execution. |
+| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutablQueue-1  'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') | A collection of actions to take during execution. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-AsyncExecutable-IsUpdate'></a>
 ### IsUpdate `property`
@@ -3535,7 +3535,7 @@ This is a query starting from a set of known entities.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | entityRuntime | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityRuntimeModel](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityRuntimeModel 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityRuntimeModel') | Runtime context. |
-| entityIdentities | [System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}') | A collection of entity identities. |
+| entityIdentities | [System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection-1 'System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}') | A collection of entity identities. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable`1-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-IEntityRuntimeModel,System-String-'></a>
 ### #ctor(entityRuntime,modelRootCollectionName) `constructor`
@@ -3581,7 +3581,7 @@ This is a sub-query expanding data of entities in the result of the parent query
 | ---- | ---- | ----------- |
 | parentQuery | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable') | Parent query. |
 | relationship | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A collection defined in the result item of the parent query. |
-| retrievedData | [System.Collections.Generic.IReadOnlyCollection{\`0}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{`0}') | Data retrieved, this can be `null`. |
+| retrievedData | [System.Collections.Generic.IReadOnlyCollection{\`0}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection-1 'System.Collections.Generic.IReadOnlyCollection{`0}') | Data retrieved, this can be `null`. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable`1-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable,System-String,Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelCollectionMemberExpression-'></a>
 ### #ctor(parentQuery,relationship,collectionMemberExpression) `constructor`
@@ -5364,9 +5364,9 @@ Initializes a new instance of the [EntityCollectionChanges\`2](#T-Microsoft-Visu
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | hasChanged | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | A boolean representing the entity collection has changed. |
-| added | [System.Collections.Generic.IReadOnlyCollection{\`0}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{`0}') | A collection of added entities. |
-| removed | [System.Collections.Generic.IReadOnlyCollection{\`0}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{`0}') | A collection of removed entities. |
-| changed | [System.Collections.Generic.IReadOnlyCollection{\`1}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{`1}') | A collection of changed entities. |
+| added | [System.Collections.Generic.IReadOnlyCollection{\`0}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection-1 'System.Collections.Generic.IReadOnlyCollection{`0}') | A collection of added entities. |
+| removed | [System.Collections.Generic.IReadOnlyCollection{\`0}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection-1 'System.Collections.Generic.IReadOnlyCollection{`0}') | A collection of removed entities. |
+| changed | [System.Collections.Generic.IReadOnlyCollection{\`1}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection-1 'System.Collections.Generic.IReadOnlyCollection{`1}') | A collection of changed entities. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-EntityCollectionChanges`2-Added'></a>
 ### Added `property`
@@ -5485,7 +5485,7 @@ Initializes a new instance of the [EntityIdentity](#T-Microsoft-VisualStudio-Pro
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| identityValues | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}') | The set of key value pairs to compose a new identity. |
+| identityValues | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}') | The set of key value pairs to compose a new identity. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity-#ctor-System-String,System-String-'></a>
 ### #ctor(key,value) `constructor`
@@ -5513,7 +5513,7 @@ Initializes a new instance of the [EntityIdentity](#T-Microsoft-VisualStudio-Pro
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | context | [Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity](#T-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity 'Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity') | The identity provides the identity of the context of the current item |
-| localValues | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}') | Additional values to be appended to the context. |
+| localValues | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}}') | Additional values to be appended to the context. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-EntityIdentity,System-String,System-String-'></a>
 ### #ctor(context,key,value) `constructor`
@@ -5689,7 +5689,7 @@ Initialize the type list. This is expected to be called by inherited model class
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| types | [System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityType}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityType}') | A complete list of types in the model. |
+| types | [System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityType}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection-1 'System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityType}') | A complete list of types in the model. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-EntityPathBasedValueProperty`3'></a>
 ## EntityPathBasedValueProperty\`3 `type`
@@ -5882,7 +5882,7 @@ Initialize the properties collection.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| properties | [System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityProperty}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityProperty}') | A collection of properties defined in the entity type. Properties from base type are included here. |
+| properties | [System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityProperty}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection-1 'System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityProperty}') | A collection of properties defined in the entity type. Properties from base type are included here. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-EntityType`2'></a>
 ## EntityType\`2 `type`
@@ -5961,7 +5961,7 @@ A specific collection.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| children | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}') | A generic entity collection. |
+| children | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}') | A generic entity collection. |
 
 ##### Generic Types
 
@@ -6051,7 +6051,7 @@ Sets related entities. This method is used by query engine to fill data.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | collectionName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The collection name. |
-| entityValues | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}') | Entity values in the collection. |
+| entityValues | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}') | Entity values in the collection. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Framework-EntityValueBase-TryGetRelatedEntities-System-String,System-Collections-Generic-IEnumerable{Microsoft-VisualStudio-ProjectSystem-Query-IEntity}@-'></a>
 ### TryGetRelatedEntities(collectionName,entities) `method`
@@ -6069,7 +6069,7 @@ Try to get related entities saved through earlier [SetRelatedEntities](#M-Micros
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | collectionName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The collection name. |
-| entities | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntity}@](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntity}@') | Entity values in the collection. |
+| entities | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntity}@](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntity}@') | Entity values in the collection. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-EntityValueBase`1'></a>
 ## EntityValueBase\`1 `type`
@@ -6290,7 +6290,7 @@ A merged results collection.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| asyncQueries | [System.Collections.Generic.IEnumerable{System.Collections.Generic.IAsyncEnumerable{\`\`0}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.IAsyncEnumerable{``0}}') | A set of query results. |
+| asyncQueries | [System.Collections.Generic.IEnumerable{System.Collections.Generic.IAsyncEnumerable{\`\`0}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.IAsyncEnumerable{``0}}') | A set of query results. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the enumeration. |
 
 ##### Generic Types
@@ -7138,7 +7138,7 @@ Whether the filtering condition is used.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | filterMethodName | [System.String@](https://learn.microsoft.com/dotnet/api/System.String 'System.String@') | The name of the filter method. |
-| parameters | [System.Collections.Immutable.ImmutableArray{System.Object}@](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{System.Object}@') | Parameter values to be applied. |
+| parameters | [System.Collections.Immutable.ImmutableArray{System.Object}@](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{System.Object}@') | Parameter values to be applied. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable'></a>
 ## IAsyncQueryable `type`
@@ -7309,7 +7309,7 @@ A way to cancel the subscription.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| resultsReceiver | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{\`0}}](https://learn.microsoft.com/dotnet/api/System.IObserver 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{`0}}') | A component which recieves updates. |
+| resultsReceiver | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{\`0}}](https://learn.microsoft.com/dotnet/api/System.IObserver-1 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{`0}}') | A component which recieves updates. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the subscription before it is done. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable`1-SubscribeAsync-System-IObserver{Microsoft-VisualStudio-ProjectSystem-Query-IQueryResults{`0}}-'></a>
@@ -7327,7 +7327,7 @@ A way to cancel the subscription.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| resultsReceiver | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{\`0}}](https://learn.microsoft.com/dotnet/api/System.IObserver 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{`0}}') | A component which recieves updates. |
+| resultsReceiver | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{\`0}}](https://learn.microsoft.com/dotnet/api/System.IObserver-1 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{`0}}') | A component which recieves updates. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable`1-SubscribeAsync-Microsoft-VisualStudio-ProjectSystem-Query-ICommonQueryableSpace,System-IObserver{Microsoft-VisualStudio-ProjectSystem-Query-IQueryResults{`0}},System-Threading-CancellationToken-'></a>
 ### SubscribeAsync(queryableSpace,resultsReceiver,cancellationToken) `method`
@@ -7345,7 +7345,7 @@ A way to cancel the subscription.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | queryableSpace | [Microsoft.VisualStudio.ProjectSystem.Query.ICommonQueryableSpace](#T-Microsoft-VisualStudio-ProjectSystem-Query-ICommonQueryableSpace 'Microsoft.VisualStudio.ProjectSystem.Query.ICommonQueryableSpace') | The model space to execute the query. |
-| resultsReceiver | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{\`0}}](https://learn.microsoft.com/dotnet/api/System.IObserver 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{`0}}') | A component which recieves updates. |
+| resultsReceiver | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{\`0}}](https://learn.microsoft.com/dotnet/api/System.IObserver-1 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{`0}}') | A component which recieves updates. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the subscription before it is done. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable`1-SubscribeAsync-Microsoft-VisualStudio-ProjectSystem-Query-ICommonQueryableSpace,System-IObserver{Microsoft-VisualStudio-ProjectSystem-Query-IQueryResults{`0}}-'></a>
@@ -7364,7 +7364,7 @@ A way to cancel the subscription.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | queryableSpace | [Microsoft.VisualStudio.ProjectSystem.Query.ICommonQueryableSpace](#T-Microsoft-VisualStudio-ProjectSystem-Query-ICommonQueryableSpace 'Microsoft.VisualStudio.ProjectSystem.Query.ICommonQueryableSpace') | The model space to execute the query. |
-| resultsReceiver | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{\`0}}](https://learn.microsoft.com/dotnet/api/System.IObserver 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{`0}}') | A component which recieves updates. |
+| resultsReceiver | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{\`0}}](https://learn.microsoft.com/dotnet/api/System.IObserver-1 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{`0}}') | A component which recieves updates. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable`1'></a>
 ## IAsyncUpdatable\`1 `type`
@@ -7552,7 +7552,7 @@ A new query.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| identities | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}') | A collection of object identities. |
+| identities | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}') | A collection of object identities. |
 
 ##### Generic Types
 
@@ -7575,7 +7575,7 @@ A new query.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| items | [System.Collections.Generic.IEnumerable{\`\`0}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{``0}') | A collection of objects from previous queries. |
+| items | [System.Collections.Generic.IEnumerable{\`\`0}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{``0}') | A collection of objects from previous queries. |
 
 ##### Generic Types
 
@@ -8225,7 +8225,7 @@ Sets related entities. This method is used by query engine to fill data.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | collectionName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The collection name. |
-| entityValues | [System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}') | Entity values in the collection. |
+| entityValues | [System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection-1 'System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}') | Entity values in the collection. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-IEntityValue-SetSite-Microsoft-VisualStudio-ProjectSystem-Query-IEntitySite-'></a>
 ### SetSite(site) `method`
@@ -8256,7 +8256,7 @@ Try to get related entities saved through earlier [SetRelatedEntities](#M-Micros
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | collectionName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The collection name. |
-| entityValues | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}@](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}@') | Entity values in the collection. |
+| entityValues | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}@](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}@') | Entity values in the collection. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-IEntityValueFromProvider'></a>
 ## IEntityValueFromProvider `type`
@@ -10118,7 +10118,7 @@ A task finishes when it is done.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| allItems | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Execution.QueryProcessResult{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Execution.QueryProcessResult{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}') | All items to be updated. |
+| allItems | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Execution.QueryProcessResult{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList-1 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Execution.QueryProcessResult{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}') | All items to be updated. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to be triggered when the operation is aborted. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-IPropertiesAvailableStatus'></a>
@@ -10916,7 +10916,7 @@ A data filter, if supported.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | filterMethodName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the filtering method. |
-| parameters | [System.Collections.Immutable.ImmutableArray{System.Object}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{System.Object}') | Parameters used in the query. |
+| parameters | [System.Collections.Immutable.ImmutableArray{System.Object}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{System.Object}') | Parameters used in the query. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Providers-IQueryCollectionFilterFallbackProvider-TryGetRequiredProperties-System-String,System-Collections-Immutable-ImmutableArray{System-Object}-'></a>
 ### TryGetRequiredProperties(filterMethodName,parameters) `method`
@@ -10934,7 +10934,7 @@ Required fields, if the filter method is supported.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | filterMethodName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the filtering method. |
-| parameters | [System.Collections.Immutable.ImmutableArray{System.Object}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{System.Object}') | Parameters used in the query. |
+| parameters | [System.Collections.Immutable.ImmutableArray{System.Object}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{System.Object}') | Parameters used in the query. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-IQueryDataProducer`1'></a>
 ## IQueryDataProducer\`1 `type`
@@ -11212,7 +11212,7 @@ A reference to an interface that allows observers to stop receiving notification
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| observer | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.Providers.QueryDataSourceChangeNotification}](https://learn.microsoft.com/dotnet/api/System.IObserver 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.Providers.QueryDataSourceChangeNotification}') | The object that is to receive notifications. |
+| observer | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.Providers.QueryDataSourceChangeNotification}](https://learn.microsoft.com/dotnet/api/System.IObserver-1 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.Providers.QueryDataSourceChangeNotification}') | The object that is to receive notifications. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-Providers-IQueryDataSourceVersionProvider-TryGetVersion-System-String,System-Int64@-'></a>
 ### TryGetVersion(versionKey,version) `method`
@@ -11529,7 +11529,7 @@ A task finishes when the subscription is done.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | query | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable') | The query to execute. |
-| resultsReceiver | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{\`\`0}}](https://learn.microsoft.com/dotnet/api/System.IObserver 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{``0}}') | The component subscribes receive data and updates. |
+| resultsReceiver | [System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{\`\`0}}](https://learn.microsoft.com/dotnet/api/System.IObserver-1 'System.IObserver{Microsoft.VisualStudio.ProjectSystem.Query.IQueryResults{``0}}') | The component subscribes receive data and updates. |
 | remoteContext | [Microsoft.VisualStudio.ProjectSystem.Query.Remoting.IQueryExecutionRemoteContext](#T-Microsoft-VisualStudio-ProjectSystem-Query-Remoting-IQueryExecutionRemoteContext 'Microsoft.VisualStudio.ProjectSystem.Query.Remoting.IQueryExecutionRemoteContext') | The context of the execution, if the query is original from a client. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token which can be triggered to cancel the request. |
 
@@ -11665,7 +11665,7 @@ A disposable subscription, which can be disposed to stop receiving further data.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | query | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The Query string. |
-| resultsReceiver | [System.IObserver{System.String}](https://learn.microsoft.com/dotnet/api/System.IObserver 'System.IObserver{System.String}') | A component to receive results. |
+| resultsReceiver | [System.IObserver{System.String}](https://learn.microsoft.com/dotnet/api/System.IObserver-1 'System.IObserver{System.String}') | A component to receive results. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-IQueryProcessRequest'></a>
@@ -13974,7 +13974,7 @@ Initializes a new instance of the [MergedQueryByIdDataProducer](#T-Microsoft-Vis
 | ---- | ---- | ----------- |
 | query | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable') | The current query. |
 | zoneController | [Microsoft.VisualStudio.ProjectSystem.Query.Providers.IQuerySpaceZoneController](#T-Microsoft-VisualStudio-ProjectSystem-Query-Providers-IQuerySpaceZoneController 'Microsoft.VisualStudio.ProjectSystem.Query.Providers.IQuerySpaceZoneController') | A controller to detect the zone of identities. |
-| queryByIdDataProducers | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryDataProducer{System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity},Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryDataProducer{System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity},Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}') | A collection of inner blocks to be wrapped into one block. |
+| queryByIdDataProducers | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryDataProducer{System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity},Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryDataProducer{System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity},Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}') | A collection of inner blocks to be wrapped into one block. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-MergedRelationshipQueryDataProducer'></a>
 ## MergedRelationshipQueryDataProducer `type`
@@ -14069,7 +14069,7 @@ Initializes a new instance of the [ModelAndExpression](#T-Microsoft-VisualStudio
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | A set of expressions. |
+| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | A set of expressions. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelAndExpression-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression,Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression-'></a>
 ### #ctor(left,right) `constructor`
@@ -14186,7 +14186,7 @@ Initializes a new instance of the [ModelCollectionMemberExpression](#T-Microsoft
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | memberName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the property. |
-| parameters | [System.Collections.Immutable.ImmutableArray{System.Object}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{System.Object}') | Values of parameters |
+| parameters | [System.Collections.Immutable.ImmutableArray{System.Object}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{System.Object}') | Values of parameters |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelConstantExpression'></a>
 ## ModelConstantExpression `type`
@@ -14377,7 +14377,7 @@ Initializes a new instance of the [ModelEndsWithExpression](#T-Microsoft-VisualS
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | A set of expressions. |
+| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | A set of expressions. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelEndsWithExpression-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression,System-Collections-Immutable-ImmutableArray{Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression}-'></a>
 ### #ctor(source,parameters) `constructor`
@@ -14391,7 +14391,7 @@ Initializes a new instance of the [ModelEndsWithExpression](#T-Microsoft-VisualS
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression](#T-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression 'Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression') | The source item of the operation. |
-| parameters | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | The method parameters of the operation. |
+| parameters | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | The method parameters of the operation. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelEqualExpression'></a>
 ## ModelEqualExpression `type`
@@ -14542,7 +14542,7 @@ Initializes a new instance of the [ModelMultaryExpression](#T-Microsoft-VisualSt
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | Child expressions. |
+| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | Child expressions. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelMultaryExpression-Expressions'></a>
 ### Expressions `property`
@@ -14622,7 +14622,7 @@ Initializes a new instance of the [ModelOrExpression](#T-Microsoft-VisualStudio-
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | Child expressions. |
+| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | Child expressions. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelOrExpression-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression,Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression-'></a>
 ### #ctor(left,right) `constructor`
@@ -14677,7 +14677,7 @@ Initializes a new instance of the [ModelStartsEndsWithBaseExpression](#T-Microso
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | A set of expressions. |
+| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | A set of expressions. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelStartsEndsWithBaseExpression-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression,System-Collections-Immutable-ImmutableArray{Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression}-'></a>
 ### #ctor(source,parameters) `constructor`
@@ -14691,7 +14691,7 @@ Initializes a new instance of the [ModelStartsEndsWithBaseExpression](#T-Microso
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression](#T-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression 'Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression') | The source item of the operation. |
-| parameters | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | The method parameters of the operation. |
+| parameters | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | The method parameters of the operation. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelStartsWithExpression'></a>
 ## ModelStartsWithExpression `type`
@@ -14715,7 +14715,7 @@ Initializes a new instance of the [ModelStartsWithExpression](#T-Microsoft-Visua
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | A set of expressions. |
+| expressions | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | A set of expressions. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelStartsWithExpression-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression,System-Collections-Immutable-ImmutableArray{Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression}-'></a>
 ### #ctor(source,parameters) `constructor`
@@ -14729,7 +14729,7 @@ Initializes a new instance of the [ModelStartsWithExpression](#T-Microsoft-Visua
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression](#T-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelExpression 'Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression') | The source item of the operation. |
-| parameters | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | The method parameters of the operation. |
+| parameters | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | The method parameters of the operation. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-QueryExpression-ModelStringMatchesExpression'></a>
 ## ModelStringMatchesExpression `type`
@@ -14749,7 +14749,7 @@ Initializes a new instance of the [ModelStringMatchesExpression](#T-Microsoft-Vi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| parameters | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | a set of parameter expressions |
+| parameters | [System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableArray-1 'System.Collections.Immutable.ImmutableArray{Microsoft.VisualStudio.ProjectSystem.Query.QueryExpression.ModelExpression}') | a set of parameter expressions |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Metadata-ModelType'></a>
 ## ModelType `type`
@@ -18077,7 +18077,7 @@ A task which completes when operations are done.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| sourceItems | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Execution.QueryProcessResult{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Execution.QueryProcessResult{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}') | Results from earlier query. |
+| sourceItems | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Execution.QueryProcessResult{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList-1 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Execution.QueryProcessResult{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}') | Results from earlier query. |
 | request | [Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryProcessRequest](#T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-IQueryProcessRequest 'Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryProcessRequest') | The top request. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-QueryByIdDataProducer'></a>
@@ -18594,7 +18594,7 @@ Initializes a new instance of the [QueryDataSourceChangeNotification](#T-Microso
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | updates | [Microsoft.VisualStudio.ProjectSystem.Query.QueryDataVersions](#T-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions 'Microsoft.VisualStudio.ProjectSystem.Query.QueryDataVersions') | Updated source versions |
-| removedSources | [System.Collections.Generic.IReadOnlyCollection{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{System.String}') | Immutable list of removed sources. |
+| removedSources | [System.Collections.Generic.IReadOnlyCollection{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection-1 'System.Collections.Generic.IReadOnlyCollection{System.String}') | Immutable list of removed sources. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-Providers-QueryDataSourceChangeNotification-Removes'></a>
 ### Removes `property`
@@ -18691,7 +18691,7 @@ New version set if it is changed.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A set of versions to be added. |
+| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A set of versions to be added. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-IsNewerOrEqualThan-System-Collections-Generic-IEnumerable{System-Collections-Generic-KeyValuePair{System-String,System-Int64}},System-Boolean-'></a>
 ### IsNewerOrEqualThan(versions,containsAllVersions) `method`
@@ -18708,7 +18708,7 @@ A boolean value indicates whether the version is newer than or matches the condi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A version set as the condition. |
+| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A version set as the condition. |
 | containsAllVersions | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether all version key must appear |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-IsNewerThan-System-Collections-Generic-IEnumerable{System-Collections-Generic-KeyValuePair{System-String,System-Int64}},System-Boolean-'></a>
@@ -18726,7 +18726,7 @@ A boolean value indicates whether the version is newer than the condition.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A version set as the condition. |
+| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A version set as the condition. |
 | containsAllVersions | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether all version key must appear |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-IsOlderOrEqualThan-System-Collections-Generic-IEnumerable{System-Collections-Generic-KeyValuePair{System-String,System-Int64}},System-Boolean-'></a>
@@ -18744,7 +18744,7 @@ A boolean value indicates whether the version is older than or matches the condi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A version set as the condition. |
+| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A version set as the condition. |
 | containsAllVersions | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether all version key must appear |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-IsOlderThan-System-Collections-Generic-IEnumerable{System-Collections-Generic-KeyValuePair{System-String,System-Int64}},System-Boolean-'></a>
@@ -18762,7 +18762,7 @@ A boolean value indicates whether the version is older than the condition.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A version set as the condition. |
+| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A version set as the condition. |
 | containsAllVersions | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether all version key must appear |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-Matches-System-Collections-Generic-IEnumerable{System-Collections-Generic-KeyValuePair{System-String,System-Int64}},System-Boolean-'></a>
@@ -18780,7 +18780,7 @@ A boolean value indicates whether the version matches the condition.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A version set as the condition. |
+| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A version set as the condition. |
 | containsAllVersions | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether all version key must appear |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-Merge-System-Collections-Generic-IEnumerable{System-Collections-Generic-KeyValuePair{System-String,System-Int64}}-'></a>
@@ -18798,7 +18798,7 @@ A combined version set.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A new set of versions to be mixed in. |
+| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A new set of versions to be mixed in. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-Merge-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-'></a>
 ### Merge(versions) `method`
@@ -18849,7 +18849,7 @@ New version set if it is changed.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versionKeys | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | A set of version keys to be excluded. |
+| versionKeys | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.String}') | A set of version keys to be excluded. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-Set-System-String,System-Int64-'></a>
 ### Set(versionKey,version) `method`
@@ -18880,7 +18880,7 @@ Overrides versions to the version set.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A set of versions |
+| versions | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Int64}}') | A set of versions |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-QueryDataVersions-SetIsMixed-System-Boolean-'></a>
 ### SetIsMixed(isMixed) `method`
@@ -19251,7 +19251,7 @@ Initializes a new instance of the [QueryFromEntitiesContext](#T-Microsoft-Visual
 | ---- | ---- | ----------- |
 | runtimeModel | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityRuntimeModel](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityRuntimeModel 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityRuntimeModel') | The model where the query is created. |
 | entityType | [Microsoft.VisualStudio.ProjectSystem.Query.IEntityType](#T-Microsoft-VisualStudio-ProjectSystem-Query-IEntityType 'Microsoft.VisualStudio.ProjectSystem.Query.IEntityType') | The type of the existing set of entity items. |
-| itemIdentities | [System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection 'System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}') | The id of existing items. |
+| itemIdentities | [System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyCollection-1 'System.Collections.Generic.IReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.EntityIdentity}') | The id of existing items. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-QueryFromEntitiesContext-ElementType'></a>
 ### ElementType `property`
@@ -22686,7 +22686,7 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects where this change should apply to. |
-| itemPaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | A set of paths of file items |
+| itemPaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.String}') | A set of paths of file items |
 | itemType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The optional item type of new files. (This might not be supported by all project systems.) |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddFiles-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionFolderSnapshot},System-Collections-Generic-IEnumerable{System-String}-'></a>
@@ -22705,7 +22705,7 @@ A set of solution folders updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutionFolders | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionFolderSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionFolderSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionFolderSnapshot}') | A set of solution folders where this change should apply to. |
-| itemPaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | A set of paths of file items |
+| itemPaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.String}') | A set of paths of file items |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddFiles-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},System-Collections-Generic-IEnumerable{System-String}-'></a>
 ### AddFiles(solutions,itemPaths) `method`
@@ -22723,7 +22723,7 @@ A set of solution folders updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | solutions | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot}') | A set of solutions where this change should apply to. |
-| itemPaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | A set of paths of file items |
+| itemPaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.String}') | A set of paths of file items |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddFilesFromCopy-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},System-Collections-Generic-IEnumerable{System-String},System-String,System-String-'></a>
 ### AddFilesFromCopy(projects,originalFilePaths,targetFolderPath,itemType) `method`
@@ -22741,7 +22741,7 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects where this change should apply to. |
-| originalFilePaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | A set of paths of file items on the file system of the project system. |
+| originalFilePaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.String}') | A set of paths of file items on the file system of the project system. |
 | targetFolderPath | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A relative path of a folder inside the project. |
 | itemType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The optional item type of new files. (This might not be supported by all project systems.) |
 
@@ -22797,7 +22797,7 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects where this change should apply to. |
-| itemPaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | Path of file items. They must be outside of the project cone. |
+| itemPaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.String}') | Path of file items. They must be outside of the project cone. |
 | targetFolder | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | A relative path of a folder inside the project. |
 | itemType | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The optional item type of new files. (This might not be supported by all project systems.) |
 
@@ -22926,7 +22926,7 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects where this change should apply to. |
-| referencedProjectPaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | The paths of a project to be referenced. |
+| referencedProjectPaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.String}') | The paths of a project to be referenced. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddReference-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectConfigurationSnapshot},System-String-'></a>
 ### AddReference(project,assemblyNameOrPath) `method`
@@ -22962,7 +22962,7 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | project | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectConfigurationSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectConfigurationSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectConfigurationSnapshot}') | A set of projects where this change should apply to. |
-| assemblyNameOrPaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | The name of the assembly or the path of the assembly. |
+| assemblyNameOrPaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.String}') | The name of the assembly or the path of the assembly. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-AddSharedProjectReference-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot-'></a>
 ### AddSharedProjectReference(projects,referencedProject) `method`
@@ -23016,7 +23016,7 @@ A set of projects updated.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | projects | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot} 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}') | A set of projects where this change should apply to. |
-| referencedProjectPaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.String}') | The paths of a shared project to be referenced. |
+| referencedProjectPaths | [System.Collections.Generic.IEnumerable{System.String}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.String}') | The paths of a shared project to be referenced. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-UpdateExtensions-BuildAsync-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},System-Threading-CancellationToken-'></a>
 ### BuildAsync(solutions,cancellationToken) `method`
