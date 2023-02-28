@@ -506,7 +506,7 @@ Initializes a new instance of the [ChoiceResultCollection\`1](#T-Microsoft-Visua
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| choiceResultPairs | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription,\`0}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription,`0}}') | A collection of pairs mapping [ChoiceDescription](#T-Microsoft-VisualStudio-Extensibility-Shell-ChoiceDescription 'Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription') to `TResult` values. |
+| choiceResultPairs | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription,\`0}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription,`0}}') | A collection of pairs mapping [ChoiceDescription](#T-Microsoft-VisualStudio-Extensibility-Shell-ChoiceDescription 'Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription') to `TResult` values. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ChoiceResultCollection`1-#ctor-System-Collections-Generic-List{System-Collections-Generic-KeyValuePair{Microsoft-VisualStudio-RpcContracts-Notifications-UserPromptOption,`0}}-'></a>
 ### #ctor(internalMap) `constructor`
