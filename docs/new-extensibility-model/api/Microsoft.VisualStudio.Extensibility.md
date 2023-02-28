@@ -4847,7 +4847,7 @@ Results of the solution update actions.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | queryFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}}') | Function to select items to update. |
-| updateFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`1}}](https://learn.microsoft.com/dotnet/api/System.Func 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``1}}') | Function to update selected items. |
+| updateFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`1}}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``1}}') | Function to update selected items. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
 ##### Generic Types
