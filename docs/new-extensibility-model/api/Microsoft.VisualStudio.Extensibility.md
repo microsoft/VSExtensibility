@@ -464,7 +464,7 @@ Wraps `choiceText` in an [ChoiceDescription](#T-Microsoft-VisualStudio-Extensibi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| choiceText | [System.String)~Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription](https://learn.microsoft.com/dotnet/api/System.String)~Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription 'System.String)~Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription') | The option text. |
+| choiceText | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The option text. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Shell-ChoiceResultCollection`1'></a>
 ## ChoiceResultCollection\`1 `type`
