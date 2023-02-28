@@ -572,7 +572,7 @@ Creates a new instance of [TextViewChangedArgs](#T-Microsoft-VisualStudio-Extens
 | ---- | ---- | ----------- |
 | beforeTextView | [Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextViewSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot') | The state of the [ITextViewSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextViewSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot') before the change. |
 | afterTextView | [Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextViewSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot') | The state of the [ITextViewSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextViewSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot') after. |
-| edits | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Extensibility.Editor.TextEdit}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Extensibility.Editor.TextEdit}') | A list of changes applied to the text document. |
+| edits | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Extensibility.Editor.TextEdit}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList-1 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Extensibility.Editor.TextEdit}') | A list of changes applied to the text document. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Editor-TextViewChangedArgs-AfterTextView'></a>
 ### AfterTextView `property`
