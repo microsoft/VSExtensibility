@@ -519,7 +519,7 @@ Initializes a new instance of the [ChoiceResultCollection\`1](#T-Microsoft-Visua
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| internalMap | [System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption,\`0}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.List 'System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption,`0}}') | The mappings from result to [UserPromptOption](#T-Microsoft-VisualStudio-RpcContracts-Notifications-UserPromptOption 'Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption'). |
+| internalMap | [System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption,\`0}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption,`0}}') | The mappings from result to [UserPromptOption](#T-Microsoft-VisualStudio-RpcContracts-Notifications-UserPromptOption 'Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption'). |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Shell-ChoiceResultCollection`1-Count'></a>
 ### Count `property`
