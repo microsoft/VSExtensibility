@@ -2451,7 +2451,7 @@ The result of the prompt.
 | ---- | ---- | ----------- |
 | clientContext | [Microsoft.VisualStudio.Extensibility.IClientContext](#T-Microsoft-VisualStudio-Extensibility-IClientContext 'Microsoft.VisualStudio.Extensibility.IClientContext') | Client context to utilize. |
 | message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The prompt to show to the user. |
-| options | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption}') | The options. |
+| options | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList-1 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption}') | The options. |
 | defaultOptionIndex | [System.UInt32](https://learn.microsoft.com/dotnet/api/System.UInt32 'System.UInt32') | The index of the default option. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token. |
 
@@ -3057,7 +3057,7 @@ Microsoft.VisualStudio.Extensibility.Shell
 
 ##### Summary
 
-An entity that inherits [IProgress\`1](https://learn.microsoft.com/dotnet/api/System.IProgress`1 'System.IProgress`1') used by background work running on an extension to report progress.
+An entity that inherits [IProgress\`1](https://learn.microsoft.com/dotnet/api/System.IProgress-1 'System.IProgress`1') used by background work running on an extension to report progress.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ProgressReporter-#ctor-System-Guid,Microsoft-VisualStudio-RpcContracts-ProgressReporting-IWorkProgressHandler-'></a>
 ### #ctor(workId,workProgressHandler) `constructor`
@@ -3130,7 +3130,7 @@ Cancel the ongoing background work in the extension after [](#E-Microsoft-Visual
 
 ##### Summary
 
-Inherited from [IProgress\`1](https://learn.microsoft.com/dotnet/api/System.IProgress`1 'System.IProgress`1').
+Inherited from [IProgress\`1](https://learn.microsoft.com/dotnet/api/System.IProgress-1  'System.IProgress`1').
 
 ##### Parameters
 
@@ -4322,7 +4322,7 @@ A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'Sys
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| message | [System.Buffers.ReadOnlySequence{System.Byte}](https://learn.microsoft.com/dotnet/api/System.Buffers.ReadOnlySequence 'System.Buffers.ReadOnlySequence{System.Byte}') | The content of the message sent to the visualizer object source. The format of `message` is defined by the chosen visualizer object source. |
+| message | [System.Buffers.ReadOnlySequence{System.Byte}](https://learn.microsoft.com/dotnet/api/System.Buffers.ReadOnlySequence-1 'System.Buffers.ReadOnlySequence{System.Byte}') | The content of the message sent to the visualizer object source. The format of `message` is defined by the chosen visualizer object source. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-ReplaceTargetObjectAsync-Newtonsoft-Json-Linq-JToken,System-Threading-CancellationToken-'></a>
@@ -4815,7 +4815,7 @@ Results of the solution update actions.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | queryFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}}') | Function to select items to update. |
-| updateFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`1}}](https://learn.microsoft.com/dotnet/api/System.Func 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``1}}') | Function to update selected items. |
+| updateFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`1}}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``1}}') | Function to update selected items. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
 ##### Generic Types
