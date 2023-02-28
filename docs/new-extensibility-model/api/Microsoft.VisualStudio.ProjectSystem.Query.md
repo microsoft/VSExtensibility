@@ -2132,7 +2132,7 @@ Initializes a new instance of the [ActionExecutorByQueryActionDataProvider](#T-M
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| providersWithZoneInfo | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Providers.IProviderWithZoneInfo{Microsoft.VisualStudio.ProjectSystem.Query.Providers.IQueryActionProvider}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Providers.IProviderWithZoneInfo{Microsoft.VisualStudio.ProjectSystem.Query.Providers.IQueryActionProvider}}') | A provider from an extension. |
+| providersWithZoneInfo | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Providers.IProviderWithZoneInfo{Microsoft.VisualStudio.ProjectSystem.Query.Providers.IQueryActionProvider}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList-1 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Providers.IProviderWithZoneInfo{Microsoft.VisualStudio.ProjectSystem.Query.Providers.IQueryActionProvider}}') | A provider from an extension. |
 | executableStep | [Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep](#T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-ExecutableStep 'Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep') | Extra data to describe the action. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Framework-Actions-AddAssemblyReferenceByName'></a>
@@ -2728,7 +2728,7 @@ Initializes a new instance of the [AsyncExecutable](#T-Microsoft-VisualStudio-Pr
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable') | A query to describe items where the action applies to |
-| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableQueue 'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') | A collection of actions to take during execution. |
+| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableQueue-1 'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') | A collection of actions to take during execution. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-AsyncExecutable-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable,System-Collections-Immutable-ImmutableQueue{Microsoft-VisualStudio-ProjectSystem-Query-Framework-ExecutableStep}-'></a>
 ### #ctor(source,steps) `constructor`
@@ -2742,7 +2742,7 @@ Initializes a new instance of the [AsyncExecutable](#T-Microsoft-VisualStudio-Pr
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | source | [Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable](#T-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable 'Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable') | A query to describe items where the action applies to |
-| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableQueue 'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') | A collection of actions to take during execution. |
+| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableQueue-1 'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') | A collection of actions to take during execution. |
 
 <a name='P-Microsoft-VisualStudio-ProjectSystem-Query-AsyncExecutable-IsUpdate'></a>
 ### IsUpdate `property`
