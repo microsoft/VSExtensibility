@@ -29,12 +29,19 @@ This site is your hub for all documentation for the VisualStudio.Extensibility S
 
 | Article | Description|
 |-|-|
+| [Install VisualStudio.Extensibility](#install-visualstudioextensibility) | Download and install the latest preview of VisualStudio.Extensibility. |
 | [Get started](#get-started) | Never developed an extension before? Start with beginner quickstarts and introductory tutorials. |
 | [Concepts](#concepts) | Build your mental model of how the SDK and extensions work. |
 | [Overviews](#overviews) | Learn more by reading overviews of each major area of functionality. |
 | [Samples](#samples-and-tutorials) | Explore sample code demonstrating major features. |
 | [API reference](#api-docs) | Browse the VisualStudio.Extensibility API documentation. |
 | [Advanced topics](#advanced-topics) | Learn implementation details of the VisualStudio.Extensibility SDK. |
+
+## Install VisualStudio.Extensibility
+
+The current VisualStudio.Extensibility preview works with Visual Studio 2022 version 17.6 Preview 1 or higher with the `.Net desktop development` workload to be installed.
+
+Install the [VisualStudio.Extensibility Project System](https://marketplace.visualstudio.com/items?itemName=vsext.gladstone) extension. This extension contains project and item templates, and it will allow you to debug extension projects using F5.
 
 ## Get Started
 
