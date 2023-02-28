@@ -1286,8 +1286,7 @@ An [IRemoteUserControl](#T-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteU
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| visualizerTarget | [Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget') | The [VisualizerTarget](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget') provides information about the target process
- and object, and can be used to request the data of the target object or replace it. |
+| visualizerTarget | [Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget') | The [VisualizerTarget](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget') provides information about the target process and object, and can be used to request the data of the target object or replace it. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
 ##### Remarks
@@ -3961,8 +3960,7 @@ Performs application-defined tasks associated with freeing, releasing, or resett
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether managed resources should be disposed. This should be `false` when
-[Dispose](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.Dispose(System.Boolean)') is called from a finalizer, `true` otherwise. |
+| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether managed resources should be disposed. This should be `false` when [Dispose](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.Dispose(System.Boolean)') is called from a finalizer, `true` otherwise. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-GetContentAsync-System-Threading-CancellationToken-'></a>
 ### GetContentAsync(cancellationToken) `method`
@@ -4324,8 +4322,7 @@ A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'Sys
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| message | [System.Buffers.ReadOnlySequence{System.Byte}](https://learn.microsoft.com/dotnet/api/System.Buffers.ReadOnlySequence 'System.Buffers.ReadOnlySequence{System.Byte}') | The content of the message sent to the visualizer object source. The format of
-`message` is defined by the chosen visualizer object source. |
+| message | [System.Buffers.ReadOnlySequence{System.Byte}](https://learn.microsoft.com/dotnet/api/System.Buffers.ReadOnlySequence 'System.Buffers.ReadOnlySequence{System.Byte}') | The content of the message sent to the visualizer object source. The format of `message` is defined by the chosen visualizer object source. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-ReplaceTargetObjectAsync-Newtonsoft-Json-Linq-JToken,System-Threading-CancellationToken-'></a>
@@ -4343,8 +4340,7 @@ A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'Sys
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| message | [Newtonsoft.Json.Linq.JToken](#T-Newtonsoft-Json-Linq-JToken 'Newtonsoft.Json.Linq.JToken') | The content of the message sent to the visualizer object source. The format of
-`message` is defined by the chosen visualizer object source. |
+| message | [Newtonsoft.Json.Linq.JToken](#T-Newtonsoft-Json-Linq-JToken 'Newtonsoft.Json.Linq.JToken') | The content of the message sent to the visualizer object source. The format of `message` is defined by the chosen visualizer object source. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-ReplaceTargetObjectAsync``1-``0,Newtonsoft-Json-JsonSerializer,System-Threading-CancellationToken-'></a>
@@ -4390,8 +4386,7 @@ The optional response to the message. The format of the returned data is defined
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| message | [System.Nullable{System.Buffers.ReadOnlySequence{System.Byte}}](https://learn.microsoft.com/dotnet/api/System.Nullable 'System.Nullable{System.Buffers.ReadOnlySequence{System.Byte}}') | The optional content of the message. The format of `message` is defined
- by the chosen visualizer object source. |
+| message | [System.Nullable{System.Buffers.ReadOnlySequence{System.Byte}}](https://learn.microsoft.com/dotnet/api/System.Nullable 'System.Nullable{System.Buffers.ReadOnlySequence{System.Byte}}') | The optional content of the message. The format of `message` is defined by the chosen visualizer object source. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
 ##### Exceptions
@@ -4401,9 +4396,7 @@ The optional response to the message. The format of the returned data is defined
 | [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes
  unavailable before the call can be completed.
 
- When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be
- aborted since the visualizer target is now unavailable. When the visualizer target becomes available again, the
- value of the object to be visualized may have changed, so a new value retrieval should be started. |
+ When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be aborted since the visualizer target is now unavailable. When the visualizer target becomes available again, the value of the object to be visualized may have changed, so a new value retrieval should be started. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-RequestDataAsync-Newtonsoft-Json-Linq-JToken,System-Threading-CancellationToken-'></a>
 ### RequestDataAsync(message,cancellationToken) `method`
@@ -4422,8 +4415,7 @@ The optional response to the message. The format of the returned data is defined
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| message | [Newtonsoft.Json.Linq.JToken](#T-Newtonsoft-Json-Linq-JToken 'Newtonsoft.Json.Linq.JToken') | The content of the message. The format of `message` is defined by the
- chosen visualizer object source. |
+| message | [Newtonsoft.Json.Linq.JToken](#T-Newtonsoft-Json-Linq-JToken 'Newtonsoft.Json.Linq.JToken') | The content of the message. The format of `message` is defined by the chosen visualizer object source. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
 ##### Exceptions
@@ -4433,9 +4425,7 @@ The optional response to the message. The format of the returned data is defined
 | [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes
  unavailable before the call can be completed.
 
- When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be
- aborted since the visualizer target is now unavailable. When the visualizer target becomes available
- again, the value of the object to be visualized may have changed, so a new value retrieval should be started. |
+ When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be aborted since the visualizer target is now unavailable. When the visualizer target becomes available again, the value of the object to be visualized may have changed, so a new value retrieval should be started. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-RequestDataAsync-System-Threading-CancellationToken-'></a>
 ### RequestDataAsync(cancellationToken) `method`
@@ -4463,9 +4453,7 @@ The optional response to the message. The format of the returned data is defined
 | [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes
  unavailable before the call can be completed.
 
- When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be
- aborted since the visualizer target is now unavailable. When the visualizer target becomes available
- again, the value of the object to be visualized may have changed, so a new value retrieval should be started. |
+ When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be aborted since the visualizer target is now unavailable. When the visualizer target becomes available again, the value of the object to be visualized may have changed, so a new value retrieval should be started. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-RequestDataAsync``1-Newtonsoft-Json-JsonSerializer,System-Threading-CancellationToken-'></a>
 ### RequestDataAsync\`\`1(jsonSerializer,cancellationToken) `method`
@@ -4500,9 +4488,7 @@ The optional response to the message. If `TResponse` is a reference type, this
 | [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes
  unavailable before the call can be completed.
 
- When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be
- aborted since the visualizer target is now unavailable. When the visualizer target becomes available
- again, the value of the object to be visualized may have changed, so a new value retrieval should be started. |
+ When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be aborted since the visualizer target is now unavailable. When the visualizer target becomes available again, the value of the object to be visualized may have changed, so a new value retrieval should be started. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-RequestDataAsync``2-``0,Newtonsoft-Json-JsonSerializer,System-Threading-CancellationToken-'></a>
 ### RequestDataAsync\`\`2(message,jsonSerializer,cancellationToken) `method`
@@ -4540,9 +4526,7 @@ The optional response to the message. If `TResponse` is a reference type, this
 | [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes
  unavailable before the call can be completed.
 
- When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be
- aborted since the visualizer target is now unavailable. When the visualizer target becomes available
- again, the value of the object to be visualized may have changed, so a new value retrieval should be started. |
+ When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be aborted since the visualizer target is now unavailable. When the visualizer target becomes available again, the value of the object to be visualized may have changed, so a new value retrieval should be started. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClientImplementation'></a>
 ## VisualizerObjectSourceClientImplementation `type`
@@ -4613,8 +4597,7 @@ Initializes a new instance of the [VisualizerTarget](#T-Microsoft-VisualStudio-E
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| objectSource | [Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient') | The object source client which can be used to query the object source for the value of
-the target object or request the target object to be replaced. |
+| objectSource | [Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient') | The object source client which can be used to query the object source for the value of the target object or request the target object to be replaced. |
 | visualizerTargetData | [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetData](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetData 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetData') | The metadata associated with this instance of the visualizer target. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-IsTargetReplaceable'></a>
