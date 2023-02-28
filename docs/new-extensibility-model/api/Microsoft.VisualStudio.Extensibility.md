@@ -699,7 +699,7 @@ a Task indicating completion of the task.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| command | [T:Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync](#T-T-Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync 'T:Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync') | Command instance being executed. |
+| command | [Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync](#T-T-Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync 'Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync') | Command instance being executed. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-CommandRemovedEventArgs'></a>
 ## CommandRemovedEventArgs `type`
