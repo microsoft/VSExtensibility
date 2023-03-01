@@ -1,10 +1,10 @@
 ---
-title: In-proc VisualStudio.Extensibility extensions
+title: VSSDK-compatible VisualStudio.Extensibility extensions
 description: A reference for creating your first in-proc VisualStudio.Extensibility extension
 date: 2022-7-13
 ---
 
-# Creating your first in-process VisualStudio.Extensibility extension
+# Creating your first VSSDK-compatible VisualStudio.Extensibility extension
 
 ## Introduction
 
@@ -14,19 +14,19 @@ The support of *in-proc* extensions is meant to allow early adopters to leverage
 
 At this time, VSIX extensions containing VisualStudio.Extensibility references cannot be uploaded to the Visual Studio Marketplace due to VisualStudio.Extensibility being in preview status.
 
-This document is a quick walkthrough on how to create your first *in-proc* extension using the VisualStudio.Extensibility model.
+This document is a quick walkthrough on how to create your first VSSDK-compatible extension using the VisualStudio.Extensibility model.
 
 ## Prerequisites
 
-* Visual Studio 2022.5 Preview 1 or higher with `.Net desktop development` workload. The latest minimum requirement will always be listed at [Announcements](../../announcements.md) page.
+* Visual Studio 2022.6 Preview 1 or higher with `.Net desktop development` workload. The latest minimum requirement will always be listed at [Announcements](../../announcements.md) page.
 * Install [VisualStudio.Extensibility Project System](https://marketplace.visualstudio.com/items?itemName=vsext.gladstone): This extension contains project templates for VisualStudio.Extensibility extensions.
 * If you are updating from earlier builds, please make sure to update VisualStudio.Extensibility Project System to latest version as there are breaking changes in VisualStudio.Extensibility packages.
 
 ## Create the extension project
 
-* Use the *VisualStudio.Extensibility In-Process Extension Project* template to create a new solution.
+* Use the *VisualStudio.Extensibility Extension with VSSDK Compatibility* template to create a new solution.
 
-![VisualStudio.Extensibility In-Process Extension Project template](in-proc-project-template.png "VisualStudio.Extensibility In-Process Extension Project template")
+![VisualStudio.Extensibility In-Process Extension Project template](in-proc-project-template.png "VisualStudio.Extensibility Extension with VSSDK Compatibility Project template")
 
 ## Debug your extension
 
@@ -40,7 +40,7 @@ This document is a quick walkthrough on how to create your first *in-proc* exten
 
 ## Consuming Visual Studio SDK services from a VisualStudio.Extensibility extension
 
-An *in-proc* extension project references the [Microsoft.VisualStudio.Sdk](https://www.nuget.org/packages/Microsoft.VisualStudio.Sdk) package which allows access to all Visual Studio SDK's services.
+A VSSDK-compatible extension project references the [Microsoft.VisualStudio.Sdk](https://www.nuget.org/packages/Microsoft.VisualStudio.Sdk) package which allows access to all Visual Studio SDK's services.
 
 Traditionally, such services are consumed through either [MEF](https://docs.microsoft.com/en-us/visualstudio/extensibility/managed-extensibility-framework-in-the-editor) or the [AsyncServiceProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.asyncserviceprovider). A VisualStudio.Extensibility extender is instead encouraged to leverage [.NET depedency injection](https://docs.microsoft.com/en-us/dotnet/core/extensions/dependency-injection).
 
@@ -49,8 +49,7 @@ The `MefInjection<TService>` and `AsyncServiceProviderInjection<TService, TInter
 The example below shows how the `DTE2` and `IBufferTagAggregatorFactoryService` services can be added to a command.
 
 ```CSharp
-    [CommandIcon(KnownMonikers.Extension, IconSettings.IconAndText)]
-    [Command("MyFirstInProcExtension.Command1", "Sample Remote Command", placement: KnownCommandPlacement.ToolsMenu)]
+    [VisualStudioContribution]
     public class Command1 : Command
     {
         private TraceSource traceSource;
@@ -61,22 +60,27 @@ The example below shows how the `DTE2` and `IBufferTagAggregatorFactoryService` 
             VisualStudioExtensibility extensibility,
             TraceSource traceSource,
             AsyncServiceProviderInjection<DTE, DTE2> dte,
-            MefInjection<IBufferTagAggregatorFactoryService> bufferTagAggregatorFactoryService,
-            string id)
-            : base(extensibility, id)
-    {
-        this.dte = dte;
-        this.bufferTagAggregatorFactoryService = bufferTagAggregatorFactoryService;
-    }
+            MefInjection<IBufferTagAggregatorFactoryService> bufferTagAggregatorFactoryService)
+            : base(extensibility)
+        {
+            this.dte = dte;
+            this.bufferTagAggregatorFactoryService = bufferTagAggregatorFactoryService;
+        }
+    
+        public override CommandConfiguration CommandConfiguration => new("Sample Remote Command")
+        {
+            Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+            Icon = new(ImageMoniker.KnownValues.Extension, IconSettings.IconAndText),
+        };
 ```
 
-## Anatomy of an in-proc VisualStudio.Extensibility extension
+## Anatomy of a VSSDK-compatible VisualStudio.Extensibility extension
 
-While using the *VisualStudio.Extensibility In-Process Extension Project* template takes care of setting up the entire solution, it is useful to know what are the basic components of an *in-proc* VisualStudio.Extensibility extension and how it differs from the *out-of-proc* variant described in the ["create your first extension" guide](create-your-first-extension.md).
+While using the *VisualStudio.Extensibility Extension with VSSDK Compatibility* template takes care of setting up the entire solution, it is useful to know what are the basic components of a VSSDK-compatible VisualStudio.Extensibility extension and how it differs from the common variant described in the ["create your first extension" guide](create-your-first-extension.md).
 
 ### Container project
 
-An *in-proc* VisualStudio.Extensibility solution is composed of two projects:
+A VSSDK-compatible VisualStudio.Extensibility solution is composed of two projects:
 
 1. a class library that references both the VisualStudio.Extensibility and Visual Studio SDK packages and contains all the code of the extension,
 1. a container VSIX project that provides the ability to deploy the debug the extension.
@@ -89,12 +93,18 @@ The extender shouldn't add code, content or resources to the container project. 
 
 Both the extension project and the container project must target the .NET version used by the target Visual Studio version. For Visual Studio 2022, they must target .NET Framework 4.7.2.
 
-### HostingOptionsAttribute
+### RequiresInProcessHosting property
 
-The `Extension` class must be marked with the `[HostingOptions(true)]` attribute that identifies the extension as being *in-proc*.
+The `Extension` class must be configured with the `RequiresInProcessHosting = true` property that identifies the extension as being *in-process*.
 
 ```CSharp
-    [HostingOptions(requiresInProcessHosting: true)]
-    public class InProcExtension : Extension
+[VisualStudioContribution]
+internal class MyExtension : Extension
+{
+    public override ExtensionConfiguration? ExtensionConfiguration => new()
     {
+        RequiresInProcessHosting = true,
+    };
+
+    ...
 ```

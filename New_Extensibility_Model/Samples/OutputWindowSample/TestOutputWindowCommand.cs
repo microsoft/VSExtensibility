@@ -7,14 +7,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Commands;
-using Microsoft.VisualStudio.Extensibility.Definitions;
 using Microsoft.VisualStudio.Extensibility.Documents;
 
 /// <summary>
 /// A sample command for displaying a test message in the output window.
 /// </summary>
-[Command("TestOutputWindowCommand", "Test the Output Window", placement: CommandPlacement.ToolsMenu)]
-[CommandIcon(KnownMonikers.ToolWindow, IconSettings.IconAndText)]
+[VisualStudioContribution]
 public class TestOutputWindowCommand : Command
 {
 	private OutputWindow? outputWindow;
@@ -28,10 +26,17 @@ public class TestOutputWindowCommand : Command
 	/// <param name="id">
 	/// Command identifier.
 	/// </param>
-	public TestOutputWindowCommand(VisualStudioExtensibility extensibility, string id)
-		: base(extensibility, id)
+	public TestOutputWindowCommand(VisualStudioExtensibility extensibility)
+		: base(extensibility)
 	{
 	}
+
+	/// <inheritdoc />
+	public override CommandConfiguration CommandConfiguration => new("%OutputWindowSample.TestOutputWindowCommand.DisplayName%")
+	{
+		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+		Icon = new(ImageMoniker.KnownValues.ToolWindow, IconSettings.IconAndText),
+	};
 
 	/// <inheritdoc />
 	public override async Task InitializeAsync(CancellationToken cancellationToken)

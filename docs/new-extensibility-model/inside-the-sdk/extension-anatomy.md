@@ -12,8 +12,9 @@ An extension utilizing VisualStudio.Extensibility will have several components t
 
 The starting point for each extension is an instance of `Microsoft.VisualStudio.Extensibility.Extension`. This instance contains the necessary methods for Visual Studio to query services provided by the extension and also provides virtual methods for extension to provide localized resources and extension-owned local services to be shared between the components of the extension.
 
+Extension projects will have their own class that derives from `Microsoft.VisualStudio.Extensibility.Extension` to customize certain aspects of the extension.
 
-Extensions must have a class that derives from `Microsoft.VisualStudio.Extensibility.Extension. See [MarkdownLinter](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/MarkdownLinter) for an example implementation.
+Extensions must have a class that derives from `Microsoft.VisualStudio.Extensibility.Extension`. See [MarkdownLinter](https://github.com/microsoft/VSExtensibility/tree/main/New_Extensibility_Model/Samples/MarkdownLinter) for an example implementation.
 
 For extension developers that are familiar with the existing VS SDK APIs, this class is very similar to `AsyncPackage` class that is used in the VS SDK extensibility model.
 
@@ -25,11 +26,16 @@ The object `Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility` acts
 
 For features where an extension contributes components to Visual Studio such as commands, editor listeners, extensions will utilize attributed classes. Build process will generate the correct metadata to ensure these components can be discovered by Visual Studio.
 
-Currently the SDK supports a limited set of components to be exported:
+For features where an extension contributes components to Visual Studio such as commands, editor listeners, tool windows, etc., extensions will utilize classes marked with the `VisualStudioContribution` attribute. The build process will generate the correct metadata to ensure these components can be discovered by Visual Studio.
+
+Currently the SDK supports a limited set of components to be contributed:
 
 * [Command handlers](../extension-guides/command/command.md)
-* [Text view lifetime listeners](../extension-guides/editor/editor.md) for tracking text view created, closed events.
+* [Tool windows](../extension-guides/toolWindow/toolWindow.md)
+* [Text view opened closed listeners](../extension-guides/editor/editor.md) for tracking text view created, closed events.
 * [Text view change listeners](../extension-guides/editor/editor.md) for tracking changes to an open text view.
+* [Margin providers](../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-ITextViewMarginProvider)
+* [Debugger visualizers](../api/Microsoft.VisualStudio.Extensibility.md#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProvider)
 
 Instances for these classes will be created as part of the extensibility framework provided by the SDK using a dependency injection library, and constructors can be used to retrieve instances of services provided by either the SDK or by the extension itself to share state across components.
 

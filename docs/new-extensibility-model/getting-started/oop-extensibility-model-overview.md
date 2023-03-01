@@ -23,7 +23,7 @@ The new VisualStudio.Extensibility model aims to address many of the problems bo
 
 Writing extensions using VisualStudio.Extensibility provides the following benefits:
 
-* **Increased reliability** – Extensions written with the new model are out-of-proc and will not block the Visual Studio UI.  This means that if the extension crashes, VS will not crash as a result. 
+* **Increased reliability** – Extensions written with the new model are out-of-proc and will not block the Visual Studio UI.  This means that if the extension crashes, VS will not crash as a result.
 * **Reduced API complexity** – The new model’s wrapper API has been built from the ground-up to be more cohesive and simpler to implement while retaining the old model’s advanced functionality.
 * **.NET Only** – In order to benefit from latest enhancements on .NET and C#, the new extensibility model will only support .NET and forward for out of process hosting and will be hosted in a .NET process.
 * **Hot-loading functionality** – Excluding ones requiring VS component prerequisites that haven’t been installed yet, extensions written using the new model can be installed and loaded without needing to restart Visual Studio.

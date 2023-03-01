@@ -138,6 +138,7 @@ We can notice the effect of this if we click the "Add color" button multiple tim
 ![Overlapped async command execution](overlapped-async-commands.gif "Overlapped async command execution")
 
 To address this, we will disable the button while the *async command* is executing. The most straightforward way to do this is to simply set `CanExecute` for the command to false:
+
 ```CSharp
 AddColorCommand = new AsyncCommand(async (parameter, ancellationToken) =>
 {
@@ -159,6 +160,7 @@ AddColorCommand = new AsyncCommand(async (parameter, ancellationToken) =>
 This solution still has imperfect synchronization since, when the user clicks the button, the command callback is executed asynchronously in the extension, the callback sets `CanExecute` to `false` which is then propagated asynchronously to the proxy data context in the Visual Studio process resulting in the button being disabled. The user could click the button twice in rapid succession before the button is disabled.
 
 A better solution is to leverage the `RunningCommandsCount` property of *async commands*:
+
 ```xml
 <Button Content="Add color" Command="{Binding AddColorCommand}" IsEnabled="{Binding AddColorCommand.RunningCommandsCount.IsZero}" Grid.Row="1" />
 ```
@@ -219,7 +221,7 @@ all honor the identity of reference type objects. With the exception of strings,
 
 In the picture above, you can see how every reference type object in the data context (the commands, the collection, each `MyColor` and even the entire data context) is assigned a unique identifier by the *Remote UI* infrastructure. When the user clicks the "Remove" button for the proxy color object *#5*, the unique indentifier (*#5*), not the value of the object, is sent back to the extension. The *Remote UI* infrastructure takes care of retrieving the corresponding `MyColor` object and passing it as parameter to the *async command*'s callback.
 
-# RunningCommandsCount with multiple bindings and event handling
+## RunningCommandsCount with multiple bindings and event handling
 
 If you test the extension at this point, you'll notice that when one of the "Remove" buttons is clicked, all "Remove" buttons are disabled:
 

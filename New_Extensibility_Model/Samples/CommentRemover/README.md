@@ -29,27 +29,32 @@ The two most glaring differences between the old and new commands are:
 
 We also don't need to initialize the commands anymore, so I don't need to port the code from the `AsyncPackage` class.
 
-Finally, I will set up shortcuts, icons and a rule about when the commands are enabled. All of this is achieved by adding attributes to the command class which will end up looking like this:
+Finally, I will set up shortcuts, icons and a rule about when the commands are enabled. All of this is achieved through the `CommandConfiguration` property.
 
 ```CSharp
-[CommandIcon(KnownMonikers.Uncomment, IconSettings.IconAndText)]
-[CommandShortcut(mod1: ModifierKey.Control, key1: KnownKey.K, mod2: ModifierKey.Control, key2: KnownKey.Q)]
-[Command("CommentRemover.RemoveAllComment", CommandDescription)]
-[CommandEnabledWhen(
-    "IsValidFile",
-    new string[] { "IsValidFile" },
-    new string[] { @"ClientContext:Shell.ActiveSelectionFileName=\.(cs|vb|fs)$" })]
-public class RemoveAllComments : CommentRemoverCommand
+[VisualStudioContribution]
+internal class RemoveAllComments : CommentRemoverCommand
 {
-    private const string CommandDescription = "Remove All";
+    private const string CommandDescription = "%RemoveAllComments.DisplayName%";
 
     public RemoveAllComments(
         VisualStudioExtensibility extensibility,
         TraceSource traceSource,
-        string id)
-        : base(extensibility, traceSource, id)
+        AsyncServiceProviderInjection<DTE, DTE2> dte,
+        MefInjection<IBufferTagAggregatorFactoryService> bufferTagAggregatorFactoryService,
+        MefInjection<IVsEditorAdaptersFactoryService> editorAdaptersFactoryService,
+        AsyncServiceProviderInjection<SVsTextManager, IVsTextManager> textManager)
+        : base(extensibility, traceSource, dte, bufferTagAggregatorFactoryService, editorAdaptersFactoryService, textManager)
     {
     }
+
+    /// <inheritdoc />
+    public override CommandConfiguration CommandConfiguration => new(CommandDescription)
+    {
+        Icon = new(ImageMoniker.KnownValues.Uncomment, IconSettings.IconAndText),
+        EnabledWhen = CommandEnabledWhen,
+        Shortcuts = new[] { new CommandShortcutConfiguration(ModifierKey.Control, Key.K, ModifierKey.Control, Key.Q) },
+    };
 
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
@@ -57,12 +62,50 @@ public class RemoveAllComments : CommentRemoverCommand
 
 ### Command placing
 
-Unfortunately command placing (complex organizing of commands into menus and command groups) is not available yet, so I need to add a [.vsextension/extension.json](CommentRemover/.vsextension/extension.json) file which will:
+This extension contributes six new commands to Visual Studio and I want them to be placed together in a sub-menu of the *Extensions* menu. This can be achieved by creating a static property of type `MenuConfiguration` and marking it with the `VisualStudioContribution` attribute. The property can be placed in any class, for organization purposes we recommend placing all manus and toolbar configurations in a single `ExtensionCommandConfiguration` static class.
 
-- add a *control container* to contain all the *control groups*,
-- add three *control groups* as children of the *control container* for the different types of commands,
-- place the six commands we have created through C# code under the desired *control group*
-- place the *control container* under a "well known" Visual Studio menu.
+```CSharp
+internal static class ExtensionCommandConfiguration
+{
+    public static MenuConfiguration CommentRemoverMenu => new("%CommentRemoverMenu.DisplayName%")
+    {
+        Priority = 1,
+        Placements = new[]
+        {
+            CommandPlacement.KnownPlacements.ExtensionsMenu,
+        },
+        Children = new[]
+        {
+            MenuChild.Command<RemoveAllComments>(),
+            MenuChild.Command<RemoveXmlDocComments>(),
+            MenuChild.Command<RemoveAllExceptXmlDocComments>(),
+            MenuChild.Separator,
+            MenuChild.Command<RemoveTasks>(),
+            MenuChild.Command<RemoveAllExceptTaskComments>(),
+            MenuChild.Separator,
+            MenuChild.Command<RemoveRegions>(),
+        },
+    };
+}
+```
+
+### Preparing for localization
+
+You may have noticed that some strings enclosed by `%` characters in the code above: these are identifiers of localizable strings from the `.vsextension/string-resources.json` file:
+
+```json
+{
+    "CommentRemoverMenu.DisplayName": "Comments",
+    "RemoveAllComments.DisplayName": "Remove All",
+    "RemoveAllExceptTaskComments.DisplayName": "Remove All Except Tasks",
+    "RemoveAllExceptXmlDocComments.DisplayName": "Remove All Except Xml Docs",
+    "RemoveRegions.DisplayName": "Remove Regions",
+    "RemoveTasks.DisplayName": "Remove Tasks",
+    "RemoveXmlDocComments.DisplayName": "Remove Xml Docs"
+}
+```
+
+If we want the extension to be localized for different languages, we can later add `string-resources.json` files for those languages as described [here](../../../docs/new-extensibility-model/extension-guides/command/command.md#string-resourcesjson);
 
 ### Dependency injection of Visual Studio SDK services
 
@@ -76,17 +119,16 @@ The Comment Remover extension is leveraging four of Visual Studio services:
 In a VisualStudio.Extensibility command, we can consume such services using .NET dependency injection by simply adding them to the command's constructor:
 
 ```CSharp
-    public RemoveAllComments(
-        VisualStudioExtensibility extensibility,
-        TraceSource traceSource,
-        AsyncServiceProviderInjection<DTE, DTE2> dte,
-        MefInjection<IBufferTagAggregatorFactoryService> bufferTagAggregatorFactoryService,
-        MefInjection<IVsEditorAdaptersFactoryService> editorAdaptersFactoryService,
-        AsyncServiceProviderInjection<SVsTextManager, IVsTextManager> textManager,
-        string id)
-        : base(extensibility, traceSource, dte, bufferTagAggregatorFactoryService, editorAdaptersFactoryService, textManager, id)
-    {
-    }
+public RemoveAllComments(
+    VisualStudioExtensibility extensibility,
+    TraceSource traceSource,
+    AsyncServiceProviderInjection<DTE, DTE2> dte,
+    MefInjection<IBufferTagAggregatorFactoryService> bufferTagAggregatorFactoryService,
+    MefInjection<IVsEditorAdaptersFactoryService> editorAdaptersFactoryService,
+    AsyncServiceProviderInjection<SVsTextManager, IVsTextManager> textManager)
+    : base(extensibility, traceSource, dte, bufferTagAggregatorFactoryService, editorAdaptersFactoryService, textManager)
+{
+}
 ```
 
 The `AsyncServiceProviderInjection` and `MefInjection` classes take care of making retrieval of these services async-friendly.
@@ -99,10 +141,14 @@ await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
 
 ### Adding custom command icons
 
-I also decided to add a custom icon for the [RemoveRegions](CommentRemover/RemoveRegions.cs) command. I was able to do it by simply adding `DeleteRegions.16.16.png` and `DeleteRegions.xaml` to the `Images` folder and referencing the custom image with the `"DeleteRegions"` string in the `CommandIcon` attribute:
+I also decided to add a custom icon for the [RemoveRegions](CommentRemover/RemoveRegions.cs) command. I was able to do it by simply adding `DeleteRegions.16.16.png` and `DeleteRegions.xaml` to the `Images` folder and referencing the custom image with the `"DeleteRegions"` string in the `CommandConfiguration` property:
 
 ```CSharp
-[CommandIcon("DeleteRegions", IconSettings.IconAndText)]
+public override CommandConfiguration CommandConfiguration => new(CommandDescription)
+{
+    Icon = new(ImageMoniker.Custom("DeleteRegions"), IconSettings.IconAndText),
+    EnabledWhen = CommandEnabledWhen,
+};
 ```
 
 The VisualStudio.Extensibility build tools will take care of packaging the content of the `Images` folder with the extension. Visual Studio will choose to load either the `DeleteRegions.16.16.png` or the `DeleteRegions.xaml` to achieve the best visual results.
@@ -112,12 +158,11 @@ The VisualStudio.Extensibility build tools will take care of packaging the conte
 VisualStudio.Extensibility features are designed to be used with minimal boilerplate code. With a couple of lines of code I can add a confirmation promtp and progress report to the extension:
 
 ```CSharp
-    public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
-    {
-        if (!await context.ShowPromptAsync("All regions will be removed from the current document. Are you sure?", PromptOptions.OKCancel, cancellationToken))
-            return;
-
-        using var reporter = await Extensibility.Shell().StartProgressReportingAsync("Removing comments", options: new(isWorkCancellable: false), cancellationToken);
+public override async Task ExecuteCommandAsync(IClientContext context, ancellationToken cancellationToken)
+{
+    if (!await context.ShowPromptAsync("All regions will be removed from the current document. Are you sure?", PromptOptions.OKCancel, cancellationToken))
+        return;
+    using var reporter = await Extensibility.Shell().StartProgressReportingAsync("Removing comments", options: new(isWorkCancellable: false), cancellationToken);
 ```
 
 Calling `ShowPromptAsync` causes a modal popup to appear, returning `true` or `false` depending whether they cliked Ok or Cancel. The prompt can be configured with different messages and button configurations. It's important to remember that prompts can always be dismissed by pressing the "X" button in the popup dialog title bar: the docs for `PromptOptions.OKCancel` let us know that `ShowPromptAsync` returns `false` in case of dismissal.

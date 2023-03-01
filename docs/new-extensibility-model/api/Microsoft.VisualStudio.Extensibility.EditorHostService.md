@@ -115,7 +115,7 @@ Microsoft.VisualStudio.Extensibility.EditorHostService
 ##### Summary
 
 Lightweight facade for exposing selected immutable elements of [ITextSnapshot](#T-Microsoft-VisualStudio-Text-ITextSnapshot 'Microsoft.VisualStudio.Text.ITextSnapshot') and
-[ITextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocumentSnapshot') to OOP language extensions hosted in Service Hub.
+[ITextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot') to OOP language extensions hosted in Service Hub.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-EditorHostService-TextDocumentSnapshot-Equals-System-Object-'></a>
 ### Equals() `method`
@@ -201,5 +201,5 @@ Microsoft.VisualStudio.Extensibility.EditorHostService
 
 ##### Summary
 
-Facade that presents as if it was a [IReadOnlyList\`1](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyList`1 'System.Collections.Generic.IReadOnlyList`1')
+Facade that presents as if it was a [IReadOnlyList\`1](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList-1 'System.Collections.Generic.IReadOnlyList`1')
 but actually creates the wrapper objects on demand.

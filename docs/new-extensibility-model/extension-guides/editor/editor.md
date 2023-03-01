@@ -1,7 +1,7 @@
 ---
 title: Editor overview
 description: An overview of the editor-based extensions for the Visual Studio IDE
-date: 2021-8-20
+date: 2022-02-13
 ---
 
 # Editor extensions overview
@@ -12,8 +12,10 @@ For the initial release of the new Visual Studio extensibility model, only the f
 
 - Listening for text views being opened and closed.
 - Listening for text view (editor) state changes.
-- Reading the text of the document and the caret locations.
-- Performing text edits.
+- Reading the text of the document and the selections/carets locations.
+- Performing text edits and selection/caret changes.
+- Defining new document types.
+- Extending text views with new text view margins.
 
 The Visual Studio editor generally refers to the functionality of editing text files, known as documents, of any type. Individual files may be opened for editing, and the open editor window is referred to as a `TextView`.
 
@@ -23,52 +25,64 @@ The editor object model is described at [Editor concepts](editor-concepts.md).
 
 Your extension code can be configured to run in response to various situations that a occur when a user interacts with Visual Studio. These are known as entry points. Editor extensibility currently supports three entry points: listeners, the [EditorExtensibility](#access-editor-functionality) service object, and commands.
 
-Event listeners get triggered when certain actions occur in an editor window, represented in code by a `TextView`. For example, when a user types something into the editor, a `TextViewChanged` event occurs. When an editor window is opened or closed, `TextViewCreated` and `TextViewClosed` events occur.
+Event listeners get triggered when certain actions occur in an editor window, represented in code by a `TextView`. For example, when a user types something into the editor, a `TextViewChanged` event occurs. When an editor window is opened or closed, `TextViewOpened` and `TextViewClosed` events occur.
 
 The editor service object is an instance of the `EditorExtensibility` class, which exposes real-time editor functionality, such as performing text edits.
 
 [Commands](../command/command.md) are initiated by the user by clicking on an item which you can place on a menu, context menu, or toolbar.
 
-### Add a listener
+### Add a text view listener
 
-There are two types of listeners, [ITextViewChangedListener](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewChangedListener), and [ITextViewLifetimeListener](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewLifetimeListener).
+There are two types of listeners, [ITextViewChangedListener](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewChangedListener), and [ITextViewOpenClosedListener](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewOpenClosedListener).
 Together, these listeners can be used to observe the open, close, and modification of text editors.
 
 Then, create a new class, implementing the [ExtensionPart](./../../api/Microsoft.VisualStudio.Extensibility.Framework.md#T-Microsoft-VisualStudio-Extensibility-ExtensionPart) base class and `ITextViewChangedListener`,
-`ITextViewLifetimeListener`, or both. Then, add an `[ExtensionPart(typeof(ITextViewChangedListener))]` attribute for
-each listener interface you implemented and an `[AppliesTo(DocumentType = "CSharp")]` attribute to your class to make the listener apply when editing C# files. The available document types for other programming languages and file types are listed [later in this article](#specify-programming-languages-with-the-appliesto-attribute), and custom file types may also be defined when required.
+`ITextViewOpenClosedListener`, or both, and add a `[VisualStudioContribution]` attribute.
+
+Then, implement the `TextViewExtensionConfiguration` property, as required by `ITextViewChangedListener` and `ITextViewOpenClosedListener`, making the listener apply when editing C# files:
+```csharp
+public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
+{
+    AppliesTo = new[] { DocumentFilter.FromDocumentType("CSharp") },
+};
+```
+
+The available document types for other programming languages and file types are listed [later in this article](#specify-programming-languages-with-the-appliesto-configuration), and custom file types may also be defined when required.
 
 Assuming you decide to implement both listeners, the finished class declaration should look like the following:
 
 ```csharp
-  [ExtensionPart(typeof(ITextViewLifetimeListener))] // Indicates this part listens for text view lifetime events.
-  [ExtensionPart(typeof(ITextViewChangedListener))]  // Indicates this part listens to text view changes.
-  [AppliesTo(DocumentType = "CSharp")]                // Indicates this part should only light up in C# files.
-  public sealed class TextViewOperationListener
-      : ExtensionPart,           // This is the extension part base class containing infrastructure necessary to use VS services.
-      ITextViewLifetimeListener,
-      ITextViewChangedListener
+  [VisualStudioContribution]                
+  public sealed class TextViewOperationListener :
+      ExtensionPart, // This is the extension part base class containing infrastructure necessary to use VS services.
+      ITextViewOpenClosedListener, // Indicates this part listens for text view lifetime events.
+      ITextViewChangedListener // Indicates this part listens to text view changes.
   {
-        ...
-  }
+      public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
+      {
+          // Indicates this part should only light up in C# files.
+          AppliesTo = new[] { DocumentFilter.FromDocumentType("CSharp") },
+      };
+      ...
 ```
+
+Since both `ITextViewOpenClosedListener` and `ITextViewChangedListener` declare the `TextViewExtensionConfiguration` property, the configuration applies to both listeners.
 
 When you run your extension, you should see:
 
-- [ITextViewLifetimeListener.TextViewCreatedAsync()](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#M-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewLifetimeListener-TextViewCreatedAsync-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView,System-Threading-CancellationToken-) called anytime an editor is opened by the user.
-- [ITextViewLifetimeListener.TextViewClosedAsync()](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#M-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewLifetimeListener-TextViewClosedAsync-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView,System-Threading-CancellationToken-) called anytime an editor is closed by the user.
-- [ITextViewChangedListener.TextViewChangedAsync()](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#M-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewChangedListener-TextViewChangedAsync-Microsoft-VisualStudio-Extensibility-Editor-UI-TextViewChangedArgs,System-Threading-CancellationToken-) called anytime a user makes a text change in the editor.
+- [ITextViewOpenClosedListener.TextViewOpenedAsync()](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#M-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewOpenClosedListener-TextViewOpenedAsync-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView,System-Threading-CancellationToken-) called anytime a text view is opened by the user.
+- [ITextViewOpenClosedListener.TextViewClosedAsync()](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#M-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewOpenClosedListener-TextViewClosedAsync-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextView,System-Threading-CancellationToken-) called anytime a text view is closed by the user.
+- [ITextViewChangedListener.TextViewChangedAsync()](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#M-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewChangedListener-TextViewChangedAsync-Microsoft-VisualStudio-Extensibility-Editor-UI-TextViewChangedArgs,System-Threading-CancellationToken-) called anytime a user makes a text change to a text document displayed by a text view.
 
-Each of these methods are passed an [ITextViewSnapshot](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewSnapshot) containing the state of the text editor at the time the user invoked the action and a CancellationToken that will have `IsCancellationRequested == true` when the IDE wishes to cancel a pending action.
-the IDE wishes to cancel a pending action.
+Each of these methods are passed an [ITextViewSnapshot](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewSnapshot) containing the state of the text view and text text document at the time the user invoked the action and a CancellationToken that will have `IsCancellationRequested == true` when the IDE wishes to cancel a pending action.
 
 ## Define when your extension is relevant
 
-Your extension is typically relevant only to certain supported document types and scenarios, and so it is important to clearly define its applicability. The Visual Studio Extensibility model provides several ways to clearly define the applicability of an extension. These are various attributes which are known as document selectors: the [AppliesTo attribute](#specify-programming-languages-with-the-appliesto-attribute), which helps specify what file types such as code languages the extension supports, and the [AppliesToPattern attribute](#document-selectors), which lets you refine the applicability of an extension by further matching on a pattern based on the filename or path.
+Your extension is typically relevant only to certain supported document types and scenarios, and so it is important to clearly define its applicability. The Visual Studio Extensibility model provides several ways to clearly define the applicability of an extension via [AppliesTo configuration](#specify-programming-languages-with-the-appliesto-configuration), specifying either what file types such as code languages the extension supports and/or refine the applicability of an extension by further matching on a pattern based on the filename or path.
 
-### Specify programming languages with the AppliesTo Attribute
+### Specify programming languages with the AppliesTo configuration
 
-The [AppliesTo](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToAttribute) attribute indicates the programming language scenarios in which the extension should activate. It is written as `[AppliesTo(DocumentType = "CSharp")]`, where DocumentType is a well known name of a language built into Visual Studio, or custom defined in a Visual Studio extension.
+The [AppliesTo](./../../api/Microsoft.VisualStudio.Extensibility.Contracts.md##P-Microsoft-VisualStudio-Extensibility-Editor-TextViewExtensionConfiguration-AppliesTo) configuration indicates the programming language scenarios in which the extension should activate. It is written as `AppliesTo = new[] { DocumentFilter.FromDocumentType("CSharp") }`, where the document type is a well known name of a language built into Visual Studio, or custom defined in a Visual Studio extension.
 
 Some well-known document types are shown in the following table:
 
@@ -86,37 +100,61 @@ DocumentTypes are hierarchical. That is, C# and C++ both descend from "code", so
 
 ### Define a new document type
 
-You can define a new document type, for example to support a custom code language, by adding certain assembly-level attributes.
+You can define a new document type, for example to support a custom code language, by adding a static [`DocumentTypeConfiguration`](../../api/Microsoft.VisualStudio.Extensibility.Contracts.md#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeConfiguration) property to any class in the extension project, and marking the property with the `[VisualStudioContribution]` attribute.
 
-[DocumentTypeDefinition](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeDefinition), [DocumentTypeBaseDefinition](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-DocumentTypeBaseDefinition) and [FileExtensionMapping](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-FileExtensionMapping) attributes together allow you to define a new document type, specify that it inherits one or more other document types, and specify one or more file extensions that are used to identify the file type. These are assembly-level attributes that you add at the top level in your extension code:
+`DocumentTypeConfiguration` allows you to define a new document type, specify that it inherits one or more other document types, and specify one or more file extensions that are used to identify the file type:
 
 ```csharp
 using Microsoft.VisualStudio.Extensibility.Editor;
 
-[assembly: DocumentTypeDefinition("markdown")]
-[assembly: DocumentTypeBaseDefinition("markdown", baseContentTypeName: "text")]
-[assembly: FileExtensionMapping("markdown", fileExtension: ".md")]
-[assembly: FileExtensionMapping("markdown", fileExtension: ".mdk")]
-[assembly: FileExtensionMapping("markdown", fileExtension: ".markdown")]
+internal static class MyDocumentTypes
+{
+    [VisualStudioContribution]
+    internal static DocumentTypeConfiguration MarkdownDocumentType => new("markdown")
+    {
+        FileExtensions = new[] { ".md", ".mdk", ".markdown" },
+        BaseDocumentType = DocumentType.KnownValues.Text,
+    };
+}
 ```
 
 Document type definitions are merged with content type definitions provided by legacy Visual Studio extensibility, which allows you to map additional file extensions to existing document types.
 
 ### Document selectors
 
-In addition to [AppliesTo](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToAttribute) attribute, [AppliesToPattern](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#T-Microsoft-VisualStudio-Extensibility-Editor-AppliesToPattern) attribute allows you to further limit applicability of the extension by making it activate only when document's file path matches a glob (wildcard) pattern:
+In addition to [DocumentFilter.FromDocumentType](./../../api/Microsoft.VisualStudio.Extensibility.Contracts.md#M-Microsoft-VisualStudio-Extensibility-DocumentFilter-FromDocumentType-System-String-), [DocumentFilter.FromGlobPattern](./../../api/Microsoft.VisualStudio.Extensibility.Contracts.md#M-Microsoft-VisualStudio-Extensibility-DocumentFilter-FromGlobPattern-System-String,System-Boolean-) allows you to further limit applicability of the extension by making it activate only when document's file path matches a glob (wildcard) pattern:
 
 ```csharp
-[AppliesTo(ContentType = "CSharp")]
-[AppliesToPattern(Pattern = "**/tests/*.cs")]
+[VisualStudioContribution]                
+public sealed class TextViewOperationListener
+    : ExtensionPart, ITextViewOpenClosedListener, ITextViewChangedListener
+{
+    public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
+    {
+        AppliesTo = new[]
+        {
+            DocumentFilter.FromDocumentType("CSharp"),
+            DocumentFilter.FromGlobPattern("**/tests/*.cs"),
+        },
+    };
 ```
 
 ```csharp
-[AppliesTo(ContentType = "markdown")]
-[AppliesToPattern(Pattern="docs/*.md", RelativePath=true)]
+[VisualStudioContribution]                
+public sealed class TextViewOperationListener
+    : ExtensionPart, ITextViewOpenClosedListener, ITextViewChangedListener
+{
+    public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
+    {
+        AppliesTo = new[]
+        {
+            DocumentFilter.FromDocumentType(MyDocumentTypes.MarkdownDocumentType),
+            DocumentFilter.FromGlobPattern("docs/*.md", relativePath: true),
+        },
+    };
 ```
 
-The `Pattern` property represents a glob pattern that is matched on the absolute path of the document.
+The `pattern` parameter represents a glob pattern that is matched on the absolute path of the document.
 
 Glob patterns can have the following syntax:
 
@@ -145,7 +183,7 @@ EditorExtensibility editorService = this.Extensibility.Editor();
 using ITextViewSnapshot textView = await this.Extensibility.Editor().GetActiveTextViewAsync(clientContext, cancellationToken);
 ```
 
-Once you have `ITextViewSnapshot`, you can access editor state. `ITextViewSnapshot` is an immutable view of editor state at a point in time, so you'll need to use the other interfaces in the [Editor object model](editor-object-model.md) to make edits.
+Once you have `ITextViewSnapshot`, you can access editor state. `ITextViewSnapshot` is an immutable view of editor state at a point in time, so you'll need to use the other interfaces in the [Editor object model](editor-concepts.md) to make edits.
 
 ## Make changes in a text document from an extension
 
@@ -200,6 +238,47 @@ To avoid misplaced edits, edits from editor extensions are applied as follows:
 The initial release has a known issue that can result in concurrent execution of editor extension code. Each async method is guaranteed to be called in the correct order but continuations after the first `await` may be interleaved. If your extension relies on execution order, consider maintaining a queue of incoming requests to preserve the order, until this issue is fixed.
 
 For more information, see [StreamJsonRpc Default Ordering and Concurrency](https://github.com/microsoft/vs-streamjsonrpc/blob/main/doc/resiliency.md#default-ordering-and-concurrency-behavior).
+
+## Extending Visual Studio editor with a new margin
+Extensions can contribute new text view margins to the Visual Studio editor. A text view margin is a rectangular UI control attached to a text wiew on one of its four sides. 
+
+Text view margins are placed into a margin container (see [ContainerMarginPlacement.KnownValues](../../api/Microsoft.VisualStudio.Extensibility.Contracts.md#knownvalues-type)) and ordered before or after relatively to other margins (see [MarginPlacement.KnownValues](../../api/Microsoft.VisualStudio.Extensibility.Contracts.md#knownvalues-type-2)).
+
+Text view margin providers implement [ITextViewMarginProvider](../../api/Microsoft.VisualStudio.Extensibility.Editor.md#itextviewmarginprovider-type) interface, configure the margin they provide by implementing [TextViewMarginProviderConfiguration](../../api/Microsoft.VisualStudio.Extensibility.Editor.md#textviewmarginproviderconfiguration-property) and when activated, provide UI control to be hosted in the margin via [CreateVisualElementAsync](../../api/Microsoft.VisualStudio.Extensibility.Editor.md#createvisualelementasync-method).
+
+Because extensions in VisualStudio.Extensibility might be out-of-process from the Visual Studio, we cannot directly use WPF as a presentation layer for content of text view margins. Instead, providing a content to a text view margin requires creating a [RemoteUserControl](./../../inside-the-sdk/remote-ui.md) and the corresponding data template for that control. While there are some simple examples below, we recommend reading the [Remote UI documentation](./../../inside-the-sdk/remote-ui.md) when creating text view margin UI content.
+
+```csharp
+/// <summary>
+/// Configures the margin to be placed to the left of built-in Visual Studio line number margin.
+/// </summary>
+public TextViewMarginProviderConfiguration TextViewMarginProviderConfiguration => new(marginContainer: ContainerMarginPlacement.KnownValues.BottomRightCorner)
+{
+    Before = new[] { MarginPlacement.KnownValues.RowMargin },
+};
+
+/// <summary>
+/// Creates a remotable visual element representing the content of the margin.
+/// </summary>
+public async Task<IRemoteUserControl> CreateVisualElementAsync(ITextViewSnapshot textView, CancellationToken cancellationToken)
+{
+    var documentSnapshot = await textView.GetTextDocumentAsync(cancellationToken);
+    var dataModel = new WordCountData();
+    dataModel.WordCount = CountWords(documentSnapshot);
+    this.dataModels[textView.Uri] = dataModel;
+    return new MyMarginContent(dataModel);
+}
+```
+
+In addition to configuring margin placement, text view margin providers can also configure the size of the grid cell in which the margin should be placed using [GridCellLength](../../api/Microsoft.VisualStudio.Extensibility.Contracts.md#gridcelllength-property) and [GridUnitType](../../api/Microsoft.VisualStudio.Extensibility.Contracts.md#gridunittype-property) properties.
+
+Text view margins typically visualize some data related to the text view (e.g. current line number or the count of errors) so most text view margin providers would also want to [listen to text view events](#add-a-text-view-listener) to react to opening, closing of text views and user typing.
+
+There will be only one instance of your text view margin provider instantiated regardless of how many applicable text views user opens so if your margin displays some statefull data, your provider will need to keep the state of currently open text views.
+
+See [Word Count Margin Sample](../../../../New_Extensibility_Model/Samples/WordCountMargin/) for more details.
+
+Note that vertical text view margins whose content needs to be aligned with text view lines are not yet supported.
 
 ## Next steps
 

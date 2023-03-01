@@ -30,7 +30,7 @@ If you are familiar with legacy Visual Studio extensions, `ITextDocumentSnapshot
 
 Best Practices:
 
-- Avoid calling [.CopyToString()](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#M-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocumentSnapshot-CopyToString).
+- Avoid calling [ITextDocumentSnapshot.CopyToString()](./../../api/Microsoft.VisualStudio.Extensibility.Editor.md#M-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocumentSnapshot-CopyToString).
 - You can use Position and Span to represent substrings in the document without expending resources copying or allocating strings. Most APIs will operate in terms of these primitives.
 - You can use the indexer syntax, `textDocument[0]`, to read character by character in the document without copying it to a string.
 - If you must create a string such as for use as a dictionary key, use the overload that takes a `Span`, to avoid creating a large throwaway string from the entire line or document.
@@ -54,4 +54,4 @@ If you are familiar with legacy Visual Studio extensions, `Position` is almost t
 
 Review sample code for a simple editor-based extension:
 
-- [DocumentSelectorSample](~/VSExtensibility/blob/main/New_Extensibility_Model/Samples/DocumentSelectorSample/)
+- [DocumentSelectorSample](../../../../New_Extensibility_Model/Samples/DocumentSelectorSample/)

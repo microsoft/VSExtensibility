@@ -49,12 +49,19 @@ public override Task ExecuteCommandAsync(IClientContext context, CancellationTok
 }
 ```
 
-You can also consider changing the `Command` attribute for a more appropriate display message and placement:
+You can also consider changing the `Command` configuration and `string-resources.json` for a more appropriate display message and placement:
 
 ```CSharp
-[Command(nameof(ShowMyToolWindowCommand), "Show Hello World Tool Window", placement: CommandPlacement.ViewOtherWindowsMenu)]
-internal class ShowMyToolWindowCommand : Command
+public override CommandConfiguration CommandConfiguration => new("%MyToolWindowCommand.DisplayName%")
 {
+    Placements = new[] { CommandPlacement.KnownPlacements.ViewOtherWindowsMenu },
+};
+```
+
+```json
+{
+  "MyToolWindowCommand.DisplayName": "My Tool Window"
+}
 ```
 
 ## Create the tool window
@@ -70,7 +77,7 @@ using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.ToolWindows;
 using Microsoft.VisualStudio.RpcContracts.RemoteUI;
 
-[ToolWindow]
+[VisualStudioContribution]
 internal class MyToolWindow : ToolWindow
 {
     private readonly MyToolWindowContent content = new();
@@ -80,6 +87,11 @@ internal class MyToolWindow : ToolWindow
     {
         Title = "My Tool Window";
     }
+
+    public override ToolWindowConfiguration ToolWindowConfiguration => new()
+    {
+        Placement = ToolWindowPlacement.DocumentWell,
+    };
 
     public override async Task<IRemoteUserControl> GetContentAsync(CancellationToken cancellationToken)
         => content;
@@ -135,7 +147,14 @@ Next, create a file named `MyToolWindowContent.xaml`:
 </DataTemplate>
 ```
 
-As described previously, this file must have the same name as the `RemoteUserControl` class.
+As described previously, this file must have the same name as the *remote user control* class. To be precise, the full name of the class extending `RemoteUserControl` must match the name of the embedded resource. For example, if the full name of the *remote user control class* is `MyToolWindowExtension.MyToolWindowContent`, the embedded resource name should be `MyToolWindowExtension.MyToolWindowContent.xaml`. By default, embedded resources are assigned a name that is composed by the root namespace for the project, any subfolder path they may be under, and their file name. This may create problems if your *remote user control class* is using a namespace different from the project's root namespace or if the xaml file is not in the project's root folder. If necessary, you can force a name for the embedded resource by using the `LogicalName` tag:
+
+```xml
+<ItemGroup>
+  <EmbeddedResource Include="MyToolWindowContent.xaml" LogicalName="MyToolWindowExtension.MyToolWindowContent.xaml" />
+  <Page Remove="MyToolWindowContent.xaml" />
+</ItemGroup>
+```
 
 The XAML definition of the remote user control is normal WPF XAML describing a `DataTemplate`. This XAML will be sent to Visual Studio and used to fill the tool window content. We use a special namespace (`xmlns` attribute) for Remote UI XAML: `http://schemas.microsoft.com/visualstudio/extensibility/2022/xaml`.
 

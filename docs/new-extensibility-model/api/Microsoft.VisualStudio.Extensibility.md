@@ -3,6 +3,8 @@
 
 ## Contents
 
+- [AllowNullAttribute](#T-System-Diagnostics-CodeAnalysis-AllowNullAttribute 'System.Diagnostics.CodeAnalysis.AllowNullAttribute')
+  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-AllowNullAttribute-#ctor 'System.Diagnostics.CodeAnalysis.AllowNullAttribute.#ctor')
 - [AnchoredCommandAddedEventArgs](#T-Microsoft-VisualStudio-Extensibility-Commands-AnchoredCommandAddedEventArgs 'Microsoft.VisualStudio.Extensibility.Commands.AnchoredCommandAddedEventArgs')
   - [#ctor(command,dynamicCommandAnchorIdentifier)](#M-Microsoft-VisualStudio-Extensibility-Commands-AnchoredCommandAddedEventArgs-#ctor-Microsoft-VisualStudio-Extensibility-Commands-IDynamicCommand,System-String- 'Microsoft.VisualStudio.Extensibility.Commands.AnchoredCommandAddedEventArgs.#ctor(Microsoft.VisualStudio.Extensibility.Commands.IDynamicCommand,System.String)')
   - [DynamicCommandAnchorIdentifier](#P-Microsoft-VisualStudio-Extensibility-Commands-AnchoredCommandAddedEventArgs-DynamicCommandAnchorIdentifier 'Microsoft.VisualStudio.Extensibility.Commands.AnchoredCommandAddedEventArgs.DynamicCommandAnchorIdentifier')
@@ -27,58 +29,35 @@
   - [GetHashCode()](#M-Microsoft-VisualStudio-Extensibility-Shell-ChoiceResultCollection`1-GetHashCode 'Microsoft.VisualStudio.Extensibility.Shell.ChoiceResultCollection`1.GetHashCode')
   - [System#Collections#IEnumerable#GetEnumerator()](#M-Microsoft-VisualStudio-Extensibility-Shell-ChoiceResultCollection`1-System#Collections#IEnumerable#GetEnumerator 'Microsoft.VisualStudio.Extensibility.Shell.ChoiceResultCollection`1.System#Collections#IEnumerable#GetEnumerator')
 - [Command](#T-Microsoft-VisualStudio-Extensibility-Commands-Command 'Microsoft.VisualStudio.Extensibility.Commands.Command')
-  - [#ctor(extensibility,name)](#M-Microsoft-VisualStudio-Extensibility-Commands-Command-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-String- 'Microsoft.VisualStudio.Extensibility.Commands.Command.#ctor(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,System.String)')
-  - [DisableDuringExecution](#P-Microsoft-VisualStudio-Extensibility-Commands-Command-DisableDuringExecution 'Microsoft.VisualStudio.Extensibility.Commands.Command.DisableDuringExecution')
-  - [Extensibility](#P-Microsoft-VisualStudio-Extensibility-Commands-Command-Extensibility 'Microsoft.VisualStudio.Extensibility.Commands.Command.Extensibility')
-  - [ExecuteCommandAsync()](#M-Microsoft-VisualStudio-Extensibility-Commands-Command-ExecuteCommandAsync-System-Collections-Generic-IReadOnlyDictionary{System-String,System-Object},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Commands.Command.ExecuteCommandAsync(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},System.Threading.CancellationToken)')
-  - [ExecuteCommandAsync(context,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Commands-Command-ExecuteCommandAsync-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Commands.Command.ExecuteCommandAsync(Microsoft.VisualStudio.Extensibility.Definitions.IClientContext,System.Threading.CancellationToken)')
-  - [InitializeAsync(cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Commands-Command-InitializeAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Commands.Command.InitializeAsync(System.Threading.CancellationToken)')
+  - [#ctor(extensibility)](#M-Microsoft-VisualStudio-Extensibility-Commands-Command-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility- 'Microsoft.VisualStudio.Extensibility.Commands.Command.#ctor(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility)')
+  - [CommandConfiguration](#P-Microsoft-VisualStudio-Extensibility-Commands-Command-CommandConfiguration 'Microsoft.VisualStudio.Extensibility.Commands.Command.CommandConfiguration')
 - [CommandAddedEventArgs](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandAddedEventArgs 'Microsoft.VisualStudio.Extensibility.Commands.CommandAddedEventArgs')
   - [#ctor(command)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandAddedEventArgs-#ctor-Microsoft-VisualStudio-Extensibility-Commands-IDynamicCommand- 'Microsoft.VisualStudio.Extensibility.Commands.CommandAddedEventArgs.#ctor(Microsoft.VisualStudio.Extensibility.Commands.IDynamicCommand)')
   - [Command](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandAddedEventArgs-Command 'Microsoft.VisualStudio.Extensibility.Commands.CommandAddedEventArgs.Command')
-- [CommandAttribute](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute 'Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute')
-  - [#ctor(id,displayName,tooltipText,flags,containerType,placement,clientContexts)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-#ctor-System-String,System-String,System-String,Microsoft-VisualStudio-RpcContracts-Commands-CommandFlags,System-Type,Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement,System-String- 'Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute.#ctor(System.String,System.String,System.String,Microsoft.VisualStudio.RpcContracts.Commands.CommandFlags,System.Type,Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement,System.String)')
-  - [ClientContexts](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-ClientContexts 'Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute.ClientContexts')
-  - [ContainerType](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-ContainerType 'Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute.ContainerType')
-  - [DisplayName](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-DisplayName 'Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute.DisplayName')
-  - [Flags](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-Flags 'Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute.Flags')
-  - [Id](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-Id 'Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute.Id')
-  - [Placement](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-Placement 'Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute.Placement')
-  - [TooltipText](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-TooltipText 'Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute.TooltipText')
 - [CommandCallbackAsync](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync 'Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync')
-- [CommandEnabledWhenAttribute](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandEnabledWhenAttribute 'Microsoft.VisualStudio.Extensibility.Commands.CommandEnabledWhenAttribute')
-  - [#ctor(expression,termNames,termValues)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandEnabledWhenAttribute-#ctor-System-String,System-String[],System-String[]- 'Microsoft.VisualStudio.Extensibility.Commands.CommandEnabledWhenAttribute.#ctor(System.String,System.String[],System.String[])')
-- [CommandIconAttribute](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandIconAttribute 'Microsoft.VisualStudio.Extensibility.Commands.CommandIconAttribute')
-  - [#ctor(imageMoniker,iconSettings)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandIconAttribute-#ctor-System-String,Microsoft-VisualStudio-Extensibility-Commands-IconSettings- 'Microsoft.VisualStudio.Extensibility.Commands.CommandIconAttribute.#ctor(System.String,Microsoft.VisualStudio.Extensibility.Commands.IconSettings)')
-  - [Icon](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandIconAttribute-Icon 'Microsoft.VisualStudio.Extensibility.Commands.CommandIconAttribute.Icon')
-  - [IconSettings](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandIconAttribute-IconSettings 'Microsoft.VisualStudio.Extensibility.Commands.CommandIconAttribute.IconSettings')
-- [CommandPlacement](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement 'Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement')
-  - [ExtensionsMenu](#F-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement-ExtensionsMenu 'Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement.ExtensionsMenu')
-  - [None](#F-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement-None 'Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement.None')
-  - [ToolsMenu](#F-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement-ToolsMenu 'Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement.ToolsMenu')
-  - [ViewOtherWindowsMenu](#F-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement-ViewOtherWindowsMenu 'Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement.ViewOtherWindowsMenu')
 - [CommandRemovedEventArgs](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandRemovedEventArgs 'Microsoft.VisualStudio.Extensibility.Commands.CommandRemovedEventArgs')
   - [#ctor(command)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandRemovedEventArgs-#ctor-Microsoft-VisualStudio-Extensibility-Commands-ICommand- 'Microsoft.VisualStudio.Extensibility.Commands.CommandRemovedEventArgs.#ctor(Microsoft.VisualStudio.Extensibility.Commands.ICommand)')
   - [Command](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandRemovedEventArgs-Command 'Microsoft.VisualStudio.Extensibility.Commands.CommandRemovedEventArgs.Command')
-- [CommandSetBase](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase')
-  - [#ctor(extensibility,container,serviceProvider,commandSetFactory)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,Microsoft-VisualStudio-Extensibility-Extension,System-IServiceProvider,Microsoft-VisualStudio-Extensibility-Commands-ICommandSetFactory- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase.#ctor(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,Microsoft.VisualStudio.Extensibility.Extension,System.IServiceProvider,Microsoft.VisualStudio.Extensibility.Commands.ICommandSetFactory)')
-  - [Item](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-Item-System-String- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase.Item(System.String)')
-  - [Microsoft#VisualStudio#Extensibility#Commands#ICommandSet#Commands](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-Microsoft#VisualStudio#Extensibility#Commands#ICommandSet#Commands 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase.Microsoft#VisualStudio#Extensibility#Commands#ICommandSet#Commands')
-  - [Dispose()](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase.Dispose(System.Boolean)')
-  - [InitializeAsync()](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-InitializeAsync-Microsoft-ServiceHub-Framework-IServiceBroker,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase.InitializeAsync(Microsoft.ServiceHub.Framework.IServiceBroker,System.Threading.CancellationToken)')
-  - [RegisterAnchoredCommand(command,dynamicCommandAnchorIdentifier)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-RegisterAnchoredCommand-Microsoft-VisualStudio-Extensibility-Commands-IDynamicCommand,System-String- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase.RegisterAnchoredCommand(Microsoft.VisualStudio.Extensibility.Commands.IDynamicCommand,System.String)')
-  - [RegisterCommand(commandId,commandHandler)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-RegisterCommand-System-String,Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase.RegisterCommand(System.String,Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync)')
-  - [RegisterCommand(command)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-RegisterCommand-Microsoft-VisualStudio-Extensibility-Commands-ICommand- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase.RegisterCommand(Microsoft.VisualStudio.Extensibility.Commands.ICommand)')
-  - [RegisterCommandAsync(commandType)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-RegisterCommandAsync-System-Type- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase.RegisterCommandAsync(System.Type)')
-  - [RegisterCommandAsync\`\`1()](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-RegisterCommandAsync``1 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase.RegisterCommandAsync``1')
-  - [UnregisterDynamicCommand(commandId)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-UnregisterDynamicCommand-System-String- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase.UnregisterDynamicCommand(System.String)')
+- [CommandSet](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandSet 'Microsoft.VisualStudio.Extensibility.Commands.CommandSet')
+  - [#ctor(extensibility,container,serviceProvider,commandSetFactory)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,Microsoft-VisualStudio-Extensibility-Extension,System-IServiceProvider,Microsoft-VisualStudio-Extensibility-Commands-ICommandSetFactory- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSet.#ctor(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,Microsoft.VisualStudio.Extensibility.Extension,System.IServiceProvider,Microsoft.VisualStudio.Extensibility.Commands.ICommandSetFactory)')
+  - [Item](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-Item-System-String- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSet.Item(System.String)')
+  - [Microsoft#VisualStudio#Extensibility#Commands#ICommandSet#Commands](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-Microsoft#VisualStudio#Extensibility#Commands#ICommandSet#Commands 'Microsoft.VisualStudio.Extensibility.Commands.CommandSet.Microsoft#VisualStudio#Extensibility#Commands#ICommandSet#Commands')
+  - [CompleteCommandRegistrationAsync(cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-CompleteCommandRegistrationAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSet.CompleteCommandRegistrationAsync(System.Threading.CancellationToken)')
+  - [Dispose()](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSet.Dispose(System.Boolean)')
+  - [GetDynamicCommandAnchor\`\`1()](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-GetDynamicCommandAnchor``1 'Microsoft.VisualStudio.Extensibility.Commands.CommandSet.GetDynamicCommandAnchor``1')
+  - [InitializeAsync()](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-InitializeAsync-Microsoft-ServiceHub-Framework-IServiceBroker,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSet.InitializeAsync(Microsoft.ServiceHub.Framework.IServiceBroker,System.Threading.CancellationToken)')
+  - [RegisterAnchoredCommand(command,dynamicCommandAnchorIdentifier)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-RegisterAnchoredCommand-Microsoft-VisualStudio-Extensibility-Commands-IDynamicCommand,System-String- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSet.RegisterAnchoredCommand(Microsoft.VisualStudio.Extensibility.Commands.IDynamicCommand,System.String)')
+  - [RegisterCommand(command)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-RegisterCommand-Microsoft-VisualStudio-Extensibility-Commands-ICommand- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSet.RegisterCommand(Microsoft.VisualStudio.Extensibility.Commands.ICommand)')
+  - [RegisterCommandAsync(commandType)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-RegisterCommandAsync-System-Type- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSet.RegisterCommandAsync(System.Type)')
+  - [RegisterCommandAsync\`\`1()](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-RegisterCommandAsync``1 'Microsoft.VisualStudio.Extensibility.Commands.CommandSet.RegisterCommandAsync``1')
+  - [RegisterDynamicCommandAnchorAsync(dynamicCommandAnchorType)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-RegisterDynamicCommandAnchorAsync-System-Type- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSet.RegisterDynamicCommandAnchorAsync(System.Type)')
+  - [UnregisterDynamicCommand(commandId)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-UnregisterDynamicCommand-System-String- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSet.UnregisterDynamicCommand(System.String)')
 - [CommandSetFactory](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandSetFactory 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetFactory')
   - [#ctor(serviceProvider)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetFactory-#ctor-System-IServiceProvider- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetFactory.#ctor(System.IServiceProvider)')
-  - [#ctor(serviceProvider,forceDiscovery)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetFactory-#ctor-System-IServiceProvider,System-Boolean- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetFactory.#ctor(System.IServiceProvider,System.Boolean)')
   - [ServiceMoniker](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandSetFactory-ServiceMoniker 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetFactory.ServiceMoniker')
   - [CreateAsync()](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetFactory-CreateAsync-Microsoft-ServiceHub-Framework-ServiceMoniker,Microsoft-ServiceHub-Framework-ServiceActivationOptions,System-IServiceProvider,System-Type,System-Type- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetFactory.CreateAsync(Microsoft.ServiceHub.Framework.ServiceMoniker,Microsoft.ServiceHub.Framework.ServiceActivationOptions,System.IServiceProvider,System.Type,System.Type)')
   - [GetServiceDescriptor()](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetFactory-GetServiceDescriptor-Microsoft-ServiceHub-Framework-ServiceMoniker- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetFactory.GetServiceDescriptor(Microsoft.ServiceHub.Framework.ServiceMoniker)')
-  - [InitializeCommandsAsync(commandSet)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetFactory-InitializeCommandsAsync-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetFactory.InitializeCommandsAsync(Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase)')
+  - [InitializeCommandsAsync(commandSet)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetFactory-InitializeCommandsAsync-Microsoft-VisualStudio-Extensibility-Commands-CommandSet- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetFactory.InitializeCommandsAsync(Microsoft.VisualStudio.Extensibility.Commands.CommandSet)')
 - [CommandSetProvider](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandSetProvider 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetProvider')
   - [#ctor(updateReceiver,extensibility,container,commandSetCreator)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetProvider-#ctor-Microsoft-VisualStudio-RpcContracts-Commands-IUpdateReceiver,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,Microsoft-VisualStudio-Extensibility-Extension,System-Func{Microsoft-VisualStudio-Extensibility-Commands-ICommandSet}- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetProvider.#ctor(Microsoft.VisualStudio.RpcContracts.Commands.IUpdateReceiver,Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,Microsoft.VisualStudio.Extensibility.Extension,System.Func{Microsoft.VisualStudio.Extensibility.Commands.ICommandSet})')
   - [ActivateCommandSetAsync()](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetProvider-ActivateCommandSetAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetProvider.ActivateCommandSetAsync(System.Threading.CancellationToken)')
@@ -87,36 +66,33 @@
   - [DeactivateCommandSetAsync()](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetProvider-DeactivateCommandSetAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetProvider.DeactivateCommandSetAsync(System.Threading.CancellationToken)')
   - [Dispose(disposing)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetProvider-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetProvider.Dispose(System.Boolean)')
   - [ExecuteCommandAsync()](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetProvider-ExecuteCommandAsync-System-String,System-Collections-Generic-IReadOnlyDictionary{System-String,System-Object},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetProvider.ExecuteCommandAsync(System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},System.Threading.CancellationToken)')
-- [CommandShortcutAttribute](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandShortcutAttribute 'Microsoft.VisualStudio.Extensibility.Commands.CommandShortcutAttribute')
-  - [#ctor(mod1,key1,mod2,key2,activationConstraint)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandShortcutAttribute-#ctor-System-String,System-String,System-String,System-String,System-String- 'Microsoft.VisualStudio.Extensibility.Commands.CommandShortcutAttribute.#ctor(System.String,System.String,System.String,System.String,System.String)')
-  - [#ctor(mod1,key1,mod2,key2,activationConstraint)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandShortcutAttribute-#ctor-Microsoft-VisualStudio-Extensibility-Commands-ModifierKey,Microsoft-VisualStudio-Extensibility-Commands-KnownKey,Microsoft-VisualStudio-Extensibility-Commands-ModifierKey,Microsoft-VisualStudio-Extensibility-Commands-KnownKey,System-String- 'Microsoft.VisualStudio.Extensibility.Commands.CommandShortcutAttribute.#ctor(Microsoft.VisualStudio.Extensibility.Commands.ModifierKey,Microsoft.VisualStudio.Extensibility.Commands.KnownKey,Microsoft.VisualStudio.Extensibility.Commands.ModifierKey,Microsoft.VisualStudio.Extensibility.Commands.KnownKey,System.String)')
-  - [ActivationConstraint](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandShortcutAttribute-ActivationConstraint 'Microsoft.VisualStudio.Extensibility.Commands.CommandShortcutAttribute.ActivationConstraint')
-  - [Key1](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandShortcutAttribute-Key1 'Microsoft.VisualStudio.Extensibility.Commands.CommandShortcutAttribute.Key1')
-  - [Key2](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandShortcutAttribute-Key2 'Microsoft.VisualStudio.Extensibility.Commands.CommandShortcutAttribute.Key2')
-  - [Mod1](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandShortcutAttribute-Mod1 'Microsoft.VisualStudio.Extensibility.Commands.CommandShortcutAttribute.Mod1')
-  - [Mod2](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandShortcutAttribute-Mod2 'Microsoft.VisualStudio.Extensibility.Commands.CommandShortcutAttribute.Mod2')
-- [CommandVisibleWhenAttribute](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandVisibleWhenAttribute 'Microsoft.VisualStudio.Extensibility.Commands.CommandVisibleWhenAttribute')
-  - [#ctor(expression,termNames,termValues)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandVisibleWhenAttribute-#ctor-System-String,System-String[],System-String[]- 'Microsoft.VisualStudio.Extensibility.Commands.CommandVisibleWhenAttribute.#ctor(System.String,System.String[],System.String[])')
-- [CommandWithCallback](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandWithCallback 'Microsoft.VisualStudio.Extensibility.Commands.CommandWithCallback')
-  - [#ctor(extensibility,name,handler)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandWithCallback-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-String,Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync- 'Microsoft.VisualStudio.Extensibility.Commands.CommandWithCallback.#ctor(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,System.String,Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync)')
-  - [ExecuteCommandAsync(context,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandWithCallback-ExecuteCommandAsync-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Commands.CommandWithCallback.ExecuteCommandAsync(Microsoft.VisualStudio.Extensibility.Definitions.IClientContext,System.Threading.CancellationToken)')
-- [CommandsPackageAttribute](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandsPackageAttribute 'Microsoft.VisualStudio.Extensibility.Commands.CommandsPackageAttribute')
-  - [#ctor(serviceName,versionString)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandsPackageAttribute-#ctor-System-String,System-String- 'Microsoft.VisualStudio.Extensibility.Commands.CommandsPackageAttribute.#ctor(System.String,System.String)')
-  - [ServiceMoniker](#P-Microsoft-VisualStudio-Extensibility-Commands-CommandsPackageAttribute-ServiceMoniker 'Microsoft.VisualStudio.Extensibility.Commands.CommandsPackageAttribute.ServiceMoniker')
-- [CommandsPackageLoadAttribute](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandsPackageLoadAttribute 'Microsoft.VisualStudio.Extensibility.Commands.CommandsPackageLoadAttribute')
-  - [#ctor(expression,termNames,termValues)](#M-Microsoft-VisualStudio-Extensibility-Commands-CommandsPackageLoadAttribute-#ctor-System-String,System-String[],System-String[]- 'Microsoft.VisualStudio.Extensibility.Commands.CommandsPackageLoadAttribute.#ctor(System.String,System.String[],System.String[])')
+- [ConfigurationExtensibility](#T-Microsoft-VisualStudio-Extensibility-ConfigurationExtensibility 'Microsoft.VisualStudio.Extensibility.ConfigurationExtensibility')
+  - [#ctor(extensibilityPoint)](#M-Microsoft-VisualStudio-Extensibility-ConfigurationExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint- 'Microsoft.VisualStudio.Extensibility.ConfigurationExtensibility.#ctor(Microsoft.VisualStudio.Extensibility.ExtensibilityPoint)')
+  - [CreateInstance(extensibilityPoint)](#M-Microsoft-VisualStudio-Extensibility-ConfigurationExtensibility-CreateInstance-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint- 'Microsoft.VisualStudio.Extensibility.ConfigurationExtensibility.CreateInstance(Microsoft.VisualStudio.Extensibility.ExtensibilityPoint)')
+  - [GetPersistedStateAsync\`\`1(moniker,defaultValue,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-ConfigurationExtensibility-GetPersistedStateAsync``1-System-String,``0,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.ConfigurationExtensibility.GetPersistedStateAsync``1(System.String,``0,System.Threading.CancellationToken)')
+  - [WritePersistedStateAsync\`\`1(moniker,value,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-ConfigurationExtensibility-WritePersistedStateAsync``1-System-String,``0,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.ConfigurationExtensibility.WritePersistedStateAsync``1(System.String,``0,System.Threading.CancellationToken)')
+- [DebuggerVisualizerProvider](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProvider 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.DebuggerVisualizerProvider')
+  - [#ctor(container,extensibilityObject)](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProvider-#ctor-Microsoft-VisualStudio-Extensibility-ExtensionCore,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.DebuggerVisualizerProvider.#ctor(Microsoft.VisualStudio.Extensibility.ExtensionCore,Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility)')
+  - [DebuggerVisualizerProviderConfiguration](#P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProvider-DebuggerVisualizerProviderConfiguration 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.DebuggerVisualizerProvider.DebuggerVisualizerProviderConfiguration')
+  - [CreateVisualizerAsync(visualizerTarget,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProvider-CreateVisualizerAsync-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.DebuggerVisualizerProvider.CreateVisualizerAsync(Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget,System.Threading.CancellationToken)')
+- [DebuggerVisualizerProviderService](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProviderService 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.DebuggerVisualizerProviderService')
+  - [#ctor(debuggerVisualizerProvider)](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProviderService-#ctor-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProvider- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.DebuggerVisualizerProviderService.#ctor(Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.DebuggerVisualizerProvider)')
+  - [Dispose()](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProviderService-Dispose 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.DebuggerVisualizerProviderService.Dispose')
+  - [GetVisualizerAsync()](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProviderService-GetVisualizerAsync-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-IVisualizerTarget,Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetData,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.DebuggerVisualizerProviderService.GetVisualizerAsync(Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.IVisualizerTarget,Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetData,System.Threading.CancellationToken)')
 - [DiagnosticsExtensionMethods](#T-Microsoft-VisualStudio-Extensibility-DiagnosticsExtensionMethods 'Microsoft.VisualStudio.Extensibility.DiagnosticsExtensionMethods')
   - [GetDiagnosticsReporter(extensibilityPoint,generatorId)](#M-Microsoft-VisualStudio-Extensibility-DiagnosticsExtensionMethods-GetDiagnosticsReporter-Microsoft-VisualStudio-Extensibility-Documents-LanguagesExtensibility,System-String- 'Microsoft.VisualStudio.Extensibility.DiagnosticsExtensionMethods.GetDiagnosticsReporter(Microsoft.VisualStudio.Extensibility.Documents.LanguagesExtensibility,System.String)')
 - [DiagnosticsReporter](#T-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsReporter')
   - [#ctor(generatorId,extensibilityPoint)](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-#ctor-System-String,Microsoft-VisualStudio-Extensibility-ExtensibilityPoint- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsReporter.#ctor(System.String,Microsoft.VisualStudio.Extensibility.ExtensibilityPoint)')
   - [GeneratorId](#P-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-GeneratorId 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsReporter.GeneratorId')
-  - [ClearDiagnosticsAsync(textDocument,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-ClearDiagnosticsAsync-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocumentSnapshot,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsReporter.ClearDiagnosticsAsync(Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocumentSnapshot,System.Threading.CancellationToken)')
+  - [ClearDiagnosticsAsync(textDocument,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-ClearDiagnosticsAsync-Microsoft-VisualStudio-Extensibility-Editor-ITextDocumentSnapshot,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsReporter.ClearDiagnosticsAsync(Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot,System.Threading.CancellationToken)')
   - [ClearDiagnosticsAsync(documentMoniker,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-ClearDiagnosticsAsync-System-Uri,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsReporter.ClearDiagnosticsAsync(System.Uri,System.Threading.CancellationToken)')
   - [Dispose()](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsReporter.Dispose(System.Boolean)')
   - [ReportDiagnosticAsync(diagnostic,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-ReportDiagnosticAsync-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsReporter.ReportDiagnosticAsync(Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic,System.Threading.CancellationToken)')
   - [ReportDiagnosticsAsync(diagnostics,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-ReportDiagnosticsAsync-System-Collections-Generic-IEnumerable{Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsReporter.ReportDiagnosticsAsync(System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic},System.Threading.CancellationToken)')
+- [DisallowNullAttribute](#T-System-Diagnostics-CodeAnalysis-DisallowNullAttribute 'System.Diagnostics.CodeAnalysis.DisallowNullAttribute')
+  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-DisallowNullAttribute-#ctor 'System.Diagnostics.CodeAnalysis.DisallowNullAttribute.#ctor')
 - [DocumentDiagnostic](#T-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic')
-  - [#ctor(span,message,errorCode,severity,providerName,helpLink)](#M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-#ctor-Microsoft-VisualStudio-Extensibility-Editor-Data-TextRange,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String- 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.#ctor(Microsoft.VisualStudio.Extensibility.Editor.Data.TextRange,System.String,System.String,Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity,System.String,System.String)')
+  - [#ctor(span,message,errorCode,severity,providerName,helpLink)](#M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-#ctor-Microsoft-VisualStudio-Extensibility-Editor-TextRange,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String- 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.#ctor(Microsoft.VisualStudio.Extensibility.Editor.TextRange,System.String,System.String,Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity,System.String,System.String)')
   - [#ctor(uri,range,message,errorCode,severity,providerName,helpLink)](#M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-#ctor-System-Uri,Microsoft-VisualStudio-RpcContracts-Utilities-Range,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String- 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.#ctor(System.Uri,Microsoft.VisualStudio.RpcContracts.Utilities.Range,System.String,System.String,Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity,System.String,System.String)')
   - [DocumentVersion](#P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-DocumentVersion 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.DocumentVersion')
   - [ErrorCode](#P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-ErrorCode 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.ErrorCode')
@@ -126,9 +102,10 @@
   - [Range](#P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-Range 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.Range')
   - [Severity](#P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-Severity 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.Severity')
   - [Uri](#P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-Uri 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.Uri')
-  - [CreateDocumentDiagnostic(range,message,errorCode,severity,providerName,helpLink)](#M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-CreateDocumentDiagnostic-Microsoft-VisualStudio-Extensibility-Editor-Data-TextRange,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String- 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.CreateDocumentDiagnostic(Microsoft.VisualStudio.Extensibility.Editor.Data.TextRange,System.String,System.String,Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity,System.String,System.String)')
+  - [CreateDocumentDiagnostic(range,message,errorCode,severity,providerName,helpLink)](#M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-CreateDocumentDiagnostic-Microsoft-VisualStudio-Extensibility-Editor-TextRange,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String- 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.CreateDocumentDiagnostic(Microsoft.VisualStudio.Extensibility.Editor.TextRange,System.String,System.String,Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity,System.String,System.String)')
   - [CreateDocumentDiagnosticForClosedDocument(uri,range,message,errorCode,severity,providerName,helpLink)](#M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-CreateDocumentDiagnosticForClosedDocument-System-Uri,Microsoft-VisualStudio-RpcContracts-Utilities-Range,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String- 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.CreateDocumentDiagnosticForClosedDocument(System.Uri,Microsoft.VisualStudio.RpcContracts.Utilities.Range,System.String,System.String,Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity,System.String,System.String)')
 - [DocumentExtensions](#T-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions 'Microsoft.VisualStudio.Extensibility.Documents.DocumentExtensions')
+  - [AsTextDocumentAsync(documentSnapshot,extensibility,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions-AsTextDocumentAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentExtensions.AsTextDocumentAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot,Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,System.Threading.CancellationToken)')
   - [CloseAsync(document,option,extensibility,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions-CloseAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentExtensions.CloseAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot,Microsoft.VisualStudio.RpcContracts.Documents.SaveDocumentOption,Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,System.Threading.CancellationToken)')
   - [SaveAsync(document,extensibility,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions-SaveAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentExtensions.SaveAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot,Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,System.Threading.CancellationToken)')
 - [DocumentsExtensibility](#T-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility')
@@ -136,28 +113,38 @@
   - [CloseDocumentAsync(moniker,option,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-CloseDocumentAsync-System-Uri,Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.CloseDocumentAsync(System.Uri,Microsoft.VisualStudio.RpcContracts.Documents.SaveDocumentOption,System.Threading.CancellationToken)')
   - [GetOpenDocumentAsync(moniker,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-GetOpenDocumentAsync-System-Uri,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.GetOpenDocumentAsync(System.Uri,System.Threading.CancellationToken)')
   - [GetOpenDocumentsAsync(token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-GetOpenDocumentsAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.GetOpenDocumentsAsync(System.Threading.CancellationToken)')
+  - [GetTextDocumentSnapshotAsync(documentSnapshot,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-GetTextDocumentSnapshotAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.GetTextDocumentSnapshotAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot,System.Threading.CancellationToken)')
+  - [InitializeDocumentAsync(documentSnapshot,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-InitializeDocumentAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.InitializeDocumentAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot,System.Threading.CancellationToken)')
   - [OpenDocumentAsync(moniker,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-OpenDocumentAsync-System-Uri,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.OpenDocumentAsync(System.Uri,System.Threading.CancellationToken)')
   - [OpenDocumentAsync(moniker,options,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-OpenDocumentAsync-System-Uri,Microsoft-VisualStudio-RpcContracts-OpenDocument-OpenDocumentOptions,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.OpenDocumentAsync(System.Uri,Microsoft.VisualStudio.RpcContracts.OpenDocument.OpenDocumentOptions,System.Threading.CancellationToken)')
   - [SaveAllAsync(token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-SaveAllAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.SaveAllAsync(System.Threading.CancellationToken)')
   - [SaveDocumentAsync(moniker,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-SaveDocumentAsync-System-Uri,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.SaveDocumentAsync(System.Uri,System.Threading.CancellationToken)')
   - [SubscribeAsync(listener,filterRegex,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-SubscribeAsync-Microsoft-VisualStudio-RpcContracts-Documents-IDocumentEventsListener,System-String,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.SubscribeAsync(Microsoft.VisualStudio.RpcContracts.Documents.IDocumentEventsListener,System.String,System.Threading.CancellationToken)')
+- [DoesNotReturnAttribute](#T-System-Diagnostics-CodeAnalysis-DoesNotReturnAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute')
+  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-DoesNotReturnAttribute-#ctor 'System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute.#ctor')
+- [DoesNotReturnIfAttribute](#T-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute')
+  - [#ctor(parameterValue)](#M-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-#ctor-System-Boolean- 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.#ctor(System.Boolean)')
+  - [ParameterValue](#P-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-ParameterValue 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.ParameterValue')
 - [DynamicCommand](#T-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommand')
-  - [#ctor(extensibility,id,iconName,relativeDisplayOrder)](#M-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-String,System-String,System-UInt32- 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommand.#ctor(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,System.String,System.String,System.UInt32)')
+  - [#ctor(extensibility,metadata,executeCommandCallback)](#M-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,Microsoft-VisualStudio-RpcContracts-Commands-CommandMetadata,Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync- 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommand.#ctor(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,Microsoft.VisualStudio.RpcContracts.Commands.CommandMetadata,Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync)')
   - [IconName](#P-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand-IconName 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommand.IconName')
+  - [IsChecked](#P-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand-IsChecked 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommand.IsChecked')
   - [RelativeDisplayOrder](#P-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand-RelativeDisplayOrder 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommand.RelativeDisplayOrder')
+  - [ExecuteCommandAsync()](#M-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand-ExecuteCommandAsync-Microsoft-VisualStudio-Extensibility-IClientContext,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommand.ExecuteCommandAsync(Microsoft.VisualStudio.Extensibility.IClientContext,System.Threading.CancellationToken)')
 - [DynamicCommandAnchor](#T-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommandAnchor 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommandAnchor')
-  - [#ctor(id,commadSet)](#M-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommandAnchor-#ctor-System-String,Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase- 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommandAnchor.#ctor(System.String,Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase)')
-  - [AddCommand(command)](#M-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommandAnchor-AddCommand-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand- 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommandAnchor.AddCommand(Microsoft.VisualStudio.Extensibility.Commands.DynamicCommand)')
+  - [#ctor(commadSet)](#M-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommandAnchor-#ctor-Microsoft-VisualStudio-Extensibility-Commands-CommandSet- 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommandAnchor.#ctor(Microsoft.VisualStudio.Extensibility.Commands.CommandSet)')
+  - [CommandConfiguration](#P-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommandAnchor-CommandConfiguration 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommandAnchor.CommandConfiguration')
   - [AddCommand(metadata,commandHandler)](#M-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommandAnchor-AddCommand-Microsoft-VisualStudio-RpcContracts-Commands-CommandMetadata,Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync- 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommandAnchor.AddCommand(Microsoft.VisualStudio.RpcContracts.Commands.CommandMetadata,Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync)')
   - [RemoveCommand(commandId)](#M-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommandAnchor-RemoveCommand-System-String- 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommandAnchor.RemoveCommand(System.String)')
-- [DynamicCommandWithCallback](#T-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommandWithCallback 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommandWithCallback')
-  - [#ctor(extensibility,metadata,callback)](#M-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommandWithCallback-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,Microsoft-VisualStudio-RpcContracts-Commands-CommandMetadata,Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync- 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommandWithCallback.#ctor(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,Microsoft.VisualStudio.RpcContracts.Commands.CommandMetadata,Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync)')
-  - [ExecuteCommandAsync(context,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommandWithCallback-ExecuteCommandAsync-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommandWithCallback.ExecuteCommandAsync(Microsoft.VisualStudio.Extensibility.Definitions.IClientContext,System.Threading.CancellationToken)')
-- [ExecutableCommand](#T-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommand 'Microsoft.VisualStudio.Extensibility.Commands.ExecutableCommand')
-  - [#ctor(name)](#M-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommand-#ctor-System-String- 'Microsoft.VisualStudio.Extensibility.Commands.ExecutableCommand.#ctor(System.String)')
-  - [IsEnabled](#P-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommand-IsEnabled 'Microsoft.VisualStudio.Extensibility.Commands.ExecutableCommand.IsEnabled')
-  - [ExecuteCommandAsync()](#M-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommand-ExecuteCommandAsync-System-Collections-Generic-IReadOnlyDictionary{System-String,System-Object},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Commands.ExecutableCommand.ExecuteCommandAsync(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},System.Threading.CancellationToken)')
+- [ExecutableCommandHandler](#T-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommandHandler 'Microsoft.VisualStudio.Extensibility.Commands.ExecutableCommandHandler')
+  - [#ctor(extensibility,id)](#M-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommandHandler-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-String- 'Microsoft.VisualStudio.Extensibility.Commands.ExecutableCommandHandler.#ctor(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,System.String)')
+  - [DisableDuringExecution](#P-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommandHandler-DisableDuringExecution 'Microsoft.VisualStudio.Extensibility.Commands.ExecutableCommandHandler.DisableDuringExecution')
+  - [Extensibility](#P-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommandHandler-Extensibility 'Microsoft.VisualStudio.Extensibility.Commands.ExecutableCommandHandler.Extensibility')
+  - [IsEnabled](#P-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommandHandler-IsEnabled 'Microsoft.VisualStudio.Extensibility.Commands.ExecutableCommandHandler.IsEnabled')
+  - [ExecuteCommandAsync()](#M-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommandHandler-ExecuteCommandAsync-System-Collections-Generic-IReadOnlyDictionary{System-String,System-Object},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Commands.ExecutableCommandHandler.ExecuteCommandAsync(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},System.Threading.CancellationToken)')
+  - [ExecuteCommandAsync(context,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommandHandler-ExecuteCommandAsync-Microsoft-VisualStudio-Extensibility-IClientContext,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Commands.ExecutableCommandHandler.ExecuteCommandAsync(Microsoft.VisualStudio.Extensibility.IClientContext,System.Threading.CancellationToken)')
 - [ExtensibilityPoints](#T-Microsoft-VisualStudio-Extensibility-ExtensibilityPoints 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoints')
+  - [Configuration(extensibility)](#M-Microsoft-VisualStudio-Extensibility-ExtensibilityPoints-Configuration-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility- 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoints.Configuration(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility)')
   - [Documents(extensibility)](#M-Microsoft-VisualStudio-Extensibility-ExtensibilityPoints-Documents-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility- 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoints.Documents(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility)')
   - [Languages(extensibility)](#M-Microsoft-VisualStudio-Extensibility-ExtensibilityPoints-Languages-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility- 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoints.Languages(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility)')
   - [Shell(extensibility)](#M-Microsoft-VisualStudio-Extensibility-ExtensibilityPoints-Shell-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility- 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoints.Shell(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility)')
@@ -165,25 +152,26 @@
   - [Workspaces(extensibility)](#M-Microsoft-VisualStudio-Extensibility-ExtensibilityPoints-Workspaces-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility- 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoints.Workspaces(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility)')
 - [Extension](#T-Microsoft-VisualStudio-Extensibility-Extension 'Microsoft.VisualStudio.Extensibility.Extension')
   - [CommandSet](#P-Microsoft-VisualStudio-Extensibility-Extension-CommandSet 'Microsoft.VisualStudio.Extensibility.Extension.CommandSet')
-  - [InitializeCommandsAsync(commandSet)](#M-Microsoft-VisualStudio-Extensibility-Extension-InitializeCommandsAsync-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase- 'Microsoft.VisualStudio.Extensibility.Extension.InitializeCommandsAsync(Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase)')
+  - [InitializeCommandsAsync(commandSet)](#M-Microsoft-VisualStudio-Extensibility-Extension-InitializeCommandsAsync-Microsoft-VisualStudio-Extensibility-Commands-CommandSet- 'Microsoft.VisualStudio.Extensibility.Extension.InitializeCommandsAsync(Microsoft.VisualStudio.Extensibility.Commands.CommandSet)')
   - [InitializeServices()](#M-Microsoft-VisualStudio-Extensibility-Extension-InitializeServices-Microsoft-Extensions-DependencyInjection-IServiceCollection- 'Microsoft.VisualStudio.Extensibility.Extension.InitializeServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)')
 - [ExtensionMethods](#T-Microsoft-VisualStudio-Extensibility-ExtensionMethods 'Microsoft.VisualStudio.Extensibility.ExtensionMethods')
-  - [GetActiveTextViewAsync(clientContext,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-ExtensionMethods-GetActiveTextViewAsync-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.ExtensionMethods.GetActiveTextViewAsync(Microsoft.VisualStudio.Extensibility.Definitions.IClientContext,System.Threading.CancellationToken)')
-  - [GetSelectedPathAsync(clientContext,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-ExtensionMethods-GetSelectedPathAsync-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.ExtensionMethods.GetSelectedPathAsync(Microsoft.VisualStudio.Extensibility.Definitions.IClientContext,System.Threading.CancellationToken)')
-  - [ShowPromptAsync\`\`1(clientContext,message,options,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-ExtensionMethods-ShowPromptAsync``1-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext,System-String,Microsoft-VisualStudio-Extensibility-Shell-PromptOptions{``0},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.ExtensionMethods.ShowPromptAsync``1(Microsoft.VisualStudio.Extensibility.Definitions.IClientContext,System.String,Microsoft.VisualStudio.Extensibility.Shell.PromptOptions{``0},System.Threading.CancellationToken)')
-  - [ShowUserPromptImplAsync(clientContext,message,options,defaultOptionIndex,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-ExtensionMethods-ShowUserPromptImplAsync-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext,System-String,System-Collections-Generic-IReadOnlyList{Microsoft-VisualStudio-RpcContracts-Notifications-UserPromptOption},System-UInt32,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.ExtensionMethods.ShowUserPromptImplAsync(Microsoft.VisualStudio.Extensibility.Definitions.IClientContext,System.String,System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption},System.UInt32,System.Threading.CancellationToken)')
+  - [GetActiveTextViewAsync(clientContext,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-ExtensionMethods-GetActiveTextViewAsync-Microsoft-VisualStudio-Extensibility-IClientContext,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.ExtensionMethods.GetActiveTextViewAsync(Microsoft.VisualStudio.Extensibility.IClientContext,System.Threading.CancellationToken)')
+  - [GetSelectedPathAsync(clientContext,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-ExtensionMethods-GetSelectedPathAsync-Microsoft-VisualStudio-Extensibility-IClientContext,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.ExtensionMethods.GetSelectedPathAsync(Microsoft.VisualStudio.Extensibility.IClientContext,System.Threading.CancellationToken)')
+  - [ShowPromptAsync\`\`1(clientContext,message,options,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-ExtensionMethods-ShowPromptAsync``1-Microsoft-VisualStudio-Extensibility-IClientContext,System-String,Microsoft-VisualStudio-Extensibility-Shell-PromptOptions{``0},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.ExtensionMethods.ShowPromptAsync``1(Microsoft.VisualStudio.Extensibility.IClientContext,System.String,Microsoft.VisualStudio.Extensibility.Shell.PromptOptions{``0},System.Threading.CancellationToken)')
+  - [ShowUserPromptImplAsync(clientContext,message,options,defaultOptionIndex,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-ExtensionMethods-ShowUserPromptImplAsync-Microsoft-VisualStudio-Extensibility-IClientContext,System-String,System-Collections-Generic-IReadOnlyList{Microsoft-VisualStudio-RpcContracts-Notifications-UserPromptOption},System-UInt32,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.ExtensionMethods.ShowUserPromptImplAsync(Microsoft.VisualStudio.Extensibility.IClientContext,System.String,System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption},System.UInt32,System.Threading.CancellationToken)')
 - [ICommand](#T-Microsoft-VisualStudio-Extensibility-Commands-ICommand 'Microsoft.VisualStudio.Extensibility.Commands.ICommand')
   - [DisplayName](#P-Microsoft-VisualStudio-Extensibility-Commands-ICommand-DisplayName 'Microsoft.VisualStudio.Extensibility.Commands.ICommand.DisplayName')
   - [Flags](#P-Microsoft-VisualStudio-Extensibility-Commands-ICommand-Flags 'Microsoft.VisualStudio.Extensibility.Commands.ICommand.Flags')
   - [Id](#P-Microsoft-VisualStudio-Extensibility-Commands-ICommand-Id 'Microsoft.VisualStudio.Extensibility.Commands.ICommand.Id')
   - [IsVisible](#P-Microsoft-VisualStudio-Extensibility-Commands-ICommand-IsVisible 'Microsoft.VisualStudio.Extensibility.Commands.ICommand.IsVisible')
   - [TooltipText](#P-Microsoft-VisualStudio-Extensibility-Commands-ICommand-TooltipText 'Microsoft.VisualStudio.Extensibility.Commands.ICommand.TooltipText')
+  - [InitializeAsync(cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Commands-ICommand-InitializeAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Commands.ICommand.InitializeAsync(System.Threading.CancellationToken)')
 - [ICommandSet](#T-Microsoft-VisualStudio-Extensibility-Commands-ICommandSet 'Microsoft.VisualStudio.Extensibility.Commands.ICommandSet')
   - [Commands](#P-Microsoft-VisualStudio-Extensibility-Commands-ICommandSet-Commands 'Microsoft.VisualStudio.Extensibility.Commands.ICommandSet.Commands')
   - [InitializeAsync(serviceBroker,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Commands-ICommandSet-InitializeAsync-Microsoft-ServiceHub-Framework-IServiceBroker,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Commands.ICommandSet.InitializeAsync(Microsoft.ServiceHub.Framework.IServiceBroker,System.Threading.CancellationToken)')
 - [ICommandSetFactory](#T-Microsoft-VisualStudio-Extensibility-Commands-ICommandSetFactory 'Microsoft.VisualStudio.Extensibility.Commands.ICommandSetFactory')
   - [ServiceMoniker](#P-Microsoft-VisualStudio-Extensibility-Commands-ICommandSetFactory-ServiceMoniker 'Microsoft.VisualStudio.Extensibility.Commands.ICommandSetFactory.ServiceMoniker')
-  - [InitializeCommandsAsync(commandSet)](#M-Microsoft-VisualStudio-Extensibility-Commands-ICommandSetFactory-InitializeCommandsAsync-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase- 'Microsoft.VisualStudio.Extensibility.Commands.ICommandSetFactory.InitializeCommandsAsync(Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase)')
+  - [InitializeCommandsAsync(commandSet)](#M-Microsoft-VisualStudio-Extensibility-Commands-ICommandSetFactory-InitializeCommandsAsync-Microsoft-VisualStudio-Extensibility-Commands-CommandSet- 'Microsoft.VisualStudio.Extensibility.Commands.ICommandSetFactory.InitializeCommandsAsync(Microsoft.VisualStudio.Extensibility.Commands.CommandSet)')
 - [IDynamicCommand](#T-Microsoft-VisualStudio-Extensibility-Commands-IDynamicCommand 'Microsoft.VisualStudio.Extensibility.Commands.IDynamicCommand')
   - [IconName](#P-Microsoft-VisualStudio-Extensibility-Commands-IDynamicCommand-IconName 'Microsoft.VisualStudio.Extensibility.Commands.IDynamicCommand.IconName')
   - [RelativeDisplayOrder](#P-Microsoft-VisualStudio-Extensibility-Commands-IDynamicCommand-RelativeDisplayOrder 'Microsoft.VisualStudio.Extensibility.Commands.IDynamicCommand.RelativeDisplayOrder')
@@ -192,22 +180,31 @@
   - [ExecuteCommandAsync(contextProperties,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Commands-IExecutableCommand-ExecuteCommandAsync-System-Collections-Generic-IReadOnlyDictionary{System-String,System-Object},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Commands.IExecutableCommand.ExecuteCommandAsync(System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object},System.Threading.CancellationToken)')
 - [IToggleCommand](#T-Microsoft-VisualStudio-Extensibility-Commands-IToggleCommand 'Microsoft.VisualStudio.Extensibility.Commands.IToggleCommand')
   - [IsChecked](#P-Microsoft-VisualStudio-Extensibility-Commands-IToggleCommand-IsChecked 'Microsoft.VisualStudio.Extensibility.Commands.IToggleCommand.IsChecked')
-- [IconSettings](#T-Microsoft-VisualStudio-Extensibility-Commands-IconSettings 'Microsoft.VisualStudio.Extensibility.Commands.IconSettings')
-  - [IconAndText](#F-Microsoft-VisualStudio-Extensibility-Commands-IconSettings-IconAndText 'Microsoft.VisualStudio.Extensibility.Commands.IconSettings.IconAndText')
-  - [IconOnly](#F-Microsoft-VisualStudio-Extensibility-Commands-IconSettings-IconOnly 'Microsoft.VisualStudio.Extensibility.Commands.IconSettings.IconOnly')
-  - [None](#F-Microsoft-VisualStudio-Extensibility-Commands-IconSettings-None 'Microsoft.VisualStudio.Extensibility.Commands.IconSettings.None')
 - [IsExternalInit](#T-System-Runtime-CompilerServices-IsExternalInit 'System.Runtime.CompilerServices.IsExternalInit')
-- [KnownKey](#T-Microsoft-VisualStudio-Extensibility-Commands-KnownKey 'Microsoft.VisualStudio.Extensibility.Commands.KnownKey')
-  - [None](#F-Microsoft-VisualStudio-Extensibility-Commands-KnownKey-None 'Microsoft.VisualStudio.Extensibility.Commands.KnownKey.None')
-  - [VK_LBUTTON](#F-Microsoft-VisualStudio-Extensibility-Commands-KnownKey-VK_LBUTTON 'Microsoft.VisualStudio.Extensibility.Commands.KnownKey.VK_LBUTTON')
-- [KnownMonikers](#T-Microsoft-VisualStudio-Extensibility-KnownMonikers 'Microsoft.VisualStudio.Extensibility.KnownMonikers')
 - [LanguagesExtensibility](#T-Microsoft-VisualStudio-Extensibility-Documents-LanguagesExtensibility 'Microsoft.VisualStudio.Extensibility.Documents.LanguagesExtensibility')
   - [#ctor(extensibilityPoint)](#M-Microsoft-VisualStudio-Extensibility-Documents-LanguagesExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint- 'Microsoft.VisualStudio.Extensibility.Documents.LanguagesExtensibility.#ctor(Microsoft.VisualStudio.Extensibility.ExtensibilityPoint)')
-- [ModifierKey](#T-Microsoft-VisualStudio-Extensibility-Commands-ModifierKey 'Microsoft.VisualStudio.Extensibility.Commands.ModifierKey')
-  - [Control](#F-Microsoft-VisualStudio-Extensibility-Commands-ModifierKey-Control 'Microsoft.VisualStudio.Extensibility.Commands.ModifierKey.Control')
-  - [LeftAlt](#F-Microsoft-VisualStudio-Extensibility-Commands-ModifierKey-LeftAlt 'Microsoft.VisualStudio.Extensibility.Commands.ModifierKey.LeftAlt')
-  - [None](#F-Microsoft-VisualStudio-Extensibility-Commands-ModifierKey-None 'Microsoft.VisualStudio.Extensibility.Commands.ModifierKey.None')
-  - [Shift](#F-Microsoft-VisualStudio-Extensibility-Commands-ModifierKey-Shift 'Microsoft.VisualStudio.Extensibility.Commands.ModifierKey.Shift')
+- [MaybeNullAttribute](#T-System-Diagnostics-CodeAnalysis-MaybeNullAttribute 'System.Diagnostics.CodeAnalysis.MaybeNullAttribute')
+  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-MaybeNullAttribute-#ctor 'System.Diagnostics.CodeAnalysis.MaybeNullAttribute.#ctor')
+- [MaybeNullWhenAttribute](#T-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute')
+  - [#ctor(returnValue)](#M-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-#ctor-System-Boolean- 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.#ctor(System.Boolean)')
+  - [ReturnValue](#P-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-ReturnValue 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue')
+- [MemberNotNullAttribute](#T-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute 'System.Diagnostics.CodeAnalysis.MemberNotNullAttribute')
+  - [#ctor(member)](#M-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-#ctor-System-String- 'System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String)')
+  - [#ctor(members)](#M-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-#ctor-System-String[]- 'System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String[])')
+  - [Members](#P-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-Members 'System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.Members')
+- [MemberNotNullWhenAttribute](#T-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute 'System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute')
+  - [#ctor(returnValue,member)](#M-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-#ctor-System-Boolean,System-String- 'System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String)')
+  - [#ctor(returnValue,members)](#M-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-#ctor-System-Boolean,System-String[]- 'System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String[])')
+  - [Members](#P-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-Members 'System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.Members')
+  - [ReturnValue](#P-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-ReturnValue 'System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.ReturnValue')
+- [NotNullAttribute](#T-System-Diagnostics-CodeAnalysis-NotNullAttribute 'System.Diagnostics.CodeAnalysis.NotNullAttribute')
+  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-NotNullAttribute-#ctor 'System.Diagnostics.CodeAnalysis.NotNullAttribute.#ctor')
+- [NotNullIfNotNullAttribute](#T-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute 'System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute')
+  - [#ctor(parameterName)](#M-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-#ctor-System-String- 'System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.#ctor(System.String)')
+  - [ParameterName](#P-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-ParameterName 'System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.ParameterName')
+- [NotNullWhenAttribute](#T-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute')
+  - [#ctor(returnValue)](#M-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-#ctor-System-Boolean- 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)')
+  - [ReturnValue](#P-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-ReturnValue 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue')
 - [OutputWindow](#T-Microsoft-VisualStudio-Extensibility-Documents-OutputWindow 'Microsoft.VisualStudio.Extensibility.Documents.OutputWindow')
   - [#ctor(outputWindow)](#M-Microsoft-VisualStudio-Extensibility-Documents-OutputWindow-#ctor-Microsoft-VisualStudio-Extensibility-Documents-OutputWindowInternal- 'Microsoft.VisualStudio.Extensibility.Documents.OutputWindow.#ctor(Microsoft.VisualStudio.Extensibility.Documents.OutputWindowInternal)')
   - [Writer](#P-Microsoft-VisualStudio-Extensibility-Documents-OutputWindow-Writer 'Microsoft.VisualStudio.Extensibility.Documents.OutputWindow.Writer')
@@ -235,6 +232,7 @@
   - [TooltipText](#P-Microsoft-VisualStudio-Extensibility-Commands-PlaceholderCommand-TooltipText 'Microsoft.VisualStudio.Extensibility.Commands.PlaceholderCommand.TooltipText')
   - [Dispose()](#M-Microsoft-VisualStudio-Extensibility-Commands-PlaceholderCommand-Dispose 'Microsoft.VisualStudio.Extensibility.Commands.PlaceholderCommand.Dispose')
   - [Dispose(disposing)](#M-Microsoft-VisualStudio-Extensibility-Commands-PlaceholderCommand-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.Commands.PlaceholderCommand.Dispose(System.Boolean)')
+  - [InitializeAsync()](#M-Microsoft-VisualStudio-Extensibility-Commands-PlaceholderCommand-InitializeAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Commands.PlaceholderCommand.InitializeAsync(System.Threading.CancellationToken)')
   - [OnPropertyChanged(eventArgs)](#M-Microsoft-VisualStudio-Extensibility-Commands-PlaceholderCommand-OnPropertyChanged-System-ComponentModel-PropertyChangedEventArgs- 'Microsoft.VisualStudio.Extensibility.Commands.PlaceholderCommand.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)')
 - [ProgressReporter](#T-Microsoft-VisualStudio-Extensibility-Shell-ProgressReporter 'Microsoft.VisualStudio.Extensibility.Shell.ProgressReporter')
   - [#ctor(workId,workProgressHandler)](#M-Microsoft-VisualStudio-Extensibility-Shell-ProgressReporter-#ctor-System-Guid,Microsoft-VisualStudio-RpcContracts-ProgressReporting-IWorkProgressHandler- 'Microsoft.VisualStudio.Extensibility.Shell.ProgressReporter.#ctor(System.Guid,Microsoft.VisualStudio.RpcContracts.ProgressReporting.IWorkProgressHandler)')
@@ -267,7 +265,9 @@
   - [WithCancel(cancelReturns,cancelIsDefault)](#M-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions`1-WithCancel-`0,System-Boolean- 'Microsoft.VisualStudio.Extensibility.Shell.PromptOptions`1.WithCancel(`0,System.Boolean)')
 - [Resources](#T-Microsoft-VisualStudio-Extensibility-Resources 'Microsoft.VisualStudio.Extensibility.Resources')
   - [CommandIdAlreadyRegistered](#P-Microsoft-VisualStudio-Extensibility-Resources-CommandIdAlreadyRegistered 'Microsoft.VisualStudio.Extensibility.Resources.CommandIdAlreadyRegistered')
+  - [CommandSetNotInitializedYet](#P-Microsoft-VisualStudio-Extensibility-Resources-CommandSetNotInitializedYet 'Microsoft.VisualStudio.Extensibility.Resources.CommandSetNotInitializedYet')
   - [Culture](#P-Microsoft-VisualStudio-Extensibility-Resources-Culture 'Microsoft.VisualStudio.Extensibility.Resources.Culture')
+  - [DynamicCommandAnchorNotFound](#P-Microsoft-VisualStudio-Extensibility-Resources-DynamicCommandAnchorNotFound 'Microsoft.VisualStudio.Extensibility.Resources.DynamicCommandAnchorNotFound')
   - [InvalidVersionString](#P-Microsoft-VisualStudio-Extensibility-Resources-InvalidVersionString 'Microsoft.VisualStudio.Extensibility.Resources.InvalidVersionString')
   - [Prompt_Choice_Cancel](#P-Microsoft-VisualStudio-Extensibility-Resources-Prompt_Choice_Cancel 'Microsoft.VisualStudio.Extensibility.Resources.Prompt_Choice_Cancel')
   - [Prompt_Choice_No](#P-Microsoft-VisualStudio-Extensibility-Resources-Prompt_Choice_No 'Microsoft.VisualStudio.Extensibility.Resources.Prompt_Choice_No')
@@ -276,6 +276,8 @@
   - [Prompt_Choice_Yes](#P-Microsoft-VisualStudio-Extensibility-Resources-Prompt_Choice_Yes 'Microsoft.VisualStudio.Extensibility.Resources.Prompt_Choice_Yes')
   - [Prompt_Exception_NoNegativeValues](#P-Microsoft-VisualStudio-Extensibility-Resources-Prompt_Exception_NoNegativeValues 'Microsoft.VisualStudio.Extensibility.Resources.Prompt_Exception_NoNegativeValues')
   - [ResourceManager](#P-Microsoft-VisualStudio-Extensibility-Resources-ResourceManager 'Microsoft.VisualStudio.Extensibility.Resources.ResourceManager')
+  - [TraceExtensionStateJsonParseError](#P-Microsoft-VisualStudio-Extensibility-Resources-TraceExtensionStateJsonParseError 'Microsoft.VisualStudio.Extensibility.Resources.TraceExtensionStateJsonParseError')
+  - [TraceExtensionStateNotFound](#P-Microsoft-VisualStudio-Extensibility-Resources-TraceExtensionStateNotFound 'Microsoft.VisualStudio.Extensibility.Resources.TraceExtensionStateNotFound')
   - [UnsupportedDocumentMoniker](#P-Microsoft-VisualStudio-Extensibility-Resources-UnsupportedDocumentMoniker 'Microsoft.VisualStudio.Extensibility.Resources.UnsupportedDocumentMoniker')
 - [ShellExtensibility](#T-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility')
   - [#ctor(extensibilityPoint)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.#ctor(Microsoft.VisualStudio.Extensibility.ExtensibilityPoint)')
@@ -284,6 +286,10 @@
   - [HideToolWindowAsync(toolWindowType,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-HideToolWindowAsync-System-Type,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.HideToolWindowAsync(System.Type,System.Threading.CancellationToken)')
   - [HideToolWindowAsync\`\`1(cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-HideToolWindowAsync``1-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.HideToolWindowAsync``1(System.Threading.CancellationToken)')
   - [ServiceAvailabilityChanged(sender,args)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ServiceAvailabilityChanged-System-Object,Microsoft-ServiceHub-Framework-BrokeredServicesChangedEventArgs- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.ServiceAvailabilityChanged(System.Object,Microsoft.ServiceHub.Framework.BrokeredServicesChangedEventArgs)')
+  - [ShowDialogAsync(content,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowDialogAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.ShowDialogAsync(Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl,System.Threading.CancellationToken)')
+  - [ShowDialogAsync(content,title,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowDialogAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl,System-String,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.ShowDialogAsync(Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl,System.String,System.Threading.CancellationToken)')
+  - [ShowDialogAsync(content,options,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowDialogAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl,Microsoft-VisualStudio-RpcContracts-Notifications-DialogOption,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.ShowDialogAsync(Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl,Microsoft.VisualStudio.RpcContracts.Notifications.DialogOption,System.Threading.CancellationToken)')
+  - [ShowDialogAsync(content,title,options,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowDialogAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl,System-String,Microsoft-VisualStudio-RpcContracts-Notifications-DialogOption,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.ShowDialogAsync(Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl,System.String,Microsoft.VisualStudio.RpcContracts.Notifications.DialogOption,System.Threading.CancellationToken)')
   - [ShowToolWindowAsync(toolWindowType,activate,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowToolWindowAsync-System-Type,System-Boolean,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.ShowToolWindowAsync(System.Type,System.Boolean,System.Threading.CancellationToken)')
   - [ShowToolWindowAsync\`\`1(activate,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowToolWindowAsync``1-System-Boolean,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.ShowToolWindowAsync``1(System.Boolean,System.Threading.CancellationToken)')
   - [StartProgressReportingAsync(workDisplayName,options,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-StartProgressReportingAsync-System-String,Microsoft-VisualStudio-RpcContracts-ProgressReporting-ProgressReporterOptions,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Shell.ShellExtensibility.StartProgressReportingAsync(System.String,Microsoft.VisualStudio.RpcContracts.ProgressReporting.ProgressReporterOptions,System.Threading.CancellationToken)')
@@ -294,12 +300,13 @@
   - [Write()](#M-Microsoft-VisualStudio-Extensibility-Documents-SynchronizedBufferTextWriter-Write-System-ReadOnlySpan{System-Char}- 'Microsoft.VisualStudio.Extensibility.Documents.SynchronizedBufferTextWriter.Write(System.ReadOnlySpan{System.Char})')
   - [WriteLine()](#M-Microsoft-VisualStudio-Extensibility-Documents-SynchronizedBufferTextWriter-WriteLine-System-ReadOnlySpan{System-Char}- 'Microsoft.VisualStudio.Extensibility.Documents.SynchronizedBufferTextWriter.WriteLine(System.ReadOnlySpan{System.Char})')
 - [ToggleCommand](#T-Microsoft-VisualStudio-Extensibility-Commands-ToggleCommand 'Microsoft.VisualStudio.Extensibility.Commands.ToggleCommand')
-  - [#ctor(extensibility,name)](#M-Microsoft-VisualStudio-Extensibility-Commands-ToggleCommand-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-String- 'Microsoft.VisualStudio.Extensibility.Commands.ToggleCommand.#ctor(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,System.String)')
+  - [#ctor(extensibility)](#M-Microsoft-VisualStudio-Extensibility-Commands-ToggleCommand-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility- 'Microsoft.VisualStudio.Extensibility.Commands.ToggleCommand.#ctor(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility)')
   - [IsChecked](#P-Microsoft-VisualStudio-Extensibility-Commands-ToggleCommand-IsChecked 'Microsoft.VisualStudio.Extensibility.Commands.ToggleCommand.IsChecked')
 - [ToolWindow](#T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow')
   - [#ctor(extensibility)](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.#ctor(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility)')
   - [Extensibility](#P-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-Extensibility 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.Extensibility')
   - [Title](#P-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-Title 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.Title')
+  - [ToolWindowConfiguration](#P-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-ToolWindowConfiguration 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.ToolWindowConfiguration')
   - [Dispose()](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-Dispose 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.Dispose')
   - [Dispose(disposing)](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.Dispose(System.Boolean)')
   - [GetContentAsync(cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-GetContentAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.GetContentAsync(System.Threading.CancellationToken)')
@@ -326,12 +333,60 @@
 - [ViewsExtensibility](#T-Microsoft-VisualStudio-Extensibility-Documents-ViewsExtensibility 'Microsoft.VisualStudio.Extensibility.Documents.ViewsExtensibility')
   - [#ctor(extensibilityPoint)](#M-Microsoft-VisualStudio-Extensibility-Documents-ViewsExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint- 'Microsoft.VisualStudio.Extensibility.Documents.ViewsExtensibility.#ctor(Microsoft.VisualStudio.Extensibility.ExtensibilityPoint)')
   - [Output](#P-Microsoft-VisualStudio-Extensibility-Documents-ViewsExtensibility-Output 'Microsoft.VisualStudio.Extensibility.Documents.ViewsExtensibility.Output')
+- [VisualizerObjectSourceClient](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient')
+  - [ReplaceTargetObjectAsync(message,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-ReplaceTargetObjectAsync-System-Buffers-ReadOnlySequence{System-Byte},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient.ReplaceTargetObjectAsync(System.Buffers.ReadOnlySequence{System.Byte},System.Threading.CancellationToken)')
+  - [ReplaceTargetObjectAsync(message,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-ReplaceTargetObjectAsync-Newtonsoft-Json-Linq-JToken,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient.ReplaceTargetObjectAsync(Newtonsoft.Json.Linq.JToken,System.Threading.CancellationToken)')
+  - [ReplaceTargetObjectAsync\`\`1(message,jsonSerializer,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-ReplaceTargetObjectAsync``1-``0,Newtonsoft-Json-JsonSerializer,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient.ReplaceTargetObjectAsync``1(``0,Newtonsoft.Json.JsonSerializer,System.Threading.CancellationToken)')
+  - [RequestDataAsync(message,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-RequestDataAsync-System-Nullable{System-Buffers-ReadOnlySequence{System-Byte}},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient.RequestDataAsync(System.Nullable{System.Buffers.ReadOnlySequence{System.Byte}},System.Threading.CancellationToken)')
+  - [RequestDataAsync(message,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-RequestDataAsync-Newtonsoft-Json-Linq-JToken,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient.RequestDataAsync(Newtonsoft.Json.Linq.JToken,System.Threading.CancellationToken)')
+  - [RequestDataAsync(cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-RequestDataAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient.RequestDataAsync(System.Threading.CancellationToken)')
+  - [RequestDataAsync\`\`1(jsonSerializer,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-RequestDataAsync``1-Newtonsoft-Json-JsonSerializer,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient.RequestDataAsync``1(Newtonsoft.Json.JsonSerializer,System.Threading.CancellationToken)')
+  - [RequestDataAsync\`\`2(message,jsonSerializer,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-RequestDataAsync``2-``0,Newtonsoft-Json-JsonSerializer,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient.RequestDataAsync``2(``0,Newtonsoft.Json.JsonSerializer,System.Threading.CancellationToken)')
+- [VisualizerObjectSourceClientImplementation](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClientImplementation 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClientImplementation')
+  - [#ctor(visualizerTargetProxy)](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClientImplementation-#ctor-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-IVisualizerTarget- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClientImplementation.#ctor(Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.IVisualizerTarget)')
+  - [ReplaceTargetObjectAsync()](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClientImplementation-ReplaceTargetObjectAsync-System-Buffers-ReadOnlySequence{System-Byte},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClientImplementation.ReplaceTargetObjectAsync(System.Buffers.ReadOnlySequence{System.Byte},System.Threading.CancellationToken)')
+  - [RequestDataAsync()](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClientImplementation-RequestDataAsync-System-Nullable{System-Buffers-ReadOnlySequence{System-Byte}},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClientImplementation.RequestDataAsync(System.Nullable{System.Buffers.ReadOnlySequence{System.Byte}},System.Threading.CancellationToken)')
+- [VisualizerTarget](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget')
+  - [#ctor(objectSource,targetTypeFullName,targetTypeModuleName,targetTypeModuleVersion)](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-#ctor-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient,System-String,System-String,System-Version- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget.#ctor(Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient,System.String,System.String,System.Version)')
+  - [ObjectSource](#P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-ObjectSource 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget.ObjectSource')
+  - [TargetTypeFullName](#P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-TargetTypeFullName 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget.TargetTypeFullName')
+  - [TargetTypeModuleName](#P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-TargetTypeModuleName 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget.TargetTypeModuleName')
+  - [TargetTypeModuleVersion](#P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-TargetTypeModuleVersion 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget.TargetTypeModuleVersion')
+  - [Dispose()](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-Dispose 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget.Dispose')
+  - [RaiseStateChangedAsync(notification)](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-RaiseStateChangedAsync-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetStateNotification- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget.RaiseStateChangedAsync(Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetStateNotification)')
+- [VisualizerTargetImplementation](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetImplementation 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTargetImplementation')
+  - [#ctor(visualizerTargetProxy,visualizerTargetData)](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetImplementation-#ctor-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-IVisualizerTarget,Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetData- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTargetImplementation.#ctor(Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.IVisualizerTarget,Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetData)')
+  - [Dispose()](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetImplementation-Dispose 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTargetImplementation.Dispose')
+  - [Microsoft#VisualStudio#RpcContracts#DebuggerVisualizers#IVisualizerTargetClient#NotifyStateChangeAsync()](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetImplementation-Microsoft#VisualStudio#RpcContracts#DebuggerVisualizers#IVisualizerTargetClient#NotifyStateChangeAsync-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetStateNotification,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTargetImplementation.Microsoft#VisualStudio#RpcContracts#DebuggerVisualizers#IVisualizerTargetClient#NotifyStateChangeAsync(Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetStateNotification,System.Threading.CancellationToken)')
 - [WorkspacesExtensibility](#T-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility 'Microsoft.VisualStudio.Extensibility.Workspaces.WorkspacesExtensibility')
   - [#ctor(extensibilityPoint)](#M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint- 'Microsoft.VisualStudio.Extensibility.Workspaces.WorkspacesExtensibility.#ctor(Microsoft.VisualStudio.Extensibility.ExtensibilityPoint)')
-  - [QueryProjectsAsync\`\`1(queryFunc,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-QueryProjectsAsync``1-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ProjectModel-IProject},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Workspaces.WorkspacesExtensibility.QueryProjectsAsync``1(System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ProjectModel.IProject},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}},System.Threading.CancellationToken)')
-  - [QuerySolutionAsync\`\`1(queryFunc,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-QuerySolutionAsync``1-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ProjectModel-ISolution},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Workspaces.WorkspacesExtensibility.QuerySolutionAsync``1(System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ProjectModel.ISolution},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}},System.Threading.CancellationToken)')
-  - [UpdateProjectsAsync\`\`2(queryFunc,updateFunc,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-UpdateProjectsAsync``2-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ProjectModel-IProject},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``0},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``1}},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Workspaces.WorkspacesExtensibility.UpdateProjectsAsync``2(System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ProjectModel.IProject},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}},System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``1}},System.Threading.CancellationToken)')
-  - [UpdateSolutionAsync\`\`2(queryFunc,updateFunc,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-UpdateSolutionAsync``2-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ProjectModel-ISolution},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``0},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``1}},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Workspaces.WorkspacesExtensibility.UpdateSolutionAsync``2(System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ProjectModel.ISolution},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}},System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``1}},System.Threading.CancellationToken)')
+  - [QueryProjectsAsync\`\`1(queryFunc,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-QueryProjectsAsync``1-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Workspaces.WorkspacesExtensibility.QueryProjectsAsync``1(System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}},System.Threading.CancellationToken)')
+  - [QuerySolutionAsync\`\`1(queryFunc,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-QuerySolutionAsync``1-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Workspaces.WorkspacesExtensibility.QuerySolutionAsync``1(System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}},System.Threading.CancellationToken)')
+  - [UpdateProjectsAsync\`\`2(queryFunc,updateFunc,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-UpdateProjectsAsync``2-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``0},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``1}},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Workspaces.WorkspacesExtensibility.UpdateProjectsAsync``2(System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}},System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``1}},System.Threading.CancellationToken)')
+  - [UpdateSolutionAsync\`\`2(queryFunc,updateFunc,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-UpdateSolutionAsync``2-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``0},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``1}},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Workspaces.WorkspacesExtensibility.UpdateSolutionAsync``2(System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}},System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``1}},System.Threading.CancellationToken)')
+
+<a name='T-System-Diagnostics-CodeAnalysis-AllowNullAttribute'></a>
+## AllowNullAttribute `type`
+
+##### Namespace
+
+System.Diagnostics.CodeAnalysis
+
+##### Summary
+
+Specifies that `null` is allowed as an input even if the
+    corresponding type disallows it.
+
+<a name='M-System-Diagnostics-CodeAnalysis-AllowNullAttribute-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Initializes a new instance of the [AllowNullAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.AllowNullAttribute 'System.Diagnostics.CodeAnalysis.AllowNullAttribute') class.
+
+##### Parameters
+
+This constructor has no parameters.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-AnchoredCommandAddedEventArgs'></a>
 ## AnchoredCommandAddedEventArgs `type`
@@ -356,7 +411,7 @@ Initializes a new instance of the [AnchoredCommandAddedEventArgs](#T-Microsoft-V
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | command | [Microsoft.VisualStudio.Extensibility.Commands.IDynamicCommand](#T-Microsoft-VisualStudio-Extensibility-Commands-IDynamicCommand 'Microsoft.VisualStudio.Extensibility.Commands.IDynamicCommand') | The command that is being added. |
-| dynamicCommandAnchorIdentifier | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the dynamic command anchor that the command should be anchored to. |
+| dynamicCommandAnchorIdentifier | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the dynamic command anchor that the command should be anchored to. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-AnchoredCommandAddedEventArgs-DynamicCommandAnchorIdentifier'></a>
 ### DynamicCommandAnchorIdentifier `property`
@@ -387,7 +442,7 @@ Initializes a new instance of the [ChoiceDescription](#T-Microsoft-VisualStudio-
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| text | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The text to present to the user. |
+| text | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The text to present to the user. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Shell-ChoiceDescription-Text'></a>
 ### Text `property`
@@ -411,7 +466,7 @@ The option description.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| choiceText | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The option text. |
+| choiceText | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The option text. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ChoiceDescription-FromUserPrompOption-Microsoft-VisualStudio-RpcContracts-Notifications-UserPromptOption-'></a>
 ### FromUserPrompOption(rpcOption) `method`
@@ -456,7 +511,7 @@ Wraps `choiceText` in an [ChoiceDescription](#T-Microsoft-VisualStudio-Extensibi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| choiceText | [System.String)~Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String)~Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription 'System.String)~Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription') | The option text. |
+| choiceText | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The option text. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Shell-ChoiceResultCollection`1'></a>
 ## ChoiceResultCollection\`1 `type`
@@ -498,7 +553,7 @@ Initializes a new instance of the [ChoiceResultCollection\`1](#T-Microsoft-Visua
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| choiceResultPairs | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription,\`0}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription,`0}}') | A collection of pairs mapping [ChoiceDescription](#T-Microsoft-VisualStudio-Extensibility-Shell-ChoiceDescription 'Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription') to `TResult` values. |
+| choiceResultPairs | [System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription,\`0}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription,`0}}') | A collection of pairs mapping [ChoiceDescription](#T-Microsoft-VisualStudio-Extensibility-Shell-ChoiceDescription 'Microsoft.VisualStudio.Extensibility.Shell.ChoiceDescription') to `TResult` values. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ChoiceResultCollection`1-#ctor-System-Collections-Generic-List{System-Collections-Generic-KeyValuePair{Microsoft-VisualStudio-RpcContracts-Notifications-UserPromptOption,`0}}-'></a>
 ### #ctor(internalMap) `constructor`
@@ -511,7 +566,7 @@ Initializes a new instance of the [ChoiceResultCollection\`1](#T-Microsoft-Visua
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| internalMap | [System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption,\`0}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.List 'System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption,`0}}') | The mappings from result to [UserPromptOption](#T-Microsoft-VisualStudio-RpcContracts-Notifications-UserPromptOption 'Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption'). |
+| internalMap | [System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption,\`0}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.List-1 'System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption,`0}}') | The mappings from result to [UserPromptOption](#T-Microsoft-VisualStudio-RpcContracts-Notifications-UserPromptOption 'Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption'). |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Shell-ChoiceResultCollection`1-Count'></a>
 ### Count `property`
@@ -620,8 +675,8 @@ Microsoft.VisualStudio.Extensibility.Commands
 
 Provides functionality for extending Visual Studio through brokered services.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-Command-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-String-'></a>
-### #ctor(extensibility,name) `constructor`
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-Command-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility-'></a>
+### #ctor(extensibility) `constructor`
 
 ##### Summary
 
@@ -632,75 +687,14 @@ Initializes a new instance of the [Command](#T-Microsoft-VisualStudio-Extensibil
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility point to be used for command execution. |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Command identifier. |
 
-<a name='P-Microsoft-VisualStudio-Extensibility-Commands-Command-DisableDuringExecution'></a>
-### DisableDuringExecution `property`
-
-##### Summary
-
-Gets or sets a value indicating whether command should be disabled when it is executing to avoid multiple invocations at the same time.
-
-##### Remarks
-
-By default, this is set to false so command state will not be modified during execution.
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Commands-Command-Extensibility'></a>
-### Extensibility `property`
+<a name='P-Microsoft-VisualStudio-Extensibility-Commands-Command-CommandConfiguration'></a>
+### CommandConfiguration `property`
 
 ##### Summary
 
-Gets the Visual Studio extensibility point.
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-Command-ExecuteCommandAsync-System-Collections-Generic-IReadOnlyDictionary{System-String,System-Object},System-Threading-CancellationToken-'></a>
-### ExecuteCommandAsync() `method`
-
-##### Summary
-
-*Inherit from parent.*
-
-##### Parameters
-
-This method has no parameters.
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-Command-ExecuteCommandAsync-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext,System-Threading-CancellationToken-'></a>
-### ExecuteCommandAsync(context,cancellationToken) `method`
-
-##### Summary
-
-Raised when command is executed on the client.
-
-##### Returns
-
-a Task indication completion.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| context | [Microsoft.VisualStudio.Extensibility.Definitions.IClientContext](#T-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext 'Microsoft.VisualStudio.Extensibility.Definitions.IClientContext') | Client context at the time of command execution. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-Command-InitializeAsync-System-Threading-CancellationToken-'></a>
-### InitializeAsync(cancellationToken) `method`
-
-##### Summary
-
-Completes async initialization of command instance.
-
-##### Returns
-
-Task indication completion of initialization.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
-
-##### Remarks
-
-This method can be used to initialize values that can be retrieved asynchronously in addition to the constructor.
+Gets the configuration for this command. The value of this property is evaluated at compile time
+when building the Visual Studio extension.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-CommandAddedEventArgs'></a>
 ## CommandAddedEventArgs `type`
@@ -733,85 +727,6 @@ Initializes a new instance of the [CommandAddedEventArgs](#T-Microsoft-VisualStu
 
 Gets the command that is being added.
 
-<a name='T-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute'></a>
-## CommandAttribute `type`
-
-##### Namespace
-
-Microsoft.VisualStudio.Extensibility.Commands
-
-##### Summary
-
-An attribute used on Command classes to specify the command name.
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-#ctor-System-String,System-String,System-String,Microsoft-VisualStudio-RpcContracts-Commands-CommandFlags,System-Type,Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement,System-String-'></a>
-### #ctor(id,displayName,tooltipText,flags,containerType,placement,clientContexts) `constructor`
-
-##### Summary
-
-Initializes a new instance of the [CommandAttribute](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute 'Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute') class.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| id | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Globally-unique command ID. |
-| displayName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The initial display name for the command. |
-| tooltipText | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The initial tooltip text for the command. If left null defaults to displayName only when the command is a button or toolbar button. |
-| flags | [Microsoft.VisualStudio.RpcContracts.Commands.CommandFlags](#T-Microsoft-VisualStudio-RpcContracts-Commands-CommandFlags 'Microsoft.VisualStudio.RpcContracts.Commands.CommandFlags') | The flags for the command. |
-| containerType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | Optional container type that should contain the command, this is used for automatic registration of commands. If left null command will be registered to default command set generated during compilation. |
-| placement | [Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement 'Microsoft.VisualStudio.Extensibility.Commands.CommandPlacement') | Where the command should be parented to in the IDE. |
-| clientContexts | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Client contexts requested by the command, separated by ','. By default only Shell context is returned. |
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-ClientContexts'></a>
-### ClientContexts `property`
-
-##### Summary
-
-Gets the client context categories requested by the command, separated by ','.
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-ContainerType'></a>
-### ContainerType `property`
-
-##### Summary
-
-Gets the command container type if one is specified.
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-DisplayName'></a>
-### DisplayName `property`
-
-##### Summary
-
-Gets the initial command display name.
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-Flags'></a>
-### Flags `property`
-
-##### Summary
-
-Gets the flags associated with the command.
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-Id'></a>
-### Id `property`
-
-##### Summary
-
-Gets the command ID.
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-Placement'></a>
-### Placement `property`
-
-##### Summary
-
-Gets where the command should be placed in the IDE.
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute-TooltipText'></a>
-### TooltipText `property`
-
-##### Summary
-
-Gets the initial command tooltip text.
-
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync'></a>
 ## CommandCallbackAsync `type`
 
@@ -831,111 +746,7 @@ a Task indicating completion of the task.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| command | [T:Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync](#T-T-Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync 'T:Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync') | Command instance being executed. |
-
-<a name='T-Microsoft-VisualStudio-Extensibility-Commands-CommandEnabledWhenAttribute'></a>
-## CommandEnabledWhenAttribute `type`
-
-##### Namespace
-
-Microsoft.VisualStudio.Extensibility.Commands
-
-##### Summary
-
-An attribute used on Command classes to specify when the command should be enabled.
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandEnabledWhenAttribute-#ctor-System-String,System-String[],System-String[]-'></a>
-### #ctor(expression,termNames,termValues) `constructor`
-
-##### Summary
-
-Initializes a new instance of the [CommandEnabledWhenAttribute](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandEnabledWhenAttribute 'Microsoft.VisualStudio.Extensibility.Commands.CommandEnabledWhenAttribute') class.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| expression | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Boolean expression string. |
-| termNames | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | Array of terms used in the expression. |
-| termValues | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | Values of each term in the same order as term names array. |
-
-<a name='T-Microsoft-VisualStudio-Extensibility-Commands-CommandIconAttribute'></a>
-## CommandIconAttribute `type`
-
-##### Namespace
-
-Microsoft.VisualStudio.Extensibility.Commands
-
-##### Summary
-
-An attribute used on Command classes to specify the icon to be diplayed with the command.
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandIconAttribute-#ctor-System-String,Microsoft-VisualStudio-Extensibility-Commands-IconSettings-'></a>
-### #ctor(imageMoniker,iconSettings) `constructor`
-
-##### Summary
-
-Initializes a new instance of the [CommandIconAttribute](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandIconAttribute 'Microsoft.VisualStudio.Extensibility.Commands.CommandIconAttribute') class.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| imageMoniker | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of a KnownMoniker to be used as the icon for a command. |
-| iconSettings | [Microsoft.VisualStudio.Extensibility.Commands.IconSettings](#T-Microsoft-VisualStudio-Extensibility-Commands-IconSettings 'Microsoft.VisualStudio.Extensibility.Commands.IconSettings') | The settings for how to display the icon. |
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandIconAttribute-Icon'></a>
-### Icon `property`
-
-##### Summary
-
-Gets the name of the icon.
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandIconAttribute-IconSettings'></a>
-### IconSettings `property`
-
-##### Summary
-
-Gets the settings related to how the command should be displayed.
-
-<a name='T-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement'></a>
-## CommandPlacement `type`
-
-##### Namespace
-
-Microsoft.VisualStudio.Extensibility.Commands
-
-##### Summary
-
-Known locations that a command can be parented to.
-
-<a name='F-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement-ExtensionsMenu'></a>
-### ExtensionsMenu `constants`
-
-##### Summary
-
-A group inside of the Extensions top level menu.
-
-<a name='F-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement-None'></a>
-### None `constants`
-
-##### Summary
-
-The command should not be placed anywhere. It only exists in the command well.
-
-<a name='F-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement-ToolsMenu'></a>
-### ToolsMenu `constants`
-
-##### Summary
-
-A group inside of the Tools top level menu.
-
-<a name='F-Microsoft-VisualStudio-Extensibility-Commands-CommandPlacement-ViewOtherWindowsMenu'></a>
-### ViewOtherWindowsMenu `constants`
-
-##### Summary
-
-A group inside of the View -> Other Windows menu.
+| command | [Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync](#T-T-Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync 'Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync') | Command instance being executed. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-CommandRemovedEventArgs'></a>
 ## CommandRemovedEventArgs `type`
@@ -968,8 +779,8 @@ Initializes a new instance of the [CommandRemovedEventArgs](#T-Microsoft-VisualS
 
 Gets the command that is being added.
 
-<a name='T-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase'></a>
-## CommandSetBase `type`
+<a name='T-Microsoft-VisualStudio-Extensibility-Commands-CommandSet'></a>
+## CommandSet `type`
 
 ##### Namespace
 
@@ -979,12 +790,12 @@ Microsoft.VisualStudio.Extensibility.Commands
 
 Provides functionality for extending Visual Studio through brokered services.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,Microsoft-VisualStudio-Extensibility-Extension,System-IServiceProvider,Microsoft-VisualStudio-Extensibility-Commands-ICommandSetFactory-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,Microsoft-VisualStudio-Extensibility-Extension,System-IServiceProvider,Microsoft-VisualStudio-Extensibility-Commands-ICommandSetFactory-'></a>
 ### #ctor(extensibility,container,serviceProvider,commandSetFactory) `constructor`
 
 ##### Summary
 
-Initializes a new instance of the [CommandSetBase](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase') class.
+Initializes a new instance of the [CommandSet](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandSet 'Microsoft.VisualStudio.Extensibility.Commands.CommandSet') class.
 
 ##### Parameters
 
@@ -992,10 +803,10 @@ Initializes a new instance of the [CommandSetBase](#T-Microsoft-VisualStudio-Ext
 | ---- | ---- | ----------- |
 | extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility instance. |
 | container | [Microsoft.VisualStudio.Extensibility.Extension](#T-Microsoft-VisualStudio-Extensibility-Extension 'Microsoft.VisualStudio.Extensibility.Extension') | Extension instance that can be used for sharing state across parts. |
-| serviceProvider | [System.IServiceProvider](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IServiceProvider 'System.IServiceProvider') | Extension host service provider. |
+| serviceProvider | [System.IServiceProvider](https://learn.microsoft.com/dotnet/api/System.IServiceProvider 'System.IServiceProvider') | Extension host service provider. |
 | commandSetFactory | [Microsoft.VisualStudio.Extensibility.Commands.ICommandSetFactory](#T-Microsoft-VisualStudio-Extensibility-Commands-ICommandSetFactory 'Microsoft.VisualStudio.Extensibility.Commands.ICommandSetFactory') | Factory instance that is used to create the command set (could be same as container instance). |
 
-<a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-Item-System-String-'></a>
+<a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-Item-System-String-'></a>
 ### Item `property`
 
 ##### Summary
@@ -1010,16 +821,35 @@ an instance of [ICommand](#T-Microsoft-VisualStudio-Extensibility-Commands-IComm
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| commandId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique ID of the command in scope of the command set. |
+| commandId | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Unique ID of the command in scope of the command set. |
 
-<a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-Microsoft#VisualStudio#Extensibility#Commands#ICommandSet#Commands'></a>
+<a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-Microsoft#VisualStudio#Extensibility#Commands#ICommandSet#Commands'></a>
 ### Microsoft#VisualStudio#Extensibility#Commands#ICommandSet#Commands `property`
 
 ##### Summary
 
 *Inherit from parent.*
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-Dispose-System-Boolean-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-CompleteCommandRegistrationAsync-System-Threading-CancellationToken-'></a>
+### CompleteCommandRegistrationAsync(cancellationToken) `method`
+
+##### Summary
+
+This method is called when all commands have been registered.
+This indicates that the command set can now be interacted with.
+It also calls initialize on all registered commands and command anchors.
+
+##### Returns
+
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A token to signal cancellation. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-Dispose-System-Boolean-'></a>
 ### Dispose() `method`
 
 ##### Summary
@@ -1030,7 +860,28 @@ an instance of [ICommand](#T-Microsoft-VisualStudio-Extensibility-Commands-IComm
 
 This method has no parameters.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-InitializeAsync-Microsoft-ServiceHub-Framework-IServiceBroker,System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-GetDynamicCommandAnchor``1'></a>
+### GetDynamicCommandAnchor\`\`1() `method`
+
+##### Summary
+
+Gets a registered command instance on this command set.
+
+##### Returns
+
+an instance of [ICommand](#T-Microsoft-VisualStudio-Extensibility-Commands-ICommand 'Microsoft.VisualStudio.Extensibility.Commands.ICommand') to help with setting command state.
+
+##### Parameters
+
+This method has no parameters.
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| T | The type defining the command anchor. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-InitializeAsync-Microsoft-ServiceHub-Framework-IServiceBroker,System-Threading-CancellationToken-'></a>
 ### InitializeAsync() `method`
 
 ##### Summary
@@ -1041,7 +892,7 @@ This method has no parameters.
 
 This method has no parameters.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-RegisterAnchoredCommand-Microsoft-VisualStudio-Extensibility-Commands-IDynamicCommand,System-String-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-RegisterAnchoredCommand-Microsoft-VisualStudio-Extensibility-Commands-IDynamicCommand,System-String-'></a>
 ### RegisterAnchoredCommand(command,dynamicCommandAnchorIdentifier) `method`
 
 ##### Summary
@@ -1053,27 +904,9 @@ Register an existing command implementation that is to be parented to a dynamic 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | command | [Microsoft.VisualStudio.Extensibility.Commands.IDynamicCommand](#T-Microsoft-VisualStudio-Extensibility-Commands-IDynamicCommand 'Microsoft.VisualStudio.Extensibility.Commands.IDynamicCommand') | Command instance to register. |
-| dynamicCommandAnchorIdentifier | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The identifier of the dynamic command anchor that the command should be anchored to. |
+| dynamicCommandAnchorIdentifier | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The identifier of the dynamic command anchor that the command should be anchored to. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-RegisterCommand-System-String,Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync-'></a>
-### RegisterCommand(commandId,commandHandler) `method`
-
-##### Summary
-
-Register a command instance using command name and handler. This is only for commands that are also registered in extension.json.
-
-##### Returns
-
-Returns the registers command instance to set command state if required.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| commandId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Command ID to register. |
-| commandHandler | [Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync 'Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync') | Command handler. |
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-RegisterCommand-Microsoft-VisualStudio-Extensibility-Commands-ICommand-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-RegisterCommand-Microsoft-VisualStudio-Extensibility-Commands-ICommand-'></a>
 ### RegisterCommand(command) `method`
 
 ##### Summary
@@ -1086,7 +919,7 @@ Register an existing command implementation. This is only for commands that are 
 | ---- | ---- | ----------- |
 | command | [Microsoft.VisualStudio.Extensibility.Commands.ICommand](#T-Microsoft-VisualStudio-Extensibility-Commands-ICommand 'Microsoft.VisualStudio.Extensibility.Commands.ICommand') | Command instance to register. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-RegisterCommandAsync-System-Type-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-RegisterCommandAsync-System-Type-'></a>
 ### RegisterCommandAsync(commandType) `method`
 
 ##### Summary
@@ -1101,15 +934,14 @@ Created command instance.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| commandType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | Type of the command to register. |
+| commandType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | Type of the command to register. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-RegisterCommandAsync``1'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-RegisterCommandAsync``1'></a>
 ### RegisterCommandAsync\`\`1() `method`
 
 ##### Summary
 
 Registers a command from a given type. This is only for commands that are also registered in extension.json.
-The class provided must have [CommandAttribute](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandAttribute 'Microsoft.VisualStudio.Extensibility.Commands.CommandAttribute') attribute on the class.
 
 ##### Returns
 
@@ -1125,7 +957,24 @@ This method has no parameters.
 | ---- | ----------- |
 | T | Type of the command to register. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-UnregisterDynamicCommand-System-String-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-RegisterDynamicCommandAnchorAsync-System-Type-'></a>
+### RegisterDynamicCommandAnchorAsync(dynamicCommandAnchorType) `method`
+
+##### Summary
+
+Registers a command anchor defined by the provided type. This is only for command anchors that are also registered in extension.json.
+
+##### Returns
+
+Created command anchor instance.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| dynamicCommandAnchorType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | Type of the command to register. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-UnregisterDynamicCommand-System-String-'></a>
 ### UnregisterDynamicCommand(commandId) `method`
 
 ##### Summary
@@ -1136,13 +985,13 @@ Unregister a command.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| commandId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The ID of the command to unregister. |
+| commandId | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The ID of the command to unregister. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the command to unregister does not exist. |
+| [System.ArgumentException](https://learn.microsoft.com/dotnet/api/System.ArgumentException 'System.ArgumentException') | Thrown if the command to unregister does not exist. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-CommandSetFactory'></a>
 ## CommandSetFactory `type`
@@ -1166,21 +1015,7 @@ Initializes a new instance of the [CommandSetFactory](#T-Microsoft-VisualStudio-
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| serviceProvider | [System.IServiceProvider](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IServiceProvider 'System.IServiceProvider') | Local service provider for extension host services. |
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetFactory-#ctor-System-IServiceProvider,System-Boolean-'></a>
-### #ctor(serviceProvider,forceDiscovery) `constructor`
-
-##### Summary
-
-Initializes a new instance of the [CommandSetFactory](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandSetFactory 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetFactory') class.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| serviceProvider | [System.IServiceProvider](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IServiceProvider 'System.IServiceProvider') | Local service provider for extension host services. |
-| forceDiscovery | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | If true command discovery will be executed even if there is a known container type. |
+| serviceProvider | [System.IServiceProvider](https://learn.microsoft.com/dotnet/api/System.IServiceProvider 'System.IServiceProvider') | Local service provider for extension host services. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandSetFactory-ServiceMoniker'></a>
 ### ServiceMoniker `property`
@@ -1211,7 +1046,7 @@ This method has no parameters.
 
 This method has no parameters.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetFactory-InitializeCommandsAsync-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetFactory-InitializeCommandsAsync-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-'></a>
 ### InitializeCommandsAsync(commandSet) `method`
 
 ##### Summary
@@ -1226,7 +1061,7 @@ a Task indicating completion.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| commandSet | [Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase') | Command set instance that is being initialized. |
+| commandSet | [Microsoft.VisualStudio.Extensibility.Commands.CommandSet](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandSet 'Microsoft.VisualStudio.Extensibility.Commands.CommandSet') | Command set instance that is being initialized. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-CommandSetProvider'></a>
 ## CommandSetProvider `type`
@@ -1254,7 +1089,7 @@ Initializes a new instance of the [CommandSetProvider](#T-Microsoft-VisualStudio
 | updateReceiver | [Microsoft.VisualStudio.RpcContracts.Commands.IUpdateReceiver](#T-Microsoft-VisualStudio-RpcContracts-Commands-IUpdateReceiver 'Microsoft.VisualStudio.RpcContracts.Commands.IUpdateReceiver') | The callback to the client to send updates. |
 | extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Visual Studio extensibility object. |
 | container | [Microsoft.VisualStudio.Extensibility.Extension](#T-Microsoft-VisualStudio-Extensibility-Extension 'Microsoft.VisualStudio.Extensibility.Extension') | Extension instance that can be used for sharing state across parts. |
-| commandSetCreator | [System.Func{Microsoft.VisualStudio.Extensibility.Commands.ICommandSet}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{Microsoft.VisualStudio.Extensibility.Commands.ICommandSet}') | A delegate to create the command set on demand. |
+| commandSetCreator | [System.Func{Microsoft.VisualStudio.Extensibility.Commands.ICommandSet}](https://learn.microsoft.com/dotnet/api/System.Func 'System.Func{Microsoft.VisualStudio.Extensibility.Commands.ICommandSet}') | A delegate to create the command set on demand. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetProvider-ActivateCommandSetAsync-System-Threading-CancellationToken-'></a>
 ### ActivateCommandSetAsync() `method`
@@ -1285,8 +1120,8 @@ ValueTask returning the ICommandSetProvider service.
 | options | [Microsoft.ServiceHub.Framework.ServiceActivationOptions](#T-Microsoft-ServiceHub-Framework-ServiceActivationOptions 'Microsoft.ServiceHub.Framework.ServiceActivationOptions') | Additional options that alter how the service may be activated or provide additional data to the service constructor. |
 | extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility object. |
 | container | [Microsoft.VisualStudio.Extensibility.Extension](#T-Microsoft-VisualStudio-Extensibility-Extension 'Microsoft.VisualStudio.Extensibility.Extension') | Extension instance that can be used for sharing state across parts. |
-| commandSetCreator | [System.Func{Microsoft.VisualStudio.Extensibility.Commands.ICommandSet}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{Microsoft.VisualStudio.Extensibility.Commands.ICommandSet}') | Delegate to create the command set. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
+| commandSetCreator | [System.Func{Microsoft.VisualStudio.Extensibility.Commands.ICommandSet}](https://learn.microsoft.com/dotnet/api/System.Func-1 'System.Func{Microsoft.VisualStudio.Extensibility.Commands.ICommandSet}') | Delegate to create the command set. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetProvider-CreateFactoryAsync``1-Microsoft-ServiceHub-Framework-ServiceActivationOptions,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,Microsoft-VisualStudio-Extensibility-Extension,System-Threading-CancellationToken-'></a>
 ### CreateFactoryAsync\`\`1(options,extensibility,container,cancellationToken) `method`
@@ -1306,7 +1141,7 @@ ValueTask returning the ICommandSetProvider service.
 | options | [Microsoft.ServiceHub.Framework.ServiceActivationOptions](#T-Microsoft-ServiceHub-Framework-ServiceActivationOptions 'Microsoft.ServiceHub.Framework.ServiceActivationOptions') | Additional options that alter how the service may be activated or provide additional data to the service constructor. |
 | extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility object. |
 | container | [Microsoft.VisualStudio.Extensibility.Extension](#T-Microsoft-VisualStudio-Extensibility-Extension 'Microsoft.VisualStudio.Extensibility.Extension') | Extension instance that can be used for sharing state across parts. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
 
 ##### Generic Types
 
@@ -1336,7 +1171,7 @@ Disposes managed and native resources held by this instance.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | `true` if being disposed; `false` if being finalized. |
+| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | `true` if being disposed; `false` if being finalized. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandSetProvider-ExecuteCommandAsync-System-String,System-Collections-Generic-IReadOnlyDictionary{System-String,System-Object},System-Threading-CancellationToken-'></a>
 ### ExecuteCommandAsync() `method`
@@ -1349,213 +1184,211 @@ Disposes managed and native resources held by this instance.
 
 This method has no parameters.
 
-<a name='T-Microsoft-VisualStudio-Extensibility-Commands-CommandShortcutAttribute'></a>
-## CommandShortcutAttribute `type`
+<a name='T-Microsoft-VisualStudio-Extensibility-ConfigurationExtensibility'></a>
+## ConfigurationExtensibility `type`
 
 ##### Namespace
 
-Microsoft.VisualStudio.Extensibility.Commands
+Microsoft.VisualStudio.Extensibility
 
 ##### Summary
 
-An attribute used on Command classes to specify the command shortcut.
+Provides the surface area for configuration and extension state management.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandShortcutAttribute-#ctor-System-String,System-String,System-String,System-String,System-String-'></a>
-### #ctor(mod1,key1,mod2,key2,activationConstraint) `constructor`
+<a name='M-Microsoft-VisualStudio-Extensibility-ConfigurationExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint-'></a>
+### #ctor(extensibilityPoint) `constructor`
 
 ##### Summary
 
-Initializes a new instance of the [CommandShortcutAttribute](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandShortcutAttribute 'Microsoft.VisualStudio.Extensibility.Commands.CommandShortcutAttribute') class.
+Initializes a new instance of the [ConfigurationExtensibility](#T-Microsoft-VisualStudio-Extensibility-ConfigurationExtensibility 'Microsoft.VisualStudio.Extensibility.ConfigurationExtensibility') class.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| mod1 | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | First modifier key. |
-| key1 | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | First key. |
-| mod2 | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Optional second key. |
-| key2 | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Optional second modifier key. |
-| activationConstraint | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Optional UI context for the shortcut. |
+| extensibilityPoint | [Microsoft.VisualStudio.Extensibility.ExtensibilityPoint](#T-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoint') | Another instance of extensibility point object to use for initialization. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandShortcutAttribute-#ctor-Microsoft-VisualStudio-Extensibility-Commands-ModifierKey,Microsoft-VisualStudio-Extensibility-Commands-KnownKey,Microsoft-VisualStudio-Extensibility-Commands-ModifierKey,Microsoft-VisualStudio-Extensibility-Commands-KnownKey,System-String-'></a>
-### #ctor(mod1,key1,mod2,key2,activationConstraint) `constructor`
+<a name='M-Microsoft-VisualStudio-Extensibility-ConfigurationExtensibility-CreateInstance-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint-'></a>
+### CreateInstance(extensibilityPoint) `method`
 
 ##### Summary
 
-Initializes a new instance of the [CommandShortcutAttribute](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandShortcutAttribute 'Microsoft.VisualStudio.Extensibility.Commands.CommandShortcutAttribute') class.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| mod1 | [Microsoft.VisualStudio.Extensibility.Commands.ModifierKey](#T-Microsoft-VisualStudio-Extensibility-Commands-ModifierKey 'Microsoft.VisualStudio.Extensibility.Commands.ModifierKey') | First modifier key. |
-| key1 | [Microsoft.VisualStudio.Extensibility.Commands.KnownKey](#T-Microsoft-VisualStudio-Extensibility-Commands-KnownKey 'Microsoft.VisualStudio.Extensibility.Commands.KnownKey') | First key. |
-| mod2 | [Microsoft.VisualStudio.Extensibility.Commands.ModifierKey](#T-Microsoft-VisualStudio-Extensibility-Commands-ModifierKey 'Microsoft.VisualStudio.Extensibility.Commands.ModifierKey') | Optional second key. |
-| key2 | [Microsoft.VisualStudio.Extensibility.Commands.KnownKey](#T-Microsoft-VisualStudio-Extensibility-Commands-KnownKey 'Microsoft.VisualStudio.Extensibility.Commands.KnownKey') | Optional second modifier key. |
-| activationConstraint | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Optional UI context for the shortcut. |
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandShortcutAttribute-ActivationConstraint'></a>
-### ActivationConstraint `property`
-
-##### Summary
-
-Gets the optional UI Context GUID used to scope the shortcut.
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandShortcutAttribute-Key1'></a>
-### Key1 `property`
-
-##### Summary
-
-Gets the first key for this shortcut.
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandShortcutAttribute-Key2'></a>
-### Key2 `property`
-
-##### Summary
-
-Gets the optional second key for this shortcut.
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandShortcutAttribute-Mod1'></a>
-### Mod1 `property`
-
-##### Summary
-
-Gets the first modifier key for this shortcut.
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandShortcutAttribute-Mod2'></a>
-### Mod2 `property`
-
-##### Summary
-
-Gets the optional second modifier key for this shortcut.
-
-<a name='T-Microsoft-VisualStudio-Extensibility-Commands-CommandVisibleWhenAttribute'></a>
-## CommandVisibleWhenAttribute `type`
-
-##### Namespace
-
-Microsoft.VisualStudio.Extensibility.Commands
-
-##### Summary
-
-An attribute used on Command classes to specify when the command should be visible.
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandVisibleWhenAttribute-#ctor-System-String,System-String[],System-String[]-'></a>
-### #ctor(expression,termNames,termValues) `constructor`
-
-##### Summary
-
-Initializes a new instance of the [CommandVisibleWhenAttribute](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandVisibleWhenAttribute 'Microsoft.VisualStudio.Extensibility.Commands.CommandVisibleWhenAttribute') class.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| expression | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Boolean expression string. |
-| termNames | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | Array of terms used in the expression. |
-| termValues | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | Values of each term in the same order as term names array. |
-
-<a name='T-Microsoft-VisualStudio-Extensibility-Commands-CommandWithCallback'></a>
-## CommandWithCallback `type`
-
-##### Namespace
-
-Microsoft.VisualStudio.Extensibility.Commands
-
-##### Summary
-
-An internal command implementation that executes a callback to support dynamic registration scenarios.
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandWithCallback-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-String,Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync-'></a>
-### #ctor(extensibility,name,handler) `constructor`
-
-##### Summary
-
-Initializes a new instance of the [CommandWithCallback](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandWithCallback 'Microsoft.VisualStudio.Extensibility.Commands.CommandWithCallback') class.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility point to be used for command execution. |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Command identifier in context of the command set. |
-| handler | [Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync 'Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync') | Command handler to execute. |
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandWithCallback-ExecuteCommandAsync-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext,System-Threading-CancellationToken-'></a>
-### ExecuteCommandAsync(context,cancellationToken) `method`
-
-##### Summary
-
-Raised when command is executed on the client.
+Factory method to create internal instances of [ConfigurationExtensibility](#T-Microsoft-VisualStudio-Extensibility-ConfigurationExtensibility 'Microsoft.VisualStudio.Extensibility.ConfigurationExtensibility').
 
 ##### Returns
 
-a Task indication completion.
+a new instance of [ConfigurationExtensibility](#T-Microsoft-VisualStudio-Extensibility-ConfigurationExtensibility 'Microsoft.VisualStudio.Extensibility.ConfigurationExtensibility').
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| context | [Microsoft.VisualStudio.Extensibility.Definitions.IClientContext](#T-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext 'Microsoft.VisualStudio.Extensibility.Definitions.IClientContext') | Client context at the time of command execution. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+| extensibilityPoint | [Microsoft.VisualStudio.Extensibility.ExtensibilityPoint](#T-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoint') | Another instance of extensibility point object to use for initialization. |
 
-<a name='T-Microsoft-VisualStudio-Extensibility-Commands-CommandsPackageAttribute'></a>
-## CommandsPackageAttribute `type`
+<a name='M-Microsoft-VisualStudio-Extensibility-ConfigurationExtensibility-GetPersistedStateAsync``1-System-String,``0,System-Threading-CancellationToken-'></a>
+### GetPersistedStateAsync\`\`1(moniker,defaultValue,cancellationToken) `method`
+
+##### Summary
+
+Gets the persisted value for an extension scoped runtime state.
+
+##### Returns
+
+Value of the moniker if found in persisted state or default value if not found.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| moniker | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Moniker for the entry to get. |
+| defaultValue | [\`\`0](#T-``0 '``0') | Default value to return if moniker is not found. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| T | Type of the value. The value is serialized/deserialized using [](#N-System-Text-Json 'System.Text.Json') library. |
+
+##### Remarks
+
+Persisted state monikers are meant for values that persists across sessions but are not user configurable and only
+written/retrieved by the extension at runtime.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-ConfigurationExtensibility-WritePersistedStateAsync``1-System-String,``0,System-Threading-CancellationToken-'></a>
+### WritePersistedStateAsync\`\`1(moniker,value,cancellationToken) `method`
+
+##### Summary
+
+Write a persisted value for an extension scoped runtime state.
+
+##### Returns
+
+A task indicating completion.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| moniker | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Moniker for the entry to write. |
+| value | [\`\`0](#T-``0 '``0') | Value to write. The value is serialized/deserialized using [](#N-System-Text-Json 'System.Text.Json') library. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| T | Type of the value. The value is serialized/deserialized using [](#N-System-Text-Json 'System.Text.Json') library. |
+
+##### Remarks
+
+Persisted state monikers are meant for values that persists across sessions but are not user configurable and only
+written/retrieved by the extension at runtime.
+
+<a name='T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProvider'></a>
+## DebuggerVisualizerProvider `type`
 
 ##### Namespace
 
-Microsoft.VisualStudio.Extensibility.Commands
+Microsoft.VisualStudio.Extensibility.DebuggerVisualizers
 
 ##### Summary
 
-An attribute used on CommandsPackage classes to specify the CommandSet.
+Defines a provider of .NET debugger visualizers.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandsPackageAttribute-#ctor-System-String,System-String-'></a>
-### #ctor(serviceName,versionString) `constructor`
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProvider-#ctor-Microsoft-VisualStudio-Extensibility-ExtensionCore,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility-'></a>
+### #ctor(container,extensibilityObject) `constructor`
 
 ##### Summary
 
-Initializes a new instance of the [CommandsPackageAttribute](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandsPackageAttribute 'Microsoft.VisualStudio.Extensibility.Commands.CommandsPackageAttribute') class.
+Initializes a new instance of the [DebuggerVisualizerProvider](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProvider 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.DebuggerVisualizerProvider') class.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| serviceName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Service moniker name. |
-| versionString | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Service moniker version. |
+| container | [Microsoft.VisualStudio.Extensibility.ExtensionCore](#T-Microsoft-VisualStudio-Extensibility-ExtensionCore 'Microsoft.VisualStudio.Extensibility.ExtensionCore') | Extension instance that can be used for sharing state across parts. |
+| extensibilityObject | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility instance to be used by the service implementation. |
 
-<a name='P-Microsoft-VisualStudio-Extensibility-Commands-CommandsPackageAttribute-ServiceMoniker'></a>
-### ServiceMoniker `property`
+<a name='P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProvider-DebuggerVisualizerProviderConfiguration'></a>
+### DebuggerVisualizerProviderConfiguration `property`
 
 ##### Summary
 
-Gets the service moniker.
+Gets the configuration for this debugger visualizer provicer. The value of this property is evaluated at
+compile time when building the Visual Studio extension.
 
-<a name='T-Microsoft-VisualStudio-Extensibility-Commands-CommandsPackageLoadAttribute'></a>
-## CommandsPackageLoadAttribute `type`
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProvider-CreateVisualizerAsync-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget,System-Threading-CancellationToken-'></a>
+### CreateVisualizerAsync(visualizerTarget,cancellationToken) `method`
+
+##### Summary
+
+Requests the provider to initiate the visualization of a new target object.
+
+##### Returns
+
+An [IRemoteUserControl](#T-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl 'Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl') that will show the representation of the target object.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| visualizerTarget | [Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget') | The [VisualizerTarget](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget') provides information about the target process and object, and can be used to request the data of the target object or replace it. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
+
+##### Remarks
+
+Before returning from this call, the extender should subscribe to
+ [](#E-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-StateChanged 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget.StateChanged').
+
+ When the user dismisses the visualizer UI, the [IRemoteUserControl](#T-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl 'Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl') will be disposed. The
+ extension can dispose `visualizerTarget` to remove the visualizer from the Visual Studio UI.
+
+<a name='T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProviderService'></a>
+## DebuggerVisualizerProviderService `type`
 
 ##### Namespace
 
-Microsoft.VisualStudio.Extensibility.Commands
+Microsoft.VisualStudio.Extensibility.DebuggerVisualizers
 
 ##### Summary
 
-An attribute used on commandset classes to specify when the commandset should be loaded.
+Wrapper object for [DebuggerVisualizerProvider](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProvider 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.DebuggerVisualizerProvider').
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-CommandsPackageLoadAttribute-#ctor-System-String,System-String[],System-String[]-'></a>
-### #ctor(expression,termNames,termValues) `constructor`
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProviderService-#ctor-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProvider-'></a>
+### #ctor(debuggerVisualizerProvider) `constructor`
 
 ##### Summary
 
-Initializes a new instance of the [CommandsPackageLoadAttribute](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandsPackageLoadAttribute 'Microsoft.VisualStudio.Extensibility.Commands.CommandsPackageLoadAttribute') class.
+Initializes a new instance of the [DebuggerVisualizerProviderService](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProviderService 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.DebuggerVisualizerProviderService') class.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| expression | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Boolean expression string. |
-| termNames | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | Array of terms used in the expression. |
-| termValues | [System.String[]](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String[] 'System.String[]') | Values of each term in the same order as term names array. |
+| debuggerVisualizerProvider | [Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.DebuggerVisualizerProvider](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProvider 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.DebuggerVisualizerProvider') | The [DebuggerVisualizerProviderService](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProviderService 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.DebuggerVisualizerProviderService') object to wrap. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProviderService-Dispose'></a>
+### Dispose() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-DebuggerVisualizerProviderService-GetVisualizerAsync-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-IVisualizerTarget,Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetData,System-Threading-CancellationToken-'></a>
+### GetVisualizerAsync() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-DiagnosticsExtensionMethods'></a>
 ## DiagnosticsExtensionMethods `type`
@@ -1584,7 +1417,7 @@ an instance of [DiagnosticsReporter](#T-Microsoft-VisualStudio-Extensibility-Doc
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | extensibilityPoint | [Microsoft.VisualStudio.Extensibility.Documents.LanguagesExtensibility](#T-Microsoft-VisualStudio-Extensibility-Documents-LanguagesExtensibility 'Microsoft.VisualStudio.Extensibility.Documents.LanguagesExtensibility') | Extensibility object instance. |
-| generatorId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique identifier for the component that owns the reporter to be created. |
+| generatorId | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Unique identifier for the component that owns the reporter to be created. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter'></a>
 ## DiagnosticsReporter `type`
@@ -1608,7 +1441,7 @@ Initializes a new instance of the [DiagnosticsReporter](#T-Microsoft-VisualStudi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| generatorId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique identifier associated with the owner of this reporter. |
+| generatorId | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Unique identifier associated with the owner of this reporter. |
 | extensibilityPoint | [Microsoft.VisualStudio.Extensibility.ExtensibilityPoint](#T-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoint') | Another instance of extensibility point object to use for initialization. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-GeneratorId'></a>
@@ -1618,7 +1451,7 @@ Initializes a new instance of the [DiagnosticsReporter](#T-Microsoft-VisualStudi
 
 Gets the unique identifier associated with the owner of this reporter.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-ClearDiagnosticsAsync-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocumentSnapshot,System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-ClearDiagnosticsAsync-Microsoft-VisualStudio-Extensibility-Editor-ITextDocumentSnapshot,System-Threading-CancellationToken-'></a>
 ### ClearDiagnosticsAsync(textDocument,cancellationToken) `method`
 
 ##### Summary
@@ -1627,14 +1460,14 @@ Clears all previous reported diagnostics by this generator for a given open docu
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| textDocument | [Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-ITextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.Data.ITextDocumentSnapshot') | Text document to clear diagnostic entries for. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
+| textDocument | [Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot') | Text document to clear diagnostic entries for. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-ClearDiagnosticsAsync-System-Uri,System-Threading-CancellationToken-'></a>
 ### ClearDiagnosticsAsync(documentMoniker,cancellationToken) `method`
@@ -1645,14 +1478,14 @@ Clears all previous reported diagnostics by this generator for a given closed do
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| documentMoniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | Document URI to clear diagnostic entries for. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
+| documentMoniker | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | Document URI to clear diagnostic entries for. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-Dispose-System-Boolean-'></a>
 ### Dispose() `method`
@@ -1674,14 +1507,14 @@ Reports a single diagnostic with `diagnostic` by adding them to the previously r
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | diagnostic | [Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic](#T-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic') | New diagnostic to report. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-ReportDiagnosticsAsync-System-Collections-Generic-IEnumerable{Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic},System-Threading-CancellationToken-'></a>
 ### ReportDiagnosticsAsync(diagnostics,cancellationToken) `method`
@@ -1692,14 +1525,37 @@ Reports diagnostics with `diagnostics` by adding them to the previously reported
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| diagnostics | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic}') | New diagnostics to report. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
+| diagnostics | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic}') | New diagnostics to report. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
+
+<a name='T-System-Diagnostics-CodeAnalysis-DisallowNullAttribute'></a>
+## DisallowNullAttribute `type`
+
+##### Namespace
+
+System.Diagnostics.CodeAnalysis
+
+##### Summary
+
+Specifies that `null` is disallowed as an input even if the
+    corresponding type allows it.
+
+<a name='M-System-Diagnostics-CodeAnalysis-DisallowNullAttribute-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Initializes a new instance of the [DisallowNullAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.DisallowNullAttribute 'System.Diagnostics.CodeAnalysis.DisallowNullAttribute') class.
+
+##### Parameters
+
+This constructor has no parameters.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic'></a>
 ## DocumentDiagnostic `type`
@@ -1713,7 +1569,7 @@ Microsoft.VisualStudio.Extensibility.Languages
 Class that represents a document diagnostic. Contains information about a span of text in a document
 that holds an error, warning, information, or hint.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-#ctor-Microsoft-VisualStudio-Extensibility-Editor-Data-TextRange,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-#ctor-Microsoft-VisualStudio-Extensibility-Editor-TextRange,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String-'></a>
 ### #ctor(span,message,errorCode,severity,providerName,helpLink) `constructor`
 
 ##### Summary
@@ -1724,12 +1580,12 @@ Initializes a new instance of the [DocumentDiagnostic](#T-Microsoft-VisualStudio
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| span | [Microsoft.VisualStudio.Extensibility.Editor.Data.TextRange](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-TextRange 'Microsoft.VisualStudio.Extensibility.Editor.Data.TextRange') | Span that the diagnostic is located on in a specific ITextDocument. |
-| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | String of text to be shown as the diagnostic description. |
-| errorCode | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique error code associated with this type of diagnostic. |
+| span | [Microsoft.VisualStudio.Extensibility.Editor.TextRange](#T-Microsoft-VisualStudio-Extensibility-Editor-TextRange 'Microsoft.VisualStudio.Extensibility.Editor.TextRange') | Span that the diagnostic is located on in a specific ITextDocument. |
+| message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | String of text to be shown as the diagnostic description. |
+| errorCode | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Unique error code associated with this type of diagnostic. |
 | severity | [Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity](#T-Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity 'Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity') | Level of severity of the Diagnostic. |
-| providerName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Localized string describing the tool that generated the diagnostic. |
-| helpLink | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Uri to a help page to understand the diagnostic further. |
+| providerName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Localized string describing the tool that generated the diagnostic. |
+| helpLink | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Uri to a help page to understand the diagnostic further. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-#ctor-System-Uri,Microsoft-VisualStudio-RpcContracts-Utilities-Range,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String-'></a>
 ### #ctor(uri,range,message,errorCode,severity,providerName,helpLink) `constructor`
@@ -1742,13 +1598,13 @@ Initializes a new instance of the [DocumentDiagnostic](#T-Microsoft-VisualStudio
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| uri | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | Uri of the document the diagnostic belongs on. |
+| uri | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | Uri of the document the diagnostic belongs on. |
 | range | [Microsoft.VisualStudio.RpcContracts.Utilities.Range](#T-Microsoft-VisualStudio-RpcContracts-Utilities-Range 'Microsoft.VisualStudio.RpcContracts.Utilities.Range') | Location of the document that contains the diagnostic. |
-| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | String of text to be shown as the diagnostic description. |
-| errorCode | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique error code associated with this type of diagnostic. |
+| message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | String of text to be shown as the diagnostic description. |
+| errorCode | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Unique error code associated with this type of diagnostic. |
 | severity | [Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity](#T-Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity 'Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity') | Level of severity of the Diagnostic. |
-| providerName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Localized string describing the tool that generated the diagnostic. |
-| helpLink | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Uri to a help page to understand the diagnostic further. |
+| providerName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Localized string describing the tool that generated the diagnostic. |
+| helpLink | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Uri to a help page to understand the diagnostic further. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-DocumentVersion'></a>
 ### DocumentVersion `property`
@@ -1806,7 +1662,7 @@ Gets the severity of the diagnostic.
 
 Gets the document location in the form of a URI path.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-CreateDocumentDiagnostic-Microsoft-VisualStudio-Extensibility-Editor-Data-TextRange,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-CreateDocumentDiagnostic-Microsoft-VisualStudio-Extensibility-Editor-TextRange,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String-'></a>
 ### CreateDocumentDiagnostic(range,message,errorCode,severity,providerName,helpLink) `method`
 
 ##### Summary
@@ -1821,12 +1677,12 @@ Newly created [DocumentDiagnostic](#T-Microsoft-VisualStudio-Extensibility-Langu
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| range | [Microsoft.VisualStudio.Extensibility.Editor.Data.TextRange](#T-Microsoft-VisualStudio-Extensibility-Editor-Data-TextRange 'Microsoft.VisualStudio.Extensibility.Editor.Data.TextRange') | Range that the diagnostic is located on in a specific ITextDocumentSnapshot. |
-| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | String of text to be shown as the diagnostic description. |
-| errorCode | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique error code associated with this type of diagnostic. |
+| range | [Microsoft.VisualStudio.Extensibility.Editor.TextRange](#T-Microsoft-VisualStudio-Extensibility-Editor-TextRange 'Microsoft.VisualStudio.Extensibility.Editor.TextRange') | Range that the diagnostic is located on in a specific ITextDocumentSnapshot. |
+| message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | String of text to be shown as the diagnostic description. |
+| errorCode | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Unique error code associated with this type of diagnostic. |
 | severity | [Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity](#T-Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity 'Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity') | Level of severity of the Diagnostic. |
-| providerName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Localized string describing the tool that generated the diagnostic. |
-| helpLink | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Uri to a help page to understand the diagnostic further. |
+| providerName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Localized string describing the tool that generated the diagnostic. |
+| helpLink | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Uri to a help page to understand the diagnostic further. |
 
 ##### Remarks
 
@@ -1847,13 +1703,13 @@ Newly created [DocumentDiagnostic](#T-Microsoft-VisualStudio-Extensibility-Langu
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| uri | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | Uri of the document the diagnostic belongs on. |
+| uri | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | Uri of the document the diagnostic belongs on. |
 | range | [Microsoft.VisualStudio.RpcContracts.Utilities.Range](#T-Microsoft-VisualStudio-RpcContracts-Utilities-Range 'Microsoft.VisualStudio.RpcContracts.Utilities.Range') | Location of the document that contains the diagnostic. |
-| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | String of text to be shown as the diagnostic description. |
-| errorCode | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique error code associated with this type of diagnostic. |
+| message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | String of text to be shown as the diagnostic description. |
+| errorCode | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Unique error code associated with this type of diagnostic. |
 | severity | [Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity](#T-Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity 'Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity') | Level of severity of the Diagnostic. |
-| providerName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Localized string describing the tool that generated the diagnostic. |
-| helpLink | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Uri to a help page to understand the diagnostic further. |
+| providerName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Localized string describing the tool that generated the diagnostic. |
+| helpLink | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Uri to a help page to understand the diagnostic further. |
 
 ##### Remarks
 
@@ -1870,6 +1726,21 @@ Microsoft.VisualStudio.Extensibility.Documents
 
 Exteension methods for [DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot') objects.
 
+<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions-AsTextDocumentAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken-'></a>
+### AsTextDocumentAsync(documentSnapshot,extensibility,cancellationToken) `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| documentSnapshot | [Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot') | The document snapshot to operate on. |
+| extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility object. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions-CloseAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken-'></a>
 ### CloseAsync(document,option,extensibility,token) `method`
 
@@ -1879,7 +1750,7 @@ Closes the view(s) for a [DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContrac
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task').representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task').representing the asynchronous operation.
 
 ##### Parameters
 
@@ -1888,7 +1759,7 @@ A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=
 | document | [Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot') | The document to close. |
 | option | [Microsoft.VisualStudio.RpcContracts.Documents.SaveDocumentOption](#T-Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption 'Microsoft.VisualStudio.RpcContracts.Documents.SaveDocumentOption') | An option controlling if and how the document will be saved, if it has unsaved changes. |
 | extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility object. |
-| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions-SaveAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken-'></a>
 ### SaveAsync(document,extensibility,token) `method`
@@ -1899,7 +1770,7 @@ Saves the contents of a [DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContract
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task').representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task').representing the asynchronous operation.
 
 ##### Parameters
 
@@ -1907,7 +1778,7 @@ A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=
 | ---- | ---- | ----------- |
 | document | [Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot') | The document to save. |
 | extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility object. |
-| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility'></a>
 ## DocumentsExtensibility `type`
@@ -1942,15 +1813,15 @@ Closes the tab(s) for the document specified by `moniker`.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| moniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | The moniker of the document to search for. |
+| moniker | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | The moniker of the document to search for. |
 | option | [Microsoft.VisualStudio.RpcContracts.Documents.SaveDocumentOption](#T-Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption 'Microsoft.VisualStudio.RpcContracts.Documents.SaveDocumentOption') | An option controlling if and how the document will be saved, if it has unsaved changes. |
-| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-GetOpenDocumentAsync-System-Uri,System-Threading-CancellationToken-'></a>
 ### GetOpenDocumentAsync(moniker,token) `method`
@@ -1967,8 +1838,8 @@ The matching document, or `null` if a matching document isn't found.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| moniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | The moniker of the document to search for. |
-| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| moniker | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | The moniker of the document to search for. |
+| token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-GetOpenDocumentsAsync-System-Threading-CancellationToken-'></a>
 ### GetOpenDocumentsAsync(token) `method`
@@ -1985,7 +1856,58 @@ A collection of open documents.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-GetTextDocumentSnapshotAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,System-Threading-CancellationToken-'></a>
+### GetTextDocumentSnapshotAsync(documentSnapshot,cancellationToken) `method`
+
+##### Summary
+
+Gets a [ITextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot') from an open document snapshot.
+
+##### Returns
+
+A text document snapshot matching the version of the document snapshot.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| documentSnapshot | [Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot') | The document to operate on. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [Microsoft.VisualStudio.Extensibility.SnapshotVersionNotAvailableException](#T-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException 'Microsoft.VisualStudio.Extensibility.SnapshotVersionNotAvailableException') | Thrown when snapshot version is no longer available. |
+
+##### Remarks
+
+This method will either:
+  - Get a text document that matches the version of the snapshot.
+  - For document snapshots that were not initialized yet, it will force initialize the document and get the initial version.
+  - For documents without a version, it will return null as they are not supported.
+  - For document snapshots that are no longer open in IDE, it will return null.
+  - Will throw [SnapshotVersionNotAvailableException](#T-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException 'Microsoft.VisualStudio.Extensibility.SnapshotVersionNotAvailableException') if document is old and is not available anymore, in this case another call to [InitializeDocumentAsync](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-InitializeDocumentAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.InitializeDocumentAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot,System.Threading.CancellationToken)') should return a newer version.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-InitializeDocumentAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,System-Threading-CancellationToken-'></a>
+### InitializeDocumentAsync(documentSnapshot,token) `method`
+
+##### Summary
+
+Ensures that an uninitialized document snapshot is initialized and gets the most recent snapshot.
+
+##### Returns
+
+Most recent initialized snapshot for the document moniker in the snapshot. May return null if document is no longer opened in IDE.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| documentSnapshot | [Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot') | Document snapshot to initialize that was retrieved from one of the Open methods. |
+| token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-OpenDocumentAsync-System-Uri,System-Threading-CancellationToken-'></a>
 ### OpenDocumentAsync(moniker,token) `method`
@@ -2002,8 +1924,8 @@ The document.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| moniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | The moniker of the document to search for. |
-| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| moniker | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | The moniker of the document to search for. |
+| token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 ##### Remarks
 
@@ -2025,9 +1947,9 @@ The document.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| moniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | The moniker of the document to search for. |
+| moniker | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | The moniker of the document to search for. |
 | options | [Microsoft.VisualStudio.RpcContracts.OpenDocument.OpenDocumentOptions](#T-Microsoft-VisualStudio-RpcContracts-OpenDocument-OpenDocumentOptions 'Microsoft.VisualStudio.RpcContracts.OpenDocument.OpenDocumentOptions') | Options defining how to open the document. |
-| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 ##### Remarks
 
@@ -2043,13 +1965,13 @@ Saves all open documents that have unsaved changes.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-SaveDocumentAsync-System-Uri,System-Threading-CancellationToken-'></a>
 ### SaveDocumentAsync(moniker,token) `method`
@@ -2060,14 +1982,14 @@ Saves the document specified by `moniker`.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| moniker | [System.Uri](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Uri 'System.Uri') | The moniker of the document to search for. |
-| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| moniker | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | The moniker of the document to search for. |
+| token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-SubscribeAsync-Microsoft-VisualStudio-RpcContracts-Documents-IDocumentEventsListener,System-String,System-Threading-CancellationToken-'></a>
 ### SubscribeAsync(listener,filterRegex,token) `method`
@@ -2078,7 +2000,7 @@ Adds a listener for document events.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.  The result of the
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.  The result of the
 task is an object which, when disposed, will remove the event listener.
 
 ##### Parameters
@@ -2086,15 +2008,71 @@ task is an object which, when disposed, will remove the event listener.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | listener | [Microsoft.VisualStudio.RpcContracts.Documents.IDocumentEventsListener](#T-Microsoft-VisualStudio-RpcContracts-Documents-IDocumentEventsListener 'Microsoft.VisualStudio.RpcContracts.Documents.IDocumentEventsListener') | The event listener. |
-| filterRegex | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | An optional regular expression string used to filter events.  If this string is not `null` and
-not empty, then events will only be raised for documents whose monikers match the regular expression. |
-| token | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
+| filterRegex | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | An optional regular expression string used to filter events.  If this string is not `null` and not empty, then events will only be raised for documents whose monikers match the regular expression. |
+| token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 ##### Remarks
 
 Before the asynchronous operation completes, the listener will receive an
 [OpenedAsync](#M-Microsoft-VisualStudio-RpcContracts-Documents-IDocumentEventsListener-OpenedAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentEventArgs,System-Threading-CancellationToken- 'Microsoft.VisualStudio.RpcContracts.Documents.IDocumentEventsListener.OpenedAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentEventArgs,System.Threading.CancellationToken)') event for each open document
 whose moniker matches `filterRegex`.
+
+<a name='T-System-Diagnostics-CodeAnalysis-DoesNotReturnAttribute'></a>
+## DoesNotReturnAttribute `type`
+
+##### Namespace
+
+System.Diagnostics.CodeAnalysis
+
+##### Summary
+
+Specifies that a method that will never return under any circumstance.
+
+<a name='M-System-Diagnostics-CodeAnalysis-DoesNotReturnAttribute-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Initializes a new instance of the [DoesNotReturnAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute') class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='T-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute'></a>
+## DoesNotReturnIfAttribute `type`
+
+##### Namespace
+
+System.Diagnostics.CodeAnalysis
+
+##### Summary
+
+Specifies that the method will not return if the associated [Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean')
+    parameter is passed the specified value.
+
+<a name='M-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-#ctor-System-Boolean-'></a>
+### #ctor(parameterValue) `constructor`
+
+##### Summary
+
+Initializes a new instance of the [DoesNotReturnIfAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute')
+    class with the specified parameter value.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| parameterValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The condition parameter value. Code after the method is considered unreachable by diagnostics if the argument to the associated parameter matches this value. |
+
+<a name='P-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-ParameterValue'></a>
+### ParameterValue `property`
+
+##### Summary
+
+Gets the condition parameter value.
+    Code after the method is considered unreachable by diagnostics if the argument
+    to the associated parameter matches this value.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand'></a>
 ## DynamicCommand `type`
@@ -2107,8 +2085,8 @@ Microsoft.VisualStudio.Extensibility.Commands
 
 Class representing a command that is created at runtime without static metadata associated with it.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-String,System-String,System-UInt32-'></a>
-### #ctor(extensibility,id,iconName,relativeDisplayOrder) `constructor`
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,Microsoft-VisualStudio-RpcContracts-Commands-CommandMetadata,Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync-'></a>
+### #ctor(extensibility,metadata,executeCommandCallback) `constructor`
 
 ##### Summary
 
@@ -2119,12 +2097,18 @@ Initializes a new instance of the [DynamicCommand](#T-Microsoft-VisualStudio-Ext
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility point to be used for command execution. |
-| id | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Command identifier. |
-| iconName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the icon to be used on the command UI. |
-| relativeDisplayOrder | [System.UInt32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.UInt32 'System.UInt32') | Used to determine the relative display order of the command within a dynamic command anchor. |
+| metadata | [Microsoft.VisualStudio.RpcContracts.Commands.CommandMetadata](#T-Microsoft-VisualStudio-RpcContracts-Commands-CommandMetadata 'Microsoft.VisualStudio.RpcContracts.Commands.CommandMetadata') | Metadata defining to the command. |
+| executeCommandCallback | [Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync 'Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync') | Callback invoked when the command is executed. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand-IconName'></a>
 ### IconName `property`
+
+##### Summary
+
+*Inherit from parent.*
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand-IsChecked'></a>
+### IsChecked `property`
 
 ##### Summary
 
@@ -2137,6 +2121,17 @@ Initializes a new instance of the [DynamicCommand](#T-Microsoft-VisualStudio-Ext
 
 *Inherit from parent.*
 
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand-ExecuteCommandAsync-Microsoft-VisualStudio-Extensibility-IClientContext,System-Threading-CancellationToken-'></a>
+### ExecuteCommandAsync() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommandAnchor'></a>
 ## DynamicCommandAnchor `type`
 
@@ -2148,8 +2143,8 @@ Microsoft.VisualStudio.Extensibility.Commands
 
 Provides a framework implementation of an anchor that commands can be dynamically added to and removed from.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommandAnchor-#ctor-System-String,Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-'></a>
-### #ctor(id,commadSet) `constructor`
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommandAnchor-#ctor-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-'></a>
+### #ctor(commadSet) `constructor`
 
 ##### Summary
 
@@ -2159,21 +2154,15 @@ Initializes a new instance of the [DynamicCommandAnchor](#T-Microsoft-VisualStud
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| id | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The id of the anchor. |
-| commadSet | [Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase') | The command set that the anchor belongs to. |
+| commadSet | [Microsoft.VisualStudio.Extensibility.Commands.CommandSet](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandSet 'Microsoft.VisualStudio.Extensibility.Commands.CommandSet') | The command set that the anchor belongs to. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommandAnchor-AddCommand-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand-'></a>
-### AddCommand(command) `method`
+<a name='P-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommandAnchor-CommandConfiguration'></a>
+### CommandConfiguration `property`
 
 ##### Summary
 
-Register an existing command implementation and anchor it to this group.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| command | [Microsoft.VisualStudio.Extensibility.Commands.DynamicCommand](#T-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommand') | Command instance to register. |
+Gets the configuration for this command anchor. The value of this property is evaluated at compile time
+when building the Visual Studio extension.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommandAnchor-AddCommand-Microsoft-VisualStudio-RpcContracts-Commands-CommandMetadata,Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync-'></a>
 ### AddCommand(metadata,commandHandler) `method`
@@ -2204,16 +2193,16 @@ Unregister a command.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| commandId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The ID of the command to unregister. |
+| commandId | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The ID of the command to unregister. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the command to unregister does not exist. |
+| [System.ArgumentException](https://learn.microsoft.com/dotnet/api/System.ArgumentException 'System.ArgumentException') | Thrown if the command to unregister does not exist. |
 
-<a name='T-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommandWithCallback'></a>
-## DynamicCommandWithCallback `type`
+<a name='T-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommandHandler'></a>
+## ExecutableCommandHandler `type`
 
 ##### Namespace
 
@@ -2221,24 +2210,59 @@ Microsoft.VisualStudio.Extensibility.Commands
 
 ##### Summary
 
-An internal command implementation that executes a callback to support dynamic registration scenarios.
+Provides a framework implementation of a command that can be executed.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommandWithCallback-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,Microsoft-VisualStudio-RpcContracts-Commands-CommandMetadata,Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync-'></a>
-### #ctor(extensibility,metadata,callback) `constructor`
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommandHandler-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-String-'></a>
+### #ctor(extensibility,id) `constructor`
 
 ##### Summary
 
-Initializes a new instance of the [DynamicCommandWithCallback](#T-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommandWithCallback 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommandWithCallback') class.
+Initializes a new instance of the [ExecutableCommandHandler](#T-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommandHandler 'Microsoft.VisualStudio.Extensibility.Commands.ExecutableCommandHandler') class.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility point to be used for command execution. |
-| metadata | [Microsoft.VisualStudio.RpcContracts.Commands.CommandMetadata](#T-Microsoft-VisualStudio-RpcContracts-Commands-CommandMetadata 'Microsoft.VisualStudio.RpcContracts.Commands.CommandMetadata') | Metadata related to the command. |
-| callback | [Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync 'Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync') | Command handler to execute. |
+| id | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The unique ID of the command or `null` to use the full name of the command class. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommandWithCallback-ExecuteCommandAsync-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext,System-Threading-CancellationToken-'></a>
+<a name='P-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommandHandler-DisableDuringExecution'></a>
+### DisableDuringExecution `property`
+
+##### Summary
+
+Gets or sets a value indicating whether command should be disabled when it is executing to avoid multiple invocations at the same time.
+
+##### Remarks
+
+By default, this is set to false so command state will not be modified during execution.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommandHandler-Extensibility'></a>
+### Extensibility `property`
+
+##### Summary
+
+Gets the Visual Studio extensibility point.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommandHandler-IsEnabled'></a>
+### IsEnabled `property`
+
+##### Summary
+
+*Inherit from parent.*
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommandHandler-ExecuteCommandAsync-System-Collections-Generic-IReadOnlyDictionary{System-String,System-Object},System-Threading-CancellationToken-'></a>
+### ExecuteCommandAsync() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommandHandler-ExecuteCommandAsync-Microsoft-VisualStudio-Extensibility-IClientContext,System-Threading-CancellationToken-'></a>
 ### ExecuteCommandAsync(context,cancellationToken) `method`
 
 ##### Summary
@@ -2253,50 +2277,8 @@ a Task indication completion.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| context | [Microsoft.VisualStudio.Extensibility.Definitions.IClientContext](#T-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext 'Microsoft.VisualStudio.Extensibility.Definitions.IClientContext') | Client context at the time of command execution. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
-
-<a name='T-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommand'></a>
-## ExecutableCommand `type`
-
-##### Namespace
-
-Microsoft.VisualStudio.Extensibility.Commands
-
-##### Summary
-
-Provides a framework implementation of a command that can be executed.
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommand-#ctor-System-String-'></a>
-### #ctor(name) `constructor`
-
-##### Summary
-
-Initializes a new instance of the [ExecutableCommand](#T-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommand 'Microsoft.VisualStudio.Extensibility.Commands.ExecutableCommand') class.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The name of the command. |
-
-<a name='P-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommand-IsEnabled'></a>
-### IsEnabled `property`
-
-##### Summary
-
-*Inherit from parent.*
-
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-ExecutableCommand-ExecuteCommandAsync-System-Collections-Generic-IReadOnlyDictionary{System-String,System-Object},System-Threading-CancellationToken-'></a>
-### ExecuteCommandAsync() `method`
-
-##### Summary
-
-*Inherit from parent.*
-
-##### Parameters
-
-This method has no parameters.
+| context | [Microsoft.VisualStudio.Extensibility.IClientContext](#T-Microsoft-VisualStudio-Extensibility-IClientContext 'Microsoft.VisualStudio.Extensibility.IClientContext') | Client context at the time of command execution. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-ExtensibilityPoints'></a>
 ## ExtensibilityPoints `type`
@@ -2308,6 +2290,23 @@ Microsoft.VisualStudio.Extensibility
 ##### Summary
 
 Helper extension methods.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-ExtensibilityPoints-Configuration-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility-'></a>
+### Configuration(extensibility) `method`
+
+##### Summary
+
+Gets the surface for Configuration related features including extension state and user configuration.
+
+##### Returns
+
+An instance of [ConfigurationExtensibility](#T-Microsoft-VisualStudio-Extensibility-ConfigurationExtensibility 'Microsoft.VisualStudio.Extensibility.ConfigurationExtensibility').
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility object. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ExtensibilityPoints-Documents-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility-'></a>
 ### Documents(extensibility) `method`
@@ -2416,7 +2415,7 @@ The instance act as the shared instance similar to previous VSPackage concept.
 
 Gets the extension's CommandSet.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Extension-InitializeCommandsAsync-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Extension-InitializeCommandsAsync-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-'></a>
 ### InitializeCommandsAsync(commandSet) `method`
 
 ##### Summary
@@ -2431,7 +2430,7 @@ a Task indicating completion.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| commandSet | [Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase') | Command set instance that is being initialized. |
+| commandSet | [Microsoft.VisualStudio.Extensibility.Commands.CommandSet](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandSet 'Microsoft.VisualStudio.Extensibility.Commands.CommandSet') | Command set instance that is being initialized. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Extension-InitializeServices-Microsoft-Extensions-DependencyInjection-IServiceCollection-'></a>
 ### InitializeServices() `method`
@@ -2455,7 +2454,7 @@ Microsoft.VisualStudio.Extensibility
 
 Container for client context at the time of a command invocation.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-ExtensionMethods-GetActiveTextViewAsync-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext,System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-ExtensionMethods-GetActiveTextViewAsync-Microsoft-VisualStudio-Extensibility-IClientContext,System-Threading-CancellationToken-'></a>
 ### GetActiveTextViewAsync(clientContext,cancellationToken) `method`
 
 ##### Summary
@@ -2464,16 +2463,16 @@ Gets the active text view on the IDE at the time context was created.
 
 ##### Returns
 
-an instance of [ITextViewSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-UI-ITextViewSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.UI.ITextViewSnapshot') if there is an active text view, otherwise null.
+an instance of [ITextViewSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextViewSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot') if there is an active text view, otherwise null.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| clientContext | [Microsoft.VisualStudio.Extensibility.Definitions.IClientContext](#T-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext 'Microsoft.VisualStudio.Extensibility.Definitions.IClientContext') | Client context to utilize. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+| clientContext | [Microsoft.VisualStudio.Extensibility.IClientContext](#T-Microsoft-VisualStudio-Extensibility-IClientContext 'Microsoft.VisualStudio.Extensibility.IClientContext') | Client context to utilize. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-ExtensionMethods-GetSelectedPathAsync-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext,System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-ExtensionMethods-GetSelectedPathAsync-Microsoft-VisualStudio-Extensibility-IClientContext,System-Threading-CancellationToken-'></a>
 ### GetSelectedPathAsync(clientContext,cancellationToken) `method`
 
 ##### Summary
@@ -2488,10 +2487,10 @@ A collection of workspace item monikers that can be used across workspace querie
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| clientContext | [Microsoft.VisualStudio.Extensibility.Definitions.IClientContext](#T-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext 'Microsoft.VisualStudio.Extensibility.Definitions.IClientContext') | Client context to utilize. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor,. |
+| clientContext | [Microsoft.VisualStudio.Extensibility.IClientContext](#T-Microsoft-VisualStudio-Extensibility-IClientContext 'Microsoft.VisualStudio.Extensibility.IClientContext') | Client context to utilize. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor,. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-ExtensionMethods-ShowPromptAsync``1-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext,System-String,Microsoft-VisualStudio-Extensibility-Shell-PromptOptions{``0},System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-ExtensionMethods-ShowPromptAsync``1-Microsoft-VisualStudio-Extensibility-IClientContext,System-String,Microsoft-VisualStudio-Extensibility-Shell-PromptOptions{``0},System-Threading-CancellationToken-'></a>
 ### ShowPromptAsync\`\`1(clientContext,message,options,cancellationToken) `method`
 
 ##### Summary
@@ -2507,10 +2506,10 @@ The mapped result value of the choice defined in `options`.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| clientContext | [Microsoft.VisualStudio.Extensibility.Definitions.IClientContext](#T-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext 'Microsoft.VisualStudio.Extensibility.Definitions.IClientContext') | Client context to utilize. |
-| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The prompt message to show the user. |
+| clientContext | [Microsoft.VisualStudio.Extensibility.IClientContext](#T-Microsoft-VisualStudio-Extensibility-IClientContext 'Microsoft.VisualStudio.Extensibility.IClientContext') | Client context to utilize. |
+| message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The prompt message to show the user. |
 | options | [Microsoft.VisualStudio.Extensibility.Shell.PromptOptions{\`\`0}](#T-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions{``0} 'Microsoft.VisualStudio.Extensibility.Shell.PromptOptions{``0}') | The options to configure the prompt. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token. |
 
 ##### Generic Types
 
@@ -2523,7 +2522,7 @@ The mapped result value of the choice defined in `options`.
 If `cancellationToken` is triggered, a visible prompt will be force closed.
 In this case the return value is undefined and should be discarded.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-ExtensionMethods-ShowUserPromptImplAsync-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext,System-String,System-Collections-Generic-IReadOnlyList{Microsoft-VisualStudio-RpcContracts-Notifications-UserPromptOption},System-UInt32,System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-ExtensionMethods-ShowUserPromptImplAsync-Microsoft-VisualStudio-Extensibility-IClientContext,System-String,System-Collections-Generic-IReadOnlyList{Microsoft-VisualStudio-RpcContracts-Notifications-UserPromptOption},System-UInt32,System-Threading-CancellationToken-'></a>
 ### ShowUserPromptImplAsync(clientContext,message,options,defaultOptionIndex,cancellationToken) `method`
 
 ##### Summary
@@ -2539,11 +2538,11 @@ The result of the prompt.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| clientContext | [Microsoft.VisualStudio.Extensibility.Definitions.IClientContext](#T-Microsoft-VisualStudio-Extensibility-Definitions-IClientContext 'Microsoft.VisualStudio.Extensibility.Definitions.IClientContext') | Client context to utilize. |
-| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The prompt to show to the user. |
-| options | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption}') | The options. |
-| defaultOptionIndex | [System.UInt32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.UInt32 'System.UInt32') | The index of the default option. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token. |
+| clientContext | [Microsoft.VisualStudio.Extensibility.IClientContext](#T-Microsoft-VisualStudio-Extensibility-IClientContext 'Microsoft.VisualStudio.Extensibility.IClientContext') | Client context to utilize. |
+| message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The prompt to show to the user. |
+| options | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList-1 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.RpcContracts.Notifications.UserPromptOption}') | The options. |
+| defaultOptionIndex | [System.UInt32](https://learn.microsoft.com/dotnet/api/System.UInt32 'System.UInt32') | The index of the default option. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-ICommand'></a>
 ## ICommand `type`
@@ -2596,6 +2595,27 @@ registered metadata context rule if one was provided.
 Gets the tooltip text for the command, or the display name
 if no tooltip text was provided.
 
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-ICommand-InitializeAsync-System-Threading-CancellationToken-'></a>
+### InitializeAsync(cancellationToken) `method`
+
+##### Summary
+
+Completes async initialization of command instance.
+
+##### Returns
+
+Task indication completion of initialization.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+
+##### Remarks
+
+This method can be used to initialize values that can be retrieved asynchronously in addition to the constructor.
+
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-ICommandSet'></a>
 ## ICommandSet `type`
 
@@ -2631,7 +2651,7 @@ Task to track the asyncronous call status.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | serviceBroker | [Microsoft.ServiceHub.Framework.IServiceBroker](#T-Microsoft-ServiceHub-Framework-IServiceBroker 'Microsoft.ServiceHub.Framework.IServiceBroker') | A service broker that can be used to load external servies. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-ICommandSetFactory'></a>
 ## ICommandSetFactory `type`
@@ -2651,7 +2671,7 @@ Constructs services registered in an extension based on the descriptors in metad
 
 Gets the ServiceMoniker for the [ICommandSetProvider](#T-Microsoft-VisualStudio-RpcContracts-Commands-ICommandSetProvider 'Microsoft.VisualStudio.RpcContracts.Commands.ICommandSetProvider') that this provides.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-ICommandSetFactory-InitializeCommandsAsync-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-ICommandSetFactory-InitializeCommandsAsync-Microsoft-VisualStudio-Extensibility-Commands-CommandSet-'></a>
 ### InitializeCommandsAsync(commandSet) `method`
 
 ##### Summary
@@ -2666,7 +2686,7 @@ a Task indicating completion.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| commandSet | [Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandSetBase 'Microsoft.VisualStudio.Extensibility.Commands.CommandSetBase') | Command set instance that is being initialized. |
+| commandSet | [Microsoft.VisualStudio.Extensibility.Commands.CommandSet](#T-Microsoft-VisualStudio-Extensibility-Commands-CommandSet 'Microsoft.VisualStudio.Extensibility.Commands.CommandSet') | Command set instance that is being initialized. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-IDynamicCommand'></a>
 ## IDynamicCommand `type`
@@ -2723,14 +2743,14 @@ Called to invoke the command.
 
 ##### Returns
 
-Task to track the asyncronous call status.
+Task to track the asynchronous call status.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| contextProperties | [System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyDictionary 'System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}') | Captured context properties for this command. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
+| contextProperties | [System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyDictionary 'System.Collections.Generic.IReadOnlyDictionary{System.String,System.Object}') | Captured context properties for this command. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-IToggleCommand'></a>
 ## IToggleCommand `type`
@@ -2751,38 +2771,6 @@ Represents a command that implements a togglable pattern.
 Gets a value indicating whether this command is toggled, or `null`
 to determine the toggled state from registered metadata.
 
-<a name='T-Microsoft-VisualStudio-Extensibility-Commands-IconSettings'></a>
-## IconSettings `type`
-
-##### Namespace
-
-Microsoft.VisualStudio.Extensibility.Commands
-
-##### Summary
-
-Settings for command icons.
-
-<a name='F-Microsoft-VisualStudio-Extensibility-Commands-IconSettings-IconAndText'></a>
-### IconAndText `constants`
-
-##### Summary
-
-In a toolbar, an icon and the display name of the command should be shown to represent in the command.
-
-<a name='F-Microsoft-VisualStudio-Extensibility-Commands-IconSettings-IconOnly'></a>
-### IconOnly `constants`
-
-##### Summary
-
-In a toolbar, only the icon should be shown to represent the command. In a menu, only the text will be shown.
-
-<a name='F-Microsoft-VisualStudio-Extensibility-Commands-IconSettings-None'></a>
-### None `constants`
-
-##### Summary
-
-None.
-
 <a name='T-System-Runtime-CompilerServices-IsExternalInit'></a>
 ## IsExternalInit `type`
 
@@ -2793,42 +2781,6 @@ System.Runtime.CompilerServices
 ##### Summary
 
 Used by C# 9 for property `init` accessors.
-
-<a name='T-Microsoft-VisualStudio-Extensibility-Commands-KnownKey'></a>
-## KnownKey `type`
-
-##### Namespace
-
-Microsoft.VisualStudio.Extensibility.Commands
-
-##### Summary
-
-Known keys that can be used as a command's shortcut key.
-
-<a name='F-Microsoft-VisualStudio-Extensibility-Commands-KnownKey-None'></a>
-### None `constants`
-
-##### Summary
-
-Empty key.
-
-<a name='F-Microsoft-VisualStudio-Extensibility-Commands-KnownKey-VK_LBUTTON'></a>
-### VK_LBUTTON `constants`
-
-##### Summary
-
-Virtual key codes that are supported as key bindings.
-
-<a name='T-Microsoft-VisualStudio-Extensibility-KnownMonikers'></a>
-## KnownMonikers `type`
-
-##### Namespace
-
-Microsoft.VisualStudio.Extensibility
-
-##### Summary
-
-The well-known image monikers for images supplied with the Visual Studio image catalog.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Documents-LanguagesExtensibility'></a>
 ## LanguagesExtensibility `type`
@@ -2854,44 +2806,248 @@ Initializes a new instance of the [LanguagesExtensibility](#T-Microsoft-VisualSt
 | ---- | ---- | ----------- |
 | extensibilityPoint | [Microsoft.VisualStudio.Extensibility.ExtensibilityPoint](#T-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoint') | Another instance of extensibility point object to use for initialization. |
 
-<a name='T-Microsoft-VisualStudio-Extensibility-Commands-ModifierKey'></a>
-## ModifierKey `type`
+<a name='T-System-Diagnostics-CodeAnalysis-MaybeNullAttribute'></a>
+## MaybeNullAttribute `type`
 
 ##### Namespace
 
-Microsoft.VisualStudio.Extensibility.Commands
+System.Diagnostics.CodeAnalysis
 
 ##### Summary
 
-Enum containing the modifier keys for shortcuts.
+Specifies that an output may be `null` even if the
+    corresponding type disallows it.
 
-<a name='F-Microsoft-VisualStudio-Extensibility-Commands-ModifierKey-Control'></a>
-### Control `constants`
-
-##### Summary
-
-Control key.
-
-<a name='F-Microsoft-VisualStudio-Extensibility-Commands-ModifierKey-LeftAlt'></a>
-### LeftAlt `constants`
+<a name='M-System-Diagnostics-CodeAnalysis-MaybeNullAttribute-#ctor'></a>
+### #ctor() `constructor`
 
 ##### Summary
 
-Left alt key.
+Initializes a new instance of the [MaybeNullAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.MaybeNullAttribute 'System.Diagnostics.CodeAnalysis.MaybeNullAttribute') class.
 
-<a name='F-Microsoft-VisualStudio-Extensibility-Commands-ModifierKey-None'></a>
-### None `constants`
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='T-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute'></a>
+## MaybeNullWhenAttribute `type`
+
+##### Namespace
+
+System.Diagnostics.CodeAnalysis
 
 ##### Summary
 
-Empty modifier key.
+Specifies that when a method returns [ReturnValue](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue'), 
+    the parameter may be `null` even if the corresponding type disallows it.
 
-<a name='F-Microsoft-VisualStudio-Extensibility-Commands-ModifierKey-Shift'></a>
-### Shift `constants`
+<a name='M-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-#ctor-System-Boolean-'></a>
+### #ctor(returnValue) `constructor`
 
 ##### Summary
 
-Shift key.
+Initializes the attribute with the specified return value condition.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value, the associated parameter may be `null`. |
+
+<a name='P-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-ReturnValue'></a>
+### ReturnValue `property`
+
+##### Summary
+
+Gets the return value condition. If the method returns this value, the associated parameter may be `null`.
+
+<a name='T-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute'></a>
+## MemberNotNullAttribute `type`
+
+##### Namespace
+
+System.Diagnostics.CodeAnalysis
+
+##### Summary
+
+Specifies that the method or property will ensure that the listed field and property members have not-`null` values.
+
+<a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-#ctor-System-String-'></a>
+### #ctor(member) `constructor`
+
+##### Summary
+
+Initializes the attribute with a field or property member.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| member | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The field or property member that is promised to be not-null. |
+
+<a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-#ctor-System-String[]-'></a>
+### #ctor(members) `constructor`
+
+##### Summary
+
+Initializes the attribute with the list of field and property members.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| members | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | The list of field and property members that are promised to be not-null. |
+
+<a name='P-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-Members'></a>
+### Members `property`
+
+##### Summary
+
+Gets field or property member names.
+
+<a name='T-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute'></a>
+## MemberNotNullWhenAttribute `type`
+
+##### Namespace
+
+System.Diagnostics.CodeAnalysis
+
+##### Summary
+
+Specifies that the method or property will ensure that the listed field and property members have
+    non-`null` values when returning with the specified return value condition.
+
+<a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-#ctor-System-Boolean,System-String-'></a>
+### #ctor(returnValue,member) `constructor`
+
+##### Summary
+
+Initializes the attribute with the specified return value condition and a field or property member.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value, the associated parameter will not be `null`. |
+| member | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The field or property member that is promised to be not-`null`. |
+
+<a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-#ctor-System-Boolean,System-String[]-'></a>
+### #ctor(returnValue,members) `constructor`
+
+##### Summary
+
+Initializes the attribute with the specified return value condition and list    of field and property members.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value, the associated parameter will not be `null`. |
+| members | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | The list of field and property members that are promised to be not-null. |
+
+<a name='P-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-Members'></a>
+### Members `property`
+
+##### Summary
+
+Gets field or property member names.
+
+<a name='P-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-ReturnValue'></a>
+### ReturnValue `property`
+
+##### Summary
+
+Gets the return value condition.
+
+<a name='T-System-Diagnostics-CodeAnalysis-NotNullAttribute'></a>
+## NotNullAttribute `type`
+
+##### Namespace
+
+System.Diagnostics.CodeAnalysis
+
+##### Summary
+
+Specifies that an output is not `null` even if the
+    corresponding type allows it.
+
+<a name='M-System-Diagnostics-CodeAnalysis-NotNullAttribute-#ctor'></a>
+### #ctor() `constructor`
+
+##### Summary
+
+Initializes a new instance of the [NotNullAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.NotNullAttribute 'System.Diagnostics.CodeAnalysis.NotNullAttribute') class.
+
+##### Parameters
+
+This constructor has no parameters.
+
+<a name='T-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute'></a>
+## NotNullIfNotNullAttribute `type`
+
+##### Namespace
+
+System.Diagnostics.CodeAnalysis
+
+##### Summary
+
+Specifies that the output will be non-`null` if the
+    named parameter is non-`null`.
+
+<a name='M-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-#ctor-System-String-'></a>
+### #ctor(parameterName) `constructor`
+
+##### Summary
+
+Initializes the attribute with the associated parameter name.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| parameterName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The associated parameter name. The output will be non-`null` if the argument to the parameter specified is non-`null`. |
+
+<a name='P-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-ParameterName'></a>
+### ParameterName `property`
+
+##### Summary
+
+Gets the associated parameter name.
+    The output will be non-`null` if the argument to the
+    parameter specified is non-`null`.
+
+<a name='T-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute'></a>
+## NotNullWhenAttribute `type`
+
+##### Namespace
+
+System.Diagnostics.CodeAnalysis
+
+##### Summary
+
+Specifies that when a method returns [ReturnValue](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue'),
+    the parameter will not be `null` even if the corresponding type allows it.
+
+<a name='M-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-#ctor-System-Boolean-'></a>
+### #ctor(returnValue) `constructor`
+
+##### Summary
+
+Initializes the attribute with the specified return value condition.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value, the associated parameter will not be `null`. |
+
+<a name='P-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-ReturnValue'></a>
+### ReturnValue `property`
+
+##### Summary
+
+Gets the return value condition.
+    If the method returns this value, the associated parameter will not be `null`.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Documents-OutputWindow'></a>
 ## OutputWindow `type`
@@ -2993,15 +3149,15 @@ an instance of [OutputWindowInternal](#T-Microsoft-VisualStudio-Extensibility-Do
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| identifier | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique channel identifiers. |
-| displayNameResourceId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Resource id to be used as display name for the output window channel. Consider using a pattern like nameof(Resources.MyChannelName). |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+| identifier | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Unique channel identifiers. |
+| displayNameResourceId | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Resource id to be used as display name for the output window channel. Consider using a pattern like nameof(Resources.MyChannelName). |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown when output channel is already created in the environment by another component. |
+| [System.InvalidOperationException](https://learn.microsoft.com/dotnet/api/System.InvalidOperationException 'System.InvalidOperationException') | Thrown when output channel is already created in the environment by another component. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Documents-OutputWindowInternal'></a>
 ## OutputWindowInternal `type`
@@ -3025,9 +3181,9 @@ Initializes a new instance of the [OutputWindowInternal](#T-Microsoft-VisualStud
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| identifier | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Service broker instance to utilize. |
-| writer | [System.IO.Pipelines.PipeWriter](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.Pipelines.PipeWriter 'System.IO.Pipelines.PipeWriter') | Pipe writer instance to use for writing. |
-| encoding | [System.Text.Encoding](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Text.Encoding 'System.Text.Encoding') | Text encoding of the channel. |
+| identifier | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Service broker instance to utilize. |
+| writer | [System.IO.Pipelines.PipeWriter](https://learn.microsoft.com/dotnet/api/System.IO.Pipelines.PipeWriter 'System.IO.Pipelines.PipeWriter') | Pipe writer instance to use for writing. |
+| encoding | [System.Text.Encoding](https://learn.microsoft.com/dotnet/api/System.Text.Encoding 'System.Text.Encoding') | Text encoding of the channel. |
 | outputChannelStore | [Microsoft.VisualStudio.RpcContracts.OutputChannel.IOutputChannelStore](#T-Microsoft-VisualStudio-RpcContracts-OutputChannel-IOutputChannelStore 'Microsoft.VisualStudio.RpcContracts.OutputChannel.IOutputChannelStore') | Output channel store service instance assigned to this channel. |
 | serviceBroker | [Microsoft.ServiceHub.Framework.IServiceBroker](#T-Microsoft-ServiceHub-Framework-IServiceBroker 'Microsoft.ServiceHub.Framework.IServiceBroker') | Service broker that was used to create the channel store. |
 
@@ -3060,18 +3216,18 @@ an instance of [OutputWindowInternal](#T-Microsoft-VisualStudio-Extensibility-Do
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| identifier | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Unique channel identifiers. |
-| resourceId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Resource id to be used as display name for the output window channel. |
-| encoding | [System.Text.Encoding](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Text.Encoding 'System.Text.Encoding') | Text encoding. |
+| identifier | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Unique channel identifiers. |
+| resourceId | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Resource id to be used as display name for the output window channel. |
+| encoding | [System.Text.Encoding](https://learn.microsoft.com/dotnet/api/System.Text.Encoding 'System.Text.Encoding') | Text encoding. |
 | serviceBroker | [Microsoft.ServiceHub.Framework.IServiceBroker](#T-Microsoft-ServiceHub-Framework-IServiceBroker 'Microsoft.ServiceHub.Framework.IServiceBroker') | Underlying service broker instance to utilize. |
 | stringResourceDictionary | [Microsoft.VisualStudio.RpcContracts.IStringResourceDictionary](#T-Microsoft-VisualStudio-RpcContracts-IStringResourceDictionary 'Microsoft.VisualStudio.RpcContracts.IStringResourceDictionary') | Resoruce dictionary instance to use. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.InvalidOperationException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.InvalidOperationException 'System.InvalidOperationException') | Thrown when output channel is already created in the environment. |
+| [System.InvalidOperationException](https://learn.microsoft.com/dotnet/api/System.InvalidOperationException 'System.InvalidOperationException') | Thrown when output channel is already created in the environment. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-OutputWindowInternal-DisposeManagedResources'></a>
 ### DisposeManagedResources() `method`
@@ -3132,7 +3288,7 @@ Initializes a new instance of the [PlaceholderCommand](#T-Microsoft-VisualStudio
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| id | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The unique ID of the command. |
+| id | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The unique ID of the command or `null` to use the full name of the command class. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-PlaceholderCommand-DisplayName'></a>
 ### DisplayName `property`
@@ -3198,7 +3354,18 @@ Disposes the command instance.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | If true, managed instances should be disposed. |
+| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | If true, managed instances should be disposed. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-PlaceholderCommand-InitializeAsync-System-Threading-CancellationToken-'></a>
+### InitializeAsync() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Commands-PlaceholderCommand-OnPropertyChanged-System-ComponentModel-PropertyChangedEventArgs-'></a>
 ### OnPropertyChanged(eventArgs) `method`
@@ -3211,7 +3378,7 @@ Fires [](#E-Microsoft-VisualStudio-Extensibility-Commands-PlaceholderCommand-Pro
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| eventArgs | [System.ComponentModel.PropertyChangedEventArgs](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ComponentModel.PropertyChangedEventArgs 'System.ComponentModel.PropertyChangedEventArgs') | The arg to pass to the event. |
+| eventArgs | [System.ComponentModel.PropertyChangedEventArgs](https://learn.microsoft.com/dotnet/api/System.ComponentModel.PropertyChangedEventArgs 'System.ComponentModel.PropertyChangedEventArgs') | The arg to pass to the event. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Shell-ProgressReporter'></a>
 ## ProgressReporter `type`
@@ -3222,7 +3389,7 @@ Microsoft.VisualStudio.Extensibility.Shell
 
 ##### Summary
 
-An entity that inherits [IProgress\`1](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IProgress`1 'System.IProgress`1') used by background work running on an extension to report progress.
+An entity that inherits [IProgress\`1](https://learn.microsoft.com/dotnet/api/System.IProgress-1 'System.IProgress`1') used by background work running on an extension to report progress.
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ProgressReporter-#ctor-System-Guid,Microsoft-VisualStudio-RpcContracts-ProgressReporting-IWorkProgressHandler-'></a>
 ### #ctor(workId,workProgressHandler) `constructor`
@@ -3235,7 +3402,7 @@ Initializes a new instance of the [ProgressReporter](#T-Microsoft-VisualStudio-E
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| workId | [System.Guid](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Guid 'System.Guid') | Work Id. |
+| workId | [System.Guid](https://learn.microsoft.com/dotnet/api/System.Guid 'System.Guid') | Work Id. |
 | workProgressHandler | [Microsoft.VisualStudio.RpcContracts.ProgressReporting.IWorkProgressHandler](#T-Microsoft-VisualStudio-RpcContracts-ProgressReporting-IWorkProgressHandler 'Microsoft.VisualStudio.RpcContracts.ProgressReporting.IWorkProgressHandler') | WorkProgressHandler service. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Shell-ProgressReporter-CancellationToken'></a>
@@ -3274,7 +3441,7 @@ Disposes the instance and underlying proxies.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| isDisposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | If false only native resources should be disposed. |
+| isDisposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | If false only native resources should be disposed. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ProgressReporter-OnWorkCanceled-System-Object,Microsoft-VisualStudio-RpcContracts-ProgressReporting-WorkCanceledEventArgs-'></a>
 ### OnWorkCanceled(sender,args) `method`
@@ -3287,7 +3454,7 @@ Cancel the ongoing background work in the extension after [](#E-Microsoft-Visual
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Sender. |
+| sender | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | Sender. |
 | args | [Microsoft.VisualStudio.RpcContracts.ProgressReporting.WorkCanceledEventArgs](#T-Microsoft-VisualStudio-RpcContracts-ProgressReporting-WorkCanceledEventArgs 'Microsoft.VisualStudio.RpcContracts.ProgressReporting.WorkCanceledEventArgs') | WorkCancelledEventArgs. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ProgressReporter-Report-Microsoft-VisualStudio-RpcContracts-ProgressReporting-ProgressStatus-'></a>
@@ -3295,7 +3462,7 @@ Cancel the ongoing background work in the extension after [](#E-Microsoft-Visual
 
 ##### Summary
 
-Inherited from [IProgress\`1](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IProgress`1 'System.IProgress`1').
+Inherited from [IProgress\`1](https://learn.microsoft.com/dotnet/api/System.IProgress-1 'System.IProgress`1').
 
 ##### Parameters
 
@@ -3336,7 +3503,7 @@ Initializes a new instance of the [PromptException](#T-Microsoft-VisualStudio-Ex
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | An error message. |
+| message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | An error message. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-PromptException-#ctor-System-String,System-Exception-'></a>
 ### #ctor(message,innerException) `constructor`
@@ -3349,8 +3516,8 @@ Initializes a new instance of the [PromptException](#T-Microsoft-VisualStudio-Ex
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | An error message. |
-| innerException | [System.Exception](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Exception 'System.Exception') | An inner exception that is the cause of the exception. |
+| message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | An error message. |
+| innerException | [System.Exception](https://learn.microsoft.com/dotnet/api/System.Exception 'System.Exception') | An inner exception that is the cause of the exception. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-PromptException-#ctor-System-Runtime-Serialization-SerializationInfo,System-Runtime-Serialization-StreamingContext-'></a>
 ### #ctor(info,context) `constructor`
@@ -3363,8 +3530,8 @@ Initializes a new instance of the [PromptException](#T-Microsoft-VisualStudio-Ex
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| info | [System.Runtime.Serialization.SerializationInfo](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Runtime.Serialization.SerializationInfo 'System.Runtime.Serialization.SerializationInfo') | The serialization info. |
-| context | [System.Runtime.Serialization.StreamingContext](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Runtime.Serialization.StreamingContext 'System.Runtime.Serialization.StreamingContext') | The streaming context. |
+| info | [System.Runtime.Serialization.SerializationInfo](https://learn.microsoft.com/dotnet/api/System.Runtime.Serialization.SerializationInfo 'System.Runtime.Serialization.SerializationInfo') | The serialization info. |
+| context | [System.Runtime.Serialization.StreamingContext](https://learn.microsoft.com/dotnet/api/System.Runtime.Serialization.StreamingContext 'System.Runtime.Serialization.StreamingContext') | The streaming context. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions'></a>
 ## PromptOptions `type`
@@ -3503,7 +3670,7 @@ Initializes a new instance of the [PromptOptions\`1](#T-Microsoft-VisualStudio-E
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | choices | [Microsoft.VisualStudio.Extensibility.Shell.ChoiceResultCollection{\`0}](#T-Microsoft-VisualStudio-Extensibility-Shell-ChoiceResultCollection{`0} 'Microsoft.VisualStudio.Extensibility.Shell.ChoiceResultCollection{`0}') | The choices to present to the user. |
-| defaultChoiceIndex | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The index in `choices` of the choice to present as the default. |
+| defaultChoiceIndex | [System.Int32](https://learn.microsoft.com/dotnet/api/System.Int32 'System.Int32') | The index in `choices` of the choice to present as the default. |
 | dismissedReturns | [\`0](#T-`0 '`0') | The result value to return when the user dismisses the prompt without making a selection. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions`1-#ctor-Microsoft-VisualStudio-Extensibility-Shell-PromptOptions{`0}-'></a>
@@ -3583,7 +3750,7 @@ A new instance of [PromptOptionsWithCancel\`1](#T-Microsoft-VisualStudio-Extensi
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | cancelReturns | [\`0](#T-`0 '`0') | The result value to return when selects the "Cancel" choice. |
-| cancelIsDefault | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether the "Cancel" choice should be presented as the default choice. |
+| cancelIsDefault | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether the "Cancel" choice should be presented as the default choice. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Resources'></a>
 ## Resources `type`
@@ -3603,6 +3770,13 @@ A strongly-typed resource class, for looking up localized strings, etc.
 
 Looks up a localized string similar to Command ID is already registered..
 
+<a name='P-Microsoft-VisualStudio-Extensibility-Resources-CommandSetNotInitializedYet'></a>
+### CommandSetNotInitializedYet `property`
+
+##### Summary
+
+Looks up a localized string similar to Cannot interact with the {0} until it has been completely initialized. Do not interact with {1} inside of a command's constructor..
+
 <a name='P-Microsoft-VisualStudio-Extensibility-Resources-Culture'></a>
 ### Culture `property`
 
@@ -3610,6 +3784,13 @@ Looks up a localized string similar to Command ID is already registered..
 
 Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Resources-DynamicCommandAnchorNotFound'></a>
+### DynamicCommandAnchorNotFound `property`
+
+##### Summary
+
+Looks up a localized string similar to Dynamic command anchor '{0}' has not been registered with this CommandSet..
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Resources-InvalidVersionString'></a>
 ### InvalidVersionString `property`
@@ -3666,6 +3847,20 @@ Looks up a localized string similar to Negative values are not supported..
 ##### Summary
 
 Returns the cached ResourceManager instance used by this class.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Resources-TraceExtensionStateJsonParseError'></a>
+### TraceExtensionStateJsonParseError `property`
+
+##### Summary
+
+Looks up a localized string similar to JSON deserialization failed for moniker {0}, returning default value..
+
+<a name='P-Microsoft-VisualStudio-Extensibility-Resources-TraceExtensionStateNotFound'></a>
+### TraceExtensionStateNotFound `property`
+
+##### Summary
+
+Looks up a localized string similar to Extension state moniker {0} is not found, returning default value..
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Resources-UnsupportedDocumentMoniker'></a>
 ### UnsupportedDocumentMoniker `property`
@@ -3739,14 +3934,14 @@ Hides the tool window of the given type.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| toolWindowType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The type of the tool window. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the in-progress request. |
+| toolWindowType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The type of the tool window. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the in-progress request. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-HideToolWindowAsync``1-System-Threading-CancellationToken-'></a>
 ### HideToolWindowAsync\`\`1(cancellationToken) `method`
@@ -3757,13 +3952,13 @@ Hides the tool window of the given type.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the in-progress request. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the in-progress request. |
 
 ##### Generic Types
 
@@ -3782,8 +3977,84 @@ Handles the service instance when availability of brokered services has changed.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| sender | [System.Object](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Object 'System.Object') | Sender. |
+| sender | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | Sender. |
 | args | [Microsoft.ServiceHub.Framework.BrokeredServicesChangedEventArgs](#T-Microsoft-ServiceHub-Framework-BrokeredServicesChangedEventArgs 'Microsoft.ServiceHub.Framework.BrokeredServicesChangedEventArgs') | BrokeredServicesChangedEventArgs. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowDialogAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl,System-Threading-CancellationToken-'></a>
+### ShowDialogAsync(content,cancellationToken) `method`
+
+##### Summary
+
+Shows a modal dialog.
+
+##### Returns
+
+The [DialogResult](#T-Microsoft-VisualStudio-RpcContracts-Notifications-DialogResult 'Microsoft.VisualStudio.RpcContracts.Notifications.DialogResult') that represents the button or action invoked by the user.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| content | [Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl](#T-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl 'Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl') | The content of the dialog. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the dialog. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowDialogAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl,System-String,System-Threading-CancellationToken-'></a>
+### ShowDialogAsync(content,title,cancellationToken) `method`
+
+##### Summary
+
+Shows a modal dialog.
+
+##### Returns
+
+The [DialogResult](#T-Microsoft-VisualStudio-RpcContracts-Notifications-DialogResult 'Microsoft.VisualStudio.RpcContracts.Notifications.DialogResult') that represents the button or action invoked by the user.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| content | [Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl](#T-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl 'Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl') | The content of the dialog. |
+| title | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The title of the dialog. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the dialog. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowDialogAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl,Microsoft-VisualStudio-RpcContracts-Notifications-DialogOption,System-Threading-CancellationToken-'></a>
+### ShowDialogAsync(content,options,cancellationToken) `method`
+
+##### Summary
+
+Shows a modal dialog.
+
+##### Returns
+
+The [DialogResult](#T-Microsoft-VisualStudio-RpcContracts-Notifications-DialogResult 'Microsoft.VisualStudio.RpcContracts.Notifications.DialogResult') that represents the button or action invoked by the user.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| content | [Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl](#T-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl 'Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl') | The content of the dialog. |
+| options | [Microsoft.VisualStudio.RpcContracts.Notifications.DialogOption](#T-Microsoft-VisualStudio-RpcContracts-Notifications-DialogOption 'Microsoft.VisualStudio.RpcContracts.Notifications.DialogOption') | The options for displaying the dialog. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the dialog. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowDialogAsync-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl,System-String,Microsoft-VisualStudio-RpcContracts-Notifications-DialogOption,System-Threading-CancellationToken-'></a>
+### ShowDialogAsync(content,title,options,cancellationToken) `method`
+
+##### Summary
+
+Shows a modal dialog.
+
+##### Returns
+
+The [DialogResult](#T-Microsoft-VisualStudio-RpcContracts-Notifications-DialogResult 'Microsoft.VisualStudio.RpcContracts.Notifications.DialogResult') that represents the button or action invoked by the user.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| content | [Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl](#T-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteUserControl 'Microsoft.VisualStudio.RpcContracts.RemoteUI.IRemoteUserControl') | The content of the dialog. |
+| title | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The title of the dialog. |
+| options | [Microsoft.VisualStudio.RpcContracts.Notifications.DialogOption](#T-Microsoft-VisualStudio-RpcContracts-Notifications-DialogOption 'Microsoft.VisualStudio.RpcContracts.Notifications.DialogOption') | The options for displaying the dialog. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the dialog. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowToolWindowAsync-System-Type,System-Boolean,System-Threading-CancellationToken-'></a>
 ### ShowToolWindowAsync(toolWindowType,activate,cancellationToken) `method`
@@ -3794,15 +4065,15 @@ Shows the tool window of the given type.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| toolWindowType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The type of the tool window. |
-| activate | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether or not to activate the tool window during the show. Activating a tool window will move focus into it. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the in-progress request. |
+| toolWindowType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The type of the tool window. |
+| activate | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether or not to activate the tool window during the show. Activating a tool window will move focus into it. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the in-progress request. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-ShowToolWindowAsync``1-System-Boolean,System-Threading-CancellationToken-'></a>
 ### ShowToolWindowAsync\`\`1(activate,cancellationToken) `method`
@@ -3813,14 +4084,14 @@ Shows the tool window of the given type.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| activate | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether or not to activate the tool window during the show. Activating a tool window will move focus into it. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the in-progress request. |
+| activate | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether or not to activate the tool window during the show. Activating a tool window will move focus into it. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A [CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') to cancel the in-progress request. |
 
 ##### Generic Types
 
@@ -3843,9 +4114,9 @@ Progress reporter used to report progress for the background work.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| workDisplayName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Name of the background work. |
+| workDisplayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Name of the background work. |
 | options | [Microsoft.VisualStudio.RpcContracts.ProgressReporting.ProgressReporterOptions](#T-Microsoft-VisualStudio-RpcContracts-ProgressReporting-ProgressReporterOptions 'Microsoft.VisualStudio.RpcContracts.ProgressReporting.ProgressReporterOptions') | Options for customizing progress reporting behaviors. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Shell-ShellExtensibility-StartProgressReportingAsync-System-String,System-Threading-CancellationToken-'></a>
 ### StartProgressReportingAsync(workDisplayName,cancellationToken) `method`
@@ -3862,8 +4133,8 @@ Progress reporter used to report progress for the background work.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| workDisplayName | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Name of the background work. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
+| workDisplayName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Name of the background work. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Documents-SynchronizedBufferTextWriter'></a>
 ## SynchronizedBufferTextWriter `type`
@@ -3887,8 +4158,8 @@ Initializes a new instance of the [SynchronizedBufferTextWriter](#T-Microsoft-Vi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| pipeWriter | [System.IO.Pipelines.PipeWriter](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IO.Pipelines.PipeWriter 'System.IO.Pipelines.PipeWriter') | Pipe writer instance. |
-| encoding | [System.Text.Encoding](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Text.Encoding 'System.Text.Encoding') | Encoding for strings. |
+| pipeWriter | [System.IO.Pipelines.PipeWriter](https://learn.microsoft.com/dotnet/api/System.IO.Pipelines.PipeWriter 'System.IO.Pipelines.PipeWriter') | Pipe writer instance. |
+| encoding | [System.Text.Encoding](https://learn.microsoft.com/dotnet/api/System.Text.Encoding 'System.Text.Encoding') | Encoding for strings. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-Documents-SynchronizedBufferTextWriter-Dispose-System-Boolean-'></a>
 ### Dispose() `method`
@@ -3934,8 +4205,8 @@ Microsoft.VisualStudio.Extensibility.Commands
 
 Provides functionality for extending Visual Studio through brokered services.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Commands-ToggleCommand-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-String-'></a>
-### #ctor(extensibility,name) `constructor`
+<a name='M-Microsoft-VisualStudio-Extensibility-Commands-ToggleCommand-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility-'></a>
+### #ctor(extensibility) `constructor`
 
 ##### Summary
 
@@ -3946,7 +4217,6 @@ Initializes a new instance of the [ToggleCommand](#T-Microsoft-VisualStudio-Exte
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility point to be used for command execution. |
-| name | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Command identifier. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Commands-ToggleCommand-IsChecked'></a>
 ### IsChecked `property`
@@ -3993,6 +4263,13 @@ Gets the Visual Studio extensibility point.
 
 Gets or sets the title of the tool window.
 
+<a name='P-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-ToolWindowConfiguration'></a>
+### ToolWindowConfiguration `property`
+
+##### Summary
+
+Gets the configuration for this tool window.
+
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-Dispose'></a>
 ### Dispose() `method`
 
@@ -4015,8 +4292,7 @@ Performs application-defined tasks associated with freeing, releasing, or resett
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether managed resources should be disposed. This should be `false` when
-[Dispose](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.Dispose(System.Boolean)') is called from a finalizer, `true` otherwise. |
+| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether managed resources should be disposed. This should be `false` when [Dispose](#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow.Dispose(System.Boolean)') is called from a finalizer, `true` otherwise. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-GetContentAsync-System-Threading-CancellationToken-'></a>
 ### GetContentAsync(cancellationToken) `method`
@@ -4033,7 +4309,7 @@ An [IRemoteUserControl](#T-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteU
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress content creation. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress content creation. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-HideAsync-System-Threading-CancellationToken-'></a>
 ### HideAsync(cancellationToken) `method`
@@ -4044,13 +4320,13 @@ Hides the tool window.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress hide. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress hide. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-InitializeAsync-System-Threading-CancellationToken-'></a>
 ### InitializeAsync(cancellationToken) `method`
@@ -4061,13 +4337,13 @@ Initializes the tool window.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress initialization. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress initialization. |
 
 ##### Remarks
 
@@ -4083,13 +4359,13 @@ Notifies that the tool window is being hidden.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress hide. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress hide. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-OnShowAsync-System-Threading-CancellationToken-'></a>
 ### OnShowAsync(cancellationToken) `method`
@@ -4100,13 +4376,13 @@ Notifies that the tool window is being shown.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress show. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress show. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-ShowAsync-System-Boolean,System-Threading-CancellationToken-'></a>
 ### ShowAsync(activate,cancellationToken) `method`
@@ -4117,14 +4393,14 @@ Shows the tool window.
 
 ##### Returns
 
-A [Task](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') representing the asynchronous operation.
 
 ##### Parameters
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| activate | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Whether or not to activate the tool window during the show. Activating a tool window will move focus into it. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress hide. |
+| activate | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | Whether or not to activate the tool window during the show. Activating a tool window will move focus into it. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress hide. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowContainer'></a>
 ## ToolWindowContainer `type`
@@ -4148,7 +4424,7 @@ Initializes a new instance of the [ToolWindowContainer](#T-Microsoft-VisualStudi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| traceSource | [System.Diagnostics.TraceSource](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.TraceSource 'System.Diagnostics.TraceSource') | Logger instance that can be used to trace extension actions. |
+| traceSource | [System.Diagnostics.TraceSource](https://learn.microsoft.com/dotnet/api/System.Diagnostics.TraceSource 'System.Diagnostics.TraceSource') | Logger instance that can be used to trace extension actions. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowContainer-Dispose'></a>
 ### Dispose() `method`
@@ -4172,7 +4448,7 @@ Disposes managed and native resources held by this instance.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| disposing | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | True if the container is being disposed, false if it's being finalized. |
+| disposing | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | True if the container is being disposed, false if it's being finalized. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowContainer-GetToolWindow-System-IServiceProvider,System-Type-'></a>
 ### GetToolWindow(serviceProvider,toolWindowType) `method`
@@ -4189,8 +4465,8 @@ The tool window matching the given type or null if not found.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| serviceProvider | [System.IServiceProvider](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IServiceProvider 'System.IServiceProvider') | Extension host service provider. |
-| toolWindowType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The type of the tool window. |
+| serviceProvider | [System.IServiceProvider](https://learn.microsoft.com/dotnet/api/System.IServiceProvider 'System.IServiceProvider') | Extension host service provider. |
+| toolWindowType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The type of the tool window. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-ToolWindows-Implementation-ToolWindowProvider'></a>
 ## ToolWindowProvider `type`
@@ -4216,8 +4492,8 @@ Initializes a new instance of the [ToolWindowProvider](#T-Microsoft-VisualStudio
 | ---- | ---- | ----------- |
 | container | [Microsoft.VisualStudio.Extensibility.ExtensionCore](#T-Microsoft-VisualStudio-Extensibility-ExtensionCore 'Microsoft.VisualStudio.Extensibility.ExtensionCore') | Extension instance that can be used for sharing state across parts. |
 | extensibilityObject | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility instance to be used by the service implementation. |
-| serviceProvider | [System.IServiceProvider](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IServiceProvider 'System.IServiceProvider') | Extension host service provider. |
-| traceSource | [System.Diagnostics.TraceSource](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Diagnostics.TraceSource 'System.Diagnostics.TraceSource') | Logger instance that can be used to trace extension actions. |
+| serviceProvider | [System.IServiceProvider](https://learn.microsoft.com/dotnet/api/System.IServiceProvider 'System.IServiceProvider') | Extension host service provider. |
+| traceSource | [System.Diagnostics.TraceSource](https://learn.microsoft.com/dotnet/api/System.Diagnostics.TraceSource 'System.Diagnostics.TraceSource') | Logger instance that can be used to trace extension actions. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-Implementation-ToolWindowProvider-CreateToolWindowAsync-System-String,System-Threading-CancellationToken-'></a>
 ### CreateToolWindowAsync() `method`
@@ -4267,13 +4543,13 @@ The tool window matching the identifier.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| identifier | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The tool window identifier. |
+| identifier | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The tool window identifier. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [System.ArgumentException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentException 'System.ArgumentException') | Thrown if the identifier doesn't match a registered tool window. |
+| [System.ArgumentException](https://learn.microsoft.com/dotnet/api/System.ArgumentException 'System.ArgumentException') | Thrown if the identifier doesn't match a registered tool window. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-Implementation-ToolWindowProvider-OnHideAsync-System-String,System-Threading-CancellationToken-'></a>
 ### OnHideAsync() `method`
@@ -4308,7 +4584,7 @@ Registers a tool window with the tool window provider.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| toolWindowType | [System.Type](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Type 'System.Type') | The type of the tool window. |
+| toolWindowType | [System.Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type') | The type of the tool window. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-ToolWindows-Implementation-ToolWindowProvider-SubscribeAsync-System-IObserver{Microsoft-VisualStudio-RpcContracts-ToolWindows-ToolWindowPropertyChangedArgs},System-Threading-CancellationToken-'></a>
 ### SubscribeAsync() `method`
@@ -4352,6 +4628,427 @@ Initializes a new instance of the [ViewsExtensibility](#T-Microsoft-VisualStudio
 
 Gets the output window extensibility point.
 
+<a name='T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient'></a>
+## VisualizerObjectSourceClient `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.DebuggerVisualizers
+
+##### Summary
+
+Allows requesting the Visual Studio debugger for the value of a target object.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-ReplaceTargetObjectAsync-System-Buffers-ReadOnlySequence{System-Byte},System-Threading-CancellationToken-'></a>
+### ReplaceTargetObjectAsync(message,cancellationToken) `method`
+
+##### Summary
+
+Requests the visualizer object source in the debug target process to replace the object being visualized.
+
+##### Returns
+
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') tracking the completion of the async call.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| message | [System.Buffers.ReadOnlySequence{System.Byte}](https://learn.microsoft.com/dotnet/api/System.Buffers.ReadOnlySequence-1 'System.Buffers.ReadOnlySequence{System.Byte}') | The content of the message sent to the visualizer object source. The format of `message` is defined by the chosen visualizer object source. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-ReplaceTargetObjectAsync-Newtonsoft-Json-Linq-JToken,System-Threading-CancellationToken-'></a>
+### ReplaceTargetObjectAsync(message,cancellationToken) `method`
+
+##### Summary
+
+Requests the visualizer object source in the debug target process to replace the object being visualized.
+
+##### Returns
+
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') tracking the completion of the async call.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| message | [Newtonsoft.Json.Linq.JToken](#T-Newtonsoft-Json-Linq-JToken 'Newtonsoft.Json.Linq.JToken') | The content of the message sent to the visualizer object source. The format of `message` is defined by the chosen visualizer object source. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-ReplaceTargetObjectAsync``1-``0,Newtonsoft-Json-JsonSerializer,System-Threading-CancellationToken-'></a>
+### ReplaceTargetObjectAsync\`\`1(message,jsonSerializer,cancellationToken) `method`
+
+##### Summary
+
+Requests the visualizer object source in the debug target process to replace the object being visualized.
+
+##### Returns
+
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') tracking the completion of the async call.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| message | [\`\`0](#T-``0 '``0') | The object to be encoded into JSON and sent to the visualizer object source. |
+| jsonSerializer | [Newtonsoft.Json.JsonSerializer](#T-Newtonsoft-Json-JsonSerializer 'Newtonsoft.Json.JsonSerializer') | Optional json serializer used to convert `message` to JSON and
+convert the returned object from JSON. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| TMessage | The type of the message encoded into JSON and sent to the visualizer object source. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-RequestDataAsync-System-Nullable{System-Buffers-ReadOnlySequence{System-Byte}},System-Threading-CancellationToken-'></a>
+### RequestDataAsync(message,cancellationToken) `method`
+
+##### Summary
+
+Sends a message to the visualizer object source in the debug target process and returns the corresponding
+ response.
+
+##### Returns
+
+The optional response to the message. The format of the returned data is defined by the chosen
+ visualizer object source.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| message | [System.Nullable{System.Buffers.ReadOnlySequence{System.Byte}}](https://learn.microsoft.com/dotnet/api/System.Nullable-1 'System.Nullable{System.Buffers.ReadOnlySequence{System.Byte}}') | The optional content of the message. The format of `message` is defined
+ by the chosen visualizer object source. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes unavailable before the call can be completed.
+
+ When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be
+ aborted since the visualizer target is now unavailable. When the visualizer target becomes available again, the
+ value of the object to be visualized may have changed, so a new value retrieval should be started. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-RequestDataAsync-Newtonsoft-Json-Linq-JToken,System-Threading-CancellationToken-'></a>
+### RequestDataAsync(message,cancellationToken) `method`
+
+##### Summary
+
+Sends a message to the visualizer object source in the debug target process and returns the corresponding
+ response.
+
+##### Returns
+
+The optional response to the message. The format of the returned data is defined by the chosen
+ visualizer object source.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| message | [Newtonsoft.Json.Linq.JToken](#T-Newtonsoft-Json-Linq-JToken 'Newtonsoft.Json.Linq.JToken') | The content of the message. The format of `message` is defined by the
+ chosen visualizer object source. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes unavailable before the call can be completed.
+
+ When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be
+ aborted since the visualizer target is now unavailable. When the visualizer target becomes available
+ again, the value of the object to be visualized may have changed, so a new value retrieval should be started. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-RequestDataAsync-System-Threading-CancellationToken-'></a>
+### RequestDataAsync(cancellationToken) `method`
+
+##### Summary
+
+Sends an empty message to the visualizer object source in the debug target process and returns the corresponding
+ response.
+
+##### Returns
+
+The optional response to the message. The format of the returned data is defined by the chosen
+ visualizer object source.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes unavailable before the call can be completed.
+
+ When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be
+ aborted since the visualizer target is now unavailable. When the visualizer target becomes available
+ again, the value of the object to be visualized may have changed, so a new value retrieval should be started. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-RequestDataAsync``1-Newtonsoft-Json-JsonSerializer,System-Threading-CancellationToken-'></a>
+### RequestDataAsync\`\`1(jsonSerializer,cancellationToken) `method`
+
+##### Summary
+
+Sends an empty message to the visualizer object source in the debug target process and returns the corresponding
+ response.
+
+##### Returns
+
+The optional response to the message. If `TResponse` is a reference type, this
+ method can return `null`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| jsonSerializer | [Newtonsoft.Json.JsonSerializer](#T-Newtonsoft-Json-JsonSerializer 'Newtonsoft.Json.JsonSerializer') | Optional json serializer used to convert the returned object from JSON. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| TResponse | The type of the response to be decoded from JSON. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes unavailable before the call can be completed.
+
+ When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be
+ aborted since the visualizer target is now unavailable. When the visualizer target becomes available
+ again, the value of the object to be visualized may have changed, so a new value retrieval should be started. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-RequestDataAsync``2-``0,Newtonsoft-Json-JsonSerializer,System-Threading-CancellationToken-'></a>
+### RequestDataAsync\`\`2(message,jsonSerializer,cancellationToken) `method`
+
+##### Summary
+
+Sends a message to the visualizer object source in the debug target process and returns the corresponding
+ response.
+
+##### Returns
+
+The optional response to the message. If `TResponse` is a reference type, this
+ method can return `null`.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| message | [\`\`0](#T-``0 '``0') | The object to be encoded into JSON and sent to the visualizer object source. |
+| jsonSerializer | [Newtonsoft.Json.JsonSerializer](#T-Newtonsoft-Json-JsonSerializer 'Newtonsoft.Json.JsonSerializer') | Optional json serializer used to convert `message` to JSON and
+ convert the returned object from JSON. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| TMessage | The type of the message encoded into JSON and sent to the visualizer object source. |
+| TResponse | The type of the response to be decoded from JSON. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes unavailable before the call can be completed.
+
+ When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be
+ aborted since the visualizer target is now unavailable. When the visualizer target becomes available
+ again, the value of the object to be visualized may have changed, so a new value retrieval should be started. |
+
+<a name='T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClientImplementation'></a>
+## VisualizerObjectSourceClientImplementation `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.DebuggerVisualizers
+
+##### Summary
+
+Allows requesting the Visual Studio debugger for the value of a target object.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClientImplementation-#ctor-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-IVisualizerTarget-'></a>
+### #ctor(visualizerTargetProxy) `constructor`
+
+##### Summary
+
+Initializes a new instance of the [VisualizerObjectSourceClientImplementation](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClientImplementation 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClientImplementation') class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| visualizerTargetProxy | [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.IVisualizerTarget](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-IVisualizerTarget 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.IVisualizerTarget') | The visualizer target proxy that is used to communicate with the debugger. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClientImplementation-ReplaceTargetObjectAsync-System-Buffers-ReadOnlySequence{System-Byte},System-Threading-CancellationToken-'></a>
+### ReplaceTargetObjectAsync() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClientImplementation-RequestDataAsync-System-Nullable{System-Buffers-ReadOnlySequence{System-Byte}},System-Threading-CancellationToken-'></a>
+### RequestDataAsync() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget'></a>
+## VisualizerTarget `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.DebuggerVisualizers
+
+##### Summary
+
+Contains information regarding the target process and boject and allows requesting the Visual Studio debugger for
+the value of a target object, or to replace the target object.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-#ctor-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient,System-String,System-String,System-Version-'></a>
+### #ctor(objectSource,targetTypeFullName,targetTypeModuleName,targetTypeModuleVersion) `constructor`
+
+##### Summary
+
+Initializes a new instance of the [VisualizerTarget](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget') class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| objectSource | [Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient') | The object source client which can be used to query the object source for the value of the target object or request the target object to be replaced. |
+| targetTypeFullName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The [FullName](https://learn.microsoft.com/dotnet/api/System.Type.FullName 'System.Type.FullName') of the target type of the debugger visualizer. |
+| targetTypeModuleName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the assembly that defines the [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type')`targetTypeFullName`. |
+| targetTypeModuleVersion | [System.Version](https://learn.microsoft.com/dotnet/api/System.Version 'System.Version') | The version of the assembly that defines the [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type')`targetTypeFullName`. |
+
+<a name='P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-ObjectSource'></a>
+### ObjectSource `property`
+
+##### Summary
+
+Gets the object source client which can be used to query the object source for the value of the target object or
+request the target object to be replaced.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-TargetTypeFullName'></a>
+### TargetTypeFullName `property`
+
+##### Summary
+
+Gets the [FullName](https://learn.microsoft.com/dotnet/api/System.Type.FullName 'System.Type.FullName') of the target type of the debugger visualizer.
+
+ This is always one of the types for which the debugger visualizer provider declares support: it may not be the
+ actual type of the target object but one of its base types or implemented interfaces.
+
+<a name='P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-TargetTypeModuleName'></a>
+### TargetTypeModuleName `property`
+
+##### Summary
+
+Gets the name of the assembly that defines the [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type')[TargetTypeFullName](#P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-TargetTypeFullName 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget.TargetTypeFullName').
+
+<a name='P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-TargetTypeModuleVersion'></a>
+### TargetTypeModuleVersion `property`
+
+##### Summary
+
+Gets the version of the assembly that defines the [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type')[TargetTypeFullName](#P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-TargetTypeFullName 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget.TargetTypeFullName').
+
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-Dispose'></a>
+### Dispose() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-RaiseStateChangedAsync-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetStateNotification-'></a>
+### RaiseStateChangedAsync(notification) `method`
+
+##### Summary
+
+Raises the [](#E-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-StateChanged 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget.StateChanged') event.
+
+##### Returns
+
+A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'System.Threading.Tasks.Task') tracking the async operation.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| notification | [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetStateNotification](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetStateNotification 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetStateNotification') | The type of notification. |
+
+<a name='T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetImplementation'></a>
+## VisualizerTargetImplementation `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.DebuggerVisualizers
+
+##### Summary
+
+Contains information regarding the target process and boject and allows requesting the Visual Studio debugger for
+the value of a target object, or to replace the target object.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetImplementation-#ctor-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-IVisualizerTarget,Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetData-'></a>
+### #ctor(visualizerTargetProxy,visualizerTargetData) `constructor`
+
+##### Summary
+
+Initializes a new instance of the [VisualizerTargetImplementation](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetImplementation 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTargetImplementation') class.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| visualizerTargetProxy | [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.IVisualizerTarget](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-IVisualizerTarget 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.IVisualizerTarget') | The visualizer target proxy that is used to communicate with the debugger. |
+| visualizerTargetData | [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetData](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetData 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetData') | The metadata associated with this instance of the visualizer target. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetImplementation-Dispose'></a>
+### Dispose() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetImplementation-Microsoft#VisualStudio#RpcContracts#DebuggerVisualizers#IVisualizerTargetClient#NotifyStateChangeAsync-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetStateNotification,System-Threading-CancellationToken-'></a>
+### Microsoft#VisualStudio#RpcContracts#DebuggerVisualizers#IVisualizerTargetClient#NotifyStateChangeAsync() `method`
+
+##### Summary
+
+*Inherit from parent.*
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='T-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility'></a>
 ## WorkspacesExtensibility `type`
 
@@ -4376,7 +5073,7 @@ Initializes a new instance of the [WorkspacesExtensibility](#T-Microsoft-VisualS
 | ---- | ---- | ----------- |
 | extensibilityPoint | [Microsoft.VisualStudio.Extensibility.ExtensibilityPoint](#T-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoint') | Another instance of extensibility point object to use for initialization. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-QueryProjectsAsync``1-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ProjectModel-IProject},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-QueryProjectsAsync``1-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Threading-CancellationToken-'></a>
 ### QueryProjectsAsync\`\`1(queryFunc,cancellationToken) `method`
 
 ##### Summary
@@ -4391,8 +5088,8 @@ Results of the project query.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| queryFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ProjectModel.IProject},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ProjectModel.IProject},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}}') | Function to prepare query. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+| queryFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}}') | Function to prepare query. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
 ##### Generic Types
 
@@ -4406,7 +5103,7 @@ Results of the project query.
 | ---- | ----------- |
 | [Microsoft.VisualStudio.ProjectSystem.Query.QueryExecutionException](#T-Microsoft-VisualStudio-ProjectSystem-Query-QueryExecutionException 'Microsoft.VisualStudio.ProjectSystem.Query.QueryExecutionException') | Thrown when query execution is failed. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-QuerySolutionAsync``1-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ProjectModel-ISolution},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-QuerySolutionAsync``1-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Threading-CancellationToken-'></a>
 ### QuerySolutionAsync\`\`1(queryFunc,cancellationToken) `method`
 
 ##### Summary
@@ -4421,8 +5118,8 @@ Results of the solution query.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| queryFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ProjectModel.ISolution},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ProjectModel.ISolution},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}}') | Function to prepare query. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+| queryFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}}') | Function to prepare query. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
 ##### Generic Types
 
@@ -4436,7 +5133,7 @@ Results of the solution query.
 | ---- | ----------- |
 | [Microsoft.VisualStudio.ProjectSystem.Query.QueryExecutionException](#T-Microsoft-VisualStudio-ProjectSystem-Query-QueryExecutionException 'Microsoft.VisualStudio.ProjectSystem.Query.QueryExecutionException') | Thrown when query execution is failed. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-UpdateProjectsAsync``2-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ProjectModel-IProject},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``0},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``1}},System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-UpdateProjectsAsync``2-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``0},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``1}},System-Threading-CancellationToken-'></a>
 ### UpdateProjectsAsync\`\`2(queryFunc,updateFunc,cancellationToken) `method`
 
 ##### Summary
@@ -4451,9 +5148,9 @@ Results of the solution update actions.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| queryFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ProjectModel.IProject},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ProjectModel.IProject},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}}') | Function to select items to update. |
-| updateFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`1}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``1}}') | Function to update selected items. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+| queryFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}}') | Function to select items to update. |
+| updateFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`1}}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``1}}') | Function to update selected items. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
 ##### Generic Types
 
@@ -4468,7 +5165,7 @@ Results of the solution update actions.
 | ---- | ----------- |
 | [Microsoft.VisualStudio.ProjectSystem.Query.QueryExecutionException](#T-Microsoft-VisualStudio-ProjectSystem-Query-QueryExecutionException 'Microsoft.VisualStudio.ProjectSystem.Query.QueryExecutionException') | Thrown when query execution is failed. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-UpdateSolutionAsync``2-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ProjectModel-ISolution},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``0},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``1}},System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-UpdateSolutionAsync``2-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``0},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``1}},System-Threading-CancellationToken-'></a>
 ### UpdateSolutionAsync\`\`2(queryFunc,updateFunc,cancellationToken) `method`
 
 ##### Summary
@@ -4483,9 +5180,9 @@ Results of the solution update actions.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| queryFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ProjectModel.ISolution},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ProjectModel.ISolution},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}}') | Function to select items to update. |
-| updateFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`1}}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``1}}') | Function to update selected items. |
-| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+| queryFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{\`\`0}}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}}') | Function to select items to update. |
+| updateFunc | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{\`\`1}}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``1}}') | Function to update selected items. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
 
 ##### Generic Types
 

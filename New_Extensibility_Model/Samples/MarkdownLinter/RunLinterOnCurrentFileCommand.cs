@@ -1,16 +1,16 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-namespace Microsoft.VisualStudio.Extensions.MarkdownLinter;
+namespace MarkdownLinter;
 
 using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Commands;
-using Microsoft.VisualStudio.Extensibility.Definitions;
 using Microsoft.VisualStudio.ProjectSystem.Query;
 
 /// <summary>
@@ -19,16 +19,7 @@ using Microsoft.VisualStudio.ProjectSystem.Query;
 /// <remarks>
 /// This command utilizes <see cref="CommandEnabledWhenAttribute"/> to describe when commmand state is enabled.
 /// </remarks>
-[Command(
-	"VisualStudio.Extensions.MarkdownLinter.RunLinterOnActiveDocument",
-	"Run Linter on open file",
-	containerType: typeof(MarkdownLinterExtension),
-	placement: CommandPlacement.ToolsMenu)]
-[CommandEnabledWhen(
-	"FileSelected",
-	new string[] { "FileSelected" },
-	new string[] { "ClientContext:Shell.ActiveSelectionFileName=.+" })]
-[CommandIcon("MarkdownIcon", IconSettings.IconAndText)]
+[VisualStudioContribution]
 internal class RunLinterOnCurrentFileCommand : Command
 {
 	private readonly TraceSource logger;
@@ -40,15 +31,22 @@ internal class RunLinterOnCurrentFileCommand : Command
 	/// <param name="extensibility">Extensibility object.</param>
 	/// <param name="traceSource">Logger instance that can be used to log extension actions.</param>
 	/// <param name="diagnosticsProvider">Local diagnostics provider service instance.</param>
-	/// <param name="id">Command identifier.</param>
-	public RunLinterOnCurrentFileCommand(VisualStudioExtensibility extensibility, TraceSource traceSource, MarkdownDiagnosticsService diagnosticsProvider, string id)
-		: base(extensibility, id)
+	public RunLinterOnCurrentFileCommand(VisualStudioExtensibility extensibility, TraceSource traceSource, MarkdownDiagnosticsService diagnosticsProvider)
+		: base(extensibility)
 	{
 		this.logger = Requires.NotNull(traceSource, nameof(traceSource));
 		this.diagnosticsProvider = Requires.NotNull(diagnosticsProvider, nameof(diagnosticsProvider));
 
 		this.logger.TraceEvent(TraceEventType.Information, 0, $"Initializing {nameof(RunLinterOnCurrentFileCommand)} instance.");
 	}
+
+	/// <inheritdoc />
+	public override CommandConfiguration CommandConfiguration => new("%MarkdownLinter.RunLinterOnCurrentFileCommand.DisplayName%")
+	{
+		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+		Icon = new(ImageMoniker.Custom("MarkdownIcon"), IconSettings.IconAndText),
+		EnabledWhen = ActivationConstraint.ClientContext(ClientContextKey.Shell.ActiveSelectionFileName, ".+"),
+	};
 
 	/// <inheritdoc />
 	public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)

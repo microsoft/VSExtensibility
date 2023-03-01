@@ -8,7 +8,7 @@ date: 2022-7-20
 
 Tool windows are a way to add complex UI and interactions to Visual Studio. They typically provide a user-friendly way to interact with various APIs and features. For example, the Solution Explorer tool window provides a tree-based view of the current project/solution/folder and provides simple gestures for the opening, renaming, and creating of files.
 
-Tool windows are single-instance, meaning that only one instance of the Tool Window can be open at a time. When a Tool Window is closed in the IDE, it is only visibly hidden, instead of being fully closed and disposed of like documents. 
+Tool windows are single-instance, meaning that only one instance of the Tool Window can be open at a time. When a Tool Window is closed in the IDE, it is only visibly hidden, instead of being fully closed and disposed of like documents.
 
 ## Get started
 
@@ -25,27 +25,27 @@ This guide is designed to cover the top user scenarios when working with Tool Wi
 
 ## Create a tool window
 
-Creating a tool window with the new Extensibility Model is as simple as extending the base class [`Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow`](./../../api/Microsoft.VisualStudio.Extensibility.md/#toolwindow-type) and adorning your class with the attribute [`Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowAttribute`](./../../api/Microsoft.VisualStudio.Extensibility.Contracts.md/#toolwindowattribute-type).
+Creating a tool window with the new Extensibility Model is as simple as extending the base class [`Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindow`](./../../api/Microsoft.VisualStudio.Extensibility.md/#toolwindow-type) and adorning your class with the attribute [`Microsoft.VisualStudio.Extensibility.VisualStudioContribution`](./../../api/Microsoft.VisualStudio.Extensibility.Contracts.md/#T-Microsoft-VisualStudio-Extensibility-VisualStudioContributionAttribute).
 
 ```csharp
-[ToolWindow]
+[VisualStudioContribution]
 public class MyToolWindow : ToolWindow
 ```
 
 ### ToolWindow attribute
 
-The attribute [`ToolWindowAttribute`](./../../api/Microsoft.VisualStudio.Extensibility.md/#toolwindowattribute-type) has a few parameters that you should become familiar with:
+The `ToolWindow` abstract class requires the implementation of the [`ToolWindowConfiguration`](./../../api/Microsoft.VisualStudio.Extensibility.md/#P-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindow-ToolWindowConfiguration) configuration, which has a few properties that you should become familiar with:
 
 | Parameter | Type | Required | Description | Default Value |
 | --------- |----- | -------- | ----------- | ------------- |
-| Placement | ToolWindowPlacement or String | No | The location in Visual Studio where the tool window should be opened the first time. If this value is a string it's expected to be a guid matching an old vsix-style tool window id. See more about [ToolWindowPlacement](./../../api/Microsoft.VisualStudio.Extensibility.Contracts.md/#toolwindowplacement-type). | ToolWindowPlacement.Floating |
-| DockDirection | Dock | No | The direction relative to the placement where the tool window should be docked when opened the first time. See more about [Dock](./../../api/Microsoft.VisualStudio.Extensibility.Contracts.md/#dock-type). | Dock.None |
+| Placement | ToolWindowPlacement | No | The location in Visual Studio where the tool window should be opened the first time. [`ToolWindowPlacement.DockedTo`](./../../api/Microsoft.VisualStudio.Extensibility.Contracts.md/#M-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement-DockedTo-System-Guid-) allows to dock the tool window to a guid matching an old vsix-style tool window id. See more about [ToolWindowPlacement](./../../api/Microsoft.VisualStudio.Extensibility.Contracts.md/#T-Microsoft-VisualStudio-Extensibility-ToolWindows-ToolWindowPlacement). | ToolWindowPlacement.Floating |
+| DockDirection | Dock | No | The direction relative to the placement where the tool window should be docked when opened the first time. See more about [Dock](./../../api/Microsoft.VisualStudio.Extensibility.Contracts.md/#T-Microsoft-VisualStudio-Extensibility-ToolWindows-Dock). | Dock.None |
 | AllowAutoCreation | Bool | No | Whether or not the tool window can be created automatically. Setting this to false means that tool windows that are open when Visual Studio is closed will not be automatically restored when Visual Studio is opened again. | `true` |
 
 ### Example
 
 ```csharp
-[ToolWindow(placement: ToolWindowPlacement.Floating, dockDirection: Dock.Right, allowAutoCreation: true)]
+[VisualStudioContribution]
 public class MyToolWindow : ToolWindow
 {
     public MyToolWindow(VisualStudioExtensibility extensibility)
@@ -53,6 +53,13 @@ public class MyToolWindow : ToolWindow
     {
         this.Title = "My Tool Window";
     }
+
+    public override ToolWindowConfiguration ToolWindowConfiguration => new()
+    {
+        Placement = ToolWindowPlacement.Floating,
+        DockDirection = Dock.Right,
+        AllowAutoCreation = true,
+    };
 
     public override Task<IRemoteUserControl> GetContentAsync(CancellationToken cancellationToken)
     {
@@ -66,7 +73,7 @@ public class MyToolWindow : ToolWindow
 Because extensions in VisualStudio.Extensibility might be out-of-process from the IDE, we cannot directly use WPF as a presentation layer for content in Tool Windows. Instead, adding content to a tool window requires creating a [RemoteUserControl](./../../inside-the-sdk/remote-ui.md) and the corresponding data template for that control. While there are some simple examples below, we recommend reading the [Remote UI documentation](./../../inside-the-sdk/remote-ui.md) when adding tool window content.
 
 ```csharp
-[ToolWindow(ToolWindowPlacement.DocumentWell)]
+[VisualStudioContribution]
 public class MyToolWindow : ToolWindow
 {
     public MyToolWindow(VisualStudioExtensibility extensibility)
@@ -74,6 +81,11 @@ public class MyToolWindow : ToolWindow
     {
         this.Title = "My Tool Window";
     }
+
+    public override ToolWindowConfiguration ToolWindowConfiguration => new()
+    {
+        Placement = ToolWindowPlacement.DocumentWell,
+    };
 
     public override async Task InitializeAsync(CancellationToken cancellationToken)
     {
@@ -122,14 +134,19 @@ A common mechanism for showing a tool window is to add a [command](./../command/
 ### Example
 
 ```csharp
-[Command("ToolWindowExtension.MyToolWindowCommand", "My Tool Window", placement: CommandPlacement.ToolsMenu)]
-[CommandIcon(KnownMonikers.ToolWindow, IconSettings.IconAndText)]
+[VisualStudioContribution]
 public class MyToolWindowCommand : Command
 {
-    public MyToolWindowCommand(VisualStudioExtensibility extensibility, string id)
-        : base(extensibility, id)
+    public MyToolWindowCommand(VisualStudioExtensibility extensibility)
+        : base(extensibility)
     {
     }
+    
+    public override CommandConfiguration CommandConfiguration => new("My Tool Window")
+    {
+        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+        Icon = new(ImageMoniker.KnownValues.ToolWindow, IconSettings.IconAndText),
+    };
 
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
@@ -159,11 +176,10 @@ The attribute [`Microsoft.VisualStudio.Extensibility.ToolWindows.ToolWindowVisib
 ```csharp
 // The tool window will be shown if the active document is a .cs file, and
 // will be hidden if the active document is any any other type of file.
-[ToolWindow]
-[ToolWindowVisibleWhen("FileSelected",
-                       new string[] { "FileSelected" },
-                       new string[] { "ClientContext:Shell.ActiveSelectionFileName=.cs$" })]
-public class MyToolWindow : ToolWindow
+public override ToolWindowConfiguration ToolWindowConfiguration => new()
+{
+    VisibleWhen = ActivationConstraint.ClientContext(ClientContextKey.Shell.ActiveSelectionFileName, @"\.cs$"),
+};
 ```
 
 See [Rule-based activation constraints](../../inside-the-sdk/activation-constraints.md/#rule-based-activation-constraints) for more information on valid term values.
@@ -174,4 +190,4 @@ Be sure to read about how [Remote UI](./../../inside-the-sdk/remote-ui.md) works
 
 Tool window content is created using WPF, so refer to the [WPF documentation](https://learn.microsoft.com/dotnet/desktop/wpf/overview/) for guidance.
 
-See the [ToolWindowExtension](./../../../../New_Extensibility_Model/Samples/ToolWindowExtension) sample for a full example of creating an extension with a tool window.
+See the [ToolWindow](./../../../../New_Extensibility_Model/Samples/ToolWindowSample) sample for a full example of creating an extension with a tool window.
