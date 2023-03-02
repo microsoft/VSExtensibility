@@ -23,7 +23,7 @@ Eventually, the VisualStudio.Extensibility SDK will ultimately allow you to writ
 This site is your hub for all documentation for the VisualStudio.Extensibility SDK. Documentation is currently available for the following:
 
 * VisualStudio.Extensibility SDK (see the following sections)
-* [Extensions to Language Server Protocol (LSP)](lsp/lsp-extensions-specifications.md)
+* [Extensions to Language Server Protocol (LSP)](docs/lsp/lsp-extensions-specifications.md)
 
 ## Navigate the documentation
 
