@@ -2727,8 +2727,7 @@ Initializes a new instance of the [AsyncExecutable](#T-Microsoft-VisualStudio-Pr
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| source | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable') | A query to describe items where the action applies to |
-| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableQueue-1 'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') | A collection of actions to take during execution. |
+| source | [Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable](#T-Microsoft-VisualStudio-ProjectSystem-Query-AsyncQueryable 'Microsoft.VisualStudio.ProjectSystem.Query.AsyncQueryable') | A query to describe items where the action applie| steps | [System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}](https://learn.microsoft.com/dotnet/api/System.Collections.Immutable.ImmutableQueue-1 'System.Collections.Immutable.ImmutableQueue{Microsoft.VisualStudio.ProjectSystem.Query.Framework.ExecutableStep}') | A collection of actions to take during execution. |
 
 <a name='M-Microsoft-VisualStudio-ProjectSystem-Query-AsyncExecutable-#ctor-Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable,System-Collections-Immutable-ImmutableQueue{Microsoft-VisualStudio-ProjectSystem-Query-Framework-ExecutableStep}-'></a>
 ### #ctor(source,steps) `constructor`
@@ -6290,7 +6289,7 @@ A merged results collection.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| asyncQueries | [System.Collections.Generic.IEnumerable{System.Collections.Generic.IAsyncEnumerable{\`\`0}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Collections.Generic.IAsyncEnumerable{``0}}') | A set of query results. |
+| asyncQueries | [System.Collections.Generic.IEnumerable{System.Collections.Generic.IAsyncEnumerable{\`\`0}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{System.Collections.Generic.IAsyncEnumerable{``0}}') | A set of query results. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to abort the enumeration. |
 
 ##### Generic Types
@@ -13159,7 +13158,7 @@ The runtime value represented as the current list type.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| collection | [System.Collections.IEnumerable](https://learn.microsoft.com/dotnet/api/System.Collections.IEnumerable-1 'System.Collections.IEnumerable') | A collection of value. |
+| collection | [System.Collections.IEnumerable](https://learn.microsoft.com/dotnet/api/System.Collections.IEnumerable 'System.Collections.IEnumerable') | A collection of value. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-ValueTypes-IValueSetType'></a>
 ## IValueSetType `type`
@@ -18077,7 +18076,7 @@ A task which completes when operations are done.
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| sourceItems | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Execution.QueryProcessResult{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList-2 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Execution.QueryProcessResult{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}') | Results from earlier query. |
+| sourceItems | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Execution.QueryProcessResult{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList-1 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.ProjectSystem.Query.Execution.QueryProcessResult{Microsoft.VisualStudio.ProjectSystem.Query.IEntityValue}}') | Results from earlier query. |
 | request | [Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryProcessRequest](#T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-IQueryProcessRequest 'Microsoft.VisualStudio.ProjectSystem.Query.Execution.IQueryProcessRequest') | The top request. |
 
 <a name='T-Microsoft-VisualStudio-ProjectSystem-Query-Execution-QueryByIdDataProducer'></a>
@@ -23561,7 +23560,8 @@ The set of updated projects.
 | page | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the page containing the property. |
 | name | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the property to set. |
 | dimensions | [System.Collections.ObjectModel.ReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.Framework.Actions.ConfigurationDimensionValue}](https://learn.microsoft.com/dotnet/api/System.Collections.ObjectModel.ReadOnlyCollection-1 'System.Collections.ObjectModel.ReadOnlyCollection{Microsoft.VisualStudio.ProjectSystem.Query.Framework.Actions.ConfigurationDimensionValue}') | A set of (dimension, value) pairs used to select which project configurations the new value is applied to. |
-| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The new value for the property. May be null to indicate that the property should be removed entirely and/or reset to a default value. |
+| value | [System.Object](https://learn.microsoft.com/dotnet/api/System.Object 'System.Object') | The new value for the property. May be null to indicate that the property
+should be removed entirely and/or reset to a default value. |
 
 ##### Remarks
 

@@ -3,8 +3,6 @@
 
 ## Contents
 
-- [AllowNullAttribute](#T-System-Diagnostics-CodeAnalysis-AllowNullAttribute 'System.Diagnostics.CodeAnalysis.AllowNullAttribute')
-  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-AllowNullAttribute-#ctor 'System.Diagnostics.CodeAnalysis.AllowNullAttribute.#ctor')
 - [AnchoredCommandAddedEventArgs](#T-Microsoft-VisualStudio-Extensibility-Commands-AnchoredCommandAddedEventArgs 'Microsoft.VisualStudio.Extensibility.Commands.AnchoredCommandAddedEventArgs')
   - [#ctor(command,dynamicCommandAnchorIdentifier)](#M-Microsoft-VisualStudio-Extensibility-Commands-AnchoredCommandAddedEventArgs-#ctor-Microsoft-VisualStudio-Extensibility-Commands-IDynamicCommand,System-String- 'Microsoft.VisualStudio.Extensibility.Commands.AnchoredCommandAddedEventArgs.#ctor(Microsoft.VisualStudio.Extensibility.Commands.IDynamicCommand,System.String)')
   - [DynamicCommandAnchorIdentifier](#P-Microsoft-VisualStudio-Extensibility-Commands-AnchoredCommandAddedEventArgs-DynamicCommandAnchorIdentifier 'Microsoft.VisualStudio.Extensibility.Commands.AnchoredCommandAddedEventArgs.DynamicCommandAnchorIdentifier')
@@ -89,8 +87,6 @@
   - [Dispose()](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-Dispose-System-Boolean- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsReporter.Dispose(System.Boolean)')
   - [ReportDiagnosticAsync(diagnostic,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-ReportDiagnosticAsync-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsReporter.ReportDiagnosticAsync(Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic,System.Threading.CancellationToken)')
   - [ReportDiagnosticsAsync(diagnostics,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Documents-DiagnosticsReporter-ReportDiagnosticsAsync-System-Collections-Generic-IEnumerable{Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DiagnosticsReporter.ReportDiagnosticsAsync(System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic},System.Threading.CancellationToken)')
-- [DisallowNullAttribute](#T-System-Diagnostics-CodeAnalysis-DisallowNullAttribute 'System.Diagnostics.CodeAnalysis.DisallowNullAttribute')
-  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-DisallowNullAttribute-#ctor 'System.Diagnostics.CodeAnalysis.DisallowNullAttribute.#ctor')
 - [DocumentDiagnostic](#T-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic')
   - [#ctor(span,message,errorCode,severity,providerName,helpLink)](#M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-#ctor-Microsoft-VisualStudio-Extensibility-Editor-TextRange,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String- 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.#ctor(Microsoft.VisualStudio.Extensibility.Editor.TextRange,System.String,System.String,Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity,System.String,System.String)')
   - [#ctor(uri,range,message,errorCode,severity,providerName,helpLink)](#M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-#ctor-System-Uri,Microsoft-VisualStudio-RpcContracts-Utilities-Range,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String- 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.#ctor(System.Uri,Microsoft.VisualStudio.RpcContracts.Utilities.Range,System.String,System.String,Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity,System.String,System.String)')
@@ -104,27 +100,24 @@
   - [Uri](#P-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-Uri 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.Uri')
   - [CreateDocumentDiagnostic(range,message,errorCode,severity,providerName,helpLink)](#M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-CreateDocumentDiagnostic-Microsoft-VisualStudio-Extensibility-Editor-TextRange,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String- 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.CreateDocumentDiagnostic(Microsoft.VisualStudio.Extensibility.Editor.TextRange,System.String,System.String,Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity,System.String,System.String)')
   - [CreateDocumentDiagnosticForClosedDocument(uri,range,message,errorCode,severity,providerName,helpLink)](#M-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic-CreateDocumentDiagnosticForClosedDocument-System-Uri,Microsoft-VisualStudio-RpcContracts-Utilities-Range,System-String,System-String,Microsoft-VisualStudio-RpcContracts-DiagnosticManagement-DiagnosticSeverity,System-String,System-String- 'Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic.CreateDocumentDiagnosticForClosedDocument(System.Uri,Microsoft.VisualStudio.RpcContracts.Utilities.Range,System.String,System.String,Microsoft.VisualStudio.RpcContracts.DiagnosticManagement.DiagnosticSeverity,System.String,System.String)')
-- [DocumentExtensions](#T-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions 'Microsoft.VisualStudio.Extensibility.Documents.DocumentExtensions')
-  - [AsTextDocumentAsync(documentSnapshot,extensibility,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions-AsTextDocumentAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentExtensions.AsTextDocumentAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot,Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,System.Threading.CancellationToken)')
-  - [CloseAsync(document,option,extensibility,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions-CloseAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentExtensions.CloseAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot,Microsoft.VisualStudio.RpcContracts.Documents.SaveDocumentOption,Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,System.Threading.CancellationToken)')
-  - [SaveAsync(document,extensibility,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions-SaveAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentExtensions.SaveAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot,Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,System.Threading.CancellationToken)')
-- [DocumentsExtensibility](#T-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility')
-  - [#ctor(extensibilityPoint)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.#ctor(Microsoft.VisualStudio.Extensibility.ExtensibilityPoint)')
-  - [CloseDocumentAsync(moniker,option,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-CloseDocumentAsync-System-Uri,Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.CloseDocumentAsync(System.Uri,Microsoft.VisualStudio.RpcContracts.Documents.SaveDocumentOption,System.Threading.CancellationToken)')
-  - [GetOpenDocumentAsync(moniker,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-GetOpenDocumentAsync-System-Uri,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.GetOpenDocumentAsync(System.Uri,System.Threading.CancellationToken)')
-  - [GetOpenDocumentsAsync(token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-GetOpenDocumentsAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.GetOpenDocumentsAsync(System.Threading.CancellationToken)')
-  - [GetTextDocumentSnapshotAsync(documentSnapshot,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-GetTextDocumentSnapshotAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.GetTextDocumentSnapshotAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot,System.Threading.CancellationToken)')
-  - [InitializeDocumentAsync(documentSnapshot,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-InitializeDocumentAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.InitializeDocumentAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot,System.Threading.CancellationToken)')
-  - [OpenDocumentAsync(moniker,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-OpenDocumentAsync-System-Uri,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.OpenDocumentAsync(System.Uri,System.Threading.CancellationToken)')
-  - [OpenDocumentAsync(moniker,options,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-OpenDocumentAsync-System-Uri,Microsoft-VisualStudio-RpcContracts-OpenDocument-OpenDocumentOptions,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.OpenDocumentAsync(System.Uri,Microsoft.VisualStudio.RpcContracts.OpenDocument.OpenDocumentOptions,System.Threading.CancellationToken)')
-  - [SaveAllAsync(token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-SaveAllAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.SaveAllAsync(System.Threading.CancellationToken)')
-  - [SaveDocumentAsync(moniker,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-SaveDocumentAsync-System-Uri,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.SaveDocumentAsync(System.Uri,System.Threading.CancellationToken)')
-  - [SubscribeAsync(listener,filterRegex,token)](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-SubscribeAsync-Microsoft-VisualStudio-RpcContracts-Documents-IDocumentEventsListener,System-String,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.SubscribeAsync(Microsoft.VisualStudio.RpcContracts.Documents.IDocumentEventsListener,System.String,System.Threading.CancellationToken)')
-- [DoesNotReturnAttribute](#T-System-Diagnostics-CodeAnalysis-DoesNotReturnAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute')
-  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-DoesNotReturnAttribute-#ctor 'System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute.#ctor')
-- [DoesNotReturnIfAttribute](#T-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute')
-  - [#ctor(parameterValue)](#M-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-#ctor-System-Boolean- 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.#ctor(System.Boolean)')
-  - [ParameterValue](#P-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-ParameterValue 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute.ParameterValue')
+- [DocumentExtensions](#T-Microsoft-VisualStudio-Extensibility-DocumentExtensions 'Microsoft.VisualStudio.Extensibility.DocumentExtensions')
+  - [AsTextDocumentAsync(documentSnapshot,extensibility,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-DocumentExtensions-AsTextDocumentAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DocumentExtensions.AsTextDocumentAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot,Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,System.Threading.CancellationToken)')
+  - [CloseAsync(document,option,extensibility,token)](#M-Microsoft-VisualStudio-Extensibility-DocumentExtensions-CloseAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DocumentExtensions.CloseAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot,Microsoft.VisualStudio.RpcContracts.Documents.SaveDocumentOption,Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,System.Threading.CancellationToken)')
+  - [SaveAsync(document,extensibility,token)](#M-Microsoft-VisualStudio-Extensibility-DocumentExtensions-SaveAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DocumentExtensions.SaveAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot,Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,System.Threading.CancellationToken)')
+- [DocumentsExtensibility](#T-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility 'Microsoft.VisualStudio.Extensibility.DocumentsExtensibility')
+  - [#ctor(extensibilityPoint)](#M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint- 'Microsoft.VisualStudio.Extensibility.DocumentsExtensibility.#ctor(Microsoft.VisualStudio.Extensibility.ExtensibilityPoint)')
+  - [CloseDocumentAsync(moniker,option,token)](#M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-CloseDocumentAsync-System-Uri,Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DocumentsExtensibility.CloseDocumentAsync(System.Uri,Microsoft.VisualStudio.RpcContracts.Documents.SaveDocumentOption,System.Threading.CancellationToken)')
+  - [GetOpenDocumentAsync(moniker,token)](#M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-GetOpenDocumentAsync-System-Uri,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DocumentsExtensibility.GetOpenDocumentAsync(System.Uri,System.Threading.CancellationToken)')
+  - [GetOpenDocumentsAsync(token)](#M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-GetOpenDocumentsAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DocumentsExtensibility.GetOpenDocumentsAsync(System.Threading.CancellationToken)')
+  - [GetTextDocumentSnapshotAsync(documentSnapshot,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-GetTextDocumentSnapshotAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DocumentsExtensibility.GetTextDocumentSnapshotAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot,System.Threading.CancellationToken)')
+  - [InitializeDocumentAsync(documentSnapshot,token)](#M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-InitializeDocumentAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DocumentsExtensibility.InitializeDocumentAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot,System.Threading.CancellationToken)')
+  - [OpenDocumentAsync(moniker,token)](#M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-OpenDocumentAsync-System-Uri,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DocumentsExtensibility.OpenDocumentAsync(System.Uri,System.Threading.CancellationToken)')
+  - [OpenDocumentAsync(moniker,options,token)](#M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-OpenDocumentAsync-System-Uri,Microsoft-VisualStudio-RpcContracts-OpenDocument-OpenDocumentOptions,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DocumentsExtensibility.OpenDocumentAsync(System.Uri,Microsoft.VisualStudio.RpcContracts.OpenDocument.OpenDocumentOptions,System.Threading.CancellationToken)')
+  - [OpenTextDocumentAsync(filePath,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-OpenTextDocumentAsync-System-Uri,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DocumentsExtensibility.OpenTextDocumentAsync(System.Uri,System.Threading.CancellationToken)')
+  - [OpenTextDocumentAsync(filePath,options,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-OpenTextDocumentAsync-System-Uri,Microsoft-VisualStudio-RpcContracts-OpenDocument-OpenDocumentOptions,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DocumentsExtensibility.OpenTextDocumentAsync(System.Uri,Microsoft.VisualStudio.RpcContracts.OpenDocument.OpenDocumentOptions,System.Threading.CancellationToken)')
+  - [SaveAllAsync(token)](#M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-SaveAllAsync-System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DocumentsExtensibility.SaveAllAsync(System.Threading.CancellationToken)')
+  - [SaveDocumentAsync(moniker,token)](#M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-SaveDocumentAsync-System-Uri,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DocumentsExtensibility.SaveDocumentAsync(System.Uri,System.Threading.CancellationToken)')
+  - [SubscribeAsync(listener,filterRegex,token)](#M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-SubscribeAsync-Microsoft-VisualStudio-RpcContracts-Documents-IDocumentEventsListener,System-String,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DocumentsExtensibility.SubscribeAsync(Microsoft.VisualStudio.RpcContracts.Documents.IDocumentEventsListener,System.String,System.Threading.CancellationToken)')
 - [DynamicCommand](#T-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommand')
   - [#ctor(extensibility,metadata,executeCommandCallback)](#M-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,Microsoft-VisualStudio-RpcContracts-Commands-CommandMetadata,Microsoft-VisualStudio-Extensibility-Commands-CommandCallbackAsync- 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommand.#ctor(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,Microsoft.VisualStudio.RpcContracts.Commands.CommandMetadata,Microsoft.VisualStudio.Extensibility.Commands.CommandCallbackAsync)')
   - [IconName](#P-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand-IconName 'Microsoft.VisualStudio.Extensibility.Commands.DynamicCommand.IconName')
@@ -183,28 +176,6 @@
 - [IsExternalInit](#T-System-Runtime-CompilerServices-IsExternalInit 'System.Runtime.CompilerServices.IsExternalInit')
 - [LanguagesExtensibility](#T-Microsoft-VisualStudio-Extensibility-Documents-LanguagesExtensibility 'Microsoft.VisualStudio.Extensibility.Documents.LanguagesExtensibility')
   - [#ctor(extensibilityPoint)](#M-Microsoft-VisualStudio-Extensibility-Documents-LanguagesExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint- 'Microsoft.VisualStudio.Extensibility.Documents.LanguagesExtensibility.#ctor(Microsoft.VisualStudio.Extensibility.ExtensibilityPoint)')
-- [MaybeNullAttribute](#T-System-Diagnostics-CodeAnalysis-MaybeNullAttribute 'System.Diagnostics.CodeAnalysis.MaybeNullAttribute')
-  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-MaybeNullAttribute-#ctor 'System.Diagnostics.CodeAnalysis.MaybeNullAttribute.#ctor')
-- [MaybeNullWhenAttribute](#T-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute')
-  - [#ctor(returnValue)](#M-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-#ctor-System-Boolean- 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.#ctor(System.Boolean)')
-  - [ReturnValue](#P-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-ReturnValue 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue')
-- [MemberNotNullAttribute](#T-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute 'System.Diagnostics.CodeAnalysis.MemberNotNullAttribute')
-  - [#ctor(member)](#M-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-#ctor-System-String- 'System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String)')
-  - [#ctor(members)](#M-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-#ctor-System-String[]- 'System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.#ctor(System.String[])')
-  - [Members](#P-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-Members 'System.Diagnostics.CodeAnalysis.MemberNotNullAttribute.Members')
-- [MemberNotNullWhenAttribute](#T-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute 'System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute')
-  - [#ctor(returnValue,member)](#M-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-#ctor-System-Boolean,System-String- 'System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String)')
-  - [#ctor(returnValue,members)](#M-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-#ctor-System-Boolean,System-String[]- 'System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.#ctor(System.Boolean,System.String[])')
-  - [Members](#P-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-Members 'System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.Members')
-  - [ReturnValue](#P-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-ReturnValue 'System.Diagnostics.CodeAnalysis.MemberNotNullWhenAttribute.ReturnValue')
-- [NotNullAttribute](#T-System-Diagnostics-CodeAnalysis-NotNullAttribute 'System.Diagnostics.CodeAnalysis.NotNullAttribute')
-  - [#ctor()](#M-System-Diagnostics-CodeAnalysis-NotNullAttribute-#ctor 'System.Diagnostics.CodeAnalysis.NotNullAttribute.#ctor')
-- [NotNullIfNotNullAttribute](#T-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute 'System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute')
-  - [#ctor(parameterName)](#M-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-#ctor-System-String- 'System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.#ctor(System.String)')
-  - [ParameterName](#P-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-ParameterName 'System.Diagnostics.CodeAnalysis.NotNullIfNotNullAttribute.ParameterName')
-- [NotNullWhenAttribute](#T-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute')
-  - [#ctor(returnValue)](#M-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-#ctor-System-Boolean- 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.#ctor(System.Boolean)')
-  - [ReturnValue](#P-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-ReturnValue 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue')
 - [OutputWindow](#T-Microsoft-VisualStudio-Extensibility-Documents-OutputWindow 'Microsoft.VisualStudio.Extensibility.Documents.OutputWindow')
   - [#ctor(outputWindow)](#M-Microsoft-VisualStudio-Extensibility-Documents-OutputWindow-#ctor-Microsoft-VisualStudio-Extensibility-Documents-OutputWindowInternal- 'Microsoft.VisualStudio.Extensibility.Documents.OutputWindow.#ctor(Microsoft.VisualStudio.Extensibility.Documents.OutputWindowInternal)')
   - [Writer](#P-Microsoft-VisualStudio-Extensibility-Documents-OutputWindow-Writer 'Microsoft.VisualStudio.Extensibility.Documents.OutputWindow.Writer')
@@ -347,7 +318,8 @@
   - [ReplaceTargetObjectAsync()](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClientImplementation-ReplaceTargetObjectAsync-System-Buffers-ReadOnlySequence{System-Byte},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClientImplementation.ReplaceTargetObjectAsync(System.Buffers.ReadOnlySequence{System.Byte},System.Threading.CancellationToken)')
   - [RequestDataAsync()](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClientImplementation-RequestDataAsync-System-Nullable{System-Buffers-ReadOnlySequence{System-Byte}},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClientImplementation.RequestDataAsync(System.Nullable{System.Buffers.ReadOnlySequence{System.Byte}},System.Threading.CancellationToken)')
 - [VisualizerTarget](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget')
-  - [#ctor(objectSource,targetTypeFullName,targetTypeModuleName,targetTypeModuleVersion)](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-#ctor-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient,System-String,System-String,System-Version- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget.#ctor(Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient,System.String,System.String,System.Version)')
+  - [#ctor(objectSource,visualizerTargetData)](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-#ctor-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient,Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetData- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget.#ctor(Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient,Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetData)')
+  - [IsTargetReplaceable](#P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-IsTargetReplaceable 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget.IsTargetReplaceable')
   - [ObjectSource](#P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-ObjectSource 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget.ObjectSource')
   - [TargetTypeFullName](#P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-TargetTypeFullName 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget.TargetTypeFullName')
   - [TargetTypeModuleName](#P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-TargetTypeModuleName 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTarget.TargetTypeModuleName')
@@ -358,35 +330,16 @@
   - [#ctor(visualizerTargetProxy,visualizerTargetData)](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetImplementation-#ctor-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-IVisualizerTarget,Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetData- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTargetImplementation.#ctor(Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.IVisualizerTarget,Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetData)')
   - [Dispose()](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetImplementation-Dispose 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTargetImplementation.Dispose')
   - [Microsoft#VisualStudio#RpcContracts#DebuggerVisualizers#IVisualizerTargetClient#NotifyStateChangeAsync()](#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTargetImplementation-Microsoft#VisualStudio#RpcContracts#DebuggerVisualizers#IVisualizerTargetClient#NotifyStateChangeAsync-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetStateNotification,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerTargetImplementation.Microsoft#VisualStudio#RpcContracts#DebuggerVisualizers#IVisualizerTargetClient#NotifyStateChangeAsync(Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetStateNotification,System.Threading.CancellationToken)')
-- [WorkspacesExtensibility](#T-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility 'Microsoft.VisualStudio.Extensibility.Workspaces.WorkspacesExtensibility')
-  - [#ctor(extensibilityPoint)](#M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint- 'Microsoft.VisualStudio.Extensibility.Workspaces.WorkspacesExtensibility.#ctor(Microsoft.VisualStudio.Extensibility.ExtensibilityPoint)')
-  - [QueryProjectsAsync\`\`1(queryFunc,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-QueryProjectsAsync``1-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Workspaces.WorkspacesExtensibility.QueryProjectsAsync``1(System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}},System.Threading.CancellationToken)')
-  - [QuerySolutionAsync\`\`1(queryFunc,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-QuerySolutionAsync``1-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Workspaces.WorkspacesExtensibility.QuerySolutionAsync``1(System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}},System.Threading.CancellationToken)')
-  - [UpdateProjectsAsync\`\`2(queryFunc,updateFunc,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-UpdateProjectsAsync``2-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``0},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``1}},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Workspaces.WorkspacesExtensibility.UpdateProjectsAsync``2(System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}},System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``1}},System.Threading.CancellationToken)')
-  - [UpdateSolutionAsync\`\`2(queryFunc,updateFunc,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-UpdateSolutionAsync``2-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``0},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``1}},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Workspaces.WorkspacesExtensibility.UpdateSolutionAsync``2(System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}},System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``1}},System.Threading.CancellationToken)')
-
-<a name='T-System-Diagnostics-CodeAnalysis-AllowNullAttribute'></a>
-## AllowNullAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that `null` is allowed as an input even if the
-    corresponding type disallows it.
-
-<a name='M-System-Diagnostics-CodeAnalysis-AllowNullAttribute-#ctor'></a>
-### #ctor() `constructor`
-
-##### Summary
-
-Initializes a new instance of the [AllowNullAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.AllowNullAttribute 'System.Diagnostics.CodeAnalysis.AllowNullAttribute') class.
-
-##### Parameters
-
-This constructor has no parameters.
+- [WorkspacesExtensibility](#T-Microsoft-VisualStudio-Extensibility-WorkspacesExtensibility 'Microsoft.VisualStudio.Extensibility.WorkspacesExtensibility')
+  - [#ctor(extensibilityPoint)](#M-Microsoft-VisualStudio-Extensibility-WorkspacesExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint- 'Microsoft.VisualStudio.Extensibility.WorkspacesExtensibility.#ctor(Microsoft.VisualStudio.Extensibility.ExtensibilityPoint)')
+  - [QueryProjectsAsync\`\`1(queryFunc,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-WorkspacesExtensibility-QueryProjectsAsync``1-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.WorkspacesExtensibility.QueryProjectsAsync``1(System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}},System.Threading.CancellationToken)')
+  - [QuerySolutionAsync\`\`1(queryFunc,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-WorkspacesExtensibility-QuerySolutionAsync``1-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.WorkspacesExtensibility.QuerySolutionAsync``1(System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}},System.Threading.CancellationToken)')
+  - [UpdateProjectsAsync\`\`2(queryFunc,updateFunc,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-WorkspacesExtensibility-UpdateProjectsAsync``2-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``0},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``1}},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.WorkspacesExtensibility.UpdateProjectsAsync``2(System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}},System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``1}},System.Threading.CancellationToken)')
+  - [UpdateSolutionAsync\`\`2(queryFunc,updateFunc,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-WorkspacesExtensibility-UpdateSolutionAsync``2-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``0},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``1}},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.WorkspacesExtensibility.UpdateSolutionAsync``2(System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.ISolutionSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{``0}},System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``0},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncUpdatable{``1}},System.Threading.CancellationToken)')
+- [WorkspacesExtensionMethods](#T-Microsoft-VisualStudio-Extensibility-WorkspacesExtensionMethods 'Microsoft.VisualStudio.Extensibility.WorkspacesExtensionMethods')
+  - [AddExistingFileAsync(projectSnapshot,fileToAdd,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-WorkspacesExtensionMethods-AddExistingFileAsync-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot,System-Uri,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.WorkspacesExtensionMethods.AddExistingFileAsync(Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot,System.Uri,System.Threading.CancellationToken)')
+  - [GetActiveProjectAsync(clientContext,withModifier,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-WorkspacesExtensionMethods-GetActiveProjectAsync-Microsoft-VisualStudio-Extensibility-IClientContext,System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot}},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.WorkspacesExtensionMethods.GetActiveProjectAsync(Microsoft.VisualStudio.Extensibility.IClientContext,System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}},System.Threading.CancellationToken)')
+  - [GetActiveProjectAsync(clientContext,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-WorkspacesExtensionMethods-GetActiveProjectAsync-Microsoft-VisualStudio-Extensibility-IClientContext,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.WorkspacesExtensionMethods.GetActiveProjectAsync(Microsoft.VisualStudio.Extensibility.IClientContext,System.Threading.CancellationToken)')
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-AnchoredCommandAddedEventArgs'></a>
 ## AnchoredCommandAddedEventArgs `type`
@@ -1534,29 +1487,6 @@ A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'Sys
 | diagnostics | [System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IEnumerable-1 'System.Collections.Generic.IEnumerable{Microsoft.VisualStudio.Extensibility.Languages.DocumentDiagnostic}') | New diagnostics to report. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress invocation. |
 
-<a name='T-System-Diagnostics-CodeAnalysis-DisallowNullAttribute'></a>
-## DisallowNullAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that `null` is disallowed as an input even if the
-    corresponding type allows it.
-
-<a name='M-System-Diagnostics-CodeAnalysis-DisallowNullAttribute-#ctor'></a>
-### #ctor() `constructor`
-
-##### Summary
-
-Initializes a new instance of the [DisallowNullAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.DisallowNullAttribute 'System.Diagnostics.CodeAnalysis.DisallowNullAttribute') class.
-
-##### Parameters
-
-This constructor has no parameters.
-
 <a name='T-Microsoft-VisualStudio-Extensibility-Languages-DocumentDiagnostic'></a>
 ## DocumentDiagnostic `type`
 
@@ -1715,18 +1645,18 @@ Newly created [DocumentDiagnostic](#T-Microsoft-VisualStudio-Extensibility-Langu
 
 Uri's should exclusively used with closed documnents since the lack of versioning is only safe on documents that are assured to not change.
 
-<a name='T-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions'></a>
+<a name='T-Microsoft-VisualStudio-Extensibility-DocumentExtensions'></a>
 ## DocumentExtensions `type`
 
 ##### Namespace
 
-Microsoft.VisualStudio.Extensibility.Documents
+Microsoft.VisualStudio.Extensibility
 
 ##### Summary
 
-Exteension methods for [DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot') objects.
+Extension methods for [DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot') objects.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions-AsTextDocumentAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-DocumentExtensions-AsTextDocumentAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken-'></a>
 ### AsTextDocumentAsync(documentSnapshot,extensibility,cancellationToken) `method`
 
 ##### Summary
@@ -1741,7 +1671,7 @@ Exteension methods for [DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts
 | extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility object. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions-CloseAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-DocumentExtensions-CloseAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken-'></a>
 ### CloseAsync(document,option,extensibility,token) `method`
 
 ##### Summary
@@ -1761,7 +1691,7 @@ A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'Sys
 | extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility object. |
 | token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentExtensions-SaveAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-DocumentExtensions-SaveAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,System-Threading-CancellationToken-'></a>
 ### SaveAsync(document,extensibility,token) `method`
 
 ##### Summary
@@ -1780,23 +1710,23 @@ A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'Sys
 | extensibility | [Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility](#T-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility 'Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility') | Extensibility object. |
 | token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
-<a name='T-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility'></a>
+<a name='T-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility'></a>
 ## DocumentsExtensibility `type`
 
 ##### Namespace
 
-Microsoft.VisualStudio.Extensibility.Documents
+Microsoft.VisualStudio.Extensibility
 
 ##### Summary
 
 Provides the surface area for document management.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint-'></a>
 ### #ctor(extensibilityPoint) `constructor`
 
 ##### Summary
 
-Initializes a new instance of the [DocumentsExtensibility](#T-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility') class.
+Initializes a new instance of the [DocumentsExtensibility](#T-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility 'Microsoft.VisualStudio.Extensibility.DocumentsExtensibility') class.
 
 ##### Parameters
 
@@ -1804,7 +1734,7 @@ Initializes a new instance of the [DocumentsExtensibility](#T-Microsoft-VisualSt
 | ---- | ---- | ----------- |
 | extensibilityPoint | [Microsoft.VisualStudio.Extensibility.ExtensibilityPoint](#T-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoint') | Another instance of extensibility point object to use for initialization. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-CloseDocumentAsync-System-Uri,Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption,System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-CloseDocumentAsync-System-Uri,Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption,System-Threading-CancellationToken-'></a>
 ### CloseDocumentAsync(moniker,option,token) `method`
 
 ##### Summary
@@ -1823,7 +1753,7 @@ A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'Sys
 | option | [Microsoft.VisualStudio.RpcContracts.Documents.SaveDocumentOption](#T-Microsoft-VisualStudio-RpcContracts-Documents-SaveDocumentOption 'Microsoft.VisualStudio.RpcContracts.Documents.SaveDocumentOption') | An option controlling if and how the document will be saved, if it has unsaved changes. |
 | token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-GetOpenDocumentAsync-System-Uri,System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-GetOpenDocumentAsync-System-Uri,System-Threading-CancellationToken-'></a>
 ### GetOpenDocumentAsync(moniker,token) `method`
 
 ##### Summary
@@ -1841,7 +1771,7 @@ The matching document, or `null` if a matching document isn't found.
 | moniker | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | The moniker of the document to search for. |
 | token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-GetOpenDocumentsAsync-System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-GetOpenDocumentsAsync-System-Threading-CancellationToken-'></a>
 ### GetOpenDocumentsAsync(token) `method`
 
 ##### Summary
@@ -1858,7 +1788,7 @@ A collection of open documents.
 | ---- | ---- | ----------- |
 | token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-GetTextDocumentSnapshotAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-GetTextDocumentSnapshotAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,System-Threading-CancellationToken-'></a>
 ### GetTextDocumentSnapshotAsync(documentSnapshot,cancellationToken) `method`
 
 ##### Summary
@@ -1889,9 +1819,9 @@ This method will either:
   - For document snapshots that were not initialized yet, it will force initialize the document and get the initial version.
   - For documents without a version, it will return null as they are not supported.
   - For document snapshots that are no longer open in IDE, it will return null.
-  - Will throw [SnapshotVersionNotAvailableException](#T-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException 'Microsoft.VisualStudio.Extensibility.SnapshotVersionNotAvailableException') if document is old and is not available anymore, in this case another call to [InitializeDocumentAsync](#M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-InitializeDocumentAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility.InitializeDocumentAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot,System.Threading.CancellationToken)') should return a newer version.
+  - Will throw [SnapshotVersionNotAvailableException](#T-Microsoft-VisualStudio-Extensibility-SnapshotVersionNotAvailableException 'Microsoft.VisualStudio.Extensibility.SnapshotVersionNotAvailableException') if document is old and is not available anymore, in this case another call to [InitializeDocumentAsync](#M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-InitializeDocumentAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.DocumentsExtensibility.InitializeDocumentAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot,System.Threading.CancellationToken)') should return a newer version.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-InitializeDocumentAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-InitializeDocumentAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot,System-Threading-CancellationToken-'></a>
 ### InitializeDocumentAsync(documentSnapshot,token) `method`
 
 ##### Summary
@@ -1909,7 +1839,7 @@ Most recent initialized snapshot for the document moniker in the snapshot. May r
 | documentSnapshot | [Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot') | Document snapshot to initialize that was retrieved from one of the Open methods. |
 | token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-OpenDocumentAsync-System-Uri,System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-OpenDocumentAsync-System-Uri,System-Threading-CancellationToken-'></a>
 ### OpenDocumentAsync(moniker,token) `method`
 
 ##### Summary
@@ -1932,7 +1862,7 @@ The document.
 If the document identified by `moniker` is already open,
 its [DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot') is returned.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-OpenDocumentAsync-System-Uri,Microsoft-VisualStudio-RpcContracts-OpenDocument-OpenDocumentOptions,System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-OpenDocumentAsync-System-Uri,Microsoft-VisualStudio-RpcContracts-OpenDocument-OpenDocumentOptions,System-Threading-CancellationToken-'></a>
 ### OpenDocumentAsync(moniker,options,token) `method`
 
 ##### Summary
@@ -1956,7 +1886,44 @@ The document.
 If the document identified by `moniker` is already open,
 its [DocumentSnapshot](#T-Microsoft-VisualStudio-RpcContracts-Documents-DocumentSnapshot 'Microsoft.VisualStudio.RpcContracts.Documents.DocumentSnapshot') is returned.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-SaveAllAsync-System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-OpenTextDocumentAsync-System-Uri,System-Threading-CancellationToken-'></a>
+### OpenTextDocumentAsync(filePath,cancellationToken) `method`
+
+##### Summary
+
+Opens a new text document in IDE for an existing file.
+
+##### Returns
+
+an [ITextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot') instance representing the new file.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| filePath | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | The file path to open. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-OpenTextDocumentAsync-System-Uri,Microsoft-VisualStudio-RpcContracts-OpenDocument-OpenDocumentOptions,System-Threading-CancellationToken-'></a>
+### OpenTextDocumentAsync(filePath,options,cancellationToken) `method`
+
+##### Summary
+
+Opens a new text document in IDE for an existing file.
+
+##### Returns
+
+an [ITextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot') instance representing the new file.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| filePath | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | File path to open. |
+| options | [Microsoft.VisualStudio.RpcContracts.OpenDocument.OpenDocumentOptions](#T-Microsoft-VisualStudio-RpcContracts-OpenDocument-OpenDocumentOptions 'Microsoft.VisualStudio.RpcContracts.OpenDocument.OpenDocumentOptions') | Options defining how to open the document. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-SaveAllAsync-System-Threading-CancellationToken-'></a>
 ### SaveAllAsync(token) `method`
 
 ##### Summary
@@ -1973,7 +1940,7 @@ A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'Sys
 | ---- | ---- | ----------- |
 | token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-SaveDocumentAsync-System-Uri,System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-SaveDocumentAsync-System-Uri,System-Threading-CancellationToken-'></a>
 ### SaveDocumentAsync(moniker,token) `method`
 
 ##### Summary
@@ -1991,7 +1958,7 @@ A [Task](https://learn.microsoft.com/dotnet/api/System.Threading.Tasks.Task 'Sys
 | moniker | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | The moniker of the document to search for. |
 | token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility-SubscribeAsync-Microsoft-VisualStudio-RpcContracts-Documents-IDocumentEventsListener,System-String,System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility-SubscribeAsync-Microsoft-VisualStudio-RpcContracts-Documents-IDocumentEventsListener,System-String,System-Threading-CancellationToken-'></a>
 ### SubscribeAsync(listener,filterRegex,token) `method`
 
 ##### Summary
@@ -2008,7 +1975,8 @@ task is an object which, when disposed, will remove the event listener.
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | listener | [Microsoft.VisualStudio.RpcContracts.Documents.IDocumentEventsListener](#T-Microsoft-VisualStudio-RpcContracts-Documents-IDocumentEventsListener 'Microsoft.VisualStudio.RpcContracts.Documents.IDocumentEventsListener') | The event listener. |
-| filterRegex | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | An optional regular expression string used to filter events.  If this string is not `null` and not empty, then events will only be raised for documents whose monikers match the regular expression. |
+| filterRegex | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | An optional regular expression string used to filter events.  If this string is not `null` and
+not empty, then events will only be raised for documents whose monikers match the regular expression. |
 | token | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | The cancellation token. |
 
 ##### Remarks
@@ -2016,63 +1984,6 @@ task is an object which, when disposed, will remove the event listener.
 Before the asynchronous operation completes, the listener will receive an
 [OpenedAsync](#M-Microsoft-VisualStudio-RpcContracts-Documents-IDocumentEventsListener-OpenedAsync-Microsoft-VisualStudio-RpcContracts-Documents-DocumentEventArgs,System-Threading-CancellationToken- 'Microsoft.VisualStudio.RpcContracts.Documents.IDocumentEventsListener.OpenedAsync(Microsoft.VisualStudio.RpcContracts.Documents.DocumentEventArgs,System.Threading.CancellationToken)') event for each open document
 whose moniker matches `filterRegex`.
-
-<a name='T-System-Diagnostics-CodeAnalysis-DoesNotReturnAttribute'></a>
-## DoesNotReturnAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that a method that will never return under any circumstance.
-
-<a name='M-System-Diagnostics-CodeAnalysis-DoesNotReturnAttribute-#ctor'></a>
-### #ctor() `constructor`
-
-##### Summary
-
-Initializes a new instance of the [DoesNotReturnAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnAttribute') class.
-
-##### Parameters
-
-This constructor has no parameters.
-
-<a name='T-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute'></a>
-## DoesNotReturnIfAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that the method will not return if the associated [Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean')
-    parameter is passed the specified value.
-
-<a name='M-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-#ctor-System-Boolean-'></a>
-### #ctor(parameterValue) `constructor`
-
-##### Summary
-
-Initializes a new instance of the [DoesNotReturnIfAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute 'System.Diagnostics.CodeAnalysis.DoesNotReturnIfAttribute')
-    class with the specified parameter value.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| parameterValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The condition parameter value. Code after the method is considered unreachable by diagnostics if the argument to the associated parameter matches this value. |
-
-<a name='P-System-Diagnostics-CodeAnalysis-DoesNotReturnIfAttribute-ParameterValue'></a>
-### ParameterValue `property`
-
-##### Summary
-
-Gets the condition parameter value.
-    Code after the method is considered unreachable by diagnostics if the argument
-    to the associated parameter matches this value.
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Commands-DynamicCommand'></a>
 ## DynamicCommand `type`
@@ -2317,7 +2228,7 @@ Gets the surface area for document management.
 
 ##### Returns
 
-an instance of [DocumentsExtensibility](#T-Microsoft-VisualStudio-Extensibility-Documents-DocumentsExtensibility 'Microsoft.VisualStudio.Extensibility.Documents.DocumentsExtensibility').
+an instance of [DocumentsExtensibility](#T-Microsoft-VisualStudio-Extensibility-DocumentsExtensibility 'Microsoft.VisualStudio.Extensibility.DocumentsExtensibility').
 
 ##### Parameters
 
@@ -2385,7 +2296,7 @@ Gets the surface for Workspace management such as querying items in projects.
 
 ##### Returns
 
-an instance of [WorkspacesExtensibility](#T-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility 'Microsoft.VisualStudio.Extensibility.Workspaces.WorkspacesExtensibility').
+an instance of [WorkspacesExtensibility](#T-Microsoft-VisualStudio-Extensibility-WorkspacesExtensibility 'Microsoft.VisualStudio.Extensibility.WorkspacesExtensibility').
 
 ##### Parameters
 
@@ -2806,249 +2717,6 @@ Initializes a new instance of the [LanguagesExtensibility](#T-Microsoft-VisualSt
 | ---- | ---- | ----------- |
 | extensibilityPoint | [Microsoft.VisualStudio.Extensibility.ExtensibilityPoint](#T-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoint') | Another instance of extensibility point object to use for initialization. |
 
-<a name='T-System-Diagnostics-CodeAnalysis-MaybeNullAttribute'></a>
-## MaybeNullAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that an output may be `null` even if the
-    corresponding type disallows it.
-
-<a name='M-System-Diagnostics-CodeAnalysis-MaybeNullAttribute-#ctor'></a>
-### #ctor() `constructor`
-
-##### Summary
-
-Initializes a new instance of the [MaybeNullAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.MaybeNullAttribute 'System.Diagnostics.CodeAnalysis.MaybeNullAttribute') class.
-
-##### Parameters
-
-This constructor has no parameters.
-
-<a name='T-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute'></a>
-## MaybeNullWhenAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that when a method returns [ReturnValue](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue 'System.Diagnostics.CodeAnalysis.MaybeNullWhenAttribute.ReturnValue'), 
-    the parameter may be `null` even if the corresponding type disallows it.
-
-<a name='M-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-#ctor-System-Boolean-'></a>
-### #ctor(returnValue) `constructor`
-
-##### Summary
-
-Initializes the attribute with the specified return value condition.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value, the associated parameter may be `null`. |
-
-<a name='P-System-Diagnostics-CodeAnalysis-MaybeNullWhenAttribute-ReturnValue'></a>
-### ReturnValue `property`
-
-##### Summary
-
-Gets the return value condition. If the method returns this value, the associated parameter may be `null`.
-
-<a name='T-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute'></a>
-## MemberNotNullAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that the method or property will ensure that the listed field and property members have not-`null` values.
-
-<a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-#ctor-System-String-'></a>
-### #ctor(member) `constructor`
-
-##### Summary
-
-Initializes the attribute with a field or property member.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| member | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The field or property member that is promised to be not-null. |
-
-<a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-#ctor-System-String[]-'></a>
-### #ctor(members) `constructor`
-
-##### Summary
-
-Initializes the attribute with the list of field and property members.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| members | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | The list of field and property members that are promised to be not-null. |
-
-<a name='P-System-Diagnostics-CodeAnalysis-MemberNotNullAttribute-Members'></a>
-### Members `property`
-
-##### Summary
-
-Gets field or property member names.
-
-<a name='T-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute'></a>
-## MemberNotNullWhenAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that the method or property will ensure that the listed field and property members have
-    non-`null` values when returning with the specified return value condition.
-
-<a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-#ctor-System-Boolean,System-String-'></a>
-### #ctor(returnValue,member) `constructor`
-
-##### Summary
-
-Initializes the attribute with the specified return value condition and a field or property member.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value, the associated parameter will not be `null`. |
-| member | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The field or property member that is promised to be not-`null`. |
-
-<a name='M-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-#ctor-System-Boolean,System-String[]-'></a>
-### #ctor(returnValue,members) `constructor`
-
-##### Summary
-
-Initializes the attribute with the specified return value condition and list    of field and property members.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value, the associated parameter will not be `null`. |
-| members | [System.String[]](https://learn.microsoft.com/dotnet/api/System.String 'System.String[]') | The list of field and property members that are promised to be not-null. |
-
-<a name='P-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-Members'></a>
-### Members `property`
-
-##### Summary
-
-Gets field or property member names.
-
-<a name='P-System-Diagnostics-CodeAnalysis-MemberNotNullWhenAttribute-ReturnValue'></a>
-### ReturnValue `property`
-
-##### Summary
-
-Gets the return value condition.
-
-<a name='T-System-Diagnostics-CodeAnalysis-NotNullAttribute'></a>
-## NotNullAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that an output is not `null` even if the
-    corresponding type allows it.
-
-<a name='M-System-Diagnostics-CodeAnalysis-NotNullAttribute-#ctor'></a>
-### #ctor() `constructor`
-
-##### Summary
-
-Initializes a new instance of the [NotNullAttribute](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.NotNullAttribute 'System.Diagnostics.CodeAnalysis.NotNullAttribute') class.
-
-##### Parameters
-
-This constructor has no parameters.
-
-<a name='T-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute'></a>
-## NotNullIfNotNullAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that the output will be non-`null` if the
-    named parameter is non-`null`.
-
-<a name='M-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-#ctor-System-String-'></a>
-### #ctor(parameterName) `constructor`
-
-##### Summary
-
-Initializes the attribute with the associated parameter name.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| parameterName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The associated parameter name. The output will be non-`null` if the argument to the parameter specified is non-`null`. |
-
-<a name='P-System-Diagnostics-CodeAnalysis-NotNullIfNotNullAttribute-ParameterName'></a>
-### ParameterName `property`
-
-##### Summary
-
-Gets the associated parameter name.
-    The output will be non-`null` if the argument to the
-    parameter specified is non-`null`.
-
-<a name='T-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute'></a>
-## NotNullWhenAttribute `type`
-
-##### Namespace
-
-System.Diagnostics.CodeAnalysis
-
-##### Summary
-
-Specifies that when a method returns [ReturnValue](https://learn.microsoft.com/dotnet/api/System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue 'System.Diagnostics.CodeAnalysis.NotNullWhenAttribute.ReturnValue'),
-    the parameter will not be `null` even if the corresponding type allows it.
-
-<a name='M-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-#ctor-System-Boolean-'></a>
-### #ctor(returnValue) `constructor`
-
-##### Summary
-
-Initializes the attribute with the specified return value condition.
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| returnValue | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | The return value condition. If the method returns this value, the associated parameter will not be `null`. |
-
-<a name='P-System-Diagnostics-CodeAnalysis-NotNullWhenAttribute-ReturnValue'></a>
-### ReturnValue `property`
-
-##### Summary
-
-Gets the return value condition.
-    If the method returns this value, the associated parameter will not be `null`.
-
 <a name='T-Microsoft-VisualStudio-Extensibility-Documents-OutputWindow'></a>
 ## OutputWindow `type`
 
@@ -3462,7 +3130,7 @@ Cancel the ongoing background work in the extension after [](#E-Microsoft-Visual
 
 ##### Summary
 
-Inherited from [IProgress\`1](https://learn.microsoft.com/dotnet/api/System.IProgress-1 'System.IProgress`1').
+Inherited from [IProgress\`1](https://learn.microsoft.com/dotnet/api/System.IProgress-1  'System.IProgress`1').
 
 ##### Parameters
 
@@ -4718,19 +4386,17 @@ The optional response to the message. The format of the returned data is defined
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| message | [System.Nullable{System.Buffers.ReadOnlySequence{System.Byte}}](https://learn.microsoft.com/dotnet/api/System.Nullable-1 'System.Nullable{System.Buffers.ReadOnlySequence{System.Byte}}') | The optional content of the message. The format of `message` is defined
- by the chosen visualizer object source. |
+| message | [System.Nullable{System.Buffers.ReadOnlySequence{System.Byte}}](https://learn.microsoft.com/dotnet/api/System.Nullable-1 'System.Nullable{System.Buffers.ReadOnlySequence{System.Byte}}') | The optional content of the message. The format of `message` is defined by the chosen visualizer object source. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes unavailable before the call can be completed.
+| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes
+ unavailable before the call can be completed.
 
- When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be
- aborted since the visualizer target is now unavailable. When the visualizer target becomes available again, the
- value of the object to be visualized may have changed, so a new value retrieval should be started. |
+ When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be aborted since the visualizer target is now unavailable. When the visualizer target becomes available again, the value of the object to be visualized may have changed, so a new value retrieval should be started. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-RequestDataAsync-Newtonsoft-Json-Linq-JToken,System-Threading-CancellationToken-'></a>
 ### RequestDataAsync(message,cancellationToken) `method`
@@ -4749,19 +4415,15 @@ The optional response to the message. The format of the returned data is defined
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| message | [Newtonsoft.Json.Linq.JToken](#T-Newtonsoft-Json-Linq-JToken 'Newtonsoft.Json.Linq.JToken') | The content of the message. The format of `message` is defined by the
- chosen visualizer object source. |
+| message | [Newtonsoft.Json.Linq.JToken](#T-Newtonsoft-Json-Linq-JToken 'Newtonsoft.Json.Linq.JToken') | The content of the message. The format of `message` is defined by the chosen visualizer object source. |
 | cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token for the async call. |
 
 ##### Exceptions
 
 | Name | Description |
 | ---- | ----------- |
-| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes unavailable before the call can be completed.
+| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes unavailable before the call can be completed. When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be aborted since the visualizer target is now unavailable. When the visualizer target becomes available again, the value of the object to be visualized may have changed, so a new value retrieval should be started. |
 
- When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be
- aborted since the visualizer target is now unavailable. When the visualizer target becomes available
- again, the value of the object to be visualized may have changed, so a new value retrieval should be started. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-RequestDataAsync-System-Threading-CancellationToken-'></a>
 ### RequestDataAsync(cancellationToken) `method`
@@ -4786,11 +4448,8 @@ The optional response to the message. The format of the returned data is defined
 
 | Name | Description |
 | ---- | ----------- |
-| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes unavailable before the call can be completed.
+| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes unavailable before the call can be completed. When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be aborted since the visualizer target is now unavailable. When the visualizer target becomes available again, the value of the object to be visualized may have changed, so a new value retrieval should be started. |
 
- When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be
- aborted since the visualizer target is now unavailable. When the visualizer target becomes available
- again, the value of the object to be visualized may have changed, so a new value retrieval should be started. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-RequestDataAsync``1-Newtonsoft-Json-JsonSerializer,System-Threading-CancellationToken-'></a>
 ### RequestDataAsync\`\`1(jsonSerializer,cancellationToken) `method`
@@ -4822,11 +4481,8 @@ The optional response to the message. If `TResponse` is a reference type, this
 
 | Name | Description |
 | ---- | ----------- |
-| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes unavailable before the call can be completed.
+| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes unavailable before the call can be completed. When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be aborted since the visualizer target is now unavailable. When the visualizer target becomes available again, the value of the object to be visualized may have changed, so a new value retrieval should be started. |
 
- When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be
- aborted since the visualizer target is now unavailable. When the visualizer target becomes available
- again, the value of the object to be visualized may have changed, so a new value retrieval should be started. |
 
 <a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-RequestDataAsync``2-``0,Newtonsoft-Json-JsonSerializer,System-Threading-CancellationToken-'></a>
 ### RequestDataAsync\`\`2(message,jsonSerializer,cancellationToken) `method`
@@ -4861,11 +4517,8 @@ The optional response to the message. If `TResponse` is a reference type, this
 
 | Name | Description |
 | ---- | ----------- |
-| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes unavailable before the call can be completed.
+| [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetUnavailableException 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetUnavailableException') | When the visualizer target is unavailable or becomes unavailable before the call can be completed. When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be aborted since the visualizer target is now unavailable. When the visualizer target becomes available again, the value of the object to be visualized may have changed, so a new value retrieval should be started. |
 
- When this exception is thrown, the attempt to retrieve the value of the object to be visualized should be
- aborted since the visualizer target is now unavailable. When the visualizer target becomes available
- again, the value of the object to be visualized may have changed, so a new value retrieval should be started. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClientImplementation'></a>
 ## VisualizerObjectSourceClientImplementation `type`
@@ -4925,8 +4578,8 @@ Microsoft.VisualStudio.Extensibility.DebuggerVisualizers
 Contains information regarding the target process and boject and allows requesting the Visual Studio debugger for
 the value of a target object, or to replace the target object.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-#ctor-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient,System-String,System-String,System-Version-'></a>
-### #ctor(objectSource,targetTypeFullName,targetTypeModuleName,targetTypeModuleVersion) `constructor`
+<a name='M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-#ctor-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient,Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetData-'></a>
+### #ctor(objectSource,visualizerTargetData) `constructor`
 
 ##### Summary
 
@@ -4937,9 +4590,14 @@ Initializes a new instance of the [VisualizerTarget](#T-Microsoft-VisualStudio-E
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | objectSource | [Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient](#T-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient 'Microsoft.VisualStudio.Extensibility.DebuggerVisualizers.VisualizerObjectSourceClient') | The object source client which can be used to query the object source for the value of the target object or request the target object to be replaced. |
-| targetTypeFullName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The [FullName](https://learn.microsoft.com/dotnet/api/System.Type.FullName 'System.Type.FullName') of the target type of the debugger visualizer. |
-| targetTypeModuleName | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | The name of the assembly that defines the [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type')`targetTypeFullName`. |
-| targetTypeModuleVersion | [System.Version](https://learn.microsoft.com/dotnet/api/System.Version 'System.Version') | The version of the assembly that defines the [Type](https://learn.microsoft.com/dotnet/api/System.Type 'System.Type')`targetTypeFullName`. |
+| visualizerTargetData | [Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetData](#T-Microsoft-VisualStudio-RpcContracts-DebuggerVisualizers-VisualizerTargetData 'Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers.VisualizerTargetData') | The metadata associated with this instance of the visualizer target. |
+
+<a name='P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-IsTargetReplaceable'></a>
+### IsTargetReplaceable `property`
+
+##### Summary
+
+Gets a value indicating whether the target value can be replaced by the visualizer.
 
 <a name='P-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerTarget-ObjectSource'></a>
 ### ObjectSource `property`
@@ -5049,23 +4707,23 @@ This method has no parameters.
 
 This method has no parameters.
 
-<a name='T-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility'></a>
+<a name='T-Microsoft-VisualStudio-Extensibility-WorkspacesExtensibility'></a>
 ## WorkspacesExtensibility `type`
 
 ##### Namespace
 
-Microsoft.VisualStudio.Extensibility.Workspaces
+Microsoft.VisualStudio.Extensibility
 
 ##### Summary
 
 Provides functionality for extending Visual Studio workspaces.
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-WorkspacesExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint-'></a>
 ### #ctor(extensibilityPoint) `constructor`
 
 ##### Summary
 
-Initializes a new instance of the [WorkspacesExtensibility](#T-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility 'Microsoft.VisualStudio.Extensibility.Workspaces.WorkspacesExtensibility') class.
+Initializes a new instance of the [WorkspacesExtensibility](#T-Microsoft-VisualStudio-Extensibility-WorkspacesExtensibility 'Microsoft.VisualStudio.Extensibility.WorkspacesExtensibility') class.
 
 ##### Parameters
 
@@ -5073,7 +4731,7 @@ Initializes a new instance of the [WorkspacesExtensibility](#T-Microsoft-VisualS
 | ---- | ---- | ----------- |
 | extensibilityPoint | [Microsoft.VisualStudio.Extensibility.ExtensibilityPoint](#T-Microsoft-VisualStudio-Extensibility-ExtensibilityPoint 'Microsoft.VisualStudio.Extensibility.ExtensibilityPoint') | Another instance of extensibility point object to use for initialization. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-QueryProjectsAsync``1-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-WorkspacesExtensibility-QueryProjectsAsync``1-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Threading-CancellationToken-'></a>
 ### QueryProjectsAsync\`\`1(queryFunc,cancellationToken) `method`
 
 ##### Summary
@@ -5103,7 +4761,7 @@ Results of the project query.
 | ---- | ----------- |
 | [Microsoft.VisualStudio.ProjectSystem.Query.QueryExecutionException](#T-Microsoft-VisualStudio-ProjectSystem-Query-QueryExecutionException 'Microsoft.VisualStudio.ProjectSystem.Query.QueryExecutionException') | Thrown when query execution is failed. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-QuerySolutionAsync``1-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-WorkspacesExtensibility-QuerySolutionAsync``1-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Threading-CancellationToken-'></a>
 ### QuerySolutionAsync\`\`1(queryFunc,cancellationToken) `method`
 
 ##### Summary
@@ -5133,7 +4791,7 @@ Results of the solution query.
 | ---- | ----------- |
 | [Microsoft.VisualStudio.ProjectSystem.Query.QueryExecutionException](#T-Microsoft-VisualStudio-ProjectSystem-Query-QueryExecutionException 'Microsoft.VisualStudio.ProjectSystem.Query.QueryExecutionException') | Thrown when query execution is failed. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-UpdateProjectsAsync``2-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``0},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``1}},System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-WorkspacesExtensibility-UpdateProjectsAsync``2-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``0},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``1}},System-Threading-CancellationToken-'></a>
 ### UpdateProjectsAsync\`\`2(queryFunc,updateFunc,cancellationToken) `method`
 
 ##### Summary
@@ -5165,7 +4823,7 @@ Results of the solution update actions.
 | ---- | ----------- |
 | [Microsoft.VisualStudio.ProjectSystem.Query.QueryExecutionException](#T-Microsoft-VisualStudio-ProjectSystem-Query-QueryExecutionException 'Microsoft.VisualStudio.ProjectSystem.Query.QueryExecutionException') | Thrown when query execution is failed. |
 
-<a name='M-Microsoft-VisualStudio-Extensibility-Workspaces-WorkspacesExtensibility-UpdateSolutionAsync``2-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``0},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``1}},System-Threading-CancellationToken-'></a>
+<a name='M-Microsoft-VisualStudio-Extensibility-WorkspacesExtensibility-UpdateSolutionAsync``2-System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-ISolutionSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{``0}},System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``0},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncUpdatable{``1}},System-Threading-CancellationToken-'></a>
 ### UpdateSolutionAsync\`\`2(queryFunc,updateFunc,cancellationToken) `method`
 
 ##### Summary
@@ -5196,3 +4854,72 @@ Results of the solution update actions.
 | Name | Description |
 | ---- | ----------- |
 | [Microsoft.VisualStudio.ProjectSystem.Query.QueryExecutionException](#T-Microsoft-VisualStudio-ProjectSystem-Query-QueryExecutionException 'Microsoft.VisualStudio.ProjectSystem.Query.QueryExecutionException') | Thrown when query execution is failed. |
+
+<a name='T-Microsoft-VisualStudio-Extensibility-WorkspacesExtensionMethods'></a>
+## WorkspacesExtensionMethods `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility
+
+##### Summary
+
+Container for client context at the time of a command invocation.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-WorkspacesExtensionMethods-AddExistingFileAsync-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot,System-Uri,System-Threading-CancellationToken-'></a>
+### AddExistingFileAsync(projectSnapshot,fileToAdd,cancellationToken) `method`
+
+##### Summary
+
+Adds an existing file on disk to the project.
+
+##### Returns
+
+A new [IProjectSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot') instance with the file added.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| projectSnapshot | [Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot') | Project snapshot to add file to. |
+| fileToAdd | [System.Uri](https://learn.microsoft.com/dotnet/api/System.Uri 'System.Uri') | an URI representing a local path on disk. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-WorkspacesExtensionMethods-GetActiveProjectAsync-Microsoft-VisualStudio-Extensibility-IClientContext,System-Func{Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot},Microsoft-VisualStudio-ProjectSystem-Query-IAsyncQueryable{Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot}},System-Threading-CancellationToken-'></a>
+### GetActiveProjectAsync(clientContext,withModifier,cancellationToken) `method`
+
+##### Summary
+
+Gets the active project snapshot with [Path](#P-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot-Path 'Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot.Path') and [Files](#P-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot-Files 'Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot.Files') information and additional properties added in withModifier callback.
+This snapshot can be used to update the project starting with AsUpdatable extension method.
+
+##### Returns
+
+An instance of [IProjectSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot') or null if there is no active project or active project no longer exists.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| clientContext | [Microsoft.VisualStudio.Extensibility.IClientContext](#T-Microsoft-VisualStudio-Extensibility-IClientContext 'Microsoft.VisualStudio.Extensibility.IClientContext') | Client context to utilize. |
+| withModifier | [System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}}](https://learn.microsoft.com/dotnet/api/System.Func-2 'System.Func{Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot},Microsoft.VisualStudio.ProjectSystem.Query.IAsyncQueryable{Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot}}') | An additional callback to add more properties to returned project snapshot. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token. |
+
+<a name='M-Microsoft-VisualStudio-Extensibility-WorkspacesExtensionMethods-GetActiveProjectAsync-Microsoft-VisualStudio-Extensibility-IClientContext,System-Threading-CancellationToken-'></a>
+### GetActiveProjectAsync(clientContext,cancellationToken) `method`
+
+##### Summary
+
+Gets the active project snapshot with [Path](#P-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot-Path 'Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot.Path') information by default.
+This snapshot can be used to update the project starting with AsUpdatable extension method.
+
+##### Returns
+
+An instance of [IProjectSnapshot](#T-Microsoft-VisualStudio-ProjectSystem-Query-IProjectSnapshot 'Microsoft.VisualStudio.ProjectSystem.Query.IProjectSnapshot') or null if there is no active project or active project no longer exists.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| clientContext | [Microsoft.VisualStudio.Extensibility.IClientContext](#T-Microsoft-VisualStudio-Extensibility-IClientContext 'Microsoft.VisualStudio.Extensibility.IClientContext') | Client context to utilize. |
+| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token. |
