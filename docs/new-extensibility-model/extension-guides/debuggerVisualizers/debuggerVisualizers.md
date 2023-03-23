@@ -6,17 +6,17 @@ date: 2023-2-7
 
 # Debugger visualizers
 
-Debugger visualizers are a Visual Studio feature that allows providing a custom visualization for variables or objects of a specific .NET type during a debug session.
+Debugger visualizers are a Visual Studio feature that provides a custom visualization for variables or objects of a specific .NET type during a debug session.
 
 Debugger visualizers are accessible from the *DataTip* that appears when hovering over a variable, or from the *Autos*, *Locals*, and *Watch* windows:
 
 ![Debugger visualizers in the watch window](watchWindow.png "Debugger visualizers in the watch window")
 
-## Getting started
+## Get started
 
 Follow the [Create the extension project](./../../getting-started/create-your-first-extension.md) section in the Getting Started section.
 
-Then add a class extending `DebuggerVisualizerProvider` and apply the `VisualStudioContribution` attribute to it:
+Then, add a class extending `DebuggerVisualizerProvider` and apply the `VisualStudioContribution` attribute to it:
 
 ```csharp
 /// <summary>
@@ -48,10 +48,10 @@ internal class StringDebuggerVisualizerProvider : DebuggerVisualizerProvider
 }
 ```
 
-The sample above defines a new debugger visualizer which applies to objects of type `string`:
+The previous code defines a new debugger visualizer which applies to objects of type `string`:
 
 - The `DebuggerVisualizerProviderConfiguration` property defines the visualizer display name and the supported .NET type.
-- The `CreateVisualizerAsync` is invoked by Visual Studio when the user requests the display of the debugger visualizer for a certain value. `CreateVisualizerAsync` uses the `VisualizerTarget` object to retrieve the value to be visualized and passes it to a custom remote user control (reference the [Remote UI](./../../inside-the-sdk/remote-ui.md) documentation). The remote user control is then returned and will be shown in a popup window in Visual Studio.
+- The `CreateVisualizerAsync` method is invoked by Visual Studio when the user requests the display of the debugger visualizer for a certain value. `CreateVisualizerAsync` uses the `VisualizerTarget` object to retrieve the value to be visualized and passes it to a custom remote user control (reference the [Remote UI](./../../inside-the-sdk/remote-ui.md) documentation). The remote user control is then returned and will be shown in a popup window in Visual Studio.
 
 ## The visualizer object source
 
@@ -61,7 +61,7 @@ The default *visualizer object source* allows debugger visualizers to retrieve t
 
 If you want to visualize a .NET type that is natively supported by Newtonsoft.Json, or you want to visualize your own type and you can make it serializable, the instructions above are sufficient to create a simple debugger visualizer. Read on if you want to support more complex types or to leverage more advanced features.
 
-## Using a custom visualizer object source
+## Use a custom visualizer object source
 
 If the type to be visualized cannot be automatically serialized by Newtonsoft.Json, you can create a custom *visualizer object source* to handle the serialization.
 
@@ -87,17 +87,17 @@ public class MyObjectSource : VisualizerObjectSource
 }
 ```
 
-### Custom serialization
+### Use custom serialization
 
 You can use the `VisualizerObjectSource.SerializeAsJson` method to serialize an object using Newtonsoft.Json to a `Stream` without adding a reference to Newtonsoft.Json to your library. Invoking `SerializeAsJson` will load, via reflection, a version of the Newtonsoft.Json assembly into the process being debugged.
 
-If you need to reference [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json), you should use the same version that is referenced by the `Microsoft.VisualStudio.Extensibility.Sdk` package, but it's preferrable to use `DataContract` and `DataMember` attributes to support object serialization instead of relying on Newtonsoft.Json types.
+If you need to reference [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json), you should use the same version that is referenced by the `Microsoft.VisualStudio.Extensibility.Sdk` package, but it's preferable to use `DataContract` and `DataMember` attributes to support object serialization instead of relying on Newtonsoft.Json types.
 
-Alternatively, you can implement your own custom serialization (E.g., binary serialization) writing directly to `outgoingData`.
+Alternatively, you can implement your own custom serialization (such as binary serialization) writing directly to `outgoingData`.
 
-### Adding the visualizer object source DLL to the extension
+### Add the visualizer object source DLL to the extension
 
-Modify the extension *.csproj* file adding a `ProjectReference` to the *visualizer object source* library project which make sure that the *visualizer object source* library is built before the extension is packaged.
+Modify the extension *.csproj* file adding a `ProjectReference` to the *visualizer object source* library project, which makes sure that the *visualizer object source* library is built before the extension is packaged.
 
 Also add a `Content` item including the *visualizer object source* library DLL into the `netstandard2.0` subfolder of the extension.
 
@@ -113,11 +113,11 @@ Also add a `Content` item including the *visualizer object source* library DLL i
   </ItemGroup>
 ```
 
-Alternatively you can use the `net4.6.2` or `netcoreapp` subfolders if you built the *visualizer object source* library targeting .NET Framework or .NET. You can even include all three subfolders with different versions of the *visualizer object source* library, but it's generally preferrable to simply target `netstandard2.0` only.
+Alternatively, you can use the `net4.6.2` or `netcoreapp` subfolders if you built the *visualizer object source* library targeting .NET Framework or .NET. You can even include all three subfolders with different versions of the *visualizer object source* library, but it's better to target `netstandard2.0` only.
 
 You should try to minimize the number of dependencies of the *visualizer object source* library DLL. If your *visualizer object source* library has dependencies other than [Microsoft.VisualStudio.DebuggerVisualizers](https://www.nuget.org/packages/Microsoft.VisualStudio.DebuggerVisualizers) and libraries already guaranteed to be loaded in the process being debugged, make sure to also include those DLL files into the same subfolder as the *visualizer object source* library DLL.
 
-### Updating the debugger visualizer provider to use the custom visualizer object source
+### Update the debugger visualizer provider to use the custom visualizer object source
 
 You can then update your `DebuggerVisualizerProviderConfiguration` configuration to reference your custom *visualizer object source*:
 
@@ -134,9 +134,9 @@ You can then update your `DebuggerVisualizerProviderConfiguration` configuration
     }
 ```
 
-## Complex visualizer object source interactions
+## Work with large and complex objects
 
-If the retrieval of data from the *visualizer object source* cannot be done with a single parameterless call to `RequestDataAsync`, you can instead perform a more complex message exchange with the *visualizer object source* by invoking [RequestDataAsync<TMessage, TResponse>(TMessage, JsonSerializer?, CancellationToken)](../../api/Microsoft.VisualStudio.Extensibility.md#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-RequestDataAsync``2-``0,Newtonsoft-Json-JsonSerializer,System-Threading-CancellationToken-) multiple times and sending different *messages* to the *visualizer object source*. Both the message and response will be serialized by the VisualStudio.Extensibility infrastructure using Newtonsoft.Json. Other overrides of `RequestDataAsync` allow you to use `JToken` objects or implement custom serialization and deserialization.
+If the retrieval of data from the *visualizer object source* cannot be done with a single parameterless call to `RequestDataAsync`, you can instead perform a more complex message exchange with the *visualizer object source* by invoking [RequestDataAsync<TMessage, TResponse>(TMessage, JsonSerializer?, CancellationToken)](../../api/Microsoft.VisualStudio.Extensibility.md#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-RequestDataAsync``2-``0,Newtonsoft-Json-JsonSerializer,System-Threading-CancellationToken-) multiple times and sending different *messages* to the *visualizer object source*. Both the message and response is serialized by the VisualStudio.Extensibility infrastructure using Newtonsoft.Json. Other overrides of `RequestDataAsync` allow you to use `JToken` objects or implement custom serialization and deserialization.
 
 You can implement any custom protocol using different messages to retrieve information from the *visualizer object source*. The most common use case for this feature is breaking the retrieval of a potentially large object into multiple calls to avoid `RequestDataAsync` timing out.
 
@@ -188,7 +188,7 @@ The *visualizer object source* above leverages the `VisualizerObjectSource.Deser
 When implementing a debugger visualizer provider that performs complex message interaction with the *visualizer object source*, it's usually better to pass the `VisualizerTarget` to the visualizer's `RemoteUserControl` so that the message exchange can happen asynchronously while the control is loaded. This also allow to send messages to the *visualizer object source* to retrieve data based on the user's interactions with the visualizer's UI.
 
 ```csharp
-public override Task<IRemoteUserControl> CreateVisualizerAsync(VisualizerTarget isualizerTarget, CancellationToken cancellationToken)
+public override Task<IRemoteUserControl> CreateVisualizerAsync(VisualizerTarget visualizerTarget, CancellationToken cancellationToken)
 {
     return Task.FromResult<IRemoteUserControl>(new MyVisualizerUserControl(visualizerTarget));
 }
@@ -213,7 +213,7 @@ internal class MyVisualizerUserControl : RemoteUserControl
     ...
 ```
 
-## Replacing the visualized object value
+## Update the visualized object value
 
 If `VisualizerTarget.IsTargetReplaceable` is true, the debugger visualizer can use the [ReplaceTargetObjectAsync](../../api/Microsoft.VisualStudio.Extensibility.md#M-Microsoft-VisualStudio-Extensibility-DebuggerVisualizers-VisualizerObjectSourceClient-ReplaceTargetObjectAsync``1-``0,Newtonsoft-Json-JsonSerializer,System-Threading-CancellationToken-) method to update the value of the visualized object in the process being debugged.
 
@@ -222,9 +222,13 @@ The *visualizer object source* must override the `CreateReplacementObject` metho
 ```csharp
 public override object CreateReplacementObject(object target, Stream incomingData)
 {
-    // Use DeserializeFromJson to read from incomindData
+    // Use DeserializeFromJson to read from incomingData
     // the new value of the object being visualized
     ...
     return newValue;
 }
 ```
+
+## Next steps
+
+Try out the [RegexMatchDebugVisualizer](../../../../New_Extensibility_Model/Samples/RegexMatchDebugVisualizer/README.md) sample to see these techniques in action.
