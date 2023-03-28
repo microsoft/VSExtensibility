@@ -342,7 +342,7 @@ workSpace.ProjectsByProjectGuid(knownGuid)
     .QueryAsync(cancellationToken);
 ```
 
-Another example is to start with a project returned from previous query:
+Another example is to start with a project returned from the previous query:
 
 ```csharp
 IAsyncEnumerable<IQueryResultItem<IFileSnapshot>> files = myProject
