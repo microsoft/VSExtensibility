@@ -18,7 +18,7 @@ The main differences between *Remote UI* and normal WPF development are:
 - When defining data types to be used in *Remote UI* data contexts they must be decorated with the `DataContract` and `DataMember` attributes.
 - *Remote UI* doesn't allow referencing your own custom controls.
 - A *Remote user control* is fully defined in a single XAML file which references a single (but potentially complex and nested) data context object.
-- *Remote UI* doesn't support code behind or event handlers (workarounds are descrived in the [advanced *Remote UI* concepts](advanced-remote-ui.md) document).
+- *Remote UI* doesn't support code behind or event handlers (workarounds are described in the [advanced *Remote UI* concepts](advanced-remote-ui.md) document).
 - A *Remote user control* is actually instantiated in the Visual Studio process, not the process hosting the extension: the XAML cannot reference types and assemblies from the extension but can reference types and assemblies from the Visual Studio process. 
 
 # Creating a *Remote UI* Hello World extension
