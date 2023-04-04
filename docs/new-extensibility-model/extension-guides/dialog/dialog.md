@@ -177,4 +177,4 @@ public override async Task ExecuteCommandAsync(IClientContext context, Cancellat
 
 # Next steps
 
-See the [DialogExtension](./../../../../New_Extensibility_Model/Samples/DialogExtension) sample for a full example of creating an extension with a dialog.
+See the [DialogSample](./../../../../New_Extensibility_Model/Samples/DialogSample) sample for a full example of creating an extension with a dialog.
