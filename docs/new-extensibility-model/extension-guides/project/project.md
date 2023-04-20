@@ -316,7 +316,7 @@ IAsyncEnumerable<IQueryResultItem<ISolutionSnapshot>> solutionFoldersWithExtraIn
     .QueryAsync(cancellationToken);
 ```
 
-Here we are getting all recursively nested solution folders. Note that `VisualPath` the path as it shows up in Solution Explorer.
+Here we are getting all recursively nested solution folders. `VisualPath` is the path as it shows up in Solution Explorer.
 
 ```csharp
 string visualPath = mySolutionFolder.VisualPath;
