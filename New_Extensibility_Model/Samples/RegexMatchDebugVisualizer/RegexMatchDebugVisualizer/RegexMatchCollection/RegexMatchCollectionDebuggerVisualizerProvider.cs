@@ -29,7 +29,7 @@ internal class RegexMatchCollectionDebuggerVisualizerProvider : DebuggerVisualiz
 	/// <inheritdoc/>
 	public override DebuggerVisualizerProviderConfiguration DebuggerVisualizerProviderConfiguration => new("Regex Match visualizer", typeof(MatchCollection))
 	{
-		VisualizerObjectSourceType = new("Microsoft.VisualStudio.Gladstone.RegexMatchVisualizer.ObjectSource.RegexMatchCollectionObjectSource, RegexMatchObjectSource"),
+		VisualizerObjectSourceType = new("RegexMatchVisualizer.ObjectSource.RegexMatchCollectionObjectSource, RegexMatchObjectSource"),
 	};
 
 	/// <inheritdoc/>
