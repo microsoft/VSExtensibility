@@ -117,7 +117,7 @@ A Visual Studio solution containing all samples can be found at [Samples.sln](Ne
 
 We're actively seeking feedback and engagement. The preview phase is a great time to get community input to help us identify issues and opportunities. You can provide feedback and report bugs in our [issues tracker](https://github.com/microsoft/VSExtensibility/issues).
 
-For future updates please bookmark our [announcements](announcements.md) page.
+For future updates please bookmark our [announcements](docs/announcements.md) page.
 
 ## Contributing
 
