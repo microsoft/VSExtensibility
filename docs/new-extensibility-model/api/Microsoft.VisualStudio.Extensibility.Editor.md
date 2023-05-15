@@ -14,6 +14,11 @@
   - [#ctor(extensibility,editorHostService)](#M-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility-#ctor-Microsoft-VisualStudio-Extensibility-VisualStudioExtensibility,Microsoft-VisualStudio-Extensibility-Editor-IEditorHostService- 'Microsoft.VisualStudio.Extensibility.Editor.EditorExtensibility.#ctor(Microsoft.VisualStudio.Extensibility.VisualStudioExtensibility,Microsoft.VisualStudio.Extensibility.Editor.IEditorHostService)')
   - [EditAsync(editorSource,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility-EditAsync-System-Action{Microsoft-VisualStudio-Extensibility-Editor-IEditBatch},System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Editor.EditorExtensibility.EditAsync(System.Action{Microsoft.VisualStudio.Extensibility.Editor.IEditBatch},System.Threading.CancellationToken)')
   - [GetActiveTextViewAsync(clientContext,cancellationToken)](#M-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility-GetActiveTextViewAsync-Microsoft-VisualStudio-Extensibility-IClientContext,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Editor.EditorExtensibility.GetActiveTextViewAsync(Microsoft.VisualStudio.Extensibility.IClientContext,System.Threading.CancellationToken)')
+  - [SubscribeToOptionChangesAsync\`\`1(document,textDocumentOption,cancellationToken,changeHandler)](#M-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility-SubscribeToOptionChangesAsync``1-Microsoft-VisualStudio-Extensibility-Editor-ITextDocumentSnapshot,Microsoft-VisualStudio-Extensibility-Editor-TextDocumentOption{``0},System-Threading-CancellationToken,System-Func{``0,System-Threading-Tasks-Task}- 'Microsoft.VisualStudio.Extensibility.Editor.EditorExtensibility.SubscribeToOptionChangesAsync``1(Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot,Microsoft.VisualStudio.Extensibility.Editor.TextDocumentOption{``0},System.Threading.CancellationToken,System.Func{``0,System.Threading.Tasks.Task})')
+  - [SubscribeToOptionChangesAsync\`\`1(textView,textViewOption,cancellationToken,changeHandler)](#M-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility-SubscribeToOptionChangesAsync``1-Microsoft-VisualStudio-Extensibility-Editor-ITextViewSnapshot,Microsoft-VisualStudio-Extensibility-Editor-TextViewOption{``0},System-Threading-CancellationToken,System-Func{``0,System-Threading-Tasks-Task}- 'Microsoft.VisualStudio.Extensibility.Editor.EditorExtensibility.SubscribeToOptionChangesAsync``1(Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot,Microsoft.VisualStudio.Extensibility.Editor.TextViewOption{``0},System.Threading.CancellationToken,System.Func{``0,System.Threading.Tasks.Task})')
+- [EditorOptionObserver\`1](#T-Microsoft-VisualStudio-Extensibility-Editor-EditorOptionObserver`1 'Microsoft.VisualStudio.Extensibility.Editor.EditorOptionObserver`1')
+- [ExtensionMethods](#T-Microsoft-VisualStudio-Extensibility-ExtensionMethods 'Microsoft.VisualStudio.Extensibility.ExtensionMethods')
+  - [IsExceptionType\`\`1(e)](#M-Microsoft-VisualStudio-Extensibility-ExtensionMethods-IsExceptionType``1-StreamJsonRpc-RemoteInvocationException- 'Microsoft.VisualStudio.Extensibility.ExtensionMethods.IsExceptionType``1(StreamJsonRpc.RemoteInvocationException)')
 - [ITextViewChangedListener](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextViewChangedListener 'Microsoft.VisualStudio.Extensibility.Editor.ITextViewChangedListener')
   - [TextViewChangedAsync()](#M-Microsoft-VisualStudio-Extensibility-Editor-ITextViewChangedListener-TextViewChangedAsync-Microsoft-VisualStudio-Extensibility-Editor-TextViewChangedArgs,System-Threading-CancellationToken- 'Microsoft.VisualStudio.Extensibility.Editor.ITextViewChangedListener.TextViewChangedAsync(Microsoft.VisualStudio.Extensibility.Editor.TextViewChangedArgs,System.Threading.CancellationToken)')
 - [ITextViewChangedListenerContract](#T-Microsoft-VisualStudio-RpcContracts-Editor-ITextViewChangedListenerContract 'Microsoft.VisualStudio.RpcContracts.Editor.ITextViewChangedListenerContract')
@@ -31,6 +36,12 @@
 - [ITextViewOpenClosedListenerContract](#T-Microsoft-VisualStudio-RpcContracts-Editor-ITextViewOpenClosedListenerContract 'Microsoft.VisualStudio.RpcContracts.Editor.ITextViewOpenClosedListenerContract')
   - [TextViewClosedAsync()](#M-Microsoft-VisualStudio-RpcContracts-Editor-ITextViewOpenClosedListenerContract-TextViewClosedAsync-Microsoft-VisualStudio-RpcContracts-Editor-TextViewContract,System-Threading-CancellationToken- 'Microsoft.VisualStudio.RpcContracts.Editor.ITextViewOpenClosedListenerContract.TextViewClosedAsync(Microsoft.VisualStudio.RpcContracts.Editor.TextViewContract,System.Threading.CancellationToken)')
   - [TextViewOpenedAsync()](#M-Microsoft-VisualStudio-RpcContracts-Editor-ITextViewOpenClosedListenerContract-TextViewOpenedAsync-Microsoft-VisualStudio-RpcContracts-Editor-TextViewContract,System-Threading-CancellationToken- 'Microsoft.VisualStudio.RpcContracts.Editor.ITextViewOpenClosedListenerContract.TextViewOpenedAsync(Microsoft.VisualStudio.RpcContracts.Editor.TextViewContract,System.Threading.CancellationToken)')
+- [KnownDocumentOptions](#T-Microsoft-VisualStudio-Extensibility-Editor-KnownDocumentOptions 'Microsoft.VisualStudio.Extensibility.Editor.KnownDocumentOptions')
+  - [ConvertTabsToSpacesOption](#F-Microsoft-VisualStudio-Extensibility-Editor-KnownDocumentOptions-ConvertTabsToSpacesOption 'Microsoft.VisualStudio.Extensibility.Editor.KnownDocumentOptions.ConvertTabsToSpacesOption')
+  - [TabSizeOption](#F-Microsoft-VisualStudio-Extensibility-Editor-KnownDocumentOptions-TabSizeOption 'Microsoft.VisualStudio.Extensibility.Editor.KnownDocumentOptions.TabSizeOption')
+- [KnownViewOptions](#T-Microsoft-VisualStudio-Extensibility-Editor-KnownViewOptions 'Microsoft.VisualStudio.Extensibility.Editor.KnownViewOptions')
+  - [LineSpacingOption](#F-Microsoft-VisualStudio-Extensibility-Editor-KnownViewOptions-LineSpacingOption 'Microsoft.VisualStudio.Extensibility.Editor.KnownViewOptions.LineSpacingOption')
+  - [ProhibitUserInputOption](#F-Microsoft-VisualStudio-Extensibility-Editor-KnownViewOptions-ProhibitUserInputOption 'Microsoft.VisualStudio.Extensibility.Editor.KnownViewOptions.ProhibitUserInputOption')
 - [TextDocumentSnapshotEditResponse](#T-Microsoft-VisualStudio-Extensibility-Editor-TextDocumentSnapshotEditResponse 'Microsoft.VisualStudio.Extensibility.Editor.TextDocumentSnapshotEditResponse')
   - [#ctor(after,editResult)](#M-Microsoft-VisualStudio-Extensibility-Editor-TextDocumentSnapshotEditResponse-#ctor-Microsoft-VisualStudio-Extensibility-Editor-ITextDocumentSnapshot,Microsoft-VisualStudio-RpcContracts-Editor-EditResult- 'Microsoft.VisualStudio.Extensibility.Editor.TextDocumentSnapshotEditResponse.#ctor(Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot,Microsoft.VisualStudio.RpcContracts.Editor.EditResult)')
   - [After](#P-Microsoft-VisualStudio-Extensibility-Editor-TextDocumentSnapshotEditResponse-After 'Microsoft.VisualStudio.Extensibility.Editor.TextDocumentSnapshotEditResponse.After')
@@ -93,10 +104,10 @@ Initializes a new instance of [EditResponse](#T-Microsoft-VisualStudio-Extensibi
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| succeeded | [System.Boolean](https://learn.microsoft.com/dotnet/api/System.Boolean 'System.Boolean') | `true` if the cumulative operation completed successfully. |
-| message | [System.String](https://learn.microsoft.com/dotnet/api/System.String 'System.String') | Any cumulative error message, `null`, or [Empty](https://learn.microsoft.com/dotnet/api/System.String.Empty 'System.String.Empty') if none. |
-| documentEditResults | [System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot,Microsoft.VisualStudio.Extensibility.Editor.TextDocumentSnapshotEditResponse}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyDictionary-2 'System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot,Microsoft.VisualStudio.Extensibility.Editor.TextDocumentSnapshotEditResponse}') |  |
-| textViewEditResults | [System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot,Microsoft.VisualStudio.Extensibility.Editor.TextViewEditResponse}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyDictionary-2 'System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot,Microsoft.VisualStudio.Extensibility.Editor.TextViewEditResponse}') | Per-document operation results including per document errors and updated [ITextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot')
+| succeeded | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | `true` if the cumulative operation completed successfully. |
+| message | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | Any cumulative error message, `null`, or [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') if none. |
+| documentEditResults | [System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot,Microsoft.VisualStudio.Extensibility.Editor.TextDocumentSnapshotEditResponse}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyDictionary 'System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot,Microsoft.VisualStudio.Extensibility.Editor.TextDocumentSnapshotEditResponse}') |  |
+| textViewEditResults | [System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot,Microsoft.VisualStudio.Extensibility.Editor.TextViewEditResponse}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyDictionary 'System.Collections.Generic.IReadOnlyDictionary{Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot,Microsoft.VisualStudio.Extensibility.Editor.TextViewEditResponse}') | Per-document operation results including per document errors and updated [ITextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot')
 versions. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Editor-EditResponse-DocumentEditResults'></a>
@@ -117,7 +128,7 @@ Key of dictionary is the version of the document prior to the edits.
 
 ##### Summary
 
-Any cumulative error message, `null`, or [Empty](https://learn.microsoft.com/dotnet/api/System.String.Empty 'System.String.Empty') if none.
+Any cumulative error message, `null`, or [Empty](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String.Empty 'System.String.Empty') if none.
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Editor-EditResponse-Succeeded'></a>
 ### Succeeded `property`
@@ -183,8 +194,8 @@ A response object detailing whether the operation was successful and which [ITex
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| editorSource | [System.Action{Microsoft.VisualStudio.Extensibility.Editor.IEditBatch}](https://learn.microsoft.com/dotnet/api/System.Action 'System.Action{Microsoft.VisualStudio.Extensibility.Editor.IEditBatch}') | A service for obtaining editors for requesting changes to a [IEditable\`1](#T-Microsoft-VisualStudio-Extensibility-Editor-IEditable`1 'Microsoft.VisualStudio.Extensibility.Editor.IEditable`1') object, such as [ITextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot'). |
-| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancels a pending request. |
+| editorSource | [System.Action{Microsoft.VisualStudio.Extensibility.Editor.IEditBatch}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Action 'System.Action{Microsoft.VisualStudio.Extensibility.Editor.IEditBatch}') | A service for obtaining editors for requesting changes to a [IEditable\`1](#T-Microsoft-VisualStudio-Extensibility-Editor-IEditable`1 'Microsoft.VisualStudio.Extensibility.Editor.IEditable`1') object, such as [ITextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot'). |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancels a pending request. |
 
 ##### Remarks
 
@@ -212,12 +223,121 @@ An instance of [ITextViewSnapshot](#T-Microsoft-VisualStudio-Extensibility-Edito
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | clientContext | [Microsoft.VisualStudio.Extensibility.IClientContext](#T-Microsoft-VisualStudio-Extensibility-IClientContext 'Microsoft.VisualStudio.Extensibility.IClientContext') | The client context, usually passed to command handlers. |
-| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancels the request. |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancels the request. |
 
 ##### Remarks
 
 Can return `null` if the `clientContext` references a version of text view
 that is sufficiently old so as to no longer be cached.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility-SubscribeToOptionChangesAsync``1-Microsoft-VisualStudio-Extensibility-Editor-ITextDocumentSnapshot,Microsoft-VisualStudio-Extensibility-Editor-TextDocumentOption{``0},System-Threading-CancellationToken,System-Func{``0,System-Threading-Tasks-Task}-'></a>
+### SubscribeToOptionChangesAsync\`\`1(document,textDocumentOption,cancellationToken,changeHandler) `method`
+
+##### Summary
+
+Registers to listen for option changes in the scope of a text document.
+
+##### Returns
+
+an [IDisposable](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IDisposable 'System.IDisposable') to manage the lifetime of the subscription.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| document | [Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextDocumentSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextDocumentSnapshot') | Document snapshot to use as the scope. |
+| textDocumentOption | [Microsoft.VisualStudio.Extensibility.Editor.TextDocumentOption{\`\`0}](#T-Microsoft-VisualStudio-Extensibility-Editor-TextDocumentOption{``0} 'Microsoft.VisualStudio.Extensibility.Editor.TextDocumentOption{``0}') | Option identifier. |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor while subscribing. |
+| changeHandler | [System.Func{\`\`0,System.Threading.Tasks.Task}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{``0,System.Threading.Tasks.Task}') | Change handler to invoke, this handler will always be called once with the initial value. |
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| T | Type of the option value. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Thrown when option is not defined in this scope. |
+
+##### Remarks
+
+The change handler will be called in series awaiting previous calls.
+
+<a name='M-Microsoft-VisualStudio-Extensibility-Editor-EditorExtensibility-SubscribeToOptionChangesAsync``1-Microsoft-VisualStudio-Extensibility-Editor-ITextViewSnapshot,Microsoft-VisualStudio-Extensibility-Editor-TextViewOption{``0},System-Threading-CancellationToken,System-Func{``0,System-Threading-Tasks-Task}-'></a>
+### SubscribeToOptionChangesAsync\`\`1(textView,textViewOption,cancellationToken,changeHandler) `method`
+
+##### Summary
+
+Registers to listen for option changes in the scope of a text view.
+
+##### Returns
+
+an [IDisposable](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.IDisposable 'System.IDisposable') to manage the lifetime of the subscription.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| textView | [Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextViewSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot') | Text view snapshot to use as the scope. |
+| textViewOption | [Microsoft.VisualStudio.Extensibility.Editor.TextViewOption{\`\`0}](#T-Microsoft-VisualStudio-Extensibility-Editor-TextViewOption{``0} 'Microsoft.VisualStudio.Extensibility.Editor.TextViewOption{``0}') | Option identifier. |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | Cancellation token to monitor while subscribing. |
+| changeHandler | [System.Func{\`\`0,System.Threading.Tasks.Task}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Func 'System.Func{``0,System.Threading.Tasks.Task}') | Change handler to invoke, this handler will always be called once with the initial value. |
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| T | Type of the option value. |
+
+##### Exceptions
+
+| Name | Description |
+| ---- | ----------- |
+| [System.ArgumentOutOfRangeException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.ArgumentOutOfRangeException 'System.ArgumentOutOfRangeException') | Thrown when option is not defined in this scope. |
+
+##### Remarks
+
+The change handler will be called in series awaiting previous calls.
+
+<a name='T-Microsoft-VisualStudio-Extensibility-Editor-EditorOptionObserver`1'></a>
+## EditorOptionObserver\`1 `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.Editor
+
+##### Summary
+
+An observer for listening to changes in editor options.
+
+<a name='T-Microsoft-VisualStudio-Extensibility-ExtensionMethods'></a>
+## ExtensionMethods `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility
+
+<a name='M-Microsoft-VisualStudio-Extensibility-ExtensionMethods-IsExceptionType``1-StreamJsonRpc-RemoteInvocationException-'></a>
+### IsExceptionType\`\`1(e) `method`
+
+##### Summary
+
+Checks if a remote exception contains an error data of the specified type.
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| e | [StreamJsonRpc.RemoteInvocationException](#T-StreamJsonRpc-RemoteInvocationException 'StreamJsonRpc.RemoteInvocationException') | Remote exception instance. |
+
+##### Generic Types
+
+| Name | Description |
+| ---- | ----------- |
+| T | Exception type to check for. |
 
 <a name='T-Microsoft-VisualStudio-Extensibility-Editor-ITextViewChangedListener'></a>
 ## ITextViewChangedListener `type`
@@ -322,7 +442,7 @@ An [IRemoteUserControl](#T-Microsoft-VisualStudio-RpcContracts-RemoteUI-IRemoteU
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | textView | [Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextViewSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot') |  |
-| cancellationToken | [System.Threading.CancellationToken](https://learn.microsoft.com/dotnet/api/System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress content creation. |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the in-progress content creation. |
 
 <a name='T-Microsoft-VisualStudio-RpcContracts-Editor-ITextViewMarginProviderContract'></a>
 ## ITextViewMarginProviderContract `type`
@@ -450,6 +570,56 @@ Special scenarios:
 - This API will be called for all already open text views when an extension is hot loaded in the middle of an
   existing session.
 
+<a name='T-Microsoft-VisualStudio-Extensibility-Editor-KnownDocumentOptions'></a>
+## KnownDocumentOptions `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.Editor
+
+##### Summary
+
+Enumerates known text document options.
+
+<a name='F-Microsoft-VisualStudio-Extensibility-Editor-KnownDocumentOptions-ConvertTabsToSpacesOption'></a>
+### ConvertTabsToSpacesOption `constants`
+
+##### Summary
+
+Gets the option to determine if tabs should be converted to spaces.
+
+<a name='F-Microsoft-VisualStudio-Extensibility-Editor-KnownDocumentOptions-TabSizeOption'></a>
+### TabSizeOption `constants`
+
+##### Summary
+
+Gets the option for the default tab size in a text document.
+
+<a name='T-Microsoft-VisualStudio-Extensibility-Editor-KnownViewOptions'></a>
+## KnownViewOptions `type`
+
+##### Namespace
+
+Microsoft.VisualStudio.Extensibility.Editor
+
+##### Summary
+
+Enumerates known text document options.
+
+<a name='F-Microsoft-VisualStudio-Extensibility-Editor-KnownViewOptions-LineSpacingOption'></a>
+### LineSpacingOption `constants`
+
+##### Summary
+
+Gets the option for vertical space between lines in the view.
+
+<a name='F-Microsoft-VisualStudio-Extensibility-Editor-KnownViewOptions-ProhibitUserInputOption'></a>
+### ProhibitUserInputOption `constants`
+
+##### Summary
+
+Gets the option to determine if view allows user input.
+
 <a name='T-Microsoft-VisualStudio-Extensibility-Editor-TextDocumentSnapshotEditResponse'></a>
 ## TextDocumentSnapshotEditResponse `type`
 
@@ -572,7 +742,7 @@ Creates a new instance of [TextViewChangedArgs](#T-Microsoft-VisualStudio-Extens
 | ---- | ---- | ----------- |
 | beforeTextView | [Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextViewSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot') | The state of the [ITextViewSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextViewSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot') before the change. |
 | afterTextView | [Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextViewSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot') | The state of the [ITextViewSnapshot](#T-Microsoft-VisualStudio-Extensibility-Editor-ITextViewSnapshot 'Microsoft.VisualStudio.Extensibility.Editor.ITextViewSnapshot') after. |
-| edits | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Extensibility.Editor.TextEdit}](https://learn.microsoft.com/dotnet/api/System.Collections.Generic.IReadOnlyList-1 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Extensibility.Editor.TextEdit}') | A list of changes applied to the text document. |
+| edits | [System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Extensibility.Editor.TextEdit}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IReadOnlyList 'System.Collections.Generic.IReadOnlyList{Microsoft.VisualStudio.Extensibility.Editor.TextEdit}') | A list of changes applied to the text document. |
 
 <a name='P-Microsoft-VisualStudio-Extensibility-Editor-TextViewChangedArgs-AfterTextView'></a>
 ### AfterTextView `property`
