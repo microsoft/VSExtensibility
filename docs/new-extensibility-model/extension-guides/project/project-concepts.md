@@ -11,11 +11,11 @@ ms.custom: template-concept
 
 # Project query API
 
-In Visual Studio, projects are collections of files that are compiled together into an executable or some other form of output, and solutions are collections of projects. Projects and solutions are represented on disk by project files and solution files, respectively. For more information, see [What are solutions and projects in Visual Studio?](https://learn.microsoft.com/visualstudio/ide/solutions-and-projects-in-visual-studio).
+In Visual Studio, projects are collections of files that are compiled together into an executable or some other form of output, and solutions are collections of projects. Projects and solutions are represented in the filesystem by project files and solution files, respectively. For more information, see [What are solutions and projects in Visual Studio?](https://learn.microsoft.com/visualstudio/ide/solutions-and-projects-in-visual-studio).
 
-The project system sits between a project or solution file on disk (for example, .csproj and .vbproj) and various Visual Studio features including, but not limited to, the Solution Explorer, designers, the debugger, language services, build and deployment. Project systems are a part of VS components to help users work with and maintain projects, run builds to produce results, and to test output, and almost all interaction that occurs with files contained in a project file happens through the project system. You can find more information on project systems [here](https://github.com/microsoft/VSProjectSystem).
+The project system sits between a project or solution file on disk (for example, .csproj and .vbproj) and various Visual Studio features including, but not limited to, the Solution Explorer, designers, the debugger, language services, build and deployment. Project systems are a part of Visual Studio components to help users work with and maintain projects, run builds to produce results, and to test output, and almost all interaction that occurs with files contained in a project file happens through the project system. You can find more information on project systems [here](https://github.com/microsoft/VSProjectSystem).
 
-The goal of the project query API is to enable extensions to retrieve data about- and make changes to projects and solutions.
+The goal of the project query API is to enable extensions to retrieve data about projects and solutions and make changes.
 
 Some examples of what you might do with a project query:
 
@@ -38,12 +38,12 @@ There are many different items you can reference in your project queries. Some i
 |QueryableSpace.Projects| All projects in the workspace.
 |QueryableSpace.Solutions| All solutions in the workspace.
 |Solution| Represents a solution in Visual Studio.
-|Project| Represents most projects in Visual Studio, but solution folders are represented differently in the new API.
+|Project| Represents most projects in Visual Studio, but solution folders are represented differently in VisualStudio.Extensibility.
 |SolutionFolder| Represents a solution folder, which is a virtual folder to group projects and files inside a Visual Studio solution.
 |File| Represents a file contained by a project or a solution folder.
-|ExternalFile| Represents external files referenced by a project, which is not yet supported by VC projects.
+|ExternalFile| Represents external files referenced by a project, which is not yet supported by C++ projects.
 |Property| Represents dynamic set (weak name/type) of properties of a project, a configuration, or a file.
-|ProjectReference| Represents project to project references, including shared project references.
+|ProjectReference| Represents project-to-project references, including shared project references.
 |PackageReference| Represents a package reference in a project configuration, typically a NuGet package reference.
 |AssemblyReference| Represents a referenced assembly in a project configuration.
 |ConfigurationDimensionDefinition| Represents values to declare project configurations.
@@ -74,4 +74,4 @@ Clauses in your project query determine what kind of items should be returned in
 
 To see some examples of project queries for common tasks, see the [Project Query Overview](./project.md)
 
-For a sample extension that uses the project query API, see [Project Query Sample]()
+For a sample extension that uses the project query API, see [Project Query Sample](../../../../New_Extensibility_Model/Samples/VSProjectQueryAPISample/README.md)

@@ -1,10 +1,10 @@
 # RegEx Match Debug Visualizer
 
-This VisualStudio.Extensibility extension adds two new debugger visualizers supporting the .NET [`Match`](https://learn.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.match) and [`MatchCollection`](https://learn.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.matchcollection) classes.
+This VisualStudio.Extensibility extension adds two new debugger visualizers supporting the .NET [`Match`](https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.match) and [`MatchCollection`](https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.matchcollection) classes.
 
 ![RegEx Match visualizer](RegexMatchVisualizer.png "RegEx Match visualizer")
 
-The extension is composed of two projects: `RegexMatchDebugVisualizer`, the actual extension, and `RegexMatchObjectSource`, the *visualizer object source* library.
+The extension is composed of two projects: `RegexMatchDebugVisualizer`, the actual extension, and `RegexMatchObjectSource`, the visualizer object source library.
 
 ## Creating the extension
 
@@ -12,7 +12,7 @@ The extension project is created as described in the [tutorial document](../../.
 
 ## The `Match` visualizer
 
-The next step is to create a `DebuggerVisualizerProvider` class to visualize instances of [`Match`](https://learn.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.match):
+The next step is to create a `DebuggerVisualizerProvider` class to visualize instances of [`Match`](https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.match):
 
 ```csharp
 [VisualStudioContribution]
@@ -21,7 +21,7 @@ internal class RegexMatchDebuggerVisualizerProvider : DebuggerVisualizerProvider
     ...
 ```
 
-If the `Match` type was serializable by Newtonsoft.Json, the visualizer implementation would be extremely simple:
+If the `Match` type were serializable by Newtonsoft.Json, the visualizer implementation would be extremely simple:
 
 ```csharp
 public override DebuggerVisualizerProviderConfiguration DebuggerVisualizerProviderConfiguration => ew("Regex Match visualizer", typeof(Match));
@@ -33,7 +33,7 @@ public override async Task<IRemoteUserControl> CreateVisualizerAsync(VisualizerT
 }
 ```
 
-Unfortunately `Match` is not serializable as-is, so we need a new serializable class [`RegexMatch`](RegexMatchObjectSource/RegexMatch.cs). And we will need to create a *visualizer object source* library to convert the `Match` into a serializable `RegexMatch`, more about this in [a later paragraph](#the-visualizer-object-source). For now let's just update the `RequestDataAsync` call to use `RegexMatch`:
+Unfortunately `Match` is not serializable as-is, so we need a new serializable class [`RegexMatch`](RegexMatchObjectSource/RegexMatch.cs). And we will need to create a visualizer object source library to convert the `Match` into a serializable `RegexMatch`, more about this in [a later paragraph](#the-visualizer-object-source). For now, let's just update the `RequestDataAsync` call to use `RegexMatch`:
 
 ```csharp
 var regexMatch = await visualizerTarget.ObjectSource.RequestDataAsync<RegexMatch>(jsonSerializer: null, cancellationToken);
@@ -43,7 +43,7 @@ var regexMatch = await visualizerTarget.ObjectSource.RequestDataAsync<RegexMatch
 
 We now have to create the `RegexMatchVisualizerUserControl` [class](./RegexMatchDebugVisualizer/RegexMatch/RegexMatchVisualizerUserControl.cs) and its associated [XAML file](./RegexMatchDebugVisualizer/RegexMatch/RegexMatchVisualizerUserControl.xaml). This process is described in the [Remote UI documentation](../../../docs/new-extensibility-model/inside-the-sdk/remote-ui.md).
 
-Every time we create a remote user control like `RegexMatchVisualizerUserControl` we need to configure the corresponding XAML file as embedded resource. In this case, since I placed the XAML file in a subfolder, I also need to use `LogicalName` to make sure the name of the resource matches the full name of the remote user control class. This is all done in the `.csproj` file:
+Every time we create a remote user control like `RegexMatchVisualizerUserControl` we need to configure the corresponding XAML file as embedded resource. In this case, since the XAML file is in a subfolder, we also need to use `LogicalName` to make sure the name of the resource matches the full name of the remote user control class. This is all done in the `.csproj` file:
 
 ```xml
   <ItemGroup>
@@ -54,7 +54,7 @@ Every time we create a remote user control like `RegexMatchVisualizerUserControl
 
 ## The visualizer object source
 
-The *visualizer object source* assembly will be loaded by the debugger into the process being debugged and will take care of converting the `Match` object into a serializable `RegexMatch`.
+The visualizer object source assembly will be loaded by the debugger into the process being debugged and will take care of converting the `Match` object into a serializable `RegexMatch`.
 
 I will start creating a `RegexMatchObjectSource` class library targeting `netstandard2.0` and adding a project reference to [Microsoft.VisualStudio.DebuggerVisualizers](https://www.nuget.org/packages/Microsoft.VisualStudio.DebuggerVisualizers) version 17.6 or newer. Targeting `netstandard2.0` will allow the debugger visualizer to easily work with a large variety of .NET versions.
 
@@ -77,9 +77,9 @@ public class RegexMatchObjectSource : VisualizerObjectSource
 
 The `GetData` method is invoked by the debugger when the `RegexMatchDebuggerVisualizerProvider` calls `RequestDataAsync`.
 
-`SerializeAsJson` will serialize the `RegexMatch` object using Newtonsoft.Json, which is loaded by the debugger in the process being debugged via reflection. Since my *visualizer object source* doesn't need to refence Newtonsoft.Json directly, I didn't include a `PackageReference` to it, which is preferrable since we should minimize the dependencies of the *visualizer object source* assembly. Because I am not referencing Newtonsoft.Json, the `RegexMatch` class uses `DataContract` and `DataMember` attributes to control serialization instead of the Newtonsoft.Json-specific types.
+`SerializeAsJson` will serialize the `RegexMatch` object using Newtonsoft.Json, which is loaded by the debugger in the process being debugged via reflection. Since my visualizer object source doesn't need to refence Newtonsoft.Json directly, I didn't include a `PackageReference` to it, which is better since we should minimize the dependencies of the visualizer object source assembly. Because this code doesn't reference Newtonsoft.Json, the `RegexMatch` class uses `DataContract` and `DataMember` attributes to control serialization instead of the Newtonsoft.Json-specific types.
 
-My [`RegexMatchObjectSource`](./RegexMatchObjectSource/RegexMatchObjectSource.cs) implementation contains a small trick: the [`Group.Name`](https://learn.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.group.name) property is read through reflection since it's available on most .NET versions but it is not included in the `netstandard2.0` APIs:
+My [`RegexMatchObjectSource`](./RegexMatchObjectSource/RegexMatchObjectSource.cs) implementation contains a small trick: the [`Group.Name`](https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.group.name) property is read through reflection since it's available on most .NET versions but it is not included in the `netstandard2.0` APIs:
 
 ```csharp
 private static readonly Func<Group, string?>? GetGroupName =
@@ -92,7 +92,7 @@ Name = $"[{GetGroupName?.Invoke(g) ?? i.ToString()}]"
 
 ### Referencing the visualizer object source from the extension
 
-First, we need to make sure that the *visualizer object source* library is packaged as part of the extension. We can do that in the extension's `.csproj` file:
+First, we need to make sure that the visualizer object source library is packaged as part of the extension. We can do that in the extension's `.csproj` file:
 
 ```xml
   <ItemGroup>
@@ -106,9 +106,9 @@ First, we need to make sure that the *visualizer object source* library is packa
   </ItemGroup>
 ```
 
-The `ProjectReference` guarantees that the *visualizer object source* library is built before the extension and the `Content` item makes sure that the *visualizer object source* DLL is copied into the `netstandard2.0` extension's subfolder where it will be discoverable by the debugger.
+The `ProjectReference` guarantees that the visualizer object source library is built before the extension and the `Content` item makes sure that the visualizer object source DLL is copied into the `netstandard2.0` extension's subfolder where it will be discoverable by the debugger.
 
-I have decided to use `ReferenceOutputAssembly="false"` to avoid a dependency of the extension assembly from the *visualizer object source* one. This allows using conditional compilation (`#if`) to have slightly different definitions of [`RegexCapture`](./RegexMatchObjectSource/RegexCapture.cs) in the two projects. Since I decided to avoid the dependency, I will need to:
+I have decided to use `ReferenceOutputAssembly="false"` to avoid a dependency of the extension assembly from the visualizer object source one. This allows using conditional compilation (`#if`) to have slightly different definitions of [`RegexCapture`](./RegexMatchObjectSource/RegexCapture.cs) in the two projects. Since I decided to avoid the dependency, I will need to:
 
 1. link the `RegexMatch.cs` file (and the related `RegexCapture` and `RegexGroup` ones) so that they are available in both projects:
 
@@ -129,7 +129,7 @@ I have decided to use `ReferenceOutputAssembly="false"` to avoid a dependency of
     };
 ```
 
-In most cases, having the extension project dependend on the *visualizer object source* library is simpler: I could have simplified the `DebuggerVisualizerProviderConfiguration` to:
+In most cases, having the extension project depend on the visualizer object source library is simpler: I could have simplified the `DebuggerVisualizerProviderConfiguration` to:
 
 ```csharp
     public override DebuggerVisualizerProviderConfiguration DebuggerVisualizerProviderConfiguration => new("Regex Match visualizer", typeof(Match))
@@ -140,9 +140,9 @@ In most cases, having the extension project dependend on the *visualizer object 
 
 ## The `MatchCollection` visualizer
 
-Now that the `Match` visualizer is complete, we can add a second visualizer for the [`MatchCollection`](https://learn.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.matchcollection) class. The process is exactly the same: I have created [a new `DebuggerVisualizerProvider`](./RegexMatchDebugVisualizer/RegexMatchCollection/RegexMatchCollectionDebuggerVisualizerProvider.cs) and its [remote user control](./RegexMatchDebugVisualizer/RegexMatchCollection/RegexMatchCollectionVisualizerUserControl.cs). I also added [a new `VisualizerObjectSource`](./RegexMatchObjectSource/RegexMatchCollectionObjectSource.cs) to the *visualizer object source* library.
+Now that the `Match` visualizer is complete, we can add a second visualizer for the [`MatchCollection`](https://learn.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.matchcollection) class. The process is exactly the same: create a new [`DebuggerVisualizerProvider`](./RegexMatchDebugVisualizer/RegexMatchCollection/RegexMatchCollectionDebuggerVisualizerProvider.cs) and its [remote user control](./RegexMatchDebugVisualizer/RegexMatchCollection/RegexMatchCollectionVisualizerUserControl.cs). Also, add a new [`VisualizerObjectSource`](./RegexMatchObjectSource/RegexMatchCollectionObjectSource.cs) to the visualizer object source library.
 
-Each call to `RequestDataAsync` is allowed only 5 seconds to complete or will result in a timeout exception. Since the `MatchCollection` could contain many entries, I have implemented the *visualizer object source* using the `TransferData` method instead of `GetData`: `TransferData` accepts a parameter which allows my visualizer to query the collection entries one by one:
+Each call to `RequestDataAsync` is allowed only 5 seconds to complete before throwing a timeout exception. Since the `MatchCollection` could contain many entries, the visualizer object source uses the `TransferData` method instead of `GetData`: `TransferData` accepts a parameter which allows the visualizer to query the collection entries one by one:
 
 ```csharp
 public override void TransferData(object target, Stream incomingData, Stream outgoingData)
@@ -170,7 +170,7 @@ public override Task<IRemoteUserControl> CreateVisualizerAsync(VisualizerTarget 
 }
 ```
 
-The remote user control uses the `RequestDataAsync` override that takes a `message` parameter, which results in `TransferData` being invoked on the *visualizer object source*. The remote user control will loop, invoking `RequestDataAsync` for increasing index numbers until the *visualizer object source* returns `null`, indicating the end of the collection:
+The remote user control uses the `RequestDataAsync` override that takes a `message` parameter, which results in `TransferData` being invoked on the visualizer object source. The remote user control will loop, invoking `RequestDataAsync` for increasing index numbers until the visualizer object source returns `null`, which indicates the end of the collection:
 
 ```csharp
 public override Task ControlLoadedAsync(CancellationToken cancellationToken)
@@ -193,4 +193,4 @@ public override Task ControlLoadedAsync(CancellationToken cancellationToken)
 }
 ```
 
-This is a very simple implementation of a debugger visualizer which relies on `RequestDataAsync`. More complex implementations may pass more complex parameters to `RequestDataAsync` in order to retrieve different information from the *visualizer object source*. You could even invoke `RequestDataAsync` in response to the user's interactions with the remote user control, allowing the user to "explore" the content of, potentially very large, objects.
+This is a very simple implementation of a debugger visualizer which relies on `RequestDataAsync`. More complex implementations may pass more complex parameters to `RequestDataAsync` in order to retrieve different information from the visualizer object source. You could even invoke `RequestDataAsync` in response to the user's interactions with the remote user control, allowing the user to "explore" the content of, potentially very large, objects.
