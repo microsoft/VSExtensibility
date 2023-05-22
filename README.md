@@ -80,7 +80,7 @@ Read an overview of the areas of the SDK that you might need for your extension 
 * To learn how to use prompts with customizable buttons to interact with the user, see [User prompts](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/user-prompt/user-prompts).
 * To learn how to use dialogs with custom UI to interact with the user, see [Dialogs](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/dialog/dialog)
 * To learn how to create custom data visualizations when debugging, see [Debugger Visualizers](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/debugger-visualizer/debugger-visualizers)
-* To learn how to query or modify information about project sand solutions, see [Project Query](docs/new-extensibility-model/extension-guides/project/project.md)
+* To learn how to query or modify information about project sand solutions, see [Project Query](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/project/project)
 
 ## Samples and tutorials
 
