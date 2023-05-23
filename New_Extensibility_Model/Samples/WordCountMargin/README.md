@@ -41,3 +41,7 @@ public TextViewMarginProviderConfiguration TextViewMarginProviderConfiguration =
 ## Usage
 
 Once deployed, the Word Count Margin Sample will add a margin on the Visual Studio editor status bar, to the left of built-in line number margin indicating current number of words in the text document.
+
+## See also
+
+- [Use Editor extensibility](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/editor/editor)

@@ -32,3 +32,7 @@ Even though this class implements 2 different contracts, a single instance of it
 ## Usage
 
 Once deployed, the Document Selector Sample will write `Running unit tests in File.cs` to the Output Window every time you open or modify C# file under "tests" folder anywhere in solution.
+
+## See also
+
+- [Create documents](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/document/documents)
