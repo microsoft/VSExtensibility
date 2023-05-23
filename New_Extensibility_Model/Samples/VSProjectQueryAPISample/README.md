@@ -6,7 +6,7 @@ date: 2022-1-20
 
 # Walkthrough: VS Project Query API Extension
 
-This extension demonstrates the most basic usage of the VS Project Query API into commands that query information and updates to the project system.
+This extension demonstrates the most basic usage of the [VS Project Query API](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/project/project) into commands that query information and updates to the project system.
 
 ## Overview
 
@@ -53,7 +53,7 @@ await this.Extensibility.Workspaces().UpdateProjectsAsync(
 
 There are various patterns to query information about the project system, such as querying by project, name, and id.
 
-For the following examples, we will be querying information about [Output Groups](https://learn.microsoft.com/en-us/dotnet/api/envdte.outputgroups?view=visualstudiosdk-2022), a group of built files for the project or the outputs for a project.
+For the following examples, we will be querying information about [Output Groups](https://learn.microsoft.com/dotnet/api/envdte.outputgroups?view=visualstudiosdk-2022), a group of built files for the project or the outputs for a project.
 
 
 ### Querying By Project

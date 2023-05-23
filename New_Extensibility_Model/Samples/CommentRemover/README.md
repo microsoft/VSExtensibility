@@ -111,9 +111,9 @@ If we want the extension to be localized for different languages, we can later a
 
 The Comment Remover extension is leveraging four of Visual Studio services:
 
-- `DTE2`, available as `DTE` through  [AsyncServiceProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.shell.asyncserviceprovider);
+- `DTE2`, available as `DTE` through  [AsyncServiceProvider](https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.shell.asyncserviceprovider);
 - `IVsTextManager`, available as `SVsTextManager` through `AsyncServiceProvider`;
-- `IBufferTagAggregatorFactoryService`, available through [MEF](https://docs.microsoft.com/en-us/visualstudio/extensibility/managed-extensibility-framework-in-the-editor);
+- `IBufferTagAggregatorFactoryService`, available through [MEF](https://learn.microsoft.com/visualstudio/extensibility/managed-extensibility-framework-in-the-editor);
 - `IVsEditorAdaptersFactoryService`, available through `MEF`.
 
 In a VisualStudio.Extensibility command, we can consume such services using .NET dependency injection by simply adding them to the command's constructor:

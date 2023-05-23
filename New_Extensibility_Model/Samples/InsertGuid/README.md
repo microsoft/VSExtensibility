@@ -33,11 +33,11 @@ The `CommandConfiguration` property defines information about the command that a
 
 The command is placed in `Extensions` top menu and uses `OfficeWebExtension` icon moniker.
 
-The `VisibleWhen` property defines when the command is visible in the `Extensions` menu. You can refer to [Activation Constraints](../inside-the-sdk/activation-constraints.md/) to learn about different options that you can use to determine command visibility and state. In this case, the command is enabled anytime there is an active editor in the IDE.
+The `VisibleWhen` property defines when the command is visible in the `Extensions` menu. You can refer to [Activation Constraints](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/inside-the-sdk/activation-constraints) to learn about different options that you can use to determine command visibility and state. In this case, the command is enabled anytime there is an active editor in the IDE.
 
 ## Getting the active editor view
 
-Once user executes the command, SDK will route execution to `ExecuteCommandAsync` method. `IClientContext` instance contains information about the state of IDE at the time of command execution and can be used in conjuction with `VisualStudioExtensibility` object.
+Once user executes the command, SDK will route execution to `ExecuteCommandAsync` method. `IClientContext` instance contains information about the state of IDE at the time of command execution and can be used in conjunction with `VisualStudioExtensibility` object.
 
 In our example, we utilize `GetActiveTextViewAsync` method to get the active text view at the time of command execution which includes information about document being open, version of the document and the selection.
 
@@ -62,7 +62,7 @@ await this.Extensibility.Editor().MutateAsync(
 
 ## Logging errors
 
-Each extension part including command sets is assigned a `TraceSource` instance that can be utilized to log diagnostic errors. Please see [Logging](../inside-the-sdk/logging.md) section for more information.
+Each extension part including command sets is assigned a `TraceSource` instance that can be utilized to log diagnostic errors. Please see [Logging](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/inside-the-sdk/logging) section for more information.
 
 ## Usage
 
