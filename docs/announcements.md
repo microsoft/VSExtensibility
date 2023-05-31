@@ -7,6 +7,9 @@ date: 2022-8-10
 # Announcements
 Use this page to stay up-to-date on all upcoming extensibility announcements and critical SDK/API updates.
 
+## May 19, 2023
+* Documentation moved to the Learn platform: [https://learn.microsoft.com/en-us/visualstudio/extensibility/visualstudio.extensibility/?view=vs-2022](VisualStudio.Extensibility documentation)
+
 ## November 9, 2022
 * Released updated VisualStudio.Extensibility packages, samples for Visual Studio 2022 version 17.5 Preview 1 release. 
 

@@ -8,7 +8,7 @@ The extension is composed of two projects: `RegexMatchDebugVisualizer`, the actu
 
 ## Creating the extension
 
-The extension project is created as described in the [tutorial document](../../../docs/new-extensibility-model/getting-started/create-your-first-extension.md). You can also reference the [debugger visualizers guide](../../../docs/new-extensibility-model/extension-guides/debuggerVisualizers/debuggerVisualizers.md) for additional information.
+The extension project is created as described in the [tutorial document](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/get-started/create-your-first-extension). You can also reference the [debugger visualizers guide](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/debugger-visualizer/debugger-visualizers) for additional information.
 
 ## The `Match` visualizer
 
@@ -41,7 +41,7 @@ var regexMatch = await visualizerTarget.ObjectSource.RequestDataAsync<RegexMatch
 
 ### Adding the remote user control
 
-We now have to create the `RegexMatchVisualizerUserControl` [class](./RegexMatchDebugVisualizer/RegexMatch/RegexMatchVisualizerUserControl.cs) and its associated [XAML file](./RegexMatchDebugVisualizer/RegexMatch/RegexMatchVisualizerUserControl.xaml). This process is described in the [Remote UI documentation](../../../docs/new-extensibility-model/inside-the-sdk/remote-ui.md).
+We now have to create the `RegexMatchVisualizerUserControl` [class](./RegexMatchDebugVisualizer/RegexMatch/RegexMatchVisualizerUserControl.cs) and its associated [XAML file](./RegexMatchDebugVisualizer/RegexMatch/RegexMatchVisualizerUserControl.xaml). This process is described in the [Remote UI documentation](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/inside-the-sdk/remote-ui).
 
 Every time we create a remote user control like `RegexMatchVisualizerUserControl` we need to configure the corresponding XAML file as embedded resource. In this case, since the XAML file is in a subfolder, we also need to use `LogicalName` to make sure the name of the resource matches the full name of the remote user control class. This is all done in the `.csproj` file:
 
@@ -140,7 +140,7 @@ In most cases, having the extension project depend on the visualizer object sour
 
 ## The `MatchCollection` visualizer
 
-Now that the `Match` visualizer is complete, we can add a second visualizer for the [`MatchCollection`](https://learn.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.matchcollection) class. The process is exactly the same: create a new [`DebuggerVisualizerProvider`](./RegexMatchDebugVisualizer/RegexMatchCollection/RegexMatchCollectionDebuggerVisualizerProvider.cs) and its [remote user control](./RegexMatchDebugVisualizer/RegexMatchCollection/RegexMatchCollectionVisualizerUserControl.cs). Also, add a new [`VisualizerObjectSource`](./RegexMatchObjectSource/RegexMatchCollectionObjectSource.cs) to the visualizer object source library.
+Now that the `Match` visualizer is complete, we can add a second visualizer for the [`MatchCollection`](https://learn.microsoft.com/dotnet/api/system.text.regularexpressions.matchcollection) class. The process is exactly the same: create a new [`DebuggerVisualizerProvider`](./RegexMatchDebugVisualizer/RegexMatchCollection/RegexMatchCollectionDebuggerVisualizerProvider.cs) and its [remote user control](./RegexMatchDebugVisualizer/RegexMatchCollection/RegexMatchCollectionVisualizerUserControl.cs). Also, add a new [`VisualizerObjectSource`](./RegexMatchObjectSource/RegexMatchCollectionObjectSource.cs) to the visualizer object source library.
 
 Each call to `RequestDataAsync` is allowed only 5 seconds to complete before throwing a timeout exception. Since the `MatchCollection` could contain many entries, the visualizer object source uses the `TransferData` method instead of `GetData`: `TransferData` accepts a parameter which allows the visualizer to query the collection entries one by one:
 

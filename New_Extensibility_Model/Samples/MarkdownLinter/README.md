@@ -30,7 +30,7 @@ Different to previous samples, this extension implements its own class that inhe
 There are 2 interesting points in the implementation of `MarkdownLinterExtension`:
 
 * `ResourceManager` property points to the resource dictionary that contains localized entries that would be used for creating an output window pane.
-* `InitializeServices` method is used to add local services to the dependency injection graph. As noted in [local services section](../inside-the-sdk/extension-anatomy.md/#local-extension-services), the extension utilizes a scoped `MarkdownDiagnosticsService` as the service instance injects `VisualStudioExtensibility` object.
+* `InitializeServices` method is used to add local services to the dependency injection graph. As noted in [local services section](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/inside-the-sdk/extension-anatomy#local-extension-services), the extension utilizes a scoped `MarkdownDiagnosticsService` as the service instance injects `VisualStudioExtensibility` object.
 
 ## MarkdownDiagnosticsService local service
 
