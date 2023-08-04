@@ -13,6 +13,16 @@ using Microsoft.VisualStudio.Extensibility;
 public class UserPromptSampleExtension : Extension
 {
 	/// <inheritdoc/>
+	public override ExtensionConfiguration ExtensionConfiguration => new()
+	{
+		Metadata = new(
+				id: "UserPromptSample.5948e29e-4d51-4b7a-91e4-e574ee4f3ccd",
+				version: this.ExtensionAssemblyVersion,
+				publisherName: "Microsoft",
+				displayName: "User Prompt Sample Extension"),
+	};
+
+	/// <inheritdoc/>
 	protected override void InitializeServices(IServiceCollection serviceCollection)
 	{
 		base.InitializeServices(serviceCollection);
