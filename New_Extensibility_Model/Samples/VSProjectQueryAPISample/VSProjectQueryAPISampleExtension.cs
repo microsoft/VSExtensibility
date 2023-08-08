@@ -19,7 +19,8 @@ public class VSProjectQueryAPISampleExtension : Extension
 				id: "VSProjectQueryAPISample.e1fc7832-0ad7-4fc2-bf23-c7c5c6e95047",
 				version: this.ExtensionAssemblyVersion,
 				publisherName: "Microsoft",
-				displayName: "Project Query API Sample Extension"),
+				displayName: "Project Query API Sample Extension",
+				description: "Sample extension demonstrating project query APIs"),
 	};
 
 	/// <inheritdoc/>

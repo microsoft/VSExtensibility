@@ -22,7 +22,8 @@ public class MarkdownLinterExtension : Extension
 				id: "MarkdownLinter.0cf26ba2-edd5-4419-8646-a55d0a83f7d8",
 				version: this.ExtensionAssemblyVersion,
 				publisherName: "Microsoft",
-				displayName: "Markdown Linter Sample Extension"),
+				displayName: "Markdown Linter Sample Extension",
+				description: "Sample markdown linter extension"),
 	};
 
 	/// <inheritdoc />

@@ -19,7 +19,8 @@ public class SimpleRemoteCommandSampleExtension : Extension
 				id: "SimpleRemoteCommandSample.585f62b4-1416-4ed4-a7e8-2d9b2f37f01e",
 				version: this.ExtensionAssemblyVersion,
 				publisherName: "Microsoft",
-				displayName: "Simple Remote Command Sample Extension"),
+				displayName: "Simple Remote Command Sample Extension",
+				description: "Sample extension demonstrating commands"),
 	};
 
 	/// <inheritdoc/>

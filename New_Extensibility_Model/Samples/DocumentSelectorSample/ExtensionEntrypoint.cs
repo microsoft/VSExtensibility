@@ -19,7 +19,8 @@ public class DocumentSelectorSampleExtension : Extension
 				id: "DocumentSelectorSampleExtension.541ed9b9-4dfa-4e0a-8184-65c09ea44343",
 				version: this.ExtensionAssemblyVersion,
 				publisherName: "Microsoft",
-				displayName: "Document Selector Sample Extension"),
+				displayName: "Document Selector Sample Extension",
+				description: "Sample extension demonstrating document selectors"),
 	};
 
 	/// <inheritdoc/>

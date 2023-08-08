@@ -20,6 +20,7 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
 {
 	private bool hasError;
 	private string message = "My custom message";
+	private VisualStudioExtensibility extensibility;
 
 	/// <summary>
 	/// Initializes a new instance of the <see cref="MyToolWindowData" /> class.
@@ -29,7 +30,7 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
 	/// </param>
 	public MyToolWindowData(VisualStudioExtensibility extensibility)
 	{
-		Requires.NotNull(extensibility, nameof(extensibility));
+		this.extensibility = Requires.NotNull(extensibility, nameof(extensibility));
 
 		this.Context = new ClientContext(new Dictionary<string, object?>(), extensibility);
 		this.ShowMessageCommand = new AsyncCommand(this.ShowMessageAsync);
@@ -83,6 +84,6 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
 
 	private async Task ShowMessageAsync(object? commandParameter, CancellationToken cancellationToken)
 	{
-		await this.Context.ShowPromptAsync(this.Message, PromptOptions.OK, cancellationToken);
+		await this.extensibility.Shell().ShowPromptAsync(this.Message, PromptOptions.OK, cancellationToken);
 	}
 }

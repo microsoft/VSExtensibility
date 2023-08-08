@@ -19,7 +19,8 @@ public class CommandParentingSampleExtension : Extension
 				id: "CommandParentingSample.c30b7870-76bc-4ef6-93e8-15b9a54c9e2b",
 				version: this.ExtensionAssemblyVersion,
 				publisherName: "Microsoft",
-				displayName: "Command Parenting Sample Extension"),
+				displayName: "Command Parenting Sample Extension",
+				description: "Sample extension demonstrating command parenting"),
 	};
 
 	/// <inheritdoc/>

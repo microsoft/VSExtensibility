@@ -19,7 +19,8 @@ public class ToolWindowSampleExtension : Extension
 				id: "ToolWindowSampleExtension.4ca466cb-dc8d-4216-8323-b5c45f8e0da5",
 				version: this.ExtensionAssemblyVersion,
 				publisherName: "Microsoft",
-				displayName: "Tool Window Sample Extension"),
+				displayName: "Tool Window Sample Extension",
+				description: "Sample extension demonstrating tool windows"),
 	};
 
 	/// <inheritdoc/>

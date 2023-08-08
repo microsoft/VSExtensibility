@@ -66,7 +66,7 @@ internal class RunLinterOnSolutionCommand : Command
 				return;
 			}
 
-			if (await context.ShowPromptAsync(
+			if (await this.Extensibility.Shell().ShowPromptAsync(
 				string.Format(Strings.Culture, Strings.MarkdownSolutionAnalysisPrompt, filesToProcess.Count),
 				PromptOptions.OKCancel,
 				cancellationToken))

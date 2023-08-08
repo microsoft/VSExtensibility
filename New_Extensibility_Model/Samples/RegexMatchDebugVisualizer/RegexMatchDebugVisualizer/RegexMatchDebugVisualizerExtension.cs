@@ -19,7 +19,8 @@ internal class RegexMatchVisualizerExtension : Extension
 				id: "RegexMatchVisualizer.29d15448-6b97-42e5-97c7-bb12ded13b89",
 				version: this.ExtensionAssemblyVersion,
 				publisherName: "Microsoft",
-				displayName: "Regex Match Debugger Visualizer Sample Extension"),
+				displayName: "Regex Match Debugger Visualizer",
+				description: "A debugger visualizer for regex Match and MatchCollection"),
 	};
 
 	/// <inheritdoc/>

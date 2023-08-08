@@ -20,7 +20,8 @@ internal class WordCountMarginSampleExtension : Extension
 				id: "WordCountMarginSample.9d845a9e-a3a9-4efe-97f9-002a3945f9f5",
 				version: this.ExtensionAssemblyVersion,
 				publisherName: "Microsoft",
-				displayName: "Word Count Margin Sample Extension"),
+				displayName: "Word Count Margin Sample Extension",
+				description: "Sample extension demonstrating custom margins"),
 	};
 
 	/// <inheritdoc/>

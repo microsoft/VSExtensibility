@@ -40,6 +40,6 @@ public class AddFileCommand : Command
 			project => project.AddFile("CreatedFile.txt"),
 			cancellationToken);
 
-		await context.ShowPromptAsync("Created new file in ConsoleApp1.", PromptOptions.OK, cancellationToken);
+		await this.Extensibility.Shell().ShowPromptAsync("Created new file in ConsoleApp1.", PromptOptions.OK, cancellationToken);
 	}
 }

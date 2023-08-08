@@ -19,7 +19,8 @@ public class InsertGuidExtension : Extension
 				id: "InsertGuid.c5481000-68da-416d-b337-32122a638980",
 				version: this.ExtensionAssemblyVersion,
 				publisherName: "Microsoft",
-				displayName: "Insert Guid Sample Extension"),
+				displayName: "Insert Guid Sample Extension",
+				description: "Sample extension demonstrating inserting text in the current document"),
 	};
 
 	/// <inheritdoc/>

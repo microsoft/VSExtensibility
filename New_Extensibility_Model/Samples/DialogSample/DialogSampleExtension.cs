@@ -19,7 +19,8 @@ public class DialogSampleExtension : Extension
 				id: "DialogSampleExtension.8709efb4-fe22-4848-8533-594f444861a1",
 				version: this.ExtensionAssemblyVersion,
 				publisherName: "Microsoft",
-				displayName: "Dialog Sample Extension"),
+				displayName: "Dialog Sample Extension",
+				description: "Sample extension demonstrating modal dialogs"),
 	};
 
 	/// <inheritdoc/>
