@@ -13,6 +13,16 @@ using Microsoft.VisualStudio.Extensibility;
 public class InsertGuidExtension : Extension
 {
 	/// <inheritdoc/>
+	public override ExtensionConfiguration ExtensionConfiguration => new()
+	{
+		Metadata = new(
+				id: "InsertGuid.c5481000-68da-416d-b337-32122a638980",
+				version: this.ExtensionAssemblyVersion,
+				publisherName: "Microsoft",
+				displayName: "Insert Guid Sample Extension"),
+	};
+
+	/// <inheritdoc/>
 	protected override void InitializeServices(IServiceCollection serviceCollection)
 	{
 		base.InitializeServices(serviceCollection);

@@ -13,6 +13,16 @@ using Microsoft.VisualStudio.Extensibility;
 [VisualStudioContribution]
 public class OutputWindowSampleExtension : Extension
 {
+	/// <inheritdoc/>
+	public override ExtensionConfiguration ExtensionConfiguration => new()
+	{
+		Metadata = new(
+				id: "OutputWindowSample.f739efb2-fdb2-4ecf-b857-d8e11fd1e5d3",
+				version: this.ExtensionAssemblyVersion,
+				publisherName: "Microsoft",
+				displayName: "Output Window Sample Extension"),
+	};
+
 	/// <inheritdoc />
 	protected override ResourceManager? ResourceManager => Strings.ResourceManager;
 

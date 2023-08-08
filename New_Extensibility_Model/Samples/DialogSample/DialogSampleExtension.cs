@@ -13,6 +13,16 @@ using Microsoft.VisualStudio.Extensibility;
 public class DialogSampleExtension : Extension
 {
 	/// <inheritdoc/>
+	public override ExtensionConfiguration ExtensionConfiguration => new()
+	{
+		Metadata = new(
+				id: "DialogSampleExtension.8709efb4-fe22-4848-8533-594f444861a1",
+				version: this.ExtensionAssemblyVersion,
+				publisherName: "Microsoft",
+				displayName: "Dialog Sample Extension"),
+	};
+
+	/// <inheritdoc/>
 	protected override void InitializeServices(IServiceCollection serviceCollection)
 	{
 		base.InitializeServices(serviceCollection);

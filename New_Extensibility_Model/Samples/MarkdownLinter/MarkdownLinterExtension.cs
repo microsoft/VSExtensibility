@@ -15,6 +15,16 @@ using Microsoft.VisualStudio.Extensibility.Editor;
 [VisualStudioContribution]
 public class MarkdownLinterExtension : Extension
 {
+	/// <inheritdoc/>
+	public override ExtensionConfiguration ExtensionConfiguration => new()
+	{
+		Metadata = new(
+				id: "MarkdownLinter.0cf26ba2-edd5-4419-8646-a55d0a83f7d8",
+				version: this.ExtensionAssemblyVersion,
+				publisherName: "Microsoft",
+				displayName: "Markdown Linter Sample Extension"),
+	};
+
 	/// <inheritdoc />
 	protected override ResourceManager? ResourceManager => Strings.ResourceManager;
 

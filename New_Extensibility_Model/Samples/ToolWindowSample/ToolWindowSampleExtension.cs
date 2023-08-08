@@ -13,6 +13,16 @@ using Microsoft.VisualStudio.Extensibility;
 public class ToolWindowSampleExtension : Extension
 {
 	/// <inheritdoc/>
+	public override ExtensionConfiguration ExtensionConfiguration => new()
+	{
+		Metadata = new(
+				id: "ToolWindowSampleExtension.4ca466cb-dc8d-4216-8323-b5c45f8e0da5",
+				version: this.ExtensionAssemblyVersion,
+				publisherName: "Microsoft",
+				displayName: "Tool Window Sample Extension"),
+	};
+
+	/// <inheritdoc/>
 	protected override void InitializeServices(IServiceCollection serviceCollection)
 	{
 		base.InitializeServices(serviceCollection);
