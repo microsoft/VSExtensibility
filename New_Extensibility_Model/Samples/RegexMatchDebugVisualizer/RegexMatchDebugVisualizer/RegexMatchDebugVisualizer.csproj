@@ -18,10 +18,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Content Include=".vsextension\**\string-resources.json">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVsix>true</IncludeInVsix>
-		</Content>
 		<Page Remove="RegexMatchVisualizerUserControl.xaml" />
 		<EmbeddedResource Include="RegexMatch\RegexMatchVisualizerUserControl.xaml" LogicalName="$(RootNamespace).RegexMatchVisualizerUserControl.xaml" />
 		<Page Remove="RegexMatchCollectionVisualizerUserControl.xaml" />
@@ -30,11 +26,11 @@
 		<Compile Include="..\RegexMatchObjectSource\RegexGroup.cs" Link="SharedFiles\RegexGroup.cs" />
 		<Compile Include="..\RegexMatchObjectSource\RegexCapture.cs" Link="SharedFiles\RegexCapture.cs" />
 		<Compile Include="..\RegexMatchObjectSource\RegexMatch.cs" Link="SharedFiles\RegexMatch.cs" />
+	</ItemGroup>
 
-		<Content Include="..\..\..\..\bin\samples\RegexMatchObjectSource\$(Configuration)\netstandard2.0\RegexMatchObjectSource.dll" Link="netstandard2.0\RegexMatchObjectSource.dll">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<IncludeInVsix>true</IncludeInVsix>
-		</Content>
+	<ItemGroup>
+		<Content Include=".vsextension\**\string-resources.json" />
+		<Content Include="..\..\..\..\bin\samples\RegexMatchObjectSource\$(Configuration)\netstandard2.0\RegexMatchObjectSource.dll" Link="netstandard2.0\RegexMatchObjectSource.dll" />
 	</ItemGroup>
 
 	<ItemGroup>
