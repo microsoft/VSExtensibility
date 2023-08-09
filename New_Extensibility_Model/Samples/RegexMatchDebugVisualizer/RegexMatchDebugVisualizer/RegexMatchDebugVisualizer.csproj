@@ -13,8 +13,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.8.1024-preview-2-gce7ca0519e" />
-		<PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.8.1024-preview-2-gce7ca0519e" />
+		<PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.8.1025-preview-2-gb6405e4769" />
+		<PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.8.1025-preview-2-gb6405e4769" />
 	</ItemGroup>
 
 	<ItemGroup>
