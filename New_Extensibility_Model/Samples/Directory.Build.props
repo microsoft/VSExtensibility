@@ -12,6 +12,7 @@
     <DisableImplicitNamespaceImports>true</DisableImplicitNamespaceImports>
     <NoWarn>SA0001</NoWarn>
     <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)shipping.ruleset</CodeAnalysisRuleSet>
+    <DeployExtension>false</DeployExtension>
   </PropertyGroup>
 
   <ItemGroup>
