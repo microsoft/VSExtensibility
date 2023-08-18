@@ -73,7 +73,7 @@ Learn about the [Remote UI](https://learn.microsoft.com/visualstudio/extensibili
 Read an overview of the areas of the SDK that you might need for your extension development projects:
 
 * To learn how to create commands and expose them to users in the IDE, see [Commands](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/command/command).
-* To learn how to work with contents of files and documents, see [Editor extensions](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/editor/editor?view=vs-2022.
+* To learn how to work with contents of files and documents, see [Editor](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/editor/editor?view=vs-2022).
 * To learn how to work with the in-memory representation of those documents themselves, see [Documents](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/document/documents)
 * To learn how to use the output window in an extension, see [Output window](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/output-window/output-window).
 * To learn how to work with tool windows, dockable windows within the Visual Studio IDE, see [Tool windows](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/tool-window/tool-window).
