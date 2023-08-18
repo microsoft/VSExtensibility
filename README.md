@@ -89,9 +89,9 @@ A Visual Studio solution containing all samples can be found at [Samples.sln](Ne
 | Sample | Description|
 |-|-|
 | [Simple command handler](New_Extensibility_Model/Samples/SimpleRemoteCommandSample) | Demonstrates the basics of working with commands. See also the [Create your first extension](docs/new-extensibility-model/getting-started/create-your-first-extension.md) tutorial.|
-| [Insert guid extension](New_Extensibility_Model/Samples/InsertGuidExtension) | Shows how to insert text or code in the code editor. See also the [tutorial](docs/new-extensibility-model/getting-started/tutorial-create-simple-extension.md). |
+| [Insert guid extension](New_Extensibility_Model/Samples/InsertGuid) | Shows how to insert text or code in the code editor. See also the [tutorial](docs/new-extensibility-model/getting-started/tutorial-create-simple-extension.md). |
 | [Command configuration](New_Extensibility_Model/Samples/CommandRegistrationsSample) | Shows how to configure a command with specific activation conditions. This command also uses a resource file for localization. |
-| [Command parenting](New_Extensibility_Model/Samples/Command-Parenting-Sample) | Shows how to author a command that can be parented to different aspects of the IDE. |
+| [Command parenting](New_Extensibility_Model/Samples/CommandParentingSample) | Shows how to author a command that can be parented to different aspects of the IDE. |
 | [Document selector](New_Extensibility_Model/Samples/DocumentSelectorSample) | Shows how to create an editor extension that is only applicable to files matching a file path pattern. |
 | [Output window](New_Extensibility_Model/Samples/OutputWindowSample) | Shows the most basic use of the [Output Window API](./new-extensibility-model/extension-guides/outputWindow/outputWindow.md)|
 | [Tool window](New_Extensibility_Model/Samples/ToolWindowSample) | Shows how to create a tool window and populate it with content. |
