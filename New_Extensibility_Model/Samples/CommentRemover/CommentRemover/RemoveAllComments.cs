@@ -43,7 +43,7 @@ internal class RemoveAllComments : CommentRemoverCommand
 
 	public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
 	{
-		if (!await context.ShowPromptAsync("All comments will be removed from the current document. Are you sure?", PromptOptions.OKCancel, cancellationToken))
+		if (!await this.Extensibility.Shell().ShowPromptAsync("All comments will be removed from the current document. Are you sure?", PromptOptions.OKCancel, cancellationToken))
 		{
 			return;
 		}

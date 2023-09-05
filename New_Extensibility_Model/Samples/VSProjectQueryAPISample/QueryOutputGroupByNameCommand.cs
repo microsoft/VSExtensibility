@@ -61,6 +61,6 @@ public class QueryOutputGroupByNameCommand : Command
 			}
 		}
 
-		await context.ShowPromptAsync(message.ToString(), PromptOptions.OK, cancellationToken);
+		await this.Extensibility.Shell().ShowPromptAsync(message.ToString(), PromptOptions.OK, cancellationToken);
 	}
 }

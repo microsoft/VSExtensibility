@@ -60,6 +60,6 @@ public class QueryOutputGroupByProjectCommand : Command
 			}
 		}
 
-		await context.ShowPromptAsync(message.ToString(), PromptOptions.OK, cancellationToken);
+		await this.Extensibility.Shell().ShowPromptAsync(message.ToString(), PromptOptions.OK, cancellationToken);
 	}
 }
