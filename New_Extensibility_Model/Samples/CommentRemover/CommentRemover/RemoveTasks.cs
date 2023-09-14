@@ -41,7 +41,7 @@ internal class RemoveTasks : CommentRemoverCommand
 
 	public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
 	{
-		if (!await context.ShowPromptAsync("All tasks comment will be removed from the current document. Are you sure?", PromptOptions.OKCancel, cancellationToken))
+		if (!await this.Extensibility.Shell().ShowPromptAsync("All tasks comment will be removed from the current document. Are you sure?", PromptOptions.OKCancel, cancellationToken))
 		{
 			return;
 		}

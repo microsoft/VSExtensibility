@@ -3,7 +3,6 @@
 
 namespace ToolWindowSample;
 
-using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,6 +17,7 @@ using Microsoft.VisualStudio.Extensibility.UI;
 [DataContract]
 internal class MyToolWindowData : NotifyPropertyChangedObject
 {
+	private readonly VisualStudioExtensibility extensibility;
 	private bool hasError;
 	private string message = "My custom message";
 
@@ -29,9 +29,8 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
 	/// </param>
 	public MyToolWindowData(VisualStudioExtensibility extensibility)
 	{
-		Requires.NotNull(extensibility, nameof(extensibility));
+		this.extensibility = Requires.NotNull(extensibility, nameof(extensibility));
 
-		this.Context = new ClientContext(new Dictionary<string, object?>(), extensibility);
 		this.ShowMessageCommand = new AsyncCommand(this.ShowMessageAsync);
 	}
 
@@ -76,13 +75,8 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
 		}
 	}
 
-	private ClientContext Context
-	{
-		get;
-	}
-
 	private async Task ShowMessageAsync(object? commandParameter, CancellationToken cancellationToken)
 	{
-		await this.Context.ShowPromptAsync(this.Message, PromptOptions.OK, cancellationToken);
+		await this.extensibility.Shell().ShowPromptAsync(this.Message, PromptOptions.OK, cancellationToken);
 	}
 }

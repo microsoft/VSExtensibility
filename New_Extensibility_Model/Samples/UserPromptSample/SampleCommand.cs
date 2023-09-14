@@ -35,23 +35,25 @@ public class SampleCommand : Command
 
 	public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken ct)
 	{
+		var shell = this.Extensibility.Shell();
+
 		// Asking the user to confirm an operation.
-		if (!await context.ShowPromptAsync("Continue with executing the command?", PromptOptions.OKCancel, ct))
+		if (!await shell.ShowPromptAsync("Continue with executing the command?", PromptOptions.OKCancel, ct))
 		{
 			return;
 		}
 
 		// Asking the user to confirm a dangerous operation.
-		if (!await context.ShowPromptAsync("Continue with executing the command?", PromptOptions.OKCancel.WithCancelAsDefault(), ct))
+		if (!await shell.ShowPromptAsync("Continue with executing the command?", PromptOptions.OKCancel.WithCancelAsDefault(), ct))
 		{
 			return;
 		}
 
 		// OK-only prompt
-		await context.ShowPromptAsync("The extension must reload.", PromptOptions.OK, ct);
+		await shell.ShowPromptAsync("The extension must reload.", PromptOptions.OK, ct);
 
 		// Custom prompt
-		var themeResult = await context.ShowPromptAsync(
+		var themeResult = await shell.ShowPromptAsync(
 			"Which theme should be used for the generated output?",
 			new PromptOptions<TokenThemeResult>
 			{
