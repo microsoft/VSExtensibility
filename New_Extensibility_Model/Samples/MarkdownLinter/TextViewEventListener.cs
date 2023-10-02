@@ -47,13 +47,7 @@ internal class TextViewEventListener : ExtensionPart, ITextViewOpenClosedListene
 	/// <inheritdoc />
 	public async Task TextViewClosedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
 	{
-		var document = await textViewSnapshot.GetTextDocumentAsync(cancellationToken);
-		if (document is null)
-		{
-			return;
-		}
-
-		await this.diagnosticsProvider.ClearEntriesForDocumentAsync(document.Uri, cancellationToken);
+		await this.diagnosticsProvider.ClearEntriesForDocumentAsync(textViewSnapshot.Document.Uri, cancellationToken);
 	}
 
 	/// <inheritdoc />

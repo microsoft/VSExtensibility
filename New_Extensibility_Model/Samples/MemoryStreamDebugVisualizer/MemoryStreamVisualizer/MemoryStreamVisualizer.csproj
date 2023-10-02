@@ -5,6 +5,7 @@
 		<LangVersion>10</LangVersion>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 		<NeutralLanguage>en-US</NeutralLanguage>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 		<NoWarn>$(NoWarn);CS1591;IDE0008;CA1812</NoWarn>
 
 		<!-- The VisualStudio.Extensibility preview packages are available from the azure-public/vside/msft_consumption feed -->
@@ -15,25 +16,23 @@
 		<PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.8.2055-preview-3" />
 		<PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.8.2055-preview-3" />
 	</ItemGroup>
-	
+
 	<ItemGroup>
-		<Compile Update="Resources.Designer.cs">
-			<DesignTime>True</DesignTime>
-			<AutoGen>True</AutoGen>
-			<DependentUpon>Resources.resx</DependentUpon>
-		</Compile>
+	<Content Include=".vsextension\**\string-resources.json">
+		<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</Content>
 	</ItemGroup>
 
 	<ItemGroup>
-		<EmbeddedResource Update="Resources.resx">
-			<Generator>ResXFileCodeGenerator</Generator>
-			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
+		<None Remove="MemoryStreamVisualizerUserControl.xaml" />
+		<EmbeddedResource Include="MemoryStreamVisualizerUserControl.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<Content Include=".vsextension\**\string-resources.json">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
+		<ProjectReference Include="..\MemoryStreamObjectSource\MemoryStreamObjectSource.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+			<Content Include="..\..\..\..\bin\samples\MemoryStreamObjectSource\$(Configuration)\netstandard2.0\MemoryStreamObjectSource.dll" Link="netstandard2.0\MemoryStreamObjectSource.dll" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 </Project>
