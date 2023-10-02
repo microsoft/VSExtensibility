@@ -88,12 +88,12 @@ A Visual Studio solution containing all samples can be found at [Samples.sln](Ne
 
 | Sample | Description|
 |-|-|
-| [Simple command handler](New_Extensibility_Model/Samples/SimpleRemoteCommandSample) | Demonstrates the basics of working with commands. See also the [Create your first extension](docs/new-extensibility-model/getting-started/create-your-first-extension.md) tutorial.|
-| [Insert guid extension](New_Extensibility_Model/Samples/InsertGuid) | Shows how to insert text or code in the code editor. See also the [tutorial](docs/new-extensibility-model/getting-started/tutorial-create-simple-extension.md). |
+| [Simple command handler](New_Extensibility_Model/Samples/SimpleRemoteCommandSample) | Demonstrates the basics of working with commands. See also the [Create your first extension](https://learn.microsoft.com/en-us/visualstudio/extensibility/visualstudio.extensibility/get-started/create-your-first-extension) tutorial.|
+| [Insert guid extension](New_Extensibility_Model/Samples/InsertGuid) | Shows how to insert text or code in the code editor. See also the [tutorial](https://learn.microsoft.com/en-us/visualstudio/extensibility/visualstudio.extensibility/get-started/tutorial-create-simple-extension). |
 | [Command configuration](New_Extensibility_Model/Samples/CommandRegistrationsSample) | Shows how to configure a command with specific activation conditions. This command also uses a resource file for localization. |
 | [Command parenting](New_Extensibility_Model/Samples/CommandParentingSample) | Shows how to author a command that can be parented to different aspects of the IDE. |
 | [Document selector](New_Extensibility_Model/Samples/DocumentSelectorSample) | Shows how to create an editor extension that is only applicable to files matching a file path pattern. |
-| [Output window](New_Extensibility_Model/Samples/OutputWindowSample) | Shows the most basic use of the [Output Window API](./new-extensibility-model/extension-guides/outputWindow/outputWindow.md)|
+| [Output window](New_Extensibility_Model/Samples/OutputWindowSample) | Shows the most basic use of the [Output Window API](https://learn.microsoft.com/en-us/visualstudio/extensibility/visualstudio.extensibility/output-window/output-window)|
 | [Tool window](New_Extensibility_Model/Samples/ToolWindowSample) | Shows how to create a tool window and populate it with content. |
 | [User prompt](New_Extensibility_Model/Samples/UserPromptSample) | Shows how to display a prompt to the user. |
 | [Dialog](New_Extensibility_Model/Samples/DialogSample) | Shows how to display a dialog with custom UI to the user. |
@@ -111,9 +111,7 @@ A Visual Studio solution containing all samples can be found at [Samples.sln](Ne
 
 ## API Docs
 
-* [Microsoft.VisualStudio.Extensibility](docs/new-extensibility-model/api/Microsoft.VisualStudio.Extensibility.md)
-* [Microsoft.VisualStudio.Extensibility.Editor](docs/new-extensibility-model/api/Microsoft.VisualStudio.Extensibility.Editor.md)
-* [Microsoft.VisualStudio.ProjectSystem.Query](docs/new-extensibility-model/api/Microsoft.VisualStudio.ProjectSystem.Query.md)
+* API Docs are available on [learn.microsoft.com](https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.extensibility).
 
 ## Send feedback
 
