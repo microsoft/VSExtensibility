@@ -2,7 +2,7 @@
 	<PropertyGroup>
 		<TargetFramework>net6.0-windows8.0</TargetFramework>
 		<Nullable>enable</Nullable>
-		<LangVersion>10</LangVersion>
+		<LangVersion>11</LangVersion>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
@@ -33,6 +33,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-			<Content Include="..\..\..\..\bin\samples\MemoryStreamObjectSource\$(Configuration)\netstandard2.0\MemoryStreamObjectSource.dll" Link="netstandard2.0\MemoryStreamObjectSource.dll" CopyToOutputDirectory="PreserveNewest" />
+		<Content Include="..\..\..\..\bin\samples\MemoryStreamObjectSource\$(Configuration)\netstandard2.0\MemoryStreamObjectSource.dll" Link="netstandard2.0\MemoryStreamObjectSource.dll" CopyToOutputDirectory="PreserveNewest" />
 	</ItemGroup>
 </Project>

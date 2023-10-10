@@ -9,7 +9,7 @@ using System.Windows;
 using Microsoft.VisualStudio.Extensibility.UI;
 
 /// <summary>
-/// ModelView class representing the data contained by a <see cref="MemoryStream"/>.
+/// ViewModel class representing the data contained by a <see cref="MemoryStream"/>.
 /// </summary>
 [DataContract]
 public class MemoryStreamData : NotifyPropertyChangedObject

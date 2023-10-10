@@ -78,9 +78,9 @@ Read an overview of the areas of the SDK that you might need for your extension 
 * To learn how to use the output window in an extension, see [Output window](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/output-window/output-window).
 * To learn how to work with tool windows, dockable windows within the Visual Studio IDE, see [Tool windows](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/tool-window/tool-window).
 * To learn how to use prompts with customizable buttons to interact with the user, see [User prompts](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/user-prompt/user-prompts).
-* To learn how to use dialogs with custom UI to interact with the user, see [Dialogs](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/dialog/dialog)
-* To learn how to create custom data visualizations when debugging, see [Debugger Visualizers](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/debugger-visualizer/debugger-visualizers)
-* To learn how to query or modify information about project sand solutions, see [Project Query](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/project/project)
+* To learn how to use dialogs with custom UI to interact with the user, see [Dialogs](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/dialog/dialog).
+* To learn how to create custom data visualizations when debugging, see [Debugger Visualizers](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/debugger-visualizer/debugger-visualizers).
+* To learn how to query or modify information about project sand solutions, see [Project Query](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/project/project).
 
 ## Samples and tutorials
 
@@ -93,7 +93,7 @@ A Visual Studio solution containing all samples can be found at [Samples.sln](Ne
 | [Command configuration](New_Extensibility_Model/Samples/CommandRegistrationsSample) | Shows how to configure a command with specific activation conditions. This command also uses a resource file for localization. |
 | [Command parenting](New_Extensibility_Model/Samples/CommandParentingSample) | Shows how to author a command that can be parented to different aspects of the IDE. |
 | [Document selector](New_Extensibility_Model/Samples/DocumentSelectorSample) | Shows how to create an editor extension that is only applicable to files matching a file path pattern. |
-| [Output window](New_Extensibility_Model/Samples/OutputWindowSample) | Shows the most basic use of the [Output Window API](https://learn.microsoft.com/en-us/visualstudio/extensibility/visualstudio.extensibility/output-window/output-window)|
+| [Output window](New_Extensibility_Model/Samples/OutputWindowSample) | Shows the most basic use of the [Output Window API](https://learn.microsoft.com/en-us/visualstudio/extensibility/visualstudio.extensibility/output-window/output-window).|
 | [Tool window](New_Extensibility_Model/Samples/ToolWindowSample) | Shows how to create a tool window and populate it with content. |
 | [User prompt](New_Extensibility_Model/Samples/UserPromptSample) | Shows how to display a prompt to the user. |
 | [Dialog](New_Extensibility_Model/Samples/DialogSample) | Shows how to display a dialog with custom UI to the user. |

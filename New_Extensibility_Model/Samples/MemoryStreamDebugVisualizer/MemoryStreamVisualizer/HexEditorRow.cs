@@ -6,7 +6,7 @@ namespace MemoryStreamVisualizer;
 using System.Runtime.Serialization;
 
 /// <summary>
-/// ModelView class representing a row of binary data.
+/// ViewModel class representing a row of binary data.
 /// </summary>
 [DataContract]
 public class HexEditorRow
