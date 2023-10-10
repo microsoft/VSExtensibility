@@ -67,14 +67,12 @@ internal class UnitTestRunner : ExtensionPart, ITextViewOpenClosedListener, ITex
 	private async Task RunUnitTestsAfterDelayAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
 	{
 		await Task.Delay(500, cancellationToken);
-		var document = await textViewSnapshot.GetTextDocumentAsync(cancellationToken);
-		await this.WriteToOutputWindowAsync($"Running unit tests in {document.Uri.LocalPath}", cancellationToken);
+		await this.WriteToOutputWindowAsync($"Running unit tests in {textViewSnapshot.Document.Uri.LocalPath}", cancellationToken);
 	}
 
 	private async Task StopUnitTestsAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
 	{
-		var document = await textViewSnapshot.GetTextDocumentAsync(cancellationToken);
-		await this.WriteToOutputWindowAsync($"Stop running unit tests in {document.Uri.LocalPath}", cancellationToken);
+		await this.WriteToOutputWindowAsync($"Stop running unit tests in {textViewSnapshot.Document.Uri.LocalPath}", cancellationToken);
 	}
 
 	private async Task<OutputWindow> GetOutputWindowAsync(CancellationToken cancellationToken)

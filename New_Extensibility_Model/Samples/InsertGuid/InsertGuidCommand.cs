@@ -56,11 +56,10 @@ internal class InsertGuidCommand : Command
 			return;
 		}
 
-		var document = await textView.GetTextDocumentAsync(cancellationToken);
 		await this.Extensibility.Editor().EditAsync(
 			batch =>
 			{
-				document.AsEditable(batch).Replace(textView.Selection.Extent, newGuidString);
+				textView.Document.AsEditable(batch).Replace(textView.Selection.Extent, newGuidString);
 			},
 			cancellationToken);
 	}

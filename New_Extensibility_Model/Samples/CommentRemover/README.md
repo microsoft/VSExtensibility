@@ -10,7 +10,7 @@ The extension leverages multiple Visual Studio functionalities that are currenly
 
 ### Creating the extension structure
 
-I started creating an empty VisualStudio.Extensibility in-proc extension project as described in the [Creating your first in-process VisualStudio.Extensibility extension](../../../docs/new-extensibility-model/getting-started/in-proc-extensions.md) guide.
+I started creating an empty VisualStudio.Extensibility in-proc extension project as described in the [Creating your first in-process VisualStudio.Extensibility extension](https://learn.microsoft.com/en-us/visualstudio/extensibility/visualstudio.extensibility/get-started/in-proc-extensions) guide.
 
 I did a quick fix to the `CommentRemoverContainer` project: added the correct information in the [.vsixmanifest](CommentRemoverContainer/source.extension.vsixmanifest) file and added the license file and two image resources that are referenced in the manifest.
 
@@ -105,7 +105,7 @@ You may have noticed that some strings enclosed by `%` characters in the code ab
 }
 ```
 
-If we want the extension to be localized for different languages, we can later add `string-resources.json` files for those languages as described [here](../../../docs/new-extensibility-model/extension-guides/command/command.md#string-resourcesjson);
+If we want the extension to be localized for different languages, we can later add `string-resources.json` files for those languages as described [here](https://learn.microsoft.com/en-us/visualstudio/extensibility/visualstudio.extensibility/command/localize-metadata);
 
 ### Dependency injection of Visual Studio SDK services
 

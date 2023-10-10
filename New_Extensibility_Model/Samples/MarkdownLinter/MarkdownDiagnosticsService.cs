@@ -93,24 +93,18 @@ internal class MarkdownDiagnosticsService : DisposableObject
 	/// <returns>Task indicating completion of reporting markdown errors to error list.</returns>
 	public async Task ProcessTextViewAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
 	{
-		var document = await textViewSnapshot.GetTextDocumentAsync(cancellationToken);
-		if (document is null)
-		{
-			return;
-		}
-
 		CancellationTokenSource newCts = new CancellationTokenSource();
 		lock (this.documentCancellationTokens)
 		{
-			if (this.documentCancellationTokens.TryGetValue(document.Uri, out var cts))
+			if (this.documentCancellationTokens.TryGetValue(textViewSnapshot.Document.Uri, out var cts))
 			{
 				cts.Cancel();
 			}
 
-			this.documentCancellationTokens[document.Uri] = newCts;
+			this.documentCancellationTokens[textViewSnapshot.Document.Uri] = newCts;
 		}
 
-		await this.ProcessDocumentAsync(document, cancellationToken.CombineWith(newCts.Token).Token);
+		await this.ProcessDocumentAsync(textViewSnapshot.Document, cancellationToken.CombineWith(newCts.Token).Token);
 	}
 
 	/// <summary>

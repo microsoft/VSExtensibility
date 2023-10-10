@@ -55,9 +55,8 @@ internal class TextViewMarginProvider : ExtensionPart, ITextViewMarginProvider, 
 	/// </summary>
 	public async Task<IRemoteUserControl> CreateVisualElementAsync(ITextViewSnapshot textView, CancellationToken cancellationToken)
 	{
-		var documentSnapshot = await textView.GetTextDocumentAsync(cancellationToken).ConfigureAwait(false);
 		var dataModel = new WordCountData();
-		dataModel.WordCount = CountWords(documentSnapshot);
+		dataModel.WordCount = CountWords(textView.Document);
 		this.dataModels[textView.Uri] = dataModel;
 		return new MyMarginContent(dataModel);
 	}
@@ -65,8 +64,7 @@ internal class TextViewMarginProvider : ExtensionPart, ITextViewMarginProvider, 
 	/// <inheritdoc />
 	public async Task TextViewChangedAsync(TextViewChangedArgs args, CancellationToken cancellationToken)
 	{
-		var documentSnapshot = await args.AfterTextView.GetTextDocumentAsync(cancellationToken);
-		this.dataModels[args.AfterTextView.Uri].WordCount = CountWords(documentSnapshot);
+		this.dataModels[args.AfterTextView.Uri].WordCount = CountWords(args.AfterTextView.Document);
 	}
 
 	/// <inheritdoc />

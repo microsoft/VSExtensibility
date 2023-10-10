@@ -4,7 +4,7 @@
 		<TargetFrameworks>net6.0</TargetFrameworks>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<LangVersion>10</LangVersion>
+		<LangVersion>11</LangVersion>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 		<NoWarn>SA1633;SA1600;CA1303;CA1016;CA1031;CA1812;$(NoWarn)</NoWarn>
 
@@ -13,8 +13,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.8.1024-preview-2" />
-		<PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.8.1024-preview-2" />
+		<PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.8.2055-preview-3" />
+		<PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.8.2055-preview-3" />
 	</ItemGroup>
 
 	<ItemGroup>
