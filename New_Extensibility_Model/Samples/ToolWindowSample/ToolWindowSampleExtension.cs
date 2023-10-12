@@ -12,20 +12,20 @@ using Microsoft.VisualStudio.Extensibility;
 [VisualStudioContribution]
 public class ToolWindowSampleExtension : Extension
 {
-	/// <inheritdoc/>
-	public override ExtensionConfiguration ExtensionConfiguration => new()
-	{
-		Metadata = new(
-				id: "ToolWindowSampleExtension.4ca466cb-dc8d-4216-8323-b5c45f8e0da5",
-				version: this.ExtensionAssemblyVersion,
-				publisherName: "Microsoft",
-				displayName: "Tool Window Sample Extension",
-				description: "Sample extension demonstrating tool windows"),
-	};
+    /// <inheritdoc/>
+    public override ExtensionConfiguration ExtensionConfiguration => new()
+    {
+        Metadata = new(
+                id: "ToolWindowSampleExtension.4ca466cb-dc8d-4216-8323-b5c45f8e0da5",
+                version: this.ExtensionAssemblyVersion,
+                publisherName: "Microsoft",
+                displayName: "Tool Window Sample Extension",
+                description: "Sample extension demonstrating tool windows"),
+    };
 
-	/// <inheritdoc/>
-	protected override void InitializeServices(IServiceCollection serviceCollection)
-	{
-		base.InitializeServices(serviceCollection);
-	}
+    /// <inheritdoc/>
+    protected override void InitializeServices(IServiceCollection serviceCollection)
+    {
+        base.InitializeServices(serviceCollection);
+    }
 }

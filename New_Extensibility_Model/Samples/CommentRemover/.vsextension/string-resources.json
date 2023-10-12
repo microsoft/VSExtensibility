@@ -1,9 +1,9 @@
 ﻿{
-	"CommentRemover.CommentRemoverMenu.DisplayName": "Comments",
-	"CommentRemover.RemoveAllComments.DisplayName": "Remove All",
-	"CommentRemover.RemoveAllExceptTaskComments.DisplayName": "Remove All Except Tasks",
-	"CommentRemover.RemoveAllExceptXmlDocComments.DisplayName": "Remove All Except Xml Docs",
-	"CommentRemover.RemoveRegions.DisplayName": "Remove Regions",
-	"CommentRemover.RemoveTasks.DisplayName": "Remove Tasks",
-	"CommentRemover.RemoveXmlDocComments.DisplayName": "Remove Xml Docs"
+  "CommentRemover.CommentRemoverMenu.DisplayName": "Comments",
+  "CommentRemover.RemoveAllComments.DisplayName": "Remove All",
+  "CommentRemover.RemoveAllExceptTaskComments.DisplayName": "Remove All Except Tasks",
+  "CommentRemover.RemoveAllExceptXmlDocComments.DisplayName": "Remove All Except Xml Docs",
+  "CommentRemover.RemoveRegions.DisplayName": "Remove Regions",
+  "CommentRemover.RemoveTasks.DisplayName": "Remove Tasks",
+  "CommentRemover.RemoveXmlDocComments.DisplayName": "Remove Xml Docs"
 }

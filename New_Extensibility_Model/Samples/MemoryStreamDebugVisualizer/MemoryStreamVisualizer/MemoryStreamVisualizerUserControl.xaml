@@ -1,0 +1,115 @@
+﻿<DataTemplate xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:vs="http://schemas.microsoft.com/visualstudio/extensibility/2022/xaml"
+              xmlns:styles="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
+              xmlns:colors="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ProgressBar IsIndeterminate="True" VerticalAlignment="Top" Visibility="{Binding LoadingVisibility}" Style="{StaticResource {x:Static styles:VsResourceKeys.ProgressBarStyleKey}}" />
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <Label VerticalAlignment="Center" Style="{StaticResource {x:Static styles:VsResourceKeys.ThemedDialogLabelStyleKey}}">Position: </Label>
+            <TextBox IsReadOnly="True" Width="75" VerticalAlignment="Center">
+                <TextBox.Style>
+                    <Style TargetType="TextBox" BasedOn="{StaticResource {x:Static styles:VsResourceKeys.TextBoxStyleKey}}">
+                        <Setter Property="Text" Value="{Binding Position, Mode=OneWay}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsChecked, ElementName=HexCheck, FallbackValue=True}" Value="True">
+                                <Setter Property="Text" Value="{Binding HexPosition, Mode=OneWay}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+            <Label Margin="2,0,0,0" VerticalAlignment="Center" Style="{StaticResource {x:Static styles:VsResourceKeys.ThemedDialogLabelStyleKey}}">Length:</Label>
+            <TextBox IsReadOnly="True" Width="100" VerticalAlignment="Center">
+                <TextBox.Style>
+                    <Style TargetType="TextBox" BasedOn="{StaticResource {x:Static styles:VsResourceKeys.TextBoxStyleKey}}">
+                        <Setter Property="Text" Value="{Binding Length, Mode=OneWay}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsChecked, ElementName=HexCheck, FallbackValue=True}" Value="True">
+                                <Setter Property="Text" Value="{Binding HexLength, Mode=OneWay}" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+            <CheckBox x:Name="HexCheck" Margin="5,0,0,0" VerticalAlignment="Center" Style="{StaticResource {x:Static styles:VsResourceKeys.CheckBoxStyleKey}}">Hex</CheckBox>
+        </StackPanel>
+        <DataGrid ItemsSource="{Binding Data}"
+              EnableRowVirtualization="True"
+              AutoGenerateColumns="False"
+              SelectionMode="Extended"
+              SelectionUnit="Cell"
+              CanUserReorderColumns="False"
+              CanUserResizeColumns="False"
+              CanUserResizeRows="False"
+              CanUserSortColumns="False"
+              IsReadOnly="True"
+              Grid.Row="2">
+            <DataGrid.Resources>
+                <Style x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type DataGrid}, ResourceId=DataGridSelectAllButtonStyle}" TargetType="{x:Type Button}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Rectangle Fill="{DynamicResource {x:Static colors:ThemedDialogColors.GridHeadingBackgroundBrushKey}}"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </DataGrid.Resources>
+            <DataGrid.Style>
+                <Style TargetType="{x:Type DataGrid}">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static colors:ThemedDialogColors.GridHeadingBackgroundBrushKey}}"/>
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static colors:ThemedDialogColors.GridLineBrushKey}}"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                </Style>
+            </DataGrid.Style>
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static colors:ThemedDialogColors.GridHeadingBackgroundBrushKey}}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static colors:ThemedDialogColors.WindowPanelTextBrushKey}}"/>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.RowHeaderStyle>
+                <Style TargetType="{x:Type DataGridRowHeader}">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static colors:ThemedDialogColors.GridHeadingBackgroundBrushKey}}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static colors:ThemedDialogColors.GridHeadingTextBrushKey}}"/>
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static colors:ThemedDialogColors.GridLineBrushKey}}"/>
+                    <Setter Property="Content" Value="{Binding Index, Mode=OneWay}" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsChecked, ElementName=HexCheck, FallbackValue=True}" Value="True">
+                            <Setter Property="Content" Value="{Binding HexIndex, Mode=OneWay}" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowHeaderStyle>
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="{DynamicResource {x:Static colors:ThemedDialogColors.GridHeadingBackgroundBrushKey}}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static colors:ThemedDialogColors.GridHeadingTextBrushKey}}"/>
+                    <Setter Property="BorderBrush" Value="{DynamicResource {x:Static colors:ThemedDialogColors.GridLineBrushKey}}"/>
+                    <Setter Property="Padding" Value="2,0,0,0"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.CellStyle>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource {x:Static colors:ThemedDialogColors.ActionButtonStrokeHoverBrushKey}}"/>
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static colors:ThemedDialogColors.ActionButtonTextActiveBrushKey}}"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static colors:ThemedDialogColors.ActionButtonStrokeHoverBrushKey}}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.CellStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Hex value" Binding="{Binding Data}" FontFamily="Consolas" />
+                <DataGridTextColumn Header="Ascii" Binding="{Binding Ascii}" FontFamily="Consolas" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</DataTemplate>

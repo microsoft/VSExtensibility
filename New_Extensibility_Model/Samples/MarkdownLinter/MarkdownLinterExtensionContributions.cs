@@ -12,10 +12,10 @@ using Microsoft.VisualStudio.Extensibility.Editor;
 /// </summary>
 internal static class MarkdownLinterExtensionContributions
 {
-	[VisualStudioContribution]
-	internal static DocumentTypeConfiguration MarkdownDocumentType => new("markdown")
-	{
-		FileExtensions = new[] { ".md", ".mdk", ".markdown" },
-		BaseDocumentType = DocumentType.KnownValues.Text,
-	};
+    [VisualStudioContribution]
+    internal static DocumentTypeConfiguration MarkdownDocumentType => new("markdown")
+    {
+        FileExtensions = new[] { ".md", ".mdk", ".markdown" },
+        BaseDocumentType = DocumentType.KnownValues.Text,
+    };
 }

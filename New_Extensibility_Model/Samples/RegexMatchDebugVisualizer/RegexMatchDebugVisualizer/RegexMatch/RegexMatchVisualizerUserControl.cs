@@ -14,12 +14,12 @@ using RegexMatchVisualizer.ObjectSource;
 /// </summary>
 internal class RegexMatchVisualizerUserControl : RemoteUserControl
 {
-	/// <summary>
-	/// Initializes a new instance of the <see cref="RegexMatchVisualizerUserControl"/> class.
-	/// </summary>
-	/// <param name="dataContext">Data context of the remote control.</param>
-	public RegexMatchVisualizerUserControl(RegexMatch dataContext)
-		: base(dataContext)
-	{
-	}
+    /// <summary>
+    /// Initializes a new instance of the <see cref="RegexMatchVisualizerUserControl"/> class.
+    /// </summary>
+    /// <param name="dataContext">Data context of the remote control.</param>
+    public RegexMatchVisualizerUserControl(RegexMatch dataContext)
+        : base(dataContext)
+    {
+    }
 }

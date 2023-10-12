@@ -18,37 +18,37 @@ using RegexMatchVisualizer.ObjectSource;
 /// </summary>
 internal class RegexMatchCollectionVisualizerUserControl : RemoteUserControl
 {
-	private readonly VisualizerTarget visualizerTarget;
+    private readonly VisualizerTarget visualizerTarget;
 
-	/// <summary>
-	/// Initializes a new instance of the <see cref="RegexMatchCollectionVisualizerUserControl"/> class.
-	/// </summary>
-	/// <param name="visualizerTarget"><see cref="VisualizerTarget"/> to which the control will request data.</param>
-	public RegexMatchCollectionVisualizerUserControl(VisualizerTarget visualizerTarget)
-		: base(new ObservableCollection<RegexMatch>())
-	{
-		this.visualizerTarget = visualizerTarget;
-	}
+    /// <summary>
+    /// Initializes a new instance of the <see cref="RegexMatchCollectionVisualizerUserControl"/> class.
+    /// </summary>
+    /// <param name="visualizerTarget"><see cref="VisualizerTarget"/> to which the control will request data.</param>
+    public RegexMatchCollectionVisualizerUserControl(VisualizerTarget visualizerTarget)
+        : base(new ObservableCollection<RegexMatch>())
+    {
+        this.visualizerTarget = visualizerTarget;
+    }
 
-	private ObservableCollection<RegexMatch> RegexMatches => (ObservableCollection<RegexMatch>)this.DataContext!;
+    private ObservableCollection<RegexMatch> RegexMatches => (ObservableCollection<RegexMatch>)this.DataContext!;
 
-	/// <inheritdoc/>
-	public override Task ControlLoadedAsync(CancellationToken cancellationToken)
-	{
-		_ = Task.Run(async () =>
-		{
-			for (int i = 0; ; i++)
-			{
-				RegexMatch? regexMatch = await this.visualizerTarget.ObjectSource.RequestDataAsync<int, RegexMatch?>(message: i, jsonSerializer: null, CancellationToken.None);
-				if (regexMatch is null)
-				{
-					break;
-				}
+    /// <inheritdoc/>
+    public override Task ControlLoadedAsync(CancellationToken cancellationToken)
+    {
+        _ = Task.Run(async () =>
+        {
+            for (int i = 0; ; i++)
+            {
+                RegexMatch? regexMatch = await this.visualizerTarget.ObjectSource.RequestDataAsync<int, RegexMatch?>(message: i, jsonSerializer: null, CancellationToken.None);
+                if (regexMatch is null)
+                {
+                    break;
+                }
 
-				this.RegexMatches.Add(regexMatch);
-			}
-		});
+                this.RegexMatches.Add(regexMatch);
+            }
+        });
 
-		return Task.CompletedTask;
-	}
+        return Task.CompletedTask;
+    }
 }

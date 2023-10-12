@@ -22,50 +22,50 @@ using Microsoft.VisualStudio.ProjectSystem.Query;
 [VisualStudioContribution]
 internal class RunLinterOnCurrentFileCommand : Command
 {
-	private readonly TraceSource logger;
-	private readonly MarkdownDiagnosticsService diagnosticsProvider;
+    private readonly TraceSource logger;
+    private readonly MarkdownDiagnosticsService diagnosticsProvider;
 
-	/// <summary>
-	/// Initializes a new instance of the <see cref="RunLinterOnCurrentFileCommand"/> class.
-	/// </summary>
-	/// <param name="extensibility">Extensibility object.</param>
-	/// <param name="traceSource">Logger instance that can be used to log extension actions.</param>
-	/// <param name="diagnosticsProvider">Local diagnostics provider service instance.</param>
-	public RunLinterOnCurrentFileCommand(VisualStudioExtensibility extensibility, TraceSource traceSource, MarkdownDiagnosticsService diagnosticsProvider)
-		: base(extensibility)
-	{
-		this.logger = Requires.NotNull(traceSource, nameof(traceSource));
-		this.diagnosticsProvider = Requires.NotNull(diagnosticsProvider, nameof(diagnosticsProvider));
+    /// <summary>
+    /// Initializes a new instance of the <see cref="RunLinterOnCurrentFileCommand"/> class.
+    /// </summary>
+    /// <param name="extensibility">Extensibility object.</param>
+    /// <param name="traceSource">Logger instance that can be used to log extension actions.</param>
+    /// <param name="diagnosticsProvider">Local diagnostics provider service instance.</param>
+    public RunLinterOnCurrentFileCommand(VisualStudioExtensibility extensibility, TraceSource traceSource, MarkdownDiagnosticsService diagnosticsProvider)
+        : base(extensibility)
+    {
+        this.logger = Requires.NotNull(traceSource, nameof(traceSource));
+        this.diagnosticsProvider = Requires.NotNull(diagnosticsProvider, nameof(diagnosticsProvider));
 
-		this.logger.TraceEvent(TraceEventType.Information, 0, $"Initializing {nameof(RunLinterOnCurrentFileCommand)} instance.");
-	}
+        this.logger.TraceEvent(TraceEventType.Information, 0, $"Initializing {nameof(RunLinterOnCurrentFileCommand)} instance.");
+    }
 
-	/// <inheritdoc />
-	public override CommandConfiguration CommandConfiguration => new("%MarkdownLinter.RunLinterOnCurrentFileCommand.DisplayName%")
-	{
-		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu() },
-		Icon = new(ImageMoniker.Custom("MarkdownIcon"), IconSettings.IconAndText),
-		EnabledWhen = ActivationConstraint.ClientContext(ClientContextKey.Shell.ActiveSelectionFileName, ".+"),
-	};
+    /// <inheritdoc />
+    public override CommandConfiguration CommandConfiguration => new("%MarkdownLinter.RunLinterOnCurrentFileCommand.DisplayName%")
+    {
+        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu() },
+        Icon = new(ImageMoniker.Custom("MarkdownIcon"), IconSettings.IconAndText),
+        EnabledWhen = ActivationConstraint.ClientContext(ClientContextKey.Shell.ActiveSelectionFileName, ".+"),
+    };
 
-	/// <inheritdoc />
-	public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
-	{
-		cancellationToken.ThrowIfCancellationRequested();
-		try
-		{
-			// Get the selected item URIs from IDE context that represents the state when command was executed.
-			var selectedItemPaths = new Uri[] { await context.GetSelectedPathAsync(cancellationToken) };
+    /// <inheritdoc />
+    public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+        try
+        {
+            // Get the selected item URIs from IDE context that represents the state when command was executed.
+            var selectedItemPaths = new Uri[] { await context.GetSelectedPathAsync(cancellationToken) };
 
-			// Enumerate through each selection and run linter on each selected item.
-			foreach (var selectedItem in selectedItemPaths.Where(p => p.IsFile))
-			{
-				await this.diagnosticsProvider.ProcessFileAsync(selectedItem, cancellationToken);
-			}
-		}
-		catch (InvalidOperationException ex)
-		{
-			this.logger.TraceEvent(TraceEventType.Error, 0, ex.ToString());
-		}
-	}
+            // Enumerate through each selection and run linter on each selected item.
+            foreach (var selectedItem in selectedItemPaths.Where(p => p.IsFile))
+            {
+                await this.diagnosticsProvider.ProcessFileAsync(selectedItem, cancellationToken);
+            }
+        }
+        catch (InvalidOperationException ex)
+        {
+            this.logger.TraceEvent(TraceEventType.Error, 0, ex.ToString());
+        }
+    }
 }

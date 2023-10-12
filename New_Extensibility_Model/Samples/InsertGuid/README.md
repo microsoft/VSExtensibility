@@ -47,15 +47,14 @@ using var textView = await context.GetActiveTextViewAsync(cancellationToken);
 
 ## Mutating the text in active view
 
-Once we have the active text view, we can mutate the document attached to the view to replace the selection with a new guid string as below.
+Once we have the active text view, we can edit the document attached to the view to replace the selection with a new guid string as below.
 
 ```csharp
 var document = await textView.GetTextDocumentAsync(cancellationToken);
-await this.Extensibility.Editor().MutateAsync(
-    m =>
+await this.Extensibility.Editor().EditAsync(
+    batch =>
     {
-        var mutator = m.GetMutator(document);
-        mutator.Replace(textView.Selection.Extent, newGuidString);
+        document.AsEditable(batch).Replace(textView.Selection.Extent, newGuidString);
     },
     cancellationToken);
 ```

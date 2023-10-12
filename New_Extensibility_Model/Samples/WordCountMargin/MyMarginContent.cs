@@ -10,14 +10,14 @@ using Microsoft.VisualStudio.Extensibility.UI;
 /// </summary>
 internal class MyMarginContent : RemoteUserControl
 {
-	/// <summary>
-	/// Initializes a new instance of the <see cref="MyMarginContent" /> class.
-	/// </summary>
-	/// <param name="dataContext">
-	/// Data context of the remote control which can be referenced from xaml through data binding.
-	/// </param>
-	public MyMarginContent(object? dataContext)
-		: base(dataContext)
-	{
-	}
+    /// <summary>
+    /// Initializes a new instance of the <see cref="MyMarginContent" /> class.
+    /// </summary>
+    /// <param name="dataContext">
+    /// Data context of the remote control which can be referenced from xaml through data binding.
+    /// </param>
+    public MyMarginContent(object? dataContext)
+        : base(dataContext)
+    {
+    }
 }

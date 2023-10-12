@@ -37,6 +37,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegexMatchObjectSource", "R
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordCountMarginSample", "WordCountMargin\WordCountMarginSample.csproj", "{60341B35-AE0D-43D1-B6FA-DB02309BC8D1}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MemoryStreamDebugVisualizer", "MemoryStreamDebugVisualizer", "{D235C6BF-C068-4459-A5B6-9C508B8A9FEB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryStreamObjectSource", "MemoryStreamDebugVisualizer\MemoryStreamObjectSource\MemoryStreamObjectSource.csproj", "{BFEE0E3B-025D-4AB6-A40B-0E05F7DBFB90}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MemoryStreamVisualizer", "MemoryStreamDebugVisualizer\MemoryStreamVisualizer\MemoryStreamVisualizer.csproj", "{AA31B852-5E22-4CAC-AF38-B62FA592E747}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommentRemover", "CommentRemover\CommentRemover.csproj", "{F76CD115-2F74-4381-878B-F90A04012195}"
 EndProject
 Global
@@ -151,6 +157,22 @@ Global
 		{60341B35-AE0D-43D1-B6FA-DB02309BC8D1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{60341B35-AE0D-43D1-B6FA-DB02309BC8D1}.Release|x86.ActiveCfg = Release|Any CPU
 		{60341B35-AE0D-43D1-B6FA-DB02309BC8D1}.Release|x86.Build.0 = Release|Any CPU
+		{BFEE0E3B-025D-4AB6-A40B-0E05F7DBFB90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFEE0E3B-025D-4AB6-A40B-0E05F7DBFB90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFEE0E3B-025D-4AB6-A40B-0E05F7DBFB90}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BFEE0E3B-025D-4AB6-A40B-0E05F7DBFB90}.Debug|x86.Build.0 = Debug|Any CPU
+		{BFEE0E3B-025D-4AB6-A40B-0E05F7DBFB90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFEE0E3B-025D-4AB6-A40B-0E05F7DBFB90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFEE0E3B-025D-4AB6-A40B-0E05F7DBFB90}.Release|x86.ActiveCfg = Release|Any CPU
+		{BFEE0E3B-025D-4AB6-A40B-0E05F7DBFB90}.Release|x86.Build.0 = Release|Any CPU
+		{AA31B852-5E22-4CAC-AF38-B62FA592E747}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA31B852-5E22-4CAC-AF38-B62FA592E747}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA31B852-5E22-4CAC-AF38-B62FA592E747}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AA31B852-5E22-4CAC-AF38-B62FA592E747}.Debug|x86.Build.0 = Debug|Any CPU
+		{AA31B852-5E22-4CAC-AF38-B62FA592E747}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA31B852-5E22-4CAC-AF38-B62FA592E747}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA31B852-5E22-4CAC-AF38-B62FA592E747}.Release|x86.ActiveCfg = Release|Any CPU
+		{AA31B852-5E22-4CAC-AF38-B62FA592E747}.Release|x86.Build.0 = Release|Any CPU
 		{F76CD115-2F74-4381-878B-F90A04012195}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F76CD115-2F74-4381-878B-F90A04012195}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F76CD115-2F74-4381-878B-F90A04012195}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -170,6 +192,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{646BC52B-12B8-4FB0-A483-119771576560} = {8554ABE3-9105-4AF7-9318-81414CC190C6}
 		{176CF461-98DA-403B-9CCD-BA8695BB8586} = {8554ABE3-9105-4AF7-9318-81414CC190C6}
+		{BFEE0E3B-025D-4AB6-A40B-0E05F7DBFB90} = {D235C6BF-C068-4459-A5B6-9C508B8A9FEB}
+		{AA31B852-5E22-4CAC-AF38-B62FA592E747} = {D235C6BF-C068-4459-A5B6-9C508B8A9FEB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {40A38C8A-61B7-427B-A430-DEB75BE34F22}

@@ -13,59 +13,61 @@ using Microsoft.VisualStudio.Extensibility.Shell;
 [VisualStudioContribution]
 public class SampleCommand : Command
 {
-	public SampleCommand(VisualStudioExtensibility extensibility)
-		: base(extensibility)
-	{
-	}
+    public SampleCommand(VisualStudioExtensibility extensibility)
+        : base(extensibility)
+    {
+    }
 
-	public enum TokenThemeResult
-	{
-		None,
-		Solarized,
-		OneDark,
-		GruvBox,
-	}
+    public enum TokenThemeResult
+    {
+        None,
+        Solarized,
+        OneDark,
+        GruvBox,
+    }
 
-	/// <inheritdoc />
-	public override CommandConfiguration CommandConfiguration => new("%UserPromptSample.SampleCommand.DisplayName%")
-	{
-		TooltipText = "%UserPromptSample.SampleCommand.ToolTip%",
-		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu() },
-	};
+    /// <inheritdoc />
+    public override CommandConfiguration CommandConfiguration => new("%UserPromptSample.SampleCommand.DisplayName%")
+    {
+        TooltipText = "%UserPromptSample.SampleCommand.ToolTip%",
+        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu() },
+    };
 
-	public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken ct)
-	{
-		// Asking the user to confirm an operation.
-		if (!await this.Extensibility.Shell().ShowPromptAsync("Continue with executing the command?", PromptOptions.OKCancel, ct))
-		{
-			return;
-		}
+    public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken ct)
+    {
+        var shell = this.Extensibility.Shell();
 
-		// Asking the user to confirm a dangerous operation.
-		if (!await this.Extensibility.Shell().ShowPromptAsync("Continue with executing the command?", PromptOptions.OKCancel.WithCancelAsDefault(), ct))
-		{
-			return;
-		}
+        // Asking the user to confirm an operation.
+        if (!await shell.ShowPromptAsync("Continue with executing the command?", PromptOptions.OKCancel, ct))
+        {
+            return;
+        }
 
-		// OK-only prompt
-		await this.Extensibility.Shell().ShowPromptAsync("The extension must reload.", PromptOptions.OK, ct);
+        // Asking the user to confirm a dangerous operation.
+        if (!await shell.ShowPromptAsync("Continue with executing the command?", PromptOptions.OKCancel.WithCancelAsDefault(), ct))
+        {
+            return;
+        }
 
-		// Custom prompt
-		var themeResult = await this.Extensibility.Shell().ShowPromptAsync(
-			"Which theme should be used for the generated output?",
-			new PromptOptions<TokenThemeResult>
-			{
-				Choices =
-				{
-			{ "Solarized Is Awesome", TokenThemeResult.Solarized },
-			{ "OneDark Is The Best", TokenThemeResult.OneDark },
-			{ "GruvBox Is Groovy", TokenThemeResult.GruvBox },
-				},
-				DismissedReturns = TokenThemeResult.None,
-				DefaultChoiceIndex = 2,
-			},
-			ct);
+        // OK-only prompt
+        await shell.ShowPromptAsync("The extension must reload.", PromptOptions.OK, ct);
 
-		Debug.WriteLine($"Selected Token Theme: {themeResult}");
-	}
+        // Custom prompt
+        var themeResult = await shell.ShowPromptAsync(
+            "Which theme should be used for the generated output?",
+            new PromptOptions<TokenThemeResult>
+            {
+                Choices =
+                {
+            { "Solarized Is Awesome", TokenThemeResult.Solarized },
+            { "OneDark Is The Best", TokenThemeResult.OneDark },
+            { "GruvBox Is Groovy", TokenThemeResult.GruvBox },
+                },
+                DismissedReturns = TokenThemeResult.None,
+                DefaultChoiceIndex = 2,
+            },
+            ct);
+
+        Debug.WriteLine($"Selected Token Theme: {themeResult}");
+    }
 }

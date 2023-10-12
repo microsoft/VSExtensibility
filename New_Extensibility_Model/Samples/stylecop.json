@@ -10,9 +10,9 @@
       },
       "fileNamingConvention": "metadata",
       "xmlHeader": false
-		},
-		"indentation": {
-			"useTabs": true
-		}
+    },
+    "indentation": {
+      "useTabs": false
+    }
   }
 }

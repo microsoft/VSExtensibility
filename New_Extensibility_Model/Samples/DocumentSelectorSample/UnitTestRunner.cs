@@ -18,75 +18,75 @@ using Microsoft.VisualStudio.Extensibility.Editor;
 [VisualStudioContribution]
 internal class UnitTestRunner : ExtensionPart, ITextViewOpenClosedListener, ITextViewChangedListener
 {
-	private OutputWindow? outputWindow;
+    private OutputWindow? outputWindow;
 
-	/// <summary>
-	/// Initializes a new instance of the <see cref="UnitTestRunner"/> class.
-	/// </summary>
-	/// <param name="extension">Extension instance.</param>
-	/// <param name="extensibility">Extensibility object.</param>
-	public UnitTestRunner(Extension extension, VisualStudioExtensibility extensibility)
-		: base(extension, extensibility)
-	{
-	}
+    /// <summary>
+    /// Initializes a new instance of the <see cref="UnitTestRunner"/> class.
+    /// </summary>
+    /// <param name="extension">Extension instance.</param>
+    /// <param name="extensibility">Extensibility object.</param>
+    public UnitTestRunner(Extension extension, VisualStudioExtensibility extensibility)
+        : base(extension, extensibility)
+    {
+    }
 
-	/// <inheritdoc />
-	public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
-	{
-		AppliesTo = new[]
-			{
-				DocumentFilter.FromGlobPattern("**/tests/*.cs", relativePath: false),
-			},
-	};
+    /// <inheritdoc />
+    public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
+    {
+        AppliesTo = new[]
+            {
+                DocumentFilter.FromGlobPattern("**/tests/*.cs", relativePath: false),
+            },
+    };
 
-	/// <inheritdoc />
-	public Task TextViewChangedAsync(TextViewChangedArgs args, CancellationToken cancellationToken)
-	{
-		return this.RunUnitTestsAfterDelayAsync(args.AfterTextView, cancellationToken);
-	}
+    /// <inheritdoc />
+    public Task TextViewChangedAsync(TextViewChangedArgs args, CancellationToken cancellationToken)
+    {
+        return this.RunUnitTestsAfterDelayAsync(args.AfterTextView, cancellationToken);
+    }
 
-	/// <inheritdoc />
-	public Task TextViewOpenedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
-	{
-		return this.RunUnitTestsAfterDelayAsync(textViewSnapshot, cancellationToken);
-	}
+    /// <inheritdoc />
+    public Task TextViewOpenedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
+    {
+        return this.RunUnitTestsAfterDelayAsync(textViewSnapshot, cancellationToken);
+    }
 
-	/// <inheritdoc />
-	public Task TextViewClosedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
-	{
-		return this.StopUnitTestsAsync(textViewSnapshot, cancellationToken);
-	}
+    /// <inheritdoc />
+    public Task TextViewClosedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
+    {
+        return this.StopUnitTestsAsync(textViewSnapshot, cancellationToken);
+    }
 
-	/// <inheritdoc />
-	protected override void Dispose(bool isDisposing)
-	{
-		base.Dispose(isDisposing);
-		this.outputWindow?.Dispose();
-	}
+    /// <inheritdoc />
+    protected override void Dispose(bool isDisposing)
+    {
+        base.Dispose(isDisposing);
+        this.outputWindow?.Dispose();
+    }
 
-	private async Task RunUnitTestsAfterDelayAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
-	{
-		await Task.Delay(500, cancellationToken);
-		await this.WriteToOutputWindowAsync($"Running unit tests in {textViewSnapshot.Document.Uri.LocalPath}", cancellationToken);
-	}
+    private async Task RunUnitTestsAfterDelayAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
+    {
+        await Task.Delay(500, cancellationToken);
+        await this.WriteToOutputWindowAsync($"Running unit tests in {textViewSnapshot.Document.Uri.LocalPath}", cancellationToken);
+    }
 
-	private async Task StopUnitTestsAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
-	{
-		await this.WriteToOutputWindowAsync($"Stop running unit tests in {textViewSnapshot.Document.Uri.LocalPath}", cancellationToken);
-	}
+    private async Task StopUnitTestsAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
+    {
+        await this.WriteToOutputWindowAsync($"Stop running unit tests in {textViewSnapshot.Document.Uri.LocalPath}", cancellationToken);
+    }
 
-	private async Task<OutputWindow> GetOutputWindowAsync(CancellationToken cancellationToken)
-	{
-		return this.outputWindow ??= await this.Extensibility.Views().Output.GetChannelAsync(
-			identifier: nameof(DocumentSelectorSample),
-			displayNameResourceId: nameof(Resources.OutputWindowPaneName),
-			cancellationToken);
-	}
+    private async Task<OutputWindow> GetOutputWindowAsync(CancellationToken cancellationToken)
+    {
+        return this.outputWindow ??= await this.Extensibility.Views().Output.GetChannelAsync(
+            identifier: nameof(DocumentSelectorSample),
+            displayNameResourceId: nameof(Resources.OutputWindowPaneName),
+            cancellationToken);
+    }
 
-	private async Task WriteToOutputWindowAsync(string message, CancellationToken cancellationToken)
-	{
-		var channel = await this.GetOutputWindowAsync(cancellationToken);
-		Assumes.NotNull(channel);
-		await channel.Writer.WriteLineAsync(message);
-	}
+    private async Task WriteToOutputWindowAsync(string message, CancellationToken cancellationToken)
+    {
+        var channel = await this.GetOutputWindowAsync(cancellationToken);
+        Assumes.NotNull(channel);
+        await channel.Writer.WriteLineAsync(message);
+    }
 }

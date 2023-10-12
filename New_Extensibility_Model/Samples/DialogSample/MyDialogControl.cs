@@ -11,18 +11,18 @@ using Microsoft.VisualStudio.Extensibility.UI;
 /// </summary>
 internal class MyDialogControl : RemoteUserControl
 {
-	/// <summary>
-	/// Initializes a new instance of the <see cref="MyDialogControl" /> class.
-	/// </summary>
-	/// <param name="dataContext">
-	/// Data context of the remote control which can be referenced from xaml through data binding.
-	/// </param>
-	/// <param name="synchronizationContext">
-	/// Optional synchronizationContext that the extender can provide to ensure that <see cref="IAsyncCommand"/>
-	/// are executed and properties are read and updated from the extension main thread.
-	/// </param>
-	public MyDialogControl(object? dataContext, SynchronizationContext? synchronizationContext = null)
-		: base(dataContext, synchronizationContext)
-	{
-	}
+    /// <summary>
+    /// Initializes a new instance of the <see cref="MyDialogControl" /> class.
+    /// </summary>
+    /// <param name="dataContext">
+    /// Data context of the remote control which can be referenced from xaml through data binding.
+    /// </param>
+    /// <param name="synchronizationContext">
+    /// Optional synchronizationContext that the extender can provide to ensure that <see cref="IAsyncCommand"/>
+    /// are executed and properties are read and updated from the extension main thread.
+    /// </param>
+    public MyDialogControl(object? dataContext, SynchronizationContext? synchronizationContext = null)
+        : base(dataContext, synchronizationContext)
+    {
+    }
 }

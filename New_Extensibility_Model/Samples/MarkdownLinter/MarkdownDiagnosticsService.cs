@@ -23,154 +23,154 @@ using Microsoft.VisualStudio.Threading;
 internal class MarkdownDiagnosticsService : DisposableObject
 {
 #pragma warning disable CA2213 // Disposable fields should be disposed, object now owned by this instance.
-	private readonly VisualStudioExtensibility extensibility;
+    private readonly VisualStudioExtensibility extensibility;
 #pragma warning restore CA2213 // Disposable fields should be disposed
 
-	private OutputWindow? outputWindow;
-	private DiagnosticsReporter? diagnosticsReporter;
-	private Dictionary<Uri, CancellationTokenSource> documentCancellationTokens;
-	private Task initializationTask;
+    private OutputWindow? outputWindow;
+    private DiagnosticsReporter? diagnosticsReporter;
+    private Dictionary<Uri, CancellationTokenSource> documentCancellationTokens;
+    private Task initializationTask;
 
-	/// <summary>
-	/// Initializes a new instance of the <see cref="MarkdownDiagnosticsService"/> class.
-	/// </summary>
-	/// <param name="extensibility">Extensibility object.</param>
-	public MarkdownDiagnosticsService(VisualStudioExtensibility extensibility)
-	{
-		this.extensibility = Requires.NotNull(extensibility, nameof(extensibility));
-		this.documentCancellationTokens = new Dictionary<Uri, CancellationTokenSource>();
-		this.initializationTask = Task.Run(this.InitializeAsync);
-	}
+    /// <summary>
+    /// Initializes a new instance of the <see cref="MarkdownDiagnosticsService"/> class.
+    /// </summary>
+    /// <param name="extensibility">Extensibility object.</param>
+    public MarkdownDiagnosticsService(VisualStudioExtensibility extensibility)
+    {
+        this.extensibility = Requires.NotNull(extensibility, nameof(extensibility));
+        this.documentCancellationTokens = new Dictionary<Uri, CancellationTokenSource>();
+        this.initializationTask = Task.Run(this.InitializeAsync);
+    }
 
-	/// <summary>
-	/// Processes the specified file for markdown errors and reports to the error list.
-	/// </summary>
-	/// <param name="documentUri">Document uri to read the contents from.</param>
-	/// <param name="cancellationToken">Cancellation token to monitor.</param>
-	/// <returns>Task indicating completion of reporting markdown errors to error list.</returns>
-	public async Task ProcessFileAsync(Uri documentUri, CancellationToken cancellationToken)
-	{
-		CancellationTokenSource newCts = new CancellationTokenSource();
-		lock (this.documentCancellationTokens)
-		{
-			if (this.documentCancellationTokens.TryGetValue(documentUri, out var cts))
-			{
-				cts.Cancel();
-			}
+    /// <summary>
+    /// Processes the specified file for markdown errors and reports to the error list.
+    /// </summary>
+    /// <param name="documentUri">Document uri to read the contents from.</param>
+    /// <param name="cancellationToken">Cancellation token to monitor.</param>
+    /// <returns>Task indicating completion of reporting markdown errors to error list.</returns>
+    public async Task ProcessFileAsync(Uri documentUri, CancellationToken cancellationToken)
+    {
+        CancellationTokenSource newCts = new CancellationTokenSource();
+        lock (this.documentCancellationTokens)
+        {
+            if (this.documentCancellationTokens.TryGetValue(documentUri, out var cts))
+            {
+                _ = cts.CancelAsync();
+            }
 
-			this.documentCancellationTokens[documentUri] = newCts;
-		}
+            this.documentCancellationTokens[documentUri] = newCts;
+        }
 
-		// Wait for 1 second to see if any other changes are being sent.
-		await Task.Delay(1000, cancellationToken);
+        // Wait for 1 second to see if any other changes are being sent.
+        await Task.Delay(1000, cancellationToken);
 
-		if (newCts.IsCancellationRequested)
-		{
-			return;
-		}
+        if (newCts.IsCancellationRequested)
+        {
+            return;
+        }
 
-		try
-		{
-			var diagnostics = await LinterUtilities.RunLinterOnFileAsync(documentUri);
+        try
+        {
+            var diagnostics = await LinterUtilities.RunLinterOnFileAsync(documentUri);
 
-			await this.diagnosticsReporter!.ClearDiagnosticsAsync(documentUri, cancellationToken);
-			await this.diagnosticsReporter!.ReportDiagnosticsAsync(diagnostics, cancellationToken);
-		}
-		catch (InvalidOperationException)
-		{
-			if (this.outputWindow is object)
-			{
-				await this.outputWindow.Writer.WriteLineAsync(Strings.MissingLinterError);
-			}
-		}
-	}
+            await this.diagnosticsReporter!.ClearDiagnosticsAsync(documentUri, cancellationToken);
+            await this.diagnosticsReporter!.ReportDiagnosticsAsync(diagnostics, cancellationToken);
+        }
+        catch (InvalidOperationException)
+        {
+            if (this.outputWindow is object)
+            {
+                await this.outputWindow.Writer.WriteLineAsync(Strings.MissingLinterError);
+            }
+        }
+    }
 
-	/// <summary>
-	/// Processes the current version <see cref="ITextView"/> instance for markdown errors and reports to the error list.
-	/// </summary>
-	/// <param name="textViewSnapshot">Text View instance to read the contents from.</param>
-	/// <param name="cancellationToken">Cancellation token to monitor.</param>
-	/// <returns>Task indicating completion of reporting markdown errors to error list.</returns>
-	public async Task ProcessTextViewAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
-	{
-		CancellationTokenSource newCts = new CancellationTokenSource();
-		lock (this.documentCancellationTokens)
-		{
-			if (this.documentCancellationTokens.TryGetValue(textViewSnapshot.Document.Uri, out var cts))
-			{
-				cts.Cancel();
-			}
+    /// <summary>
+    /// Processes the current version <see cref="ITextView"/> instance for markdown errors and reports to the error list.
+    /// </summary>
+    /// <param name="textViewSnapshot">Text View instance to read the contents from.</param>
+    /// <param name="cancellationToken">Cancellation token to monitor.</param>
+    /// <returns>Task indicating completion of reporting markdown errors to error list.</returns>
+    public async Task ProcessTextViewAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
+    {
+        CancellationTokenSource newCts = new CancellationTokenSource();
+        lock (this.documentCancellationTokens)
+        {
+            if (this.documentCancellationTokens.TryGetValue(textViewSnapshot.Document.Uri, out var cts))
+            {
+                _ = cts.CancelAsync();
+            }
 
-			this.documentCancellationTokens[textViewSnapshot.Document.Uri] = newCts;
-		}
+            this.documentCancellationTokens[textViewSnapshot.Document.Uri] = newCts;
+        }
 
-		await this.ProcessDocumentAsync(textViewSnapshot.Document, cancellationToken.CombineWith(newCts.Token).Token);
-	}
+        await this.ProcessDocumentAsync(textViewSnapshot.Document, cancellationToken.CombineWith(newCts.Token).Token);
+    }
 
-	/// <summary>
-	/// Clears any of the existing entries for the specified document uri.
-	/// </summary>
-	/// <param name="documentUri">Document uri to clear markdown error entries for.</param>
-	/// <param name="cancellationToken">Cancellation token to monitor.</param>
-	/// <returns>Task indicating completion.</returns>
-	public async Task ClearEntriesForDocumentAsync(Uri documentUri, CancellationToken cancellationToken)
-	{
-		lock (this.documentCancellationTokens)
-		{
-			if (this.documentCancellationTokens.TryGetValue(documentUri, out var cts))
-			{
-				cts.Cancel();
-				this.documentCancellationTokens.Remove(documentUri);
-			}
-		}
+    /// <summary>
+    /// Clears any of the existing entries for the specified document uri.
+    /// </summary>
+    /// <param name="documentUri">Document uri to clear markdown error entries for.</param>
+    /// <param name="cancellationToken">Cancellation token to monitor.</param>
+    /// <returns>Task indicating completion.</returns>
+    public async Task ClearEntriesForDocumentAsync(Uri documentUri, CancellationToken cancellationToken)
+    {
+        lock (this.documentCancellationTokens)
+        {
+            if (this.documentCancellationTokens.TryGetValue(documentUri, out var cts))
+            {
+                _ = cts.CancelAsync();
+                this.documentCancellationTokens.Remove(documentUri);
+            }
+        }
 
-		await this.diagnosticsReporter!.ClearDiagnosticsAsync(documentUri, cancellationToken);
-	}
+        await this.diagnosticsReporter!.ClearDiagnosticsAsync(documentUri, cancellationToken);
+    }
 
-	/// <inheritdoc />
-	protected override void Dispose(bool isDisposing)
-	{
-		base.Dispose(isDisposing);
+    /// <inheritdoc />
+    protected override void Dispose(bool isDisposing)
+    {
+        base.Dispose(isDisposing);
 
-		if (isDisposing)
-		{
-			this.outputWindow?.Dispose();
-			this.diagnosticsReporter?.Dispose();
-		}
-	}
+        if (isDisposing)
+        {
+            this.outputWindow?.Dispose();
+            this.diagnosticsReporter?.Dispose();
+        }
+    }
 
-	private async Task ProcessDocumentAsync(ITextDocumentSnapshot documentSnapshot, CancellationToken cancellationToken)
-	{
-		// Wait for 1 second to see if any other changes are being sent.
-		await Task.Delay(1000, cancellationToken);
+    private async Task ProcessDocumentAsync(ITextDocumentSnapshot documentSnapshot, CancellationToken cancellationToken)
+    {
+        // Wait for 1 second to see if any other changes are being sent.
+        await Task.Delay(1000, cancellationToken);
 
-		if (cancellationToken.IsCancellationRequested)
-		{
-			return;
-		}
+        if (cancellationToken.IsCancellationRequested)
+        {
+            return;
+        }
 
-		try
-		{
-			var diagnostics = await LinterUtilities.RunLinterOnDocumentAsync(documentSnapshot);
+        try
+        {
+            var diagnostics = await LinterUtilities.RunLinterOnDocumentAsync(documentSnapshot);
 
-			await this.diagnosticsReporter!.ClearDiagnosticsAsync(documentSnapshot, cancellationToken);
-			await this.diagnosticsReporter!.ReportDiagnosticsAsync(diagnostics, cancellationToken);
-		}
-		catch (InvalidOperationException)
-		{
-			if (this.outputWindow is object)
-			{
-				await this.outputWindow.Writer.WriteLineAsync(Strings.MissingLinterError);
-			}
-		}
-	}
+            await this.diagnosticsReporter!.ClearDiagnosticsAsync(documentSnapshot, cancellationToken);
+            await this.diagnosticsReporter!.ReportDiagnosticsAsync(diagnostics, cancellationToken);
+        }
+        catch (InvalidOperationException)
+        {
+            if (this.outputWindow is object)
+            {
+                await this.outputWindow.Writer.WriteLineAsync(Strings.MissingLinterError);
+            }
+        }
+    }
 
-	private async Task InitializeAsync()
-	{
-		this.outputWindow = await this.extensibility.Views().Output.GetChannelAsync(nameof(MarkdownLinterExtension) + Guid.NewGuid(), nameof(Strings.MarkdownLinterWindowName), default);
-		Assumes.NotNull(this.outputWindow);
+    private async Task InitializeAsync()
+    {
+        this.outputWindow = await this.extensibility.Views().Output.GetChannelAsync(nameof(MarkdownLinterExtension) + Guid.NewGuid(), nameof(Strings.MarkdownLinterWindowName), default);
+        Assumes.NotNull(this.outputWindow);
 
-		this.diagnosticsReporter = this.extensibility.Languages().GetDiagnosticsReporter(nameof(MarkdownLinterExtension));
-		Assumes.NotNull(this.diagnosticsReporter);
-	}
+        this.diagnosticsReporter = this.extensibility.Languages().GetDiagnosticsReporter(nameof(MarkdownLinterExtension));
+        Assumes.NotNull(this.diagnosticsReporter);
+    }
 }

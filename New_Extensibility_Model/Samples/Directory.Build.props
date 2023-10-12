@@ -4,8 +4,6 @@
     <RepoRootPath>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\'))</RepoRootPath>
     <BaseIntermediateOutputPath>$(RepoRootPath)obj\samples\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
     <BaseOutputPath Condition=" '$(BaseOutputPath)' == '' ">$(RepoRootPath)bin\samples\$(MSBuildProjectName)\</BaseOutputPath>
-    <LangVersion>8.0</LangVersion>
-    <Nullable>enable</Nullable>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <SignAssembly>false</SignAssembly>
     <IsPackable>false</IsPackable>
