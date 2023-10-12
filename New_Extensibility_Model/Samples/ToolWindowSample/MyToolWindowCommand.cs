@@ -26,7 +26,7 @@ public class MyToolWindowCommand : Command
 	/// <inheritdoc />
 	public override CommandConfiguration CommandConfiguration => new("%ToolWindowSample.MyToolWindowCommand.DisplayName%")
 	{
-		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu() },
 		Icon = new(ImageMoniker.KnownValues.ToolWindow, IconSettings.IconAndText),
 	};
 

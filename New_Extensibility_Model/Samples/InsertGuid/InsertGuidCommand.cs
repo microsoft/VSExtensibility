@@ -34,7 +34,7 @@ internal class InsertGuidCommand : Command
 	/// <inheritdoc />
 	public override CommandConfiguration CommandConfiguration => new("%InsertGuid.InsertGuidCommand.DisplayName%")
 	{
-		Placements = new[] { CommandPlacement.KnownPlacements.ExtensionsMenu },
+		Placements = new[] { CommandPlacement.KnownPlacements.ExtensionsMenu() },
 		Icon = new(ImageMoniker.KnownValues.OfficeWebExtension, IconSettings.IconAndText),
 		VisibleWhen = ActivationConstraint.ClientContext(ClientContextKey.Shell.ActiveEditorContentType, ".+"),
 		ClientContexts = new[] { "Editor", "Shell" },
@@ -56,11 +56,10 @@ internal class InsertGuidCommand : Command
 			return;
 		}
 
-		var document = await textView.GetTextDocumentAsync(cancellationToken);
 		await this.Extensibility.Editor().EditAsync(
 			batch =>
 			{
-				document.AsEditable(batch).Replace(textView.Selection.Extent, newGuidString);
+				textView.Document.AsEditable(batch).Replace(textView.Selection.Extent, newGuidString);
 			},
 			cancellationToken);
 	}

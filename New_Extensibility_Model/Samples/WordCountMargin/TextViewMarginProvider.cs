@@ -53,20 +53,19 @@ internal class TextViewMarginProvider : ExtensionPart, ITextViewMarginProvider, 
 	/// <summary>
 	/// Creates a remotable visual element representing the content of the margin.
 	/// </summary>
-	public async Task<IRemoteUserControl> CreateVisualElementAsync(ITextViewSnapshot textView, CancellationToken cancellationToken)
+	public Task<IRemoteUserControl> CreateVisualElementAsync(ITextViewSnapshot textView, CancellationToken cancellationToken)
 	{
-		var documentSnapshot = await textView.GetTextDocumentAsync(cancellationToken).ConfigureAwait(false);
 		var dataModel = new WordCountData();
-		dataModel.WordCount = CountWords(documentSnapshot);
-		this.dataModels[textView.Uri] = dataModel;
-		return new MyMarginContent(dataModel);
+		dataModel.WordCount = CountWords(textView.Document);
+		this.dataModels[textView.Document.Uri] = dataModel;
+		return Task.FromResult<IRemoteUserControl>(new MyMarginContent(dataModel));
 	}
 
 	/// <inheritdoc />
-	public async Task TextViewChangedAsync(TextViewChangedArgs args, CancellationToken cancellationToken)
+	public Task TextViewChangedAsync(TextViewChangedArgs args, CancellationToken cancellationToken)
 	{
-		var documentSnapshot = await args.AfterTextView.GetTextDocumentAsync(cancellationToken);
-		this.dataModels[args.AfterTextView.Uri].WordCount = CountWords(documentSnapshot);
+		this.dataModels[args.AfterTextView.Uri].WordCount = CountWords(args.AfterTextView.Document);
+		return Task.CompletedTask;
 	}
 
 	/// <inheritdoc />

@@ -18,13 +18,6 @@ public class SampleCommand : Command
 	{
 	}
 
-	/// <inheritdoc />
-	public override CommandConfiguration CommandConfiguration => new("%UserPromptSample.SampleCommand.DisplayName%")
-	{
-		TooltipText = "%UserPromptSample.SampleCommand.ToolTip%",
-		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
-	};
-
 	public enum TokenThemeResult
 	{
 		None,
@@ -32,6 +25,13 @@ public class SampleCommand : Command
 		OneDark,
 		GruvBox,
 	}
+
+	/// <inheritdoc />
+	public override CommandConfiguration CommandConfiguration => new("%UserPromptSample.SampleCommand.DisplayName%")
+	{
+		TooltipText = "%UserPromptSample.SampleCommand.ToolTip%",
+		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu() },
+	};
 
 	public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken ct)
 	{

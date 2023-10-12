@@ -4,6 +4,7 @@
 namespace RegexMatchVisualizer.ObjectSource;
 
 using System;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -56,7 +57,7 @@ public class RegexMatchObjectSource : VisualizerObjectSource
 				Index = g.Index,
 				Length = g.Length,
 				Value = g.Value,
-				Name = $"[{GetGroupName?.Invoke(g) ?? i.ToString()}]",
+				Name = $"[{GetGroupName?.Invoke(g) ?? i.ToString(CultureInfo.CurrentCulture)}]",
 				Captures = Convert(g.Captures),
 			}).ToArray();
 }

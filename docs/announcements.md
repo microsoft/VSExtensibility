@@ -24,5 +24,3 @@ Use this page to stay up-to-date on all upcoming extensibility announcements and
 
 ## August 10, 2022
 * [VisualStudio.Extensibility phase 2](https://devblogs.microsoft.com/visualstudio/visualstudio-extensibility/) is released publicly adding more extensibility feature areas.
-
-

@@ -17,13 +17,13 @@ using Microsoft.VisualStudio.ProjectSystem.Query;
 /// A command to execute linter on the current file selected in Solution Explorer.
 /// </summary>
 /// <remarks>
-/// This command utilizes <see cref="CommandEnabledWhenAttribute"/> to describe when commmand state is enabled.
+/// This command utilizes <see cref="CommandEnabledWhenAttribute"/> to describe when command state is enabled.
 /// </remarks>
 [VisualStudioContribution]
 internal class RunLinterOnCurrentFileCommand : Command
 {
 	private readonly TraceSource logger;
-	private MarkdownDiagnosticsService diagnosticsProvider;
+	private readonly MarkdownDiagnosticsService diagnosticsProvider;
 
 	/// <summary>
 	/// Initializes a new instance of the <see cref="RunLinterOnCurrentFileCommand"/> class.
@@ -43,7 +43,7 @@ internal class RunLinterOnCurrentFileCommand : Command
 	/// <inheritdoc />
 	public override CommandConfiguration CommandConfiguration => new("%MarkdownLinter.RunLinterOnCurrentFileCommand.DisplayName%")
 	{
-		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu() },
 		Icon = new(ImageMoniker.Custom("MarkdownIcon"), IconSettings.IconAndText),
 		EnabledWhen = ActivationConstraint.ClientContext(ClientContextKey.Shell.ActiveSelectionFileName, ".+"),
 	};
@@ -54,7 +54,7 @@ internal class RunLinterOnCurrentFileCommand : Command
 		cancellationToken.ThrowIfCancellationRequested();
 		try
 		{
-			// Get the selected item URIs from IDE context that reprents the state when command was executed.
+			// Get the selected item URIs from IDE context that represents the state when command was executed.
 			var selectedItemPaths = new Uri[] { await context.GetSelectedPathAsync(cancellationToken) };
 
 			// Enumerate through each selection and run linter on each selected item.

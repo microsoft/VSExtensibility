@@ -29,7 +29,7 @@ public class QueryOutputGroupByProjectCommand : Command
 	/// <inheritdoc />
 	public override CommandConfiguration CommandConfiguration => new("%VSProjectQueryAPISample.QueryOutputGroupByProjectCommand.DisplayName%")
 	{
-		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu() },
 		Icon = new(ImageMoniker.KnownValues.Extension, IconSettings.IconAndText),
 	};
 

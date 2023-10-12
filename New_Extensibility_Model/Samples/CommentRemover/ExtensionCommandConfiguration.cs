@@ -8,10 +8,9 @@ internal static class ExtensionCommandConfiguration
 	[VisualStudioContribution]
 	public static MenuConfiguration CommentRemoverMenu => new("%CommentRemover.CommentRemoverMenu.DisplayName%")
 	{
-		Priority = 1,
 		Placements = new[]
 		{
-			CommandPlacement.KnownPlacements.ExtensionsMenu,
+			CommandPlacement.KnownPlacements.ExtensionsMenu(priority: 1),
 		},
 		Children = new[]
 		{

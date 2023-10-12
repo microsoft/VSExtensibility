@@ -27,7 +27,7 @@ internal class RegexMatchCollectionDebuggerVisualizerProvider : DebuggerVisualiz
 	}
 
 	/// <inheritdoc/>
-	public override DebuggerVisualizerProviderConfiguration DebuggerVisualizerProviderConfiguration => new("Regex Match visualizer", typeof(MatchCollection))
+	public override DebuggerVisualizerProviderConfiguration DebuggerVisualizerProviderConfiguration => new("%RegexMatchVisualizer.RegexMatchCollectionDebuggerVisualizerProvider.DisplayName%", typeof(MatchCollection))
 	{
 		VisualizerObjectSourceType = new("RegexMatchVisualizer.ObjectSource.RegexMatchCollectionObjectSource, RegexMatchObjectSource"),
 	};
