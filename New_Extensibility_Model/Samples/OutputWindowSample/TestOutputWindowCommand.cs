@@ -17,20 +17,6 @@ public class TestOutputWindowCommand : Command
 {
     private OutputWindow? outputWindow;
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="TestOutputWindowCommand" /> class.
-    /// </summary>
-    /// <param name="extensibility">
-    /// Extensibility object instance.
-    /// </param>
-    /// <param name="id">
-    /// Command identifier.
-    /// </param>
-    public TestOutputWindowCommand(VisualStudioExtensibility extensibility)
-        : base(extensibility)
-    {
-    }
-
     /// <inheritdoc />
     public override CommandConfiguration CommandConfiguration => new("%OutputWindowSample.TestOutputWindowCommand.DisplayName%")
     {

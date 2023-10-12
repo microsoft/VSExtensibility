@@ -14,17 +14,6 @@ using Microsoft.VisualStudio.ProjectSystem.Query;
 [VisualStudioContribution]
 public class AddFileCommand : Command
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="AddFileCommand" /> class.
-    /// </summary>
-    /// <param name="extensibility">
-    /// Extensibility object instance.
-    /// </param>
-    public AddFileCommand(VisualStudioExtensibility extensibility)
-        : base(extensibility)
-    {
-    }
-
     /// <inheritdoc />
     public override CommandConfiguration CommandConfiguration => new("%VSProjectQueryAPISample.AddFileCommand.DisplayName%")
     {

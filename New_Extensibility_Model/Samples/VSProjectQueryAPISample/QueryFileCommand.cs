@@ -15,17 +15,6 @@ using Microsoft.VisualStudio.ProjectSystem.Query;
 [VisualStudioContribution]
 public class QueryFileCommand : Command
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="QueryFileCommand" /> class.
-    /// </summary>
-    /// <param name="extensibility">
-    /// Extensibility object instance.
-    /// </param>
-    public QueryFileCommand(VisualStudioExtensibility extensibility)
-        : base(extensibility)
-    {
-    }
-
     /// <inheritdoc />
     public override CommandConfiguration CommandConfiguration => new("%VSProjectQueryAPISample.QueryFileCommand.DisplayName%")
     {

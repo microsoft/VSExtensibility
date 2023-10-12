@@ -31,11 +31,9 @@ internal class RunLinterOnSolutionCommand : Command
     /// <summary>
     /// Initializes a new instance of the <see cref="RunLinterOnSolutionCommand"/> class.
     /// </summary>
-    /// <param name="extensibility">Extensibility object.</param>
     /// <param name="traceSource">Logger instance that can be used to log extension actions.</param>
     /// <param name="diagnosticsProvider">Local diagnostics provider service instance.</param>
-    public RunLinterOnSolutionCommand(VisualStudioExtensibility extensibility, TraceSource traceSource, MarkdownDiagnosticsService diagnosticsProvider)
-        : base(extensibility)
+    public RunLinterOnSolutionCommand(TraceSource traceSource, MarkdownDiagnosticsService diagnosticsProvider)
     {
         this.logger = Requires.NotNull(traceSource, nameof(traceSource));
         this.diagnosticsProvider = Requires.NotNull(diagnosticsProvider, nameof(diagnosticsProvider));

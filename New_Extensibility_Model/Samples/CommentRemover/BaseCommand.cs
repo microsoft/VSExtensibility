@@ -23,13 +23,11 @@ internal abstract class CommentRemoverCommand : Microsoft.VisualStudio.Extensibi
     private static readonly string[] TaskCaptions = { "TODO", "HACK", "UNDONE", "UNRESOLVEDMERGECONFLICT" };
 
     public CommentRemoverCommand(
-        VisualStudioExtensibility extensibility,
         TraceSource traceSource,
         AsyncServiceProviderInjection<DTE, DTE2> dte,
         MefInjection<IBufferTagAggregatorFactoryService> bufferTagAggregatorFactoryService,
         MefInjection<IVsEditorAdaptersFactoryService> editorAdaptersFactoryService,
         AsyncServiceProviderInjection<SVsTextManager, IVsTextManager> textManager)
-        : base(extensibility)
     {
         this.TraceSource = traceSource;
         this.Dte = dte;

@@ -22,13 +22,12 @@ internal class RemoveTasks : CommentRemoverCommand
     private const string CommandDescription = "%CommentRemover.RemoveTasks.DisplayName%";
 
     public RemoveTasks(
-        VisualStudioExtensibility extensibility,
         TraceSource traceSource,
         AsyncServiceProviderInjection<DTE, DTE2> dte,
         MefInjection<IBufferTagAggregatorFactoryService> bufferTagAggregatorFactoryService,
         MefInjection<IVsEditorAdaptersFactoryService> editorAdaptersFactoryService,
         AsyncServiceProviderInjection<SVsTextManager, IVsTextManager> textManager)
-        : base(extensibility, traceSource, dte, bufferTagAggregatorFactoryService, editorAdaptersFactoryService, textManager)
+        : base(traceSource, dte, bufferTagAggregatorFactoryService, editorAdaptersFactoryService, textManager)
     {
     }
 

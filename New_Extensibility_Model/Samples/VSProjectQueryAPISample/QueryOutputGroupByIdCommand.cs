@@ -15,17 +15,6 @@ using Microsoft.VisualStudio.ProjectSystem.Query;
 [VisualStudioContribution]
 public class QueryOutputGroupByIdCommand : Command
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="QueryOutputGroupByIdCommand" /> class.
-    /// </summary>
-    /// <param name="extensibility">
-    /// Extensibility object instance.
-    /// </param>
-    public QueryOutputGroupByIdCommand(VisualStudioExtensibility extensibility)
-        : base(extensibility)
-    {
-    }
-
     /// <inheritdoc />
     public override CommandConfiguration CommandConfiguration => new("%VSProjectQueryAPISample.QueryOutputGroupByIdCommand.DisplayName%")
     {

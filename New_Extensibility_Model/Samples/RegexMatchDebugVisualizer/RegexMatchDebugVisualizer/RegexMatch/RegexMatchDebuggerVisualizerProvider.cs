@@ -17,16 +17,6 @@ using RegexMatchVisualizer.ObjectSource;
 [VisualStudioContribution]
 internal class RegexMatchDebuggerVisualizerProvider : DebuggerVisualizerProvider
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="RegexMatchDebuggerVisualizerProvider"/> class.
-    /// </summary>
-    /// <param name="extension">Extension instance.</param>
-    /// <param name="extensibility">Extensibility object.</param>
-    public RegexMatchDebuggerVisualizerProvider(RegexMatchVisualizerExtension extension, VisualStudioExtensibility extensibility)
-        : base(extension, extensibility)
-    {
-    }
-
     /// <inheritdoc/>
     public override DebuggerVisualizerProviderConfiguration DebuggerVisualizerProviderConfiguration => new("%RegexMatchVisualizer.RegexMatchDebuggerVisualizerProvider.DisplayName%", typeof(Match))
     {

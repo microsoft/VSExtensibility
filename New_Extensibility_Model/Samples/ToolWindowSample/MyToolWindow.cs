@@ -20,11 +20,7 @@ public class MyToolWindow : ToolWindow
     /// <summary>
     /// Initializes a new instance of the <see cref="MyToolWindow" /> class.
     /// </summary>
-    /// <param name="extensibility">
-    /// Extensibility object instance.
-    /// </param>
-    public MyToolWindow(VisualStudioExtensibility extensibility)
-        : base(extensibility)
+    public MyToolWindow()
     {
         this.Title = "My Tool Window";
     }

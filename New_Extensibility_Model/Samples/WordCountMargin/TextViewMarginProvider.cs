@@ -21,16 +21,6 @@ internal class TextViewMarginProvider : ExtensionPart, ITextViewMarginProvider, 
     private readonly Dictionary<Uri, WordCountData> dataModels = new();
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="TextViewMarginProvider"/> class.
-    /// </summary>
-    /// <param name="extension">Extension instance.</param>
-    /// <param name="extensibility">Extensibility object.</param>
-    public TextViewMarginProvider(Extension extension, VisualStudioExtensibility extensibility)
-        : base(extension, extensibility)
-    {
-    }
-
-    /// <summary>
     /// Configures this extension part to be applied to any text view.
     /// </summary>
     public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()

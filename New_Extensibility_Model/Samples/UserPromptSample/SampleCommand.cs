@@ -13,11 +13,6 @@ using Microsoft.VisualStudio.Extensibility.Shell;
 [VisualStudioContribution]
 public class SampleCommand : Command
 {
-    public SampleCommand(VisualStudioExtensibility extensibility)
-        : base(extensibility)
-    {
-    }
-
     public enum TokenThemeResult
     {
         None,

@@ -21,13 +21,12 @@ internal class RemoveRegions : CommentRemoverCommand
     private const string CommandDescription = "%CommentRemover.RemoveRegions.DisplayName%";
 
     public RemoveRegions(
-        VisualStudioExtensibility extensibility,
         TraceSource traceSource,
         AsyncServiceProviderInjection<DTE, DTE2> dte,
         MefInjection<IBufferTagAggregatorFactoryService> bufferTagAggregatorFactoryService,
         MefInjection<IVsEditorAdaptersFactoryService> editorAdaptersFactoryService,
         AsyncServiceProviderInjection<SVsTextManager, IVsTextManager> textManager)
-        : base(extensibility, traceSource, dte, bufferTagAggregatorFactoryService, editorAdaptersFactoryService, textManager)
+        : base(traceSource, dte, bufferTagAggregatorFactoryService, editorAdaptersFactoryService, textManager)
     {
     }
 

@@ -14,15 +14,6 @@ using Microsoft.VisualStudio.Extensibility.Commands;
 [VisualStudioContribution]
 public class MyToolWindowCommand : Command
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="MyToolWindowCommand" /> class.
-    /// </summary>
-    /// <param name="extensibility">Extensibility object instance.</param>
-    public MyToolWindowCommand(VisualStudioExtensibility extensibility)
-        : base(extensibility)
-    {
-    }
-
     /// <inheritdoc />
     public override CommandConfiguration CommandConfiguration => new("%ToolWindowSample.MyToolWindowCommand.DisplayName%")
     {

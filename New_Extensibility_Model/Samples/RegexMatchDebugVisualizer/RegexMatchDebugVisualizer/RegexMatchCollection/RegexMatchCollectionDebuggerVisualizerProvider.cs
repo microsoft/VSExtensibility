@@ -16,16 +16,6 @@ using Microsoft.VisualStudio.RpcContracts.RemoteUI;
 [VisualStudioContribution]
 internal class RegexMatchCollectionDebuggerVisualizerProvider : DebuggerVisualizerProvider
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="RegexMatchCollectionDebuggerVisualizerProvider"/> class.
-    /// </summary>
-    /// <param name="extension">Extension instance.</param>
-    /// <param name="extensibility">Extensibility object.</param>
-    public RegexMatchCollectionDebuggerVisualizerProvider(RegexMatchVisualizerExtension extension, VisualStudioExtensibility extensibility)
-        : base(extension, extensibility)
-    {
-    }
-
     /// <inheritdoc/>
     public override DebuggerVisualizerProviderConfiguration DebuggerVisualizerProviderConfiguration => new("%RegexMatchVisualizer.RegexMatchCollectionDebuggerVisualizerProvider.DisplayName%", typeof(MatchCollection))
     {

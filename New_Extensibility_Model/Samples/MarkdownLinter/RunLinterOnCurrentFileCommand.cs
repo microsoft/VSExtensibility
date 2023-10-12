@@ -28,11 +28,9 @@ internal class RunLinterOnCurrentFileCommand : Command
     /// <summary>
     /// Initializes a new instance of the <see cref="RunLinterOnCurrentFileCommand"/> class.
     /// </summary>
-    /// <param name="extensibility">Extensibility object.</param>
     /// <param name="traceSource">Logger instance that can be used to log extension actions.</param>
     /// <param name="diagnosticsProvider">Local diagnostics provider service instance.</param>
-    public RunLinterOnCurrentFileCommand(VisualStudioExtensibility extensibility, TraceSource traceSource, MarkdownDiagnosticsService diagnosticsProvider)
-        : base(extensibility)
+    public RunLinterOnCurrentFileCommand(TraceSource traceSource, MarkdownDiagnosticsService diagnosticsProvider)
     {
         this.logger = Requires.NotNull(traceSource, nameof(traceSource));
         this.diagnosticsProvider = Requires.NotNull(diagnosticsProvider, nameof(diagnosticsProvider));

@@ -11,11 +11,6 @@ using Microsoft.VisualStudio.Extensibility.Commands;
 [VisualStudioContribution]
 internal class SampleCommand : Command
 {
-    public SampleCommand(VisualStudioExtensibility extensibility)
-        : base(extensibility)
-    {
-    }
-
     /// <inheritdoc />
     public override CommandConfiguration CommandConfiguration => new("%CommandParentingSample.SampleCommand.DisplayName%")
     {

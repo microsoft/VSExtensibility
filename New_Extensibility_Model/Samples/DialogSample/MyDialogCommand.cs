@@ -14,20 +14,6 @@ using Microsoft.VisualStudio.Extensibility.Commands;
 [VisualStudioContribution]
 public class MyDialogCommand : Command
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="MyDialogCommand" /> class.
-    /// </summary>
-    /// <param name="extensibility">
-    /// Extensibility object instance.
-    /// </param>
-    /// <param name="name">
-    /// Command identifier.
-    /// </param>
-    public MyDialogCommand(VisualStudioExtensibility extensibility)
-        : base(extensibility)
-    {
-    }
-
     /// <inheritdoc />
     public override CommandConfiguration CommandConfiguration => new("%DialogSample.MyDialogCommand.DisplayName%")
     {

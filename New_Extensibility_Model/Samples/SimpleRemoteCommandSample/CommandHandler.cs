@@ -14,15 +14,6 @@ using Microsoft.VisualStudio.Extensibility.Commands;
 [VisualStudioContribution]
 public class CommandHandler : Command
 {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="CommandHandler"/> class.
-    /// </summary>
-    /// <param name="extensibility">Extensibility object instance.</param>
-    public CommandHandler(VisualStudioExtensibility extensibility)
-        : base(extensibility)
-    {
-    }
-
     /// <inheritdoc />
     public override CommandConfiguration CommandConfiguration => new("%SimpleRemoteCommandSample.CommandHandler.DisplayName%")
     {

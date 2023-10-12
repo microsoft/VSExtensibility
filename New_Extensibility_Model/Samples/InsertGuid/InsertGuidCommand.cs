@@ -23,10 +23,8 @@ internal class InsertGuidCommand : Command
     /// <summary>
     /// Initializes a new instance of the <see cref="InsertGuidCommand"/> class.
     /// </summary>
-    /// <param name="extensibility">Extensibility object.</param>
     /// <param name="traceSource">Trace source instance to utilize.</param>
-    public InsertGuidCommand(VisualStudioExtensibility extensibility, TraceSource traceSource)
-        : base(extensibility)
+    public InsertGuidCommand(TraceSource traceSource)
     {
         this.logger = Requires.NotNull(traceSource, nameof(traceSource));
     }
