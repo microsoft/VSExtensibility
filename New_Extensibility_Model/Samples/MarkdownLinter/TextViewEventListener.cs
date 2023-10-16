@@ -15,7 +15,9 @@ using Microsoft.VisualStudio.Extensibility.Editor;
 [VisualStudioContribution]
 internal class TextViewEventListener : ExtensionPart, ITextViewOpenClosedListener, ITextViewChangedListener
 {
+#pragma warning disable CA2213 // This is an extension scoped service.
     private readonly MarkdownDiagnosticsService diagnosticsProvider;
+#pragma warning restore CA2213
 
     /// <summary>
     /// Initializes a new instance of the <see cref="TextViewEventListener"/> class.
@@ -34,7 +36,7 @@ internal class TextViewEventListener : ExtensionPart, ITextViewOpenClosedListene
     {
         AppliesTo = new[]
         {
-            DocumentFilter.FromDocumentType(MarkdownLinterExtensionContributions.MarkdownDocumentType),
+            DocumentFilter.FromGlobPattern("**/*.md", true),
         },
     };
 
