@@ -23,7 +23,10 @@ using Microsoft.VisualStudio.ProjectSystem.Query;
 internal class RunLinterOnCurrentFileCommand : Command
 {
     private readonly TraceSource logger;
+
+#pragma warning disable CA2213 // This is an extension scoped service.
     private readonly MarkdownDiagnosticsService diagnosticsProvider;
+#pragma warning restore CA2213
 
     /// <summary>
     /// Initializes a new instance of the <see cref="RunLinterOnCurrentFileCommand"/> class.
