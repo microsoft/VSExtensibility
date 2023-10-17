@@ -47,7 +47,7 @@ internal class RunLinterOnSolutionCommand : Command
     /// <inheritdoc />
     public override CommandConfiguration CommandConfiguration => new("%MarkdownLinter.RunLinterOnSolutionCommand.DisplayName%")
     {
-        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu() },
+        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
         Icon = new(ImageMoniker.Custom("MarkdownIcon"), IconSettings.IconAndText),
         EnabledWhen = ActivationConstraint.SolutionState(SolutionState.FullyLoaded),
     };

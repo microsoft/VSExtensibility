@@ -25,9 +25,10 @@ public class SampleCommand : Command
     public override CommandConfiguration CommandConfiguration => new("%UserPromptSample.SampleCommand.DisplayName%")
     {
         TooltipText = "%UserPromptSample.SampleCommand.ToolTip%",
-        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu() },
+        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
     };
 
+    /// <inheritdoc />
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken ct)
     {
         var shell = this.Extensibility.Shell();

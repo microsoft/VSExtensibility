@@ -10,7 +10,7 @@ internal static class ExtensionCommandConfiguration
     {
         Placements = new[]
         {
-            CommandPlacement.KnownPlacements.ExtensionsMenu(priority: 1),
+            CommandPlacement.KnownPlacements.ExtensionsMenu.WithPriority(0x01),
         },
         Children = new[]
         {

@@ -17,7 +17,7 @@ public class MyDialogCommand : Command
     /// <inheritdoc />
     public override CommandConfiguration CommandConfiguration => new("%DialogSample.MyDialogCommand.DisplayName%")
     {
-        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu() },
+        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
         Icon = new(ImageMoniker.KnownValues.Dialog, IconSettings.IconAndText),
     };
 

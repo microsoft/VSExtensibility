@@ -44,7 +44,7 @@ internal class RunLinterOnCurrentFileCommand : Command
     /// <inheritdoc />
     public override CommandConfiguration CommandConfiguration => new("%MarkdownLinter.RunLinterOnCurrentFileCommand.DisplayName%")
     {
-        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu() },
+        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
         Icon = new(ImageMoniker.Custom("MarkdownIcon"), IconSettings.IconAndText),
         EnabledWhen = ActivationConstraint.ClientContext(ClientContextKey.Shell.ActiveSelectionFileName, ".+"),
     };

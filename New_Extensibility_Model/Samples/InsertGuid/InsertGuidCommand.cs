@@ -32,7 +32,7 @@ internal class InsertGuidCommand : Command
     /// <inheritdoc />
     public override CommandConfiguration CommandConfiguration => new("%InsertGuid.InsertGuidCommand.DisplayName%")
     {
-        Placements = new[] { CommandPlacement.KnownPlacements.ExtensionsMenu() },
+        Placements = new[] { CommandPlacement.KnownPlacements.ExtensionsMenu },
         Icon = new(ImageMoniker.KnownValues.OfficeWebExtension, IconSettings.IconAndText),
         VisibleWhen = ActivationConstraint.ClientContext(ClientContextKey.Shell.ActiveEditorContentType, ".+"),
         ClientContexts = new[] { "Editor", "Shell" },
