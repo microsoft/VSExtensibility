@@ -12,15 +12,13 @@ The extension leverages multiple Visual Studio functionalities that are currenly
 
 I started creating an empty VisualStudio.Extensibility in-proc extension project as described in the [Creating your first in-process VisualStudio.Extensibility extension](https://learn.microsoft.com/en-us/visualstudio/extensibility/visualstudio.extensibility/get-started/in-proc-extensions) guide.
 
-I did a quick fix to the `CommentRemoverContainer` project: added the correct information in the [.vsixmanifest](CommentRemoverContainer/source.extension.vsixmanifest) file and added the license file and two image resources that are referenced in the manifest.
-
-As described in the getting started guide, I don't need to make any other change to the container project: all the remaining work will be done in the `CommentRemover` project. In future versions of VisualStudio.Extensibility, the packaging of extensions will be improved and it is likely that the `CommentRemoverContainer` project won't be necessary anymore. Minimizing the amount of customization to the container will help updating the extension to newer versions of VisualStudio.Extensibility.
+I did added the correct information in the [.vsixmanifest](source.extension.vsixmanifest) file and added the license file and two image resources that are referenced in the manifest.
 
 ### Creating the new commands
 
 Commands are the main VisualStudio.Extensibility feature that I will leverage in this conversion.
 
-VisualStudio.Extensibility commands are quite different, so we can either start from scratch with new empty commands and move the code or we can start with the old commands classes and convert them. Whatever path we choose, we will end up with the same 6 command classes (for example, [RemoveAllComments.cs](CommentRemover/RemoveAllComments.cs)). I also decided to keep the original structure of using a common [base command class](CommentRemover/BaseCommand.cs) to provide some shared implementation.
+VisualStudio.Extensibility commands are quite different, so we can either start from scratch with new empty commands and move the code or we can start with the old commands classes and convert them. Whatever path we choose, we will end up with the same 6 command classes (for example, [RemoveAllComments.cs](RemoveAllComments.cs)). I also decided to keep the original structure of using a common [base command class](BaseCommand.cs) to provide some shared implementation.
 
 The two most glaring differences between the old and new commands are:
 
@@ -35,18 +33,7 @@ Finally, I will set up shortcuts, icons and a rule about when the commands are e
 [VisualStudioContribution]
 internal class RemoveAllComments : CommentRemoverCommand
 {
-    private const string CommandDescription = "%RemoveAllComments.DisplayName%";
-
-    public RemoveAllComments(
-        VisualStudioExtensibility extensibility,
-        TraceSource traceSource,
-        AsyncServiceProviderInjection<DTE, DTE2> dte,
-        MefInjection<IBufferTagAggregatorFactoryService> bufferTagAggregatorFactoryService,
-        MefInjection<IVsEditorAdaptersFactoryService> editorAdaptersFactoryService,
-        AsyncServiceProviderInjection<SVsTextManager, IVsTextManager> textManager)
-        : base(extensibility, traceSource, dte, bufferTagAggregatorFactoryService, editorAdaptersFactoryService, textManager)
-    {
-    }
+    private const string CommandDescription = "%CommentRemover.RemoveAllComments.DisplayName%";
 
     /// <inheritdoc />
     public override CommandConfiguration CommandConfiguration => new(CommandDescription)
@@ -67,12 +54,12 @@ This extension contributes six new commands to Visual Studio and I want them to 
 ```CSharp
 internal static class ExtensionCommandConfiguration
 {
-    public static MenuConfiguration CommentRemoverMenu => new("%CommentRemoverMenu.DisplayName%")
+    [VisualStudioContribution]
+    public static MenuConfiguration CommentRemoverMenu => new("%CommentRemover.CommentRemoverMenu.DisplayName%")
     {
-        Priority = 1,
         Placements = new[]
         {
-            CommandPlacement.KnownPlacements.ExtensionsMenu,
+            CommandPlacement.KnownPlacements.ExtensionsMenu.WithPriority(0x01),
         },
         Children = new[]
         {
@@ -95,13 +82,13 @@ You may have noticed that some strings enclosed by `%` characters in the code ab
 
 ```json
 {
-    "CommentRemoverMenu.DisplayName": "Comments",
-    "RemoveAllComments.DisplayName": "Remove All",
-    "RemoveAllExceptTaskComments.DisplayName": "Remove All Except Tasks",
-    "RemoveAllExceptXmlDocComments.DisplayName": "Remove All Except Xml Docs",
-    "RemoveRegions.DisplayName": "Remove Regions",
-    "RemoveTasks.DisplayName": "Remove Tasks",
-    "RemoveXmlDocComments.DisplayName": "Remove Xml Docs"
+  "CommentRemover.CommentRemoverMenu.DisplayName": "Comments",
+  "CommentRemover.RemoveAllComments.DisplayName": "Remove All",
+  "CommentRemover.RemoveAllExceptTaskComments.DisplayName": "Remove All Except Tasks",
+  "CommentRemover.RemoveAllExceptXmlDocComments.DisplayName": "Remove All Except Xml Docs",
+  "CommentRemover.RemoveRegions.DisplayName": "Remove Regions",
+  "CommentRemover.RemoveTasks.DisplayName": "Remove Tasks",
+  "CommentRemover.RemoveXmlDocComments.DisplayName": "Remove Xml Docs"
 }
 ```
 
@@ -120,13 +107,12 @@ In a VisualStudio.Extensibility command, we can consume such services using .NET
 
 ```CSharp
 public RemoveAllComments(
-    VisualStudioExtensibility extensibility,
     TraceSource traceSource,
     AsyncServiceProviderInjection<DTE, DTE2> dte,
     MefInjection<IBufferTagAggregatorFactoryService> bufferTagAggregatorFactoryService,
     MefInjection<IVsEditorAdaptersFactoryService> editorAdaptersFactoryService,
     AsyncServiceProviderInjection<SVsTextManager, IVsTextManager> textManager)
-    : base(extensibility, traceSource, dte, bufferTagAggregatorFactoryService, editorAdaptersFactoryService, textManager)
+    : base(traceSource, dte, bufferTagAggregatorFactoryService, editorAdaptersFactoryService, textManager)
 {
 }
 ```
@@ -141,7 +127,7 @@ await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
 
 ### Adding custom command icons
 
-I also decided to add a custom icon for the [RemoveRegions](CommentRemover/RemoveRegions.cs) command. I was able to do it by simply adding `DeleteRegions.16.16.png` and `DeleteRegions.xaml` to the `Images` folder and referencing the custom image with the `"DeleteRegions"` string in the `CommandConfiguration` property:
+I also decided to add a custom icon for the [RemoveRegions](RemoveRegions.cs) command. I was able to do it by simply adding `DeleteRegions.16.16.png` and `DeleteRegions.xaml` to the `Images` folder and referencing the custom image with the `"DeleteRegions"` string in the `CommandConfiguration` property:
 
 ```CSharp
 public override CommandConfiguration CommandConfiguration => new(CommandDescription)
@@ -158,11 +144,21 @@ The VisualStudio.Extensibility build tools will take care of packaging the conte
 VisualStudio.Extensibility features are designed to be used with minimal boilerplate code. With a couple of lines of code I can add a confirmation promtp and progress report to the extension:
 
 ```CSharp
-public override async Task ExecuteCommandAsync(IClientContext context, ancellationToken cancellationToken)
+public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
 {
-    if (!await context.ShowPromptAsync("All regions will be removed from the current document. Are you sure?", PromptOptions.OKCancel, cancellationToken))
+    if (!await this.Extensibility.Shell().ShowPromptAsync(
+        "All regions will be removed from the current document. Are you sure?",
+        PromptOptions.OKCancel,
+        cancellationToken))
+    {
         return;
-    using var reporter = await Extensibility.Shell().StartProgressReportingAsync("Removing comments", options: new(isWorkCancellable: false), cancellationToken);
+    }
+
+    using var reporter = await this.Extensibility.Shell().StartProgressReportingAsync(
+        "Removing comments",
+        options: new(isWorkCancellable: false),
+        cancellationToken);
+
 ```
 
 Calling `ShowPromptAsync` causes a modal popup to appear, returning `true` or `false` depending whether they cliked Ok or Cancel. The prompt can be configured with different messages and button configurations. It's important to remember that prompts can always be dismissed by pressing the "X" button in the popup dialog title bar: the docs for `PromptOptions.OKCancel` let us know that `ShowPromptAsync` returns `false` in case of dismissal.
