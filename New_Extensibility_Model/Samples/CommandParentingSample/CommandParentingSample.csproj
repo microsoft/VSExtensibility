@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>11</LangVersion>
-    <NoWarn>SA1633;SA1600;CA1303;CA1016;CA1031;CA1812;$(NoWarn)</NoWarn>
+    <NoWarn>$(NoWarn);CS1591;CA1812;CA1303;SA1600</NoWarn>
 
     <!-- The VisualStudio.Extensibility preview packages are available from the azure-public/vside/msft_consumption feed -->
     <RestoreAdditionalProjectSources>https://pkgs.dev.azure.com/azure-public/vside/_packaging/msft_consumption/nuget/v3/index.json;$(RestoreAdditionalProjectSources)</RestoreAdditionalProjectSources>

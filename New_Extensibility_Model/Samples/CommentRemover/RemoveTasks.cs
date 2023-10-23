@@ -62,9 +62,11 @@ internal class RemoveTasks : CommentRemoverCommand
         {
             dte.UndoContext.Open(CommandDescription);
 
-            this.RemoveCommmentsFromBuffer(view, mappingSpans);
+            this.RemoveCommentsFromBuffer(view, mappingSpans);
         }
+#pragma warning disable CA1031 // Do not catch general exception types
         catch (Exception ex)
+#pragma warning restore CA1031 // Do not catch general exception types
         {
             this.TraceSource.TraceInformation(ex.ToString());
         }
@@ -74,7 +76,7 @@ internal class RemoveTasks : CommentRemoverCommand
         }
     }
 
-    private void RemoveCommmentsFromBuffer(IWpfTextView view, IEnumerable<IMappingSpan> mappingSpans)
+    private void RemoveCommentsFromBuffer(IWpfTextView view, IEnumerable<IMappingSpan> mappingSpans)
     {
         var affectedSpans = new List<Span>();
         var affectedLines = new List<int>();
