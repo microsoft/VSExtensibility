@@ -25,7 +25,7 @@ public class RegexMatchCollectionObjectSource : VisualizerObjectSource
         }
         else
         {
-            SerializeAsJson(outgoingData, null);
+            SerializeAsJson(outgoingData, null!);
         }
     }
 }

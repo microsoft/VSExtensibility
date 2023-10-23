@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 using System.Windows;
 
 /// <summary>
-/// Remote UI user control for the MemoryStreamVisualizer,
+/// Remote UI user control for the MemoryStreamVisualizer.
 /// </summary>
 internal class MemoryStreamVisualizerUserControl : RemoteUserControl
 {
@@ -72,7 +72,9 @@ internal class MemoryStreamVisualizerUserControl : RemoteUserControl
             {
                 data = (await this.visualizerTarget.ObjectSource.RequestDataAsync(new ReadOnlySequence<byte>(memoryStream.ToArray()), CancellationToken.None)).Value;
             }
+#pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception)
+#pragma warning restore CA1031 // Do not catch general exception types
             {
                 // I can get an exception if the debug session is unpaused, so I need to handle it gracefully
                 break;

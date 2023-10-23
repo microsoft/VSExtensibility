@@ -6,6 +6,7 @@ namespace MarkdownLinter;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration.Provider;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO;
@@ -14,6 +15,7 @@ using System.Threading.Tasks;
 using Microsoft;
 using Microsoft.VisualStudio.Extensibility.Editor;
 using Microsoft.VisualStudio.Extensibility.Languages;
+using Microsoft.VisualStudio.RpcContracts;
 using Microsoft.VisualStudio.RpcContracts.DiagnosticManagement;
 using Microsoft.VisualStudio.Threading;
 
@@ -149,12 +151,12 @@ internal static class LinterUtilities
                 endIndex += diagnostic.Range.EndColumn;
             }
 
-            yield return DocumentDiagnostic.CreateDocumentDiagnostic(
-                new TextRange(document, startindex, endIndex - startindex),
-                diagnostic.Message,
-                diagnostic.ErrorCode,
-                DiagnosticSeverity.Warning,
-                providerName: "Markdown Linter");
+            yield return new DocumentDiagnostic(new TextRange(document, startindex, endIndex - startindex), diagnostic.Message)
+            {
+                ErrorCode = diagnostic.ErrorCode,
+                Severity = DiagnosticSeverity.Warning,
+                ProviderName = "Markdown Linter",
+            };
         }
     }
 
@@ -162,13 +164,12 @@ internal static class LinterUtilities
     {
         foreach (var diagnostic in diagnostics)
         {
-            yield return DocumentDiagnostic.CreateDocumentDiagnosticForClosedDocument(
-                uri: fileUri,
-                range: diagnostic.Range,
-                diagnostic.Message,
-                diagnostic.ErrorCode,
-                DiagnosticSeverity.Warning,
-                providerName: "Markdown Linter");
+            yield return new DocumentDiagnostic(fileUri, diagnostic.Range, diagnostic.Message)
+            {
+                ErrorCode = diagnostic.ErrorCode,
+                Severity = DiagnosticSeverity.Warning,
+                ProviderName = "Markdown Linter",
+            };
         }
     }
 

@@ -36,7 +36,9 @@ public class TestOutputWindowCommand : Command
     {
         if (this.outputWindow != null)
         {
+#pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
             await this.outputWindow.Writer.WriteLineAsync("This is a test of the output window.");
+#pragma warning restore VSEXTAPI0001 // This API is marked as Preview.
         }
     }
 
@@ -44,6 +46,8 @@ public class TestOutputWindowCommand : Command
     {
         string id = "MyOutputWindow";
         string displayNameResourceId = nameof(Strings.OutputWindowDisplayName);
+#pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
         return await this.Extensibility.Views().Output.GetChannelAsync(id, displayNameResourceId, cancellationToken);
+#pragma warning restore VSEXTAPI0001 // This API is marked as Preview.
     }
 }

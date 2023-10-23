@@ -80,7 +80,9 @@ internal class MarkdownDiagnosticsService : DisposableObject
         {
             if (this.outputWindow is object)
             {
+#pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
                 await this.outputWindow.Writer.WriteLineAsync(Strings.MissingLinterError);
+#pragma warning restore VSEXTAPI0001 // This API is marked as Preview.
             }
         }
     }
@@ -160,14 +162,18 @@ internal class MarkdownDiagnosticsService : DisposableObject
         {
             if (this.outputWindow is object)
             {
+#pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
                 await this.outputWindow.Writer.WriteLineAsync(Strings.MissingLinterError);
+#pragma warning restore VSEXTAPI0001 // This API is marked as Preview.
             }
         }
     }
 
     private async Task InitializeAsync()
     {
+#pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
         this.outputWindow = await this.extensibility.Views().Output.GetChannelAsync(nameof(MarkdownLinterExtension) + Guid.NewGuid(), nameof(Strings.MarkdownLinterWindowName), default);
+#pragma warning restore VSEXTAPI0001 // This API is marked as Preview.
         Assumes.NotNull(this.outputWindow);
 
         this.diagnosticsReporter = this.extensibility.Languages().GetDiagnosticsReporter(nameof(MarkdownLinterExtension));

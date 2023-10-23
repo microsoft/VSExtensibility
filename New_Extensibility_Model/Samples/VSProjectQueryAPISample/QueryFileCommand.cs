@@ -3,6 +3,7 @@
 
 namespace VSProjectQueryAPISample;
 
+using System.Globalization;
 using System.Text;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Commands;
@@ -35,11 +36,11 @@ public class QueryFileCommand : Command
 
         foreach (var project in result)
         {
-            _ = message.Append($"{project.Name}\n");
+            _ = message.Append(CultureInfo.CurrentCulture, $"{project.Name}\n");
 
             foreach (var file in project.Files)
             {
-                _ = message.Append($" \t {file.FileName}\n");
+                _ = message.Append(CultureInfo.CurrentCulture, $" \t {file.FileName}\n");
             }
         }
 

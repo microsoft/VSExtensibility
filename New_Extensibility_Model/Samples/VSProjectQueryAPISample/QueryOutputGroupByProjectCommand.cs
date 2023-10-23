@@ -3,6 +3,7 @@
 
 namespace VSProjectQueryAPISample;
 
+using System.Globalization;
 using System.Text;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Commands;
@@ -36,15 +37,15 @@ public class QueryOutputGroupByProjectCommand : Command
 
         foreach (var project in result)
         {
-            _ = message.Append($"{project.Name}\n");
+            _ = message.Append(CultureInfo.CurrentCulture, $"{project.Name}\n");
 
             foreach (var config in project.ActiveConfigurations)
             {
-                _ = message.Append($" \t {config.Name}\n");
+                _ = message.Append(CultureInfo.CurrentCulture, $" \t {config.Name}\n");
 
                 foreach (var group in config.OutputGroups)
                 {
-                    _ = message.Append($"\t \t {group.Name}\n");
+                    _ = message.Append(CultureInfo.CurrentCulture, $"\t \t {group.Name}\n");
                 }
             }
         }
