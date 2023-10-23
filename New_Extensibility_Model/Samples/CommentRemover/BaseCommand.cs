@@ -113,7 +113,7 @@ internal abstract class CommentRemoverCommand : Microsoft.VisualStudio.Extensibi
                select s.Span;
     }
 
-    protected async Task<IWpfTextView> GetCurentTextViewAsync()
+    protected async Task<IWpfTextView> GetCurrentTextViewAsync()
     {
         IVsEditorAdaptersFactoryService editorAdapter = await this.EditorAdaptersFactoryService.GetServiceAsync();
         var view = editorAdapter.GetWpfTextView(await this.GetCurrentNativeTextViewAsync());

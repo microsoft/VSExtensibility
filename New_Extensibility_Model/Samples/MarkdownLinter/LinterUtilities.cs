@@ -24,7 +24,7 @@ using Microsoft.VisualStudio.Threading;
 /// </summary>
 internal static class LinterUtilities
 {
-    private static Regex linterOutputRegex = new Regex(@"(?<File>[^:]+):(?<Line>\d*)(:(?<Column>\d*))? (?<Error>.*)/(?<Description>.*)", RegexOptions.Compiled);
+    private static readonly Regex LinterOutputRegex = new(@"(?<File>[^:]+):(?<Line>\d*)(:(?<Column>\d*))? (?<Error>.*)/(?<Description>.*)", RegexOptions.Compiled);
 
     /// <summary>
     /// Runs markdown linter on a file uri and returns diagnostic entries.
@@ -48,7 +48,7 @@ internal static class LinterUtilities
         linter.EnableRaisingEvents = true;
         linter.ErrorDataReceived += new DataReceivedEventHandler((sender, e) =>
         {
-            if (e.Data is object)
+            if (e.Data is not null)
             {
                 lineQueue.Enqueue(e.Data);
             }
@@ -97,7 +97,7 @@ internal static class LinterUtilities
         linter.EnableRaisingEvents = true;
         linter.ErrorDataReceived += new DataReceivedEventHandler((sender, e) =>
         {
-            if (e.Data is object)
+            if (e.Data is not null)
             {
                 lineQueue.Enqueue(e.Data);
             }
@@ -132,7 +132,7 @@ internal static class LinterUtilities
     /// <returns>true if file is a markdown file, false otherwise.</returns>
     public static bool IsValidMarkdownFile(string localPath)
     {
-        return localPath is object && Path.GetExtension(localPath).Equals(".md", StringComparison.OrdinalIgnoreCase);
+        return localPath is not null && Path.GetExtension(localPath).Equals(".md", StringComparison.OrdinalIgnoreCase);
     }
 
     private static IEnumerable<DocumentDiagnostic> CreateDocumentDiagnosticsForOpenDocument(ITextDocumentSnapshot document, IEnumerable<MarkdownDiagnosticInfo> diagnostics)
@@ -181,7 +181,7 @@ internal static class LinterUtilities
 
         while (!(lineQueue.IsCompleted && lineQueue.IsEmpty))
         {
-            string? line = null;
+            string? line;
             try
             {
                 line = await lineQueue.DequeueAsync();
@@ -191,8 +191,8 @@ internal static class LinterUtilities
                 break;
             }
 
-            var diagnostic = line is object ? GetDiagnosticFromLinterOutput(line) : null;
-            if (diagnostic is object)
+            var diagnostic = line is not null ? GetDiagnosticFromLinterOutput(line) : null;
+            if (diagnostic is not null)
             {
                 diagnostics.Add(diagnostic);
             }
@@ -209,7 +209,7 @@ internal static class LinterUtilities
     private static MarkdownDiagnosticInfo? GetDiagnosticFromLinterOutput(string outputLine)
     {
         Requires.NotNull(outputLine, nameof(outputLine));
-        var match = linterOutputRegex.Match(outputLine);
+        var match = LinterOutputRegex.Match(outputLine);
         if (!match.Success)
         {
             return null;

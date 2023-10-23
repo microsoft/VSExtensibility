@@ -49,7 +49,7 @@ public class QueryOutputGroupByIdCommand : Command
                     var newResult = await group
                         .AsQueryable()
                         .With(g => g.Name)
-                        .ExecuteQueryAsync();
+                        .ExecuteQueryAsync(cancellationToken);
 
                     message.Append(CultureInfo.CurrentCulture, $"\t \t {newResult.First().Name}\n");
                 }

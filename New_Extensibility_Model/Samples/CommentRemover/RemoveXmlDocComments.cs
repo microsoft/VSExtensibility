@@ -50,7 +50,7 @@ internal class RemoveXmlDocComments : CommentRemoverCommand
         await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
 
         // Not using context.GetActiveTextViewAsync here because VisualStudio.Extensibility doesn't support classification yet.
-        var view = await this.GetCurentTextViewAsync();
+        var view = await this.GetCurrentTextViewAsync();
         var mappingSpans = await this.GetClassificationSpansAsync(view, "comment");
         if (!mappingSpans.Any())
         {
@@ -99,15 +99,13 @@ internal class RemoveXmlDocComments : CommentRemoverCommand
             }
         }
 
-        using (var edit = view.TextBuffer.CreateEdit())
+        using var edit = view.TextBuffer.CreateEdit();
+        foreach (var lineNumber in affectedLines)
         {
-            foreach (var lineNumber in affectedLines)
-            {
-                var line = view.TextBuffer.CurrentSnapshot.GetLineFromLineNumber(lineNumber);
-                edit.Delete(line.Start, line.LengthIncludingLineBreak);
-            }
-
-            edit.Apply();
+            var line = view.TextBuffer.CurrentSnapshot.GetLineFromLineNumber(lineNumber);
+            edit.Delete(line.Start, line.LengthIncludingLineBreak);
         }
+
+        edit.Apply();
     }
 }

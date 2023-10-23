@@ -52,7 +52,7 @@ internal class RemoveAllComments : CommentRemoverCommand
         await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
 
         // Not using context.GetActiveTextViewAsync here because VisualStudio.Extensibility doesn't support classification yet.
-        var view = await this.GetCurentTextViewAsync();
+        var view = await this.GetCurrentTextViewAsync();
         var mappingSpans = await this.GetClassificationSpansAsync(view, "comment");
         if (!mappingSpans.Any())
         {
@@ -88,42 +88,40 @@ internal class RemoveAllComments : CommentRemoverCommand
 
     private static void RemoveCommentSpansFromBuffer(IWpfTextView view, IEnumerable<IMappingSpan> mappingSpans, IList<int> affectedLines)
     {
-        using (var edit = view.TextBuffer.CreateEdit())
+        using var edit = view.TextBuffer.CreateEdit();
+        foreach (var mappingSpan in mappingSpans)
         {
-            foreach (var mappingSpan in mappingSpans)
+            var start = mappingSpan.Start.GetPoint(view.TextBuffer, PositionAffinity.Predecessor);
+            var end = mappingSpan.End.GetPoint(view.TextBuffer, PositionAffinity.Successor);
+
+            if (!start.HasValue || !end.HasValue)
             {
-                var start = mappingSpan.Start.GetPoint(view.TextBuffer, PositionAffinity.Predecessor);
-                var end = mappingSpan.End.GetPoint(view.TextBuffer, PositionAffinity.Successor);
-
-                if (!start.HasValue || !end.HasValue)
-                {
-                    continue;
-                }
-
-                var span = new Span(start.Value, end.Value - start.Value);
-                var lines = view.TextBuffer.CurrentSnapshot.Lines.Where(l => l.Extent.IntersectsWith(span));
-
-                foreach (var line in lines)
-                {
-                    if (IsXmlDocComment(line))
-                    {
-                        edit.Replace(line.Start, line.Length, string.Empty.PadLeft(line.Length));
-                    }
-
-                    if (!affectedLines.Contains(line.LineNumber))
-                    {
-                        affectedLines.Add(line.LineNumber);
-                    }
-                }
-
-                var mappingText = view.TextBuffer.CurrentSnapshot.GetText(span.Start, span.Length);
-                string empty = Regex.Replace(mappingText, "([\\S]+)", string.Empty);
-
-                edit.Replace(span.Start, span.Length, empty);
+                continue;
             }
 
-            edit.Apply();
+            var span = new Span(start.Value, end.Value - start.Value);
+            var lines = view.TextBuffer.CurrentSnapshot.Lines.Where(l => l.Extent.IntersectsWith(span));
+
+            foreach (var line in lines)
+            {
+                if (IsXmlDocComment(line))
+                {
+                    edit.Replace(line.Start, line.Length, string.Empty.PadLeft(line.Length));
+                }
+
+                if (!affectedLines.Contains(line.LineNumber))
+                {
+                    affectedLines.Add(line.LineNumber);
+                }
+            }
+
+            var mappingText = view.TextBuffer.CurrentSnapshot.GetText(span.Start, span.Length);
+            string empty = Regex.Replace(mappingText, "([\\S]+)", string.Empty);
+
+            edit.Replace(span.Start, span.Length, empty);
         }
+
+        edit.Apply();
     }
 
     private static void RemoveAffectedEmptyLines(IWpfTextView view, IList<int> affectedLines)
@@ -133,30 +131,28 @@ internal class RemoveAllComments : CommentRemoverCommand
             return;
         }
 
-        using (var edit = view.TextBuffer.CreateEdit())
+        using var edit = view.TextBuffer.CreateEdit();
+        foreach (var lineNumber in affectedLines)
         {
-            foreach (var lineNumber in affectedLines)
+            var line = view.TextBuffer.CurrentSnapshot.GetLineFromLineNumber(lineNumber);
+
+            if (IsLineEmpty(line))
             {
-                var line = view.TextBuffer.CurrentSnapshot.GetLineFromLineNumber(lineNumber);
-
-                if (IsLineEmpty(line))
+                // Strip next line if empty
+                if (view.TextBuffer.CurrentSnapshot.LineCount > line.LineNumber + 1)
                 {
-                    // Strip next line if empty
-                    if (view.TextBuffer.CurrentSnapshot.LineCount > line.LineNumber + 1)
+                    var next = view.TextBuffer.CurrentSnapshot.GetLineFromLineNumber(lineNumber + 1);
+
+                    if (IsLineEmpty(next))
                     {
-                        var next = view.TextBuffer.CurrentSnapshot.GetLineFromLineNumber(lineNumber + 1);
-
-                        if (IsLineEmpty(next))
-                        {
-                            edit.Delete(next.Start, next.LengthIncludingLineBreak);
-                        }
+                        edit.Delete(next.Start, next.LengthIncludingLineBreak);
                     }
-
-                    edit.Delete(line.Start, line.LengthIncludingLineBreak);
                 }
-            }
 
-            edit.Apply();
+                edit.Delete(line.Start, line.LengthIncludingLineBreak);
+            }
         }
+
+        edit.Apply();
     }
 }

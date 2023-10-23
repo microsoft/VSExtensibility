@@ -25,11 +25,10 @@ internal class MarkdownDiagnosticsService : DisposableObject
 #pragma warning disable CA2213 // Disposable fields should be disposed, object now owned by this instance.
     private readonly VisualStudioExtensibility extensibility;
 #pragma warning restore CA2213 // Disposable fields should be disposed
-
+    private readonly Dictionary<Uri, CancellationTokenSource> documentCancellationTokens;
+    private readonly Task initializationTask;
     private OutputWindow? outputWindow;
     private DiagnosticsReporter? diagnosticsReporter;
-    private Dictionary<Uri, CancellationTokenSource> documentCancellationTokens;
-    private Task initializationTask;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="MarkdownDiagnosticsService"/> class.
@@ -78,7 +77,7 @@ internal class MarkdownDiagnosticsService : DisposableObject
         }
         catch (InvalidOperationException)
         {
-            if (this.outputWindow is object)
+            if (this.outputWindow is not null)
             {
 #pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
                 await this.outputWindow.Writer.WriteLineAsync(Strings.MissingLinterError);
@@ -160,7 +159,7 @@ internal class MarkdownDiagnosticsService : DisposableObject
         }
         catch (InvalidOperationException)
         {
-            if (this.outputWindow is object)
+            if (this.outputWindow is not null)
             {
 #pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
                 await this.outputWindow.Writer.WriteLineAsync(Strings.MissingLinterError);

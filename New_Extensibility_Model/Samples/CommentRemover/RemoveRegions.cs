@@ -49,7 +49,7 @@ internal class RemoveRegions : CommentRemoverCommand
         await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
 
         // Not using context.GetActiveTextViewAsync here because VisualStudio.Extensibility doesn't support classification yet.
-        var view = await this.GetCurentTextViewAsync();
+        var view = await this.GetCurrentTextViewAsync();
         var dte = await this.Dte.GetServiceAsync();
         try
         {
@@ -71,40 +71,38 @@ internal class RemoveRegions : CommentRemoverCommand
 
     private void RemoveRegionsFromBuffer(IWpfTextView view)
     {
-        using (var edit = view.TextBuffer.CreateEdit())
+        using var edit = view.TextBuffer.CreateEdit();
+        foreach (var line in view.TextBuffer.CurrentSnapshot.Lines.Reverse())
         {
-            foreach (var line in view.TextBuffer.CurrentSnapshot.Lines.Reverse())
+            if (line.Extent.IsEmpty)
             {
-                if (line.Extent.IsEmpty)
-                {
-                    continue;
-                }
-
-                string text = line.GetText()
-                                  .TrimStart('/', '*')
-                                  .Replace("<!--", string.Empty)
-                                  .TrimStart();
-
-                if (text.StartsWith("#region", StringComparison.OrdinalIgnoreCase) ||
-                    text.StartsWith("#endregion", StringComparison.OrdinalIgnoreCase) ||
-                    text.StartsWith("#end region", StringComparison.OrdinalIgnoreCase))
-                {
-                    // Strip next line if empty
-                    if (view.TextBuffer.CurrentSnapshot.LineCount > line.LineNumber + 1)
-                    {
-                        var next = view.TextBuffer.CurrentSnapshot.GetLineFromLineNumber(line.LineNumber + 1);
-
-                        if (IsLineEmpty(next))
-                        {
-                            edit.Delete(next.Start, next.LengthIncludingLineBreak);
-                        }
-                    }
-
-                    edit.Delete(line.Start, line.LengthIncludingLineBreak);
-                }
+                continue;
             }
 
-            edit.Apply();
+            string text = line.GetText()
+                              .TrimStart('/', '*')
+                              .Replace("<!--", string.Empty)
+                              .TrimStart();
+
+            if (text.StartsWith("#region", StringComparison.OrdinalIgnoreCase) ||
+                text.StartsWith("#endregion", StringComparison.OrdinalIgnoreCase) ||
+                text.StartsWith("#end region", StringComparison.OrdinalIgnoreCase))
+            {
+                // Strip next line if empty
+                if (view.TextBuffer.CurrentSnapshot.LineCount > line.LineNumber + 1)
+                {
+                    var next = view.TextBuffer.CurrentSnapshot.GetLineFromLineNumber(line.LineNumber + 1);
+
+                    if (IsLineEmpty(next))
+                    {
+                        edit.Delete(next.Start, next.LengthIncludingLineBreak);
+                    }
+                }
+
+                edit.Delete(line.Start, line.LengthIncludingLineBreak);
+            }
         }
+
+        edit.Apply();
     }
 }

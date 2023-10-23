@@ -50,7 +50,7 @@ internal class RemoveTasks : CommentRemoverCommand
         await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
 
         // Not using context.GetActiveTextViewAsync here because the classification feature is not supported by VisualStudio.Extensibility yet.
-        var view = await this.GetCurentTextViewAsync();
+        var view = await this.GetCurrentTextViewAsync();
         var mappingSpans = await this.GetClassificationSpansAsync(view, "comment");
         if (!mappingSpans.Any())
         {
