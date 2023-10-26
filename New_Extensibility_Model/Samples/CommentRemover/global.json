@@ -1,0 +1,9 @@
+{
+  "sdk": {
+    "version": "7.0.403",
+    "rollForward": "patch"
+  },
+  "msbuild-sdks": {
+    "Microsoft.Build.Traversal": "3.1.6"
+  }
+}
