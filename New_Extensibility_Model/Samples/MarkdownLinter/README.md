@@ -62,14 +62,14 @@ foreach (var selectedItem in selectedItemPaths.Where(p => p.IsFile))
 
 Another part of the extension is an editor component that listens for new editor view creation and changes to open views. This component monitors for events on `.md` files and routes the request to `MarkdownDiagnosticsService` as contents change.
 
-The extension part also utilizes the `AppliesTo` configuration to indicate that it is interested in events from views with `markdown` content type. (The definition of `MarkdownLinterExtensionContributions.MarkdownDocumentType` as a custom content type is required as there is no `markdown` content type in Visual Studio)
+The extension part also utilizes the `AppliesTo` configuration to indicate that it is interested in events from views related to files with `.md` extension.
 
 ```csharp
 public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
 {
     AppliesTo = new[]
     {
-        DocumentFilter.FromDocumentType(MarkdownLinterExtensionContributions.MarkdownDocumentType),
+        DocumentFilter.FromGlobPattern("**/*.md", true),
     },
 };
 ```
