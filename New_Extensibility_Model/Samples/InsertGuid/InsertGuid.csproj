@@ -7,10 +7,7 @@
     <NoWarn>$(NoWarn);CS1591;CA1812;CA1303;SA1600</NoWarn>
 
     <!-- The VisualStudio.Extensibility preview packages are available from the azure-public/vside/msft_consumption feed -->
-    <RestoreAdditionalProjectSources>
-      https://pkgs.dev.azure.com/azure-public/vside/_packaging/msft_consumption/nuget/v3/index.json;
-      C:\repos\Gladstone\bin\Packages\Debug\NuGet;
-      $(RestoreAdditionalProjectSources)</RestoreAdditionalProjectSources>
+    <RestoreAdditionalProjectSources>https://pkgs.dev.azure.com/azure-public/vside/_packaging/msft_consumption/nuget/v3/index.json;$(RestoreAdditionalProjectSources)</RestoreAdditionalProjectSources>
   </PropertyGroup>
 
   <ItemGroup>
