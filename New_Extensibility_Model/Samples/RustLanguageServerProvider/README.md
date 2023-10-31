@@ -9,7 +9,7 @@ date: 2023-10-31
 This sample creates a Rust Language Server Provider extension that serves intellisense and tooltips when a rust file is opened in Visual Studio.
 
 ## Prerequisites
-This sample requires installing [Rust](https://www.rust-lang.org/tools/install)  and [rust-analyzer.exe](https://github.com/rust-lang/rust-analyzer) found under releases named "rust-analyzer-x86_64-pc-windows-msvc.zip"
+This sample requires installing [Rust](https://www.rust-lang.org/tools/install)  and copying [rust-analyzer.exe](https://github.com/rust-lang/rust-analyzer) found under releases named "rust-analyzer-x86_64-pc-windows-msvc.zip" into the project folder.
 
 ## Language Server Provider definition
 
