@@ -12,11 +12,6 @@
 	[VisualStudioContribution]
 	internal class RustLanguageServerProvider : LanguageServerProvider
 	{
-		public RustLanguageServerProvider(ExtensionCore container, VisualStudioExtensibility extensibilityObject)
-			: base(container, extensibilityObject)
-		{
-		}
-
 		[VisualStudioContribution]
 		public static DocumentTypeConfiguration RustDocumentType => new("rust")
 		{
