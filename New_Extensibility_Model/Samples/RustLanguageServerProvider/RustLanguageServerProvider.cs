@@ -4,14 +4,18 @@
 namespace RustLanguageServerProviderExtension;
 
 using System.Diagnostics;
+using System.IO;
 using System.IO.Pipelines;
 using System.Reflection;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Editor;
 using Microsoft.VisualStudio.Extensibility.LanguageServer;
 using Microsoft.VisualStudio.RpcContracts.LanguageServerProvider;
 using Nerdbank.Streams;
 
+#pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
 /// <inheritdoc/>
 [VisualStudioContribution]
 internal class RustLanguageServerProvider : LanguageServerProvider
@@ -71,3 +75,4 @@ internal class RustLanguageServerProvider : LanguageServerProvider
         return base.OnServerInitializationResultAsync(serverInitializationResult, initializationFailureInfo, cancellationToken);
     }
 }
+#pragma warning restore VSEXTAPI0001 // This API is marked as Preview.

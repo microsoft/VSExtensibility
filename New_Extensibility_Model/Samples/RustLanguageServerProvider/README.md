@@ -16,27 +16,27 @@ This sample requires installing [Rust](https://www.rust-lang.org/tools/install) 
 The extension contains a code file that defines a language server provider and its properties starting with the `VisualStudioContribution` class attribute which makes the server available to Visual Studio:
 
 ```csharp
-	[VisualStudioContribution]
-	internal class RustLanguageServerProvider : LanguageServerProvider
-	{
+[VisualStudioContribution]
+internal class RustLanguageServerProvider : LanguageServerProvider
+{
 ```
 
 The `LanguageServerProviderConfiguration` property defines information about the server that is available to Visual Studio even before the extension is loaded:
 
 ```csharp
-	public override LanguageServerProviderConfiguration LanguageServerProviderConfiguration => new(
-		"%RustLspExtension.RustLanguageServerProvider.DisplayName%",
-		new[] 
-		{ 
-			DocumentFilter.FromDocumentType(RustDocumentType) 
-		});
+public override LanguageServerProviderConfiguration LanguageServerProviderConfiguration => new(
+    "%RustLspExtension.RustLanguageServerProvider.DisplayName%",
+    new[] 
+    { 
+        DocumentFilter.FromDocumentType(RustDocumentType) 
+    });
 ```
 
 This configuration object allows setting the display name for the server and specifying one or more document filters. You can also specify a localized string as a display name from [string-resoures.json](./.vsextension/string-resources.json):
 
 ```json
 {
-	"RustLspExtension.RustLanguageServerProvider.DisplayName": "Rust Analyzer LSP server"
+    "RustLspExtension.RustLanguageServerProvider.DisplayName": "Rust Analyzer LSP server"
 }
 ```
 
@@ -47,27 +47,27 @@ Once a document that has a matching document type is opened, Visual Studio calls
 In our sample, the rust-analyzer executable is launched and a duplex pipe is used to communicate with the process.
 
 ```csharp
-	public override Task<IDuplexPipe?> CreateServerConnectionAsync(CancellationToken cancellationToken)
-	{
-		ProcessStartInfo info = new ProcessStartInfo();
-		info.FileName = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, @"rust-analyzer.exe");
-		info.RedirectStandardInput = true;
-		info.RedirectStandardOutput = true;
-		info.UseShellExecute = false;
-		info.CreateNoWindow = true;
+public override Task<IDuplexPipe?> CreateServerConnectionAsync(CancellationToken cancellationToken)
+{
+    ProcessStartInfo info = new ProcessStartInfo();
+    info.FileName = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, @"rust-analyzer.exe");
+    info.RedirectStandardInput = true;
+    info.RedirectStandardOutput = true;
+    info.UseShellExecute = false;
+    info.CreateNoWindow = true;
 
-		Process process = new Process();
-		process.StartInfo = info;
+    Process process = new Process();
+    process.StartInfo = info;
 
-		if (process.Start())
-		{
-			return Task.FromResult<IDuplexPipe?>(new DuplexPipe(
-				PipeReader.Create(process.StandardOutput.BaseStream),
-				PipeWriter.Create(process.StandardInput.BaseStream)));
-		}
+    if (process.Start())
+    {
+        return Task.FromResult<IDuplexPipe?>(new DuplexPipe(
+            PipeReader.Create(process.StandardOutput.BaseStream),
+            PipeWriter.Create(process.StandardInput.BaseStream)));
+    }
 
-		return Task.FromResult<IDuplexPipe?>(null);
-	}
+    return Task.FromResult<IDuplexPipe?>(null);
+}
 ```
 
 ## Disabling the server
@@ -79,16 +79,16 @@ In our sample, the rust-analyzer executable is launched and a duplex pipe is use
 After `CreateServerConnectionAsync` completes, Visual Studio will attempt to initialize the server via the provided duplex pipe following standard LSP protocol. Once this step is done, `OnServerInitializationResultAsync` is called where `ServerInitializationResult` denotes if the server succeeded or failed to initialize, and if it failed `LanguageServerInitializationFailureInfo` will contain the exception and message provided by the language server.
 
 ```csharp
-	public override Task OnServerInitializationResultAsync(ServerInitializationResult serverInitializationResult, LanguageServerInitializationFailureInfo? initializationFailureInfo, CancellationToken cancellationToken)
-	{
-		if (serverInitializationResult == ServerInitializationResult.Failed)
-		{
-			// Log telemetry for failure and disable the server from being activated again.
-			this.Enabled = false;
-		}
+public override Task OnServerInitializationResultAsync(ServerInitializationResult serverInitializationResult, LanguageServerInitializationFailureInfo? initializationFailureInfo, CancellationToken cancellationToken)
+{
+    if (serverInitializationResult == ServerInitializationResult.Failed)
+    {
+        // Log telemetry for failure and disable the server from being activated again.
+        this.Enabled = false;
+    }
 
-		return base.OnServerInitializationResultAsync(serverInitializationResult, initializationFailureInfo, cancellationToken);
-	}
+    return base.OnServerInitializationResultAsync(serverInitializationResult, initializationFailureInfo, cancellationToken);
+}
 ```
 
 ## Usage
