@@ -15,9 +15,9 @@ using Microsoft.VisualStudio.Extensibility.LanguageServer;
 using Microsoft.VisualStudio.RpcContracts.LanguageServerProvider;
 using Nerdbank.Streams;
 
-#pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
 /// <inheritdoc/>
 [VisualStudioContribution]
+#pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
 internal class RustLanguageServerProvider : LanguageServerProvider
 {
     /// <summary>
