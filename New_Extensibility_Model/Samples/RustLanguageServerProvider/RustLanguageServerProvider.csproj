@@ -1,18 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-		<LangVersion>10</LangVersion>
-		<NoWarn>$(NoWarn);VSEXTAPI0001;</NoWarn>
+    <LangVersion>10</LangVersion>
+    <NoWarn>$(NoWarn);VSEXTAPI0001;</NoWarn>
 
     <!-- The VisualStudio.Extensibility preview packages are available from the azure-public/vside/msft_consumption feed -->
     <RestoreAdditionalProjectSources>https://pkgs.dev.azure.com/azure-public/vside/_packaging/msft_consumption/nuget/v3/index.json;$(RestoreAdditionalProjectSources)</RestoreAdditionalProjectSources>
   </PropertyGroup>
-	
-	<ItemGroup>
-		<Content Include="rust-analyzer.exe" />
-	</ItemGroup>
+  
+  <ItemGroup>
+    <Content Include="rust-analyzer.exe" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.9.42-preview-1" />

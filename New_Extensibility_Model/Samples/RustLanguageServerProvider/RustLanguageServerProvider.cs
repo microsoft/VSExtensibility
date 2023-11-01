@@ -16,58 +16,58 @@ using Nerdbank.Streams;
 [VisualStudioContribution]
 internal class RustLanguageServerProvider : LanguageServerProvider
 {
-	/// <summary>
-	/// Gets the document type for rust code files.
-	/// </summary>
-	[VisualStudioContribution]
-	public static DocumentTypeConfiguration RustDocumentType => new("rust")
-	{
-		FileExtensions = new[] { ".rs", ".rust" },
-		BaseDocumentType = LanguageServerBaseDocumentType,
-	};
+    /// <summary>
+    /// Gets the document type for rust code files.
+    /// </summary>
+    [VisualStudioContribution]
+    public static DocumentTypeConfiguration RustDocumentType => new("rust")
+    {
+        FileExtensions = new[] { ".rs", ".rust" },
+        BaseDocumentType = LanguageServerBaseDocumentType,
+    };
 
-	/// <inheritdoc/>
-	public override LanguageServerProviderConfiguration LanguageServerProviderConfiguration => new(
-		"%RustLspExtension.RustLanguageServerProvider.DisplayName%",
-		new[]
-		{
-			DocumentFilter.FromDocumentType(RustDocumentType),
-		});
+    /// <inheritdoc/>
+    public override LanguageServerProviderConfiguration LanguageServerProviderConfiguration => new(
+        "%RustLspExtension.RustLanguageServerProvider.DisplayName%",
+        new[]
+        {
+            DocumentFilter.FromDocumentType(RustDocumentType),
+        });
 
-	/// <inheritdoc/>
-	public override Task<IDuplexPipe?> CreateServerConnectionAsync(CancellationToken cancellationToken)
-	{
-		ProcessStartInfo info = new ProcessStartInfo();
-		info.FileName = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, @"rust-analyzer.exe");
-		info.RedirectStandardInput = true;
-		info.RedirectStandardOutput = true;
-		info.UseShellExecute = false;
-		info.CreateNoWindow = true;
+    /// <inheritdoc/>
+    public override Task<IDuplexPipe?> CreateServerConnectionAsync(CancellationToken cancellationToken)
+    {
+        ProcessStartInfo info = new ProcessStartInfo();
+        info.FileName = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, @"rust-analyzer.exe");
+        info.RedirectStandardInput = true;
+        info.RedirectStandardOutput = true;
+        info.UseShellExecute = false;
+        info.CreateNoWindow = true;
 
 #pragma warning disable CA2000 // The process is disposed after Visual Studio sends the stop command.
-		Process process = new Process();
+        Process process = new Process();
 #pragma warning restore CA2000 // Dispose objects before losing scope.
-		process.StartInfo = info;
+        process.StartInfo = info;
 
-		if (process.Start())
-		{
-			return Task.FromResult<IDuplexPipe?>(new DuplexPipe(
-				PipeReader.Create(process.StandardOutput.BaseStream),
-				PipeWriter.Create(process.StandardInput.BaseStream)));
-		}
+        if (process.Start())
+        {
+            return Task.FromResult<IDuplexPipe?>(new DuplexPipe(
+                PipeReader.Create(process.StandardOutput.BaseStream),
+                PipeWriter.Create(process.StandardInput.BaseStream)));
+        }
 
-		return Task.FromResult<IDuplexPipe?>(null);
-	}
+        return Task.FromResult<IDuplexPipe?>(null);
+    }
 
-	/// <inheritdoc/>
-	public override Task OnServerInitializationResultAsync(ServerInitializationResult serverInitializationResult, LanguageServerInitializationFailureInfo? initializationFailureInfo, CancellationToken cancellationToken)
-	{
-		if (serverInitializationResult == ServerInitializationResult.Failed)
-		{
-			// Log telemetry for failure and disable the server from being activated again.
-			this.Enabled = false;
-		}
+    /// <inheritdoc/>
+    public override Task OnServerInitializationResultAsync(ServerInitializationResult serverInitializationResult, LanguageServerInitializationFailureInfo? initializationFailureInfo, CancellationToken cancellationToken)
+    {
+        if (serverInitializationResult == ServerInitializationResult.Failed)
+        {
+            // Log telemetry for failure and disable the server from being activated again.
+            this.Enabled = false;
+        }
 
-		return base.OnServerInitializationResultAsync(serverInitializationResult, initializationFailureInfo, cancellationToken);
-	}
+        return base.OnServerInitializationResultAsync(serverInitializationResult, initializationFailureInfo, cancellationToken);
+    }
 }
