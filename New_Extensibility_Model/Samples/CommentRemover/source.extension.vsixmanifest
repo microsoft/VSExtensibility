@@ -11,7 +11,7 @@
         <PreviewImage>Resources\Preview.png</PreviewImage>
         <Tags>comment, cleanup, delete, region, XMLDoc</Tags>
     </Metadata>
-    <Installation>
+    <Installation ExtensionType="VSSDK+VisualStudio.Extensibility">
         <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.0,18.0)">
             <ProductArchitecture>amd64</ProductArchitecture>
         </InstallationTarget>
