@@ -8,8 +8,6 @@ date: 2021-8-19
 
 VisualStudio.Extensibility is a new framework for developing Visual Studio extensions. The new framework focuses primarily on extensions that run out-of-process from the IDE for improved performance and reliability, and it features a modern, asynchronous API that has been streamlined and carefully engineered to maximize developer productivity. VisualStudio.Extensibility is in active development and is available as a preview.
 
-**Download the [current preview version here](https://marketplace.visualstudio.com/items?itemName=vsext.gladstone) to get started!**
-
 With the current preview, you can develop a wide range of extensions to Visual Studio, including creating commands, working with code or text in the editor, displaying prompts or dialogs to the user, creating debugger visualizers, and more!
 
 VisualStudio.Extensibility aims to address many of the problems developers experience when using and writing extensions in Visual Studio:
