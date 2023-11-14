@@ -15,49 +15,39 @@ using Microsoft.VisualStudio.Extensibility.Documents;
 [VisualStudioContribution]
 public class TestOutputWindowCommand : Command
 {
-	private OutputWindow? outputWindow;
+    private OutputWindow? outputWindow;
 
-	/// <summary>
-	/// Initializes a new instance of the <see cref="TestOutputWindowCommand" /> class.
-	/// </summary>
-	/// <param name="extensibility">
-	/// Extensibility object instance.
-	/// </param>
-	/// <param name="id">
-	/// Command identifier.
-	/// </param>
-	public TestOutputWindowCommand(VisualStudioExtensibility extensibility)
-		: base(extensibility)
-	{
-	}
+    /// <inheritdoc />
+    public override CommandConfiguration CommandConfiguration => new("%OutputWindowSample.TestOutputWindowCommand.DisplayName%")
+    {
+        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+        Icon = new(ImageMoniker.KnownValues.ToolWindow, IconSettings.IconAndText),
+    };
 
-	/// <inheritdoc />
-	public override CommandConfiguration CommandConfiguration => new("%OutputWindowSample.TestOutputWindowCommand.DisplayName%")
-	{
-		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
-		Icon = new(ImageMoniker.KnownValues.ToolWindow, IconSettings.IconAndText),
-	};
+    /// <inheritdoc />
+    public override async Task InitializeAsync(CancellationToken cancellationToken)
+    {
+        this.outputWindow = await this.GetOutputWindowAsync(cancellationToken);
+        await base.InitializeAsync(cancellationToken);
+    }
 
-	/// <inheritdoc />
-	public override async Task InitializeAsync(CancellationToken cancellationToken)
-	{
-		this.outputWindow = await this.GetOutputWindowAsync(cancellationToken);
-		await base.InitializeAsync(cancellationToken);
-	}
+    /// <inheritdoc />
+    public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
+    {
+        if (this.outputWindow != null)
+        {
+#pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
+            await this.outputWindow.Writer.WriteLineAsync("This is a test of the output window.");
+#pragma warning restore VSEXTAPI0001 // This API is marked as Preview.
+        }
+    }
 
-	/// <inheritdoc />
-	public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
-	{
-		if (this.outputWindow != null)
-		{
-			await this.outputWindow.Writer.WriteLineAsync("This is a test of the output window.");
-		}
-	}
-
-	private async Task<OutputWindow?> GetOutputWindowAsync(CancellationToken cancellationToken)
-	{
-		string id = "MyOutputWindow";
-		string displayNameResourceId = nameof(Strings.OutputWindowDisplayName);
-		return await this.Extensibility.Views().Output.GetChannelAsync(id, displayNameResourceId, cancellationToken);
-	}
+    private async Task<OutputWindow?> GetOutputWindowAsync(CancellationToken cancellationToken)
+    {
+        string id = "MyOutputWindow";
+        string displayNameResourceId = nameof(Strings.OutputWindowDisplayName);
+#pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
+        return await this.Extensibility.Views().Output.GetChannelAsync(id, displayNameResourceId, cancellationToken);
+#pragma warning restore VSEXTAPI0001 // This API is marked as Preview.
+    }
 }

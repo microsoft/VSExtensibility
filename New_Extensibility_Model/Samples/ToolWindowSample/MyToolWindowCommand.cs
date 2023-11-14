@@ -14,25 +14,16 @@ using Microsoft.VisualStudio.Extensibility.Commands;
 [VisualStudioContribution]
 public class MyToolWindowCommand : Command
 {
-	/// <summary>
-	/// Initializes a new instance of the <see cref="MyToolWindowCommand" /> class.
-	/// </summary>
-	/// <param name="extensibility">Extensibility object instance.</param>
-	public MyToolWindowCommand(VisualStudioExtensibility extensibility)
-		: base(extensibility)
-	{
-	}
+    /// <inheritdoc />
+    public override CommandConfiguration CommandConfiguration => new("%ToolWindowSample.MyToolWindowCommand.DisplayName%")
+    {
+        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+        Icon = new(ImageMoniker.KnownValues.ToolWindow, IconSettings.IconAndText),
+    };
 
-	/// <inheritdoc />
-	public override CommandConfiguration CommandConfiguration => new("%ToolWindowSample.MyToolWindowCommand.DisplayName%")
-	{
-		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
-		Icon = new(ImageMoniker.KnownValues.ToolWindow, IconSettings.IconAndText),
-	};
-
-	/// <inheritdoc />
-	public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
-	{
-		await this.Extensibility.Shell().ShowToolWindowAsync<MyToolWindow>(activate: true, cancellationToken);
-	}
+    /// <inheritdoc />
+    public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
+    {
+        await this.Extensibility.Shell().ShowToolWindowAsync<MyToolWindow>(activate: true, cancellationToken);
+    }
 }

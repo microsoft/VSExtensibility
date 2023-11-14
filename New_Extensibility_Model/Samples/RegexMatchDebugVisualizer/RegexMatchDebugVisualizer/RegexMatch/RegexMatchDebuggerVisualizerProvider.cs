@@ -17,27 +17,17 @@ using RegexMatchVisualizer.ObjectSource;
 [VisualStudioContribution]
 internal class RegexMatchDebuggerVisualizerProvider : DebuggerVisualizerProvider
 {
-	/// <summary>
-	/// Initializes a new instance of the <see cref="RegexMatchDebuggerVisualizerProvider"/> class.
-	/// </summary>
-	/// <param name="extension">Extension instance.</param>
-	/// <param name="extensibility">Extensibility object.</param>
-	public RegexMatchDebuggerVisualizerProvider(RegexMatchVisualizerExtension extension, VisualStudioExtensibility extensibility)
-		: base(extension, extensibility)
-	{
-	}
+    /// <inheritdoc/>
+    public override DebuggerVisualizerProviderConfiguration DebuggerVisualizerProviderConfiguration => new("%RegexMatchVisualizer.RegexMatchDebuggerVisualizerProvider.DisplayName%", typeof(Match))
+    {
+        VisualizerObjectSourceType = new("RegexMatchVisualizer.ObjectSource.RegexMatchObjectSource, RegexMatchObjectSource"),
+    };
 
-	/// <inheritdoc/>
-	public override DebuggerVisualizerProviderConfiguration DebuggerVisualizerProviderConfiguration => new("Regex Match visualizer", typeof(Match))
-	{
-		VisualizerObjectSourceType = new("RegexMatchVisualizer.ObjectSource.RegexMatchObjectSource, RegexMatchObjectSource"),
-	};
+    /// <inheritdoc/>
+    public override async Task<IRemoteUserControl> CreateVisualizerAsync(VisualizerTarget visualizerTarget, CancellationToken cancellationToken)
+    {
+        var regexMatch = await visualizerTarget.ObjectSource.RequestDataAsync<RegexMatch>(jsonSerializer: null, cancellationToken);
 
-	/// <inheritdoc/>
-	public override async Task<IRemoteUserControl> CreateVisualizerAsync(VisualizerTarget visualizerTarget, CancellationToken cancellationToken)
-	{
-		var regexMatch = await visualizerTarget.ObjectSource.RequestDataAsync<RegexMatch>(jsonSerializer: null, cancellationToken);
-
-		return new RegexMatchVisualizerUserControl(regexMatch);
-	}
+        return new RegexMatchVisualizerUserControl(regexMatch);
+    }
 }

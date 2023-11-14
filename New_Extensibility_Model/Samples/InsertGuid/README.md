@@ -18,7 +18,7 @@ internal class InsertGuidCommand : Command
 {
 ```
 
-The `VisualStudioContribution` attribute registers the command using the class full type name `Microsoft.VisualStudio.Gladstone.InsertGuid.InsertGuidCommand` as its unique identifier.
+The `VisualStudioContribution` attribute registers the command using the class full type name `InsertGuid.InsertGuidCommand` as its unique identifier.
 
 The `CommandConfiguration` property defines information about the command that are available to Visual Studio even before the extension is loaded:
 

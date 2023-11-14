@@ -14,32 +14,21 @@ using Microsoft.VisualStudio.ProjectSystem.Query;
 [VisualStudioContribution]
 public class AddFileCommand : Command
 {
-	/// <summary>
-	/// Initializes a new instance of the <see cref="AddFileCommand" /> class.
-	/// </summary>
-	/// <param name="extensibility">
-	/// Extensibility object instance.
-	/// </param>
-	public AddFileCommand(VisualStudioExtensibility extensibility)
-		: base(extensibility)
-	{
-	}
+    /// <inheritdoc />
+    public override CommandConfiguration CommandConfiguration => new("%VSProjectQueryAPISample.AddFileCommand.DisplayName%")
+    {
+        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+        Icon = new(ImageMoniker.KnownValues.Extension, IconSettings.IconAndText),
+    };
 
-	/// <inheritdoc />
-	public override CommandConfiguration CommandConfiguration => new("%VSProjectQueryAPISample.AddFileCommand.DisplayName%")
-	{
-		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
-		Icon = new(ImageMoniker.KnownValues.Extension, IconSettings.IconAndText),
-	};
+    /// <inheritdoc />
+    public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
+    {
+        await this.Extensibility.Workspaces().UpdateProjectsAsync(
+            project => project.Where(project => project.Name == "ConsoleApp1"),
+            project => project.AddFile("CreatedFile.txt"),
+            cancellationToken);
 
-	/// <inheritdoc />
-	public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
-	{
-		await this.Extensibility.Workspaces().UpdateProjectsAsync(
-			project => project.Where(project => project.Name == "ConsoleApp1"),
-			project => project.AddFile("CreatedFile.txt"),
-			cancellationToken);
-
-		await this.Extensibility.Shell().ShowPromptAsync("Created new file in ConsoleApp1.", PromptOptions.OK, cancellationToken);
-	}
+        await this.Extensibility.Shell().ShowPromptAsync("Created new file in ConsoleApp1.", PromptOptions.OK, cancellationToken);
+    }
 }

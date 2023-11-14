@@ -12,19 +12,20 @@ using Microsoft.VisualStudio.Extensibility;
 [VisualStudioContribution]
 public class VSProjectQueryAPISampleExtension : Extension
 {
-	/// <inheritdoc/>
-	public override ExtensionConfiguration ExtensionConfiguration => new()
-	{
-		Metadata = new(
-				id: "VSProjectQueryAPISample.e1fc7832-0ad7-4fc2-bf23-c7c5c6e95047",
-				version: this.ExtensionAssemblyVersion,
-				publisherName: "Microsoft",
-				displayName: "Project Query API Sample Extension"),
-	};
+    /// <inheritdoc/>
+    public override ExtensionConfiguration ExtensionConfiguration => new()
+    {
+        Metadata = new(
+                id: "VSProjectQueryAPISample.e1fc7832-0ad7-4fc2-bf23-c7c5c6e95047",
+                version: this.ExtensionAssemblyVersion,
+                publisherName: "Microsoft",
+                displayName: "Project Query API Sample Extension",
+                description: "Sample extension demonstrating project query APIs"),
+    };
 
-	/// <inheritdoc/>
-	protected override void InitializeServices(IServiceCollection serviceCollection)
-	{
-		base.InitializeServices(serviceCollection);
-	}
+    /// <inheritdoc/>
+    protected override void InitializeServices(IServiceCollection serviceCollection)
+    {
+        base.InitializeServices(serviceCollection);
+    }
 }

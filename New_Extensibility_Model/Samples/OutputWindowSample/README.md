@@ -8,6 +8,9 @@ date: 2022-08-01
 
 This extension demonstrates the most basic usage of the [Output Window API](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/output-window/output-window)
 
+> [!IMPORTANT]
+> The VisualStudio.Extensibility Output window APIs are currently in preview and are subject to change. Any extension that leverages these APIs may fail to work in future versions of Visual Studio and will need to be updated when a newer version of the APIs is released.
+
 ## Summary
 
 This extension adds a [command](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/command/command) to the Tools menu called "Test the Output Window". When invoked, the command will print `"This is a test of the output window."` to the Output pane in a Channel called "MyOutputWindow" (look for the Channel name in the "Show output from:" dropdown in the Output pane).

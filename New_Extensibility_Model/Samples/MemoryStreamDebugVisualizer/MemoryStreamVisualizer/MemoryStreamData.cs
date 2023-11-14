@@ -14,67 +14,67 @@ using Microsoft.VisualStudio.Extensibility.UI;
 [DataContract]
 public class MemoryStreamData : NotifyPropertyChangedObject
 {
-	private long length;
-	private long position;
-	private Visibility loadingVisibility = Visibility.Visible;
+    private long length;
+    private long position;
+    private Visibility loadingVisibility = Visibility.Visible;
 
-	/// <summary>
-	/// Gets or sets the length of the <see cref="MemoryStream"/>.
-	/// </summary>
-	[DataMember]
-	public long Length
-	{
-		get => this.length;
-		set
-		{
-			if (this.SetProperty(ref this.length, value))
-			{
-				this.RaiseNotifyPropertyChangedEvent(nameof(this.HexLength));
-			}
-		}
-	}
+    /// <summary>
+    /// Gets or sets the length of the <see cref="MemoryStream"/>.
+    /// </summary>
+    [DataMember]
+    public long Length
+    {
+        get => this.length;
+        set
+        {
+            if (this.SetProperty(ref this.length, value))
+            {
+                this.RaiseNotifyPropertyChangedEvent(nameof(this.HexLength));
+            }
+        }
+    }
 
-	/// <summary>
-	/// Gets the length of the <see cref="MemoryStream"/> in hex format.
-	/// </summary>
-	[DataMember]
-	public string HexLength => $"{this.length:X}h";
+    /// <summary>
+    /// Gets the length of the <see cref="MemoryStream"/> in hex format.
+    /// </summary>
+    [DataMember]
+    public string HexLength => $"{this.length:X}h";
 
-	/// <summary>
-	/// Gets or sets the current position of the <see cref="MemoryStream"/>.
-	/// </summary>
-	[DataMember]
-	public long Position
-	{
-		get => this.position;
-		set
-		{
-			if (this.SetProperty(ref this.position, value))
-			{
-				this.RaiseNotifyPropertyChangedEvent(nameof(this.HexPosition));
-			}
-		}
-	}
+    /// <summary>
+    /// Gets or sets the current position of the <see cref="MemoryStream"/>.
+    /// </summary>
+    [DataMember]
+    public long Position
+    {
+        get => this.position;
+        set
+        {
+            if (this.SetProperty(ref this.position, value))
+            {
+                this.RaiseNotifyPropertyChangedEvent(nameof(this.HexPosition));
+            }
+        }
+    }
 
-	/// <summary>
-	/// Gets the current position of the <see cref="MemoryStream"/> in hex format.
-	/// </summary>
-	[DataMember]
-	public string HexPosition => $"{this.position:X}h";
+    /// <summary>
+    /// Gets the current position of the <see cref="MemoryStream"/> in hex format.
+    /// </summary>
+    [DataMember]
+    public string HexPosition => $"{this.position:X}h";
 
-	/// <summary>
-	/// Gets the data currently contained in the <see cref="MemoryStream"/>.
-	/// </summary>
-	[DataMember]
-	public ObservableList<HexEditorRow> Data { get; } = new();
+    /// <summary>
+    /// Gets the data currently contained in the <see cref="MemoryStream"/>.
+    /// </summary>
+    [DataMember]
+    public ObservableList<HexEditorRow> Data { get; } = new();
 
-	/// <summary>
-	/// Gets or sets whether the loading bar should be visible.
-	/// </summary>
-	[DataMember]
-	public Visibility LoadingVisibility
-	{
-		get => this.loadingVisibility;
-		set => this.SetProperty(ref this.loadingVisibility, value);
-	}
+    /// <summary>
+    /// Gets or sets whether the loading bar should be visible.
+    /// </summary>
+    [DataMember]
+    public Visibility LoadingVisibility
+    {
+        get => this.loadingVisibility;
+        set => this.SetProperty(ref this.loadingVisibility, value);
+    }
 }

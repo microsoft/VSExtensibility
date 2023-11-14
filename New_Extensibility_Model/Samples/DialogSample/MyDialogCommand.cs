@@ -14,35 +14,21 @@ using Microsoft.VisualStudio.Extensibility.Commands;
 [VisualStudioContribution]
 public class MyDialogCommand : Command
 {
-	/// <summary>
-	/// Initializes a new instance of the <see cref="MyDialogCommand" /> class.
-	/// </summary>
-	/// <param name="extensibility">
-	/// Extensibility object instance.
-	/// </param>
-	/// <param name="name">
-	/// Command identifier.
-	/// </param>
-	public MyDialogCommand(VisualStudioExtensibility extensibility)
-		: base(extensibility)
-	{
-	}
+    /// <inheritdoc />
+    public override CommandConfiguration CommandConfiguration => new("%DialogSample.MyDialogCommand.DisplayName%")
+    {
+        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+        Icon = new(ImageMoniker.KnownValues.Dialog, IconSettings.IconAndText),
+    };
 
-	/// <inheritdoc />
-	public override CommandConfiguration CommandConfiguration => new("%DialogSample.MyDialogCommand.DisplayName%")
-	{
-		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
-		Icon = new(ImageMoniker.KnownValues.Dialog, IconSettings.IconAndText),
-	};
+    /// <inheritdoc />
+    public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
+    {
+        // Ownership of the RemoteUserControl is transferred to VisualStudio, so it should not be disposed by the extension
+        #pragma warning disable CA2000 // Dispose objects before losing scope
+        var control = new MyDialogControl(null);
+        #pragma warning restore CA2000 // Dispose objects before losing scope
 
-	/// <inheritdoc />
-	public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
-	{
-		// Ownership of the RemoteUserControl is transferred to VisualStudio, so it should not be disposed by the extension
-		#pragma warning disable CA2000 // Dispose objects before losing scope
-		var control = new MyDialogControl(null);
-		#pragma warning restore CA2000 // Dispose objects before losing scope
-
-		await this.Extensibility.Shell().ShowDialogAsync(control, cancellationToken);
-	}
+        await this.Extensibility.Shell().ShowDialogAsync(control, cancellationToken);
+    }
 }

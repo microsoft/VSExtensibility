@@ -12,20 +12,20 @@ using Microsoft.VisualStudio.DebuggerVisualizers;
 /// </summary>
 public class RegexMatchCollectionObjectSource : VisualizerObjectSource
 {
-	/// <inheritdoc/>
-	public override void TransferData(object target, Stream incomingData, Stream outgoingData)
-	{
-		var index = (int)DeserializeFromJson(incomingData, typeof(int))!;
+    /// <inheritdoc/>
+    public override void TransferData(object target, Stream incomingData, Stream outgoingData)
+    {
+        var index = (int)DeserializeFromJson(incomingData, typeof(int))!;
 
-		if (target is MatchCollection matchCollection && index < matchCollection.Count)
-		{
-			var result = RegexMatchObjectSource.Convert(matchCollection[index]);
-			result.Name = $"[{index}]";
-			SerializeAsJson(outgoingData, result);
-		}
-		else
-		{
-			SerializeAsJson(outgoingData, null);
-		}
-	}
+        if (target is MatchCollection matchCollection && index < matchCollection.Count)
+        {
+            var result = RegexMatchObjectSource.Convert(matchCollection[index]);
+            result.Name = $"[{index}]";
+            SerializeAsJson(outgoingData, result);
+        }
+        else
+        {
+            SerializeAsJson(outgoingData, null!);
+        }
+    }
 }

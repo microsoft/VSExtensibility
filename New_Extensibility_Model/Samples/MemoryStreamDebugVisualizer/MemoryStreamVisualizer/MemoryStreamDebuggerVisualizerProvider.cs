@@ -17,18 +17,18 @@ using Microsoft.VisualStudio.RpcContracts.RemoteUI;
 [VisualStudioContribution]
 internal class MemoryStreamDebuggerVisualizerProvider : DebuggerVisualizerProvider
 {
-	/// <inheritdoc/>
-	public override DebuggerVisualizerProviderConfiguration DebuggerVisualizerProviderConfiguration => new(
-		visualizerDisplayName: "%MemoryStreamVisualizer.MemoryStreamDebuggerVisualizerProvider.Name%",
-		targetType: typeof(MemoryStream))
-	{
-		VisualizerObjectSourceType = new VisualizerObjectSourceType(typeof(MemoryStreamVisualizerObjectSource)),
-		Style = VisualizerStyle.ToolWindow,
-	};
+    /// <inheritdoc/>
+    public override DebuggerVisualizerProviderConfiguration DebuggerVisualizerProviderConfiguration => new(
+        visualizerDisplayName: "%MemoryStreamVisualizer.MemoryStreamDebuggerVisualizerProvider.Name%",
+        targetType: typeof(MemoryStream))
+    {
+        VisualizerObjectSourceType = new VisualizerObjectSourceType(typeof(MemoryStreamVisualizerObjectSource)),
+        Style = VisualizerStyle.ToolWindow,
+    };
 
-	/// <inheritdoc/>
-	public override Task<IRemoteUserControl> CreateVisualizerAsync(VisualizerTarget visualizerTarget, CancellationToken cancellationToken)
-	{
-		return Task.FromResult<IRemoteUserControl>(new MemoryStreamVisualizerUserControl(visualizerTarget));
-	}
+    /// <inheritdoc/>
+    public override Task<IRemoteUserControl> CreateVisualizerAsync(VisualizerTarget visualizerTarget, CancellationToken cancellationToken)
+    {
+        return Task.FromResult<IRemoteUserControl>(new MemoryStreamVisualizerUserControl(visualizerTarget));
+    }
 }

@@ -14,26 +14,17 @@ using Microsoft.VisualStudio.Extensibility.Commands;
 [VisualStudioContribution]
 public class CommandHandler : Command
 {
-	/// <summary>
-	/// Initializes a new instance of the <see cref="CommandHandler"/> class.
-	/// </summary>
-	/// <param name="extensibility">Extensibility object instance.</param>
-	public CommandHandler(VisualStudioExtensibility extensibility)
-		: base(extensibility)
-	{
-	}
+    /// <inheritdoc />
+    public override CommandConfiguration CommandConfiguration => new("%SimpleRemoteCommandSample.CommandHandler.DisplayName%")
+    {
+        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+        Icon = new(ImageMoniker.KnownValues.Extension, IconSettings.IconAndText),
+    };
 
-	/// <inheritdoc />
-	public override CommandConfiguration CommandConfiguration => new("%SimpleRemoteCommandSample.CommandHandler.DisplayName%")
-	{
-		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
-		Icon = new(ImageMoniker.KnownValues.Extension, IconSettings.IconAndText),
-	};
-
-	/// <inheritdoc />
-	public override Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
-	{
-		// Do any work you want your command handler to do here
-		return Task.CompletedTask;
-	}
+    /// <inheritdoc />
+    public override Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
+    {
+        // Do any work you want your command handler to do here
+        return Task.CompletedTask;
+    }
 }

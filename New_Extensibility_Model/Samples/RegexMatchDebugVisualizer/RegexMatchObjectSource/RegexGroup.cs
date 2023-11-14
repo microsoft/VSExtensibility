@@ -8,9 +8,9 @@ using System.Runtime.Serialization;
 [DataContract]
 internal class RegexGroup : RegexCapture
 {
-	[DataMember]
-	public bool Success { get; set; }
+    [DataMember]
+    public bool Success { get; set; }
 
-	[DataMember]
-	public RegexCapture[]? Captures { get; set; }
+    [DataMember]
+    public RegexCapture[]? Captures { get; set; }
 }

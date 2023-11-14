@@ -12,19 +12,20 @@ using Microsoft.VisualStudio.Extensibility;
 [VisualStudioContribution]
 public class CommandParentingSampleExtension : Extension
 {
-	/// <inheritdoc/>
-	public override ExtensionConfiguration ExtensionConfiguration => new()
-	{
-		Metadata = new(
-				id: "CommandParentingSample.c30b7870-76bc-4ef6-93e8-15b9a54c9e2b",
-				version: this.ExtensionAssemblyVersion,
-				publisherName: "Microsoft",
-				displayName: "Command Parenting Sample Extension"),
-	};
+    /// <inheritdoc/>
+    public override ExtensionConfiguration ExtensionConfiguration => new()
+    {
+        Metadata = new(
+                id: "CommandParentingSample.c30b7870-76bc-4ef6-93e8-15b9a54c9e2b",
+                version: this.ExtensionAssemblyVersion,
+                publisherName: "Microsoft",
+                displayName: "Command Parenting Sample Extension",
+                description: "Sample extension demonstrating command parenting"),
+    };
 
-	/// <inheritdoc/>
-	protected override void InitializeServices(IServiceCollection serviceCollection)
-	{
-		base.InitializeServices(serviceCollection);
-	}
+    /// <inheritdoc/>
+    protected override void InitializeServices(IServiceCollection serviceCollection)
+    {
+        base.InitializeServices(serviceCollection);
+    }
 }

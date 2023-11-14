@@ -3,6 +3,7 @@
 
 namespace VSProjectQueryAPISample;
 
+using System.Globalization;
 using System.Text;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Commands;
@@ -15,57 +16,46 @@ using Microsoft.VisualStudio.ProjectSystem.Query;
 [VisualStudioContribution]
 public class QueryOutputGroupByIdCommand : Command
 {
-	/// <summary>
-	/// Initializes a new instance of the <see cref="QueryOutputGroupByIdCommand" /> class.
-	/// </summary>
-	/// <param name="extensibility">
-	/// Extensibility object instance.
-	/// </param>
-	public QueryOutputGroupByIdCommand(VisualStudioExtensibility extensibility)
-		: base(extensibility)
-	{
-	}
+    /// <inheritdoc />
+    public override CommandConfiguration CommandConfiguration => new("%VSProjectQueryAPISample.QueryOutputGroupByIdCommand.DisplayName%")
+    {
+        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+        Icon = new(ImageMoniker.KnownValues.Extension, IconSettings.IconAndText),
+    };
 
-	/// <inheritdoc />
-	public override CommandConfiguration CommandConfiguration => new("%VSProjectQueryAPISample.QueryOutputGroupByIdCommand.DisplayName%")
-	{
-		Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
-		Icon = new(ImageMoniker.KnownValues.Extension, IconSettings.IconAndText),
-	};
+    /// <inheritdoc />
+    public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
+    {
+        StringBuilder message = new StringBuilder();
 
-	/// <inheritdoc />
-	public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
-	{
-		StringBuilder message = new StringBuilder();
+        var result = await this.Extensibility.Workspaces().QueryProjectsAsync(
+            project => project.With(p => p.Name)
+                              .With(p => p.ActiveConfigurations.With(c => c.Name)),
+            cancellationToken);
 
-		var result = await this.Extensibility.Workspaces().QueryProjectsAsync(
-			project => project.With(p => p.Name)
-							  .With(p => p.ActiveConfigurations.With(c => c.Name)),
-			cancellationToken);
+        message.Append($"\n \n === Querying OutputGroups by Id === \n");
 
-		message.Append($"\n \n === Querying OutputGroups by Id === \n");
+        foreach (var project in result)
+        {
+            message.Append(CultureInfo.CurrentCulture, $"{project.Name}\n");
 
-		foreach (var project in result)
-		{
-			message.Append($"{project.Name}\n");
+            foreach (var config in project.ActiveConfigurations)
+            {
+                message.Append(CultureInfo.CurrentCulture, $" \t {config.Name}\n");
 
-			foreach (var config in project.ActiveConfigurations)
-			{
-				message.Append($" \t {config.Name}\n");
+                foreach (var group in config.OutputGroups)
+                {
+                    // This is needed for byId:
+                    var newResult = await group
+                        .AsQueryable()
+                        .With(g => g.Name)
+                        .ExecuteQueryAsync(cancellationToken);
 
-				foreach (var group in config.OutputGroups)
-				{
-					// This is needed for byId:
-					var newResult = await group
-						.AsQueryable()
-						.With(g => g.Name)
-						.ExecuteQueryAsync();
+                    message.Append(CultureInfo.CurrentCulture, $"\t \t {newResult.First().Name}\n");
+                }
+            }
+        }
 
-					message.Append($"\t \t {newResult.First().Name}\n");
-				}
-			}
-		}
-
-		await this.Extensibility.Shell().ShowPromptAsync(message.ToString(), PromptOptions.OK, cancellationToken);
-	}
+        await this.Extensibility.Shell().ShowPromptAsync(message.ToString(), PromptOptions.OK, cancellationToken);
+    }
 }

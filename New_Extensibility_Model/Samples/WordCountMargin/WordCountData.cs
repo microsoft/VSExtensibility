@@ -12,15 +12,15 @@ using Microsoft.VisualStudio.Extensibility.UI;
 [DataContract]
 public class WordCountData : NotifyPropertyChangedObject
 {
-	private int wordCount;
+    private int wordCount;
 
-	/// <summary>
-	/// The count of words in the text document.
-	/// </summary>
-	[DataMember]
-	public int WordCount
-	{
-		get => this.wordCount;
-		set => this.SetProperty(ref this.wordCount, value);
-	}
+    /// <summary>
+    /// The count of words in the text document.
+    /// </summary>
+    [DataMember]
+    public int WordCount
+    {
+        get => this.wordCount;
+        set => this.SetProperty(ref this.wordCount, value);
+    }
 }

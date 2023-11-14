@@ -5,15 +5,22 @@ and call out interesting aspects to its sample.
 
 Samples include:
 
-* SimpleRemoteCommandSample: A simple extension showing how to declare a single command.
-* OutputWindowSample: An extension that uses a simple command to write a message to the output window.
-* ToolWindowSample: An extension that creates a tool window and populates it with content.
-* UserPromptSample: An extension that uses a simple command to display a prompt to the user.
-* CommandRegistrationsSample: Showcases how to register commands in different ways and command placement, localization.
-* InsertGuidExtension: A simple extension showing how to read/modify editor buffers.
-* MarkdownLinter: An end-to-end example showing various features available in the extensibility SDK.
-* DocumentSelectorSample: A sample demonstrating how to define an editor extension that is only applicable to files matching a file path pattern.
-* CommentRemover: A conversion of Mads Kristensen's [Comment Remover](https://github.com/madskristensen/CommentRemover) extension to in-proc VisualStudio.Extensibility. This sample shows how to consume [Visual Studio SDK](https://www.nuget.org/packages/Microsoft.VisualStudio.SDK) services through .NET dependency injection and use VisualStudio.Extensibility APIs for commands, prompts and progress report.
+| Sample | Description|
+|-|-|
+| [Simple command handler](./SimpleRemoteCommandSample) | Demonstrates the basics of working with commands. See also the [Create your first extension](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/get-started/create-your-first-extension) tutorial.|
+| [Insert guid](./InsertGuid) | Shows how to insert text or code in the code editor, how to configure a command with a specific activation condition, and how to use a resource file for localization. See also the [tutorial](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/get-started/tutorial-create-simple-extension). |
+| [Command parenting](./CommandParentingSample) | Shows how to author a command that can be parented to different aspects of the IDE. |
+| [Document selector](./DocumentSelectorSample) | Shows how to create an editor extension that is only applicable to files matching a file path pattern. |
+| [Output window](./OutputWindowSample) | Shows the most basic use of the [Output Window API](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/output-window/output-window)|
+| [Tool window](./ToolWindowSample) | Shows how to create a tool window and populate it with content. |
+| [User prompt](./UserPromptSample) | Shows how to display a prompt to the user. |
+| [Dialog](./DialogSample) | Shows how to display a dialog with custom UI to the user. |
+| [Word count margin](./WordCountMargin) | Shows how to create an editor margin extension that displays the word count in a document. |
+| [Markdown linter](./MarkdownLinter) | A complete extension with many moving parts interacting to provide an enhanced experience in the editor for a certain file type. |
+| [Project Query](./VSProjectQueryAPISample) | Shows several different kinds of project system queries you can make. |
+| [Comment remover](./CommentRemover) | Shows how to consume [Visual Studio SDK](https://www.nuget.org/packages/Microsoft.VisualStudio.SDK) services through .NET dependency injection and use VisualStudio.Extensibility APIs for commands, prompts and progress report. |
+| [RegexMatchDebugVisualizer](./RegexMatchDebugVisualizer) | Shows how to use [Remote UI](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/inside-the-sdk/remote-ui) to create a [Debugger Visualizer](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/debugger-visualizer/debugger-visualizers) to visualize regular expression matches that will launch in a modal dialog window. |
+| [MemoryStreamDebugVisualizer](./MemoryStreamDebugVisualizer) | Shows how to create a [Debugger Visualizer](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/debugger-visualizer/debugger-visualizers) to visualize MemoryStream objects that launches in a non-modal tool window. |
 
 ## Contributing
 

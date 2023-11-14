@@ -17,66 +17,66 @@ using Microsoft.VisualStudio.Extensibility.UI;
 [DataContract]
 internal class MyToolWindowData : NotifyPropertyChangedObject
 {
-	private readonly VisualStudioExtensibility extensibility;
-	private bool hasError;
-	private string message = "My custom message";
+    private readonly VisualStudioExtensibility extensibility;
+    private bool hasError;
+    private string message = "My custom message";
 
-	/// <summary>
-	/// Initializes a new instance of the <see cref="MyToolWindowData" /> class.
-	/// </summary>
-	/// <param name="extensibility">
-	/// Extensibility object instance.
-	/// </param>
-	public MyToolWindowData(VisualStudioExtensibility extensibility)
-	{
-		this.extensibility = Requires.NotNull(extensibility, nameof(extensibility));
+    /// <summary>
+    /// Initializes a new instance of the <see cref="MyToolWindowData" /> class.
+    /// </summary>
+    /// <param name="extensibility">
+    /// Extensibility object instance.
+    /// </param>
+    public MyToolWindowData(VisualStudioExtensibility extensibility)
+    {
+        this.extensibility = Requires.NotNull(extensibility, nameof(extensibility));
 
-		this.ShowMessageCommand = new AsyncCommand(this.ShowMessageAsync);
-	}
+        this.ShowMessageCommand = new AsyncCommand(this.ShowMessageAsync);
+    }
 
-	/// <summary>
-	/// Gets the async command used to show a message prompt.
-	/// </summary>
-	[DataMember]
-	public IAsyncCommand ShowMessageCommand
-	{
-		get;
-	}
+    /// <summary>
+    /// Gets the async command used to show a message prompt.
+    /// </summary>
+    [DataMember]
+    public IAsyncCommand ShowMessageCommand
+    {
+        get;
+    }
 
-	/// <summary>
-	/// Gets or sets a value indicating whether there is an error in the data context.
-	/// </summary>
-	[DataMember]
-	public bool HasError
-	{
-		get => this.hasError;
-		set => this.SetProperty(ref this.hasError, value);
-	}
+    /// <summary>
+    /// Gets or sets a value indicating whether there is an error in the data context.
+    /// </summary>
+    [DataMember]
+    public bool HasError
+    {
+        get => this.hasError;
+        set => this.SetProperty(ref this.hasError, value);
+    }
 
-	/// <summary>
-	/// Gets or sets the message to display in the message prompt.
-	/// </summary>
-	[DataMember]
-	public string Message
-	{
-		get => this.message;
-		set
-		{
-			if (string.IsNullOrWhiteSpace(value))
-			{
-				this.HasError = true;
-			}
-			else
-			{
-				this.HasError = false;
-			}
+    /// <summary>
+    /// Gets or sets the message to display in the message prompt.
+    /// </summary>
+    [DataMember]
+    public string Message
+    {
+        get => this.message;
+        set
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                this.HasError = true;
+            }
+            else
+            {
+                this.HasError = false;
+            }
 
-			this.SetProperty(ref this.message, value);
-		}
-	}
+            this.SetProperty(ref this.message, value);
+        }
+    }
 
-	private async Task ShowMessageAsync(object? commandParameter, CancellationToken cancellationToken)
-	{
-		await this.extensibility.Shell().ShowPromptAsync(this.Message, PromptOptions.OK, cancellationToken);
-	}
+    private async Task ShowMessageAsync(object? commandParameter, CancellationToken cancellationToken)
+    {
+        await this.extensibility.Shell().ShowPromptAsync(this.Message, PromptOptions.OK, cancellationToken);
+    }
 }

@@ -13,31 +13,31 @@ using Range = Microsoft.VisualStudio.RpcContracts.Utilities.Range;
 /// </summary>
 public class MarkdownDiagnosticInfo
 {
-	/// <summary>
-	/// Initializes a new instance of the <see cref="MarkdownDiagnosticInfo"/> class.
-	/// </summary>
-	/// <param name="range">Range where the diagnostic exists.</param>
-	/// <param name="message">Message to be presented with the diagnostic.</param>
-	/// <param name="errorCode">Unique error code of this type of diagnostic.</param>
-	public MarkdownDiagnosticInfo(Range range, string message, string errorCode)
-	{
-		this.Range = range;
-		this.Message = message;
-		this.ErrorCode = errorCode;
-	}
+    /// <summary>
+    /// Initializes a new instance of the <see cref="MarkdownDiagnosticInfo"/> class.
+    /// </summary>
+    /// <param name="range">Range where the diagnostic exists.</param>
+    /// <param name="message">Message to be presented with the diagnostic.</param>
+    /// <param name="errorCode">Unique error code of this type of diagnostic.</param>
+    public MarkdownDiagnosticInfo(Range range, string message, string errorCode)
+    {
+        this.Range = range;
+        this.Message = message;
+        this.ErrorCode = errorCode;
+    }
 
-	/// <summary>
-	/// Gets the range of the diagnostic.
-	/// </summary>
-	public Range Range { get; }
+    /// <summary>
+    /// Gets the range of the diagnostic.
+    /// </summary>
+    public Range Range { get; }
 
-	/// <summary>
-	/// Gets the error message of the diagnostic.
-	/// </summary>
-	public string Message { get; }
+    /// <summary>
+    /// Gets the error message of the diagnostic.
+    /// </summary>
+    public string Message { get; }
 
-	/// <summary>
-	/// Gets the error code of the diagnostic.
-	/// </summary>
-	public string ErrorCode { get; }
+    /// <summary>
+    /// Gets the error code of the diagnostic.
+    /// </summary>
+    public string ErrorCode { get; }
 }

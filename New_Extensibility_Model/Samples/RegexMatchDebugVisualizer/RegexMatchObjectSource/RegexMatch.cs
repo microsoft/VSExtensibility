@@ -8,6 +8,6 @@ using System.Runtime.Serialization;
 [DataContract]
 internal class RegexMatch : RegexGroup
 {
-	[DataMember]
-	public RegexGroup[]? Groups { get; set; }
+    [DataMember]
+    public RegexGroup[]? Groups { get; set; }
 }

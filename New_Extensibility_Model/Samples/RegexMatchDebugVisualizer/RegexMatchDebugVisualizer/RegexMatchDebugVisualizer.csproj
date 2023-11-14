@@ -1,41 +1,38 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<TargetFramework>net6.0-windows8.0</TargetFramework>
-		<Nullable>enable</Nullable>
-		<LangVersion>11</LangVersion>
-		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-		<RootNamespace>RegexMatchVisualizer</RootNamespace>
-		<DefineConstants>$(DefineConstants);VISUALIZER</DefineConstants>
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>11</LangVersion>
+    <RootNamespace>RegexMatchVisualizer</RootNamespace>
+    <DefineConstants>$(DefineConstants);VISUALIZER</DefineConstants>
+    <NoWarn>$(NoWarn);CS1591;CA1812;CA1303;SA1600</NoWarn>
 
-		<!-- The VisualStudio.Extensibility preview packages are available from the azure-public/vside/msft_consumption feed -->
-		<RestoreAdditionalProjectSources>https://pkgs.dev.azure.com/azure-public/vside/_packaging/msft_consumption/nuget/v3/index.json;$(RestoreAdditionalProjectSources)</RestoreAdditionalProjectSources>
-	</PropertyGroup>
+    <!-- The VisualStudio.Extensibility preview packages are available from the azure-public/vside/msft_consumption feed -->
+    <RestoreAdditionalProjectSources>https://pkgs.dev.azure.com/azure-public/vside/_packaging/msft_consumption/nuget/v3/index.json;$(RestoreAdditionalProjectSources)</RestoreAdditionalProjectSources>
+  </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.8.2055-preview-3" />
-		<PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.8.2055-preview-3" />
-	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.9.52-preview-1" />
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.9.52-preview-1" />
+  </ItemGroup>
 
-	<ItemGroup>
-		<Content Include=".vsextension\**\string-resources.json">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<Page Remove="RegexMatchVisualizerUserControl.xaml" />
-		<EmbeddedResource Include="RegexMatch\RegexMatchVisualizerUserControl.xaml" LogicalName="$(RootNamespace).RegexMatchVisualizerUserControl.xaml" />
-		<Page Remove="RegexMatchCollectionVisualizerUserControl.xaml" />
-		<EmbeddedResource Include="RegexMatchCollection\RegexMatchCollectionVisualizerUserControl.xaml" LogicalName="$(RootNamespace).RegexMatchCollectionVisualizerUserControl.xaml" />
+  <ItemGroup>
+    <Page Remove="RegexMatchVisualizerUserControl.xaml" />
+    <EmbeddedResource Include="RegexMatch\RegexMatchVisualizerUserControl.xaml" LogicalName="$(RootNamespace).RegexMatchVisualizerUserControl.xaml" />
+    <Page Remove="RegexMatchCollectionVisualizerUserControl.xaml" />
+    <EmbeddedResource Include="RegexMatchCollection\RegexMatchCollectionVisualizerUserControl.xaml" LogicalName="$(RootNamespace).RegexMatchCollectionVisualizerUserControl.xaml" />
 
-		<Compile Include="..\RegexMatchObjectSource\RegexGroup.cs" Link="SharedFiles\RegexGroup.cs" />
-		<Compile Include="..\RegexMatchObjectSource\RegexCapture.cs" Link="SharedFiles\RegexCapture.cs" />
-		<Compile Include="..\RegexMatchObjectSource\RegexMatch.cs" Link="SharedFiles\RegexMatch.cs" />
+    <Compile Include="..\RegexMatchObjectSource\RegexGroup.cs" Link="SharedFiles\RegexGroup.cs" />
+    <Compile Include="..\RegexMatchObjectSource\RegexCapture.cs" Link="SharedFiles\RegexCapture.cs" />
+    <Compile Include="..\RegexMatchObjectSource\RegexMatch.cs" Link="SharedFiles\RegexMatch.cs" />
+  </ItemGroup>
 
-		<Content Include="..\..\..\..\bin\samples\RegexMatchObjectSource\$(Configuration)\netstandard2.0\RegexMatchObjectSource.dll" Link="netstandard2.0\RegexMatchObjectSource.dll">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-	</ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\..\..\bin\samples\RegexMatchObjectSource\$(Configuration)\netstandard2.0\RegexMatchObjectSource.dll" Link="netstandard2.0\RegexMatchObjectSource.dll" />
+  </ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\RegexMatchObjectSource\RegexMatchObjectSource.csproj" ReferenceOutputAssembly="false" />
-	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RegexMatchObjectSource\RegexMatchObjectSource.csproj" ReferenceOutputAssembly="false" />
+  </ItemGroup>
 </Project>
