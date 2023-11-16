@@ -47,6 +47,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommentRemover", "CommentRe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RustLanguageServerProvider", "RustLanguageServerProvider\RustLanguageServerProvider.csproj", "{99684185-2C81-45B3-A69F-0852AD0E4F9E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeatureGallery", "FeatureGallery\FeatureGallery.csproj", "{7411CD7E-B825-4E7A-91A9-99A65EEE4073}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -199,6 +201,18 @@ Global
 		{99684185-2C81-45B3-A69F-0852AD0E4F9E}.Release|x86.ActiveCfg = Release|Any CPU
 		{99684185-2C81-45B3-A69F-0852AD0E4F9E}.Release|x86.Build.0 = Release|Any CPU
 		{99684185-2C81-45B3-A69F-0852AD0E4F9E}.Release|x86.Deploy.0 = Release|Any CPU
+		{7411CD7E-B825-4E7A-91A9-99A65EEE4073}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7411CD7E-B825-4E7A-91A9-99A65EEE4073}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7411CD7E-B825-4E7A-91A9-99A65EEE4073}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7411CD7E-B825-4E7A-91A9-99A65EEE4073}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7411CD7E-B825-4E7A-91A9-99A65EEE4073}.Debug|x86.Build.0 = Debug|Any CPU
+		{7411CD7E-B825-4E7A-91A9-99A65EEE4073}.Debug|x86.Deploy.0 = Debug|Any CPU
+		{7411CD7E-B825-4E7A-91A9-99A65EEE4073}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7411CD7E-B825-4E7A-91A9-99A65EEE4073}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7411CD7E-B825-4E7A-91A9-99A65EEE4073}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{7411CD7E-B825-4E7A-91A9-99A65EEE4073}.Release|x86.ActiveCfg = Release|Any CPU
+		{7411CD7E-B825-4E7A-91A9-99A65EEE4073}.Release|x86.Build.0 = Release|Any CPU
+		{7411CD7E-B825-4E7A-91A9-99A65EEE4073}.Release|x86.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
