@@ -37,6 +37,7 @@ public class MainToolWindow : ToolWindow
             new DocumentEditingTest(this.Extensibility),
             new ModalDialogTest(this.Extensibility),
             new EditorMarginTest(this.Extensibility),
+            new LanguageServerTest(this.Extensibility),
         };
     }
 

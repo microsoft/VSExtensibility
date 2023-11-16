@@ -1,3 +1,4 @@
 ﻿{
-  "FeatureGallery.MainToolWindowCommand.DisplayName": "VisualStudio.Extensibility Feature Gallery"
+  "FeatureGallery.MainToolWindowCommand.DisplayName": "VisualStudio.Extensibility Feature Gallery",
+  "FeatureGallery.LanguageServer.TodoLanguageServerProvider.DisplayName": "TODO language server"
 }
