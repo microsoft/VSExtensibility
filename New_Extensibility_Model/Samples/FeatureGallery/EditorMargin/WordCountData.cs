@@ -21,4 +21,12 @@ public class WordCountData : NotifyPropertyChangedObject
         get => this.wordCount;
         set => this.SetProperty(ref this.wordCount, value);
     }
+
+    [DataMember]
+    public string Background
+#if INPROC
+        => "LightSkyBlue";
+#else
+        => "LightPink";
+#endif
 }

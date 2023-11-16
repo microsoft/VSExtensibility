@@ -27,7 +27,11 @@ public class MainToolWindow : ToolWindow
     /// </summary>
     public MainToolWindow()
     {
+#if INPROC
+        this.Title = "In-proc VisualStudio.Extensibility Feature Gallery";
+#else
         this.Title = "VisualStudio.Extensibility Feature Gallery";
+#endif
         this.tests = new TestData[]
         {
             new DocumentEditingTest(this.Extensibility),

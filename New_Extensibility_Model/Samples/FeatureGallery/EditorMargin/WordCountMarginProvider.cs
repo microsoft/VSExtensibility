@@ -31,7 +31,7 @@ internal class WordCountMarginProvider : ExtensionPart, ITextViewMarginProvider,
     {
         AppliesTo = new[]
         {
-            DocumentFilter.FromDocumentType(DocumentType.KnownValues.Text),
+            DocumentFilter.FromDocumentType(EditorMarginTest.WordsDocumentType),
         },
     };
 
