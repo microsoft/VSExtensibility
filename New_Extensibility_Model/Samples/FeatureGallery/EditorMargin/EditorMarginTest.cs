@@ -1,9 +1,12 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
+#if INPROC
+namespace InProcFeatureGallery;
+#else
 namespace FeatureGallery;
+#endif
 
-using System;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Threading;

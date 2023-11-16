@@ -1,7 +1,11 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
+#if INPROC
+namespace InProcFeatureGallery;
+#else
 namespace FeatureGallery;
+#endif
 
 using System.Threading;
 using System.Threading.Tasks;
@@ -22,7 +26,13 @@ public class MainToolWindowCommand : Command
     }
 
     /// <inheritdoc />
-    public override CommandConfiguration CommandConfiguration => new("%FeatureGallery.MainToolWindowCommand.DisplayName%")
+    public override CommandConfiguration CommandConfiguration => new(
+#if INPROC
+        "%InProcFeatureGallery.MainToolWindowCommand.DisplayName%"
+#else
+        "%FeatureGallery.MainToolWindowCommand.DisplayName%"
+#endif
+    )
     {
         Placements = new[] { CommandPlacement.KnownPlacements.ExtensionsMenu },
         Icon = new(ImageMoniker.KnownValues.Extension, IconSettings.IconAndText),
