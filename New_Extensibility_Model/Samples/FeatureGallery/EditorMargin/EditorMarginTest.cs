@@ -20,9 +20,9 @@ using Microsoft.VisualStudio.RpcContracts.Documents;
 internal class EditorMarginTest : TestData
 {
 #if INPROC
-    private const string BackgroundColor = "blue";
+    public const string FileExtension = "mywords";
 #else
-    private const string BackgroundColor = "pink";
+    public const string FileExtension = "words";
 #endif
 
     public EditorMarginTest(VisualStudioExtensibility extensibility)
@@ -31,9 +31,9 @@ internal class EditorMarginTest : TestData
     }
 
     [VisualStudioContribution]
-    public static DocumentTypeConfiguration WordsDocumentType => new("words")
+    public static DocumentTypeConfiguration WordsDocumentType => new(FileExtension)
     {
-        FileExtensions = new[] { ".words" },
+        FileExtensions = new[] { "." + FileExtension },
         BaseDocumentType = DocumentType.KnownValues.Text,
     };
 
@@ -41,11 +41,11 @@ internal class EditorMarginTest : TestData
     public override string ButtonText => "Editor margin";
 
     [DataMember]
-    public override string Description => $"This command opens a text document with a custom {BackgroundColor} editor margin counting the words in the document. A prompt will ask to close the file.";
+    public override string Description => $"This command opens a text document with a custom editor margin counting the words in the document. A prompt will ask to close the file.";
 
     protected override async Task RunAsync(IClientContext clientContext, CancellationToken cancellationToken)
     {
-        var filePath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName() + ".words");
+        var filePath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName() + "." + FileExtension);
         bool keepFile = false;
 
         using var file = new StreamWriter(File.Create(filePath));

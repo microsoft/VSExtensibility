@@ -33,7 +33,7 @@ internal class LanguageServerTest : TestData
 
     [VisualStudioContribution]
 #pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
-    public static DocumentTypeConfiguration TodosDocumentType => new("todo")
+    public static DocumentTypeConfiguration TodosDocumentType => new(FileExtension)
     {
         FileExtensions = new[] { "." + FileExtension },
         BaseDocumentType = LanguageServerProvider.LanguageServerBaseDocumentType,
