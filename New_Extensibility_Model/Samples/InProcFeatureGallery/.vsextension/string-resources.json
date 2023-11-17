@@ -1,0 +1,4 @@
+﻿{
+  "InProcFeatureGallery.MainToolWindowCommand.DisplayName": "In-proc VisualStudio.Extensibility Feature Gallery",
+  "InProcFeatureGallery.LanguageServer.TodoLanguageServerProvider.DisplayName": "In-proc TODO language server"
+}
