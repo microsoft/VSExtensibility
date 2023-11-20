@@ -26,13 +26,12 @@ public class MainToolWindowCommand : Command
     }
 
     /// <inheritdoc />
-    public override CommandConfiguration CommandConfiguration => new(
+    public override CommandConfiguration CommandConfiguration =>
 #if INPROC
-        "%InProcFeatureGallery.MainToolWindowCommand.DisplayName%"
+        new("%InProcFeatureGallery.MainToolWindowCommand.DisplayName%")
 #else
-        "%FeatureGallery.MainToolWindowCommand.DisplayName%"
+        new("%FeatureGallery.MainToolWindowCommand.DisplayName%")
 #endif
-    )
     {
         Placements = new[] { CommandPlacement.KnownPlacements.ExtensionsMenu },
         Icon = new(ImageMoniker.KnownValues.Extension, IconSettings.IconAndText),

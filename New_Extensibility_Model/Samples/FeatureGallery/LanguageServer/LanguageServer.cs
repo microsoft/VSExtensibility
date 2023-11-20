@@ -69,7 +69,7 @@ internal class LanguageServer
         List<Diagnostic> diagnostics = new();
 
         using StringReader reader = new(text);
-        string line;
+        string? line;
         for (int lineCounter = 0;
             (line = await reader.ReadLineAsync()) != null;
             lineCounter++)
@@ -81,7 +81,7 @@ internal class LanguageServer
 
                 diagnostics.Add(new()
                 {
-                    Severity = DiagnosticSeverity.Error,
+                    Severity = DiagnosticSeverity.Warning,
                     Code = "TODO",
 #if INPROC
                     Source = "In-proc TODO Language Server",

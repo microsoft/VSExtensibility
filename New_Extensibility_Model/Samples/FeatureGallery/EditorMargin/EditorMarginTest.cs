@@ -41,7 +41,7 @@ internal class EditorMarginTest : TestData
     public override string ButtonText => "Editor margin";
 
     [DataMember]
-    public override string Description => $"This command opens a text document with a custom editor margin counting the words in the document. A prompt will ask to close the file.";
+    public override string Description => $"This command opens a text document with a custom editor margin, in the bottom-right corner, counting the words in the document. A prompt will ask to close the file.";
 
     protected override async Task RunAsync(IClientContext clientContext, CancellationToken cancellationToken)
     {
