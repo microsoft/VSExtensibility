@@ -17,8 +17,8 @@ using Newtonsoft.Json.Linq;
 using StreamJsonRpc;
 using System.Threading;
 using System.Linq;
-using Microsoft.ServiceHub.Resources;
 
+#pragma warning disable IDE0060, CA1801 // Remove unused parameter
 internal class LanguageServer
 {
     private static readonly Regex TodoRegex = new(@"TODO:\s*(.+)$", RegexOptions.Compiled);
@@ -69,7 +69,7 @@ internal class LanguageServer
         List<Diagnostic> diagnostics = new();
 
         using StringReader reader = new(text);
-        string line;
+        string? line;
         for (int lineCounter = 0;
             (line = await reader.ReadLineAsync()) != null;
             lineCounter++)

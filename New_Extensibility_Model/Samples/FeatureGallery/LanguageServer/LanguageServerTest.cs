@@ -44,7 +44,7 @@ internal class LanguageServerTest : TestData
     public override string ButtonText => "Language Server";
 
     [DataMember]
-    public override string Description => $"This command opens a new file, warning diagnostics will be generated for each line containing `TODO:`. A prompt will ask to close the file.";
+    public override string Description => $"This command opens a new file, green squiggles (warning diagnostics) will be generated for each line containing `TODO:`. A prompt will ask to close the file.";
 
     protected override async Task RunAsync(IClientContext clientContext, CancellationToken cancellationToken)
     {
