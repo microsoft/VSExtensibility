@@ -3,10 +3,6 @@
 
 namespace MemoryStreamVisualizer;
 
-using MemoryStreamObjectSource;
-using Microsoft.VisualStudio.Extensibility.DebuggerVisualizers;
-using Microsoft.VisualStudio.Extensibility.UI;
-using Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers;
 using System;
 using System.Buffers;
 using System.Collections.Generic;
@@ -16,6 +12,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using MemoryStreamObjectSource;
+using Microsoft.VisualStudio.Extensibility.DebuggerVisualizers;
+using Microsoft.VisualStudio.Extensibility.UI;
+using Microsoft.VisualStudio.RpcContracts.DebuggerVisualizers;
 
 /// <summary>
 /// Remote UI user control for the MemoryStreamVisualizer.

@@ -1,5 +1,8 @@
 ﻿namespace CommentRemover;
 
+using System.Diagnostics;
+using System.Threading;
+using System.Threading.Tasks;
 using EnvDTE;
 using EnvDTE80;
 using Microsoft.VisualStudio.Editor;
@@ -11,9 +14,6 @@ using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Text.Editor;
 using Microsoft.VisualStudio.Text.Tagging;
 using Microsoft.VisualStudio.TextManager.Interop;
-using System.Diagnostics;
-using System.Threading;
-using System.Threading.Tasks;
 
 [VisualStudioContribution]
 internal class RemoveRegions : CommentRemoverCommand

@@ -3,8 +3,8 @@
 
 namespace MemoryStreamObjectSource;
 
-using Microsoft.VisualStudio.DebuggerVisualizers;
 using System.IO;
+using Microsoft.VisualStudio.DebuggerVisualizers;
 
 /// <summary>
 /// Object source class for the MemoryStreamVisualizer.

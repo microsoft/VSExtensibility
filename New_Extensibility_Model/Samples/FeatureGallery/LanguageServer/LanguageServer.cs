@@ -8,15 +8,15 @@ namespace FeatureGallery.LanguageServer;
 #endif
 
 using System;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.VisualStudio.LanguageServer.Protocol;
 using Newtonsoft.Json.Linq;
 using StreamJsonRpc;
-using System.Threading;
-using System.Linq;
 
 #pragma warning disable IDE0060, CA1801 // Remove unused parameter
 internal class LanguageServer

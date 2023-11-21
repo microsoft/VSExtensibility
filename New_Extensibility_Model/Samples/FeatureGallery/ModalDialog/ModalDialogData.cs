@@ -7,9 +7,9 @@ namespace InProcFeatureGallery.ModalDialog;
 namespace FeatureGallery.ModalDialog;
 #endif
 
+using System;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
-using System;
 using Microsoft.VisualStudio.Extensibility.UI;
 
 [DataContract]
