@@ -15,7 +15,7 @@ public class WordCountData : NotifyPropertyChangedObject
     private int wordCount;
 
     /// <summary>
-    /// The count of words in the text document.
+    /// Gets or sets the count of words in the text document.
     /// </summary>
     [DataMember]
     public int WordCount

@@ -24,9 +24,7 @@ internal class WordCountMarginProvider : ExtensionPart, ITextViewMarginProvider,
 {
     private readonly Dictionary<Uri, WordCountData> dataModels = new();
 
-    /// <summary>
-    /// Configures this extension part to be applied to any text view.
-    /// </summary>
+    /// <inheritdoc />
     public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
     {
         AppliesTo = new[]
@@ -35,18 +33,14 @@ internal class WordCountMarginProvider : ExtensionPart, ITextViewMarginProvider,
         },
     };
 
-    /// <summary>
-    /// Configures the margin to be placed to the left of built-in Visual Studio line number margin.
-    /// </summary>
+    /// <inheritdoc />
     public TextViewMarginProviderConfiguration TextViewMarginProviderConfiguration =>
         new(marginContainer: ContainerMarginPlacement.KnownValues.BottomRightCorner)
     {
         Before = new[] { MarginPlacement.KnownValues.RowMargin },
     };
 
-    /// <summary>
-    /// Creates a remotable visual element representing the content of the margin.
-    /// </summary>
+    /// <inheritdoc />
     public Task<IRemoteUserControl> CreateVisualElementAsync(ITextViewSnapshot textView, CancellationToken cancellationToken)
     {
         var dataModel = new WordCountData();

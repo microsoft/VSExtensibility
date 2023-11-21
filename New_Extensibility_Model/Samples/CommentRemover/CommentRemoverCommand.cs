@@ -1,5 +1,7 @@
 ﻿namespace CommentRemover;
 
+using System.Diagnostics;
+using System.Text.RegularExpressions;
 using EnvDTE;
 using EnvDTE80;
 using Microsoft;
@@ -13,8 +15,6 @@ using Microsoft.VisualStudio.Text.Editor;
 using Microsoft.VisualStudio.Text.Tagging;
 using Microsoft.VisualStudio.TextManager.Interop;
 using Microsoft.VisualStudio.Threading;
-using System.Diagnostics;
-using System.Text.RegularExpressions;
 
 internal abstract class CommentRemoverCommand : Microsoft.VisualStudio.Extensibility.Commands.Command
 {

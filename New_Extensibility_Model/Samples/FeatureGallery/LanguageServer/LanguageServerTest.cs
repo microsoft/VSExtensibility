@@ -7,15 +7,15 @@ namespace InProcFeatureGallery;
 namespace FeatureGallery;
 #endif
 
+using System.IO;
 using System.Runtime.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Extensibility;
-using System.IO;
-using Microsoft.VisualStudio.RpcContracts.Documents;
-using Microsoft.VisualStudio.Extensibility.Shell;
 using Microsoft.VisualStudio.Extensibility.Editor;
 using Microsoft.VisualStudio.Extensibility.LanguageServer;
+using Microsoft.VisualStudio.Extensibility.Shell;
+using Microsoft.VisualStudio.RpcContracts.Documents;
 
 [DataContract]
 internal class LanguageServerTest : TestData
