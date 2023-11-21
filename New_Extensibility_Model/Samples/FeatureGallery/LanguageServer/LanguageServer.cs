@@ -81,7 +81,7 @@ internal class LanguageServer
 
                 diagnostics.Add(new()
                 {
-                    Severity = DiagnosticSeverity.Error,
+                    Severity = DiagnosticSeverity.Warning,
                     Code = "TODO",
 #if INPROC
                     Source = "In-proc TODO Language Server",
