@@ -24,6 +24,13 @@
     <NoWarn>$(NoWarn);SA1600;SA1602;CS1591</NoWarn>
 
     <!--
+      StyleCop.Analyzers warnings that are not updated to C# 12 yet.
+
+      SA1010: Opening square brackets should not be preceded by a space
+    -->
+    <NoWarn>$(NoWarn);SA1010</NoWarn>
+
+    <!--
       Microsoft.CodeAnalysis.NetAnalyzers warnings.
 
       CA1812: Avoid uninstantiated internal classes
