@@ -4,13 +4,32 @@
     <RepoRootPath>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\'))</RepoRootPath>
     <BaseIntermediateOutputPath>$(RepoRootPath)obj\samples\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
     <BaseOutputPath Condition=" '$(BaseOutputPath)' == '' ">$(RepoRootPath)bin\samples\$(MSBuildProjectName)\</BaseOutputPath>
-    <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <SignAssembly>false</SignAssembly>
     <IsPackable>false</IsPackable>
     <DisableImplicitNamespaceImports>true</DisableImplicitNamespaceImports>
-    <NoWarn>SA0001</NoWarn>
     <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)shipping.ruleset</CodeAnalysisRuleSet>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!--
+      Make sure any documentation comments which are included in code get checked for syntax during the build, but do
+      not report warnings for missing comments.
+
+      SA1600: Elements must be documented
+      SA1602: Enumeration items must be documented
+      CS1591: Missing XML comment
+    -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);SA1600;SA1602;CS1591</NoWarn>
+
+    <!--
+      Microsoft.CodeAnalysis.NetAnalyzers warnings.
+
+      CA1812: Avoid uninstantiated internal classes
+      CA1303: Do not pass literals as localized parameters
+    -->
+    <NoWarn>$(NoWarn);CA1812;CA1303</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

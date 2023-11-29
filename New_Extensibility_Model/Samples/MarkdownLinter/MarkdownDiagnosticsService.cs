@@ -87,7 +87,7 @@ internal class MarkdownDiagnosticsService : DisposableObject
     }
 
     /// <summary>
-    /// Processes the current version <see cref="ITextView"/> instance for markdown errors and reports to the error list.
+    /// Processes the current version <see cref="ITextViewSnapshot"/> instance for markdown errors and reports to the error list.
     /// </summary>
     /// <param name="textViewSnapshot">Text View instance to read the contents from.</param>
     /// <param name="cancellationToken">Cancellation token to monitor.</param>
