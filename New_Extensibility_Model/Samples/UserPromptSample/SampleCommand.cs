@@ -55,9 +55,9 @@ public class SampleCommand : Command
             {
                 Choices =
                 {
-                    { "Solarized Is Awesome", TokenThemeResult.Solarized },
-                    { "OneDark Is The Best", TokenThemeResult.OneDark },
-                    { "GruvBox Is Groovy", TokenThemeResult.GruvBox },
+            { "Solarized Is Awesome", TokenThemeResult.Solarized },
+            { "OneDark Is The Best", TokenThemeResult.OneDark },
+            { "GruvBox Is Groovy", TokenThemeResult.GruvBox },
                 },
                 DismissedReturns = TokenThemeResult.None,
                 DefaultChoiceIndex = 2,

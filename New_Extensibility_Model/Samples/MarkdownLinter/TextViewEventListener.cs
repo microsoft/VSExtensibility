@@ -34,10 +34,10 @@ internal class TextViewEventListener : ExtensionPart, ITextViewOpenClosedListene
     /// <inheritdoc/>
     public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
     {
-        AppliesTo =
-        [
+        AppliesTo = new[]
+        {
             DocumentFilter.FromGlobPattern("**/*.md", true),
-        ],
+        },
     };
 
     /// <inheritdoc />

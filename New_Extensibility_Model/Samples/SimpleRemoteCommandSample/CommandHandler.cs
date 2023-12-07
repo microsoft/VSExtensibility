@@ -17,7 +17,7 @@ public class CommandHandler : Command
     /// <inheritdoc />
     public override CommandConfiguration CommandConfiguration => new("%SimpleRemoteCommandSample.CommandHandler.DisplayName%")
     {
-        Placements = [CommandPlacement.KnownPlacements.ToolsMenu],
+        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
         Icon = new(ImageMoniker.KnownValues.Extension, IconSettings.IconAndText),
     };
 

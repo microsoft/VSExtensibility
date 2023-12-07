@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <LangVersion>12</LangVersion>
+    <LangVersion>11</LangVersion>
     <RootNamespace>RegexMatchVisualizer.ObjectSource</RootNamespace>
   </PropertyGroup>
 

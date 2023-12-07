@@ -26,14 +26,17 @@ internal class RustLanguageServerProvider : LanguageServerProvider
     [VisualStudioContribution]
     public static DocumentTypeConfiguration RustDocumentType => new("rust")
     {
-        FileExtensions = [".rs", ".rust"],
+        FileExtensions = new[] { ".rs", ".rust" },
         BaseDocumentType = LanguageServerBaseDocumentType,
     };
 
     /// <inheritdoc/>
     public override LanguageServerProviderConfiguration LanguageServerProviderConfiguration => new(
         "%RustLspExtension.RustLanguageServerProvider.DisplayName%",
-        [DocumentFilter.FromDocumentType(RustDocumentType)]);
+        new[]
+        {
+            DocumentFilter.FromDocumentType(RustDocumentType),
+        });
 
     /// <inheritdoc/>
     public override Task<IDuplexPipe?> CreateServerConnectionAsync(CancellationToken cancellationToken)
