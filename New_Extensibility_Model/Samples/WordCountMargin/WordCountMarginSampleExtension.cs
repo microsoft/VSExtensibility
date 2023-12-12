@@ -7,7 +7,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.Extensibility;
 
 /// <summary>
-/// <summary>
 /// Extension entry point for the WordCountMarginSample.
 /// </summary>
 [VisualStudioContribution]

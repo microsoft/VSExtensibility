@@ -17,7 +17,7 @@ using Microsoft.VisualStudio.ProjectSystem.Query;
 /// A command to execute linter on the current file selected in Solution Explorer.
 /// </summary>
 /// <remarks>
-/// This command utilizes <see cref="CommandEnabledWhenAttribute"/> to describe when command state is enabled.
+/// This command utilizes <see cref="CommandConfiguration.EnabledWhen"/> to describe when command state is enabled.
 /// </remarks>
 [VisualStudioContribution]
 internal class RunLinterOnCurrentFileCommand : Command

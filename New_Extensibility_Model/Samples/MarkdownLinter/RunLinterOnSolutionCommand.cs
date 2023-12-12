@@ -20,7 +20,7 @@ using Microsoft.VisualStudio.RpcContracts.ProgressReporting;
 /// A command to execute linter on all markdown files in a solution.
 /// </summary>
 /// <remarks>
-/// This command utilizes <see cref="CommandEnabledWhenAttribute"/> to describe when commmand state is enabled.
+/// This command utilizes <see cref="CommandConfiguration.EnabledWhen"/> to describe when commmand state is enabled.
 /// </remarks>
 [VisualStudioContribution]
 internal class RunLinterOnSolutionCommand : Command
