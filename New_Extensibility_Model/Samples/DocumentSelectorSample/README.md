@@ -19,10 +19,10 @@ The extension emulates running unit tests on background when user opens any C# f
 /// <inheritdoc />
 public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
 {
-    AppliesTo = new[]
-        {
-            DocumentFilter.FromGlobPattern("**/tests/*.cs", relativePath: false),
-        },
+    AppliesTo =
+    [
+        DocumentFilter.FromGlobPattern("**/tests/*.cs", relativePath: false),
+    ],
 };
 ```
 

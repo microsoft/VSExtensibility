@@ -40,7 +40,7 @@ internal class RemoveAllComments : CommentRemoverCommand
     {
         Icon = new(ImageMoniker.KnownValues.Uncomment, IconSettings.IconAndText),
         EnabledWhen = CommandEnabledWhen,
-        Shortcuts = new[] { new CommandShortcutConfiguration(ModifierKey.Control, Key.K, ModifierKey.Control, Key.Q) },
+        Shortcuts = [new CommandShortcutConfiguration(ModifierKey.Control, Key.K, ModifierKey.Control, Key.Q)],
     };
 
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
@@ -57,12 +57,12 @@ internal static class ExtensionCommandConfiguration
     [VisualStudioContribution]
     public static MenuConfiguration CommentRemoverMenu => new("%CommentRemover.CommentRemoverMenu.DisplayName%")
     {
-        Placements = new[]
-        {
+        Placements =
+        [
             CommandPlacement.KnownPlacements.ExtensionsMenu.WithPriority(0x01),
-        },
-        Children = new[]
-        {
+        ],
+        Children =
+        [
             MenuChild.Command<RemoveAllComments>(),
             MenuChild.Command<RemoveXmlDocComments>(),
             MenuChild.Command<RemoveAllExceptXmlDocComments>(),
@@ -71,7 +71,7 @@ internal static class ExtensionCommandConfiguration
             MenuChild.Command<RemoveAllExceptTaskComments>(),
             MenuChild.Separator,
             MenuChild.Command<RemoveRegions>(),
-        },
+        ],
     };
 }
 ```

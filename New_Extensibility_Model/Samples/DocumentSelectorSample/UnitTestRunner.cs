@@ -33,10 +33,10 @@ internal class UnitTestRunner : ExtensionPart, ITextViewOpenClosedListener, ITex
     /// <inheritdoc />
     public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
     {
-        AppliesTo = new[]
-            {
+        AppliesTo =
+            [
                 DocumentFilter.FromGlobPattern("**/tests/*.cs", relativePath: false),
-            },
+            ],
     };
 
     /// <inheritdoc />

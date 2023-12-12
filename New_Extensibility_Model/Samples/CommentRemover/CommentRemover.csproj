@@ -4,7 +4,7 @@
     <TargetFrameworks>net472</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <LangVersion>11</LangVersion>
+    <LangVersion>12</LangVersion>
     <NoWarn>$(NoWarn);SA1633</NoWarn>
 
     <!-- The VisualStudio.Extensibility preview packages are available from the azure-public/vside/msft_consumption feed -->

@@ -35,7 +35,7 @@ internal class LanguageServerTest : TestData
 #pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
     public static DocumentTypeConfiguration TodosDocumentType => new(FileExtension)
     {
-        FileExtensions = new[] { "." + FileExtension },
+        FileExtensions = ["." + FileExtension],
         BaseDocumentType = LanguageServerProvider.LanguageServerBaseDocumentType,
     };
 #pragma warning restore VSEXTAPI0001 // This API is marked as Preview.

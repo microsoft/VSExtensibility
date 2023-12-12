@@ -29,10 +29,7 @@ internal class TodoLanguageServerProvider : LanguageServerProvider
 #else
         "%FeatureGallery.LanguageServer.TodoLanguageServerProvider.DisplayName%",
 #endif
-        new[]
-        {
-            DocumentFilter.FromDocumentType(LanguageServerTest.TodosDocumentType),
-        });
+        [DocumentFilter.FromDocumentType(LanguageServerTest.TodosDocumentType)]);
 
     /// <inheritdoc/>
     public override Task<IDuplexPipe?> CreateServerConnectionAsync(CancellationToken cancellationToken)

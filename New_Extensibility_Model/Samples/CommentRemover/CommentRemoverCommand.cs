@@ -20,7 +20,7 @@ internal abstract class CommentRemoverCommand : Microsoft.VisualStudio.Extensibi
 {
     protected static readonly ActivationConstraint CommandEnabledWhen = ActivationConstraint.ClientContext(ClientContextKey.Shell.ActiveSelectionFileName, @"\.(cs|vb|fs)$");
 
-    private static readonly string[] TaskCaptions = { "TODO", "HACK", "UNDONE", "UNRESOLVEDMERGECONFLICT" };
+    private static readonly string[] TaskCaptions = ["TODO", "HACK", "UNDONE", "UNRESOLVEDMERGECONFLICT"];
 
     public CommentRemoverCommand(
         TraceSource traceSource,

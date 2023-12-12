@@ -25,7 +25,7 @@ public class SampleCommand : Command
     public override CommandConfiguration CommandConfiguration => new("%UserPromptSample.SampleCommand.DisplayName%")
     {
         TooltipText = "%UserPromptSample.SampleCommand.ToolTip%",
-        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+        Placements = [CommandPlacement.KnownPlacements.ToolsMenu],
     };
 
     /// <inheritdoc />
@@ -55,9 +55,9 @@ public class SampleCommand : Command
             {
                 Choices =
                 {
-            { "Solarized Is Awesome", TokenThemeResult.Solarized },
-            { "OneDark Is The Best", TokenThemeResult.OneDark },
-            { "GruvBox Is Groovy", TokenThemeResult.GruvBox },
+                    { "Solarized Is Awesome", TokenThemeResult.Solarized },
+                    { "OneDark Is The Best", TokenThemeResult.OneDark },
+                    { "GruvBox Is Groovy", TokenThemeResult.GruvBox },
                 },
                 DismissedReturns = TokenThemeResult.None,
                 DefaultChoiceIndex = 2,

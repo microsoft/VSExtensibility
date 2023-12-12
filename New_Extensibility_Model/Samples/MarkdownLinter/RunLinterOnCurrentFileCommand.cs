@@ -44,7 +44,7 @@ internal class RunLinterOnCurrentFileCommand : Command
     /// <inheritdoc />
     public override CommandConfiguration CommandConfiguration => new("%MarkdownLinter.RunLinterOnCurrentFileCommand.DisplayName%")
     {
-        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+        Placements = [CommandPlacement.KnownPlacements.ToolsMenu],
         Icon = new(ImageMoniker.Custom("MarkdownIcon"), IconSettings.IconAndText),
         EnabledWhen = ActivationConstraint.ClientContext(ClientContextKey.Shell.ActiveSelectionFileName, ".+"),
     };
@@ -56,7 +56,7 @@ internal class RunLinterOnCurrentFileCommand : Command
         try
         {
             // Get the selected item URIs from IDE context that represents the state when command was executed.
-            var selectedItemPaths = new Uri[] { await context.GetSelectedPathAsync(cancellationToken) };
+            Uri[] selectedItemPaths = [await context.GetSelectedPathAsync(cancellationToken)];
 
             // Enumerate through each selection and run linter on each selected item.
             foreach (var selectedItem in selectedItemPaths.Where(p => p.IsFile))

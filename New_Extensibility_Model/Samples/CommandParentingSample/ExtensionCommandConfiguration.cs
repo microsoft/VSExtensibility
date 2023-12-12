@@ -11,9 +11,9 @@ internal static class ExtensionCommandConfiguration
     [VisualStudioContribution]
     public static ToolbarConfiguration ToolBar => new("%CommandParentingSample.ToolBar.DisplayName%")
     {
-        Children = new[]
-        {
+        Children =
+        [
             ToolbarChild.Command<SampleCommand>(),
-        },
+        ],
     };
 }

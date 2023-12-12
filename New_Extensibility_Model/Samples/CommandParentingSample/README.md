@@ -28,8 +28,8 @@ The `CommandConfiguration` property defines information about the command that a
 ```csharp
     public override CommandConfiguration CommandConfiguration => new("%CommandParentingSample.SampleCommand.DisplayName%")
     {
-        Placements = new[]
-        {
+        Placements =
+        [
             // File in project context menu
             CommandPlacement.VsctParent(new Guid("{d309f791-903f-11d0-9efc-00a0c911004f}"), id: 521, priority: 0),
 
@@ -38,7 +38,7 @@ The `CommandConfiguration` property defines information about the command that a
 
             // Solution context menu
             CommandPlacement.VsctParent(new Guid("{d309f791-903f-11d0-9efc-00a0c911004f}"), id: 537, priority: 0),
-        },
+        ],
     };
 ```
 
@@ -54,10 +54,10 @@ The `ToolbarConfiguration` property defines information about the toolbar that a
     [VisualStudioContribution]
     public static ToolbarConfiguration ToolBar => new("%CommandParentingSample.ToolBar.DisplayName%")
     {
-        Children = new[]
-        {
+        Children =
+        [
             ToolbarChild.Command<SampleCommand>(),
-        },
+        ],
     };
 ```
 

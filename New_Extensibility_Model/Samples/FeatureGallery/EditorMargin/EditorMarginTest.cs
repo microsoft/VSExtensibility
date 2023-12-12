@@ -33,7 +33,7 @@ internal class EditorMarginTest : TestData
     [VisualStudioContribution]
     public static DocumentTypeConfiguration WordsDocumentType => new(FileExtension)
     {
-        FileExtensions = new[] { "." + FileExtension },
+        FileExtensions = ["." + FileExtension],
         BaseDocumentType = DocumentType.KnownValues.Text,
     };
 
