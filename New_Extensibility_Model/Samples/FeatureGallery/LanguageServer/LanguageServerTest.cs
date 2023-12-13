@@ -32,13 +32,13 @@ internal class LanguageServerTest : TestData
     }
 
     [VisualStudioContribution]
-#pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
+#pragma warning disable VSEXTPREVIEW_LSP // Type is for evaluation purposes only and is subject to change or removal in future updates.
     public static DocumentTypeConfiguration TodosDocumentType => new(FileExtension)
     {
         FileExtensions = ["." + FileExtension],
         BaseDocumentType = LanguageServerProvider.LanguageServerBaseDocumentType,
     };
-#pragma warning restore VSEXTAPI0001 // This API is marked as Preview.
+#pragma warning restore VSEXTPREVIEW_LSP // Type is for evaluation purposes only and is subject to change or removal in future updates.
 
     [DataMember]
     public override string ButtonText => "Language Server";

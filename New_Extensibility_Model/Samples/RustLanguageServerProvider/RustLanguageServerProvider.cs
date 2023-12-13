@@ -16,8 +16,8 @@ using Microsoft.VisualStudio.RpcContracts.LanguageServerProvider;
 using Nerdbank.Streams;
 
 /// <inheritdoc/>
+#pragma warning disable VSEXTPREVIEW_LSP // Type is for evaluation purposes only and is subject to change or removal in future updates.
 [VisualStudioContribution]
-#pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
 internal class RustLanguageServerProvider : LanguageServerProvider
 {
     /// <summary>
@@ -72,4 +72,4 @@ internal class RustLanguageServerProvider : LanguageServerProvider
         return base.OnServerInitializationResultAsync(serverInitializationResult, initializationFailureInfo, cancellationToken);
     }
 }
-#pragma warning restore VSEXTAPI0001 // This API is marked as Preview.
+#pragma warning restore VSEXTPREVIEW_LSP // Type is for evaluation purposes only and is subject to change or removal in future updates.

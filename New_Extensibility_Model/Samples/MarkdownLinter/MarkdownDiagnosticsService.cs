@@ -20,6 +20,7 @@ using Microsoft.VisualStudio.Threading;
 /// commands or editor listeners.
 /// </summary>
 /// <remarks>For a sample ingestion of this service, see <see cref="TextViewEventListener"/> constructor.</remarks>
+#pragma warning disable VSEXTPREVIEW_OUTPUTWINDOW // Type is for evaluation purposes only and is subject to change or removal in future updates.
 internal class MarkdownDiagnosticsService : DisposableObject
 {
 #pragma warning disable CA2213 // Disposable fields should be disposed, object now owned by this instance.
@@ -79,9 +80,7 @@ internal class MarkdownDiagnosticsService : DisposableObject
         {
             if (this.outputWindow is not null)
             {
-#pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
                 await this.outputWindow.Writer.WriteLineAsync(Strings.MissingLinterError);
-#pragma warning restore VSEXTAPI0001 // This API is marked as Preview.
             }
         }
     }
@@ -161,21 +160,18 @@ internal class MarkdownDiagnosticsService : DisposableObject
         {
             if (this.outputWindow is not null)
             {
-#pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
                 await this.outputWindow.Writer.WriteLineAsync(Strings.MissingLinterError);
-#pragma warning restore VSEXTAPI0001 // This API is marked as Preview.
             }
         }
     }
 
     private async Task InitializeAsync()
     {
-#pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
         this.outputWindow = await this.extensibility.Views().Output.GetChannelAsync(nameof(MarkdownLinterExtension) + Guid.NewGuid(), nameof(Strings.MarkdownLinterWindowName), default);
-#pragma warning restore VSEXTAPI0001 // This API is marked as Preview.
         Assumes.NotNull(this.outputWindow);
 
         this.diagnosticsReporter = this.extensibility.Languages().GetDiagnosticsReporter(nameof(MarkdownLinterExtension));
         Assumes.NotNull(this.diagnosticsReporter);
     }
 }
+#pragma warning restore VSEXTPREVIEW_OUTPUTWINDOW // Type is for evaluation purposes only and is subject to change or removal in future updates.

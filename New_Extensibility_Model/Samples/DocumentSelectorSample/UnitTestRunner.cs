@@ -15,6 +15,7 @@ using Microsoft.VisualStudio.Extensibility.Editor;
 /// This text view event listener monitors users opening/modifying/closing C# files in "tests" folder and emulates running
 /// unit tests in these files.
 /// </summary>
+#pragma warning disable VSEXTPREVIEW_OUTPUTWINDOW // Type is for evaluation purposes only and is subject to change or removal in future updates.
 [VisualStudioContribution]
 internal class UnitTestRunner : ExtensionPart, ITextViewOpenClosedListener, ITextViewChangedListener
 {
@@ -77,20 +78,17 @@ internal class UnitTestRunner : ExtensionPart, ITextViewOpenClosedListener, ITex
 
     private async Task<OutputWindow> GetOutputWindowAsync(CancellationToken cancellationToken)
     {
-#pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
         return this.outputWindow ??= await this.Extensibility.Views().Output.GetChannelAsync(
             identifier: nameof(DocumentSelectorSample),
             displayNameResourceId: nameof(Resources.OutputWindowPaneName),
             cancellationToken);
-#pragma warning restore VSEXTAPI0001 // This API is marked as Preview.
     }
 
     private async Task WriteToOutputWindowAsync(string message, CancellationToken cancellationToken)
     {
         var channel = await this.GetOutputWindowAsync(cancellationToken);
         Assumes.NotNull(channel);
-#pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
         await channel.Writer.WriteLineAsync(message);
-#pragma warning restore VSEXTAPI0001 // This API is marked as Preview.
     }
 }
+#pragma warning restore VSEXTPREVIEW_OUTPUTWINDOW // Type is for evaluation purposes only and is subject to change or removal in future updates.
