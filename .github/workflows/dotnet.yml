@@ -17,8 +17,8 @@ jobs:
       uses: microsoft/setup-msbuild@v1.1.3
     - name: Setup dotnet
       uses: actions/setup-dotnet@v3
-      with:
-        global-json-file: global.json
+     #with:
+     #  global-json-file: global.json
     - name: Restore dependencies
       run: msbuild /t:restore New_Extensibility_Model/Samples/Samples.sln
     - name: Build
