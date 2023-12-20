@@ -35,7 +35,6 @@ internal class InsertGuidCommand : Command
         Placements = [CommandPlacement.KnownPlacements.ExtensionsMenu],
         Icon = new(ImageMoniker.KnownValues.OfficeWebExtension, IconSettings.IconAndText),
         VisibleWhen = ActivationConstraint.ClientContext(ClientContextKey.Shell.ActiveEditorContentType, ".+"),
-        ClientContexts = ["Editor", "Shell"],
     };
 
     /// <inheritdoc />
