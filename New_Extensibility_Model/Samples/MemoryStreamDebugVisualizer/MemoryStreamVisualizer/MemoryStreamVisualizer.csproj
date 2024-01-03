@@ -12,8 +12,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.9.2084" />
-    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.9.2084" />
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.9.2086" />
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.9.2086" />
   </ItemGroup>
 
   <ItemGroup>
