@@ -26,7 +26,7 @@ The `CommandConfiguration` property defines information about the command that i
 public override CommandConfiguration CommandConfiguration => new("%UserPromptSample.SampleCommand.DisplayName%")
 {
     TooltipText = "%UserPromptSample.SampleCommand.ToolTip%",
-    Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+    Placements = [CommandPlacement.KnownPlacements.ToolsMenu],
 };
 ```
 

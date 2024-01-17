@@ -23,17 +23,17 @@ internal class TextViewMarginProvider : ExtensionPart, ITextViewMarginProvider, 
     /// <inheritdoc />
     public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
     {
-        AppliesTo = new[]
-        {
+        AppliesTo =
+        [
             DocumentFilter.FromDocumentType(DocumentType.KnownValues.Text),
-        },
+        ],
     };
 
     /// <inheritdoc />
     public TextViewMarginProviderConfiguration TextViewMarginProviderConfiguration =>
         new(marginContainer: ContainerMarginPlacement.KnownValues.BottomRightCorner)
     {
-        Before = new[] { MarginPlacement.KnownValues.RowMargin },
+        Before = [MarginPlacement.KnownValues.RowMargin],
     };
 
     /// <inheritdoc />

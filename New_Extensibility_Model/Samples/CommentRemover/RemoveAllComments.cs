@@ -37,7 +37,7 @@ internal class RemoveAllComments : CommentRemoverCommand
     {
         Icon = new(ImageMoniker.KnownValues.Uncomment, IconSettings.IconAndText),
         EnabledWhen = CommandEnabledWhen,
-        Shortcuts = new[] { new CommandShortcutConfiguration(ModifierKey.Control, Key.K, ModifierKey.Control, Key.Q) },
+        Shortcuts = [new CommandShortcutConfiguration(ModifierKey.Control, Key.K, ModifierKey.Control, Key.Q)],
     };
 
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)

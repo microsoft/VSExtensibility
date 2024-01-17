@@ -38,7 +38,7 @@ Documentation is currently available for the following:
 
 ## Install VisualStudio.Extensibility
 
-The current VisualStudio.Extensibility preview works with Visual Studio 2022 version 17.9 Preview 1 or higher with the `Visual Studio extension development` workload to be installed. VisualStudio.Extensibility extensions can be installed on Visual Studio 2022 version 17.9 Preview 1 and above.
+The current VisualStudio.Extensibility preview works with Visual Studio 2022 version 17.9 Preview 3 or higher with the `Visual Studio extension development` workload to be installed. VisualStudio.Extensibility extensions can be installed on Visual Studio 2022 version 17.9 Preview 3 and above.
 
 ## Get Started
 

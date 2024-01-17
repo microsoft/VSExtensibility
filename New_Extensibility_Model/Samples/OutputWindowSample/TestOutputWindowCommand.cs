@@ -13,6 +13,7 @@ using Microsoft.VisualStudio.Extensibility.Documents;
 /// A sample command for displaying a test message in the output window.
 /// </summary>
 [VisualStudioContribution]
+#pragma warning disable VSEXTPREVIEW_OUTPUTWINDOW // Type is for evaluation purposes only and is subject to change or removal in future updates.
 public class TestOutputWindowCommand : Command
 {
     private OutputWindow? outputWindow;
@@ -20,7 +21,7 @@ public class TestOutputWindowCommand : Command
     /// <inheritdoc />
     public override CommandConfiguration CommandConfiguration => new("%OutputWindowSample.TestOutputWindowCommand.DisplayName%")
     {
-        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+        Placements = [CommandPlacement.KnownPlacements.ToolsMenu],
         Icon = new(ImageMoniker.KnownValues.ToolWindow, IconSettings.IconAndText),
     };
 
@@ -36,9 +37,7 @@ public class TestOutputWindowCommand : Command
     {
         if (this.outputWindow != null)
         {
-#pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
             await this.outputWindow.Writer.WriteLineAsync("This is a test of the output window.");
-#pragma warning restore VSEXTAPI0001 // This API is marked as Preview.
         }
     }
 
@@ -46,8 +45,7 @@ public class TestOutputWindowCommand : Command
     {
         string id = "MyOutputWindow";
         string displayNameResourceId = nameof(Strings.OutputWindowDisplayName);
-#pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
         return await this.Extensibility.Views().Output.GetChannelAsync(id, displayNameResourceId, cancellationToken);
-#pragma warning restore VSEXTAPI0001 // This API is marked as Preview.
     }
 }
+#pragma warning restore VSEXTPREVIEW_OUTPUTWINDOW // Type is for evaluation purposes only and is subject to change or removal in future updates.

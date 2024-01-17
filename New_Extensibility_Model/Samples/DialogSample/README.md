@@ -23,7 +23,7 @@ The `CommandConfiguration` property defines information about the command that a
 ```csharp
     public override CommandConfiguration CommandConfiguration => new("%DialogSample.MyDialogCommand.DisplayName%")
     {
-        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+        Placements = [CommandPlacement.KnownPlacements.ToolsMenu],
         Icon = new(ImageMoniker.KnownValues.Dialog, IconSettings.IconAndText),
     };
 ```

@@ -103,7 +103,7 @@ The `CommandConfiguration` property defines information about the command that a
 ```csharp
     public override CommandConfiguration CommandConfiguration => new("%ToolWindowSample.MyToolWindowCommand.DisplayName%")
     {
-        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+        Placements = [CommandPlacement.KnownPlacements.ToolsMenu],
         Icon = new(ImageMoniker.KnownValues.ToolWindow, IconSettings.IconAndText),
     };
 ```

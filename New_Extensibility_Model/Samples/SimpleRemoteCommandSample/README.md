@@ -24,7 +24,7 @@ The `CommandConfiguration` property defines information about the command that a
 ```csharp
     public override CommandConfiguration CommandConfiguration => new("%SimpleRemoteCommandSample.CommandHandler.DisplayName%")
     {
-        Placements = new[] { CommandPlacement.KnownPlacements.ToolsMenu },
+        Placements = [CommandPlacement.KnownPlacements.ToolsMenu],
         Icon = new(ImageMoniker.KnownValues.Extension, IconSettings.IconAndText),
     };
 ```

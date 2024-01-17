@@ -18,10 +18,10 @@ This extension is a simple extension which adds a margin to the Visual Studio ed
 /// <inheritdoc />
 public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
 {
-    AppliesTo = new[]
-        {
-            DocumentFilter.FromDocumentType(DocumentType.KnownValues.Text),
-        },
+    AppliesTo =
+    [
+        DocumentFilter.FromDocumentType(DocumentType.KnownValues.Text),
+    ],
 };
 ```
 
@@ -34,7 +34,7 @@ public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
 public TextViewMarginProviderConfiguration TextViewMarginProviderConfiguration =>
     new(marginContainer: ContainerMarginPlacement.KnownValues.BottomRightCorner)
     {
-        Before = new[] { MarginPlacement.KnownValues.RowMargin },
+        Before = [MarginPlacement.KnownValues.RowMargin],
     };
 ```
 

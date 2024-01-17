@@ -18,8 +18,8 @@ using Nerdbank.Streams;
 using StreamJsonRpc;
 
 /// <inheritdoc/>
+#pragma warning disable VSEXTPREVIEW_LSP // Type is for evaluation purposes only and is subject to change or removal in future updates.
 [VisualStudioContribution]
-#pragma warning disable VSEXTAPI0001 // This API is marked as Preview.
 internal class TodoLanguageServerProvider : LanguageServerProvider
 {
     /// <inheritdoc/>
@@ -29,10 +29,7 @@ internal class TodoLanguageServerProvider : LanguageServerProvider
 #else
         "%FeatureGallery.LanguageServer.TodoLanguageServerProvider.DisplayName%",
 #endif
-        new[]
-        {
-            DocumentFilter.FromDocumentType(LanguageServerTest.TodosDocumentType),
-        });
+        [DocumentFilter.FromDocumentType(LanguageServerTest.TodosDocumentType)]);
 
     /// <inheritdoc/>
     public override Task<IDuplexPipe?> CreateServerConnectionAsync(CancellationToken cancellationToken)
@@ -48,4 +45,4 @@ internal class TodoLanguageServerProvider : LanguageServerProvider
                 PipeWriter.Create(streams.Item1)));
     }
 }
-#pragma warning restore VSEXTAPI0001 // This API is marked as Preview.
+#pragma warning restore VSEXTPREVIEW_LSP // Type is for evaluation purposes only and is subject to change or removal in future updates.

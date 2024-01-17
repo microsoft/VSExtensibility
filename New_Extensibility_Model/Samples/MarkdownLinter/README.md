@@ -67,10 +67,10 @@ The extension part also utilizes the `AppliesTo` configuration to indicate that 
 ```csharp
 public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
 {
-    AppliesTo = new[]
-    {
+    AppliesTo =
+    [
         DocumentFilter.FromGlobPattern("**/*.md", true),
-    },
+    ],
 };
 ```
 

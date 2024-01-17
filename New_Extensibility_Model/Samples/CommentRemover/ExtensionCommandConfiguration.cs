@@ -8,12 +8,12 @@ internal static class ExtensionCommandConfiguration
     [VisualStudioContribution]
     public static MenuConfiguration CommentRemoverMenu => new("%CommentRemover.CommentRemoverMenu.DisplayName%")
     {
-        Placements = new[]
-        {
+        Placements =
+        [
             CommandPlacement.KnownPlacements.ExtensionsMenu.WithPriority(0x01),
-        },
-        Children = new[]
-        {
+        ],
+        Children =
+        [
             MenuChild.Command<RemoveAllComments>(),
             MenuChild.Command<RemoveXmlDocComments>(),
             MenuChild.Command<RemoveAllExceptXmlDocComments>(),
@@ -22,6 +22,6 @@ internal static class ExtensionCommandConfiguration
             MenuChild.Command<RemoveAllExceptTaskComments>(),
             MenuChild.Separator,
             MenuChild.Command<RemoveRegions>(),
-        },
+        ],
     };
 }

@@ -33,7 +33,7 @@ public class MainToolWindowCommand : Command
         new("%FeatureGallery.MainToolWindowCommand.DisplayName%")
 #endif
     {
-        Placements = new[] { CommandPlacement.KnownPlacements.ExtensionsMenu },
+        Placements = [CommandPlacement.KnownPlacements.ExtensionsMenu],
         Icon = new(ImageMoniker.KnownValues.Extension, IconSettings.IconAndText),
     };
 
