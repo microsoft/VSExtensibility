@@ -1,7 +1,8 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-namespace UploaderExtension;
+namespace ExtensionPublisher;
+
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ public class UploaderExtensionCommand : Command
     /// Initializes a new instance of the <see cref="UploaderExtensionCommand"/> class.
     /// </summary>
     /// <inheritdoc />
-    public override CommandConfiguration CommandConfiguration => new("%UploaderExtension.UploaderExtensionCommand.DisplayName%")
+    public override CommandConfiguration CommandConfiguration => new("%ExtensionPublisher.UploaderExtensionCommand.DisplayName%")
     {
         // Use this object initializer to set optional parameters for the command. The required parameter,
         // displayName, is set above. DisplayName is localized and references an entry in .vsextension\string-resources.json.

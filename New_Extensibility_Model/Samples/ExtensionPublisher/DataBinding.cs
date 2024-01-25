@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-namespace UploaderExtension;
+namespace ExtensionPublisher;
 
 using System;
 using System.Collections.Generic;
@@ -15,13 +15,13 @@ using System.Security.RightsManagement;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using ExtensionPublisher.Processor;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Shell;
 using Microsoft.VisualStudio.Extensibility.UI;
 using Newtonsoft.Json;
 using ReadVsixToJson;
 using ReadVsixToJson.Models;
-using UploaderExtension.Processor;
 
 [DataContract]
 
