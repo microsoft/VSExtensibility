@@ -1,0 +1,97 @@
+﻿<DataTemplate xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:vs="http://schemas.microsoft.com/visualstudio/extensibility/2022/xaml"
+              xmlns:styles="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
+              xmlns:colors="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0">
+    <DataTemplate.Resources>
+        <Style TargetType="CheckBox"  BasedOn="{StaticResource {x:Static styles:VsResourceKeys.CheckBoxStyleKey}}" />
+        <Style TargetType="Button"  BasedOn="{StaticResource {x:Static styles:VsResourceKeys.ButtonStyleKey}}" />
+        <Style TargetType="TextBox"  BasedOn="{StaticResource {x:Static styles:VsResourceKeys.TextBoxStyleKey}}" />
+        <Style TargetType="ComboBox"  BasedOn="{StaticResource {x:Static styles:VsResourceKeys.ComboBoxStyleKey}}" />
+        <Style TargetType="ListView"  BasedOn="{StaticResource {x:Static styles:VsResourceKeys.ThemedDialogListViewStyleKey}}" />
+        <Style TargetType="ProgressBar" BasedOn="{StaticResource {x:Static styles:VsResourceKeys.ProgressBarStyleKey}}" />
+    </DataTemplate.Resources>
+    <Grid Margin="5" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,5,0,5" VerticalAlignment="Top">
+                Select up to 3 categories:
+        </TextBlock>
+        <ListView ItemsSource="{Binding MyCategories}" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top"
+                    Height="183" Margin="0,5,0,5">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox IsChecked="{Binding IsSelected}" 
+                                Content="{Binding Description}"
+                                TextElement.Foreground="{DynamicResource {x:Static colors:EnvironmentColors.ToolWindowTextBrushKey}}"                                  />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,5,0,5" VerticalAlignment="Center">
+            Price:
+        </TextBlock>
+        <ComboBox 
+            ItemsSource="{Binding PriceOptions}" Grid.Row="1" Grid.Column="1" SelectedValue="{Binding PriceOption}" IsEditable="False"
+            Margin="0,5,0,5">
+        </ComboBox>
+        <CheckBox Grid.Row="2" Grid.Column="1" IsChecked="{Binding Private}"
+                    Margin="0,5,0,5" VerticalAlignment="Bottom">
+            Private
+        </CheckBox>
+        <CheckBox Grid.Row="3" Grid.Column="1" IsChecked="{Binding Qna}"
+                    Margin="0,5,0,5" VerticalAlignment="Bottom">
+            Questions and Answers
+        </CheckBox>
+        <TextBlock Grid.Row="4" Grid.Column="0" Margin="0,5,5,5" VerticalAlignment="Center">
+            Extension's GitHub repository (Optional):
+        </TextBlock>
+        <TextBox Text="{Binding Repo}" Margin="0,5,0,5" Grid.Row="4" Grid.Column="1" />
+        <TextBlock Grid.Row="5" Grid.Column="0" Margin="0,5,5,5" VerticalAlignment="Center">
+            Extension's description (Markdown):
+        </TextBlock>
+        <TextBox 
+            Text="{Binding ExtensionDescription}" 
+            Margin="0,5,0,5" 
+            Grid.Row="5" 
+            Grid.Column="1" 
+            TextWrapping="Wrap"
+            AcceptsReturn="True"
+            VerticalScrollBarVisibility="Visible"/>
+        <TextBlock Grid.Row="6" Grid.Column="0" Margin="0,5,0,5" VerticalAlignment="Center">
+            Personal Access Token (PAT):
+        </TextBlock>
+        <TextBox 
+            Text="{Binding PersonalAccessToken}" Margin="0,5,0,5" Grid.Row="6" 
+            Grid.Column="1" HorizontalAlignment="Left" Width="914"/>
+        <ProgressBar
+            Margin="0,5,0,5"
+            Height="5"
+            Grid.Row="7"
+            Grid.Column="1"
+            Width="1000"
+            Minimum="0"
+            Maximum="100"
+            HorizontalAlignment="Left" 
+            IsIndeterminate="{Binding IsIndeterminate}" />
+        <StackPanel Grid.Row="6" Grid.Column="1">
+            <Button Command="{Binding SubmitUpload}" IsEnabled="{Binding IsSubmitEnable}" Margin="0,5,0,5" 
+                    Focusable="True" Width="30" Height="20" HorizontalAlignment="Right">
+                Submit
+            </Button>
+        </StackPanel>
+    </Grid>
+</DataTemplate>
