@@ -3,15 +3,11 @@
   <PropertyGroup>
     <TargetFramework>net8.0-windows8.0</TargetFramework>
     <Nullable>enable</Nullable>
-    <NoWarn>$(NoWarn);CS1591</NoWarn>
-    <NoWarn>$(NoWarn);SA1600</NoWarn>
-
-		<RestoreAdditionalProjectSources>https://pkgs.dev.azure.com/azure-public/vside/_packaging/msft_consumption/nuget/v3/index.json;$(RestoreAdditionalProjectSources)</RestoreAdditionalProjectSources>
-	</PropertyGroup>
+  </PropertyGroup>
 
   <ItemGroup>
-		<PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.9.2092" />
-		<PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.9.2092" />
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.9.2092" />
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.9.2092" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,8 +15,8 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <EmbeddedResource Include="MyToolWindowContent.xaml">
-	  </EmbeddedResource>
+    <EmbeddedResource Include="MyToolWindowContent.xaml">
+    </EmbeddedResource>
   </ItemGroup>
 
   <Target Name="CopyOutputToVsixPackageFolder" AfterTargets="Build">

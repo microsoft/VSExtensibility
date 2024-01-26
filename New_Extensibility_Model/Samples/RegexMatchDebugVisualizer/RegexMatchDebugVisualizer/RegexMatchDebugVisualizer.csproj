@@ -6,9 +6,6 @@
     <LangVersion>12</LangVersion>
     <RootNamespace>RegexMatchVisualizer</RootNamespace>
     <DefineConstants>$(DefineConstants);VISUALIZER</DefineConstants>
-
-    <!-- The VisualStudio.Extensibility preview packages are available from the azure-public/vside/msft_consumption feed -->
-    <RestoreAdditionalProjectSources>https://pkgs.dev.azure.com/azure-public/vside/_packaging/msft_consumption/nuget/v3/index.json;$(RestoreAdditionalProjectSources)</RestoreAdditionalProjectSources>
   </PropertyGroup>
 
   <ItemGroup>

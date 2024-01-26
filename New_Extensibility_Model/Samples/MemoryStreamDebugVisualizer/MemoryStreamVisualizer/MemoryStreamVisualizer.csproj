@@ -6,9 +6,6 @@
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <NeutralLanguage>en-US</NeutralLanguage>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
-
-    <!-- The VisualStudio.Extensibility preview packages are available from the azure-public/vside/msft_consumption feed -->
-    <RestoreAdditionalProjectSources>https://pkgs.dev.azure.com/azure-public/vside/_packaging/msft_consumption/nuget/v3/index.json;$(RestoreAdditionalProjectSources)</RestoreAdditionalProjectSources>
   </PropertyGroup>
 
   <ItemGroup>
