@@ -1,7 +1,7 @@
 ---
 title: VS Project Query API Extension reference
 description: A reference for VS Project Query API Extension reference
-date: 2022-1-20
+date: 2024-1-11
 ---
 
 # Walkthrough: VS Project Query API Extension
@@ -89,7 +89,7 @@ var result = await this.Extensibility.Workspaces().QueryProjectsAsync(
 
 ### Querying By Id
 
-As usuages for project query becomes more complex, you may realize that the require more information from their query.
+As usages for project query becomes more complex, you may realize that the require more information from their query.
 
 In our example, let's say we already queried information about Output Groups.
 
@@ -123,3 +123,103 @@ await foreach (var project in result)
 ```
 
 Now `newResult` will contain information about OutputGroups' names.
+
+## Sample Queries
+
+Below is a showcase of queries that are available in the Project Query API
+
+### Solution Level Queries
+
+### Solution Build Actions
+
+In project query, you also have the ability to invoke build actions on the solution level. These build actions include: `BuildAsync`, `RebuildAsync`,  `CleanAsync`, `DebugLaunchAsync`, and `LaunchAsync`.
+
+```csharp
+var result = await querySpace.Solutions
+            .BuildAsync(cancellationToken);
+```
+
+### Loading/Unloading a Project
+
+In the snippet below, we specify the solution we would like to unload the project from and pass in the project path when we make our `UnloadProject` call. 
+
+```csharp
+await this.Extensibility.Workspaces().UpdateSolutionAsync(
+    solution => solution.Where(solution => solution.BaseName == solutionName),
+    solution => solution.UnloadProject(projectPath),
+    cancellationToken);
+```
+
+Similarly, we can load the project by calling the `ReloadProject` API.
+
+```csharp
+await this.Extensibility.Workspaces().UpdateSolutionAsync(
+    solution => solution.Where(solution => solution.BaseName == solutionName),
+    solution => solution.ReloadProject(projectPath),
+    cancellationToken);
+```
+
+
+### Saving a Solution
+
+`SaveAsync` is an API call that can be used on the solution level.
+
+```csharp
+var result = await querySpace.Solutions.SaveAsync(cancellationToken);
+```
+
+
+### Actions for Startup Projects
+
+Using the Project Query API, you also can select which projects get executed. In the sample below, we added two project paths to be set as the startup project.
+
+```csharp
+await this.Extensibility.Workspaces().UpdateSolutionAsync(
+    solution => solution.Where(solution => solution.BaseName == solutionName),
+    solution => solution.SetStartupProjects(projectPath1, projectPath2),
+    cancellationToken);
+```
+
+### Actions for Solution Configurations
+
+`AddSolutionConfiguration` is an API call that takes in three parameters. The first parameter is the new name we want to give our new solution configuration. In this scenario, we will call our new solution configuration `Foo`. The next parameter is the configuration to base our new configuration. Below, we based our new solution configuration on the existing solution configuration, `Debug`. Lastly, the boolean represents if the solution configuration should be propagated.
+
+```csharp
+await this.Extensibility.Workspaces().UpdateSolutionAsync(
+    solution => solution.Where(solution => solution.BaseName == solutionName),
+    solution => solution.AddSolutionConfiguration("Foo", "Debug", false),
+    cancellationToken);
+```
+
+`DeleteSolutionConfiguration` is an API call that removes the solution configuration. In the example below, we removed the solution configuration called `Foo`.
+
+```csharp
+await this.Extensibility.Workspaces().UpdateSolutionAsync(
+    solution => solution.Where(solution => solution.BaseName == solutionName),
+    solution => solution.DeleteSolutionConfiguration("Foo"),
+    cancellationToken);
+```
+
+
+### Project Level Queries
+
+### Project Build Actions
+
+On the project level, you many invoke these build actions: `BuildAsync`, `RebuildAsync`,  `CleanAsync`, `DebugLaunchAsync`, and `LaunchAsync`.
+While building on the project level, determine the selected project you want to build. In the example below, `result.First()` is an `IProjectSnapshot` that will be built.
+
+```csharp
+await result.First().BuildAsync(cancellationToken);
+```
+
+### Rename Project
+
+In the example below, we specify the name of the project we would like to update. We then call `Rename` while passing in the new name of the project.
+
+```csharp
+var result = await querySpace.Projects
+    .Where(p => p.Name == "ConsoleApp1")
+    .AsUpdatable()
+    .Rename("NewProjectName")
+    .ExecuteAsync(cancellationToken);
+```
