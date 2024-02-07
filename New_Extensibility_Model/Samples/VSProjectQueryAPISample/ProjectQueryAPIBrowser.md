@@ -59,7 +59,7 @@ In our example, we call the `ExecuteQueryAsync` method to get information from t
 
 Instead of writing queries, users may use the API Metadata tree located on the left panel of the Project Query API Browser. Users may select/deselect the information that they would like to receive from the query. As users select and deselect items in the tree view, the editor will dynamically change its query.
 
-![APIMetadata](Images/TemplateQueries.png)
+![APIMetadata](Images/APIMetaData.png)
 *Figure 3: Tree View of API Metadata*
 
 ## Template Queries
