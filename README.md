@@ -6,9 +6,9 @@ date: 2021-8-19
 
 # Welcome to VisualStudio.Extensibility
 
-VisualStudio.Extensibility is a new framework for developing Visual Studio extensions. The new framework focuses primarily on extensions that run out-of-process from the IDE for improved performance and reliability, and it features a modern, asynchronous API that has been streamlined and carefully engineered to maximize developer productivity. VisualStudio.Extensibility is in active development and is available as a preview.
+VisualStudio.Extensibility is a new framework for developing Visual Studio extensions. The new framework focuses primarily on extensions that run out-of-process from the IDE for improved performance and reliability, and it features a modern, asynchronous API that has been streamlined and carefully engineered to maximize developer productivity. VisualStudio.Extensibility is in active development.
 
-With the current preview, you can develop a wide range of extensions to Visual Studio, including creating commands, working with code or text in the editor, displaying prompts or dialogs to the user, creating debugger visualizers, and more!
+With the current version, you can develop a wide range of extensions to Visual Studio, including creating commands, working with code or text in the editor, displaying prompts or dialogs to the user, creating debugger visualizers, and more!
 
 VisualStudio.Extensibility aims to address many of the problems developers experience when using and writing extensions in Visual Studio. Writing extensions using VisualStudio.Extensibility provides the following benefits:
 
@@ -28,7 +28,7 @@ Documentation is currently available for the following:
 
 | Article | Description|
 |-|-|
-| [Install VisualStudio.Extensibility](#install-visualstudioextensibility) | Download and install the latest preview of VisualStudio.Extensibility. |
+| [Install VisualStudio.Extensibility](#install-visualstudioextensibility) | Download and install VisualStudio.Extensibility. |
 | [Get started](#get-started) | Start with beginner quickstarts and introductory tutorials if you've never developed an extension before. |
 | [Concepts](#concepts) | Build your mental model of how the SDK and extensions work. |
 | [Overviews](#overviews) | Learn more by reading overviews of each major area of functionality. |
@@ -38,7 +38,8 @@ Documentation is currently available for the following:
 
 ## Install VisualStudio.Extensibility
 
-The current VisualStudio.Extensibility preview works with Visual Studio 2022 version 17.9 Preview 3 or higher with the `Visual Studio extension development` workload to be installed. VisualStudio.Extensibility extensions can be installed on Visual Studio 2022 version 17.9 Preview 3 and above.
+VisualStudio.Extensibility works with Visual Studio 2022 version 17.9 or higher with the `Visual Studio extension development` workload to be installed. VisualStudio.Extensibility extensions can be installed on Visual Studio 2022 version 17.9 and above.
+VisualStudio.Extensibility packages having a version higher than 17.9 provide additional functionalities and can be used when targeting the corresponding version of Visual Studio. For example, when building an extension with VisualStudio.Extensibility packages version 17.10, the resulting extension will be compatible with Visual Studio 17.10 and above.
 
 ## Get Started
 

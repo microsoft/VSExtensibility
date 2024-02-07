@@ -6,15 +6,11 @@ namespace ExtensionPublisher;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Security.Policy;
-using System.Security.RightsManagement;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 using ExtensionPublisher.Processor;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Shell;
@@ -360,34 +356,34 @@ public class DataBinding : INotifyPropertyChanged
             return null!;
         }
     }
-}
 
-[DataContract]
-public class MyCategory
-{
-    public MyCategory(string description)
+    [DataContract]
+    public class MyCategory
     {
-        this.Description = description;
-        this.IsSelected = false;
-    }
-
-    public MyCategory(string description, List<string> savedCategories)
-    {
-        this.Description = description;
-        this.IsSelected = false;
-
-        foreach (string category in savedCategories)
+        public MyCategory(string description)
         {
-            if (description == category)
+            this.Description = description;
+            this.IsSelected = false;
+        }
+
+        public MyCategory(string description, List<string> savedCategories)
+        {
+            this.Description = description;
+            this.IsSelected = false;
+
+            foreach (string category in savedCategories)
             {
-                this.IsSelected = true;
+                if (description == category)
+                {
+                    this.IsSelected = true;
+                }
             }
         }
+
+        [DataMember]
+        public string Description { get; }
+
+        [DataMember]
+        public bool IsSelected { get; set; }
     }
-
-    [DataMember]
-    public string Description { get; }
-
-    [DataMember]
-    public bool IsSelected { get; set; }
 }
