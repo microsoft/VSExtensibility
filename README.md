@@ -98,6 +98,24 @@ You can find a Visual Studio solution that contains all samples at [Samples.sln]
 | [Project Query](New_Extensibility_Model/Samples/VSProjectQueryAPISample) | Shows several different kinds of project system queries you can make. |
 | [Comment remover](New_Extensibility_Model/Samples/CommentRemover) | Shows how to consume [Visual Studio SDK](https://www.nuget.org/packages/Microsoft.VisualStudio.SDK) services through .NET dependency injection and use VisualStudio.Extensibility APIs for commands, prompts, and progress report.|
 
+## Experimental APIs and Breaking Changes
+Starting with our 17.9 release, we're ready to label the vast majority of our APIs as stable. That is, we don't plan to make any breaking changes to these APIs. Any breaking changes that might need to be made, for example in response to user feedback about usability, will be communicated formally and with plenty of notice on our [breaking changes](./docs/breaking_changes.md) page.
+
+There are a few of our APIs that don't yet meet this bar for stability, for one of several reasons:
+* The feature area is new and additional features and changes are expected in future versions.
+* The API is new and we want to incorporate user feedback into the deisgn before marking it stable.
+* We've received feedback that a particular API is difficult to use, so we're planning on updating it in future versions.
+
+For these APIs, we've explicitly labeled them using the `[Experimental]` attribute to help extension authors create their extensions with confidence in the the SDK.
+
+For more information, including how to use experimental APIs, please see our [Experimental APIs](./docs/experimental_apis.md) page.
+
+## Known Issues
+
+We appreciate your feedback and bug reports in our [Issues Tracker](https://github.com/microsoft/VSExtensibility/issues), and we work to address any issues found in the SDK.
+
+Please visit our [Known Issues](./docs/known_issues.md) page for information about any current known issues.
+
 ## Advanced Topics
 
 | Article | Description|
