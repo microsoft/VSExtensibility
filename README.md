@@ -34,6 +34,8 @@ Documentation is currently available for the following:
 | [Overviews](#overviews) | Learn more by reading overviews of each major area of functionality. |
 | [Samples](#samples-and-tutorials) | Explore sample code demonstrating major features. |
 | [API reference](#api-docs) | Browse the VisualStudio.Extensibility API documentation. |
+| [Experimental APIs and Breaking Changes](#experimental-apis-and-breaking-changes) | Learn about our approach to stable-vs-experimental APIs and about breaking changes from the previous version. |
+| [Known Issues](#known-issues) | View known issues with the VisualStudio.Extensibility SDK. |
 | [Advanced topics](#advanced-topics) | Learn implementation details of the VisualStudio.Extensibility SDK. |
 
 ## Install VisualStudio.Extensibility
