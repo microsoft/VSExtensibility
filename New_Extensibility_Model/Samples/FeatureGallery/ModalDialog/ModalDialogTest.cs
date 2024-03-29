@@ -24,7 +24,7 @@ internal class ModalDialogTest : TestData
     public override string ButtonText => "Modal dialog";
 
     [DataMember]
-    public override string Description => "This command opens a modal dialog where random colors can be added or removed from a list.";
+    public override string Description => "This command opens a modal dialog where random colors can be added or removed from a list. The `Add color` and `Remove` buttons have localized text.";
 
     protected override async Task RunAsync(IClientContext clientContext, CancellationToken cancellationToken)
     {

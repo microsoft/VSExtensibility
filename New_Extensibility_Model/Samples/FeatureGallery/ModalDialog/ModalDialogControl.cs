@@ -20,5 +20,10 @@ internal class ModalDialogControl : RemoteUserControl
     public ModalDialogControl()
         : base(new ModalDialogData())
     {
+#if INPROC
+        this.ResourceDictionaries.AddEmbeddedResource("InProcFeatureGallery.ModalDialog.XamlResources.xaml");
+#else
+        this.ResourceDictionaries.AddEmbeddedResource("FeatureGallery.ModalDialog.XamlResources.xaml");
+#endif
     }
 }

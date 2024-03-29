@@ -26,7 +26,7 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding ColorText}" />
                         <Rectangle Fill="{Binding Color}" Width="50px" Grid.Column="1" />
-                        <Button Content="Remove" Grid.Column="2" IsEnabled="{Binding Path=(vs:ExtensibilityUICommands.RunningCommandsCount).IsZero, RelativeSource={RelativeSource Self}}">
+                        <Button Content="{DynamicResource removeButtonText}" Grid.Column="2" IsEnabled="{Binding Path=(vs:ExtensibilityUICommands.RunningCommandsCount).IsZero, RelativeSource={RelativeSource Self}}">
                             <vs:ExtensibilityUICommands.EventHandlers>
                                 <vs:EventHandlerCollection>
                                     <vs:EventHandler Event="Click"
@@ -40,6 +40,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Content="Add color" Command="{Binding AddColorCommand}" IsEnabled="{Binding AddColorCommand.RunningCommandsCount.IsZero}" Grid.Row="1" />
+        <Button Content="{DynamicResource addButtonText}" Command="{Binding AddColorCommand}" IsEnabled="{Binding AddColorCommand.RunningCommandsCount.IsZero}" Grid.Row="1" />
     </Grid>
 </DataTemplate>
