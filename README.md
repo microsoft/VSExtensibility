@@ -135,6 +135,19 @@ We're actively seeking feedback and engagement. The preview phase is a great tim
 
 For future updates please bookmark our [announcements](docs/announcements.md) page.
 
+While VisualStudio.Extensibility is in the preview phase, it’s a great time for you, our community members, to share your input to help us identify issues and opportunities. Community participation is welcome and highly encouraged; we value the input and insights provided by extension developers like you!
+
+You can provide feedback and report bugs in our issues tracker. Please note that we don’t have a dedicated support team – we, the engineering team working on VisualStudio.Extensibility will be the ones monitoring and triaging issues and other extension developers will be able to comment on these, too. Because we don’t have a dedicated support team, it may take some time before we get to issues and we won’t always be able to respond to everything.
+
+Regarding our response flow on issues, here’s a general overview:
+- You submit an issue.
+- That issue remains in a “triage” state until we’ve assigned a team member to investigate it.
+- Once assigned, the issue is moved to “scheduled”. This doesn’t imply an immediate fix, but indicates that we’re actively looking into it.
+- Issues we won’t address immediately will be moved to “backlog”.
+- Issues that are either fixed in code or addressed via comments will be closed.
+
+For future updates please bookmark our announcements page.
+
 ## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
