@@ -223,3 +223,25 @@ var result = await querySpace.Projects
     .Rename("NewProjectName")
     .ExecuteAsync(cancellationToken);
 ```
+
+### Skip 1 Project
+
+In the code sample, will query the projects in a solution and skip the first one. Let's say there are 3 projects in the solution: project1, project2, and project3. The return should be project2, and project3.
+
+```csharp
+var result = await this.Extensibility.Workspaces().QueryProjectsAsync(
+            project => project.With(p => p.Name
+            .Skip(1)),
+            cancellationToken);
+```
+
+### Tracking Queries 
+
+In the example, `TrackUpdatesAsync` is called on the Files property of a project, with a file name filter applied. This means it will track changes to the file names in the project. The TrackerObserver instance is passed to receive notifications of changes.
+
+```csharp
+var unsubscriber = await singleProject
+    .Files
+    .With(f => f.FileName)
+    .TrackUpdatesAsync(new TrackerObserver(), CancellationToken.None);
+```
