@@ -226,7 +226,7 @@ var result = await querySpace.Projects
 
 ### Skip 1 Project
 
-In the code sample, will query the projects in a solution and skip the first one. Let's say there are 3 projects in the solution. The first result will be skipped and will return the two remaining projects. Note: the order is not guaranteed.
+In the code sample, we will query the projects in a solution and skip the first one. Let's say there are 3 projects in the solution. The first result will be skipped and will return the two remaining projects. Note: the order is not guaranteed.
 
 ```csharp
 var result = await this.Extensibility.Workspaces().QueryProjectsAsync(
