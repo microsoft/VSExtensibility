@@ -9,51 +9,21 @@ date: 2024-05-10
 This is a simple extension that shows how to work with the file/directory picker during execution of a few sample commands.
 
 ## Command definition
-The extension contains multiple code files that defines four commands and its properties starting with the `VisualStudioContribution` class attribute which makes the commands available to Visual Studio:
+
+The extension contains four commands:
 
 - `OpenFileCommand`
 - `OpenMultipleFilesCommand`
 - `OpenSaveAsFileCommand`
 - `OpenFolderCommand`
 
-The four commands follow a similar command definition.
+Please see the [Insert Guid sample](../InsertGuid/) for more information about creating and configuring commands.
 
-```csharp
-[VisualStudioContribution]
-internal class OpenFileCommand : Command
-{
-```
+## Prompting the user to select a file to open
 
-The `VisualStudioContribution` attribute registers the command using the class full type name `FilePickerSample.OpenFileCommand` as its unique identifier.
+For our first command, we use the `ShowOpenFileDialogAsync` method to prompt the user with an open file dialog.
 
-The `CommandConfiguration` property defines information about the command that is available to Visual Studio even before the extension is loaded:
-
-```csharp
-public override CommandConfiguration CommandConfiguration => new("%FilePickerSample.OpenFileCommand.DisplayName%")
-{
-    TooltipText = "%FilePickerSample.OpenFileCommand.ToolTipText%",
-    Placements = [CommandPlacement.KnownPlacements.ToolsMenu],
-};
-```
-
-The command is placed in the `Tools` top-level menu.
-
-These commands utilize different options available to customize the dialog.
-
-## Getting the ShellExtensibility helpers
-
-Once user executes the command, the SDK will route execution to the `ExecuteCommandAsync` method.
-
-In our example, we utilize the `VisualStudioExtensibility` object to acquire the `ShellExtensibility` helpers.
-
-```csharp
-var shell = this.Extensibility.Shell();
-```
-
-## Asking the user to choose a file to open
-Once we have the shell helpers, we use the `ShowOpenFileDialogAsync` method to prompt the user with a file dialog. We pass in a custom `FileDialogOptions` to configure the
-dialog presented to the user. The dialog will have `test.cs` as the default filename with 2 file filters, one for log files and one for CSharp files. The `DefaultFilterIndex = 1` means that the CSharp file filter is selected by default.
-If the user closes or cancels the dialog, `ShowOpenFileDialogAsync` will return `null`.
+We use a `FileDialogOptions` object to configure the dialog presented to the user. The dialog will have `test.cs` as the default filename with two file filters: one for log files and one for CSharp files. The `DefaultFilterIndex = 1` means that the CSharp file filter is selected by default.
 
 ```csharp
 FileDialogOptions options = new()
@@ -68,14 +38,14 @@ FileDialogOptions options = new()
     },
 };
 
-string? filePath = await this.Extensibility.Shell().ShowOpenFileDialogAsync(options, ct);
+string? filePath = await this.Extensibility.Shell().ShowOpenFileDialogAsync(options, cancellationToken);
 ```
 
-## Asking the user to choose multiple files to open
-It may be more preferable to have the user choose multiple files instead of just one. Using `ShowOpenMultipleFilesDialogAsync` instead of `ShowOpenFileDialogAsync`
-will accomplish this.
+If the user closes or cancels the dialog, `ShowOpenFileDialogAsync` will return `null`.
 
-`ShowOpenMultipleFilesDialogAsync` returns a list of strings, and `null` if the user closes or cancels the dialog.
+## Prompting the user to select multiple files to open
+
+In some cases, the user may need to choose more than one file. Using `ShowOpenMultipleFilesDialogAsync` instead of `ShowOpenFileDialogAsync` allows the user to select one or more files at a time.
 
 ```csharp
 FileDialogOptions options = new()
@@ -89,10 +59,13 @@ FileDialogOptions options = new()
 IReadOnlyList<string>? filePaths = await this.Extensibility.Shell().ShowOpenMultipleFilesDialogAsync(options, ct);
 ```
 
-## Asking the user to choose a file to save as
-In addition to choosing a file to open, we can utilize the file dialog to choose a file to save as, which can allow the user to specify a custom file name.
+`ShowOpenMultipleFilesDialogAsync` returns a list of strings, and `null` if the user closes or cancels the dialog.
 
-The `FileDialogOptions` utilize the `Title` and `InitialFileName` properties to set a custom title and default filename.
+## Prompting the user to select a file to Save As
+
+In addition to choosing a file to open, we can utilize the file dialog to choose a file to Save As, which allows the user to specify a custom file name.
+
+Here we set the `Title` and `InitialFileName` properties in the `FileDialogOptions` object to set a custom title and default filename:
 
 ```csharp
  FileDialogOptions options = new()
@@ -104,16 +77,16 @@ The `FileDialogOptions` utilize the `Title` and `InitialFileName` properties to 
 string? filePath = await this.Extensibility.Shell().ShowSaveAsFileDialogAsync(options, ct);
 ```
 
-## Asking the user to choose a folder to open
-We can also have the user choose a folder path instead of a file path. Using `ShowOpenFolderDialogAsync` will accomplish this.
+## Prompting the user to select a folder to open
 
-Instead of `FileDialogOptions`, we must pass in `FolderDialogOptions` to configure the folder dialog.
+We can also prompt the user to choose a folder path instead of a file path by using the `ShowOpenFolderDialogAsync` method.
+
+Instead of `FileDialogOptions`, we must pass in a `FolderDialogOptions` object to configure the folder dialog.
 
 ```csharp
 FolderDialogOptions options = new();
 string? folderPath = await this.Extensibility.Shell().ShowOpenFolderDialogAsync(options, ct);
 ```
-
 
 ## Usage
 
