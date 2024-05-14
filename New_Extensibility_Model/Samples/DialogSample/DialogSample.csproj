@@ -13,6 +13,8 @@
 
   <ItemGroup>
     <EmbeddedResource Include="MyDialogControl.xaml" />
+    <EmbeddedResource Include="MyResources.*xaml" />
     <Page Remove="MyDialogControl.xaml" />
+    <Page Remove="MyResources.*xaml" />
   </ItemGroup>
 </Project>

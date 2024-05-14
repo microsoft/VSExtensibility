@@ -69,6 +69,35 @@ The .cs and .xaml files should have the same name (MyDialogControl in this sampl
 
 You can refer to [Add content to a tool window](https://learn.microsoft.com/en-us/visualstudio/extensibility/visualstudio.extensibility/tool-window/tool-window#add-content-to-a-tool-window) to learn more about setting up the tool window content and remote UI.
 
+## Resource dictionaries
+
+The extension also shows how to reference a resource dictionary from a Remote UI control:
+
+```chsarp
+internal class MyDialogControl : RemoteUserControl
+{
+    public MyDialogControl(object? dataContext, SynchronizationContext? synchronizationContext = null)
+        : base(dataContext, synchronizationContext)
+    {
+        this.ResourceDictionaries.AddEmbeddedResource("DialogSample.MyResources.xaml");
+    }
+```
+
+The resource dictionary and its localized variants must be configured as embedded resources:
+
+```xml
+<ItemGroup>
+  <EmbeddedResource Include="MyResources.*xaml" />
+  <Page Remove="MyResources.*xaml" />
+</ItemGroup>
+```
+
+Resources provided by the resource dictionary can be referenced as dynamic resources:
+
+```csharp
+<TextBlock Text="{DynamicResource myDialogText}" />
+```
+
 ## Logging errors
 
 Each extension part including command sets is assigned a `TraceSource` instance that can be utilized to log diagnostic errors. Please see [Logging](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/inside-the-sdk/logging) section for more information.
