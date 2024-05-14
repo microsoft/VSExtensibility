@@ -24,6 +24,6 @@ internal class MyDialogControl : RemoteUserControl
     public MyDialogControl(object? dataContext, SynchronizationContext? synchronizationContext = null)
         : base(dataContext, synchronizationContext)
     {
-        this.ResourceDictionaries.AddEmbeddedResource("DialogSample.MyResources.xaml");
+        this.ResourceDictionaries.AddEmbeddedResource("DialogSample.Resources.MyResources.xaml");
     }
 }

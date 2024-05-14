@@ -79,7 +79,7 @@ internal class MyDialogControl : RemoteUserControl
     public MyDialogControl(object? dataContext, SynchronizationContext? synchronizationContext = null)
         : base(dataContext, synchronizationContext)
     {
-        this.ResourceDictionaries.AddEmbeddedResource("DialogSample.MyResources.xaml");
+        this.ResourceDictionaries.AddEmbeddedResource("DialogSample.Resources.MyResources");
     }
 ```
 
@@ -87,8 +87,8 @@ The resource dictionary and its localized variants must be configured as embedde
 
 ```xml
 <ItemGroup>
-  <EmbeddedResource Include="MyResources.*xaml" />
-  <Page Remove="MyResources.*xaml" />
+  <EmbeddedResource Include="Resources\MyResources.*xaml" />
+  <Page Remove="Resources\MyResources.*xaml" />
 </ItemGroup>
 ```
 
