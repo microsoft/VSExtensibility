@@ -55,7 +55,7 @@ if (!await shell.ShowPromptAsync("Continue with executing the command?", PromptO
 }
 ```
 
-## Asking to user to confirm a destructive or long-running operation
+## Asking the user to confirm a destructive or long-running operation
 
 For confirm operations which could be destructive, it may be preferable to have the 'Cancel' button be the
 default selection, instead of 'OK'. `PromptOptions.OKCancel` has a `WithCancelAsDefault` method which

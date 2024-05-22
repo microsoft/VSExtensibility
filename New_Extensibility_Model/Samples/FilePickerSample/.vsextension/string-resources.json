@@ -1,0 +1,10 @@
+﻿{
+  "FilePickerSample.OpenFileCommand.DisplayName": "Open File",
+  "FilePickerSample.OpenFileCommand.TooltipText": "Click to open file",
+  "FilePickerSample.OpenFolderCommand.DisplayName": "Open Folder",
+  "FilePickerSample.OpenFolderCommand.TooltipText": "Click to open folder",
+  "FilePickerSample.OpenMultipleFilesCommand.DisplayName": "Open Multiple Files",
+  "FilePickerSample.OpenMultipleFilesCommand.TooltipText": "Click to open files",
+  "FilePickerSample.OpenSaveAsCommand.DisplayName": "Open Save As File",
+  "FilePickerSample.OpenSaveAsCommand.TooltipText": "Click to open save as file"
+}
