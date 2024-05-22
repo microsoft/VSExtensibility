@@ -19,8 +19,8 @@
     <EmbeddedResource Include="..\FeatureGallery\MainToolWindowControl.xaml" />
     <EmbeddedResource Include="..\FeatureGallery\EditorMargin\WordCountControl.xaml" Link="EditorMargin\WordCountControl.xaml" />
     <EmbeddedResource Include="..\FeatureGallery\ModalDialog\ModalDialogControl.xaml" Link="ModalDialog\ModalDialogControl.xaml" />
-		<EmbeddedResource Include="..\FeatureGallery\ModalDialog\XamlResources.*xaml" Link="ModalDialog\%(FileName)%(Extension)" />
-	</ItemGroup>
+    <EmbeddedResource Include="..\FeatureGallery\ModalDialog\XamlResources.*xaml" Link="ModalDialog\%(FileName)%(Extension)" />
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Include="..\FeatureGallery\**\*.cs" />

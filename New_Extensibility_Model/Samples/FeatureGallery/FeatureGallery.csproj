@@ -14,11 +14,11 @@
   <ItemGroup>
     <EmbeddedResource Include="EditorMargin\WordCountControl.xaml" />
     <EmbeddedResource Include="MainToolWindowControl.xaml" />
-		<EmbeddedResource Include="ModalDialog\ModalDialogControl.xaml" />
-		<EmbeddedResource Include="ModalDialog\XamlResources.*xaml" />
-		<Page Remove="MainToolWindowControl.xaml" />
+    <EmbeddedResource Include="ModalDialog\ModalDialogControl.xaml" />
+    <EmbeddedResource Include="ModalDialog\XamlResources.*xaml" />
+    <Page Remove="MainToolWindowControl.xaml" />
     <Page Remove="EditorMargin\WordCountControl.xaml" />
     <Page Remove="ModalDialog\ModalDialogControl.xaml" />
-		<Page Remove="ModalDialog\XamlResources.*xaml" />
-	</ItemGroup>
+    <Page Remove="ModalDialog\XamlResources.*xaml" />
+  </ItemGroup>
 </Project>

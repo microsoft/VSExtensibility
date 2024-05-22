@@ -1,0 +1,5 @@
+[$RootKey$\TextMate\Repositories]
+"ExampleGrammars"="$PackageFolder$\Grammars"
+
+[$RootKey$\TextMate\LanguageConfiguration\GrammarMapping]
+"source.Example"="$PackageFolder$\Example-language-configuration.json"

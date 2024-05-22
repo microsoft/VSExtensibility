@@ -1,18 +1,50 @@
 ---
 title: Breaking Changes
-description: Breaking changes for VisualStudio.Extensibility
+description: Breaking changes for Visual Studio Extensibility
 date: 2024-01-30
 ---
 
 # Breaking Changes
 
-We work hard to minimize breaking changes between versions to help minimize disruptions to your extension development, especially as VisualStudio.Extensibility matures. Some breaking changes are necessary, however, in order to add support for new features or in response to user feedback. Those changes are listed here. 
+We work hard to minimize breaking changes between versions to help minimize disruptions to your extension development, especially as VisualStudio.Extensibility matures. Some breaking changes are necessary, however, in order to add support for new features or in response to user feedback. Those changes are listed here.
+
+# Breaking Changes for Visual Studio 2022 17.10
+
+The following breaking changes apply to Visual Studio 2022 17.10.
+
+## VisualStudio.Extensibility
+
+These breaking changes are associated with VisualStudio.Extensibility.
+
+### Command Shortcuts
+
+We are removing the value for `ModifierKey.Shift` from the [`ModifierKey`](https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.extensibility.commands.modifierkey) enum. The `Shift` key is not a valid modifier key on its own when used for creating shortcuts in Visual Studio; it must be combined with `Control` or `Alt` to form a valid shortcut.
+
+####
+
+If you are using `ModifierKey.Shift` for any of your commands, you can update the shortcut to use `ModifierKey.ControlShift` or `ModifierKey.ControlShiftLeftAlt` instead.
+
+## LSP
+
+These breaking changes are associated with LSP.
+
+### DiagnosticTag Enum
+
+We have updated the Visual Studio-specific values for the [`VSDiagnosticTags`](./lsp/lsp-extensions-specifications.md#vsdiagnostictags) enum from the range [-9,-1] to the range [2147483638,2147483646]. Negative enumeration values are not supported by the LSP protocol, and the old values were causing some issues with 3rd-party LSP servers.
+
+#### Fix
+
+If your server is written in C# and uses the [`VSDiagnosticTags`](./lsp/lsp-extensions-specifications.md#vsdiagnostictags) enum, you need to recompile against version 17.10 or newer of the [Microsoft.VisualStudio.LanguageServer.Protocol.Extensions package](https://www.nuget.org/packages/Microsoft.VisualStudio.LanguageServer.Protocol.Extensions).
 
 # Breaking Changes for Visual Studio 2022 17.9
 
 The following breaking changes apply to Visual Studio 2022 17.9.
 
-## Client Contexts
+## VisualStudio.Extensibility
+
+These breaking changes are associated with VisualStudio.Extensibility.
+
+### Client Contexts
 
 We've changed the type of the `ClientContexts` property of `Microsft.VisualStudio.Extensibility.Commands.BaseCommandConfiguration` from `string[]?` to `ClientContextCategory[]?`.
 
@@ -24,16 +56,16 @@ We've changed the type of the `ClientContexts` property of `Microsft.VisualStudi
 +    public ClientContextCategory[]? ClientContexts { get; set; }
 ```
 
-### Fix
+#### Fix
 The simplest fix to address this change is to not manually set the `ClientContexts` property. The default value provides the `Editor` and `Shell`  contexts, which should be adequate for all commands. If you need to set the property manually, you can update your code to use the new `ClientContextCategory` type and recompile, fixing any compilation errors that may occur.
 
-## Editor APIs
+### Editor APIs
 
 In order to simplify the process of working with documents and views, we've updated some of our editor APIs:
 1. The `ITextViewSnapshot.GetTextDocumentAsync()` method has been **removed**. Instead, you can use the `ITextViewSnapshot.Document` property.
 1. The `ITextViewSnapshot.GetOptionValueAsync()` and `ITextDocumentSnapshot.GetOptionValueAsync()` methods now return an instance of the `EditorOptionValue` class instead of a raw option value.
 
-### Fix
+#### Fix
 
 1. Use the `ITextViewSnapshot.Document` property instead of the `ITextViewSnapshot.GetTextDocumentAsync()` method to get the document from a TextView snapshot.
 1. Use one of the following patterns to obtain editor option values:
@@ -50,27 +82,27 @@ or
 bool useSpaces = (await textView.GetOptionValueAsync(KnownDocumentOptions.ConvertTabsToSpacesOption, cancellationToken)).ValueOrDefault(defaultValue: false);
 ```
 
-## Command Implementation
+### Command Implementation
 
 We've updated the implementation for commands to make improvements and add features. If your extension was built against pre-17.9 version of the Microsoft.VisualStudio.Extensibility.Sdk and Microsoft.VisualStudio.Extensibility.Build packages, your commands will not work on Visual Studio 2022 17.9+.
 
-### Fix
+#### Fix
 
 To fix your commands, make sure you've updated your package references for the Microsoft.VisualStudio.Extensibility.Sdk and Microsoft.VisualStudio.Extensibility.Build packages to be the latest 17.9+ version. Then, make sure you've updated your version of Visual Studio to 17.9 or higher.
 
-## Extension Manifest
+### Extension Manifest
 
 As part of our work to enable you to create VSIX packages for your extensions, we've made some changes to the extension manifest file. You don't need to manually edit the manifest file, but you will need to update your project to keep your extension working as expected.
 
-### Fix
+#### Fix
 
 The fix will depend on whether your extensions are out-of-process or in-process (VSSDK-compatible).
 
-#### Out-of-process extensions
+##### Out-of-process extensions
 
 All you need to do for out-of-process extensions is to update the package references for the Microsoft.VisualStudio.Extensibility.Sdk and Microsoft.VisualStudio.Extensibility.Build packages to be the latest 17.9+ version. Rebuild your extension project, fix any compilation errors associated with the other breaking changes on this page, and your extension should work as expected.
 
-#### In-process (VSSDK-compatible) extensions
+##### In-process (VSSDK-compatible) extensions
 
 In order to better support creating VSIX packages for your extensions, we've made some changes to the layout of VSSDK-compatible extension projects. The simplest thing to do would be to create a new in-process extension project, which will have the correct behavior.
 

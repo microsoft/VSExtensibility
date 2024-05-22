@@ -34,6 +34,8 @@ Documentation is currently available for the following:
 | [Overviews](#overviews) | Learn more by reading overviews of each major area of functionality. |
 | [Samples](#samples-and-tutorials) | Explore sample code demonstrating major features. |
 | [API reference](#api-docs) | Browse the VisualStudio.Extensibility API documentation. |
+| [Experimental APIs and Breaking Changes](#experimental-apis-and-breaking-changes) | Learn about our approach to stable-vs-experimental APIs and about breaking changes from the previous version. |
+| [Known Issues](#known-issues) | View known issues with the VisualStudio.Extensibility SDK. |
 | [Advanced topics](#advanced-topics) | Learn implementation details of the VisualStudio.Extensibility SDK. |
 
 ## Install VisualStudio.Extensibility
@@ -86,7 +88,6 @@ You can find a Visual Studio solution that contains all samples at [Samples.sln]
 |-|-|
 | [Simple command handler](New_Extensibility_Model/Samples/SimpleRemoteCommandSample) | Demonstrates the basics of working with commands. See also the [Create your first Visual Studio extension](https://learn.microsoft.com/en-us/visualstudio/extensibility/visualstudio.extensibility/get-started/create-your-first-extension) tutorial.|
 | [Insert guid extension](New_Extensibility_Model/Samples/InsertGuid) | Shows how to insert text or code in the code editor. See also the [Create your simple extension](//learn.microsoft.com/en-us/visualstudio/extensibility/visualstudio.extensibility/get-started/tutorial-create-simple-extension) tutorial.|
-| [Command configuration](New_Extensibility_Model/Samples/CommandRegistrationsSample) | Shows how to configure a command with specific activation conditions. This command also uses a resource file for localization. |
 | [Command parenting](New_Extensibility_Model/Samples/CommandParentingSample) | Shows how to author a command that can be parented to different aspects of the IDE. |
 | [Document selector](New_Extensibility_Model/Samples/DocumentSelectorSample) | Shows how to create an editor extension that is only applicable to files matching a file path pattern. |
 | [Output window](New_Extensibility_Model/Samples/OutputWindowSample) | Shows the most basic use of the [Output Window API](https://learn.microsoft.com/en-us/visualstudio/extensibility/visualstudio.extensibility/output-window/output-window).|
@@ -97,6 +98,26 @@ You can find a Visual Studio solution that contains all samples at [Samples.sln]
 | [Markdown linter](New_Extensibility_Model/Samples/MarkdownLinter) | Shows how multiple components can interact together inside an extension and how different areas of Visual Studio can be extended.|
 | [Project Query](New_Extensibility_Model/Samples/VSProjectQueryAPISample) | Shows several different kinds of project system queries you can make. |
 | [Comment remover](New_Extensibility_Model/Samples/CommentRemover) | Shows how to consume [Visual Studio SDK](https://www.nuget.org/packages/Microsoft.VisualStudio.SDK) services through .NET dependency injection and use VisualStudio.Extensibility APIs for commands, prompts, and progress report.|
+| [RegexMatchDebugVisualizer](./RegexMatchDebugVisualizer) | Shows how to use [Remote UI](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/inside-the-sdk/remote-ui) to create a [Debugger Visualizer](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/debugger-visualizer/debugger-visualizers) to visualize regular expression matches that will launch in a modal dialog window. |
+| [MemoryStreamDebugVisualizer](./MemoryStreamDebugVisualizer) | Shows how to create a [Debugger Visualizer](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/debugger-visualizer/debugger-visualizers) to visualize MemoryStream objects that launches in a non-modal tool window. |
+
+## Experimental APIs and Breaking Changes
+Starting with our 17.9 release, we're ready to label the vast majority of our APIs as stable. That is, we don't plan to make any breaking changes to these APIs. Any breaking changes that might need to be made, for example in response to user feedback about usability, will be communicated formally and with plenty of notice on our [breaking changes](./docs/breaking_changes.md) page.
+
+There are a few of our APIs that don't yet meet this bar for stability, for one of several reasons:
+* The feature area is new and additional features and changes are expected in future versions.
+* The API is new and we want to incorporate user feedback into the deisgn before marking it stable.
+* We've received feedback that a particular API is difficult to use, so we're planning on updating it in future versions.
+
+For these APIs, we've explicitly labeled them using the `[Experimental]` attribute to help extension authors create their extensions with confidence in the the SDK.
+
+For more information, including how to use experimental APIs, please see our [Experimental APIs](./docs/experimental_apis.md) page.
+
+## Known Issues
+
+We appreciate your feedback and bug reports in our [Issues Tracker](https://github.com/microsoft/VSExtensibility/issues), and we work to address any issues found in the SDK.
+
+Please visit our [Known Issues](./docs/known_issues.md) page for information about any current known issues.
 
 ## Advanced Topics
 
@@ -114,6 +135,19 @@ You can find a Visual Studio solution that contains all samples at [Samples.sln]
 We're actively seeking feedback and engagement. The preview phase is a great time to get community input to help us identify issues and opportunities. You can provide feedback and report bugs in our [issues tracker](https://github.com/microsoft/VSExtensibility/issues).
 
 For future updates please bookmark our [announcements](docs/announcements.md) page.
+
+While VisualStudio.Extensibility is in the preview phase, it’s a great time for you, our community members, to share your input to help us identify issues and opportunities. Community participation is welcome and highly encouraged; we value the input and insights provided by extension developers like you!
+
+You can provide feedback and report bugs in our issues tracker. Please note that we don’t have a dedicated support team – we, the engineering team working on VisualStudio.Extensibility will be the ones monitoring and triaging issues and other extension developers will be able to comment on these, too. Because we don’t have a dedicated support team, it may take some time before we get to issues and we won’t always be able to respond to everything.
+
+Regarding our response flow on issues, here’s a general overview:
+- You submit an issue.
+- That issue remains in a “triage” state until we’ve assigned a team member to investigate it.
+- Once assigned, the issue is moved to “scheduled”. This doesn’t imply an immediate fix, but indicates that we’re actively looking into it.
+- Issues we won’t address immediately will be moved to “backlog”.
+- Issues that are either fixed in code or addressed via comments will be closed.
+
+For future updates please bookmark our announcements page.
 
 ## Contributing
 
