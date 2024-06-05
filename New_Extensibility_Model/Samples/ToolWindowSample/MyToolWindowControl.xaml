@@ -35,12 +35,13 @@
                 </TextBox.ContextMenu>
             </TextBox>
             <Button x:Name="ShowMessageButton"
-              IsEnabled="False"
-              Margin="5,0,0,0"
-              MinHeight="25"
-              MinWidth="60"
-              Style="{StaticResource {x:Static styles:VsResourceKeys.ButtonStyleKey}}"
-              Command="{Binding ShowMessageCommand}" />
+                    Content="Show Dialog"
+                    IsEnabled="False"
+                    Margin="5,0,0,0"
+                    MinHeight="25"
+                    MinWidth="60"
+                    Style="{StaticResource {x:Static styles:VsResourceKeys.ButtonStyleKey}}"
+                    Command="{Binding ShowMessageCommand}" />
     </StackPanel>
   </Border>
   <DataTemplate.Triggers>
