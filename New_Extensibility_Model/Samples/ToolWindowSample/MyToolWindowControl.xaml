@@ -28,7 +28,7 @@
                     </MenuItem>
                     <MenuItem Header="Default message" Command="{Binding DefaultTextCommand}">
                       <MenuItem.Icon>
-                        <vs:Image Source="DefaultText" ExtensionID="ToolWindowSampleExtension.4ca466cb-dc8d-4216-8323-b5c45f8e0da5" />
+                        <vs:Image Source="DefaultText" />
                       </MenuItem.Icon>
                     </MenuItem>
                   </ContextMenu>
