@@ -24,11 +24,13 @@ public class SetStartupProjectsCommand : Command
     /// <inheritdoc />
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
+        WorkspacesExtensibility querySpace = this.Extensibility.Workspaces();
+
         const string solutionName = "ConsoleApp32";
         const string projectPath1 = "ConsoleApp1\\\\ConsoleApp1.csproj";
         const string projectPath2 = "ConsoleApp2\\\\ConsoleApp2.csproj";
 
-        await this.Extensibility.Workspaces().UpdateSolutionAsync(
+        await querySpace.UpdateSolutionAsync(
             solution => solution.Where(solution => solution.BaseName == solutionName),
             solution => solution.SetStartupProjects(projectPath1, projectPath2),
             cancellationToken);
