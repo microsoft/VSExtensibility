@@ -3,6 +3,7 @@
 
 namespace VSProjectQueryAPISample;
 
+using Microsoft.ServiceHub.Framework;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Commands;
 using Microsoft.VisualStudio.Extensibility.Shell;
@@ -24,7 +25,7 @@ public class SolutionSaveCommand : Command
     /// <inheritdoc />
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
-        var serviceBroker = context.Extensibility.ServiceBroker;
+        IServiceBroker serviceBroker = context.Extensibility.ServiceBroker;
         ProjectQueryableSpace querySpace = new ProjectQueryableSpace(serviceBroker: serviceBroker, joinableTaskContext: null);
         var result = await querySpace.Solutions.SaveAsync(cancellationToken);
 

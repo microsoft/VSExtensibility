@@ -26,7 +26,9 @@ public class QueryFileCommand : Command
     /// <inheritdoc />
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
-        var result = await this.Extensibility.Workspaces().QueryProjectsAsync(
+        WorkspacesExtensibility querySpace = this.Extensibility.Workspaces();
+
+        var result = await querySpace.QueryProjectsAsync(
             project => project.With(project => project.Name)
                               .With(project => project.Path)
                               .With(project => project.Files.With(file => file.FileName)),
