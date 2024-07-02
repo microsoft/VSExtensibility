@@ -1,7 +1,7 @@
 ---
 title: VS Project Query API Extension reference
 description: A reference for VS Project Query API Extension reference
-date: 2024-1-11
+date: 2024-6-24
 ---
 
 # Walkthrough: VS Project Query API Extension
@@ -16,7 +16,7 @@ The Project System Query API allows you to retrieve and update information in th
 
 Add `Microsoft.VisualStudio.ProjectSystem.Query` NuGet Package to the solution's `references` to get access to the API.
 
-The code snippet as seen below sets up the Project Query Service for the project:
+The code snippet as seen below sets up the Project Query Service:
 
 ```csharp
 WorkspacesExtensibility querySpace = this.Extensibility.Workspaces();
@@ -29,7 +29,7 @@ Once a `querySpace` is established, you may query information about the Project 
 In our example, we call the `QueryProjectsAsync` method to get information from the projects, namely the Project Name, Project Path, Project Files, and File Names.
 
 ```csharp
-var result = await this.Extensibility.Workspaces().QueryProjectsAsync(
+var result = await querySpace.QueryProjectsAsync(
 	project => project.With(project => project.Name)
 		.With(project => project.Path)
 		.With(project => project.Files.With(file => file.FileName)),
@@ -43,7 +43,7 @@ Using the same `querySpace`, you may modify data in your project system. `Where`
 In our example, we call the `UpdateProjectsAsync` method to create a new file. The file we want to add is called `CreatedFile.txt`, and we want to add it to our project called `ConsoleApp1`.
 
 ```csharp
-await this.Extensibility.Workspaces().UpdateProjectsAsync(
+await querySpace.UpdateProjectsAsync(
 	project => project.Where(project => project.Name == "ConsoleApp1"),
 	project => project.AddFile("CreatedFile.txt"),
 	cancellationToken);
@@ -63,7 +63,7 @@ You may filter out metadata By Project in your solution.
 In the snippet below, the result will contain information about Output Groups' names about all projects in our Solution.
 
 ```csharp
-var result = await this.Extensibility.Workspaces().QueryProjectsAsync(
+var result = await querySpace.QueryProjectsAsync(
 	project => project.With(p => p.Name)
 		.With(p => p.ActiveConfigurations
 		.With(c => c.Name)
@@ -78,7 +78,7 @@ If you know which metadata you would like to obtain, you may filter that informa
 In the snippet below, we call `OutputGroupsByName` to get specific Output Groups. The Project System Query API will add valid output group to the results, and invalid groups are skipped over. In this case, results will contain three output groups: `Built`, `XmlSerializer`, and `SourceFiles`.
 
 ```csharp
-var result = await this.Extensibility.Workspaces().QueryProjectsAsync(
+var result = await querySpace.QueryProjectsAsync(
 	project => project.With(p => p.Name)
 		.With(p => p.ActiveConfigurations
 		.With(c => c.Name)
@@ -94,7 +94,7 @@ As usages for project query becomes more complex, you may realize that the requi
 In our example, let's say we already queried information about Output Groups.
 
 ```csharp
-var result = await this.Extensibility.Workspaces().QueryProjectsAsync(
+var result = await querySpace.QueryProjectsAsync(
 	project => project.With(p => p.Name)
 						.With(p => p.ActiveConfigurations.With(c => c.Name)),
 	cancellationToken);
@@ -144,7 +144,7 @@ var result = await querySpace.Solutions
 In the snippet below, we specify the solution we would like to unload the project from and pass in the project path when we make our `UnloadProject` call. 
 
 ```csharp
-await this.Extensibility.Workspaces().UpdateSolutionAsync(
+await querySpace.UpdateSolutionAsync(
     solution => solution.Where(solution => solution.BaseName == solutionName),
     solution => solution.UnloadProject(projectPath),
     cancellationToken);
@@ -153,7 +153,7 @@ await this.Extensibility.Workspaces().UpdateSolutionAsync(
 Similarly, we can load the project by calling the `ReloadProject` API.
 
 ```csharp
-await this.Extensibility.Workspaces().UpdateSolutionAsync(
+await querySpace.UpdateSolutionAsync(
     solution => solution.Where(solution => solution.BaseName == solutionName),
     solution => solution.ReloadProject(projectPath),
     cancellationToken);
@@ -174,7 +174,7 @@ var result = await querySpace.Solutions.SaveAsync(cancellationToken);
 Using the Project Query API, you also can select which projects get executed. In the sample below, we added two project paths to be set as the startup project.
 
 ```csharp
-await this.Extensibility.Workspaces().UpdateSolutionAsync(
+await querySpace.UpdateSolutionAsync(
     solution => solution.Where(solution => solution.BaseName == solutionName),
     solution => solution.SetStartupProjects(projectPath1, projectPath2),
     cancellationToken);
@@ -185,7 +185,7 @@ await this.Extensibility.Workspaces().UpdateSolutionAsync(
 `AddSolutionConfiguration` is an API call that takes in three parameters. The first parameter is the new name we want to give our new solution configuration. In this scenario, we will call our new solution configuration `Foo`. The next parameter is the configuration to base our new configuration. Below, we based our new solution configuration on the existing solution configuration, `Debug`. Lastly, the boolean represents if the solution configuration should be propagated.
 
 ```csharp
-await this.Extensibility.Workspaces().UpdateSolutionAsync(
+await querySpace.UpdateSolutionAsync(
     solution => solution.Where(solution => solution.BaseName == solutionName),
     solution => solution.AddSolutionConfiguration("Foo", "Debug", false),
     cancellationToken);
@@ -194,7 +194,7 @@ await this.Extensibility.Workspaces().UpdateSolutionAsync(
 `DeleteSolutionConfiguration` is an API call that removes the solution configuration. In the example below, we removed the solution configuration called `Foo`.
 
 ```csharp
-await this.Extensibility.Workspaces().UpdateSolutionAsync(
+await querySpace.UpdateSolutionAsync(
     solution => solution.Where(solution => solution.BaseName == solutionName),
     solution => solution.DeleteSolutionConfiguration("Foo"),
     cancellationToken);
@@ -229,15 +229,15 @@ var result = await querySpace.Projects
 In the code sample, we will query the projects in a solution and skip the first one. Let's say there are 3 projects in the solution. The first result will be skipped and will return the two remaining projects. Note: the order is not guaranteed.
 
 ```csharp
-var result = await this.Extensibility.Workspaces().QueryProjectsAsync(
-            project => project.With(p => p.Name
-            .Skip(1)),
+var result = await querySpace.QueryProjectsAsync(
+            project => project.With(p => p.Name)
+            .Skip(1),
             cancellationToken);
 ```
 
 ### Tracking Queries 
 
-In the example, `TrackUpdatesAsync` is called on the Files property of a project, with a file name filter applied. This means it will track changes to the file names in the project. The TrackerObserver instance is passed to receive notifications of changes.
+In the example, `TrackUpdatesAsync` is called on the Files property of a project. The TrackerObserver instance is passed to receive notifications of changes.
 
 ```csharp
 var unsubscriber = await singleProject

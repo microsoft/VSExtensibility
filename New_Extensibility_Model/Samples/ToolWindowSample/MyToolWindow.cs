@@ -6,6 +6,7 @@ namespace ToolWindowSample;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Extensibility;
+using Microsoft.VisualStudio.Extensibility.Commands;
 using Microsoft.VisualStudio.Extensibility.ToolWindows;
 using Microsoft.VisualStudio.RpcContracts.RemoteUI;
 
@@ -29,6 +30,13 @@ public class MyToolWindow : ToolWindow
     public override ToolWindowConfiguration ToolWindowConfiguration => new()
     {
         Placement = ToolWindowPlacement.DocumentWell,
+        Toolbar = new ToolWindowToolbar(Toolbar),
+    };
+
+    [VisualStudioContribution]
+    private static ToolbarConfiguration Toolbar => new("%ToolWindowSample.MyToolWindow.Toolbar.DisplayName%")
+    {
+        Children = [ToolbarChild.Command<MyToolbarCommand>()],
     };
 
     /// <inheritdoc />

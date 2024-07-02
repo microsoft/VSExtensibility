@@ -26,9 +26,11 @@ public class QueryOutputGroupByIdCommand : Command
     /// <inheritdoc />
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
+        WorkspacesExtensibility querySpace = this.Extensibility.Workspaces();
+
         StringBuilder message = new StringBuilder();
 
-        var result = await this.Extensibility.Workspaces().QueryProjectsAsync(
+        var result = await querySpace.QueryProjectsAsync(
             project => project.With(p => p.Name)
                               .With(p => p.ActiveConfigurations.With(c => c.Name)),
             cancellationToken);

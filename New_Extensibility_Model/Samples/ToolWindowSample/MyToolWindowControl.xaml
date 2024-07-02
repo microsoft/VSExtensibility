@@ -12,21 +12,36 @@
       <TextBlock Margin="0,0,5,0"
                  Text="Custom Message:"
                  VerticalAlignment="Center" />
-      <TextBox x:Name="TitleTextBox"
-               MinHeight="26"
-               MinWidth="200"
-               HorizontalContentAlignment="Left"
-               VerticalContentAlignment="Center"
-               Text="{Binding Message, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-               Style="{StaticResource {x:Static styles:VsResourceKeys.TextBoxStyleKey}}" />
-      <Button x:Name="ShowMessageButton"
-              Content="Show Dialog"
-              IsEnabled="False"
-              Margin="5,0,0,0"
-              MinHeight="25"
-              MinWidth="60"
-              Style="{StaticResource {x:Static styles:VsResourceKeys.ButtonStyleKey}}"
-              Command="{Binding ShowMessageCommand}" />
+            <TextBox x:Name="TitleTextBox"
+                     MinHeight="26"
+                     MinWidth="200"
+                     HorizontalContentAlignment="Left"
+                     VerticalContentAlignment="Center"
+                     Text="{Binding Message, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     Style="{StaticResource {x:Static styles:VsResourceKeys.TextBoxStyleKey}}">
+                <TextBox.ContextMenu>
+                  <ContextMenu Style="{DynamicResource {x:Static styles:VsResourceKeys.ContextMenuStyleKey}}">
+                    <MenuItem Header="Clear" Command="{Binding ClearCommand}">
+                      <MenuItem.Icon>
+                        <vs:Image Source="KnownMonikers.ClearWindowContent" />
+                      </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Default message" Command="{Binding DefaultTextCommand}">
+                      <MenuItem.Icon>
+                        <vs:Image Source="DefaultText" />
+                      </MenuItem.Icon>
+                    </MenuItem>
+                  </ContextMenu>
+                </TextBox.ContextMenu>
+            </TextBox>
+            <Button x:Name="ShowMessageButton"
+                    Content="Show Dialog"
+                    IsEnabled="False"
+                    Margin="5,0,0,0"
+                    MinHeight="25"
+                    MinWidth="60"
+                    Style="{StaticResource {x:Static styles:VsResourceKeys.ButtonStyleKey}}"
+                    Command="{Binding ShowMessageCommand}" />
     </StackPanel>
   </Border>
   <DataTemplate.Triggers>

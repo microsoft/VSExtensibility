@@ -26,9 +26,10 @@ public class AddSolutionConfigurationCommand : Command
     /// <inheritdoc />
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
+        WorkspacesExtensibility querySpace = this.Extensibility.Workspaces();
         const string solutionName = "ConsoleApp32";
 
-        await this.Extensibility.Workspaces().UpdateSolutionAsync(
+        await querySpace.UpdateSolutionAsync(
             solution => solution.Where(solution => solution.BaseName == solutionName),
             solution => solution.AddSolutionConfiguration("Foo", "Debug", false),
             cancellationToken);

@@ -26,7 +26,9 @@ public class QuerySolutionConfigurations : Command
     /// <inheritdoc />
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
-        var results = await this.Extensibility.Workspaces().QuerySolutionAsync(
+        WorkspacesExtensibility querySpace = this.Extensibility.Workspaces();
+
+        var results = await querySpace.QuerySolutionAsync(
             solution => solution.With(solution => solution.SolutionConfigurations
             .With(c => c.Name)),
             cancellationToken);

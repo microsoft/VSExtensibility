@@ -1,3 +1,5 @@
 ﻿{
-  "ToolWindowSample.MyToolWindowCommand.DisplayName": "My Tool Window"
+  "ToolWindowSample.MyToolWindowCommand.DisplayName": "My Tool Window",
+  "ToolWindowSample.MyToolbarCommand.DisplayName": "Toolbar command",
+  "ToolWindowSample.MyToolWindow.Toolbar.DisplayName": "My Toolbar"
 }

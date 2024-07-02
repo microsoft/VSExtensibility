@@ -24,9 +24,10 @@ public class ProjectBuildCommand : Command
     /// <inheritdoc />
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
+        WorkspacesExtensibility querySpace = this.Extensibility.Workspaces();
         const string projectName = "ConsoleApp1";
 
-        var result = await this.Extensibility.Workspaces().QueryProjectsAsync(
+        var result = await querySpace.QueryProjectsAsync(
             project => project.Where(p => p.Name == projectName),
             cancellationToken);
 
