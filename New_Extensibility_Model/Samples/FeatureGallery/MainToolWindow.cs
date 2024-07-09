@@ -39,6 +39,7 @@ public class MainToolWindow : ToolWindow
             new EditorMarginTest(this.Extensibility),
             new LanguageServerTest(this.Extensibility),
             new SettingsTest(this.Extensibility),
+            new ImageTest(this.Extensibility),
         };
     }
 
