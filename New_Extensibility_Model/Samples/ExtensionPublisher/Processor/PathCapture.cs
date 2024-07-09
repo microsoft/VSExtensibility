@@ -32,10 +32,10 @@ public static class PathCapture
                 q => q.With(p => p.Path),
                 cancellationToken);
 
-            IProjectSnapshot result = queryResultsMainPath.FirstOrDefault()
+            string result = queryResultsMainPath.FirstOrDefault()?.Path
                 ?? throw new ApplicationException("Project not found.");
 
-            return result.Path;
+            return result;
         }
         catch (Exception ex)
         {
@@ -50,8 +50,8 @@ public static class PathCapture
 #pragma warning disable VSEXTPREVIEW_PROJECTQUERY_PROPERTIES_BUILDPROPERTIES // Type is for evaluation purposes only and is subject to change or removal in future updates.
             IQueryResults<IProjectSnapshot> queryResults = await clientContext.Extensibility.Workspaces().QueryProjectsAsync(
                 project => project.With(p => p.ActiveConfigurations
-                .With(config => config.BuildPropertiesByName(
-                    PersistenceStorageType.ProjectFile,
+                .With(config => config.PropertiesByName(
+                    PropertySourceType.ProjectFile,
                     "TargetVsixContainer"))),
                 cancellationToken);
 
@@ -61,7 +61,7 @@ public static class PathCapture
             IProjectConfigurationSnapshot activeConfig = projectQueryResult.ActiveConfigurations.FirstOrDefault()
                 ?? throw new InvalidOperationException("None active configurations.");
 
-            IBuildPropertySnapshot projectProperty = activeConfig.BuildProperties.FirstOrDefault()
+            IPropertySnapshot projectProperty = activeConfig.Properties.FirstOrDefault()
                 ?? throw new InvalidOperationException("TargetVsixContainer not found.");
 
             return projectProperty.Value!;
