@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="EditorMargin\WordCountControl.xaml" />
+    <EmbeddedResource Include="Image\ModalDialogControl.xaml" />
     <EmbeddedResource Include="MainToolWindowControl.xaml" />
     <EmbeddedResource Include="ModalDialog\ModalDialogControl.xaml" />
     <EmbeddedResource Include="ModalDialog\XamlResources.*xaml" />
@@ -20,5 +21,7 @@
     <Page Remove="EditorMargin\WordCountControl.xaml" />
     <Page Remove="ModalDialog\ModalDialogControl.xaml" />
     <Page Remove="ModalDialog\XamlResources.*xaml" />
+    <None Remove="Images\DefaultText.16.16.png" />
+    <Page Remove="Image\ModalDialogControl.xaml" />
   </ItemGroup>
 </Project>

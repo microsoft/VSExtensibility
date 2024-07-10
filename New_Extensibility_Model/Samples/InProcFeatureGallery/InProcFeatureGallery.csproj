@@ -20,6 +20,7 @@
     <EmbeddedResource Include="..\FeatureGallery\EditorMargin\WordCountControl.xaml" Link="EditorMargin\WordCountControl.xaml" />
     <EmbeddedResource Include="..\FeatureGallery\ModalDialog\ModalDialogControl.xaml" Link="ModalDialog\ModalDialogControl.xaml" />
     <EmbeddedResource Include="..\FeatureGallery\ModalDialog\XamlResources.*xaml" Link="ModalDialog\%(FileName)%(Extension)" />
+    <EmbeddedResource Include="..\FeatureGallery\Image\ModalDialogControl.xaml" Link="Image\ModalDialogControl.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include=".vsextension\string-resources.json" />
+    <None Remove="Images\DefaultText.16.16.png" />
   </ItemGroup>
 </Project>
