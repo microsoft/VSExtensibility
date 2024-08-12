@@ -21,10 +21,10 @@ public class MyToolWindow : ToolWindow
 The `ToolWindowConfiguration` property defines information about the tool window that is available to Visual Studio even before the extension is loaded:
 
 ```csharp
-    public override ToolWindowConfiguration ToolWindowConfiguration => new()
-    {
-        Placement = ToolWindowPlacement.DocumentWell,
-    };
+public override ToolWindowConfiguration ToolWindowConfiguration => new()
+{
+    Placement = ToolWindowPlacement.DocumentWell,
+};
 ```
 
 This configuration places the tool window in the document well when it's created the first time. You can refer to [ToolWindowPlacement](https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.extensibility.toolwindows.toolwindowplacement?view=vs-extensibility) to learn about other placement options. Since this configuration doesn't specify the additional options, it will have the default DockDirection and AllowAutoCreation values. You can refer to [ToolWindowConfiguration](https://learn.microsoft.com/en-us/visualstudio/extensibility/visualstudio.extensibility/tool-window/tool-window#toolwindow-attribute) to learn more about the configuration options.
@@ -32,26 +32,25 @@ This configuration places the tool window in the document well when it's created
 The title of the tool window can be customized by setting the Title property:
 
 ```csharp
-    public MyToolWindow(VisualStudioExtensibility extensibility)
-        : base(extensibility)
-    {
-        this.Title = "My Tool Window";
-    }
+public MyToolWindow(VisualStudioExtensibility extensibility)
+    : base(extensibility)
+{
+    this.Title = "My Tool Window";
+}
 ```
 
 Adding content to the tool window can be done by setting up a remote user control and corresponding data model:
 
 ```csharp
-    public override Task InitializeAsync(CancellationToken cancellationToken)
-    {
-        this.dataContext = new MyToolWindowData(this.Extensibility);
-        return Task.CompletedTask;
-    }
-
-    public override Task<IRemoteUserControl> GetContentAsync(CancellationToken cancellationToken)
-    {
-        return Task.FromResult<IRemoteUserControl>(new MyToolWindowControl(this.dataContext));
-    }
+public override Task InitializeAsync(CancellationToken cancellationToken)
+{
+    this.dataContext = new MyToolWindowData(this.Extensibility);
+    return Task.CompletedTask;
+}
+public override Task<IRemoteUserControl> GetContentAsync(CancellationToken cancellationToken)
+{
+    return Task.FromResult<IRemoteUserControl>(new MyToolWindowControl(this.dataContext));
+}
 ```
 The data model creation and any other precursor work should be done in the InitializeAsync while the actual UI creation happens in the GetContentAsync.
 
@@ -101,23 +100,47 @@ public class MyToolWindowCommand : Command
 The `CommandConfiguration` property defines information about the command that are available to Visual Studio even before the extension is loaded:
 
 ```csharp
-    public override CommandConfiguration CommandConfiguration => new("%ToolWindowSample.MyToolWindowCommand.DisplayName%")
-    {
-        Placements = [CommandPlacement.KnownPlacements.ToolsMenu],
-        Icon = new(ImageMoniker.KnownValues.ToolWindow, IconSettings.IconAndText),
-    };
+public override CommandConfiguration CommandConfiguration => new("%ToolWindowSample.MyToolWindowCommand.DisplayName%")
+{
+    Placements = [CommandPlacement.KnownPlacements.ToolsMenu],
+    Icon = new(ImageMoniker.KnownValues.ToolWindow, IconSettings.IconAndText),
+};
 ```
 
 The command is placed in the `Tools` top menu and uses the `ToolWindow` icon moniker.
 
 ```csharp
-    public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
-    {
-        await this.Extensibility.Shell().ShowToolWindowAsync<MyToolWindow>(activate: true, cancellationToken);
-    }
+public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
+{
+    await this.Extensibility.Shell().ShowToolWindowAsync<MyToolWindow>(activate: true, cancellationToken);
+}
 ```
 
 When executed, the command will use the tool window type to look up and show that tool window. Because the parameter 'activate' is true, the tool window content will be focused when the tool window is shown. Passing 'false' instead means the tool window and its content will be shown, but not receive focus.
+
+## Adding a toolbar
+
+It is possible to add a toolbar to a tool window by contributing a toolbar configuration. The toolbar configuration is a static property that can be placed in any class of the project, but it is reasonable to add it to the `MyToolWindow` class.
+
+```csharp
+[VisualStudioContribution]
+private static ToolbarConfiguration Toolbar => new("%ToolWindowSample.MyToolWindow.Toolbar.DisplayName%")
+{
+    Children = [ToolbarChild.Command<MyToolbarCommand>()],
+};
+```
+
+In the sample above, the toolbar contains a single command: `MyToolbarCommand`.
+
+Then we reference the toolbar from the tool window configuration:
+
+```csharp
+public override ToolWindowConfiguration ToolWindowConfiguration => new()
+{
+    Placement = ToolWindowPlacement.DocumentWell,
+    Toolbar = new ToolWindowToolbar(Toolbar),
+};
+```
 
 ## Logging errors
 
