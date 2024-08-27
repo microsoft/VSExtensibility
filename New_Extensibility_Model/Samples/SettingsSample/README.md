@@ -6,146 +6,78 @@ date: 2024-08-20
 
 # Walkthrough: Extension Settings Sample
 
-This extension is a simple extension that shows how a tool window can be quickly added to Visual Studio.
+This is a simple extension that shows how settings can be added to Visual Studio and read to configure the behavior of a tool window.
+
+## Tool window definition
+
+See the [ToolWindowSample](../ToolWindowSample/README.md) for more information on defining the tool window.
 
 ## Setting definitions
 
-The extension contains a code file that defines a tool window and its properties starting with the `VisualStudioContribution` class attribute which makes the tool window available to Visual Studio:
+The extension contains a [code file](./SettingDefinitions.cs) that defines three settings and a parent category to contain them. Each setting and the category starts with the `VisualStudioContribution` class attribute which makes it available to Visual Studio:
 
 ```csharp
 [VisualStudioContribution]
-public class MyToolWindow : ToolWindow
+internal static SettingCategory SettingsSampleCategory { get; } = new("settingsSample", "%SettingsSample.Settings.Category.DisplayName%")
 {
-```
-
-The `ToolWindowConfiguration` property defines information about the tool window that is available to Visual Studio even before the extension is loaded:
-
-```csharp
-public override ToolWindowConfiguration ToolWindowConfiguration => new()
-{
-    Placement = ToolWindowPlacement.DocumentWell,
+    Description = "%SettingsSample.Settings.Category.Description%",
 };
 ```
 
-This configuration places the tool window in the document well when it's created the first time. You can refer to [ToolWindowPlacement](https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.extensibility.toolwindows.toolwindowplacement?view=vs-extensibility) to learn about other placement options. Since this configuration doesn't specify the additional options, it will have the default DockDirection and AllowAutoCreation values. You can refer to [ToolWindowConfiguration](https://learn.microsoft.com/en-us/visualstudio/extensibility/visualstudio.extensibility/tool-window/tool-window#toolwindow-attribute) to learn more about the configuration options.
+```csharp
+[VisualStudioContribution]
+internal static Setting.Boolean AutoUpdateSetting { get; } = new("autoUpdate", "%SettingsSample.Settings.AutoUpdate.DisplayName%", SettingsSampleCategory, defaultValue: true)
+{
+    Description = "%SettingsSample.Settings.AutoUpdate.Description%",
+};
 
-The title of the tool window can be customized by setting the Title property:
+The `SettingCategory` and `Setting.Boolean` properties define information about the settings that is available to Visual Studio even before the extension is loaded.
+
+In `MyToolWindowData`, a subscription is created to read and monitor value changes for all the settings in the `SettingSampleCategory`:
 
 ```csharp
-public MyToolWindow(VisualStudioExtensibility extensibility)
-    : base(extensibility)
+public MyToolWindowData(VisualStudioExtensibility extensibility)
 {
-    this.Title = "My Tool Window";
-}
-```
-
-Adding content to the tool window can be done by setting up a remote user control and corresponding data model:
-
-```csharp
-public override Task InitializeAsync(CancellationToken cancellationToken)
-{
-    this.dataContext = new MyToolWindowData(this.Extensibility);
-    return Task.CompletedTask;
-}
-public override Task<IRemoteUserControl> GetContentAsync(CancellationToken cancellationToken)
-{
-    return Task.FromResult<IRemoteUserControl>(new MyToolWindowControl(this.dataContext));
-}
-```
-The data model creation and any other precursor work should be done in the InitializeAsync while the actual UI creation happens in the GetContentAsync.
-
-## Tool window content creation
-
-The tool window content is created as a DataTemplate .xaml file and a separate control class .cs file:
-
-```xml
-<DataTemplate xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-              xmlns:vs="http://schemas.microsoft.com/visualstudio/extensibility/2022/xaml"
-              xmlns:styles="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
-              xmlns:colors="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0">
     ...
-</DataTemplate>
-```
-
-```csharp
-internal class MyToolWindowControl : RemoteUserControl
+    this.InitializeSettingsAsync(extensibility).Forget();
+}
+private async Task InitializeSettingsAsync(VisualStudioExtensibility extensibility)
 {
-```
-
-The .cs and .xaml files should have the same name (MyToolWindowControl in this sample). Additionally the xaml file should be included as an EmbeddedResource instead of a Page, so editing the csproj file may be necessary in some cases.
-
-A data model that backs the UI is required for data-driven UI:
-
-```csharp
-[DataContract]
-internal class MyToolWindowData : NotifyPropertyChangedObject
-{
-```
-
-The data model must derive from NotifyPropertyChangedObject and set the DataContract class attribute and DataMemeber property attribute for all UI bound properties.
-
-You can refer to [Add content to a tool window](https://learn.microsoft.com/en-us/visualstudio/extensibility/visualstudio.extensibility/tool-window/tool-window#add-content-to-a-tool-window) to learn more about setting up the tool window content and remote UI.
-
-## Show tool window command definition
-
-Once the tool window is defined, it's common to have a command to allow showing the tool window. The extension contains a code file that defines a command and its properties starting with the `VisualStudioContribution` class attribute which makes the command available to Visual Studio:
-
-```csharp
-[VisualStudioContribution]
-public class MyToolWindowCommand : Command
-{
-```
-
-The `CommandConfiguration` property defines information about the command that are available to Visual Studio even before the extension is loaded:
-
-```csharp
-public override CommandConfiguration CommandConfiguration => new("%ToolWindowSample.MyToolWindowCommand.DisplayName%")
-{
-    Placements = [CommandPlacement.KnownPlacements.ToolsMenu],
-    Icon = new(ImageMoniker.KnownValues.ToolWindow, IconSettings.IconAndText),
-};
-```
-
-The command is placed in the `Tools` top menu and uses the `ToolWindow` icon moniker.
-
-```csharp
-public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
-{
-    await this.Extensibility.Shell().ShowToolWindowAsync<MyToolWindow>(activate: true, cancellationToken);
+    await extensibility.Settings().SubscribeAsync(
+        [SettingDefinitions.SettingsSampleCategory],
+        CancellationToken.None,
+        values => {...});
 }
 ```
-
-When executed, the command will use the tool window type to look up and show that tool window. Because the parameter 'activate' is true, the tool window content will be focused when the tool window is shown. Passing 'false' instead means the tool window and its content will be shown, but not receive focus.
-
-## Adding a toolbar
-
-It is possible to add a toolbar to a tool window by contributing a toolbar configuration. The toolbar configuration is a static property that can be placed in any class of the project, but it is reasonable to add it to the `MyToolWindow` class.
-
-```csharp
-[VisualStudioContribution]
-private static ToolbarConfiguration Toolbar => new("%ToolWindowSample.MyToolWindow.Toolbar.DisplayName%")
-{
-    Children = [ToolbarChild.Command<MyToolbarCommand>()],
-};
-```
-
-In the sample above, the toolbar contains a single command: `MyToolbarCommand`.
-
-Then we reference the toolbar from the tool window configuration:
-
-```csharp
-public override ToolWindowConfiguration ToolWindowConfiguration => new()
-{
-    Placement = ToolWindowPlacement.DocumentWell,
-    Toolbar = new ToolWindowToolbar(Toolbar),
-};
-```
-
-## Logging errors
-
-Each extension part including command sets is assigned a `TraceSource` instance that can be utilized to log diagnostic errors. Please see [Logging](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/inside-the-sdk/logging) section for more information.
 
 ## Usage
 
-Once deployed, the My Tool Window command can be used to show My Tool Window in the document well.
+Once deployed, the "Sample Text Tool Window" command can be used to show the "Settings Sample Tool Window" in the document well.
+
+### Changing the TextLengthSetting
+
+Setting values are stored in json files in well-known locations. After deploying the extension:
+
+* Open the "Sample Text Tool Window": Tools -> Sample Text Tool Window
+* Open the extension settings json file: Extensions -> Extension Settings (experimental) -> User Scope (current install)
+
+The `extensibility.settings.json` file will open in an editor. To change the textLength setting, add a value to the file to override
+the default:
+
+```json
+/* Visual Studio Settings File */
+{
+  "settingsSample.textLength": 150
+}
+```
+
+The string key is the `FullId` property of the `TextLengthSetting` property defined in [SettingDefinitions](./SettingDefinitions.cs). It is formed by the id of the category and the id of the setting.
+
+Each time you change the value and save the file, the sample text in the tool window will update.
+
+## Current Limitations
+
+The settings API is currently experimental, and has several limitations:
+
+* An extension can only read or write settings from itself or other extensions. Core Visual Studio settings are not available.
+* There is no UI for extension settings. They can only be changed by using the json files available in the Extensions -> Extension Settings (experimental) menu.
