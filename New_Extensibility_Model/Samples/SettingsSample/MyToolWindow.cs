@@ -6,7 +6,6 @@ namespace SettingsSample;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Extensibility;
-using Microsoft.VisualStudio.Extensibility.Commands;
 using Microsoft.VisualStudio.Extensibility.ToolWindows;
 using Microsoft.VisualStudio.RpcContracts.RemoteUI;
 
@@ -16,7 +15,7 @@ using Microsoft.VisualStudio.RpcContracts.RemoteUI;
 [VisualStudioContribution]
 public class MyToolWindow : ToolWindow
 {
-    private object? dataContext;
+    private MyToolWindowData? dataContext;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="MyToolWindow" /> class.
@@ -37,8 +36,7 @@ public class MyToolWindow : ToolWindow
     public override Task InitializeAsync(CancellationToken cancellationToken)
     {
         this.dataContext = new MyToolWindowData(this.Extensibility);
-
-        return Task.CompletedTask;
+        return this.dataContext.InitializeAsync(cancellationToken);
     }
 
     /// <inheritdoc />

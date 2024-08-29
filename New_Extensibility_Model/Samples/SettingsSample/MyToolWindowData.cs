@@ -11,7 +11,6 @@ using Microsoft;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Settings;
 using Microsoft.VisualStudio.Extensibility.UI;
-using Microsoft.VisualStudio.Threading;
 
 /// <summary>
 /// A sample data context object to use with tool window UI content.
@@ -43,8 +42,6 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
         this.extensibility = Requires.NotNull(extensibility, nameof(extensibility));
 
         this.UpdateCommand = new AsyncCommand(this.UpdateAsync);
-
-        this.InitializeSettingsAsync(extensibility).Forget();
     }
 
     /// <summary>
@@ -77,13 +74,23 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
         set => this.SetProperty(ref this.sampleText, value);
     }
 
+    /// <summary>
+    /// Initializes the current instance of <see cref="MyToolWindowData"/>.
+    /// </summary>
+    /// <param name="cancellationToken">Cancellation token to monitor.</param>
+    /// <returns>Task indicating completion of initialization.</returns>
+    public Task InitializeAsync(CancellationToken cancellationToken)
+    {
+        return this.InitializeSettingsAsync(cancellationToken);
+    }
+
 #pragma warning disable VSEXTPREVIEW_SETTINGS // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 
-    private async Task InitializeSettingsAsync(VisualStudioExtensibility extensibility)
+    private async Task InitializeSettingsAsync(CancellationToken cancellationToken)
     {
-        await extensibility.Settings().SubscribeAsync(
+        await this.extensibility.Settings().SubscribeAsync(
             [SettingDefinitions.SettingsSampleCategory],
-            CancellationToken.None,
+            cancellationToken,
             values =>
             {
                 if (values.TryGetValue(SettingDefinitions.AutoUpdateSetting.FullId, out ISettingValue? autoUpdateValue))
@@ -127,5 +134,6 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
             };
         }
     }
+
 #pragma warning restore VSEXTPREVIEW_SETTINGS // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 }

@@ -17,12 +17,8 @@ internal class MyToolWindowControl : RemoteUserControl
     /// <param name="dataContext">
     /// Data context of the remote control which can be referenced from xaml through data binding.
     /// </param>
-    /// <param name="synchronizationContext">
-    /// Optional synchronizationContext that the extender can provide to ensure that <see cref="IAsyncCommand"/>
-    /// are executed and properties are read and updated from the extension main thread.
-    /// </param>
-    public MyToolWindowControl(object? dataContext, SynchronizationContext? synchronizationContext = null)
-        : base(dataContext, synchronizationContext)
+    public MyToolWindowControl(object? dataContext)
+        : base(dataContext)
     {
     }
 }
