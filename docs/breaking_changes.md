@@ -24,8 +24,8 @@ User feedback has indicated that the current experience for writing to the Outpu
 To improve the streamline the experience, we have redesigned the API. Documentation of new API is pending.
 
 You are impacted if you create or write to an output channel in your Gladstone commands. Indicators would be:
-- References to Microsoft.VisualStudio.Extensibility.Documents.OutputWindow
-- Calls to create a channel, like await Extensibility.Views().Output.GetChannelAsync(…)
+- References to <code>Microsoft.VisualStudio.Extensibility.Documents.OutputWindow</code>
+- Calls to create a channel, like <code>await Extensibility.Views().Output.GetChannelAsync(…)</code> 
 
 # Breaking Changes for Visual Studio 2022 17.11
 
