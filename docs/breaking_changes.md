@@ -8,6 +8,45 @@ date: 2024-01-30
 
 We work hard to minimize breaking changes between versions to help minimize disruptions to your extension development, especially as VisualStudio.Extensibility matures. Some breaking changes are necessary, however, in order to add support for new features or in response to user feedback. Those changes are listed here.
 
+# Breaking Changes for Visual Studio 2022 17.12
+The following breaking changes apply to Visual Studio 2022 17.12
+
+## VisualStudio.Extensibility
+
+These breaking changes are associated with VisualStudio.Extensibility.
+
+### Output Window
+User feedback has indicated that the current experience for writing to the Output Window is too complex and confusing. Among the issues we’ve identified are:
+- Confusion as to why a resource dictionary is necessary to create and write to an output channel
+- Confusion over the requirement that channels have a unique ID, and what those IDs should be
+- Unclear naming of functions and objects (window vs. channel, create vs. get)
+ 
+To improve the streamline the experience, we have redesigned the API. Documentation of new API is pending.
+
+You are impacted if you create or write to an output channel in your Gladstone commands. Indicators would be:
+- References to Microsoft.VisualStudio.Extensibility.Documents.OutputWindow
+- Calls to create a channel, like await Extensibility.Views().Output.GetChannelAsync(…)
+
+# Breaking Changes for Visual Studio 2022 17.11
+
+The following breaking changes apply to Visual Studio 2022 17.10.
+
+## VisualStudio.Extensibility
+
+These breaking changes are associated with VisualStudio.Extensibility.
+
+### Project Query
+
+The following methods have been marked as <code>[Obsolete]</code> for future removal:
+
+<code>Microsoft.VisualStudio.ProjectSystem.Query.UpdateExtensions.SetBuildPropertyValue(this IAsyncUpdatable<IProjectConfigurationSnapshot> configurations, string name, string value, string storageType)</code>
+
+<code>Microsoft.VisualStudio.ProjectSystem.Query.UpdateExtensions.Delete(this IAsyncUpdatable<IBuildPropertySnapshot> buildProperties)</code>
+
+<code>Microsoft.VisualStudio.ProjectSystem.Query.ProjectConfigurationPropertiesFilterExtensions.BuildPropertiesByName(this IProjectConfigurationSnapshot projectConfiguration, string storageType, params string[] buildPropertyNames)</code>
+
+While this is *not* a breaking change, information has been added for future reference.
+
 # Breaking Changes for Visual Studio 2022 17.10
 
 The following breaking changes apply to Visual Studio 2022 17.10.
@@ -107,3 +146,34 @@ All you need to do for out-of-process extensions is to update the package refere
 In order to better support creating VSIX packages for your extensions, we've made some changes to the layout of VSSDK-compatible extension projects. The simplest thing to do would be to create a new in-process extension project, which will have the correct behavior.
 
 Make sure you've updated to the latest Visual Studio 2022 17.9+ version and create a new in-process project, called "VisualStudio.Extensibility Extension with VSSDK Compatibility" in the New Project dialog. Copy your extension code into the new project and fix any compilation errors associated with the updated package references. Once you've rebuilt, your manifest file should have the correct value set automatically.
+
+# Guidance and Expectations Around Breaking Changes
+
+As VisualStudio.Extensibility matures and we continue to attract new users and extension authors, we want to ensure that we have a customer-focused approach to breaking changes that is consistent across the various feature areas in the SDK. Since one of the principals of VisualStudio.Extensibility is to create easy to use APIs that can be sustained over time, it will take us some back and forth iteration to get some of the APIs down to a state that we're satisfied with. Our goal is to provide extenders with the most up to date APIs to unblock scenarios in their extension, but we also want to reserve some room where our engineers can iterate on the shape of the API as we get feedback from customers. In order to achieve both, we have established the following guidance on how we approach how and when we break APIs for VisualStudio.Extensibility.
+
+## Experimental APIs
+
+Beginning with our 17.9 release, we introduced the concept of Experimental APIs to extenders. You can find a full description of our approach in the [Experimental APIs doc](https://github.com/microsoft/VSExtensibility/blob/main/docs/experimental_apis.md) on our public GitHub repo, but at a high level, we have marked certain VisualStudio.Extensibility types and members with the <code>[Experimental]</code> attribute to signal to extension authors that we expect those APIs to be less stable across releases than those in the rest of the SDK.
+
+Typically, we mark APIs as experimental if they are part of a feature area that is still under active development, or if they have been identified through user feedback as requiring usability enhancements. To prevent surprise, extenders who want to use experimental APIs need to proactively disable the associated build error to opt-into using the feature despite the higher likelihood of breaking changes.
+
+One of the more common questions we get from extenders is about when experimental APIs in VisualStudio.Extensibility will GA, because in most cases they want to make sure their effort migrating existing extensions or writing new ones won’t be interrupted by churn and breaking changes. By using experimental APIs, we can assure extenders that the vast majority of VisualStudio.Extensibility is already essentially GA quality and is as free from unnecessary churn as VSSDK.
+
+### Breaking Changes to Experimental APIs
+
+For experimental APIs:
+- Breaking changes can be made as part of LTSC minor version releases of Visual Studio.
+    - A list of breaking changes for the release will be shared by Preview 2 of the release.
+    - This list will be shared in the Breaking Changes doc in a section labeled explicitly for changes to stable APIs.
+        - If upcoming changes are known ahead of time, they can be listed in a special section of the Breaking Changes doc for upcoming changes.
+- For removing APIs, we may choose to formally deprecate by marking the type or with the [Obsolete] attribute.
+    - Like with breaking changes, any deprecated APIs may be marked as <code>[Obsolete]</code> by Preview 2 of the release in which they’ll be removed.
+
+## Stable APIs
+
+With stable APIs, we want to replicate the stability expectations associated with VSSDK:
+- Breaking changes to both VisualStudio.Extensibility APIs and RPC contracts can only be made as part of a major version release of Visual Studio.
+    - A list of breaking changes must be available by Preview 1 of the release.
+- Any removal of APIs or demotion will be done formally through marking the type or with the [Obsolete] attribute.
+- Demotion of stable APIs to experimental is considered a breaking change and will be announced.
+

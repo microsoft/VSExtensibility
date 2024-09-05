@@ -22,6 +22,6 @@ With Visual Studio 2022 17.9, we've added the ability to publish VisualStudio.Ex
 
 We've discovered that if you have a Language Pack installed with Visual Studio, hot-loading new extensions won't work. Instead, until we release a fix, you'll need to close and restart Visual Studio after installing your extensions like you would for traditional non-VisualStudio.Extensibility extensions.
 
-**A fix for this issue has been found and will be available with a future release.**
+**This issue is now fixed with Visual Studio 17.11 release.**
 
-*Last updated on 29-May-2024*
+*Last updated on 05-September-2024*
