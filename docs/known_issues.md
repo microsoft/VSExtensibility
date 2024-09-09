@@ -12,9 +12,9 @@ This is a list of known issues with VisualStudio.Extensibility. We'll keep this 
 
 We've found a bug that prevents fully out-of-process VisualStudio.Extensibility extensions from installing on ARM64 systems. In the meantime, you could structure your extension as an [in-proc/VSSDK-compatible extension](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/get-started/in-proc-extensions) if you need ARM64 compatability.
 
-We will share updates on a fix once we have one available.
+**A fix for this issue will soon be available in an upcoming Visual Studio release.** 
 
-*Last updated on 29-May-2024*
+*Last updated on 09-September-2024*
 
 ## Hot-loading issue when language packs are installed
 
