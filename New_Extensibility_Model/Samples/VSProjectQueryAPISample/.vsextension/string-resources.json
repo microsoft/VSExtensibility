@@ -3,5 +3,8 @@
   "VSProjectQueryAPISample.QueryFileCommand.DisplayName": "Query File",
   "VSProjectQueryAPISample.QueryOutputGroupByIdCommand.DisplayName": "Query Output Group by ID",
   "VSProjectQueryAPISample.QueryOutputGroupByNameCommand.DisplayName": "Query Output Group by Name",
-  "VSProjectQueryAPISample.QueryOutputGroupByProjectCommand.DisplayName": "Query Output Group by Project"
+  "VSProjectQueryAPISample.QueryOutputGroupByProjectCommand.DisplayName": "Query Output Group by Project",
+  "VSProjectQueryAPISample.SkipOfNCommand.DisplayName": "Query Project And Skip Over 1",
+  "VSProjectQueryAPISample.TrackProjectQueryCommand.DisplayName": "Track Project Query",
+  "VSProjectQueryAPISample.ShowActiveProjectCommand.DisplayName": "Show Current Active Project"
 }
