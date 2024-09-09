@@ -8,6 +8,8 @@ date: 2024-01-30
 
 We work hard to minimize breaking changes between versions to help minimize disruptions to your extension development, especially as VisualStudio.Extensibility matures. Some breaking changes are necessary, however, in order to add support for new features or in response to user feedback. Those changes are listed here.
 
+For more information how our policy and guidance towards breaking changes, please review [here](#Guidance-and-Expectations-Around-Breaking-Changes).
+
 # Breaking Changes for Visual Studio 2022 17.12
 The following breaking changes apply to Visual Studio 2022 17.12
 
