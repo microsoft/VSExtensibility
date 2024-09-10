@@ -11,7 +11,7 @@ We work hard to minimize breaking changes between versions to help minimize disr
 For more information how our policy and guidance towards breaking changes, please review [here](#Guidance-and-Expectations-Around-Breaking-Changes).
 
 # Breaking Changes for Visual Studio 2022 17.12
-The following breaking changes apply to Visual Studio 2022 17.12
+The following breaking changes apply to Visual Studio 2022 17.12.
 
 ## VisualStudio.Extensibility
 
@@ -31,7 +31,7 @@ You are impacted if you create or write to an output channel in your Gladstone c
 
 # Breaking Changes for Visual Studio 2022 17.11
 
-The following breaking changes apply to Visual Studio 2022 17.10.
+The following breaking changes apply to Visual Studio 2022 17.11.
 
 ## VisualStudio.Extensibility
 
