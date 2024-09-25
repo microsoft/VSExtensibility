@@ -1,0 +1,14 @@
+﻿{
+  "SettingsSample.MyToolWindowCommand.DisplayName": "Sample Text Tool Window",
+  "SettingsSample.Settings.Category.DisplayName": "Settings Sample",
+  "SettingsSample.Settings.Category.Description": "Settings for the LoremIpsum sample generator.",
+  "SettingsSample.Settings.AutoUpdate.DisplayName": "Auto Update",
+  "SettingsSample.Settings.AutoUpdate.Description": "Whether to update the sample text when a setting changes.",
+  "SettingsSample.Settings.TextLength.DisplayName": "Text Length",
+  "SettingsSample.Settings.TextLength.Description": "Number of characters to include in the generated text.",
+  "SettingsSample.Settings.QuoteStyle.DisplayName": "Quote Style",
+  "SettingsSample.Settings.QuoteStyle.Description": "Style of quotes to enclose the generated text.",
+  "SettingsSample.Settings.QuoteStyle.None": "None",
+  "SettingsSample.Settings.QuoteStyle.Single": "Single",
+  "SettingsSample.Settings.QuoteStyle.Double": "Double"
+}

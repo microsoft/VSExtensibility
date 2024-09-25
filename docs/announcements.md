@@ -6,6 +6,13 @@ date: 2022-8-10
 
 # Announcements
 Use this page to stay up-to-date on all upcoming extensibility announcements and critical SDK/API updates.
+## September 12, 2024
+We've released updated packages starting with the Visual Studio 17.12 official release. This version adds the following new features:
+* Ability to customize your extensions further with settings support
+* Show images and use context menus in remote UI
+* Enhance your tool windows with toolbars
+
+To learn more, plesae see our [announcement on the Visual Studio blog](https://devblogs.microsoft.com/visualstudio/visualstudio-extensibility-17-11-settings-and-more-remote-ui-support/).
 
 ## February 20, 2024
 We've released updated packages and templates starting with the Visual Studio 2022 17.9 official release. This version adds the following new features:
