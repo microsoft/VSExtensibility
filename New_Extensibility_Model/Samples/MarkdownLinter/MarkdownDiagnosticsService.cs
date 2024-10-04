@@ -28,7 +28,7 @@ internal class MarkdownDiagnosticsService : DisposableObject
 #pragma warning restore CA2213 // Disposable fields should be disposed
     private readonly Dictionary<Uri, CancellationTokenSource> documentCancellationTokens;
     private readonly Task initializationTask;
-    private OutputWindow? outputWindow;
+    private OutputChannel? outputChannel;
     private DiagnosticsReporter? diagnosticsReporter;
 
     /// <summary>
@@ -78,9 +78,9 @@ internal class MarkdownDiagnosticsService : DisposableObject
         }
         catch (InvalidOperationException)
         {
-            if (this.outputWindow is not null)
+            if (this.outputChannel is not null)
             {
-                await this.outputWindow.Writer.WriteLineAsync(Strings.MissingLinterError);
+                await this.outputChannel.WriteLineAsync(Strings.MissingLinterError);
             }
         }
     }
@@ -134,7 +134,7 @@ internal class MarkdownDiagnosticsService : DisposableObject
 
         if (isDisposing)
         {
-            this.outputWindow?.Dispose();
+            this.outputChannel?.Dispose();
             this.diagnosticsReporter?.Dispose();
         }
     }
@@ -158,18 +158,16 @@ internal class MarkdownDiagnosticsService : DisposableObject
         }
         catch (InvalidOperationException)
         {
-            if (this.outputWindow is not null)
+            if (this.outputChannel is not null)
             {
-                await this.outputWindow.Writer.WriteLineAsync(Strings.MissingLinterError);
+                await this.outputChannel.WriteLineAsync(Strings.MissingLinterError);
             }
         }
     }
 
     private async Task InitializeAsync()
     {
-        this.outputWindow = await this.extensibility.Views().Output.GetChannelAsync(nameof(MarkdownLinterExtension) + Guid.NewGuid(), nameof(Strings.MarkdownLinterWindowName), default);
-        Assumes.NotNull(this.outputWindow);
-
+        this.outputChannel = await this.extensibility.Views().Output.CreateOutputChannelAsync(Strings.MarkdownLinterWindowName, default);
         this.diagnosticsReporter = this.extensibility.Languages().GetDiagnosticsReporter(nameof(MarkdownLinterExtension));
         Assumes.NotNull(this.diagnosticsReporter);
     }

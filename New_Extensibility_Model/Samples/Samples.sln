@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
+# 17
 VisualStudioVersion = 17.9.34329.44
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{070F0AEA-C0A0-4B5D-9286-55574A37BE7A}"
@@ -54,6 +54,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtensionPublisher", "ExtensionPublisher\ExtensionPublisher.csproj", "{825A8890-82C2-4F90-9042-8423E3B57AAD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilePickerSample", "FilePickerSample\FilePickerSample.csproj", "{626939FA-4B8B-484E-BFD9-32DDFAFA472E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SettingsSample", "..\..\..\..\Users\maprospe\source\repos\VSExtensibilitySamples\New_Extensibility_Model\Samples\SettingsSample\SettingsSample.csproj", "{2D367F0B-6EEF-48D8-9EC7-A71763F76145}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -145,6 +147,10 @@ Global
 		{626939FA-4B8B-484E-BFD9-32DDFAFA472E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{626939FA-4B8B-484E-BFD9-32DDFAFA472E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{626939FA-4B8B-484E-BFD9-32DDFAFA472E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D367F0B-6EEF-48D8-9EC7-A71763F76145}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D367F0B-6EEF-48D8-9EC7-A71763F76145}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D367F0B-6EEF-48D8-9EC7-A71763F76145}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D367F0B-6EEF-48D8-9EC7-A71763F76145}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
