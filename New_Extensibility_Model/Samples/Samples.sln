@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# 17
+# Visual Studio Version 17
 VisualStudioVersion = 17.9.34329.44
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{070F0AEA-C0A0-4B5D-9286-55574A37BE7A}"
@@ -56,6 +56,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilePickerSample", "FilePickerSample\FilePickerSample.csproj", "{626939FA-4B8B-484E-BFD9-32DDFAFA472E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SettingsSample", "SettingsSample\SettingsSample.csproj", "{0D0B8CBF-CEAB-4956-87C8-96B931E5458C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeLensSample", "CodeLensSample\CodeLensSample.csproj", "{B0DDBB39-51C3-4B3C-A327-C93C867E3B4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -153,6 +155,10 @@ Global
 		{0D0B8CBF-CEAB-4956-87C8-96B931E5458C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D0B8CBF-CEAB-4956-87C8-96B931E5458C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0D0B8CBF-CEAB-4956-87C8-96B931E5458C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B0DDBB39-51C3-4B3C-A327-C93C867E3B4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0DDBB39-51C3-4B3C-A327-C93C867E3B4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0DDBB39-51C3-4B3C-A327-C93C867E3B4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0DDBB39-51C3-4B3C-A327-C93C867E3B4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
