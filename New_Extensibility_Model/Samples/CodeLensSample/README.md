@@ -1,18 +1,18 @@
 ---
 title: Code Lens Sample Reference
 description: A reference for Code Lens Sample
-date: 2023-02-10
+date: 2023-10-14
 ---
 
 # Walkthrough: Code Lens Sample
 
-This extension is a simple extension which contributes two CodeLens providers - one that provides clickable Code Lens displaying number of times user clicked on it and another that provides Code Lens displaying the number of words in a method and provides custom UI displayed when user clicks on the CodeLens. It is a good starting point for learning how to create a CodeLens provider.
+This extension is a sample extension which contributes two Code Lens providers - one that provides clickable Code Lens displaying number of times user clicked on it and another that provides Code Lens displaying the number of words in a method and custom UI displayed when user clicks on the Code Lens. It is a good starting point for learning how to create a Code Lens provider.
 
 ## ClickCountCodeLensProvider and ClickableCodeLens
 
 `ClickCountCodeLensProvider` is a part of the extension that provides an invokable Code Lens that allows execution by user clicking on it and indicating number of times it was executed.
 
-`ClickCountCodeLensProvider` utilizes the `AppliesTo` configuration to indicate that it is interested in events from text views whose documents are of `DocumentType.KnownValues.Code`, which are all tex based documents containing code.
+`ClickCountCodeLensProvider` utilizes the `AppliesTo` configuration to indicate that it is interested in events from text views whose documents are of `DocumentType.KnownValues.Code`, which are all text based documents containing code.
 
 ```csharp
 /// <inheritdoc />
@@ -49,7 +49,7 @@ public Task<CodeLens?> TryCreateCodeLensAsync(CodeElement codeElement, CodeEleme
 }
 ```
 
-`ClickableCodeLens` provides `CodeLensLabel` that is being displayed above methods and implements `InvokableCodeLens` to increment click count on each invocation.
+`ClickableCodeLens` provides `CodeLensLabel` that is being displayed above methods and implements `InvokableCodeLens` abstract class to increment click count on each invocation.
 ```csharp
 public override Task ExecuteAsync(CodeElementContext codeElementContext, IClientContext clientContext, CancellationToken cancelToken)
 {
@@ -72,7 +72,7 @@ public override Task<CodeLensLabel> GetLabelAsync(CodeElementContext codeElement
 
 `WordCountCodeLensProvider` is a part of the extension that provides a visual Code Lens indicating number of words in a method body and that listens for new editor text view creation and changes to open text views to update the word count.
 
-`WordCountCodeLensProvider` utilizes the `AppliesTo` configuration to indicate that it is interested in events from text views whose documents are of `DocumentType.KnownValues.Code`, which are all tex based documents containing code.
+`WordCountCodeLensProvider` utilizes the `AppliesTo` configuration to indicate that it is interested in events from text views whose documents are of `DocumentType.KnownValues.Code`, which are all text based documents containing code.
 
 ```csharp
 /// <inheritdoc />
@@ -95,7 +95,7 @@ public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
     };
 ```
 
-When requested, `WordCountCodeLensProvider` provides a `WordCountCodeLens` instance:
+When requested, `WordCountCodeLensProvider` provides `WordCountCodeLens` instance:
 
 ```csharp
 public Task<CodeLens?> TryCreateCodeLensAsync(CodeElement codeElement, CodeElementContext codeElementContext, CancellationToken token)
