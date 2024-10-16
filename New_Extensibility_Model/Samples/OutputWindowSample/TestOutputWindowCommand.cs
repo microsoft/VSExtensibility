@@ -3,6 +3,8 @@
 
 namespace OutputWindowSample;
 
+using System;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Extensibility;
@@ -16,7 +18,7 @@ using Microsoft.VisualStudio.Extensibility.Documents;
 #pragma warning disable VSEXTPREVIEW_OUTPUTWINDOW // Type is for evaluation purposes only and is subject to change or removal in future updates.
 public class TestOutputWindowCommand : Command
 {
-    private OutputWindow? outputWindow;
+    private OutputChannel? outputChannel;
 
     /// <inheritdoc />
     public override CommandConfiguration CommandConfiguration => new("%OutputWindowSample.TestOutputWindowCommand.DisplayName%")
@@ -28,24 +30,28 @@ public class TestOutputWindowCommand : Command
     /// <inheritdoc />
     public override async Task InitializeAsync(CancellationToken cancellationToken)
     {
-        this.outputWindow = await this.GetOutputWindowAsync(cancellationToken);
+        this.outputChannel = await this.GetOutputChannelAsync(cancellationToken);
         await base.InitializeAsync(cancellationToken);
     }
 
     /// <inheritdoc />
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
-        if (this.outputWindow != null)
+        if (this.outputChannel != null)
         {
-            await this.outputWindow.Writer.WriteLineAsync("This is a test of the output window.");
+            await this.outputChannel.WriteLineAsync("Testing the output channel.");
+
+            await this.outputChannel.Writer.WriteLineAsync("Testing the output channel TextWriter.");
+
+            var rom = new ReadOnlyMemory<byte>(Encoding.UTF8.GetBytes("Testing the output channel PipeWriter."));
+            await this.outputChannel.PipeWriter.WriteAsync(rom, cancellationToken);
         }
     }
 
-    private async Task<OutputWindow?> GetOutputWindowAsync(CancellationToken cancellationToken)
+    private async Task<OutputChannel?> GetOutputChannelAsync(CancellationToken cancellationToken)
     {
-        string id = "MyOutputWindow";
         string displayNameResourceId = nameof(Strings.OutputWindowDisplayName);
-        return await this.Extensibility.Views().Output.GetChannelAsync(id, displayNameResourceId, cancellationToken);
+        return await this.Extensibility.Views().Output.CreateOutputChannelAsync(displayNameResourceId, cancellationToken);
     }
 }
 #pragma warning restore VSEXTPREVIEW_OUTPUTWINDOW // Type is for evaluation purposes only and is subject to change or removal in future updates.
