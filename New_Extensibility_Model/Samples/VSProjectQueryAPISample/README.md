@@ -212,7 +212,7 @@ While building on the project level, determine the selected project you want to 
 await result.First().BuildAsync(cancellationToken);
 ```
 
-### Rename Project
+### Renaming a Project
 
 In the example below, we specify the name of the project we would like to update. We then call `Rename` while passing in the new name of the project.
 
@@ -222,6 +222,17 @@ var result = await querySpace.Projects
     .AsUpdatable()
     .Rename("NewProjectName")
     .ExecuteAsync(cancellationToken);
+```
+
+
+### Renaming a file
+`RenameFile` takes the file path of the file you want to rename and the new name of the file. In the example below, we rename a file in a project called `ConsoleApp1` to `newName.cs`.
+
+```csharp
+var result =  await querySpace.UpdateProjectsAsync(
+                project => project.Where(project => project.Name == "ConsoleApp1"),
+                project => project.RenameFile(filePath, "newName.cs"),
+                cancellationToken);
 ```
 
 ### Skip 1 Project
