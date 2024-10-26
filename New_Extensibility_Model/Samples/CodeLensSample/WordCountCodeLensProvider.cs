@@ -36,7 +36,7 @@ internal class WordCountCodeLensProvider : ExtensionPart, ICodeLensProvider, ITe
 
     public Task<CodeLens?> TryCreateCodeLensAsync(CodeElement codeElement, CodeElementContext codeElementContext, CancellationToken token)
     {
-        if (codeElement.Kind == CodeElementKind.KnownValues.Method || codeElement.Kind.IsOfKind(CodeElementKind.KnownValues.Type))
+        if (codeElement.Kind == CodeElementKind.KnownValues.Method)
         {
             return Task.FromResult<CodeLens?>(new WordCountCodeLens(codeElement, codeElementContext, this.Extensibility, this));
         }
