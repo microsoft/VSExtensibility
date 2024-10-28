@@ -7,8 +7,17 @@ using Microsoft.VisualStudio.Extensibility.UI;
 
 internal class WordCountCodeLensVisual : RemoteUserControl
 {
-    public WordCountCodeLensVisual(object? dataContext)
+    private readonly WordCountCodeLens wordCountCodeLens;
+
+    public WordCountCodeLensVisual(object? dataContext, WordCountCodeLens wordCountCodeLens)
         : base(dataContext)
     {
+        this.wordCountCodeLens = wordCountCodeLens;
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        base.Dispose(disposing);
+        this.wordCountCodeLens.UpdateWordCount();
     }
 }

@@ -4,6 +4,7 @@
 namespace CodeLensSample;
 
 using System;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Extensibility;
@@ -13,11 +14,12 @@ using Microsoft.VisualStudio.RpcContracts.RemoteUI;
 #pragma warning disable VSEXTPREVIEW_CODELENS // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 internal class WordCountCodeLens : VisualCodeLens
 {
-    private WordCountData wordCountData = new();
+    private readonly WordCountData wordCountData;
 
     public WordCountCodeLens(CodeElement codeElement, CodeElementContext codeElementContext, VisualStudioExtensibility extensibility, WordCountCodeLensProvider wordCountCodeLensProvider)
     {
-        this.wordCountData.WordCount = CountWords(codeElementContext.Range);
+        this.wordCountData = new WordCountData(this);
+        this.wordCountData.WordCount = this.CountWords(codeElementContext.Range);
         wordCountCodeLensProvider.TextViewChanged += this.OnTextViewChanged;
     }
 
@@ -27,31 +29,32 @@ internal class WordCountCodeLens : VisualCodeLens
 
     public override Task<CodeLensLabel> GetLabelAsync(CodeElementContext codeElementContext, CancellationToken token)
     {
-        this.wordCountData.WordCount = CountWords(codeElementContext.Range);
+        this.wordCountData.WordCount = this.CountWords(codeElementContext.Range);
         return Task.FromResult(new CodeLensLabel()
         {
-            Text = $"Words: {this.wordCountData.WordCount}",
-            Tooltip = "Number of words in this code element",
+            Text = $"Occurrences of \"{this.wordCountData.WordToMatch}\": {this.wordCountData.WordCount}",
+            Tooltip = "Number of occurrences of a word in the text",
         });
     }
 
     public override Task<IRemoteUserControl> GetVisualizationAsync(CodeElementContext codeElementContext, IClientContext clientContext, CancellationToken token)
     {
-        return Task.FromResult<IRemoteUserControl>(new WordCountCodeLensVisual(this.wordCountData));
+        return Task.FromResult<IRemoteUserControl>(new WordCountCodeLensVisual(this.wordCountData, this));
     }
 
-    private static int CountWords(TextRange range)
+    internal void UpdateWordCount()
     {
-        int wordCount = 0;
-        for (int i = 1; i < range.Length; i++)
-        {
-            if (char.IsWhiteSpace(range[i - 1]) && char.IsLetterOrDigit(range[i]))
-            {
-                wordCount++;
-            }
-        }
+        this.Invalidate();
+    }
 
-        return wordCount;
+    private int CountWords(TextRange range)
+    {
+        var rangeText = range.CopyToString();
+        var wordToMatch = this.wordCountData.WordToMatch;
+
+        // Use Regex to find all matches of wordToMatch in rangeText
+        var matches = Regex.Matches(rangeText, $@"\b{Regex.Escape(wordToMatch)}\b", RegexOptions.IgnoreCase);
+        return matches.Count;
     }
 
     private void OnTextViewChanged(object? sender, TextViewChangedArgs e)
