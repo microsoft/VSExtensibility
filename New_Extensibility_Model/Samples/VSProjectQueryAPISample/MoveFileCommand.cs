@@ -69,12 +69,12 @@ namespace VSProjectQueryAPISample
             sb.Append(sourceFilePath + " to ");
 
             // Query the destination project to retrieve its path.
-            IQueryResults<IProjectSnapshot> destinationFilePaths = await querySpace.QueryProjectsAsync(
+            IQueryResults<IProjectSnapshot> destinationProjectQueryResults = await querySpace.QueryProjectsAsync(
                 project => project.Where(p => p.Name == "ConsoleApp2")
                 .With(project => project.Path),
                 cancellationToken);
 
-            var destinationProject = Directory.GetParent(destinationFilePaths.First().Path!)!.ToString();
+            var destinationProject = Directory.GetParent(destinationProjectQueryResults.First().Path!)!.ToString();
 
             sb.Append(destinationProject);
 
