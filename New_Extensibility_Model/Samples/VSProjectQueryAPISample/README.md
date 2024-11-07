@@ -258,28 +258,28 @@ var unsubscriber = await singleProject
 ```
 
 ### Moving a file
-This example provides a temporary workaround to move a file by copying it to the new location and then deleting the original file. Currently, a MoveFile API is not available in the Project Query API.
+This example offers a temporary workaround to move a file by copying it to the new location and then deleting the original file. Currently, a `MoveFile` API is not available in the Project Query API. In this specific case, we are transferring a file from the `ConsoleApp1` project to the `ConsoleApp2` project.
 
 The first step is to copy the original file to the new destination.
 ```csharp
 var result = await querySpace.UpdateProjectsAsync(
                 project => project.Where(project => project.Name == "ConsoleApp2"),
-                project => project.AddFileFromCopy(sourceFilePath, destinatedPath),
+                project => project.AddFileFromCopy(sourceFilePath, destinationProject),
                 cancellationToken);
 ```
 
 Next, delete the original file by obtaining an `IAsyncQueryable<IFileSnapshot>` instance of the file and proceeding with its deletion. The `AsUpdatable()` method indicates that an action will be performed on the project system. This is followed by the `Delete()`  action and its execution using `ExecuteAsync()`.
 
 ```csharp
-var result =  await querySpace.QueryProjectsAsync(
-                project => project
-                .Where(project => project.Name == "ConsoleApp1")
-                .With(project => project.Files
-                .Where(file => file.Path == sourceFilePath)
-                .With(file => file.FileName)),
-                cancellationToken);
+IQueryResults<IProjectSnapshot> sourceFileQueryResults = await querySpace.QueryProjectsAsync(
+    project => project
+    .Where(project => project.Name == "ConsoleApp1")
+    .With(project => project.Files
+    .Where(file => file.Path == sourceFilePath)
+    .With(file => file.FileName)),
+    cancellationToken);
 
-IAsyncQueryable<IFileSnapshot> file = fileToDeleteQuery.First().Files;
+IAsyncQueryable<IFileSnapshot> file = sourceFileQueryResults.First().Files;
 
 await file.AsUpdatable().Delete().ExecuteAsync();
 ```

@@ -48,14 +48,14 @@ namespace VSProjectQueryAPISample
             WorkspacesExtensibility querySpace = this.Extensibility.Workspaces();
             StringBuilder sb = new StringBuilder("Renamed file at ");
 
-            IQueryResults<IProjectSnapshot> filePaths = await querySpace.QueryProjectsAsync(
+            IQueryResults<IProjectSnapshot> consoleApp1QueryResults = await querySpace.QueryProjectsAsync(
                     project => project.Where(p => p.Name == "ConsoleApp1")
                     .With(project => project.Files
                     .With(f => f.FileName)
                     .With(f => f.Path)),
                     cancellationToken);
 
-            var filePath = filePaths.First().Files.First().Path;
+            var filePath = consoleApp1QueryResults.First().Files.First().Path;
             sb.Append(filePath);
 
             await querySpace.UpdateProjectsAsync(

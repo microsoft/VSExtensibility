@@ -57,7 +57,7 @@ namespace VSProjectQueryAPISample
             StringBuilder sb = new StringBuilder("Move file from ");
 
             // Query the source project to retrieve the path of the file to be moved.
-            IQueryResults<IProjectSnapshot> sourceFilePaths = await querySpace.QueryProjectsAsync(
+            IQueryResults<IProjectSnapshot> consoleApp1QueryResults = await querySpace.QueryProjectsAsync(
                     project => project.Where(p => p.Name == "ConsoleApp1")
                     .With(project => project.Path)
                     .With(project => project.Files
@@ -65,7 +65,7 @@ namespace VSProjectQueryAPISample
                     .With(f => f.Path)),
                     cancellationToken);
 
-            var sourceFilePath = sourceFilePaths.First().Files.First().Path;
+            var sourceFilePath = consoleApp1QueryResults.First().Files.First().Path;
             sb.Append(sourceFilePath + " to ");
 
             // Query the destination project to retrieve its path.
@@ -74,18 +74,18 @@ namespace VSProjectQueryAPISample
                 .With(project => project.Path),
                 cancellationToken);
 
-            var destinatedPath = Directory.GetParent(destinationFilePaths.First().Path!)!.ToString();
+            var destinationProject = Directory.GetParent(destinationFilePaths.First().Path!)!.ToString();
 
-            sb.Append(destinatedPath);
+            sb.Append(destinationProject);
 
             // Add the source file to the destination project.
             await querySpace.UpdateProjectsAsync(
                 project => project.Where(project => project.Name == "ConsoleApp2"),
-                project => project.AddFileFromCopy(sourceFilePath, destinatedPath),
+                project => project.AddFileFromCopy(sourceFilePath, destinationProject),
                 cancellationToken);
 
             // Query the source project to retrieve the file to be deleted.
-            IQueryResults<IProjectSnapshot> fileToDeleteQuery = await querySpace.QueryProjectsAsync(
+            IQueryResults<IProjectSnapshot> sourceFileQueryResults = await querySpace.QueryProjectsAsync(
                 project => project
                 .Where(project => project.Name == "ConsoleApp1")
                 .With(project => project.Files
@@ -93,7 +93,7 @@ namespace VSProjectQueryAPISample
                 .With(file => file.FileName)),
                 cancellationToken);
 
-            IAsyncQueryable<IFileSnapshot> file = fileToDeleteQuery.First().Files;
+            IAsyncQueryable<IFileSnapshot> file = sourceFileQueryResults.First().Files;
 
             // Action query to delete the source file from the source project.
             await file.AsUpdatable().Delete().ExecuteAsync();
