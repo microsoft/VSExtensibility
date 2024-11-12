@@ -268,18 +268,8 @@ var result = await querySpace.UpdateProjectsAsync(
                 cancellationToken);
 ```
 
-Next, delete the original file by obtaining an `IAsyncQueryable<IFileSnapshot>` instance of the file and proceeding with its deletion. The `AsUpdatable()` method indicates that an action will be performed on the project system. This is followed by the `Delete()`  action and its execution using `ExecuteAsync()`.
+Next, delete the original file by obtaining an `FileSnapshot` instance of the file and proceeding with its deletion. The `AsUpdatable()` method indicates that an action will be performed on the project system. This is followed by the `Delete()`  action and its execution using `ExecuteAsync()`.
 
 ```csharp
-IQueryResults<IProjectSnapshot> sourceFileQueryResults = await querySpace.QueryProjectsAsync(
-    project => project
-    .Where(project => project.Name == "ConsoleApp1")
-    .With(project => project.Files
-    .Where(file => file.Path == sourceFilePath)
-    .With(file => file.FileName)),
-    cancellationToken);
-
-IAsyncQueryable<IFileSnapshot> file = sourceFileQueryResults.First().Files;
-
-await file.AsUpdatable().Delete().ExecuteAsync();
+await sourceFile.AsUpdatable().Delete().ExecuteAsync();
 ```

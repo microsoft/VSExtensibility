@@ -65,7 +65,9 @@ namespace VSProjectQueryAPISample
                     .With(f => f.Path)),
                     cancellationToken);
 
-            var sourceFilePath = consoleApp1QueryResults.First().Files.First().Path;
+            IFileSnapshot sourceFile = consoleApp1QueryResults.First().Files.First();
+
+            var sourceFilePath = sourceFile.Path;
             sb.Append(sourceFilePath + " to ");
 
             // Query the destination project to retrieve its path.
@@ -84,19 +86,8 @@ namespace VSProjectQueryAPISample
                 project => project.AddFileFromCopy(sourceFilePath, destinationProject),
                 cancellationToken);
 
-            // Query the source project to retrieve the file to be deleted.
-            IQueryResults<IProjectSnapshot> sourceFileQueryResults = await querySpace.QueryProjectsAsync(
-                project => project
-                .Where(project => project.Name == "ConsoleApp1")
-                .With(project => project.Files
-                .Where(file => file.Path == sourceFilePath)
-                .With(file => file.FileName)),
-                cancellationToken);
-
-            IAsyncQueryable<IFileSnapshot> file = sourceFileQueryResults.First().Files;
-
             // Action query to delete the source file from the source project.
-            await file.AsUpdatable().Delete().ExecuteAsync();
+            await sourceFile.AsUpdatable().Delete().ExecuteAsync();
 
             await this.Extensibility.Shell().ShowPromptAsync(sb.ToString(), PromptOptions.OK, cancellationToken);
         }
