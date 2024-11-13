@@ -5,7 +5,6 @@ namespace DocumentSelectorSample;
 
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Documents;
 using Microsoft.VisualStudio.Extensibility.Editor;
@@ -19,7 +18,7 @@ using Microsoft.VisualStudio.Extensibility.Editor;
 [VisualStudioContribution]
 internal class UnitTestRunner : ExtensionPart, ITextViewOpenClosedListener, ITextViewChangedListener
 {
-    private OutputWindow? outputWindow;
+    private OutputChannel? outputChannel;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="UnitTestRunner"/> class.
@@ -62,7 +61,7 @@ internal class UnitTestRunner : ExtensionPart, ITextViewOpenClosedListener, ITex
     protected override void Dispose(bool isDisposing)
     {
         base.Dispose(isDisposing);
-        this.outputWindow?.Dispose();
+        this.outputChannel?.Dispose();
     }
 
     private async Task RunUnitTestsAfterDelayAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
@@ -76,19 +75,12 @@ internal class UnitTestRunner : ExtensionPart, ITextViewOpenClosedListener, ITex
         await this.WriteToOutputWindowAsync($"Stop running unit tests in {textViewSnapshot.Document.Uri.LocalPath}", cancellationToken);
     }
 
-    private async Task<OutputWindow> GetOutputWindowAsync(CancellationToken cancellationToken)
-    {
-        return this.outputWindow ??= await this.Extensibility.Views().Output.GetChannelAsync(
-            identifier: nameof(DocumentSelectorSample),
-            displayNameResourceId: nameof(Resources.OutputWindowPaneName),
-            cancellationToken);
-    }
-
     private async Task WriteToOutputWindowAsync(string message, CancellationToken cancellationToken)
     {
-        var channel = await this.GetOutputWindowAsync(cancellationToken);
-        Assumes.NotNull(channel);
-        await channel.Writer.WriteLineAsync(message);
+        this.outputChannel ??= await this.Extensibility.Views().Output.CreateOutputChannelAsync(
+                    Resources.OutputWindowPaneName,
+                    cancellationToken);
+        await this.outputChannel.WriteLineAsync(message);
     }
 }
 #pragma warning restore VSEXTPREVIEW_OUTPUTWINDOW // Type is for evaluation purposes only and is subject to change or removal in future updates.
