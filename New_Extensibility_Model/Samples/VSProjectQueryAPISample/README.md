@@ -212,7 +212,7 @@ While building on the project level, determine the selected project you want to 
 await result.First().BuildAsync(cancellationToken);
 ```
 
-### Rename Project
+### Renaming a Project
 
 In the example below, we specify the name of the project we would like to update. We then call `Rename` while passing in the new name of the project.
 
@@ -222,6 +222,17 @@ var result = await querySpace.Projects
     .AsUpdatable()
     .Rename("NewProjectName")
     .ExecuteAsync(cancellationToken);
+```
+
+
+### Renaming a file
+`RenameFile` takes the file path of the file you want to rename and the new name of the file. In the example below, we rename a file in a project called `ConsoleApp1` to `newName.cs`.
+
+```csharp
+var result =  await querySpace.UpdateProjectsAsync(
+                project => project.Where(project => project.Name == "ConsoleApp1"),
+                project => project.RenameFile(filePath, "newName.cs"),
+                cancellationToken);
 ```
 
 ### Skip 1 Project
@@ -244,4 +255,21 @@ var unsubscriber = await singleProject
     .Files
     .With(f => f.FileName)
     .TrackUpdatesAsync(new TrackerObserver(), CancellationToken.None);
+```
+
+### Moving a file
+This example offers a temporary workaround to move a file by copying it to the new location and then deleting the original file. Currently, a `MoveFile` API is not available in the Project Query API. In this specific case, we are transferring a file from the `ConsoleApp1` project to the `ConsoleApp2` project.
+
+The first step is to copy the original file to the new destination.
+```csharp
+var result = await querySpace.UpdateProjectsAsync(
+                project => project.Where(project => project.Name == "ConsoleApp2"),
+                project => project.AddFileFromCopy(sourceFilePath, destinationProject),
+                cancellationToken);
+```
+
+Next, delete the original file by obtaining an `IFileSnapshot` instance of the file and proceeding with its deletion. The `AsUpdatable()` method indicates that an action will be performed on the project system. This is followed by the `Delete()`  action and its execution using `ExecuteAsync()`.
+
+```csharp
+await sourceFile.AsUpdatable().Delete().ExecuteAsync();
 ```
