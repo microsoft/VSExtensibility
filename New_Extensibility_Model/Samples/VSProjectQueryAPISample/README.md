@@ -268,7 +268,7 @@ var result = await querySpace.UpdateProjectsAsync(
                 cancellationToken);
 ```
 
-Next, delete the original file by obtaining an `FileSnapshot` instance of the file and proceeding with its deletion. The `AsUpdatable()` method indicates that an action will be performed on the project system. This is followed by the `Delete()`  action and its execution using `ExecuteAsync()`.
+Next, delete the original file by obtaining an `IFileSnapshot` instance of the file and proceeding with its deletion. The `AsUpdatable()` method indicates that an action will be performed on the project system. This is followed by the `Delete()`  action and its execution using `ExecuteAsync()`.
 
 ```csharp
 await sourceFile.AsUpdatable().Delete().ExecuteAsync();
