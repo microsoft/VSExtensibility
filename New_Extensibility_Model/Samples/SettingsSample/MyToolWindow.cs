@@ -5,9 +5,12 @@ namespace SettingsSample;
 
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.ToolWindows;
 using Microsoft.VisualStudio.RpcContracts.RemoteUI;
+
+#pragma warning disable VSEXTPREVIEW_SETTINGS // Type is for evaluation purposes only and is subject to change or removal in future updates.
 
 /// <summary>
 /// A sample tool window.
@@ -20,9 +23,15 @@ public class MyToolWindow : ToolWindow
     /// <summary>
     /// Initializes a new instance of the <see cref="MyToolWindow" /> class.
     /// </summary>
-    public MyToolWindow()
+    /// <param name="settingsObserver">
+    /// The injected observer for <see cref="SettingDefinitions.SettingsSampleCategory"/>.
+    /// </param>
+    public MyToolWindow(Settings.SettingsSampleCategoryObserver settingsObserver)
     {
+        Requires.NotNull(settingsObserver);
+
         this.Title = "Settings Sample Tool Window";
+        this.dataContext = new MyToolWindowData(this.Extensibility, settingsObserver);
     }
 
     /// <inheritdoc />
@@ -31,13 +40,6 @@ public class MyToolWindow : ToolWindow
         Placement = ToolWindowPlacement.DocumentWell,
         AllowAutoCreation = false,
     };
-
-    /// <inheritdoc />
-    public override Task InitializeAsync(CancellationToken cancellationToken)
-    {
-        this.dataContext = new MyToolWindowData(this.Extensibility);
-        return this.dataContext.InitializeAsync(cancellationToken);
-    }
 
     /// <inheritdoc />
     public override Task<IRemoteUserControl> GetContentAsync(CancellationToken cancellationToken)

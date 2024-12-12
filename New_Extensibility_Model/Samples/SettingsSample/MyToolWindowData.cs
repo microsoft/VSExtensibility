@@ -9,8 +9,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Microsoft;
 using Microsoft.VisualStudio.Extensibility;
-using Microsoft.VisualStudio.Extensibility.Settings;
 using Microsoft.VisualStudio.Extensibility.UI;
+
+#pragma warning disable VSEXTPREVIEW_SETTINGS // Type is for evaluation purposes only and is subject to change or removal in future updates.
 
 /// <summary>
 /// A sample data context object to use with tool window UI content.
@@ -28,6 +29,7 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
         """;
 
     private readonly VisualStudioExtensibility extensibility;
+    private readonly Settings.SettingsSampleCategoryObserver settingsObserver;
     private string sampleText = LoremIpsumText;
     private bool manualUpdate = false;
 
@@ -37,11 +39,15 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
     /// <param name="extensibility">
     /// Extensibility object instance.
     /// </param>
-    public MyToolWindowData(VisualStudioExtensibility extensibility)
+    /// <param name="settingsObserver">
+    /// The injected observer for <see cref="SettingDefinitions.SettingsSampleCategory"/>.
+    /// </param>
+    public MyToolWindowData(VisualStudioExtensibility extensibility, Settings.SettingsSampleCategoryObserver settingsObserver)
     {
-        this.extensibility = Requires.NotNull(extensibility, nameof(extensibility));
-
+        this.extensibility = Requires.NotNull(extensibility);
         this.UpdateCommand = new AsyncCommand(this.UpdateAsync);
+        this.settingsObserver = Requires.NotNull(settingsObserver);
+        settingsObserver.Changed += this.SettingsObserver_ChangedAsync;
     }
 
     /// <summary>
@@ -61,7 +67,19 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
     public bool ManualUpdate
     {
         get => this.manualUpdate;
-        set => this.SetProperty(ref this.manualUpdate, value);
+        set
+        {
+            if (this.SetProperty(ref this.manualUpdate, value))
+            {
+                _ = this.extensibility.Settings().WriteAsync(
+                        batch =>
+                        {
+                            batch.WriteSetting(SettingDefinitions.AutoUpdateSetting, !value);
+                        },
+                        description: Resources.AutoUpdateSettingWriteDescription,
+                        CancellationToken.None);
+            }
+        }
     }
 
     /// <summary>
@@ -74,66 +92,35 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
         set => this.SetProperty(ref this.sampleText, value);
     }
 
-    /// <summary>
-    /// Initializes the current instance of <see cref="MyToolWindowData"/>.
-    /// </summary>
-    /// <param name="cancellationToken">Cancellation token to monitor.</param>
-    /// <returns>Task indicating completion of initialization.</returns>
-    public Task InitializeAsync(CancellationToken cancellationToken)
+    private Task SettingsObserver_ChangedAsync(Settings.SettingsSampleCategorySnapshot settingsSnapshot)
     {
-        return this.InitializeSettingsAsync(cancellationToken);
-    }
+        this.ManualUpdate = !settingsSnapshot.AutoUpdateSetting.ValueOrDefault(defaultValue: true);
 
-#pragma warning disable VSEXTPREVIEW_SETTINGS // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
+        if (!this.ManualUpdate)
+        {
+            this.UpdateSampleTextFromSettings(settingsSnapshot);
+        }
 
-    private async Task InitializeSettingsAsync(CancellationToken cancellationToken)
-    {
-        await this.extensibility.Settings().SubscribeAsync(
-            [SettingDefinitions.SettingsSampleCategory],
-            cancellationToken,
-            values =>
-            {
-                if (values.TryGetValue(SettingDefinitions.AutoUpdateSetting.FullId, out ISettingValue? autoUpdateValue))
-                {
-                    this.ManualUpdate = !autoUpdateValue.Value<bool>();
-                }
-
-                if (!this.ManualUpdate)
-                {
-                    this.UpdateSampleTextFromSettings(values);
-                }
-            });
+        return Task.CompletedTask;
     }
 
     private async Task UpdateAsync(object? commandParameter, CancellationToken cancellationToken)
     {
-        SettingValues values = await this.extensibility.Settings().ReadEffectiveValuesAsync(
-            [SettingDefinitions.SettingsSampleCategory],
-            cancellationToken);
-
-        this.UpdateSampleTextFromSettings(values);
+        var settingsSnapshot = await this.settingsObserver.GetSnapshotAsync(cancellationToken);
+        this.UpdateSampleTextFromSettings(settingsSnapshot);
     }
 
-    private void UpdateSampleTextFromSettings(SettingValues values)
+    private void UpdateSampleTextFromSettings(Settings.SettingsSampleCategorySnapshot settingsSnapshot)
     {
-        string text = LoremIpsumText;
+        int length = settingsSnapshot.TextLengthSetting.ValueOrDefault(defaultValue: 10);
+        string text = LoremIpsumText[..Math.Min(length, LoremIpsumText.Length)];
 
-        if (values.TryGetValue(SettingDefinitions.TextLengthSetting.FullId, out ISettingValue? textLengthValue))
+        string quoteStyle = settingsSnapshot.QuoteStyleSetting.ValueOrDefault(defaultValue: "double");
+        this.SampleText = quoteStyle switch
         {
-            int length = textLengthValue.Value<int>();
-            text = LoremIpsumText[..Math.Min(length, LoremIpsumText.Length)];
-        }
-
-        if (values.TryGetValue(SettingDefinitions.QuoteStyleSetting.FullId, out ISettingValue? quoteStyleValue))
-        {
-            this.SampleText = quoteStyleValue.Value<string>() switch
-            {
-                "single" => $"'{text}'",
-                "double" => $"\"{text}\"",
-                _ => text,
-            };
-        }
+            "single" => $"'{text}'",
+            "double" => $"\"{text}\"",
+            _ => text,
+        };
     }
-
-#pragma warning restore VSEXTPREVIEW_SETTINGS // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
 }
