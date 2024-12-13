@@ -26,6 +26,7 @@ public class SettingsSampleExtension : Extension
     /// <inheritdoc/>
     protected override void InitializeServices(IServiceCollection serviceCollection)
     {
+        serviceCollection.AddSettingsObservers();
         base.InitializeServices(serviceCollection);
     }
 }

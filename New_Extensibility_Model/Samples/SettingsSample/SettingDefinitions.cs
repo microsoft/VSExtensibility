@@ -14,6 +14,7 @@ internal static class SettingDefinitions
     internal static SettingCategory SettingsSampleCategory { get; } = new("settingsSample", "%SettingsSample.Settings.Category.DisplayName%")
     {
         Description = "%SettingsSample.Settings.Category.Description%",
+        GenerateObserverClass = true,
     };
 
     [VisualStudioContribution]
