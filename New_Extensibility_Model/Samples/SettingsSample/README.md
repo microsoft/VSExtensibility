@@ -38,17 +38,18 @@ internal static Setting.Boolean AutoUpdateSetting { get; } = new("autoUpdate", "
 The `SettingCategory` and `Setting.Boolean` properties define information about the settings
 that is available to Visual Studio even before the extension is loaded.
 
-Settings the `GenerateObserverClass` property to `true`, results in an observer class being
+Setting the `GenerateObserverClass` property to `true`, results in an observer class being
 code-generated. The observer can be used to read and monitor the settings in this category.
 The observer is made available to dependency injection by calling `serviceCollection.AddSettingsObservers();`
 [here](./SettingsSampleExtension.cs) and injected in the tool window constructor
 [here](./MyToolWindow.cs);
 
 In `MyToolWindowData`, the observer is used to monitor the values of the settings in the
-`SettingSampleCategory`:
+`SettingSampleCategory`. The `SettingSampleCategory` is generated under the `Settings` child
+namespace of the extension's namespace.
 
 ```csharp
-public MyToolWindowData(VisualStudioExtensibility extensibility, Settings.SettingsSampleCategoryObserver settingsObserver)
+public MyToolWindowData(VisualStudioExtensibility extensibility, SettingsSampleCategoryObserver settingsObserver)
 {
     ...
     this.settingsObserver = Requires.NotNull(settingsObserver);
@@ -73,8 +74,8 @@ var settingsSnapshot = await this.settingsObserver.GetSnapshotAsync(cancellation
 ```
 
 If the extension needs to update settings' values, this can be done through
-`VisualStudioExtensibility.Settings()`, by calling `WriteAsync`, which takes allows to batch
-multiple settings updates in a single operation:
+`VisualStudioExtensibility.Settings()`, by calling `WriteAsync`, which allows batching multiple
+settings updates in a single operation:
 
 ```csharp
 this.extensibility.Settings().WriteAsync(

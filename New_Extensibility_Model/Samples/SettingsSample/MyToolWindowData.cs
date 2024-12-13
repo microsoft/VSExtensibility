@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Microsoft;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.UI;
+using SettingsSample.Settings;
 
 #pragma warning disable VSEXTPREVIEW_SETTINGS // Type is for evaluation purposes only and is subject to change or removal in future updates.
 
@@ -29,7 +30,7 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
         """;
 
     private readonly VisualStudioExtensibility extensibility;
-    private readonly Settings.SettingsSampleCategoryObserver settingsObserver;
+    private readonly SettingsSampleCategoryObserver settingsObserver;
     private string sampleText = LoremIpsumText;
     private bool manualUpdate = false;
 
@@ -42,7 +43,7 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
     /// <param name="settingsObserver">
     /// The injected observer for <see cref="SettingDefinitions.SettingsSampleCategory"/>.
     /// </param>
-    public MyToolWindowData(VisualStudioExtensibility extensibility, Settings.SettingsSampleCategoryObserver settingsObserver)
+    public MyToolWindowData(VisualStudioExtensibility extensibility, SettingsSampleCategoryObserver settingsObserver)
     {
         this.extensibility = Requires.NotNull(extensibility);
         this.UpdateCommand = new AsyncCommand(this.UpdateAsync);
@@ -92,9 +93,9 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
         set => this.SetProperty(ref this.sampleText, value);
     }
 
-    private Task SettingsObserver_ChangedAsync(Settings.SettingsSampleCategorySnapshot settingsSnapshot)
+    private Task SettingsObserver_ChangedAsync(SettingsSampleCategorySnapshot settingsSnapshot)
     {
-        this.ManualUpdate = !settingsSnapshot.AutoUpdateSetting.ValueOrDefault(defaultValue: true);
+        this.ManualUpdate = !settingsSnapshot.AutoUpdateSetting.ValueOrDefault(SettingDefinitions.AutoUpdateSetting.DefaultValue);
 
         if (!this.ManualUpdate)
         {
@@ -110,12 +111,12 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
         this.UpdateSampleTextFromSettings(settingsSnapshot);
     }
 
-    private void UpdateSampleTextFromSettings(Settings.SettingsSampleCategorySnapshot settingsSnapshot)
+    private void UpdateSampleTextFromSettings(SettingsSampleCategorySnapshot settingsSnapshot)
     {
-        int length = settingsSnapshot.TextLengthSetting.ValueOrDefault(defaultValue: 10);
+        int length = settingsSnapshot.TextLengthSetting.ValueOrDefault(SettingDefinitions.TextLengthSetting.DefaultValue);
         string text = LoremIpsumText[..Math.Min(length, LoremIpsumText.Length)];
 
-        string quoteStyle = settingsSnapshot.QuoteStyleSetting.ValueOrDefault(defaultValue: "double");
+        string quoteStyle = settingsSnapshot.QuoteStyleSetting.ValueOrDefault(SettingDefinitions.QuoteStyleSetting.DefaultValue);
         this.SampleText = quoteStyle switch
         {
             "single" => $"'{text}'",

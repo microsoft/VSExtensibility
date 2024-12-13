@@ -9,6 +9,7 @@ using Microsoft;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.ToolWindows;
 using Microsoft.VisualStudio.RpcContracts.RemoteUI;
+using SettingsSample.Settings;
 
 #pragma warning disable VSEXTPREVIEW_SETTINGS // Type is for evaluation purposes only and is subject to change or removal in future updates.
 
@@ -26,7 +27,7 @@ public class MyToolWindow : ToolWindow
     /// <param name="settingsObserver">
     /// The injected observer for <see cref="SettingDefinitions.SettingsSampleCategory"/>.
     /// </param>
-    public MyToolWindow(Settings.SettingsSampleCategoryObserver settingsObserver)
+    public MyToolWindow(SettingsSampleCategoryObserver settingsObserver)
     {
         Requires.NotNull(settingsObserver);
 
