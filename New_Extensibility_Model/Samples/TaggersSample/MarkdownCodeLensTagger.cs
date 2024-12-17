@@ -105,7 +105,8 @@ internal class MarkdownCodeLensTagger : TextViewTagger<CodeLensTag>
     }
 
     private static IEnumerable<TextRange> Lines(ITextDocumentSnapshot document, IEnumerable<TextRange> ranges)
-        => ranges
+    {
+        return ranges
             .SelectMany(r =>
             {
                 var startLine = r.Document.GetLineNumberFromPosition(r.Start);
@@ -114,6 +115,7 @@ internal class MarkdownCodeLensTagger : TextViewTagger<CodeLensTag>
             })
             .Distinct()
             .Select(l => document.Lines[l].Text);
+    }
 
     private async Task RunCreateTagsAsync()
     {
@@ -130,9 +132,10 @@ internal class MarkdownCodeLensTagger : TextViewTagger<CodeLensTag>
         while (true)
         {
             ITextDocumentSnapshot document;
+
+            // On the first iteration, since the caller owns the semaphore, this will always yield.
+            using (var semaphoreReleaser = await this.semaphore.EnterAsync())
             {
-                // On the first iteration, since the caller owns the semaphore, this will always yield.
-                using var semaphoreReleaser = await this.semaphore.EnterAsync();
                 if (!this.needsUpdate || this.currentDocumentSnapshot is null)
                 {
                     this.updateRunning = false;
