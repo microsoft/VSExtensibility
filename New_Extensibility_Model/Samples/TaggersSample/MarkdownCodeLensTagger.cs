@@ -1,11 +1,7 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-#if INPROC
-namespace InProcFeatureGallery;
-#else
-namespace FeatureGallery;
-#endif
+namespace TaggersSample;
 
 using System;
 using System.Collections.Generic;
@@ -22,7 +18,7 @@ internal class MarkdownCodeLensTagger : TextViewTagger<CodeLensTag>
 {
     public static readonly CodeElementKind SectionCodeElementKind = "Section";
 
-    private readonly MarkdownTaggerProvider provider;
+    private readonly MarkdownCodeLensTaggerProvider provider;
     private readonly Uri documentUri;
     private readonly AsyncSemaphore semaphore = new(1);
 
@@ -30,7 +26,7 @@ internal class MarkdownCodeLensTagger : TextViewTagger<CodeLensTag>
     private bool needsUpdate;
     private bool updateRunning;
 
-    public MarkdownCodeLensTagger(MarkdownTaggerProvider provider, Uri documentUri)
+    public MarkdownCodeLensTagger(MarkdownCodeLensTaggerProvider provider, Uri documentUri)
     {
         this.provider = provider;
         this.documentUri = documentUri;
@@ -38,7 +34,7 @@ internal class MarkdownCodeLensTagger : TextViewTagger<CodeLensTag>
 
     public override void Dispose()
     {
-        this.provider.RemoveCodeLensTagger(this.documentUri, this);
+        this.provider.RemoveTagger(this.documentUri, this);
         this.semaphore.Dispose();
         base.Dispose();
     }
