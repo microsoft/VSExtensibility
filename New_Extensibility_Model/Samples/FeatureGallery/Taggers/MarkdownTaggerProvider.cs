@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Editor;
 
-#pragma warning disable VSEXTPREVIEW_TAGGERS // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
+#pragma warning disable VSEXTPREVIEW_TAGGERS // Type is for evaluation purposes only and is subject to change or removal in future updates.
 
 [VisualStudioContribution]
 internal class MarkdownTaggerProvider : ExtensionPart, ITextViewTaggerProvider<TextMarkerTag>, ITextViewTaggerProvider<CodeLensTag>, ITextViewChangedListener
