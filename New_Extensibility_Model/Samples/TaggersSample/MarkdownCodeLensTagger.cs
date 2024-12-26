@@ -14,6 +14,7 @@ using Microsoft.VisualStudio.Threading;
 #pragma warning disable VSEXTPREVIEW_CODELENS // Type is for evaluation purposes only and is subject to change or removal in future updates.
 #pragma warning disable VSEXTPREVIEW_TAGGERS // Type is for evaluation purposes only and is subject to change or removal in future updates.
 
+// A tagger that adds code elements for each section title in a markdown document, these tags are consumed by the MarkdownCodeLens
 internal class MarkdownCodeLensTagger : TextViewTagger<CodeLensTag>
 {
     public static readonly CodeElementKind SectionCodeElementKind = "Section";
@@ -63,11 +64,11 @@ internal class MarkdownCodeLensTagger : TextViewTagger<CodeLensTag>
             }
 
             // Only recalculate tags if a line starting with # was touched (added, removed, or modified).
-            if (Lines(
+            if (GetLines(
                         documentBefore,
                         edits.Select(e => e.Range))
                     .Any(l => l.StartsWith("#")) ||
-                Lines(
+                GetLines(
                         documentAfter,
                         edits.Select(e => e.Range.TranslateTo(documentAfter, TextRangeTrackingMode.EdgeInclusive)))
                     .Any(l => l.StartsWith("#")))
@@ -104,7 +105,7 @@ internal class MarkdownCodeLensTagger : TextViewTagger<CodeLensTag>
         }
     }
 
-    private static IEnumerable<TextRange> Lines(ITextDocumentSnapshot document, IEnumerable<TextRange> ranges)
+    private static IEnumerable<TextRange> GetLines(ITextDocumentSnapshot document, IEnumerable<TextRange> ranges)
     {
         return ranges
             .SelectMany(r =>

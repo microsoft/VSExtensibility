@@ -1,4 +1,4 @@
-﻿// Copyright (c) Microsoft. All rights reserved.
+// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace TaggersSample;
@@ -32,6 +32,7 @@ internal class MarkdownCodeLens : InvokableCodeLens
         {
             try
             {
+                // If the user clicks on the CodeLens, copy the section ID to the clipboard
                 Clipboard.SetText(this.codeElement.UniqueIdentifier ?? "Unknown identifier");
                 taskCompletionSource.SetResult(false);
             }
