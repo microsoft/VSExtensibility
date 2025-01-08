@@ -55,6 +55,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExtensionPublisher", "Exten
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilePickerSample", "FilePickerSample\FilePickerSample.csproj", "{626939FA-4B8B-484E-BFD9-32DDFAFA472E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuntimeTargetSample", "RuntimeTargetSample\RuntimeTargetSample.csproj", "{A818134A-6314-4F15-8B7A-D1E980B08F3C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -145,6 +147,10 @@ Global
 		{626939FA-4B8B-484E-BFD9-32DDFAFA472E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{626939FA-4B8B-484E-BFD9-32DDFAFA472E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{626939FA-4B8B-484E-BFD9-32DDFAFA472E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A818134A-6314-4F15-8B7A-D1E980B08F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A818134A-6314-4F15-8B7A-D1E980B08F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A818134A-6314-4F15-8B7A-D1E980B08F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A818134A-6314-4F15-8B7A-D1E980B08F3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
