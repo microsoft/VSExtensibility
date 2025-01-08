@@ -16,7 +16,7 @@ using Microsoft.VisualStudio.Extensibility.Documents;
 #pragma warning disable VSEXTPREVIEW_OUTPUTWINDOW // Type is for evaluation purposes only and is subject to change or removal in future updates.
 public class TestOutputWindowCommand : Command
 {
-    private OutputWindow? outputWindow;
+    private OutputChannel? outputChannel;
 
     /// <inheritdoc />
     public override CommandConfiguration CommandConfiguration => new("%OutputWindowSample.TestOutputWindowCommand.DisplayName%")
@@ -28,24 +28,17 @@ public class TestOutputWindowCommand : Command
     /// <inheritdoc />
     public override async Task InitializeAsync(CancellationToken cancellationToken)
     {
-        this.outputWindow = await this.GetOutputWindowAsync(cancellationToken);
+        this.outputChannel = await this.Extensibility.Views().Output.CreateOutputChannelAsync(Strings.OutputWindowDisplayName, cancellationToken);
         await base.InitializeAsync(cancellationToken);
     }
 
     /// <inheritdoc />
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
-        if (this.outputWindow != null)
+        if (this.outputChannel != null)
         {
-            await this.outputWindow.Writer.WriteLineAsync("This is a test of the output window.");
+            await this.outputChannel.WriteLineAsync("This is a test of the output window.");
         }
-    }
-
-    private async Task<OutputWindow?> GetOutputWindowAsync(CancellationToken cancellationToken)
-    {
-        string id = "MyOutputWindow";
-        string displayNameResourceId = nameof(Strings.OutputWindowDisplayName);
-        return await this.Extensibility.Views().Output.GetChannelAsync(id, displayNameResourceId, cancellationToken);
     }
 }
 #pragma warning restore VSEXTPREVIEW_OUTPUTWINDOW // Type is for evaluation purposes only and is subject to change or removal in future updates.

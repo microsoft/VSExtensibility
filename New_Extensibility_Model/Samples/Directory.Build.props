@@ -9,6 +9,8 @@
     <DisableImplicitNamespaceImports>true</DisableImplicitNamespaceImports>
     <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)shipping.ruleset</CodeAnalysisRuleSet>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <EnableNETAnalyzers>true</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -40,8 +42,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="8.0.0" PrivateAssets="all" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.507" PrivateAssets="all" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556" PrivateAssets="all" />
   </ItemGroup>
 
   <ItemGroup>

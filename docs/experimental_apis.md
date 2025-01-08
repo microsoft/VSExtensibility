@@ -51,6 +51,7 @@ As of our 17.9 release, there are three experimental features:
 | Feature | Label | Description |
 |---------|-------|-------------|
 | LSP | VSEXTPREVIEW_LSP | LSP support was added with our 17.9 release and we want user feedback to make sure we've got the features needed by extension authors.|
-| Output Window | VSEXTPREVIEW_OUTPUTWINDOW | We're updating our output window APIs based on user feedback to provide a simplified way to write to the output window. |
+| Output Window | VSEXTPREVIEW_OUTPUTWINDOW | We'updated our output window APIs with our 17.12 release and would like user feedback to see if this could be the final shape. |
 | Project Query Tracking | VSEXTPREVIEW_PROJECTQUERY_TRACKING | We're continuing to update our project query API to add new features|
 | Project Query Properties and Build Properties | VSEXTPREVIEW_PROJECTQUERY_PROPERTIES_BUILDPROPERTIES | We're continuing to update our project query API to address user feedback and add new features |
+| Code lens | VSEXTPREVIEW_CODELENS | Code lens support was added in our 17.12 release and we want user feedback to make sure we've got the features needed by extension authors. |

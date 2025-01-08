@@ -1,8 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>net8.0-windows8.0</TargetFramework>
     <Nullable>enable</Nullable>
+    <LangVersion>12</LangVersion>
+    <NeutralLanguage>en-US</NeutralLanguage>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,17 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="MyToolWindowContent.xaml" />
+    <EmbeddedResource Include="WordCountCodeLensVisual.xaml" />
   </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="MyToolWindowContent.xaml">
-    </EmbeddedResource>
-  </ItemGroup>
-
-  <Target Name="CopyOutputToVsixPackageFolder" AfterTargets="Build">
-    <ItemGroup>
-      <VsixFiles Include="$(OutputPath)\*.vsix" />
-    </ItemGroup>
-  </Target>
 </Project>
