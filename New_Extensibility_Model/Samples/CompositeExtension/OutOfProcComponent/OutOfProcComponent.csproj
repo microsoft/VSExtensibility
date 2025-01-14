@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>12</LangVersion>
+    <NeutralLanguage>en-US</NeutralLanguage>
+
+    <!-- The assemblies of this project are placed in the OutOfProc folder when packaged in the VSIX.
+         This avoids conflicts with assemblies from CompositeExtension having the same file name.
+         This is important because the two projects have similar dependencies but different target
+         frameworks. -->
+    <AssemblyVSIXSubPath>OutOfProc</AssemblyVSIXSubPath>
+    
+    <!-- Disabling creation of the VSIX for this project since it is always installed as a part of
+         the composite extension. -->
+    <CreateVsixContainer>false</CreateVsixContainer>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.13.39905" />
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.13.39905" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Include the OutOfProcComponent's brokered service interface so that this process can
+         communicate with it. -->
+    <Compile Include="..\CompositeExtension\IInProcService.cs" Link="IInProcService.cs" />
+  </ItemGroup>
+</Project>
