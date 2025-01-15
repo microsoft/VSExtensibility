@@ -26,8 +26,6 @@ internal class InProcService : IInProcService
             ServiceAudience = BrokeredServiceAudience.Local | BrokeredServiceAudience.Public,
         };
 
-    public static ServiceRpcDescriptor ServiceDescriptor => IInProcService.Configuration.ServiceDescriptor;
-
     public async Task DoSomethingAsync(CancellationToken cancellationToken)
     {
         await this.extensibility.Shell().ShowPromptAsync("Hello from out-of-proc! (Showing this message from (in-proc)", PromptOptions.OK, cancellationToken);

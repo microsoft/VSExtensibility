@@ -30,6 +30,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToolWindowSample", "ToolWindowSample\ToolWindowSample.csproj", "{B44726AE-1F46-4C3A-BF1E-321E43E4BE9D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RegexMatchDebugVisualizer", "RegexMatchDebugVisualizer", "{8554ABE3-9105-4AF7-9318-81414CC190C6}"
+	ProjectSection(SolutionItems) = preProject
+		RegexMatchDebugVisualizer\README.md = RegexMatchDebugVisualizer\README.md
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegexMatchDebugVisualizer", "RegexMatchDebugVisualizer\RegexMatchDebugVisualizer\RegexMatchDebugVisualizer.csproj", "{646BC52B-12B8-4FB0-A483-119771576560}"
 EndProject
@@ -60,6 +63,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeLensSample", "CodeLensSample\CodeLensSample.csproj", "{B0DDBB39-51C3-4B3C-A327-C93C867E3B4B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CompositeExtension", "CompositeExtension", "{D4AAF3ED-EC76-4323-A507-FE7797741A91}"
+	ProjectSection(SolutionItems) = preProject
+		CompositeExtension\README.md = CompositeExtension\README.md
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutOfProcComponent", "CompositeExtension\OutOfProcComponent\OutOfProcComponent.csproj", "{B7567363-A2B8-421A-86C2-795E884C4114}"
 EndProject

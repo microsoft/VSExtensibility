@@ -26,7 +26,7 @@
          since the two projects have incompatible target frameworks. -->
     <ProjectReference Include="..\OutOfProcComponent\OutOfProcComponent.csproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <SetTargetFramework>TargetFramework=$(DotNetWindowsTarget)</SetTargetFramework>
+      <SetTargetFramework>TargetFramework=net8.0-windows8.0</SetTargetFramework>
       <IncludeInVSIX>true</IncludeInVSIX>
       <IncludeOutputGroupsInVSIX>ExtensionFilesOutputGroup</IncludeOutputGroupsInVSIX>
     </ProjectReference>
