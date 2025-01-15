@@ -1,7 +1,7 @@
 ---
 title: In-proc/out-of-proc Composite Extension sample reference
 description: A reference sample for in-proc/out-of-proc composite extensions
-date: 2024-08-20
+date: 2025-01-15
 ---
 
 # Walkthrough: In-proc/out-of-proc Composite Extension Sample
