@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="CompositeExtension.ac598512-71dd-4adf-81a3-80bf24a9a4dd" Version="17.13.2057.0" Language="en-US" Publisher="Microsoft" />
+    <DisplayName>Composite Extension</DisplayName>
+    <Description>Shows how to implement an extension with both in-proc and out-of-proc components.</Description>
+    <Preview>true</Preview>
+  </Metadata>
+  <Installation ExtensionType="VisualStudio.Extensibility">
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.13,18.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.13,18.0)">
+      <ProductArchitecture>arm64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.13,)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+</PackageManifest>

@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>12</LangVersion>
+    <NeutralLanguage>en-US</NeutralLanguage>
+
+    <VssdkCompatibleExtension>true</VssdkCompatibleExtension>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.13.39905" />
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.13.39905" />
+    <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.6.36389" ExcludeAssets="runtime" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Include the OutOfProcComponent's brokered service interface so that this process can
+         communicate with it. -->
+    <Compile Include="..\OutOfProcComponent\IOutOfProcService.cs" Link="IOutOfProcService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Build OutOfProcComponent and include all files that belong in the VSIX into CompositeExtension's
+         VSIX. Explicitly set the target framework and avoid referencing the OutOfProcComponent's assembly
+         since the two projects have incompatible target frameworks. -->
+    <ProjectReference Include="..\OutOfProcComponent\OutOfProcComponent.csproj">
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <SetTargetFramework>TargetFramework=net8.0-windows8.0</SetTargetFramework>
+      <IncludeInVSIX>true</IncludeInVSIX>
+      <IncludeOutputGroupsInVSIX>ExtensionFilesOutputGroup</IncludeOutputGroupsInVSIX>
+    </ProjectReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Merge the extension.json from the OutOfProcComponent into the CompositeExtension's extenion.json. -->
+    <DependentExtensionJson Include="$(BaseOutputPath)..\OutOfProcComponent\$(Configuration)\net8.0-windows8.0\.vsextension\extension.json" />
+  </ItemGroup>
+</Project>
