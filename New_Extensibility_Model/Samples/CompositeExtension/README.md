@@ -162,6 +162,8 @@ interface available to the in-proc component:
 </ItemGroup>
 ```
 
+Note that compiling the `IOutOfProcService` in both projects will result in two separate types with the same name but different identities. This is acceptable in this case because the in-proc component will retrieve a [StreamJsonRpc](https://github.com/microsoft/vs-streamjsonrpc) proxy of the brokered service, not the service object itself. The proxy will implement the `IOutOfProcService` interface that is part of `CompositeExtension.dll`, not the one defined in `OutOfProcComponent.dll`, but that will still work because the two identical types are equivalent when used though StreamJsonRpc.
+
 As mentioned before, having a shared `netstandard2.0` dependency defining the types shared between the
 in-proc and out-of-proc components is also a viable solution.
 
