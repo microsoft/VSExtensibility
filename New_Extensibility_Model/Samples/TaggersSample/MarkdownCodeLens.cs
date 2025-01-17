@@ -1,11 +1,7 @@
-﻿// Copyright (c) Microsoft. All rights reserved.
+// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-#if INPROC
-namespace InProcFeatureGallery;
-#else
-namespace FeatureGallery;
-#endif
+namespace TaggersSample;
 
 using System;
 using System.Threading;
@@ -36,6 +32,7 @@ internal class MarkdownCodeLens : InvokableCodeLens
         {
             try
             {
+                // If the user clicks on the CodeLens, copy the section ID to the clipboard
                 Clipboard.SetText(this.codeElement.UniqueIdentifier ?? "Unknown identifier");
                 taskCompletionSource.SetResult(false);
             }

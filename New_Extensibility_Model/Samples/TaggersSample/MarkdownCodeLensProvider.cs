@@ -1,11 +1,7 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-#if INPROC
-namespace InProcFeatureGallery;
-#else
-namespace FeatureGallery;
-#endif
+namespace TaggersSample;
 
 using System.Threading;
 using System.Threading.Tasks;
@@ -22,13 +18,11 @@ internal class MarkdownCodeLensProvider : ExtensionPart, ICodeLensProvider
 {
     public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
     {
-        AppliesTo = [DocumentFilter.FromDocumentType(TaggerTest.MyMarkdownDocumentType)],
+        AppliesTo = [DocumentFilter.FromDocumentType("vs-markdown")],
     };
 
-#pragma warning disable CEE0027 // String not localized
     public CodeLensProviderConfiguration CodeLensProviderConfiguration =>
-        new("Remote UI CodeLens Sample Provider");
-#pragma warning restore CEE0027 // String not localized
+        new("%TaggersSample.MarkdownCodeLensProvider%");
 
     public Task<CodeLens?> TryCreateCodeLensAsync(CodeElement codeElement, CodeElementContext codeElementContext, CancellationToken token)
     {

@@ -1,11 +1,7 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-#if INPROC
-namespace InProcFeatureGallery;
-#else
-namespace FeatureGallery;
-#endif
+namespace TaggersSample;
 
 using System;
 using System.Collections.Generic;
@@ -18,11 +14,12 @@ using Microsoft.VisualStudio.Threading;
 #pragma warning disable VSEXTPREVIEW_CODELENS // Type is for evaluation purposes only and is subject to change or removal in future updates.
 #pragma warning disable VSEXTPREVIEW_TAGGERS // Type is for evaluation purposes only and is subject to change or removal in future updates.
 
+// A tagger that adds code elements for each section title in a markdown document, these tags are consumed by the MarkdownCodeLens
 internal class MarkdownCodeLensTagger : TextViewTagger<CodeLensTag>
 {
     public static readonly CodeElementKind SectionCodeElementKind = "Section";
 
-    private readonly MarkdownTaggerProvider provider;
+    private readonly MarkdownCodeLensTaggerProvider provider;
     private readonly Uri documentUri;
     private readonly AsyncSemaphore semaphore = new(1);
 
@@ -30,7 +27,7 @@ internal class MarkdownCodeLensTagger : TextViewTagger<CodeLensTag>
     private bool needsUpdate;
     private bool updateRunning;
 
-    public MarkdownCodeLensTagger(MarkdownTaggerProvider provider, Uri documentUri)
+    public MarkdownCodeLensTagger(MarkdownCodeLensTaggerProvider provider, Uri documentUri)
     {
         this.provider = provider;
         this.documentUri = documentUri;
@@ -38,7 +35,7 @@ internal class MarkdownCodeLensTagger : TextViewTagger<CodeLensTag>
 
     public override void Dispose()
     {
-        this.provider.RemoveCodeLensTagger(this.documentUri, this);
+        this.provider.RemoveTagger(this.documentUri, this);
         this.semaphore.Dispose();
         base.Dispose();
     }
@@ -67,11 +64,11 @@ internal class MarkdownCodeLensTagger : TextViewTagger<CodeLensTag>
             }
 
             // Only recalculate tags if a line starting with # was touched (added, removed, or modified).
-            if (Lines(
+            if (GetLines(
                         documentBefore,
                         edits.Select(e => e.Range))
                     .Any(l => l.StartsWith("#")) ||
-                Lines(
+                GetLines(
                         documentAfter,
                         edits.Select(e => e.Range.TranslateTo(documentAfter, TextRangeTrackingMode.EdgeInclusive)))
                     .Any(l => l.StartsWith("#")))
@@ -108,8 +105,9 @@ internal class MarkdownCodeLensTagger : TextViewTagger<CodeLensTag>
         }
     }
 
-    private static IEnumerable<TextRange> Lines(ITextDocumentSnapshot document, IEnumerable<TextRange> ranges)
-        => ranges
+    private static IEnumerable<TextRange> GetLines(ITextDocumentSnapshot document, IEnumerable<TextRange> ranges)
+    {
+        return ranges
             .SelectMany(r =>
             {
                 var startLine = r.Document.GetLineNumberFromPosition(r.Start);
@@ -118,6 +116,7 @@ internal class MarkdownCodeLensTagger : TextViewTagger<CodeLensTag>
             })
             .Distinct()
             .Select(l => document.Lines[l].Text);
+    }
 
     private async Task RunCreateTagsAsync()
     {
@@ -134,9 +133,10 @@ internal class MarkdownCodeLensTagger : TextViewTagger<CodeLensTag>
         while (true)
         {
             ITextDocumentSnapshot document;
+
+            // On the first iteration, since the caller owns the semaphore, this will always yield.
+            using (var semaphoreReleaser = await this.semaphore.EnterAsync())
             {
-                // On the first iteration, since the caller owns the semaphore, this will always yield.
-                using var semaphoreReleaser = await this.semaphore.EnterAsync();
                 if (!this.needsUpdate || this.currentDocumentSnapshot is null)
                 {
                     this.updateRunning = false;
