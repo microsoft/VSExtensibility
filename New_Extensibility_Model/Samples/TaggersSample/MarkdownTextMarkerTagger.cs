@@ -78,7 +78,9 @@ internal class MarkdownTextMarkerTagger : TextViewTagger<TextMarkerTag>
                 var startLine = r.Document.GetLineNumberFromPosition(r.Start);
                 var endLine = r.Document.GetLineNumberFromPosition(r.End);
                 return Enumerable.Range(startLine, endLine - startLine + 1);
-            }).Distinct()) // Use Distinct to avoid processing the same line multiple times.
+
+            // Use Distinct to avoid processing the same line multiple times.
+            }).Distinct())
         {
             var line = document.Lines[lineNumber];
             if (line.Text.StartsWith("#"))
