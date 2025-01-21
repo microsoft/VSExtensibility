@@ -1,0 +1,4 @@
+﻿{
+  "CompositeExtension.InProcToOutOfProcCommand": "Communicate in-proc to out-of-proc",
+  "OutOfProcComponent.OutOfProcToInProcCommand": "Communicate out-of-proc to in-proc"
+}

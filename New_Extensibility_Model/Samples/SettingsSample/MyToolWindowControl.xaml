@@ -3,29 +3,38 @@
               xmlns:vs="http://schemas.microsoft.com/visualstudio/extensibility/2022/xaml"
               xmlns:styles="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
               xmlns:colors="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0">
-    <Border Background="{DynamicResource {x:Static colors:EnvironmentColors.ToolWindowBackgroundBrushKey}}"
-          TextElement.Foreground="{DynamicResource {x:Static colors:EnvironmentColors.ToolWindowTextBrushKey}}"
-          Padding="5">
-        <StackPanel Orientation="Vertical"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center">
-            <TextBlock Margin="0,0,5,0"
-                 Text="Sample Text:"
-                 VerticalAlignment="Center" />
-            <TextBlock x:Name="SampleTextBlock"
-                     HorizontalAlignment="Center"
-                     VerticalAlignment="Center"
-                     Text="{Binding SampleText, Mode=OneWay}"
-                     Style="{StaticResource {x:Static styles:VsResourceKeys.TextBlockEnvironment155PercentFontSizeStyleKey}}">
-            </TextBlock>
-            <Button x:Name="UpdateButton"
-                    Content="Update Sample Text From Settings"
-                    IsEnabled="{Binding ManualUpdate}"
-                    Margin="0,10,0,0"
-                    MinHeight="25"
-                    MinWidth="60"
-                    Style="{StaticResource {x:Static styles:VsResourceKeys.ButtonStyleKey}}"
-                    Command="{Binding UpdateCommand}" />
-        </StackPanel>
-    </Border>
+    <DataTemplate.Resources>
+        <Style TargetType="CheckBox"  BasedOn="{StaticResource {x:Static styles:VsResourceKeys.CheckBoxStyleKey}}" />
+        <Style TargetType="Button"  BasedOn="{StaticResource {x:Static styles:VsResourceKeys.ButtonStyleKey}}" />
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static styles:VsBrushes.WindowTextKey}}" />
+        </Style>
+    </DataTemplate.Resources>
+    <StackPanel Orientation="Vertical"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+        <TextBlock Margin="0,0,5,0"
+             Text="Sample Text:"
+             VerticalAlignment="Center" />
+        <TextBlock x:Name="SampleTextBlock"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center"
+                 Text="{Binding SampleText, Mode=OneWay}">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock" BasedOn="{StaticResource {x:Static styles:VsResourceKeys.TextBlockEnvironment155PercentFontSizeStyleKey}}">
+                    <Style.Setters>
+                        <Setter Property="Foreground" Value="{DynamicResource {x:Static colors:EnvironmentColors.ToolWindowTextBrushKey}}" />
+                    </Style.Setters>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <CheckBox IsChecked="{Binding ManualUpdate}">Manual update</CheckBox>
+        <Button x:Name="UpdateButton"
+                Content="Update Sample Text From Settings"
+                IsEnabled="{Binding ManualUpdate}"
+                Margin="0,10,0,0"
+                MinHeight="25"
+                MinWidth="60"
+                Command="{Binding UpdateCommand}" />
+    </StackPanel>
 </DataTemplate>
