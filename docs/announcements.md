@@ -6,6 +6,10 @@ date: 2022-8-10
 
 # Announcements
 Use this page to stay up-to-date on all upcoming extensibility announcements and critical SDK/API updates.
+
+## February 10, 2025
+VisualStudio.Extensibility extensions that execute on .NET runtime will need to stay up to date with the latest version of .NET in service. Read more about this change in our [announcement on the Visual Studio blog](https://devblogs.microsoft.com/visualstudio/visualstudio-extensibility-managing-net-runtime-versions/).
+
 ## September 12, 2024
 We've released updated packages starting with the Visual Studio 17.12 official release. This version adds the following new features:
 * Ability to customize your extensions further with settings support
