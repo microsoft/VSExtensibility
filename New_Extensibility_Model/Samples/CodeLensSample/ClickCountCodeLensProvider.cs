@@ -11,7 +11,7 @@ using Microsoft.VisualStudio.Extensibility.Editor;
 /// <summary>
 /// A sample CodeLens provider that provides invokable CodeLens and shows the number of times it has been clicked.
 /// </summary>
-#pragma warning disable VSEXTPREVIEW_CODELENS // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
+#pragma warning disable VSEXTPREVIEW_CODELENS // Type is for evaluation purposes only and is subject to change or removal in future updates.
 [VisualStudioContribution]
 internal class ClickCountCodeLensProvider : ExtensionPart, ICodeLensProvider
 {
@@ -41,4 +41,4 @@ internal class ClickCountCodeLensProvider : ExtensionPart, ICodeLensProvider
         return Task.FromResult<CodeLens?>(null);
     }
 }
-#pragma warning restore VSEXTPREVIEW_CODELENS // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
+#pragma warning restore VSEXTPREVIEW_CODELENS // Type is for evaluation purposes only and is subject to change or removal in future updates.

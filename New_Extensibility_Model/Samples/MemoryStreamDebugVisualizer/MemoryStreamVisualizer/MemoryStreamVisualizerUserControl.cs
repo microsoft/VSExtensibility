@@ -32,13 +32,13 @@ internal class MemoryStreamVisualizerUserControl : RemoteUserControl
     public MemoryStreamVisualizerUserControl(VisualizerTarget visualizerTarget)
         : base(new MemoryStreamData())
     {
-        visualizerTarget.StateChanged += this.VisualizerTargetStateChangedAsync;
+        visualizerTarget.Changed += this.VisualizerTargetStateChangedAsync;
 
         this.dataContext = (MemoryStreamData)this.DataContext!;
         this.visualizerTarget = visualizerTarget;
     }
 
-    private Task VisualizerTargetStateChangedAsync(object? sender, VisualizerTargetStateNotification args)
+    private Task VisualizerTargetStateChangedAsync(VisualizerTargetStateNotification args)
     {
         if (args == VisualizerTargetStateNotification.Available || args == VisualizerTargetStateNotification.ValueUpdated)
         {
