@@ -13,6 +13,12 @@ For more information how our policy and guidance towards breaking changes, pleas
 # Breaking Changes for Visual Studio 2022 17.12
 The following breaking changes apply to Visual Studio 2022 17.12.
 
+## VSSDK
+These breaking changes are associated with VSSDK.
+
+### Cyclical package loading restrictions 
+Cyclical package loads will now throw an exception - please read the following blogpost for full context: https://devblogs.microsoft.com/visualstudio/new-restrictions-on-package-loading/
+
 ## VisualStudio.Extensibility
 
 These breaking changes are associated with VisualStudio.Extensibility.
