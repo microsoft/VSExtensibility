@@ -6,5 +6,6 @@
   "VSProjectQueryAPISample.QueryOutputGroupByProjectCommand.DisplayName": "Query Output Group by Project",
   "VSProjectQueryAPISample.SkipOfNCommand.DisplayName": "Query Project And Skip Over 1",
   "VSProjectQueryAPISample.TrackProjectQueryCommand.DisplayName": "Track Project Query",
-  "VSProjectQueryAPISample.ShowActiveProjectCommand.DisplayName": "Show Current Active Project"
+  "VSProjectQueryAPISample.ShowActiveProjectCommand.DisplayName": "Show Current Active Project",
+  "VSProjectQueryAPISample.SubscribeQS.DisplayName":  "Subscribe to Queryable Space Changed Events"
 }
