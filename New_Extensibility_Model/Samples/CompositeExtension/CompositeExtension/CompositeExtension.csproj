@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.13.40008" />
-    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.13.40008" />
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.13.40008" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.13.40008" PrivateAssets="all" />
     <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.6.36389" ExcludeAssets="runtime" />
   </ItemGroup>
 
