@@ -73,6 +73,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositeExtension", "Compo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaggersSample", "TaggersSample\TaggersSample.csproj", "{F7631680-13DF-42EC-AA87-C29FD4BE2273}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncodeDecodeBase64", "EncodeDecodeBase64\EncodeDecodeBase64.csproj", "{4E6E513B-0690-4B75-8F45-8DFB73D630CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -185,6 +187,10 @@ Global
 		{F7631680-13DF-42EC-AA87-C29FD4BE2273}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7631680-13DF-42EC-AA87-C29FD4BE2273}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7631680-13DF-42EC-AA87-C29FD4BE2273}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E6E513B-0690-4B75-8F45-8DFB73D630CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E6E513B-0690-4B75-8F45-8DFB73D630CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E6E513B-0690-4B75-8F45-8DFB73D630CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E6E513B-0690-4B75-8F45-8DFB73D630CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
