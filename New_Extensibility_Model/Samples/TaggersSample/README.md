@@ -70,7 +70,7 @@ public async Task TextViewChangedAsync(ITextViewSnapshot textView, IReadOnlyList
         allRequestedRanges.Intersect(
             edits.Select(e =>
                 EnsureNotEmpty(
-                    e.Range.TranslateTo(textView.Document, TextRangeTrackingMode.EdgeInclusive)))));
+                    e.Range.TranslateTo(textView.Document, TextRangeTrackingMode.ExtendForwardAndBackward)))));
 }
 ```
 
@@ -112,7 +112,7 @@ private async Task CreateTagsAsync(ITextDocumentSnapshot document, IEnumerable<T
                 // VisualStudio.Extensibility doesn't support defining new TextMarker types yet, so we use
                 // the built-in FindHighlight TextMarker type.
                 tags.Add(new(
-                    new(document, line.Text.Start, len, TextRangeTrackingMode.EdgeInclusive),
+                    new(document, line.Text.Start, len, TextRangeTrackingMode.ExtendForwardAndBackward),
                     new("MarkerFormatDefinition/FindHighlight")));
             }
         }
