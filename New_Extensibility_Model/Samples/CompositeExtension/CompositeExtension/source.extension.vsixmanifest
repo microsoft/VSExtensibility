@@ -6,7 +6,7 @@
     <Description>Shows how to implement an extension with both in-proc and out-of-proc components.</Description>
     <Preview>true</Preview>
   </Metadata>
-  <Installation ExtensionType="VisualStudio.Extensibility">
+  <Installation ExtensionType="VSSDK+VisualStudio.Extensibility">
     <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.13,18.0)">
       <ProductArchitecture>amd64</ProductArchitecture>
     </InstallationTarget>
