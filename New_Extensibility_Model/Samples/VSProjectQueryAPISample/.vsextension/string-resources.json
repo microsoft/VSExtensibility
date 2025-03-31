@@ -1,10 +1,22 @@
 {
   "VSProjectQueryAPISample.AddFileCommand.DisplayName": "Add File",
+  "VSProjectQueryAPISample.AddSolutionConfigurationCommand.DisplayName": "Add Solution Configuration",
+  "VSProjectQueryAPISample.DeleteSolutionConfigurationCommand.DisplayName": "Delete Solution Configuration",
+  "VSProjectQueryAPISample.MoveFileCommand.DisplayName": "Move File",
+  "VSProjectQueryAPISample.ProjectBuildCommand.DisplayName": "Project Build",
   "VSProjectQueryAPISample.QueryFileCommand.DisplayName": "Query File",
   "VSProjectQueryAPISample.QueryOutputGroupByIdCommand.DisplayName": "Query Output Group by ID",
   "VSProjectQueryAPISample.QueryOutputGroupByNameCommand.DisplayName": "Query Output Group by Name",
   "VSProjectQueryAPISample.QueryOutputGroupByProjectCommand.DisplayName": "Query Output Group by Project",
+  "VSProjectQueryAPISample.QuerySolutionConfigurations.DisplayName": "Query Solution Configurations",
+  "VSProjectQueryAPISample.ReloadProjectCommand.DisplayName": "Reload Project",
+  "VSProjectQueryAPISample.RenameFileCommand.DisplayName": "Rename File",
+  "VSProjectQueryAPISample.RenameProjectCommand.DisplayName": "Rename Project",
+  "VSProjectQueryAPISample.SetStartupProjectsCommand.DisplayName": "Set Startup Projects",
+  "VSProjectQueryAPISample.ShowActiveProjectCommand.DisplayName": "Show Current Active Project",
   "VSProjectQueryAPISample.SkipOfNCommand.DisplayName": "Query Project And Skip Over 1",
+  "VSProjectQueryAPISample.SolutionBuildCommand.DisplayName": "Solution Build",
+  "VSProjectQueryAPISample.SolutionSaveCommand.DisplayName": "Solution Save",
   "VSProjectQueryAPISample.TrackProjectQueryCommand.DisplayName": "Track Project Query",
-  "VSProjectQueryAPISample.ShowActiveProjectCommand.DisplayName": "Show Current Active Project"
+  "VSProjectQueryAPISample.UnloadProjectCommand.DisplayName": "Unload Project"
 }
