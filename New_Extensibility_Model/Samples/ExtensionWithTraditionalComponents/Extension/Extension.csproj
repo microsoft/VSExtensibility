@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>12</LangVersion>
+    <NeutralLanguage>en-US</NeutralLanguage>
+
+    <RootNamespace>ExtensionWithTraditionalComponents</RootNamespace>
+
+    <!-- Disabling creation of the VSIX for this project since it is always installed as a part of
+         the container extension. -->
+    <CreateVsixContainer>false</CreateVsixContainer>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="MyToolWindowContent.xaml" />
+    <EmbeddedResource Include="MyToolWindowContent.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="17.14.39731" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="17.14.39731" PrivateAssets="all" />
+  </ItemGroup>
+</Project>
