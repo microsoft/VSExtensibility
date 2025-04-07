@@ -3,6 +3,7 @@
               xmlns:vs="http://schemas.microsoft.com/visualstudio/extensibility/2022/xaml"
               xmlns:styles="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0"
               xmlns:colors="clr-namespace:Microsoft.VisualStudio.PlatformUI;assembly=Microsoft.VisualStudio.Shell.15.0"
-              xmlns:container="clr-namespace:Container;assembly=Container">
+              xmlns:container="clr-namespace:Container;assembly=Container, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ebbd189e9e224069">
+    <!-- The xmlns:container above must use the fully qualified name of the assembly and the assembly must be strong named!  -->
     <container:MyUserControl />
 </DataTemplate>

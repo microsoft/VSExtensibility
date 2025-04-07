@@ -9,6 +9,9 @@
     <VssdkCompatibleExtension>true</VssdkCompatibleExtension>
     <GeneratePkgDefFile>true</GeneratePkgDefFile>
     <UseCodebase>true</UseCodebase>
+    <SignAssembly>True</SignAssembly>
+    <!-- Note, this is a new signing key created for this sample. It is safe to publish to a public repo! -->
+    <AssemblyOriginatorKeyFile>sgKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
