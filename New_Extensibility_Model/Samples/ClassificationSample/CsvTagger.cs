@@ -20,13 +20,17 @@ internal class CsvTagger : TextViewTagger<ClassificationTag>
     private const string SeparatorMatchName = "separator";
     private const string FieldTextMatchName = "fieldText";
 
-    // Matches any sequence of characters, not containing '"' and ','. It also matches any sequence of characters enclosed in '"' as long as they don't contain other '"' characters, unless they are escaped (doubled).
+    // Matches any sequence of characters, not containing '"' and ','. It also matches any
+    // sequence of characters enclosed in '"' as long as they don't contain other '"'
+    // characters, unless they are escaped (doubled).
     // Examples of valid matches: xxx, "xxx", "xx""x"
     private const string FieldRegex = $@"(((?<{QuoteMatchName}>"")((?<{FieldTextMatchName}>[^""]+)|(?<{EscapedQuoteMatchName}>""""))*(?<{QuoteMatchName}>""))|(?<{FieldTextMatchName}>([^,""])*))";
 
     // Matches multiple fields separated by ','
-    // This regex supports quoted fields, escaped quotes (inside fields). We are not supporting line-breaks inside a field.
-    // This regex is not terminated with '$' so that as much as possible of the beginning of the line is always matched, even in case of syntax error.
+    // This regex supports quoted fields, escaped quotes (inside fields). We are not supporting
+    // line-breaks inside a field.
+    // This regex is not terminated with '$' so that as much as possible of the beginning of
+    // the line is always matched, even in case of syntax error.
     private static readonly Regex LineRegex = new($@"^{FieldRegex}((?<{SeparatorMatchName}>,){FieldRegex})*", RegexOptions.Compiled | RegexOptions.ExplicitCapture);
 
     private readonly CsvTaggerProvider provider;
