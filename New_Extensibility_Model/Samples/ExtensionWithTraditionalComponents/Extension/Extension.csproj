@@ -7,6 +7,10 @@
 
     <RootNamespace>ExtensionWithTraditionalComponents</RootNamespace>
 
+		<!-- The assemblies of this project are placed in the OutOfProc folder when packaged in the VSIX.
+         This avoids potential conflicts with assemblies from Container having the same file name. -->
+		<AssemblyVSIXSubPath>OutOfProc</AssemblyVSIXSubPath>
+
     <!-- Disabling creation of the VSIX for this project since it is always installed as a part of
          the container extension. -->
     <CreateVsixContainer>false</CreateVsixContainer>

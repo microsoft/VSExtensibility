@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.9.34329.44
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.10520.38
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{070F0AEA-C0A0-4B5D-9286-55574A37BE7A}"
 	ProjectSection(SolutionItems) = preProject
