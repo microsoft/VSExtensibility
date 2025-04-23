@@ -154,3 +154,7 @@ The extension can now reference the WPF control from Remote UI XAML:
     <container:MyUserControl />
 </DataTemplate>
 ```
+
+Note that the implementation in this sample of the tool window is the same as the one in the [tool window sample](../ToolWindowSample/).
+You can refer to that [readme](../ToolWindowSample/README.md) for step-by-step instructions on how to create a
+Remote-UI based tool window.
