@@ -73,7 +73,7 @@ internal class MarkdownCodeLensTagger : TextViewTagger<CodeLensTag>
                     .Any(l => l.StartsWith("#")) ||
                 Lines(
                         documentAfter,
-                        edits.Select(e => e.Range.TranslateTo(documentAfter, TextRangeTrackingMode.EdgeInclusive)))
+                        edits.Select(e => e.Range.TranslateTo(documentAfter, TextRangeTrackingMode.ExtendForwardAndBackward)))
                     .Any(l => l.StartsWith("#")))
             {
                     this.currentDocumentSnapshot = documentAfter;
@@ -179,7 +179,7 @@ internal class MarkdownCodeLensTagger : TextViewTagger<CodeLensTag>
                     sections.Add(identifier, 1);
                 }
 
-                tags.Add(new(new(document, line.Text.Start, line.Text.Length, TextRangeTrackingMode.EdgeInclusive), new(SectionCodeElementKind)
+                tags.Add(new(new(document, line.Text.Start, line.Text.Length, TextRangeTrackingMode.ExtendForwardAndBackward), new(SectionCodeElementKind)
                 {
                     UniqueIdentifier = identifier,
                     Description = $"Level {level} section: {description}",
