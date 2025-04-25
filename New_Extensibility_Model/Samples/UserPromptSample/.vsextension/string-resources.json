@@ -1,4 +1,5 @@
 ﻿{
   "UserPromptSample.SampleCommand.DisplayName": "User Prompt",
-  "UserPromptSample.SampleCommand.ToolTip": "Click for a prompt"
+  "UserPromptSample.SampleCommand.ToolTip": "Click for a prompt",
+  "UserPromptSample.AdvancedConfigurationCommand.DisplayName": "Advanced User Prompt"
 }

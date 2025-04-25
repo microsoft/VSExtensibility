@@ -13,7 +13,7 @@ Samples include:
 | [Document selector](./DocumentSelectorSample) | Shows how to create an editor extension that is only applicable to files matching a file path pattern. |
 | [Output window](./OutputWindowSample) | Shows the most basic use of the [Output Window API](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/output-window/output-window)|
 | [Tool window](./ToolWindowSample) | Shows how to create a tool window and populate it with content. |
-| [User prompt](./UserPromptSample) | Shows how to display a prompt to the user. |
+| [User prompt](./UserPromptSample) | Shows how to display a prompt to the user and gather simple input. |
 | [Dialog](./DialogSample) | Shows how to display a dialog with custom UI to the user. |
 | [Word count margin](./WordCountMargin) | Shows how to create an editor margin extension that displays the word count in a document. |
 | [Markdown linter](./MarkdownLinter) | A complete extension with many moving parts interacting to provide an enhanced experience in the editor for a certain file type. |
