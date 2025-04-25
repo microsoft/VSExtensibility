@@ -86,8 +86,6 @@ internal class AdvancedConfigurationCommand : Command
                     { "Core", Systems.CoreSystem },
                     { "Auxiliary", Systems.AuxiliarySystem },
                     { "Monitoring", Systems.MonitoringSystem },
-                    { "SomeOtherThing", Systems.CoreSystem },
-                    { "Some Fifth Thing", Systems.CoreSystem },
                 },
                 DismissedReturns = Systems.CoreSystem,
                 Title = Title,
