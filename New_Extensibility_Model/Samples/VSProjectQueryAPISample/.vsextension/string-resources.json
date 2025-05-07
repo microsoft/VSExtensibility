@@ -1,5 +1,5 @@
 {
-  "VSProjectQueryAPISample.AddFileCommand.DisplayName": "Add File",
+  "VSProjectQueryAPISample.CreateFileCommand.DisplayName": "Create File",
   "VSProjectQueryAPISample.AddSolutionConfigurationCommand.DisplayName": "Add Solution Configuration",
   "VSProjectQueryAPISample.DeleteSolutionConfigurationCommand.DisplayName": "Delete Solution Configuration",
   "VSProjectQueryAPISample.MoveFileCommand.DisplayName": "Move File",
