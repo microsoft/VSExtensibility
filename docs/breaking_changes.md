@@ -10,6 +10,42 @@ We work hard to minimize breaking changes between versions to help minimize disr
 
 For more information how our policy and guidance towards breaking changes, please review [here](#Guidance-and-Expectations-Around-Breaking-Changes).
 
+# Breaking Changes for Visual Studio 2022 17.14
+The following breaking changes apply to Visual Studio 2022 17.14 and above.
+
+## VisualStudio.Extensibility
+These breaking changes are associated with VisualStudio.Extensibility
+
+### .NET Runtime 
+Out of process VisualStudio.Extensibility extensions will need to update their target .NET version as Visual Studio adheres to .NET servicing policies. Please read this blog for more details: https://devblogs.microsoft.com/visualstudio/visualstudio-extensibility-managing-net-runtime-versions/
+
+### Editor tracking span
+We are improving the Tracking Span API in VisualStudio.Extensibility by making it easier to understand. The following APIs have been marked obsolete in favor of better named ones. The old APIs have not been removed, but we encourage to adopt the new enums:
+- Microsoft.VisualStudio.Extensibility.Editor.TextRangeTrackingMode
+  - EdgeExclusive >> ExtendNone
+  - EdgeInclusive >> ExtendForwardAndBackward
+  - EdgePositive >> ExtendForward
+  - EdgeNegative >> ExtendBackward
+- Microsoft.VisualStudio.Extensibility.Editor.TextPositionTrackingMode
+  - Positive >> Forward
+  - Negative >> Backward
+
+### Setting ID validation
+We are adding validation of settings ID when building VisualStudio.Extensibility extensions. 
+
+For example, this is a valid setting
+```csharp
+public static SettingCategory MySettingCategory => new("settingsSample", "Settings Sample")
+```
+
+The following are not valid
+```csharp
+public static SettingCategory MySettingCategory => new("SettingsSample", "Settings Sample")
+public static SettingCategory MySettingCategory => new("0SettingsSample", "Settings Sample")
+public static SettingCategory MySettingCategory => new("a", "Settings Sample")
+```
+The most likely scenario to be impacted is a working extension that uses a capitalized identifiers (like "SettingsSample"). Since setting identifiers are not case sensitive, you can simply change your ID to start with a lower case letter (like "settingsSample").
+
 # Breaking Changes for Visual Studio 2022 17.12
 The following breaking changes apply to Visual Studio 2022 17.12.
 
