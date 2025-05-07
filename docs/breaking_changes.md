@@ -17,7 +17,7 @@ The following breaking changes apply to Visual Studio 2022 17.14 and above.
 These breaking changes are associated with VisualStudio.Extensibility
 
 ### .NET Runtime 
-Out of process VisualStudio.Extensibility extensions will need to update their target .NET version as Visual Studio adheres to .NET servicing policies. Please read this blog for more details: https://devblogs.microsoft.com/visualstudio/visualstudio-extensibility-managing-net-runtime-versions/
+Out of process VisualStudio.Extensibility extensions will need to update their target .NET version when the .NET runtime is updated in future releases of Visual Studio. Please read this blog for more details: https://devblogs.microsoft.com/visualstudio/visualstudio-extensibility-managing-net-runtime-versions/
 
 ### Editor tracking span
 We are improving the Tracking Span API in VisualStudio.Extensibility by making it easier to understand. The following APIs have been marked obsolete in favor of better named ones. The old APIs have not been removed, but we encourage to adopt the new enums:
