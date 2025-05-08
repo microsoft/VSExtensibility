@@ -249,9 +249,9 @@ In the code sample, we will query the projects in a solution and skip the first 
 
 ```csharp
 var result = await querySpace.QueryProjectsAsync(
-				project => project.With(p => p.Name)
-				.Skip(1),
-				cancellationToken);
+			project => project.With(p => p.Name)
+			.Skip(1),
+			cancellationToken);
 ```
 
 ### Tracking Queries 
