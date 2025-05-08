@@ -25,9 +25,12 @@ public class SolutionSaveCommand : Command
     /// <inheritdoc />
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
-        IServiceBroker serviceBroker = context.Extensibility.ServiceBroker;
-        ProjectQueryableSpace querySpace = new ProjectQueryableSpace(serviceBroker: serviceBroker, joinableTaskContext: null);
-        var result = await querySpace.Solutions.SaveAsync(cancellationToken);
+        WorkspacesExtensibility querySpace = this.Extensibility.Workspaces();
+        IQueryResults<ISolutionSnapshot> solutions = await querySpace.QuerySolutionAsync(s => s, cancellationToken);
+        foreach (var solution in solutions)
+        {
+            await solution.SaveAsync(cancellationToken);
+        }
 
         await this.Extensibility.Shell().ShowPromptAsync($"Saving the solution.", PromptOptions.OK, cancellationToken);
     }
