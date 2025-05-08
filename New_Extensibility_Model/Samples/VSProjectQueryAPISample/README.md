@@ -135,8 +135,12 @@ Below is a showcase of queries that are available in the Project Query API
 In project query, you also have the ability to invoke build actions on the solution level. These build actions include: `BuildAsync`, `RebuildAsync`,  `CleanAsync`, `DebugLaunchAsync`, and `LaunchAsync`.
 
 ```csharp
-var result = await querySpace.Solutions
-            .BuildAsync(cancellationToken);
+IQueryResults<ISolutionSnapshot> solutions = await querySpace.QuerySolutionAsync(s => s, cancellationToken);
+
+foreach (var solution in solutions)
+{
+    await solution.AsQueryable().BuildAsync(cancellationToken);
+}
 ```
 
 ### Loading/Unloading a Project
@@ -165,7 +169,12 @@ await querySpace.UpdateSolutionAsync(
 `SaveAsync` is an API call that can be used on the solution level.
 
 ```csharp
-var result = await querySpace.Solutions.SaveAsync(cancellationToken);
+IQueryResults<ISolutionSnapshot> solutions = await querySpace.QuerySolutionAsync(s => s, cancellationToken);
+
+foreach (var solution in solutions)
+{
+    await solution.SaveAsync(cancellationToken);
+}
 ```
 
 
@@ -217,11 +226,10 @@ await result.First().BuildAsync(cancellationToken);
 In the example below, we specify the name of the project we would like to update. We then call `Rename` while passing in the new name of the project.
 
 ```csharp
-var result = await querySpace.Projects
-    .Where(p => p.Name == "ConsoleApp1")
-    .AsUpdatable()
-    .Rename("NewProjectName")
-    .ExecuteAsync(cancellationToken);
+var result = await querySpace.UpdateProjectsAsync(
+				project => project.Where(p => p.Name == "ConsoleApp1"),
+				project => project.Rename("NewProjectName"),
+				cancellationToken);
 ```
 
 
@@ -241,9 +249,9 @@ In the code sample, we will query the projects in a solution and skip the first 
 
 ```csharp
 var result = await querySpace.QueryProjectsAsync(
-            project => project.With(p => p.Name)
-            .Skip(1),
-            cancellationToken);
+				project => project.With(p => p.Name)
+				.Skip(1),
+				cancellationToken);
 ```
 
 ### Tracking Queries 
