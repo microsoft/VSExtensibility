@@ -46,6 +46,25 @@ public static SettingCategory MySettingCategory => new("a", "Settings Sample")
 ```
 The most likely scenario to be impacted is a working extension that uses a capitalized identifiers (like "SettingsSample"). Since setting identifiers are not case sensitive, you can simply change your ID to start with a lower case letter (like "settingsSample").
 
+### Command icon behavior change for IconSettings.None property
+An [issue](https://github.com/microsoft/VSExtensibility/issues/476) reported to our GitHub repo exposed a bug in that commands can't be placed in a toolbar as icon only. Upon investigation, we discovered that None was assigned a VSCT <CommandFlag/> option when it shouldn't have. "None" option indicates "no command configuration (flag) should be applied". 
+
+#### Current Behavior
+Commands with icons configured with IconSettings.None display with only their display name visible when parented to both menus and toolbars.
+![menu placement](menu-placement.png)
+Menu Placement
+
+![toolbar placement before](toolbar-placement-before.png)
+Toolbar Placement
+
+#### New Behavior
+Commands with icons configured with IconSettings.None display with their display name and icon visible when parented to menus, and with only their icon visible when parented to toolbars.
+![menu placement](menu-placement.png)
+Menu Placement
+
+![toolbar placement after](toolbar-placement-after.png)
+Toolbar Placement
+
 # Breaking Changes for Visual Studio 2022 17.12
 The following breaking changes apply to Visual Studio 2022 17.12.
 
