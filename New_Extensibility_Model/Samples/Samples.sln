@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.0.10520.38
+VisualStudioVersion = 18.0.10520.38 main
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{070F0AEA-C0A0-4B5D-9286-55574A37BE7A}"
 	ProjectSection(SolutionItems) = preProject
@@ -83,6 +83,7 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extension", "ExtensionWithTraditionalComponents\Extension\Extension.csproj", "{15B554E7-D240-072F-F5F0-EBD4C2CA5BFB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Container", "ExtensionWithTraditionalComponents\Container\Container.csproj", "{D99787A2-36E1-FE47-40E9-62CF6BE72BFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassificationSample", "ClassificationSample\ClassificationSample.csproj", "{781AC13C-B948-F6C0-FAE7-179CC49641F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -208,6 +209,10 @@ Global
 		{D99787A2-36E1-FE47-40E9-62CF6BE72BFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D99787A2-36E1-FE47-40E9-62CF6BE72BFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D99787A2-36E1-FE47-40E9-62CF6BE72BFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{781AC13C-B948-F6C0-FAE7-179CC49641F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{781AC13C-B948-F6C0-FAE7-179CC49641F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{781AC13C-B948-F6C0-FAE7-179CC49641F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{781AC13C-B948-F6C0-FAE7-179CC49641F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
