@@ -51,18 +51,26 @@ An [issue](https://github.com/microsoft/VSExtensibility/issues/476) reported to 
 
 #### Current Behavior
 Commands with icons configured with IconSettings.None display with only their display name visible when parented to both menus and toolbars.
+
 ![menu placement](menu-placement.png)
+
 Menu Placement
 
+
 ![toolbar placement before](toolbar-placement-before.png)
+
 Toolbar Placement
 
 #### New Behavior
 Commands with icons configured with IconSettings.None display with their display name and icon visible when parented to menus, and with only their icon visible when parented to toolbars.
+
 ![menu placement](menu-placement.png)
+
 Menu Placement
 
+
 ![toolbar placement after](toolbar-placement-after.png)
+
 Toolbar Placement
 
 # Breaking Changes for Visual Studio 2022 17.12
