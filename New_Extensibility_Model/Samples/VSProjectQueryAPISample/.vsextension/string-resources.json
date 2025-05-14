@@ -1,6 +1,6 @@
 {
-  "VSProjectQueryAPISample.CreateFileCommand.DisplayName": "Create File",
   "VSProjectQueryAPISample.AddSolutionConfigurationCommand.DisplayName": "Add Solution Configuration",
+  "VSProjectQueryAPISample.CreateFileCommand.DisplayName": "Create File",
   "VSProjectQueryAPISample.DeleteSolutionConfigurationCommand.DisplayName": "Delete Solution Configuration",
   "VSProjectQueryAPISample.MoveFileCommand.DisplayName": "Move File",
   "VSProjectQueryAPISample.ProjectBuildCommand.DisplayName": "Project Build",
@@ -17,6 +17,7 @@
   "VSProjectQueryAPISample.SkipOfNCommand.DisplayName": "Query Project And Skip Over 1",
   "VSProjectQueryAPISample.SolutionBuildCommand.DisplayName": "Solution Build",
   "VSProjectQueryAPISample.SolutionSaveCommand.DisplayName": "Solution Save",
+  "VSProjectQueryAPISample.SubscribeQS.DisplayName": "Subscribe to Queryable Space Changed Events",
   "VSProjectQueryAPISample.TrackProjectQueryCommand.DisplayName": "Track Project Query",
   "VSProjectQueryAPISample.UnloadProjectCommand.DisplayName": "Unload Project"
 }

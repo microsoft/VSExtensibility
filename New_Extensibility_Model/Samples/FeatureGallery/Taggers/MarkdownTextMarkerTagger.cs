@@ -44,7 +44,7 @@ internal class MarkdownTextMarkerTagger : TextViewTagger<TextMarkerTag>
         await this.CreateTagsAsync(
             textView.Document,
             allRequestedRanges
-                .Intersect(edits.Select(e => EnsureNotEmpty(e.Range.TranslateTo(textView.Document, TextRangeTrackingMode.EdgeInclusive)))));
+                .Intersect(edits.Select(e => EnsureNotEmpty(e.Range.TranslateTo(textView.Document, TextRangeTrackingMode.ExtendForwardAndBackward)))));
     }
 
     protected override async Task RequestTagsAsync(NormalizedTextRangeCollection requestedRanges, bool recalculateAll, CancellationToken cancellationToken)
@@ -87,7 +87,7 @@ internal class MarkdownTextMarkerTagger : TextViewTagger<TextMarkerTag>
                 int len = line.Text.Length;
                 if (len > 0)
                 {
-                    tags.Add(new(new(document, line.Text.Start, len, TextRangeTrackingMode.EdgeInclusive), new("MarkerFormatDefinition/FindHighlight")));
+                    tags.Add(new(new(document, line.Text.Start, len, TextRangeTrackingMode.ExtendForwardAndBackward), new("MarkerFormatDefinition/FindHighlight")));
                 }
             }
 

@@ -43,7 +43,7 @@ internal class MarkdownTextMarkerTagger : TextViewTagger<TextMarkerTag>
             allRequestedRanges.Intersect(// Use Intersect to only create tags for ranges that VS has previously expressed interested in.
                 edits.Select(e =>
                     EnsureNotEmpty(// Fix empty ranges to be at least 1 character long so that they are not ignored when intersected (empty ranges are the result of text deletion).
-                        e.Range.TranslateTo(textView.Document, TextRangeTrackingMode.EdgeInclusive))))); // Translate the range to the new document version.
+                        e.Range.TranslateTo(textView.Document, TextRangeTrackingMode.ExtendForwardAndBackward))))); // Translate the range to the new document version.
     }
 
     protected override async Task RequestTagsAsync(NormalizedTextRangeCollection requestedRanges, bool recalculateAll, CancellationToken cancellationToken)
@@ -91,7 +91,7 @@ internal class MarkdownTextMarkerTagger : TextViewTagger<TextMarkerTag>
                     // VisualStudio.Extensibility doesn't support defining new TextMarker types yet, so we use
                     // the built-in FindHighlight TextMarker type.
                     tags.Add(new(
-                        new(document, line.Text.Start, len, TextRangeTrackingMode.EdgeInclusive),
+                        new(document, line.Text.Start, len, TextRangeTrackingMode.ExtendForwardAndBackward),
                         new("MarkerFormatDefinition/FindHighlight")));
                 }
             }
