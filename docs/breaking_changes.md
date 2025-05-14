@@ -10,6 +10,69 @@ We work hard to minimize breaking changes between versions to help minimize disr
 
 For more information how our policy and guidance towards breaking changes, please review [here](#Guidance-and-Expectations-Around-Breaking-Changes).
 
+# Breaking Changes for Visual Studio 2022 17.14
+The following breaking changes apply to Visual Studio 2022 17.14 and above.
+
+## VisualStudio.Extensibility
+These breaking changes are associated with VisualStudio.Extensibility
+
+### .NET Runtime 
+Out of process VisualStudio.Extensibility extensions will need to update their target .NET version when the .NET runtime is updated in future releases of Visual Studio. Please read this blog for more details: https://devblogs.microsoft.com/visualstudio/visualstudio-extensibility-managing-net-runtime-versions/
+
+### Editor tracking span
+We are improving the Tracking Span API in VisualStudio.Extensibility by making it easier to understand. The following APIs have been marked obsolete in favor of better named ones. The old APIs have not been removed, but we encourage to adopt the new enums:
+- Microsoft.VisualStudio.Extensibility.Editor.TextRangeTrackingMode
+  - EdgeExclusive >> ExtendNone
+  - EdgeInclusive >> ExtendForwardAndBackward
+  - EdgePositive >> ExtendForward
+  - EdgeNegative >> ExtendBackward
+- Microsoft.VisualStudio.Extensibility.Editor.TextPositionTrackingMode
+  - Positive >> Forward
+  - Negative >> Backward
+
+### Setting ID validation
+We are adding validation of settings ID when building VisualStudio.Extensibility extensions. 
+
+For example, this is a valid setting
+```csharp
+public static SettingCategory MySettingCategory => new("settingsSample", "Settings Sample")
+```
+
+The following are not valid
+```csharp
+public static SettingCategory MySettingCategory => new("SettingsSample", "Settings Sample")
+public static SettingCategory MySettingCategory => new("0SettingsSample", "Settings Sample")
+public static SettingCategory MySettingCategory => new("a", "Settings Sample")
+```
+The most likely scenario to be impacted is a working extension that uses a capitalized identifiers (like "SettingsSample"). Since setting identifiers are not case sensitive, you can simply change your ID to start with a lower case letter (like "settingsSample").
+
+### Command icon behavior change for IconSettings.None property
+An [issue](https://github.com/microsoft/VSExtensibility/issues/476) reported to our GitHub repo exposed a bug in that commands can't be placed in a toolbar as icon only. Upon investigation, we discovered that None was assigned a VSCT <CommandFlag/> option when it shouldn't have. "None" option indicates "no command configuration (flag) should be applied". 
+
+#### Current Behavior
+Commands with icons configured with IconSettings.None display with only their display name visible when parented to both menus and toolbars.
+
+![menu placement](menu-placement.png)
+
+Menu Placement
+
+
+![toolbar placement before](toolbar-placement-before.png)
+
+Toolbar Placement
+
+#### New Behavior
+Commands with icons configured with IconSettings.None display with their display name and icon visible when parented to menus, and with only their icon visible when parented to toolbars.
+
+![menu placement](menu-placement.png)
+
+Menu Placement
+
+
+![toolbar placement after](toolbar-placement-after.png)
+
+Toolbar Placement
+
 # Breaking Changes for Visual Studio 2022 17.12
 The following breaking changes apply to Visual Studio 2022 17.12.
 

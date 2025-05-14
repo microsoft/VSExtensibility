@@ -36,7 +36,7 @@ namespace VSProjectQueryAPISample
             // Use this object initializer to set optional parameters for the command. The required parameter,
             // displayName, is set above. To localize the displayName, add an entry in .vsextension\string-resources.json
             // and reference it here by passing "%VSProjectQueryAPISample.Command1.DisplayName%" as a constructor parameter.
-            Placements = [CommandPlacement.KnownPlacements.ExtensionsMenu],
+            Placements = [CommandPlacement.KnownPlacements.ToolsMenu],
             Icon = new(ImageMoniker.KnownValues.Extension, IconSettings.IconAndText),
         };
 

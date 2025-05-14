@@ -32,7 +32,8 @@ public class QueryOutputGroupByIdCommand : Command
 
         var result = await querySpace.QueryProjectsAsync(
             project => project.With(p => p.Name)
-                              .With(p => p.ActiveConfigurations.With(c => c.Name)),
+                              .With(p => p.ActiveConfigurations.With(c => c.Name)
+                                                               .With(c => c.OutputGroups)),
             cancellationToken);
 
         message.Append($"\n \n === Querying OutputGroups by Id === \n");

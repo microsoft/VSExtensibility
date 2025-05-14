@@ -12,10 +12,10 @@ using Microsoft.VisualStudio.ProjectSystem.Query;
 /// A sample command for adding a file.
 /// </summary>
 [VisualStudioContribution]
-public class AddFileCommand : Command
+public class CreateFileCommand : Command
 {
     /// <inheritdoc />
-    public override CommandConfiguration CommandConfiguration => new("%VSProjectQueryAPISample.AddFileCommand.DisplayName%")
+    public override CommandConfiguration CommandConfiguration => new("%VSProjectQueryAPISample.CreateFileCommand.DisplayName%")
     {
         Placements = [CommandPlacement.KnownPlacements.ToolsMenu],
         Icon = new(ImageMoniker.KnownValues.Extension, IconSettings.IconAndText),
@@ -28,7 +28,7 @@ public class AddFileCommand : Command
 
         await querySpace.UpdateProjectsAsync(
             project => project.Where(project => project.Name == "ConsoleApp1"),
-            project => project.AddFile("CreatedFile.txt"),
+            project => project.CreateFile("CreatedFile.txt"),
             cancellationToken);
 
         await this.Extensibility.Shell().ShowPromptAsync("Created new file in ConsoleApp1.", PromptOptions.OK, cancellationToken);

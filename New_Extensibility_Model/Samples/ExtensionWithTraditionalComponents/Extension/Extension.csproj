@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>12</LangVersion>
+    <NeutralLanguage>en-US</NeutralLanguage>
+
+    <RootNamespace>ExtensionWithTraditionalComponents</RootNamespace>
+
+		<!-- The assemblies of this project are placed in the OutOfProc folder when packaged in the VSIX.
+         This avoids potential conflicts with assemblies from Container having the same file name. -->
+		<AssemblyVSIXSubPath>OutOfProc</AssemblyVSIXSubPath>
+
+    <!-- Disabling creation of the VSIX for this project since it is always installed as a part of
+         the container extension. -->
+    <CreateVsixContainer>false</CreateVsixContainer>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="MyToolWindowContent.xaml" />
+    <EmbeddedResource Include="MyToolWindowContent.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="18.0.856-preview.1" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="18.0.856-preview.1" PrivateAssets="all" />
+  </ItemGroup>
+</Project>

@@ -26,8 +26,13 @@ public class UnloadProjectCommand : Command
     {
         WorkspacesExtensibility querySpace = this.Extensibility.Workspaces();
 
-        const string solutionName = "ConsoleApp32";
         const string projectPath = "ConsoleApp1\\\\ConsoleApp1.csproj";
+
+        var solutionQueryResults = await querySpace.QuerySolutionAsync(
+            solution => solution.With(solution => solution.BaseName),
+            cancellationToken);
+
+        var solutionName = solutionQueryResults.First().BaseName;
 
         await querySpace.UpdateSolutionAsync(
             solution => solution.Where(solution => solution.BaseName == solutionName),
