@@ -25,8 +25,7 @@ public class SolutionBuildCommand : Command
     /// <inheritdoc />
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
-        WorkspacesExtensibility querySpace = this.Extensibility.Workspaces();
-        IQueryResults<ISolutionSnapshot> solutions = await querySpace.QuerySolutionAsync(s => s, cancellationToken);
+        IQueryResults<ISolutionSnapshot> solutions = await this.Extensibility.Workspaces().QuerySolutionAsync(s => s, cancellationToken);
         foreach (var solution in solutions)
         {
             await solution.AsQueryable().BuildAsync(cancellationToken);

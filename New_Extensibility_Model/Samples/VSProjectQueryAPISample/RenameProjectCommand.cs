@@ -24,9 +24,7 @@ public class RenameProjectCommand : Command
     /// <inheritdoc />
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
-        WorkspacesExtensibility querySpace = this.Extensibility.Workspaces();
-
-        IQueryResults<IProjectSnapshot> consoleApp1QueryResults = await querySpace.UpdateProjectsAsync(
+        IQueryResults<IProjectSnapshot> consoleApp1QueryResults = await this.Extensibility.Workspaces().UpdateProjectsAsync(
             project => project.Where(p => p.Name == "ConsoleApp1"),
             project => project.Rename("NewProjectName"),
             cancellationToken);

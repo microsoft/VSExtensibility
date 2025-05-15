@@ -24,17 +24,15 @@ public class UnloadProjectCommand : Command
     /// <inheritdoc />
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
-        WorkspacesExtensibility querySpace = this.Extensibility.Workspaces();
-
         const string projectPath = "ConsoleApp1\\\\ConsoleApp1.csproj";
 
-        var solutionQueryResults = await querySpace.QuerySolutionAsync(
+        var solutionQueryResults = await this.Extensibility.Workspaces().QuerySolutionAsync(
             solution => solution.With(solution => solution.BaseName),
             cancellationToken);
 
         var solutionName = solutionQueryResults.First().BaseName;
 
-        await querySpace.UpdateSolutionAsync(
+        await this.Extensibility.Workspaces().UpdateSolutionAsync(
             solution => solution.Where(solution => solution.BaseName == solutionName),
             solution => solution.UnloadProject(projectPath),
             cancellationToken);
