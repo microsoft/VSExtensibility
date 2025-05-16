@@ -45,10 +45,9 @@ namespace VSProjectQueryAPISample
         /// <inheritdoc />
         public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
         {
-            WorkspacesExtensibility querySpace = this.Extensibility.Workspaces();
             StringBuilder sb = new StringBuilder("Renamed file at ");
 
-            IQueryResults<IProjectSnapshot> consoleApp1QueryResults = await querySpace.QueryProjectsAsync(
+            IQueryResults<IProjectSnapshot> consoleApp1QueryResults = await this.Extensibility.Workspaces().QueryProjectsAsync(
                     project => project.Where(p => p.Name == "ConsoleApp1")
                     .With(project => project.Files
                     .With(f => f.FileName)
@@ -58,7 +57,7 @@ namespace VSProjectQueryAPISample
             var filePath = consoleApp1QueryResults.First().Files.First().Path;
             sb.Append(filePath);
 
-            await querySpace.UpdateProjectsAsync(
+            await this.Extensibility.Workspaces().UpdateProjectsAsync(
                 project => project.Where(project => project.Name == "ConsoleApp1"),
                 project => project.RenameFile(filePath, "newName.cs"),
                 cancellationToken);

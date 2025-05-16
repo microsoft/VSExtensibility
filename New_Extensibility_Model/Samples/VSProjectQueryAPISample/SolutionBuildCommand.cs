@@ -25,10 +25,11 @@ public class SolutionBuildCommand : Command
     /// <inheritdoc />
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
-        IServiceBroker serviceBroker = context.Extensibility.ServiceBroker;
-        ProjectQueryableSpace querySpace = new ProjectQueryableSpace(serviceBroker: serviceBroker, joinableTaskContext: null);
-        var result = await querySpace.Solutions
-            .BuildAsync(cancellationToken);
+        IQueryResults<ISolutionSnapshot> solutions = await this.Extensibility.Workspaces().QuerySolutionAsync(s => s, cancellationToken);
+        foreach (var solution in solutions)
+        {
+            await solution.AsQueryable().BuildAsync(cancellationToken);
+        }
 
         await this.Extensibility.Shell().ShowPromptAsync($"Building the solution.", PromptOptions.OK, cancellationToken);
     }
