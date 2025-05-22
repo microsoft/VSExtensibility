@@ -44,15 +44,15 @@ To disable the build error for all uses of each experimental API across all file
 
 ## Current experimental APIs
 
-As of our 17.14 release, these features are experimental:
+Currently these features are experimental:
 
-| Feature | Label |
-|---------|-------|
-| Output Window | VSEXTPREVIEW_OUTPUTWINDOW |
-| LSP | VSEXTPREVIEW_LSP |
-| Settings | VSEXTPREVIEW_SETTINGS |
-| Project Query Tracking | VSEXTPREVIEW_PROJECTQUERY_TRACKING |
-| Project Query Properties and Build Properties | VSEXTPREVIEW_PROJECTQUERY_PROPERTIES_BUILDPROPERTIES |
-| Code lens | VSEXTPREVIEW_CODELENS |
-| Taggers | VSEXTPREVIEW_TAGGERS |
-| Debugger Visualizers Expression | VSEXTPREVIEW_DEBUGGERVISUALIZERS_EXPRESSION |
+| Feature | Label | Notes |
+|---------|-------|-------|
+| Output Window | VSEXTPREVIEW_OUTPUTWINDOW | |
+| LSP | VSEXTPREVIEW_LSP | |
+| Settings | VSEXTPREVIEW_SETTINGS | |
+| Project Query Tracking | VSEXTPREVIEW_PROJECTQUERY_TRACKING | [`TrackUpdatesAsync`](https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.projectsystem.query.iasyncqueryable-1.trackupdatesasync) is a preview API. |
+| Project Query Properties and Build Properties | VSEXTPREVIEW_PROJECTQUERY_PROPERTIES_BUILDPROPERTIES | Property-related APIs like [`this`](https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.extensibility.debuggervisualizers.visualizertarget.originalvisualizedexpression) property are preview APIs. |
+| Code lens | VSEXTPREVIEW_CODELENS | |
+| Taggers | VSEXTPREVIEW_TAGGERS | |
+| Debugger Visualizers Expression | VSEXTPREVIEW_DEBUGGERVISUALIZERS_EXPRESSION | The [`OriginalVisualizedExpression`](https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.extensibility.debuggervisualizers.visualizertarget.originalvisualizedexpression) property and the [related event](https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.extensibility.debuggervisualizers.visualizertarget.visualizedexpressionchanged) are preview APIs. |
