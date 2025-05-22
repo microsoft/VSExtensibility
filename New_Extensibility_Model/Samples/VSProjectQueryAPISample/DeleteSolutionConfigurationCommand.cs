@@ -26,15 +26,13 @@ public class DeleteSolutionConfigurationCommand : Command
     /// <inheritdoc />
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
-        WorkspacesExtensibility querySpace = this.Extensibility.Workspaces();
-
-        var queryResults = await querySpace.QuerySolutionAsync(
+        var queryResults = await this.Extensibility.Workspaces().QuerySolutionAsync(
             solution => solution.With(solution => solution.BaseName),
             cancellationToken);
 
         var solutionName = queryResults.First().BaseName;
 
-        await querySpace.UpdateSolutionAsync(
+        await this.Extensibility.Workspaces().UpdateSolutionAsync(
             solution => solution.Where(solution => solution.BaseName == solutionName),
             solution => solution.DeleteSolutionConfiguration("Foo"),
             cancellationToken);

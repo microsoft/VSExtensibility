@@ -53,11 +53,10 @@ namespace VSProjectQueryAPISample
         public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
         {
             // Move File Workaround
-            WorkspacesExtensibility querySpace = this.Extensibility.Workspaces();
             StringBuilder sb = new StringBuilder("Move file from ");
 
             // Query the source project to retrieve the path of the file to be moved.
-            IQueryResults<IProjectSnapshot> consoleApp1QueryResults = await querySpace.QueryProjectsAsync(
+            IQueryResults<IProjectSnapshot> consoleApp1QueryResults = await this.Extensibility.Workspaces().QueryProjectsAsync(
                     project => project.Where(p => p.Name == "ConsoleApp1")
                     .With(project => project.Path)
                     .With(project => project.Files
@@ -71,7 +70,7 @@ namespace VSProjectQueryAPISample
             sb.Append(sourceFilePath + " to ");
 
             // Query the destination project to retrieve its path.
-            IQueryResults<IProjectSnapshot> destinationProjectQueryResults = await querySpace.QueryProjectsAsync(
+            IQueryResults<IProjectSnapshot> destinationProjectQueryResults = await this.Extensibility.Workspaces().QueryProjectsAsync(
                 project => project.Where(p => p.Name == "ConsoleApp2")
                 .With(project => project.Path),
                 cancellationToken);
@@ -81,7 +80,7 @@ namespace VSProjectQueryAPISample
             sb.Append(destinationProject);
 
             // Add the source file to the destination project.
-            await querySpace.UpdateProjectsAsync(
+            await this.Extensibility.Workspaces().UpdateProjectsAsync(
                 project => project.Where(project => project.Name == "ConsoleApp2"),
                 project => project.AddFileFromCopy(sourceFilePath, destinationProject),
                 cancellationToken);

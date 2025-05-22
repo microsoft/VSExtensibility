@@ -51,9 +51,7 @@ namespace VSProjectQueryAPISample
         /// <inheritdoc />
         public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
         {
-            WorkspacesExtensibility querySpace = this.Extensibility.Workspaces();
-
-            var result = await querySpace.QueryProjectsAsync(
+            var result = await this.Extensibility.Workspaces().QueryProjectsAsync(
                         project => project.With(p => p.Name)
                         .Skip(1),
                         cancellationToken);

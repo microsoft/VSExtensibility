@@ -24,9 +24,7 @@ public class CreateFileCommand : Command
     /// <inheritdoc />
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
-        WorkspacesExtensibility querySpace = this.Extensibility.Workspaces();
-
-        await querySpace.UpdateProjectsAsync(
+        await this.Extensibility.Workspaces().UpdateProjectsAsync(
             project => project.Where(project => project.Name == "ConsoleApp1"),
             project => project.CreateFile("CreatedFile.txt"),
             cancellationToken);

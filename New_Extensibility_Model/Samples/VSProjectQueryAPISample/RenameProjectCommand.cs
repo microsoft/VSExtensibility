@@ -24,13 +24,10 @@ public class RenameProjectCommand : Command
     /// <inheritdoc />
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
-        var serviceBroker = context.Extensibility.ServiceBroker;
-        ProjectQueryableSpace querySpace = new ProjectQueryableSpace(serviceBroker: serviceBroker, joinableTaskContext: null);
-        var result = await querySpace.Projects
-            .Where(p => p.Name == "ConsoleApp1")
-            .AsUpdatable()
-            .Rename("NewProjectName")
-            .ExecuteAsync(cancellationToken);
+        IQueryResults<IProjectSnapshot> consoleApp1QueryResults = await this.Extensibility.Workspaces().UpdateProjectsAsync(
+            project => project.Where(p => p.Name == "ConsoleApp1"),
+            project => project.Rename("NewProjectName"),
+            cancellationToken);
 
         await this.Extensibility.Shell().ShowPromptAsync("Renamed Project to NewProjectName.", PromptOptions.OK, cancellationToken);
     }
