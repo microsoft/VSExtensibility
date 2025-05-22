@@ -44,14 +44,15 @@ To disable the build error for all uses of each experimental API across all file
 
 ## Current experimental APIs
 
-You can find a class that contains each of our current experimental APIs called [`ExperimentalFeatures`](https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.extensibility.experimentalfeatures) in our [API Reference](https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.extensibility).
+Currently these features are experimental:
 
-As of our 17.9 release, there are three experimental features:
-
-| Feature | Label | Description |
-|---------|-------|-------------|
-| LSP | VSEXTPREVIEW_LSP | LSP support was added with our 17.9 release and we want user feedback to make sure we've got the features needed by extension authors.|
-| Output Window | VSEXTPREVIEW_OUTPUTWINDOW | We'updated our output window APIs with our 17.12 release and would like user feedback to see if this could be the final shape. |
-| Project Query Tracking | VSEXTPREVIEW_PROJECTQUERY_TRACKING | We're continuing to update our project query API to add new features|
-| Project Query Properties and Build Properties | VSEXTPREVIEW_PROJECTQUERY_PROPERTIES_BUILDPROPERTIES | We're continuing to update our project query API to address user feedback and add new features |
-| Code lens | VSEXTPREVIEW_CODELENS | Code lens support was added in our 17.12 release and we want user feedback to make sure we've got the features needed by extension authors. |
+| Feature | Label | Notes |
+|---------|-------|-------|
+| Output Window | VSEXTPREVIEW_OUTPUTWINDOW | |
+| LSP | VSEXTPREVIEW_LSP | |
+| Settings | VSEXTPREVIEW_SETTINGS | |
+| Project Query Tracking | VSEXTPREVIEW_PROJECTQUERY_TRACKING | [`TrackUpdatesAsync`](https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.projectsystem.query.iasyncqueryable-1.trackupdatesasync) is a preview API. |
+| Project Query Properties and Build Properties | VSEXTPREVIEW_PROJECTQUERY_PROPERTIES_BUILDPROPERTIES | Property-related APIs like [`this`](https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.extensibility.debuggervisualizers.visualizertarget.originalvisualizedexpression) property are preview APIs. |
+| Code lens | VSEXTPREVIEW_CODELENS | |
+| Taggers | VSEXTPREVIEW_TAGGERS | |
+| Debugger Visualizers Expression | VSEXTPREVIEW_DEBUGGERVISUALIZERS_EXPRESSION | The [`OriginalVisualizedExpression`](https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.extensibility.debuggervisualizers.visualizertarget.originalvisualizedexpression) property and the [related event](https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.extensibility.debuggervisualizers.visualizertarget.visualizedexpressionchanged) are preview APIs. |
