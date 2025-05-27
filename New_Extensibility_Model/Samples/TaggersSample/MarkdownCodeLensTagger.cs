@@ -9,7 +9,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.Extensibility.Editor;
-using Microsoft.VisualStudio.Threading;
 
 #pragma warning disable VSEXTPREVIEW_CODELENS // Type is for evaluation purposes only and is subject to change or removal in future updates.
 #pragma warning disable VSEXTPREVIEW_TAGGERS // Type is for evaluation purposes only and is subject to change or removal in future updates.
@@ -19,90 +18,37 @@ internal class MarkdownCodeLensTagger : TextViewTagger<CodeLensTag>
 {
     public static readonly CodeElementKind SectionCodeElementKind = "Section";
 
-    private readonly MarkdownCodeLensTaggerProvider provider;
-    private readonly Uri documentUri;
-    private readonly AsyncSemaphore semaphore = new(1);
-
-    private ITextDocumentSnapshot? currentDocumentSnapshot;
-    private bool needsUpdate;
-    private bool updateRunning;
-
-    public MarkdownCodeLensTagger(MarkdownCodeLensTaggerProvider provider, Uri documentUri)
+    protected override Task OnTextViewChangedAsync(TextViewChangedArgs args, CancellationToken cancellationToken)
     {
-        this.provider = provider;
-        this.documentUri = documentUri;
+        if (args.Edits.Count == 0)
+        {
+            return Task.CompletedTask;
+        }
+
+        // Only recalculate tags if a line starting with # was touched (added, removed, or modified).
+        if (GetLines(
+                    args.BeforeTextView.Document,
+                    args.Edits.Select(e => e.Range))
+                .Any(l => l.StartsWith("#")) ||
+            GetLines(
+                    args.AfterTextView.Document,
+                    args.Edits.Select(e => e.RangeAfterEdit))
+                .Any(l => l.StartsWith("#")))
+        {
+            return this.CreateTagsAsync(args.AfterTextView.Document);
+        }
+
+        return Task.CompletedTask;
     }
 
-    public override void Dispose()
+    protected override Task OnRequestTagsAsync(NormalizedTextRangeCollection requestedRanges, bool recalculateAll, CancellationToken cancellationToken)
     {
-        this.provider.RemoveTagger(this.documentUri, this);
-        this.semaphore.Dispose();
-        base.Dispose();
-    }
-
-    public async Task TextViewChangedAsync(ITextViewSnapshot textView, IReadOnlyList<TextEdit> edits, CancellationToken cancellationToken)
-    {
-        if (edits.Count == 0)
+        if (requestedRanges.Count == 0)
         {
-            return;
+            return Task.CompletedTask;
         }
 
-        var documentBefore = edits[0].Range.Document;
-        var documentAfter = textView.Document;
-
-        using var semaphoreReleaser = await this.semaphore.EnterAsync();
-
-        // Only queue a tags calculation if we haven't already queued it for a newer version of the document.
-        if (this.currentDocumentSnapshot is null || this.currentDocumentSnapshot.RpcContract.Version < documentAfter.RpcContract.Version)
-        {
-            // If we already have a request to update the tags, let's just update the current document snapshot so that tags are calculated
-            // with the latest version of the document.
-            if (this.needsUpdate)
-            {
-                this.currentDocumentSnapshot = documentAfter;
-                return;
-            }
-
-            // Only recalculate tags if a line starting with # was touched (added, removed, or modified).
-            if (GetLines(
-                        documentBefore,
-                        edits.Select(e => e.Range))
-                    .Any(l => l.StartsWith("#")) ||
-                GetLines(
-                        documentAfter,
-                        edits.Select(e => e.Range.TranslateTo(documentAfter, TextRangeTrackingMode.ExtendForwardAndBackward)))
-                    .Any(l => l.StartsWith("#")))
-            {
-                    this.currentDocumentSnapshot = documentAfter;
-                    _ = this.RunCreateTagsAsync();
-            }
-        }
-    }
-
-    protected override async Task RequestTagsAsync(NormalizedTextRangeCollection requestedRanges, bool recalculateAll, CancellationToken cancellationToken)
-    {
-        if (requestedRanges.Count == 0 || requestedRanges.TextDocumentSnapshot is null)
-        {
-            return;
-        }
-
-        using var semaphoreReleaser = await this.semaphore.EnterAsync();
-
-        // Only queue a tags calculation if we haven't already queued it for a newer version of the document. If we are asked to recalculate all, we always recalculate, but
-        // we use the latest between the current snapshot and the requested snapshot.
-        if (recalculateAll)
-        {
-            this.currentDocumentSnapshot =
-                this.currentDocumentSnapshot is not null && this.currentDocumentSnapshot.RpcContract.Version >= requestedRanges.TextDocumentSnapshot.RpcContract.Version ?
-                    this.currentDocumentSnapshot :
-                    requestedRanges.TextDocumentSnapshot;
-            _ = this.RunCreateTagsAsync();
-        }
-        else if (this.currentDocumentSnapshot is null || this.currentDocumentSnapshot.RpcContract.Version < requestedRanges.TextDocumentSnapshot.RpcContract.Version)
-        {
-            this.currentDocumentSnapshot = requestedRanges.TextDocumentSnapshot;
-            _ = this.RunCreateTagsAsync();
-        }
+        return this.CreateTagsAsync(requestedRanges.TextDocumentSnapshot!);
     }
 
     private static IEnumerable<TextRange> GetLines(ITextDocumentSnapshot document, IEnumerable<TextRange> ranges)
@@ -116,40 +62,6 @@ internal class MarkdownCodeLensTagger : TextViewTagger<CodeLensTag>
             })
             .Distinct()
             .Select(l => document.Lines[l].Text);
-    }
-
-    private async Task RunCreateTagsAsync()
-    {
-        // we are still under the semaphore here
-        this.needsUpdate = true;
-
-        // If we are already running the RunCreateTagsAsync loop, we don't need to start another one.
-        if (this.updateRunning)
-        {
-            return;
-        }
-
-        this.updateRunning = true;
-        while (true)
-        {
-            ITextDocumentSnapshot document;
-
-            // On the first iteration, since the caller owns the semaphore, this will always yield.
-            using (var semaphoreReleaser = await this.semaphore.EnterAsync())
-            {
-                if (!this.needsUpdate || this.currentDocumentSnapshot is null)
-                {
-                    this.updateRunning = false;
-                    return;
-                }
-
-                this.needsUpdate = false;
-                document = this.currentDocumentSnapshot;
-            }
-
-            // We don't hold the semaphore while running CreateTagsAsync, that allows new requests to run tag calculation to happen.
-            await this.CreateTagsAsync(document);
-        }
     }
 
     private async Task CreateTagsAsync(ITextDocumentSnapshot document)

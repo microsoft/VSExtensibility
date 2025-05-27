@@ -15,45 +15,30 @@ using Microsoft.VisualStudio.Extensibility.Editor;
 // A tagger that highlights each section title in a markdown file
 internal class MarkdownTextMarkerTagger : TextViewTagger<TextMarkerTag>
 {
-    private readonly MarkdownTextMarkerTaggerProvider provider;
-    private readonly Uri documentUri;
-
-    public MarkdownTextMarkerTagger(MarkdownTextMarkerTaggerProvider provider, Uri documentUri)
+    protected override async Task OnTextViewChangedAsync(TextViewChangedArgs args, CancellationToken cancellationToken)
     {
-        this.provider = provider;
-        this.documentUri = documentUri;
-    }
-
-    public override void Dispose()
-    {
-        this.provider.RemoveTagger(this.documentUri, this);
-        base.Dispose();
-    }
-
-    public async Task TextViewChangedAsync(ITextViewSnapshot textView, IReadOnlyList<TextEdit> edits, CancellationToken cancellationToken)
-    {
-        if (edits.Count == 0)
+        if (args.Edits.Count == 0)
         {
             return;
         }
 
-        var allRequestedRanges = await this.GetAllRequestedRangesAsync(textView.Document, cancellationToken);
+        var allRequestedRanges = await this.GetAllRequestedRangesAsync(args.AfterTextView.Document, cancellationToken);
         await this.CreateTagsAsync(
-            textView.Document,
+            args.AfterTextView.Document,
             allRequestedRanges.Intersect(// Use Intersect to only create tags for ranges that VS has previously expressed interested in.
-                edits.Select(e =>
+                args.Edits.Select(e =>
                     EnsureNotEmpty(// Fix empty ranges to be at least 1 character long so that they are not ignored when intersected (empty ranges are the result of text deletion).
-                        e.Range.TranslateTo(textView.Document, TextRangeTrackingMode.ExtendForwardAndBackward))))); // Translate the range to the new document version.
+                        e.RangeAfterEdit)))); // Translate the range to the new document version.
     }
 
-    protected override async Task RequestTagsAsync(NormalizedTextRangeCollection requestedRanges, bool recalculateAll, CancellationToken cancellationToken)
+    protected override Task OnRequestTagsAsync(NormalizedTextRangeCollection requestedRanges, bool recalculateAll, CancellationToken cancellationToken)
     {
         if (requestedRanges.Count == 0)
         {
-            return;
+            return Task.CompletedTask;
         }
 
-        await this.CreateTagsAsync(requestedRanges.TextDocumentSnapshot!, requestedRanges);
+        return this.CreateTagsAsync(requestedRanges.TextDocumentSnapshot!, requestedRanges);
     }
 
     private static TextRange EnsureNotEmpty(TextRange range)

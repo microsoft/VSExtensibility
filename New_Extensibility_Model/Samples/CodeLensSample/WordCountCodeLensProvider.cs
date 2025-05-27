@@ -20,10 +20,7 @@ internal class WordCountCodeLensProvider : ExtensionPart, ICodeLensProvider, ITe
 
     public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
     {
-        AppliesTo = new[]
-        {
-            DocumentFilter.FromDocumentType(DocumentType.KnownValues.Code),
-        },
+        AppliesTo = [DocumentFilter.FromDocumentType(DocumentType.KnownValues.Code)],
     };
 
 #pragma warning disable CEE0027 // String not localized

@@ -18,6 +18,7 @@ using Microsoft.VisualStudio.Extensibility.Editor;
 [VisualStudioContribution]
 internal class UnitTestRunner : ExtensionPart, ITextViewOpenClosedListener, ITextViewChangedListener
 {
+    private readonly TextViewChangesAggregator textViewChangesAggregator;
     private OutputChannel? outputChannel;
 
     /// <summary>
@@ -28,21 +29,19 @@ internal class UnitTestRunner : ExtensionPart, ITextViewOpenClosedListener, ITex
     public UnitTestRunner(Extension extension, VisualStudioExtensibility extensibility)
         : base(extension, extensibility)
     {
+        this.textViewChangesAggregator = new((beforeTextView, afterTextView, cancellationToken) => this.RunUnitTestsAfterDelayAsync(afterTextView, cancellationToken));
     }
 
     /// <inheritdoc />
     public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
     {
-        AppliesTo =
-            [
-                DocumentFilter.FromGlobPattern("**/tests/*.cs", relativePath: false),
-            ],
+        AppliesTo = [DocumentFilter.FromGlobPattern("**/tests/*.cs", relativePath: false)],
     };
 
     /// <inheritdoc />
     public Task TextViewChangedAsync(TextViewChangedArgs args, CancellationToken cancellationToken)
     {
-        return this.RunUnitTestsAfterDelayAsync(args.AfterTextView, cancellationToken);
+        return this.textViewChangesAggregator.TextViewChangedAsync(args, cancellationToken);
     }
 
     /// <inheritdoc />
@@ -61,7 +60,11 @@ internal class UnitTestRunner : ExtensionPart, ITextViewOpenClosedListener, ITex
     protected override void Dispose(bool isDisposing)
     {
         base.Dispose(isDisposing);
-        this.outputChannel?.Dispose();
+        if (isDisposing)
+        {
+            this.outputChannel?.Dispose();
+            this.textViewChangesAggregator.Dispose();
+        }
     }
 
     private async Task RunUnitTestsAfterDelayAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
