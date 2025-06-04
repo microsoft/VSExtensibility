@@ -6,7 +6,7 @@ namespace Container;
 using System.Windows.Controls;
 
 /// <summary>
-/// Interaction logic for MyUserControl.xaml
+/// Interaction logic for MyUserControl.xaml.
 /// </summary>
 public partial class MyUserControl : UserControl
 {
