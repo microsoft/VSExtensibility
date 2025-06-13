@@ -6,10 +6,10 @@
         <Description xml:space="preserve">An extension demonstrating multiple Visual Studio extension points.</Description>
     </Metadata>
     <Installation ExtensionType="VSSDK+VisualStudio.Extensibility">
-        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.9,18.0)">
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.9,19.0)">
             <ProductArchitecture>amd64</ProductArchitecture>
         </InstallationTarget>
-      <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.9,18.0)">
+      <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.9,19.0)">
         <ProductArchitecture>arm64</ProductArchitecture>
       </InstallationTarget>
     </Installation>
