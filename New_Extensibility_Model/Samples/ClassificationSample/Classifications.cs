@@ -14,17 +14,17 @@ internal static class Classifications
     public static ClassificationTypeConfiguration Header { get; } = new(
     "ClassificationType/ClassificationSample.Header")
     {
-        ParentClassifications = [ClassificationType.KnownValues.Text],
+        ParentClassifications = [ClassificationType.KnownValues.String],
         Style = new(
-        "%FeatureGallery.ClassificationSample.Header.DisplayName%")
-        {
-            ThemedColors = new()
+            "%ClassificationSample.Classifications.Header.DisplayName%")
             {
-                [ColorsTheme.KnownValues.Light] = new(UIThemeColor.KnownColors.MediumBlue),
-                [ColorsTheme.KnownValues.Dark] = new(UIThemeColor.KnownColors.Cyan),
-                [ColorsTheme.KnownValues.HighContrast] = new(UIThemeColor.SysColors.COLOR_HOTLIGHT),
+                ThemedColors = new()
+                {
+                    [ColorsTheme.KnownValues.Light] = new(UIThemeColor.KnownColors.MediumBlue),
+                    [ColorsTheme.KnownValues.Dark] = new(UIThemeColor.KnownColors.Cyan),
+                    [ColorsTheme.KnownValues.HighContrast] = new(UIThemeColor.SysColors.COLOR_HOTLIGHT),
+                },
             },
-        },
     };
 
     [VisualStudioContribution]
@@ -32,19 +32,49 @@ internal static class Classifications
         "ClassificationType/ClassificationSample.Separator")
     {
         ParentClassifications = [ClassificationType.KnownValues.Operator],
+        Style = new(
+            "%ClassificationSample.Classifications.Separator.DisplayName%")
+            {
+                ThemedColors = new()
+                {
+                    [ColorsTheme.KnownValues.Light] = new(UIThemeColor.KnownColors.Black),
+                    [ColorsTheme.KnownValues.Dark] = new(UIThemeColor.KnownColors.White),
+                    [ColorsTheme.KnownValues.HighContrast] = new(UIThemeColor.SysColors.COLOR_HOTLIGHT),
+                },
+            },
     };
 
     [VisualStudioContribution]
     public static ClassificationTypeConfiguration Quote { get; } = new(
         "ClassificationType/ClassificationSample.Quote")
     {
-        ParentClassifications = [ClassificationType.KnownValues.BracePairLevelOne],
+        ParentClassifications = [ClassificationType.KnownValues.Text],
+        Style = new(
+            "%ClassificationSample.Classifications.Quote.DisplayName%")
+            {
+                ThemedColors = new()
+                {
+                    [ColorsTheme.KnownValues.Light] = new(UIThemeColor.KnownColors.Orange),
+                    [ColorsTheme.KnownValues.Dark] = new(UIThemeColor.KnownColors.LightYellow),
+                    [ColorsTheme.KnownValues.HighContrast] = new(UIThemeColor.SysColors.COLOR_HOTLIGHT),
+                },
+            },
     };
 
     [VisualStudioContribution]
     public static ClassificationTypeConfiguration EscapedQuote { get; } = new(
         "ClassificationType/ClassificationSample.EscapedQuote")
     {
-        ParentClassifications = [ClassificationType.KnownValues.BracePairLevelTwo],
+        ParentClassifications = [ClassificationType.KnownValues.String],
+        Style = new(
+            "%ClassificationSample.Classifications.EscapedQuote.DisplayName%")
+            {
+                ThemedColors = new()
+                {
+                    [ColorsTheme.KnownValues.Light] = new(UIThemeColor.KnownColors.DarkGreen),
+                    [ColorsTheme.KnownValues.Dark] = new(UIThemeColor.KnownColors.LightGreen),
+                    [ColorsTheme.KnownValues.HighContrast] = new(UIThemeColor.SysColors.COLOR_HOTLIGHT),
+                },
+            },
     };
 }

@@ -48,6 +48,20 @@ internal static class Classifications
 #endif
     {
         ParentClassifications = [ClassificationType.KnownValues.Operator],
+        Style = new(
+#if INPROC
+            "%InProcFeatureGallery.Classifications.Separator.DisplayName%")
+#else
+            "%FeatureGallery.Classifications.Separator.DisplayName%")
+#endif
+        {
+            ThemedColors = new()
+            {
+                [ColorsTheme.KnownValues.Light] = new(UIThemeColor.KnownColors.Black),
+                [ColorsTheme.KnownValues.Dark] = new(UIThemeColor.KnownColors.White),
+                [ColorsTheme.KnownValues.HighContrast] = new(UIThemeColor.SysColors.COLOR_HOTLIGHT),
+            },
+        },
     };
 
     [VisualStudioContribution]
@@ -58,7 +72,21 @@ internal static class Classifications
         "ClassificationType/FeatureGallery.Quote")
 #endif
     {
-        ParentClassifications = [ClassificationType.KnownValues.BracePairLevelOne],
+        ParentClassifications = [ClassificationType.KnownValues.Text],
+        Style = new(
+#if INPROC
+            "%InProcFeatureGallery.Classifications.Quote.DisplayName%")
+#else
+            "%FeatureGallery.Classifications.Quote.DisplayName%")
+#endif
+        {
+            ThemedColors = new()
+            {
+                [ColorsTheme.KnownValues.Light] = new(UIThemeColor.KnownColors.Orange),
+                [ColorsTheme.KnownValues.Dark] = new(UIThemeColor.KnownColors.LightYellow),
+                [ColorsTheme.KnownValues.HighContrast] = new(UIThemeColor.SysColors.COLOR_HOTLIGHT),
+            },
+        },
     };
 
     [VisualStudioContribution]
@@ -69,6 +97,20 @@ internal static class Classifications
         "ClassificationType/FeatureGallery.EscapedQuote")
 #endif
     {
-        ParentClassifications = [ClassificationType.KnownValues.BracePairLevelTwo],
+        ParentClassifications = [ClassificationType.KnownValues.String],
+        Style = new(
+#if INPROC
+            "%InProcFeatureGallery.Classifications.EscapedQuote.DisplayName%")
+#else
+            "%FeatureGallery.Classifications.EscapedQuote.DisplayName%")
+#endif
+        {
+            ThemedColors = new()
+            {
+                [ColorsTheme.KnownValues.Light] = new(UIThemeColor.KnownColors.DarkGreen),
+                [ColorsTheme.KnownValues.Dark] = new(UIThemeColor.KnownColors.LightGreen),
+                [ColorsTheme.KnownValues.HighContrast] = new(UIThemeColor.SysColors.COLOR_HOTLIGHT),
+            },
+        },
     };
 }

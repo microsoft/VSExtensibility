@@ -1,0 +1,6 @@
+﻿{
+  "ClassificationSample.Classifications.Header.DisplayName": "CSV Header (Feature Gallery)",
+  "ClassificationSample.Classifications.Separator.DisplayName": "CSV Separator (Feature Gallery)",
+  "ClassificationSample.Classifications.Quote.DisplayName": "CSV Quote (Feature Gallery)",
+  "ClassificationSample.Classifications.EscapedQuote.DisplayName": "CSV Escaped Quote (Feature Gallery)"
+}

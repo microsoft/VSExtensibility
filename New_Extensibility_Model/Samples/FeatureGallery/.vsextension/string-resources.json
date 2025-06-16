@@ -2,5 +2,8 @@
   "FeatureGallery.MainToolWindowCommand.DisplayName": "VisualStudio.Extensibility Feature Gallery",
   "FeatureGallery.LanguageServer.TodoLanguageServerProvider.DisplayName": "TODO language server",
   "FeatureGallery.MarkdownTextMarkerTagger.HeaderStyle.DisplayName": "Markdown Header (Feature Gallery)",
-  "FeatureGallery.Classifications.Header.DisplayName": "CSV Header (Feature Gallery)"
+  "FeatureGallery.Classifications.Header.DisplayName": "CSV Header (Feature Gallery)",
+  "FeatureGallery.Classifications.Separator.DisplayName": "CSV Separator (Feature Gallery)",
+  "FeatureGallery.Classifications.Quote.DisplayName": "CSV Quote (Feature Gallery)",
+  "FeatureGallery.Classifications.EscapedQuote.DisplayName": "CSV Escaped Quote (Feature Gallery)"
 }

@@ -2,5 +2,8 @@
   "InProcFeatureGallery.MainToolWindowCommand.DisplayName": "In-proc VisualStudio.Extensibility Feature Gallery",
   "InProcFeatureGallery.LanguageServer.TodoLanguageServerProvider.DisplayName": "In-proc TODO language server",
   "InProcFeatureGallery.MarkdownTextMarkerTagger.HeaderStyle.DisplayName": "Markdown Header (In-proc Feature Gallery)",
-  "InProcFeatureGallery.Classifications.Header.DisplayName": "CSV Header (In-proc Feature Gallery)"
+  "InProcFeatureGallery.Classifications.Header.DisplayName": "CSV Header (In-proc Feature Gallery)",
+  "InProcFeatureGallery.Classifications.Separator.DisplayName": "CSV Separator (In-proc Feature Gallery)",
+  "InProcFeatureGallery.Classifications.Quote.DisplayName": "CSV Quote (In-proc Feature Gallery)",
+  "InProcFeatureGallery.Classifications.EscapedQuote.DisplayName": "CSV Escaped Quote (In-proc Feature Gallery)"
 }
