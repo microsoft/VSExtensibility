@@ -41,6 +41,7 @@ public class MainToolWindow : ToolWindow
             new SettingsTest(this.Extensibility),
             new ImageTest(this.Extensibility),
             new TaggerTest(this.Extensibility),
+            new ClassificationsTest(this.Extensibility),
         };
     }
 

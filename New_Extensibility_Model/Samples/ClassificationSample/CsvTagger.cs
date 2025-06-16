@@ -96,22 +96,22 @@ internal class CsvTagger : TextViewTagger<ClassificationTag>
                 // types.
                 foreach (Capture capture in match.Groups[FieldTextMatchName].Captures)
                 {
-                    AddTag(capture, lineNumber == 0 ? ClassificationType.KnownValues.SymbolDefinition : ClassificationType.KnownValues.String);
+                    AddTag(capture, lineNumber == 0 ? Classifications.Header : ClassificationType.KnownValues.String);
                 }
 
                 foreach (Capture capture in match.Groups[QuoteMatchName].Captures)
                 {
-                    AddTag(capture, ClassificationType.KnownValues.BracePairLevelOne);
+                    AddTag(capture, Classifications.Quote);
                 }
 
                 foreach (Capture capture in match.Groups[EscapedQuoteMatchName].Captures)
                 {
-                    AddTag(capture, ClassificationType.KnownValues.BracePairLevelTwo);
+                    AddTag(capture, Classifications.EscapedQuote);
                 }
 
                 foreach (Capture capture in match.Groups[SeparatorMatchName].Captures)
                 {
-                    AddTag(capture, ClassificationType.KnownValues.Operator);
+                    AddTag(capture, Classifications.Separator);
                 }
             }
 

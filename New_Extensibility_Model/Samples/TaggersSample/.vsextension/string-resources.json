@@ -1,3 +1,4 @@
 ﻿{
-  "TaggersSample.MarkdownCodeLensProvider": "Remote UI CodeLens Sample Provider"
+  "TaggersSample.MarkdownCodeLensProvider": "Remote UI CodeLens Sample Provider",
+  "TaggersSample.MarkdownTextMarkerTagger.HeaderStyle.DisplayName": "Markdown Header"
 }

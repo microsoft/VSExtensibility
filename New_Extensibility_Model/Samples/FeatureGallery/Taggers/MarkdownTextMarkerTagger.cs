@@ -12,12 +12,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Editor;
 
 #pragma warning disable VSEXTPREVIEW_TAGGERS // Type is for evaluation purposes only and is subject to change or removal in future updates.
 
 internal class MarkdownTextMarkerTagger : TextViewTagger<TextMarkerTag>
 {
+    [VisualStudioContribution]
+    private static TextMarkerStyleConfiguration HeaderStyle { get; } = new(
+#if INPROC
+        "MarkerFormatDefinition/InProcFeatureGallery.MarkdownHeader",
+        "%InProcFeatureGallery.MarkdownTextMarkerTagger.HeaderStyle.DisplayName%")
+#else
+        "MarkerFormatDefinition/FeatureGallery.MarkdownHeader",
+        "%FeatureGallery.MarkdownTextMarkerTagger.HeaderStyle.DisplayName%")
+#endif
+    {
+        ThemedColors = new()
+        {
+            [ColorsTheme.KnownValues.Light] = new(
+                BackgroundColor: UIThemeColor.KnownColors.LightSeaGreen,
+                BorderColor: 0xFFFF0000),
+            [ColorsTheme.KnownValues.Dark] = new(
+                BackgroundColor: UIThemeColor.KnownColors.Teal,
+                BorderColor: UIThemeColor.Rgb(r: byte.MaxValue, 0, 0)),
+            [ColorsTheme.KnownValues.HighContrast] = new(
+                BackgroundColor: UIThemeColor.SysColors.COLOR_HIGHLIGHT,
+                BorderColor: UIThemeColor.SysColors.COLOR_HIGHLIGHTTEXT),
+        },
+    };
+
     protected override async Task OnTextViewChangedAsync(TextViewChangedArgs args, CancellationToken cancellationToken)
     {
         if (args.Edits.Count == 0)
@@ -80,7 +105,7 @@ internal class MarkdownTextMarkerTagger : TextViewTagger<TextMarkerTag>
                     // the built-in FindHighlight TextMarker type.
                     tags.Add(new(
                         new(document, line.Text.Start, len, TextRangeTrackingMode.ExtendForwardAndBackward),
-                        new("MarkerFormatDefinition/FindHighlight")));
+                        new(TextMarkerType.Style(HeaderStyle))));
                 }
             }
 

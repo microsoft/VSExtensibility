@@ -1,39 +1,41 @@
 ﻿// Copyright (c) Microsoft. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-namespace TaggersSample;
+#if INPROC
+namespace InProcFeatureGallery;
+#else
+namespace FeatureGallery;
+#endif
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Editor;
 
 #pragma warning disable VSEXTPREVIEW_TAGGERS // Type is for evaluation purposes only and is subject to change or removal in future updates.
 
-// A tagger that highlights each section title in a markdown file
-internal class MarkdownTextMarkerTagger : TextViewTagger<TextMarkerTag>
+internal class CsvTagger : TextViewTagger<ClassificationTag>
 {
-    [VisualStudioContribution]
-    private static TextMarkerStyleConfiguration HeaderStyle { get; } = new(
-        "MarkerFormatDefinition/TaggersSample.MarkdownHeader",
-        "%TaggersSample.MarkdownTextMarkerTagger.HeaderStyle.DisplayName%")
-    {
-        ThemedColors = new()
-        {
-            [ColorsTheme.KnownValues.Light] = new(
-                BackgroundColor: UIThemeColor.KnownColors.LightSeaGreen,
-                BorderColor: 0xFFFF0000),
-            [ColorsTheme.KnownValues.Dark] = new(
-                BackgroundColor: UIThemeColor.KnownColors.Teal,
-                BorderColor: UIThemeColor.Rgb(r: byte.MaxValue, 0, 0)),
-            [ColorsTheme.KnownValues.HighContrast] = new(
-                BackgroundColor: UIThemeColor.SysColors.COLOR_HIGHLIGHT,
-                BorderColor: UIThemeColor.SysColors.COLOR_HIGHLIGHTTEXT),
-        },
-    };
+    private const string QuoteMatchName = "quote";
+    private const string EscapedQuoteMatchName = "escapedQuote";
+    private const string SeparatorMatchName = "separator";
+    private const string FieldTextMatchName = "fieldText";
+
+    // Matches any sequence of characters, not containing '"' and ','. It also matches any
+    // sequence of characters enclosed in '"' as long as they don't contain other '"'
+    // characters, unless they are escaped (doubled).
+    // Examples of valid matches: xxx, "xxx", "xx""x"
+    private const string FieldRegex = $@"(((?<{QuoteMatchName}>"")((?<{FieldTextMatchName}>[^""]+)|(?<{EscapedQuoteMatchName}>""""))*(?<{QuoteMatchName}>""))|(?<{FieldTextMatchName}>([^,""])*))";
+
+    // Matches multiple fields separated by ','
+    // This regex supports quoted fields, escaped quotes (inside fields). We are not supporting
+    // line-breaks inside a field.
+    // This regex is not terminated with '$' so that as much as possible of the beginning of
+    // the line is always matched, even in case of syntax error.
+    private static readonly Regex LineRegex = new($@"^{FieldRegex}((?<{SeparatorMatchName}>,){FieldRegex})*", RegexOptions.Compiled | RegexOptions.ExplicitCapture);
 
     protected override async Task OnTextViewChangedAsync(TextViewChangedArgs args, CancellationToken cancellationToken)
     {
@@ -48,7 +50,7 @@ internal class MarkdownTextMarkerTagger : TextViewTagger<TextMarkerTag>
             allRequestedRanges.Intersect(// Use Intersect to only create tags for ranges that VS has previously expressed interested in.
                 args.Edits.Select(e =>
                     EnsureNotEmpty(// Fix empty ranges to be at least 1 character long so that they are not ignored when intersected (empty ranges are the result of text deletion).
-                        e.RangeAfterEdit)))); // Translate the range to the new document version.
+                        e.RangeAfterEdit))));
     }
 
     protected override Task OnRequestTagsAsync(NormalizedTextRangeCollection requestedRanges, bool recalculateAll, CancellationToken cancellationToken)
@@ -70,12 +72,13 @@ internal class MarkdownTextMarkerTagger : TextViewTagger<TextMarkerTag>
 
         int start = Math.Max(0, range.Start - 1);
         int end = Math.Min(range.Document.Length, range.Start + 1);
+
         return new(range.Document, start, end - start);
     }
 
     private async Task CreateTagsAsync(ITextDocumentSnapshot document, IEnumerable<TextRange> requestedRanges)
     {
-        List<TaggedTrackingTextRange<TextMarkerTag>> tags = new();
+        List<TaggedTrackingTextRange<ClassificationTag>> tags = new();
         List<TextRange> ranges = new();
         foreach (var lineNumber in requestedRanges.SelectMany(r =>
             {
@@ -88,17 +91,37 @@ internal class MarkdownTextMarkerTagger : TextViewTagger<TextMarkerTag>
             }).Distinct())
         {
             var line = document.Lines[lineNumber];
-            if (line.Text.StartsWith("#"))
+            var match = LineRegex.Match(line.Text.CopyToString());
+
+            if (match.Success)
             {
-                int len = line.Text.Length;
-                if (len > 0)
+                // VisualStudio.Extensibility doesn't support defining text colors for
+                // new classification types yet, so we must use existing classification
+                // types.
+                foreach (Capture capture in match.Groups[FieldTextMatchName].Captures)
                 {
-                    // VisualStudio.Extensibility doesn't support defining new TextMarker types yet, so we use
-                    // the built-in FindHighlight TextMarker type.
-                    tags.Add(new(
-                        new(document, line.Text.Start, len, TextRangeTrackingMode.ExtendForwardAndBackward),
-                        new(TextMarkerType.Style(HeaderStyle))));
+                    AddTag(capture, lineNumber == 0 ? Classifications.Header : ClassificationType.KnownValues.String);
                 }
+
+                foreach (Capture capture in match.Groups[QuoteMatchName].Captures)
+                {
+                    AddTag(capture, Classifications.Quote);
+                }
+
+                foreach (Capture capture in match.Groups[EscapedQuoteMatchName].Captures)
+                {
+                    AddTag(capture, Classifications.EscapedQuote);
+                }
+
+                foreach (Capture capture in match.Groups[SeparatorMatchName].Captures)
+                {
+                    AddTag(capture, Classifications.Separator);
+                }
+            }
+
+            void AddTag(Capture capture, ClassificationType classificationType)
+            {
+                tags.Add(new(new(document, line.Text.Start + capture.Index, capture.Length, TextRangeTrackingMode.ExtendNone), new(classificationType)));
             }
 
             // Add the range to the list of ranges we have calculated tags for. We add the range even if no tags

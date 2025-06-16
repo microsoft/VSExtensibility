@@ -1,4 +1,6 @@
 ﻿{
   "FeatureGallery.MainToolWindowCommand.DisplayName": "VisualStudio.Extensibility Feature Gallery",
-  "FeatureGallery.LanguageServer.TodoLanguageServerProvider.DisplayName": "TODO language server"
+  "FeatureGallery.LanguageServer.TodoLanguageServerProvider.DisplayName": "TODO language server",
+  "FeatureGallery.MarkdownTextMarkerTagger.HeaderStyle.DisplayName": "Markdown Header (Feature Gallery)",
+  "FeatureGallery.Classifications.Header.DisplayName": "CSV Header (Feature Gallery)"
 }
