@@ -29,6 +29,8 @@ internal class MarkdownTextMarkerTagger : TextViewTagger<TextMarkerTag>
         "%FeatureGallery.MarkdownTextMarkerTagger.HeaderStyle.DisplayName%")
 #endif
     {
+        BorderDashStyle = PenDashStyle.Dash,
+        BorderThickness = 2,
         ThemedColors = new()
         {
             [ColorsTheme.KnownValues.Light] = new(
@@ -105,7 +107,7 @@ internal class MarkdownTextMarkerTagger : TextViewTagger<TextMarkerTag>
                     // the built-in FindHighlight TextMarker type.
                     tags.Add(new(
                         new(document, line.Text.Start, len, TextRangeTrackingMode.ExtendForwardAndBackward),
-                        new(TextMarkerType.Style(HeaderStyle))));
+                        new(HeaderStyle)));
                 }
             }
 

@@ -30,6 +30,9 @@ internal static class Classifications
             "%FeatureGallery.Classifications.Header.DisplayName%")
 #endif
         {
+            TextStyle = TextStyle.Bold | TextStyle.Underline,
+            FontRenderingSize = 16,
+            FontFamily = "Times New Roman",
             ThemedColors = new()
             {
                 [ColorsTheme.KnownValues.Light] = new(UIThemeColor.KnownColors.MediumBlue),
@@ -105,10 +108,11 @@ internal static class Classifications
             "%FeatureGallery.Classifications.EscapedQuote.DisplayName%")
 #endif
         {
+            TextStyle = TextStyle.Italic,
             ThemedColors = new()
             {
-                [ColorsTheme.KnownValues.Light] = new(UIThemeColor.KnownColors.DarkGreen),
-                [ColorsTheme.KnownValues.Dark] = new(UIThemeColor.KnownColors.LightGreen),
+                [ColorsTheme.KnownValues.Light] = new(UIThemeColor.KnownColors.DarkGreen, UIThemeColor.KnownColors.LightYellow),
+                [ColorsTheme.KnownValues.Dark] = new(UIThemeColor.KnownColors.LightGreen, UIThemeColor.KnownColors.DarkRed),
                 [ColorsTheme.KnownValues.HighContrast] = new(UIThemeColor.SysColors.COLOR_HOTLIGHT),
             },
         },

@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="18.0.1605-preview.1" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="18.0.1605-preview.1" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="18.0.1764-preview.1" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="18.0.1764-preview.1" PrivateAssets="all" />
   </ItemGroup>
 </Project>
