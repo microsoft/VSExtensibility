@@ -35,9 +35,9 @@ internal static class Classifications
             FontFamily = "Times New Roman",
             ThemedColors = new()
             {
-                [ColorsTheme.KnownValues.Light] = new(UIThemeColor.KnownColors.MediumBlue),
-                [ColorsTheme.KnownValues.Dark] = new(UIThemeColor.KnownColors.Cyan),
-                [ColorsTheme.KnownValues.HighContrast] = new(UIThemeColor.SysColors.COLOR_HOTLIGHT),
+                [ColorsTheme.KnownValues.Light] = new(UIThemeColor.KnownColors.MediumBlue, UIThemeColor.KnownColors.LightGreen),
+                [ColorsTheme.KnownValues.Dark] = new(UIThemeColor.KnownColors.Cyan, UIThemeColor.KnownColors.DarkGreen),
+                [ColorsTheme.KnownValues.HighContrast] = new(BackgroundColor: UIThemeColor.SysColors.COLOR_HIGHLIGHT),
             },
         },
     };
