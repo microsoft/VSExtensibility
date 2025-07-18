@@ -33,15 +33,15 @@ internal class MarkdownTextMarkerTagger : TextViewTagger<TextMarkerTag>
         BorderThickness = 2,
         ThemedColors = new()
         {
-            [ColorsTheme.KnownValues.Light] = new(
-                BackgroundColor: UIThemeColor.KnownColors.LightSeaGreen,
+            [Theme.KnownValues.Light] = new(
+                BackgroundColor: UIColor.KnownColors.LightSeaGreen,
                 BorderColor: 0xFFFF0000),
-            [ColorsTheme.KnownValues.Dark] = new(
-                BackgroundColor: UIThemeColor.KnownColors.Teal,
-                BorderColor: UIThemeColor.Rgb(r: byte.MaxValue, 0, 0)),
-            [ColorsTheme.KnownValues.HighContrast] = new(
-                BackgroundColor: UIThemeColor.SysColors.COLOR_HIGHLIGHT,
-                BorderColor: UIThemeColor.SysColors.COLOR_HIGHLIGHTTEXT),
+            [Theme.KnownValues.Dark] = new(
+                BackgroundColor: UIColor.KnownColors.Teal,
+                BorderColor: UIColor.Rgb(r: byte.MaxValue, 0, 0)),
+            [Theme.KnownValues.HighContrast] = new(
+                BackgroundColor: UIColor.SysColors.COLOR_HIGHLIGHT,
+                BorderColor: UIColor.SysColors.COLOR_HIGHLIGHTTEXT),
         },
     };
 

@@ -20,9 +20,9 @@ internal static class Classifications
             {
                 ThemedColors = new()
                 {
-                    [ColorsTheme.KnownValues.Light] = new(UIThemeColor.KnownColors.MediumBlue),
-                    [ColorsTheme.KnownValues.Dark] = new(UIThemeColor.KnownColors.Cyan),
-                    [ColorsTheme.KnownValues.HighContrast] = new(UIThemeColor.SysColors.COLOR_HOTLIGHT),
+                    [Theme.KnownValues.Light] = new(UIColor.KnownColors.MediumBlue),
+                    [Theme.KnownValues.Dark] = new(UIColor.KnownColors.Cyan),
+                    [Theme.KnownValues.HighContrast] = new(UIColor.SysColors.COLOR_HOTLIGHT),
                 },
             },
     };
@@ -37,9 +37,9 @@ internal static class Classifications
             {
                 ThemedColors = new()
                 {
-                    [ColorsTheme.KnownValues.Light] = new(UIThemeColor.KnownColors.Black),
-                    [ColorsTheme.KnownValues.Dark] = new(UIThemeColor.KnownColors.White),
-                    [ColorsTheme.KnownValues.HighContrast] = new(UIThemeColor.SysColors.COLOR_HOTLIGHT),
+                    [Theme.KnownValues.Light] = new(UIColor.KnownColors.Black),
+                    [Theme.KnownValues.Dark] = new(UIColor.KnownColors.White),
+                    [Theme.KnownValues.HighContrast] = new(UIColor.SysColors.COLOR_HOTLIGHT),
                 },
             },
     };
@@ -54,9 +54,9 @@ internal static class Classifications
             {
                 ThemedColors = new()
                 {
-                    [ColorsTheme.KnownValues.Light] = new(UIThemeColor.KnownColors.Orange),
-                    [ColorsTheme.KnownValues.Dark] = new(UIThemeColor.KnownColors.LightYellow),
-                    [ColorsTheme.KnownValues.HighContrast] = new(UIThemeColor.SysColors.COLOR_HOTLIGHT),
+                    [Theme.KnownValues.Light] = new(UIColor.KnownColors.Orange),
+                    [Theme.KnownValues.Dark] = new(UIColor.KnownColors.LightYellow),
+                    [Theme.KnownValues.HighContrast] = new(UIColor.SysColors.COLOR_HOTLIGHT),
                 },
             },
     };
@@ -71,9 +71,9 @@ internal static class Classifications
             {
                 ThemedColors = new()
                 {
-                    [ColorsTheme.KnownValues.Light] = new(UIThemeColor.KnownColors.DarkGreen),
-                    [ColorsTheme.KnownValues.Dark] = new(UIThemeColor.KnownColors.LightGreen),
-                    [ColorsTheme.KnownValues.HighContrast] = new(UIThemeColor.SysColors.COLOR_HOTLIGHT),
+                    [Theme.KnownValues.Light] = new(UIColor.KnownColors.DarkGreen),
+                    [Theme.KnownValues.Dark] = new(UIColor.KnownColors.LightGreen),
+                    [Theme.KnownValues.HighContrast] = new(UIColor.SysColors.COLOR_HOTLIGHT),
                 },
             },
     };

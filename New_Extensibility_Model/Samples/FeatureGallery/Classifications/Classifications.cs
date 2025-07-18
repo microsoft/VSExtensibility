@@ -31,13 +31,13 @@ internal static class Classifications
 #endif
         {
             TextStyle = TextStyle.Bold | TextStyle.Underline,
-            FontRenderingSize = 16,
+            FontSize = 16,
             FontFamily = "Times New Roman",
             ThemedColors = new()
             {
-                [ColorsTheme.KnownValues.Light] = new(UIThemeColor.KnownColors.MediumBlue, UIThemeColor.KnownColors.LightGreen),
-                [ColorsTheme.KnownValues.Dark] = new(UIThemeColor.KnownColors.Cyan, UIThemeColor.KnownColors.DarkGreen),
-                [ColorsTheme.KnownValues.HighContrast] = new(BackgroundColor: UIThemeColor.SysColors.COLOR_HIGHLIGHT),
+                [Theme.KnownValues.Light] = new(UIColor.KnownColors.MediumBlue, UIColor.KnownColors.LightGreen),
+                [Theme.KnownValues.Dark] = new(UIColor.KnownColors.Cyan, UIColor.KnownColors.DarkGreen),
+                [Theme.KnownValues.HighContrast] = new(BackgroundColor: UIColor.SysColors.COLOR_HIGHLIGHT),
             },
         },
     };
@@ -60,9 +60,9 @@ internal static class Classifications
         {
             ThemedColors = new()
             {
-                [ColorsTheme.KnownValues.Light] = new(UIThemeColor.KnownColors.Black),
-                [ColorsTheme.KnownValues.Dark] = new(UIThemeColor.KnownColors.White),
-                [ColorsTheme.KnownValues.HighContrast] = new(UIThemeColor.SysColors.COLOR_HOTLIGHT),
+                [Theme.KnownValues.Light] = new(UIColor.KnownColors.Black),
+                [Theme.KnownValues.Dark] = new(UIColor.KnownColors.White),
+                [Theme.KnownValues.HighContrast] = new(UIColor.SysColors.COLOR_HOTLIGHT),
             },
         },
     };
@@ -85,9 +85,9 @@ internal static class Classifications
         {
             ThemedColors = new()
             {
-                [ColorsTheme.KnownValues.Light] = new(UIThemeColor.KnownColors.Orange),
-                [ColorsTheme.KnownValues.Dark] = new(UIThemeColor.KnownColors.LightYellow),
-                [ColorsTheme.KnownValues.HighContrast] = new(UIThemeColor.SysColors.COLOR_HOTLIGHT),
+                [Theme.KnownValues.Light] = new(UIColor.KnownColors.Orange),
+                [Theme.KnownValues.Dark] = new(UIColor.KnownColors.LightYellow),
+                [Theme.KnownValues.HighContrast] = new(UIColor.SysColors.COLOR_HOTLIGHT),
             },
         },
     };
@@ -111,9 +111,9 @@ internal static class Classifications
             TextStyle = TextStyle.Italic,
             ThemedColors = new()
             {
-                [ColorsTheme.KnownValues.Light] = new(UIThemeColor.KnownColors.DarkGreen, UIThemeColor.KnownColors.LightYellow),
-                [ColorsTheme.KnownValues.Dark] = new(UIThemeColor.KnownColors.LightGreen, UIThemeColor.KnownColors.DarkRed),
-                [ColorsTheme.KnownValues.HighContrast] = new(UIThemeColor.SysColors.COLOR_HOTLIGHT),
+                [Theme.KnownValues.Light] = new(UIColor.KnownColors.DarkGreen, UIColor.KnownColors.LightYellow),
+                [Theme.KnownValues.Dark] = new(UIColor.KnownColors.LightGreen, UIColor.KnownColors.DarkRed),
+                [Theme.KnownValues.HighContrast] = new(UIColor.SysColors.COLOR_HOTLIGHT),
             },
         },
     };
