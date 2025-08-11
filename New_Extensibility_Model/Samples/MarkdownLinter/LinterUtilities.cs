@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft;
 using Microsoft.VisualStudio.Extensibility.Editor;
@@ -19,27 +20,44 @@ using Microsoft.VisualStudio.RpcContracts;
 using Microsoft.VisualStudio.RpcContracts.DiagnosticManagement;
 using Microsoft.VisualStudio.Threading;
 
+#pragma warning disable VSEXTPREVIEW_SETTINGS // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
+
 /// <summary>
 /// Helper class for running linter on a string or file.
 /// </summary>
-internal static class LinterUtilities
+internal class LinterUtilities
 {
     private static readonly Regex LinterOutputRegex = new(@"(?<File>[^:]+):(?<Line>\d*)(:(?<Column>\d*))? (?<Error>.*)/(?<Description>.*)", RegexOptions.Compiled);
+
+    private readonly Settings.MarkdownLinterCategoryObserver settingsObserver;
+
+    public LinterUtilities(Settings.MarkdownLinterCategoryObserver settingsObserver)
+    {
+        this.settingsObserver = settingsObserver;
+    }
 
     /// <summary>
     /// Runs markdown linter on a file uri and returns diagnostic entries.
     /// </summary>
     /// <param name="fileUri">File uri to run markdown linter on.</param>
+    /// <param name="cancellationToken">Cancellation token to monitor.</param>
     /// <returns>an enumeration of <see cref="DocumentDiagnostic"/> entries for warnings in the markdown file.</returns>
-    public static async Task<IEnumerable<DocumentDiagnostic>> RunLinterOnFileAsync(Uri fileUri)
+    public async Task<IEnumerable<DocumentDiagnostic>> RunLinterOnFileAsync(Uri fileUri, CancellationToken cancellationToken)
     {
         using var linter = new Process();
         var lineQueue = new AsyncQueue<string>();
 
+        var snapshot = await this.settingsObserver.GetSnapshotAsync(cancellationToken);
+        string disabledRules = snapshot.DisabledRules.ValueOrDefault(string.Empty);
+
+        string args = "/c \"npx markdownlint-cli" +
+            (disabledRules.Length > 0 ? $" --disable {disabledRules} --" : string.Empty) +
+            $" \"{fileUri.LocalPath}\"\"";
+
         linter.StartInfo = new ProcessStartInfo()
         {
-            FileName = "node.exe",
-            Arguments = $"\"{Environment.ExpandEnvironmentVariables("%APPDATA%\\npm\\node_modules\\markdownlint-cli\\markdownlint.js")}\" \"{fileUri.LocalPath}\"",
+            FileName = "cmd.exe",
+            Arguments = args,
             RedirectStandardError = true,
             UseShellExecute = false,
             CreateNoWindow = true,
@@ -76,18 +94,25 @@ internal static class LinterUtilities
     /// Runs markdown linter on a given text document and returns diagnostic entries.
     /// </summary>
     /// <param name="textDocument">Document to run markdown linter on.</param>
+    /// <param name="cancellationToken">Cancellation token to monitor.</param>
     /// <returns>an enumeration of <see cref="DocumentDiagnostic"/> entries for warnings in the markdown file.</returns>
-    public static async Task<IEnumerable<DocumentDiagnostic>> RunLinterOnDocumentAsync(ITextDocumentSnapshot textDocument)
+    public async Task<IEnumerable<DocumentDiagnostic>> RunLinterOnDocumentAsync(ITextDocumentSnapshot textDocument, CancellationToken cancellationToken)
     {
         using var linter = new Process();
         var lineQueue = new AsyncQueue<string>();
 
         var content = textDocument.Text.CopyToString();
 
+        var snapshot = await this.settingsObserver.GetSnapshotAsync(cancellationToken);
+        string disabledRules = snapshot.DisabledRules.ValueOrDefault(string.Empty);
+
+        string args = "/k \"npx markdownlint-cli --stdin" +
+            (disabledRules.Length > 0 ? $" --disable {disabledRules}" : string.Empty) + "\"";
+
         linter.StartInfo = new ProcessStartInfo()
         {
             FileName = "cmd.exe",
-            Arguments = $"/k \"{Environment.ExpandEnvironmentVariables("%APPDATA%\\npm\\markdownlint.cmd")}\" -s",
+            Arguments = args,
             RedirectStandardError = true,
             RedirectStandardInput = true,
             UseShellExecute = false,
@@ -123,16 +148,6 @@ internal static class LinterUtilities
 
         var markdownDiagnostics = await ProcessLinterQueueAsync(lineQueue);
         return CreateDocumentDiagnosticsForOpenDocument(textDocument, markdownDiagnostics);
-    }
-
-    /// <summary>
-    /// Checks if the given path is a valid markdown file.
-    /// </summary>
-    /// <param name="localPath">Local file path to verify.</param>
-    /// <returns>true if file is a markdown file, false otherwise.</returns>
-    public static bool IsValidMarkdownFile(string localPath)
-    {
-        return localPath is not null && Path.GetExtension(localPath).Equals(".md", StringComparison.OrdinalIgnoreCase);
     }
 
     private static IEnumerable<DocumentDiagnostic> CreateDocumentDiagnosticsForOpenDocument(ITextDocumentSnapshot document, IEnumerable<MarkdownDiagnosticInfo> diagnostics)
