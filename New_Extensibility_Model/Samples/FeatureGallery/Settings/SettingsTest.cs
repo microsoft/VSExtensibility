@@ -59,16 +59,16 @@ internal class SettingsTest : TestData
 
         async Task WaitForSettingValueAsync(bool expectedValue)
         {
-            TaskCompletionSource<bool> settingValueIsFalse = new();
+            TaskCompletionSource<bool> settingValueIsAsExpected = new();
             using var settingValueObserver = await this.Extensibility.Settings().SubscribeAsync(BooleanSetting, cancellationToken, value =>
             {
                 if (value.Succeeded && value.Value == expectedValue)
                 {
-                    settingValueIsFalse.SetResult(true);
+                    settingValueIsAsExpected.SetResult(true);
                 }
             });
 
-            await settingValueIsFalse.Task;
+            await settingValueIsAsExpected.Task;
         }
 
         await this.Extensibility.Shell().ShowPromptAsync("All done.", PromptOptions.OK, cancellationToken);
