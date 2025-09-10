@@ -14,8 +14,6 @@ using System.Windows;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Editor;
 
-#pragma warning disable VSEXTPREVIEW_CODELENS // Type is for evaluation purposes only and is subject to change or removal in future updates.
-
 internal class MarkdownCodeLens : InvokableCodeLens
 {
     private readonly CodeElement codeElement;

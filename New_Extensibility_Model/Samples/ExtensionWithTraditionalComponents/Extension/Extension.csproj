@@ -5,11 +5,9 @@
     <LangVersion>12</LangVersion>
     <NeutralLanguage>en-US</NeutralLanguage>
 
-    <RootNamespace>ExtensionWithTraditionalComponents</RootNamespace>
-
-		<!-- The assemblies of this project are placed in the OutOfProc folder when packaged in the VSIX.
+    <!-- The assemblies of this project are placed in the OutOfProc folder when packaged in the VSIX.
          This avoids potential conflicts with assemblies from Container having the same file name. -->
-		<AssemblyVSIXSubPath>OutOfProc</AssemblyVSIXSubPath>
+    <AssemblyVSIXSubPath>OutOfProc</AssemblyVSIXSubPath>
 
     <!-- Disabling creation of the VSIX for this project since it is always installed as a part of
          the container extension. -->
@@ -21,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="18.0.2452-preview.1" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="18.0.2452-preview.1" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="18.0.41583-preview.2" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="18.0.41583-preview.2" PrivateAssets="all" />
   </ItemGroup>
 </Project>

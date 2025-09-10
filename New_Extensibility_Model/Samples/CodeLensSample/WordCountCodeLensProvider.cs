@@ -12,7 +12,6 @@ using Microsoft.VisualStudio.Extensibility.Editor;
 /// <summary>
 /// A sample CodeLens provider that shows the number of words in a method or type and provides custom UI when clicked.
 /// </summary>
-#pragma warning disable VSEXTPREVIEW_CODELENS // Type is for evaluation purposes only and is subject to change or removal in future updates.
 [VisualStudioContribution]
 internal class WordCountCodeLensProvider : ExtensionPart, ICodeLensProvider, ITextViewChangedListener
 {
@@ -47,4 +46,3 @@ internal class WordCountCodeLensProvider : ExtensionPart, ICodeLensProvider, ITe
         return Task.CompletedTask;
     }
 }
-#pragma warning restore VSEXTPREVIEW_CODELENS // Type is for evaluation purposes only and is subject to change or removal in future updates.

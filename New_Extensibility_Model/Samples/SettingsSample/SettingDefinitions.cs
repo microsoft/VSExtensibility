@@ -6,8 +6,6 @@ namespace SettingsSample;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Settings;
 
-#pragma warning disable VSEXTPREVIEW_SETTINGS // The settings API is currently in preview and marked as experimental
-
 internal static class SettingDefinitions
 {
     [VisualStudioContribution]

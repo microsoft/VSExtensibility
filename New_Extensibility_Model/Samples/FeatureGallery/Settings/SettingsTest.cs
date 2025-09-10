@@ -29,7 +29,6 @@ internal class SettingsTest : TestData
     public override string Description => "This command updates a setting value and shows a prompt when the value update is complete.";
 
     [VisualStudioContribution]
-#pragma warning disable VSEXTPREVIEW_SETTINGS // Type is for evaluation purposes only and is subject to change or removal in future updates.
 #pragma warning disable CEE0027 // String not localized
 #if INPROC
     private static SettingCategory Category { get; } = new("inProcFeatureGallery", "In-Proc Feature Gallery");
@@ -73,5 +72,4 @@ internal class SettingsTest : TestData
 
         await this.Extensibility.Shell().ShowPromptAsync("All done.", PromptOptions.OK, cancellationToken);
     }
-#pragma warning restore VSEXTPREVIEW_SETTINGS // Type is for evaluation purposes only and is subject to change or removal in future updates.
 }

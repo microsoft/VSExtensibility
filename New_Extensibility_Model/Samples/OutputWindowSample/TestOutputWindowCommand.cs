@@ -13,7 +13,6 @@ using Microsoft.VisualStudio.Extensibility.Documents;
 /// A sample command for displaying a test message in the output window.
 /// </summary>
 [VisualStudioContribution]
-#pragma warning disable VSEXTPREVIEW_OUTPUTWINDOW // Type is for evaluation purposes only and is subject to change or removal in future updates.
 public class TestOutputWindowCommand : Command
 {
     private OutputChannel? outputChannel;
@@ -41,4 +40,3 @@ public class TestOutputWindowCommand : Command
         }
     }
 }
-#pragma warning restore VSEXTPREVIEW_OUTPUTWINDOW // Type is for evaluation purposes only and is subject to change or removal in future updates.

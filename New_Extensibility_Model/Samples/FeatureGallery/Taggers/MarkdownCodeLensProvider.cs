@@ -12,8 +12,6 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Editor;
 
-#pragma warning disable VSEXTPREVIEW_CODELENS // Type is for evaluation purposes only and is subject to change or removal in future updates.
-
 /// <summary>
 /// A sample CodeLens provider that shows the identifier of markdown section titles.
 /// </summary>

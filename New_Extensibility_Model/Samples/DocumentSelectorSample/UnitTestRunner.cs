@@ -14,7 +14,6 @@ using Microsoft.VisualStudio.Extensibility.Editor;
 /// This text view event listener monitors users opening/modifying/closing C# files in "tests" folder and emulates running
 /// unit tests in these files.
 /// </summary>
-#pragma warning disable VSEXTPREVIEW_OUTPUTWINDOW // Type is for evaluation purposes only and is subject to change or removal in future updates.
 [VisualStudioContribution]
 internal class UnitTestRunner : ExtensionPart, ITextViewOpenClosedListener, ITextViewChangedListener
 {
@@ -86,4 +85,3 @@ internal class UnitTestRunner : ExtensionPart, ITextViewOpenClosedListener, ITex
         await this.outputChannel.WriteLineAsync(message);
     }
 }
-#pragma warning restore VSEXTPREVIEW_OUTPUTWINDOW // Type is for evaluation purposes only and is subject to change or removal in future updates.

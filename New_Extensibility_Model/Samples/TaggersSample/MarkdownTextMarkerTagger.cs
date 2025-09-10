@@ -11,8 +11,6 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Editor;
 
-#pragma warning disable VSEXTPREVIEW_TAGGERS // Type is for evaluation purposes only and is subject to change or removal in future updates.
-
 // A tagger that highlights each section title in a markdown file
 internal class MarkdownTextMarkerTagger : TextViewTagger<TextMarkerTag>
 {

@@ -47,7 +47,6 @@ public static class PathCapture
     {
         try
         {
-#pragma warning disable VSEXTPREVIEW_PROJECTQUERY_PROPERTIES_BUILDPROPERTIES // Type is for evaluation purposes only and is subject to change or removal in future updates.
             IQueryResults<IProjectSnapshot> queryResults = await clientContext.Extensibility.Workspaces().QueryProjectsAsync(
                 project => project.With(p => p.ActiveConfigurations
                 .With(config => config.PropertiesByName(
@@ -65,7 +64,6 @@ public static class PathCapture
                 ?? throw new InvalidOperationException("TargetVsixContainer not found.");
 
             return projectProperty.Value!;
-#pragma warning restore VSEXTPREVIEW_PROJECTQUERY_PROPERTIES_BUILDPROPERTIES // Type is for evaluation purposes only and is subject to change or removal in future updates.
         }
         catch (Exception)
         {

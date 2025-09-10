@@ -67,7 +67,6 @@ namespace VSProjectQueryAPISample
                 .With(f => f.FileName)
                 .TrackUpdatesAsync(new TrackerObserver(), CancellationToken.None);
 #pragma warning restore VSEXTPREVIEW_PROJECTQUERY_TRACKING
-
         }
 
 #pragma warning disable VSEXTPREVIEW_PROJECTQUERY_TRACKING
