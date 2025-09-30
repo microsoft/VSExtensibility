@@ -38,6 +38,12 @@ public class MarkdownLinterExtension : Extension
     {
         base.InitializeServices(serviceCollection);
 
+        // Add the settings observer created by MarkdownLinterSettingDefinitions to use in LinterUtilies.
+        serviceCollection.AddSettingsObservers();
+
+        // Add linter utilities as a singleton, it depends on settings observer.
+        serviceCollection.AddSingleton<LinterUtilities>();
+
         // As of now, any instance that ingests VisualStudioExtensibility is required to be added as a scoped
         // service.
         serviceCollection.AddScoped<MarkdownDiagnosticsService>();

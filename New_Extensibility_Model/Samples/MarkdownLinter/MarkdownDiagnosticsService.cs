@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Media.Animation;
 using Microsoft;
 using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.Documents;
@@ -27,6 +28,7 @@ internal class MarkdownDiagnosticsService : DisposableObject
 #pragma warning restore CA2213 // Disposable fields should be disposed
     private readonly Dictionary<Uri, CancellationTokenSource> documentCancellationTokens;
     private readonly Task initializationTask;
+    private readonly LinterUtilities linterUtilities;
     private OutputChannel? outputChannel;
     private DiagnosticsReporter? diagnosticsReporter;
 
@@ -34,10 +36,12 @@ internal class MarkdownDiagnosticsService : DisposableObject
     /// Initializes a new instance of the <see cref="MarkdownDiagnosticsService"/> class.
     /// </summary>
     /// <param name="extensibility">Extensibility object.</param>
-    public MarkdownDiagnosticsService(VisualStudioExtensibility extensibility)
+    /// <param name="linterUtilities">Service for running the linter on markdown files.</param>
+    public MarkdownDiagnosticsService(VisualStudioExtensibility extensibility, LinterUtilities linterUtilities)
     {
         this.extensibility = Requires.NotNull(extensibility, nameof(extensibility));
         this.documentCancellationTokens = new Dictionary<Uri, CancellationTokenSource>();
+        this.linterUtilities = Requires.NotNull(linterUtilities, nameof(linterUtilities));
         this.initializationTask = Task.Run(this.InitializeAsync);
     }
 
@@ -70,7 +74,7 @@ internal class MarkdownDiagnosticsService : DisposableObject
 
         try
         {
-            var diagnostics = await LinterUtilities.RunLinterOnFileAsync(documentUri);
+            var diagnostics = await this.linterUtilities.RunLinterOnFileAsync(documentUri, cancellationToken);
 
             await this.diagnosticsReporter!.ClearDiagnosticsAsync(documentUri, cancellationToken);
             await this.diagnosticsReporter!.ReportDiagnosticsAsync(diagnostics, cancellationToken);
@@ -150,7 +154,7 @@ internal class MarkdownDiagnosticsService : DisposableObject
 
         try
         {
-            var diagnostics = await LinterUtilities.RunLinterOnDocumentAsync(documentSnapshot);
+            var diagnostics = await this.linterUtilities.RunLinterOnDocumentAsync(documentSnapshot, cancellationToken);
 
             await this.diagnosticsReporter!.ClearDiagnosticsAsync(documentSnapshot, cancellationToken);
             await this.diagnosticsReporter!.ReportDiagnosticsAsync(diagnostics, cancellationToken);

@@ -1,4 +1,8 @@
 ﻿{
   "MarkdownLinter.RunLinterOnCurrentFileCommand.DisplayName": "Run Linter on open file",
-  "MarkdownLinter.RunLinterOnSolutionCommand.DisplayName": "Run Linter on solution"
+  "MarkdownLinter.RunLinterOnSolutionCommand.DisplayName": "Run Linter on solution",
+  "MarkdownLinter.Settings.Category.DisplayName": "Markdown Linter",
+  "MarkdownLinter.Settings.Category.Description": "Markdown Linter Settings",
+  "MarkdownLinter.Settings.DisabledRules.DisplayName": "Disabled rules",
+  "MarkdownLinter.Settings.DisabledRules.Description": "List of disabled rules to pass to markdown-cli"
 }
