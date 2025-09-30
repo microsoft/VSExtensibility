@@ -1,25 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
-    <Metadata>
-        <Identity Id="d7c3f904-cc5a-4d47-aa25-81fb7c36df89" Version="1.3" Language="en-US" Publisher="Mads Kristensen" />
-        <DisplayName>Comment Remover</DisplayName>
-        <Description xml:space="preserve">Remove all comments in any file with a click of a button. Can also remove #regions and preserve XML Doc comments.</Description>
-        <MoreInfo>https://github.com/madskristensen/CommentRemover</MoreInfo>
-        <License>Resources\LICENSE</License>
-        <ReleaseNotes>https://github.com/madskristensen/CommentRemover/blob/master/CHANGELOG.md</ReleaseNotes>
-        <Icon>Resources\Icon.png</Icon>
-        <PreviewImage>Resources\Preview.png</PreviewImage>
-        <Tags>comment, cleanup, delete, region, XMLDoc</Tags>
-    </Metadata>
-    <Installation ExtensionType="VSSDK+VisualStudio.Extensibility">
-        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[17.0,18.0)">
-            <ProductArchitecture>amd64</ProductArchitecture>
-        </InstallationTarget>
-    </Installation>
-    <Prerequisites>
-        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,)" DisplayName="Visual Studio core editor" />
-    </Prerequisites>
-    <Assets>
-        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
-    </Assets>
+  <Metadata>
+    <Identity Id="d7c3f904-cc5a-4d47-aa25-81fb7c36df89" Version="1.3" Language="en-US" Publisher="Mads Kristensen" />
+    <DisplayName>Comment Remover</DisplayName>
+    <Description xml:space="preserve">Remove all comments in any file with a click of a button. Can also remove #regions and preserve XML Doc comments.</Description>
+    <MoreInfo>https://github.com/madskristensen/CommentRemover</MoreInfo>
+    <License>Resources\LICENSE</License>
+    <ReleaseNotes>https://github.com/madskristensen/CommentRemover/blob/master/CHANGELOG.md</ReleaseNotes>
+    <Icon>Resources\Icon.png</Icon>
+    <PreviewImage>Resources\Preview.png</PreviewImage>
+    <Tags>comment, cleanup, delete, region, XMLDoc</Tags>
+  </Metadata>
+  <Installation ExtensionType="VSSDK+VisualStudio.Extensibility">
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.14,)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.14,)">
+      <ProductArchitecture>arm64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.14,)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+  </Assets>
 </PackageManifest>
