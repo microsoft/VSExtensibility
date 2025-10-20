@@ -38,7 +38,7 @@ public class MarkdownLinterExtension : Extension
     {
         base.InitializeServices(serviceCollection);
 
-        // Add the settings observer created by MarkdownLinterSettingDefinitions to use in LinterUtilies.
+        // Add the settings observer created by MarkdownLinterSettingDefinitions to use in LinterUtilities.
         serviceCollection.AddSettingsObservers();
 
         // Add linter utilities as a singleton, it depends on settings observer.
