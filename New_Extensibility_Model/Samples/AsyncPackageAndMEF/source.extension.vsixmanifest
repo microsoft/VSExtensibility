@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="AsyncPackageAndMEF.d03de203-4b65-491a-98d2-e558bc79bd27" Version="1.0" Language="en-US" Publisher="Microsoft" />
+    <DisplayName>In-proc extension with MEF and AsyncPackage</DisplayName>
+    <Description xml:space="preserve">An extension demonstrating interactions between different parts of a VisualStudio.Extensibility extension that also provides MEF components and an AsyncPackage.</Description>
+  </Metadata>
+  <Installation ExtensionType="VSSDK+VisualStudio.Extensibility">
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.14,)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.14,)">
+      <ProductArchitecture>arm64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="AsyncPackageAndMEF.pkgdef" />
+    <Asset Type="Microsoft.VisualStudio.MefComponent" Path="AsyncPackageAndMEF.dll" />
+  </Assets>
+</PackageManifest>
