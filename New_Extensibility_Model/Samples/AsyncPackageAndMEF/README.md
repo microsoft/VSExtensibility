@@ -9,11 +9,20 @@ date: 2025-11-07
 This is sample of how to write an in-proc VisualStudio.Extensibility extensions that also includes components
 that are common in VSSDK extensions: `AsyncPackage`s and MEF components.
 
-When creating such an extension, there is one important considerations to keep in mind: the VisualStudio.Extensibility extension class, the MEF component and the AsyncPackage are all initialized
+Many functions of the `AsyncPackage`, like providing commands and tool windows, have a more modern
+alternative in VisualStudio.Extensibility APIs. Similarly functionalities, like classifications and taggers,
+that used to require MEF have now easier to use alternatives provided by VisualStudio.Extensibility APIs.
+This sample is not meant as an invitation for extenders to use `AsyncPackage`s and MEF, but as instructions
+on how to correctly interact with `AsyncPackage`s and MEF components in those cases when an extender needs to
+rely on APIs that don't have a VisualStudio.Extensibility alternative.
+
+When creating such an extension, there is one important considerations to keep in mind: the
+VisualStudio.Extensibility extension class, the MEF component and the AsyncPackage are all initialized
 independently from each others. Before any interaction between them, the initiator must ensure that the other
 component is initialized.
 
-We start with an empty in-proc VisualStudio.Extensibility extension project as described [here](https://learn.microsoft.com/en-us/visualstudio/extensibility/visualstudio.extensibility/get-started/in-proc-extensions).
+We start with an empty in-proc VisualStudio.Extensibility extension project as described
+[here](https://learn.microsoft.com/en-us/visualstudio/extensibility/visualstudio.extensibility/get-started/in-proc-extensions).
 
 ## Adding an AsyncPackage
 
@@ -199,7 +208,7 @@ protected override void InitializeServices(IServiceCollection serviceCollection)
 }
 ```
 
-Now the `AsyncPackage` can retrieve the brokered service and interact with it:
+Now the `AsyncPackage` can retrieve a [proxy of the brokered service](https://microsoft.github.io/vs-streamjsonrpc/docs/proxies.html#proxy-traits) and interact with it:
 
 ```cs
 var serviceBrokerContainer = await this.GetServiceAsync<SVsBrokeredServiceContainer, IBrokeredServiceContainer>();
