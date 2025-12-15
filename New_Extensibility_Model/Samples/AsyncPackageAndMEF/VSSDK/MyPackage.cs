@@ -13,6 +13,7 @@ using Microsoft.VisualStudio.Shell.ServiceBroker;
 [PackageRegistration(UseManagedResourcesOnly = true, AllowsBackgroundLoading = true)]
 [Guid(MyPackage.PackageGuidString)]
 [ProvideService(typeof(MyService), IsAsyncQueryable = true)]
+[ProvideBrokeredServiceHubService(IMyBrokeredService.Configuration.ServiceName, Audience = ServiceAudience.Local | ServiceAudience.RemoteExclusiveClient)]
 public sealed class MyPackage : AsyncPackage
 {
     public const string PackageGuidString = "ac1de0e2-bc69-4a63-bb7e-15f3274448c7";
