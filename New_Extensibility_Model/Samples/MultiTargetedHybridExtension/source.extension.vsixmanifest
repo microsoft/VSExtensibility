@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="MultiTargetedHybridExtension.295cec86-5f0e-48dd-bc08-d307241d564d" Version="1.0" Language="en-US" Publisher="Microsoft" />
+    <DisplayName>MultiTargeted Hybrid Extension</DisplayName>
+    <Description>MultiTargeted Hybrid Extension</Description>
+  </Metadata>
+  <Installation ExtensionType="VSSDK+VisualStudio.Extensibility">
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="|%CurrentProject%;GetInstallationTargetVersion|" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+  </Dependencies>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="|%CurrentProject%;GetPrerequisiteTargetVersion|" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+</PackageManifest>

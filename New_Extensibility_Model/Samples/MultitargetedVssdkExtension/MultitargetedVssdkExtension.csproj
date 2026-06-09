@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.VisualStudio.Sdk.Build">
+  <PropertyGroup>
+    <TargetFrameworks>vs2022;vs2026_5</TargetFrameworks>
+    <ExtensionType>VSSDK</ExtensionType>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+</Project>

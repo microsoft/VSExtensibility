@@ -1,0 +1,9 @@
+
+<Project Sdk="Microsoft.VisualStudio.Sdk.Build">
+  <PropertyGroup>
+    <TargetFrameworks>vs2022;vs2026_5</TargetFrameworks>
+    <GeneratePkgDefFile>False</GeneratePkgDefFile>
+    <ExtensionType>VSSDK+VisualStudio.Extensibility</ExtensionType>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+</Project>
