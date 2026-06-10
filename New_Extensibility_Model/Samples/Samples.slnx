@@ -23,23 +23,23 @@
       <Deploy />
     </Project>
   </Folder>
+  <Folder Name="/MultiTargetedExtensions/">
+    <Project Path="../../../../Users/maprospe/source/repos/GladstoneSamples/New_Extensibility_Model/Samples/MultiTargetedExtensions/MultiTargetedExtensibilityExtension/MultiTargetedExtensibilityExtension.csproj">
+      <Deploy />
+    </Project>
+    <Project Path="../../../../Users/maprospe/source/repos/GladstoneSamples/New_Extensibility_Model/Samples/MultiTargetedExtensions/MultiTargetedHybridExtension/MultiTargetedHybridExtension.csproj">
+      <Deploy />
+    </Project>
+    <Project Path="../../../../Users/maprospe/source/repos/GladstoneSamples/New_Extensibility_Model/Samples/MultiTargetedExtensions/MultitargetedVssdkExtension/MultitargetedVssdkExtension.csproj">
+      <Deploy />
+    </Project>
+  </Folder>
   <Folder Name="/RegexMatchDebugVisualizer/">
     <File Path="RegexMatchDebugVisualizer/README.md" />
     <Project Path="RegexMatchDebugVisualizer/RegexMatchDebugVisualizer/RegexMatchDebugVisualizer.csproj">
       <Deploy />
     </Project>
     <Project Path="RegexMatchDebugVisualizer/RegexMatchObjectSource/RegexMatchObjectSource.csproj" />
-  </Folder>
-  <Folder Name="/MultiTargetedSamples/">
-    <Project Path="MultiTargetedHybridExtension/MultiTargetedHybridExtension.csproj" Id="a210b9ab-ecbe-4433-889f-abb7e7870869">
-      <Deploy />
-    </Project>
-    <Project Path="MultiTargetedExtensibilityExtension/MultiTargetedExtensibilityExtension.csproj" Id="65abbad5-458a-4d05-870d-9daa83a35137">
-      <Deploy />
-    </Project>
-    <Project Path="MultitargetedVssdkExtension/MultitargetedVssdkExtension.csproj" Id="99c3a8f6-b068-4021-96d2-4aa07e0090a2">
-      <Deploy />
-    </Project>
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path="Directory.Build.props" />
