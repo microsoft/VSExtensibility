@@ -36,8 +36,6 @@ public sealed class MultitargetedVssdkExtensionPackage : AsyncPackage
     /// </summary>
     public const string PackageGuidString = "8bac2fc8-b206-4568-916f-3c85d74af0f9";
 
-    #region Package Members
-
     /// <summary>
     /// Initialization of the package; this method is called right after the package is sited, so this is the place
     /// where you can put all the initialization code that rely on services provided by VisualStudio.
@@ -52,6 +50,4 @@ public sealed class MultitargetedVssdkExtensionPackage : AsyncPackage
         await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
         await Command1.InitializeAsync(this);
     }
-
-    #endregion
 }

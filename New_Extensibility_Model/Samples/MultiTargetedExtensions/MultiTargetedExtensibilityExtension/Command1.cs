@@ -31,7 +31,9 @@ internal class Command1 : Command
     }
 
     /// <inheritdoc />
+#pragma warning disable CEE0027 // String not localized
     public override CommandConfiguration CommandConfiguration => new(displayName: "Command1")
+#pragma warning restore CEE0027 // String not localized
     {
         // Use this object initializer to set optional parameters for the command. The required parameter,
         // displayName, is set above. To localize the displayName, add an entry in .vsextension\string-resources.json

@@ -5,15 +5,12 @@ namespace MultitargetedVssdkExtension;
 
 using System;
 using System.ComponentModel.Design;
-using System.Globalization;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.VisualStudio.Shell;
 using Microsoft.VisualStudio.Shell.Interop;
 using Task = System.Threading.Tasks.Task;
 
 /// <summary>
-/// Command handler
+/// Command handler.
 /// </summary>
 internal sealed class Command1
 {
@@ -34,7 +31,7 @@ internal sealed class Command1
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Command1"/> class.
-    /// Adds our command handlers for menu (commands must exist in the command table file)
+    /// Adds our command handlers for menu (commands must exist in the command table file).
     /// </summary>
     /// <param name="package">Owner package, not null.</param>
     /// <param name="commandService">Command service to add command to, not null.</param>
@@ -51,11 +48,7 @@ internal sealed class Command1
     /// <summary>
     /// Gets the instance of the command.
     /// </summary>
-    public static Command1 Instance
-    {
-        get;
-        private set;
-    }
+    public static Command1 Instance { get; private set; } = null!;
 
     /// <summary>
     /// Gets the service provider from the owner package.
@@ -72,14 +65,15 @@ internal sealed class Command1
     /// Initializes the singleton instance of the command.
     /// </summary>
     /// <param name="package">Owner package, not null.</param>
+    /// <returns>A <see cref="Task"/> representing the asynchronous operation.</returns>
     public static async Task InitializeAsync(AsyncPackage package)
     {
         // Switch to the main thread - the call to AddCommand in Command1's constructor requires
         // the UI thread.
         await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync(package.DisposalToken);
 
-        OleMenuCommandService commandService = await package.GetServiceAsync(typeof(IMenuCommandService)) as OleMenuCommandService;
-        Instance = new Command1(package, commandService);
+        OleMenuCommandService? commandService = await package.GetServiceAsync(typeof(IMenuCommandService)) as OleMenuCommandService;
+        Instance = new Command1(package, commandService!);
     }
 
     /// <summary>

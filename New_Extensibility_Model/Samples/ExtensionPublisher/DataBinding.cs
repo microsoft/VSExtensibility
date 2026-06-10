@@ -326,7 +326,7 @@ public class DataBinding : INotifyPropertyChanged
             this.Repo = modelPreviousJson.Repo ?? this.internalRepo;
 
             string readmePath = modelPreviousJson.Overview ?? string.Empty;
-            this.ExtensionDescription = File.ReadAllText(readmePath);
+            this.ExtensionDescription = await File.ReadAllTextAsync(readmePath);
 
             if (modelPreviousJson.Categories != null)
             {
@@ -346,7 +346,7 @@ public class DataBinding : INotifyPropertyChanged
 
         try
         {
-            string publishManifestContent = File.ReadAllText(publishManifestPath);
+            string publishManifestContent = await File.ReadAllTextAsync(publishManifestPath);
             PublishManifestModel modelForReading = JsonConvert.DeserializeObject<PublishManifestModel>(publishManifestContent)
                 ?? throw new ArgumentNullException("Publish Manifest does not exists.");
             return modelForReading;
