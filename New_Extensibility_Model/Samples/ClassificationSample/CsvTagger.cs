@@ -89,9 +89,6 @@ internal class CsvTagger : TextViewTagger<ClassificationTag>
 
             if (match.Success)
             {
-                // VisualStudio.Extensibility doesn't support defining text colors for
-                // new classification types yet, so we must use existing classification
-                // types.
                 foreach (Capture capture in match.Groups[FieldTextMatchName].Captures)
                 {
                     AddTag(capture, lineNumber == 0 ? Classifications.Header : ClassificationType.KnownValues.String);
