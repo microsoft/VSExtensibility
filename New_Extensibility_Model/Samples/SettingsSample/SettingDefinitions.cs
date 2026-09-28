@@ -13,6 +13,14 @@ internal static class SettingDefinitions
     {
         Description = "%SettingsSample.Settings.Category.Description%",
         GenerateObserverClass = true,
+        Actions =
+        [
+            new("%SettingsSample.Settings.Category.OpenToolWindow%")
+            {
+                Execute = (setting, context, cancellationToken) =>
+                    context.Extensibility.Shell().ShowToolWindowAsync<MyToolWindow>(activate: true, cancellationToken),
+            },
+        ],
     };
 
     [VisualStudioContribution]

@@ -4,6 +4,7 @@
   "SettingsSample.EnableAutoUpdateCommand.Description": "Enable automatic updates for the sample text tool window.",
   "SettingsSample.Settings.Category.DisplayName": "Settings Sample",
   "SettingsSample.Settings.Category.Description": "Settings for the LoremIpsum sample generator.",
+  "SettingsSample.Settings.Category.OpenToolWindow": "Open Sample Text Tool Window",
   "SettingsSample.Settings.AutoUpdate.DisplayName": "Auto Update",
   "SettingsSample.Settings.AutoUpdate.Description": "Whether to update the sample text when a setting changes.",
   "SettingsSample.Settings.TextLength.DisplayName": "Text Length",

@@ -92,6 +92,25 @@ this.extensibility.Settings().WriteAsync(
 Once deployed, the "Sample Text Tool Window" command can be used to show the "Settings
 Sample Tool Window" in the document well.
 
+### An action in the settings category
+
+The **Settings Sample** category contributes an **Open Sample Text Tool Window**
+action. Open **Tools > Options**, select the **Settings Sample** category, and
+choose the action to open the existing tool window. The action's `Execute`
+delegate is invoked only when you click it; displaying the category does not
+run the action or load the extension just for that action.
+
+```csharp
+Actions =
+[
+    new("%SettingsSample.Settings.Category.OpenToolWindow%")
+    {
+        Execute = (setting, context, cancellationToken) =>
+            context.Extensibility.Shell().ShowToolWindowAsync<MyToolWindow>(activate: true, cancellationToken),
+    },
+],
+```
+
 ### A command enabled by a setting
 
 The [Enable Sample Text Auto Update command](./EnableAutoUpdateCommand.cs) uses
