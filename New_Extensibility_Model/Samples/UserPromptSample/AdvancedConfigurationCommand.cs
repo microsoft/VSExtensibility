@@ -60,7 +60,13 @@ internal class AdvancedConfigurationCommand : Command
         // Show a prompt that accepts string input from the user, with a custom title.
         string? projectName = await shell.ShowPromptAsync(
             "Enter the name of the project to configure?",
-            InputPromptOptions.Default with { Title = Title },
+            InputPromptOptions.Default with
+            {
+                Title = Title,
+                Validation = new InputValidation(
+                    @"^[A-Za-z][A-Za-z0-9_-]*$",
+                    "Start with a letter; use only letters, numbers, hyphens, or underscores."),
+            },
             cancellationToken);
 
         if (string.IsNullOrEmpty(projectName))

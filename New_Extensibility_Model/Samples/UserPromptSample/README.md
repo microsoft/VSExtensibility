@@ -146,18 +146,28 @@ string? feedback = await shell.ShowPromptAsync(
     cancellationToken);
 ```
 
-If you don't want to provide `DefaultText`, you can use the simpler built-in `InputPromptOptions.Default` as a starting point.
+If you don't want to provide `DefaultText`, you can use `InputPromptOptions.Default` as a
+starting point. The project-name prompt uses `Validation` to require a name starting
+with a letter and containing only letters, numbers, hyphens, or underscores:
 
 ```csharp
 string? projectName = await shell.ShowPromptAsync(
     "Enter the name of the project to configure?",
-    InputPromptOptions.Default with { Title = Title },
+    InputPromptOptions.Default with
+    {
+        Title = Title,
+        Validation = new InputValidation(
+            @"^[A-Za-z][A-Za-z0-9_-]*$",
+            "Start with a letter; use only letters, numbers, hyphens, or underscores."),
+    },
     cancellationToken);
 ```
 
-Input prompts always show a dismiss button, and can be also be dismssed by the user using the `Esc` key. When the user dismisses
-an input prompt, the return value will be `null`. If the user accepts the `DefaultText` using 'OK' or by pressing `Enter`, the return
-value will be the default text.
+Until the input matches, the prompt displays the error message and disables OK. Input
+prompts always show a dismiss button and can also be dismissed with `Esc`. Dismissal
+returns `null`, which this command treats as no project name and does not configure
+anything. If the user accepts `DefaultText` using OK or `Enter`, the return value is
+the default text.
 
 ## Usage
 
