@@ -93,8 +93,6 @@ internal class MarkdownTextMarkerTagger : TextViewTagger<TextMarkerTag>
                 int len = line.Text.Length;
                 if (len > 0)
                 {
-                    // VisualStudio.Extensibility doesn't support defining new TextMarker types yet, so we use
-                    // the built-in FindHighlight TextMarker type.
                     tags.Add(new(
                         new(document, line.Text.Start, len, TextRangeTrackingMode.ExtendForwardAndBackward),
                         new(HeaderStyle)));
