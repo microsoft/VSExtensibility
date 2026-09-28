@@ -21,6 +21,10 @@ internal static class SettingDefinitions
                     context.Extensibility.Shell().ShowToolWindowAsync<MyToolWindow>(activate: true, cancellationToken),
             },
         ],
+        Preview = new()
+        {
+            Factory = SettingPreviewFactory.Create(SettingsPreviewControl.CreateAsync),
+        },
     };
 
     [VisualStudioContribution]

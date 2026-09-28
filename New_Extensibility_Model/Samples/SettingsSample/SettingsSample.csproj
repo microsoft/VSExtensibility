@@ -13,7 +13,9 @@
 
   <ItemGroup>
     <EmbeddedResource Include="MyToolWindowControl.xaml" />
+    <EmbeddedResource Include="SettingsPreviewControl.xaml" />
     <Page Remove="MyToolWindowControl.xaml" />
+    <Page Remove="SettingsPreviewControl.xaml" />
   </ItemGroup>
 
   <ItemGroup>

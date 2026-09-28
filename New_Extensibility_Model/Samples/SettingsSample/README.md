@@ -111,6 +111,25 @@ Actions =
 ],
 ```
 
+### A live preview in the settings category
+
+The same category has a read-only preview of the sample text at the configured
+`TextLengthSetting` value. `SettingPreviewFactory` creates the Remote UI control
+when you select the category; it does not load the extension just because the
+settings window is open. The control subscribes to changes in the text-length
+setting and disposes that subscription when the preview closes.
+
+```csharp
+Preview = new()
+{
+    Factory = SettingPreviewFactory.Create(SettingsPreviewControl.CreateAsync),
+},
+```
+
+Select **Tools > Options > Settings Sample**, change **Text Length**, and watch
+the preview update. Switching away and back creates a fresh preview with the
+current value. The separate tool window still has its original controls.
+
 ### A command enabled by a setting
 
 The [Enable Sample Text Auto Update command](./EnableAutoUpdateCommand.cs) uses
