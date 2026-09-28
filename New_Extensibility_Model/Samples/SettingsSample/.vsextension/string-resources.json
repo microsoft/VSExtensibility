@@ -1,5 +1,7 @@
 ﻿{
   "SettingsSample.MyToolWindowCommand.DisplayName": "Sample Text Tool Window",
+  "SettingsSample.EnableAutoUpdateCommand.DisplayName": "Enable Sample Text Auto Update",
+  "SettingsSample.EnableAutoUpdateCommand.Description": "Enable automatic updates for the sample text tool window.",
   "SettingsSample.Settings.Category.DisplayName": "Settings Sample",
   "SettingsSample.Settings.Category.Description": "Settings for the LoremIpsum sample generator.",
   "SettingsSample.Settings.AutoUpdate.DisplayName": "Auto Update",
