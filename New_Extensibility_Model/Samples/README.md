@@ -3,6 +3,9 @@
 Each sample directory may have its own `README.md` file to describe its specific scenario
 and call out interesting aspects to its sample.
 
+For settings backed by an external source, see the
+[External Settings Sample](ExternalSettingsSample/README.md).
+
 ## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a

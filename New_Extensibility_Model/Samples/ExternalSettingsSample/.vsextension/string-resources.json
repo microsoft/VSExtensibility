@@ -1,0 +1,10 @@
+{
+  "ExternalSettingsSample.Category.DisplayName": "External Settings Sample",
+  "ExternalSettingsSample.Category.Description": "A setting backed by an in-memory store.",
+  "ExternalSettingsSample.Provider.DisplayName": "Memory Store",
+  "ExternalSettingsSample.Provider.Description": "Edit the greeting here or change it with the Tools menu command.",
+  "ExternalSettingsSample.Provider.BackingStoreDescription": "This sample uses an in-memory backing store; values reset when the extension restarts.",
+  "ExternalSettingsSample.Greeting.DisplayName": "Greeting",
+  "ExternalSettingsSample.Greeting.Description": "A greeting of 1 to 24 non-whitespace characters.",
+  "ExternalSettingsSample.ChangeBackingStoreCommand.DisplayName": "Change External Settings Sample Greeting"
+}
