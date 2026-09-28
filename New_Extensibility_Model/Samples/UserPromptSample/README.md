@@ -169,6 +169,28 @@ returns `null`, which this command treats as no project name and does not config
 anything. If the user accepts `DefaultText` using OK or `Enter`, the return value is
 the default text.
 
+### Asynchronous validation
+
+The same project-name prompt also sets `ValidationCallback` to reject the reserved
+Windows name `CON`. The SDK calls this callback after the regex check passes and
+debounces calls while the user types. The short delay stands in for an asynchronous
+lookup; the cancellation token cancels a validation request that is no longer needed.
+The callback returns an error message to disable OK, or `null` to accept the name:
+
+```csharp
+ValidationCallback = async (input, token) =>
+{
+    // Simulate an asynchronous lookup without relying on an external service.
+    await Task.Delay(150, token);
+    return string.Equals(input, "CON", StringComparison.OrdinalIgnoreCase)
+        ? "CON is a reserved Windows name; choose another project name."
+        : null;
+},
+```
+
+Try `CON` to see the callback error, or `MyProject` to continue. Dismissing the
+prompt still returns `null` without configuring a project.
+
 ## Usage
 
 Once deployed, the User Prompt Sample commands can be invoked anytime from the Tools menu.
