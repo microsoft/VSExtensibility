@@ -86,8 +86,8 @@ internal sealed class Command1
     private void Execute(object sender, EventArgs e)
     {
         ThreadHelper.ThrowIfNotOnUIThread();
-#if VS_180_OR_GREATER
-        string message = "Hello World from VS (18.5 or greater)!";
+#if VS_1811_OR_GREATER
+        string message = "Hello World from VS (18.11 or greater)!";
 #else
         string message = "Hello World from VS!";
 #endif
