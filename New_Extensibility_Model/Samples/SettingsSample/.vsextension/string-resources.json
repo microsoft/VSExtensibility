@@ -12,5 +12,7 @@
   "SettingsSample.Settings.QuoteStyle.Description": "Style of quotes to enclose the generated text.",
   "SettingsSample.Settings.QuoteStyle.None": "None",
   "SettingsSample.Settings.QuoteStyle.Single": "Single",
-  "SettingsSample.Settings.QuoteStyle.Double": "Double"
+  "SettingsSample.Settings.QuoteStyle.Double": "Double",
+  "SettingsSample.Settings.SampleWords.DisplayName": "Sample Words",
+  "SettingsSample.Settings.SampleWords.Description": "Words shown in the sample text tool window."
 }

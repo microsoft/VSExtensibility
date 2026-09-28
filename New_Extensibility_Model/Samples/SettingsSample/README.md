@@ -16,7 +16,7 @@ the tool window.
 
 ## Setting definitions
 
-The extension contains a [code file](./SettingDefinitions.cs) that defines three settings
+The extension contains a [code file](./SettingDefinitions.cs) that defines four settings
 and a parent category to contain them. Each setting and the category starts with the
 `VisualStudioContribution` class attribute which makes it available to Visual Studio:
 
@@ -134,3 +134,21 @@ the id of the setting.
 
 Each time you change the value and save the file, the sample text in the tool window will
 update.
+
+### Editing an array setting
+
+`SampleWordsSetting` is a `Setting.StringArray` with two default words, `Lorem` and
+`ipsum`. It allows adding and removing words, but does not permit duplicate entries.
+The tool window displays the words as a comma-separated list; its settings observer
+updates that list when the setting changes, even when **Manual update** is selected.
+
+To try it, open the extension settings JSON file as above and add:
+
+```json
+{
+  "settingsSample.sampleWords": ["Lorem", "ipsum", "dolor"]
+}
+```
+
+Save the file and check that the tool window shows `Lorem, ipsum, dolor`. Edit or
+remove `dolor` and save again to see the new value without reopening the window.

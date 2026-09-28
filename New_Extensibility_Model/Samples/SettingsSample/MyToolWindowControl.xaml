@@ -28,6 +28,9 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
+        <TextBlock Text="Sample words:"
+                   Margin="0,10,0,0" />
+        <TextBlock Text="{Binding SampleWords, Mode=OneWay}" />
         <CheckBox IsChecked="{Binding ManualUpdate}">Manual update</CheckBox>
         <Button x:Name="UpdateButton"
                 Content="Update Sample Text From Settings"

@@ -39,4 +39,17 @@ internal static class SettingDefinitions
     {
         Description = "%SettingsSample.Settings.QuoteStyle.Description%",
     };
+
+    [VisualStudioContribution]
+    internal static Setting.StringArray SampleWordsSetting { get; } = new(
+        "sampleWords",
+        "%SettingsSample.Settings.SampleWords.DisplayName%",
+        SettingsSampleCategory,
+        ["Lorem", "ipsum"])
+    {
+        Description = "%SettingsSample.Settings.SampleWords.Description%",
+        UniqueItems = true,
+        AllowAdditions = true,
+        AllowRemovals = true,
+    };
 }
