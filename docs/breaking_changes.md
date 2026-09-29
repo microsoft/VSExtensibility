@@ -10,6 +10,60 @@ We work hard to minimize breaking changes between versions to help minimize disr
 
 For more information how our policy and guidance towards breaking changes, please review [here](#Guidance-and-Expectations-Around-Breaking-Changes).
 
+# Breaking Changes for Visual Studio 18.12
+
+The following VisualStudio.Extensibility API changes apply when updating from 18.11 to 18.12.
+
+## VisualStudio.Extensibility
+
+### Client context assembly
+
+`Microsoft.VisualStudio.Extensibility.IClientContext` moved from `Microsoft.VisualStudio.Extensibility.Framework.dll` to `Microsoft.VisualStudio.Extensibility.Contracts.dll`. Its namespace and type name have not changed, but its `Extensibility` and `ServiceBrokerClient` properties are no longer interface members. They are now extension properties supplied by `ClientContextRuntimeExtensions` in the Framework assembly.
+
+Rebuild extensions against the 18.12 SDK and use C# language version 14 or later (for example, set `<LangVersion>14</LangVersion>` in the project file). C# 14 is required to access these extension properties through `context.Extensibility` and `context.ServiceBrokerClient`; keep `Microsoft.VisualStudio.Extensibility` in scope.
+
+### Setting string formats
+
+The static `SettingStringFormat.Date`, `Time`, `Ipv4`, `Email`, and `Uri` properties have been replaced by factory methods with the same names.
+
+The `SettingStringFormat.FilePath` and `DirectoryPath` properties have been removed. Use `SettingStringFormat.Path(SettingPathKind.File)` and `SettingStringFormat.Path(SettingPathKind.Folder)`, respectively.
+
+The parameter names of the `SettingStringFormat` `==` and `!=` operators changed from `a` and `b` to `left` and `right`. Ordinary operator expressions do not need to change.
+
+### Array setting item property lookup
+
+`ArraySettingItem.ContainsPorperty(string)` was renamed to `ContainsProperty(string)`. Update callers to use the corrected spelling.
+
+### String array setting inheritance
+
+`Setting.StringArray` and `Setting.FormattedStringArray` are available again in 18.12 after being absent in 18.11. `Setting.StringArray` is now sealed; extensions that derived from the 17.14 type must instead create a `Setting.StringArray` instance.
+
+# Breaking Changes for Visual Studio 18.11
+
+The following VisualStudio.Extensibility API changes apply when updating from 17.14 to 18.11. Changes that persist in 18.12 also affect extensions updating directly from 17.14 to 18.12.
+
+## VisualStudio.Extensibility
+
+### Classification type assembly
+
+`Microsoft.VisualStudio.Extensibility.Editor.ClassificationType` moved from `Microsoft.VisualStudio.Extensibility.dll` to `Microsoft.VisualStudio.Extensibility.Contracts.dll`. Its namespace and type name remain the same. Rebuild extensions against the newer SDK; see the [Classification Sample](../New_Extensibility_Model/Samples/ClassificationSample/README.md) for current classification definitions.
+
+### Text view taggers
+
+`ITextViewTaggerProvider<T>.CreateTaggerAsync` now returns `Task<TextViewTaggerBase<T>>` instead of `Task<TextViewTagger<T>>`. Implementations of the interface must update their return type. The built-in `TextViewTaggerProvider<TTag, TTagger>` handles tagger creation for the common case.
+
+`TextViewTagger<T>.RequestTagsAsync` and `Dispose` are no longer overridable. Taggers derived from `TextViewTagger<T>` must instead implement the new abstract `OnRequestTagsAsync` and `OnTextViewChangedAsync` callbacks. For low-level control over tag requests or disposal, derive from `TextViewTaggerBase<T>`. See the [Taggers Sample](../New_Extensibility_Model/Samples/TaggersSample/README.md).
+
+### Client context implementations
+
+`IClientContext` gained `TryGetValue(string, out string?)`. Extensions that implement this interface must implement the new member; code that only consumes a client context does not need to change for this addition. In 18.12, the interface moves assemblies and its runtime-service properties become extension properties, as described above.
+
+### Array settings
+
+`Setting.EnumArray.ItemsAreUnique` was removed. Remove uses of this property when updating enum array settings.
+
+`Setting.StringArray` and `Setting.FormattedStringArray` were unavailable in 18.11. Both return in 18.12, so extensions updating directly from 17.14 to 18.12 do not need an interim replacement. See the 18.12 note above if you derived from `Setting.StringArray`.
+
 # Breaking Changes for Visual Studio 2022 17.14
 The following breaking changes apply to Visual Studio 2022 17.14 and above.
 

@@ -97,6 +97,7 @@ You can find a Visual Studio solution that contains all samples at [Samples.slnx
 | [Word count margin](New_Extensibility_Model/Samples/WordCountMargin) | Shows how to create an editor margin extension that displays the word count in a document.|
 | [Markdown linter](New_Extensibility_Model/Samples/MarkdownLinter) | Shows how multiple components can interact together inside an extension and how different areas of Visual Studio can be extended.|
 | [Project Query](New_Extensibility_Model/Samples/VSProjectQueryAPISample) | Shows several different kinds of project system queries you can make. |
+| [External settings](New_Extensibility_Model/Samples/ExternalSettingsSample) | Shows an experimental external settings provider backed by an in-memory store, including validation and change notifications. |
 | [Taggers](New_Extensibility_Model/Samples/TaggersSample) | Shows how to create taggers to highlight portions of code or enable new Code Lenses. |
 | [Classification](New_Extensibility_Model/Samples/ClassificationSample) | Shows how to create classification taggers to color text in different colors based on syntax. |
 | [Comment remover](New_Extensibility_Model/Samples/CommentRemover) | Shows how to consume [Visual Studio SDK](https://www.nuget.org/packages/Microsoft.VisualStudio.SDK) services through .NET dependency injection and use VisualStudio.Extensibility APIs for commands, prompts, and progress report.|
