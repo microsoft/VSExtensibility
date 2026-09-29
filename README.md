@@ -40,8 +40,8 @@ Documentation is currently available for the following:
 
 ## Install VisualStudio.Extensibility
 
-VisualStudio.Extensibility works with Visual Studio 2022 version 17.9 or higher with the `Visual Studio extension development` workload to be installed. VisualStudio.Extensibility extensions can be installed on Visual Studio 2022 version 17.9 and above.
-VisualStudio.Extensibility packages having a version higher than 17.9 provide additional functionalities and can be used when targeting the corresponding version of Visual Studio. For example, when building an extension with VisualStudio.Extensibility packages version 17.10, the resulting extension will be compatible with Visual Studio 17.10 and above.
+VisualStudio.Extensibility works with Visual Studio 2022 version 17.9 or higher and Visual Studio 2026 version 18.x, with the `Visual Studio extension development` workload installed. VisualStudio.Extensibility extensions can be installed on Visual Studio 2022 version 17.9 and above.
+VisualStudio.Extensibility packages having a version higher than 17.9 provide additional functionality and can be used when targeting the corresponding version of Visual Studio. For example, when building an extension with VisualStudio.Extensibility package version 18.12, the resulting extension will be compatible with Visual Studio 18.12 and above.
 
 ## Get Started
 

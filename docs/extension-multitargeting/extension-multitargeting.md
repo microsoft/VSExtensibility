@@ -196,8 +196,8 @@ After publishing both payloads, the extension now has Version 2.0 with multiple 
 > **NOTE**: When publishing multiple payloads for the same extension version, the VSIX projects
 > must be built using Microsoft.VSSDK.BuildTools version 18.6.38345 or later to ensure that the
 > correct metadata is included in the VSIX. Not doing so may result in the VS installation to be
-> corrupted when installing the extension. This will be enforced, starting next month, by the
-> VS Marketplace upon publishing a second payload of an existing extension version.
+> corrupted when installing the extension. This requirement is enforced by the VS Marketplace
+> when publishing a second payload of an existing extension version.
 
 ---
 
