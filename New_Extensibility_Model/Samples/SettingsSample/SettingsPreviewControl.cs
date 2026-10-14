@@ -48,16 +48,3 @@ internal class SettingsPreviewControl : RemoteUserControl
         base.Dispose(disposing);
     }
 }
-
-[DataContract]
-internal class SettingsPreviewData : NotifyPropertyChangedObject
-{
-    private string previewText = string.Empty;
-
-    [DataMember]
-    public string PreviewText
-    {
-        get => this.previewText;
-        set => this.SetProperty(ref this.previewText, value);
-    }
-}
