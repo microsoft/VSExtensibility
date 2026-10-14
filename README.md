@@ -41,7 +41,7 @@ Documentation is currently available for the following:
 ## Install VisualStudio.Extensibility
 
 VisualStudio.Extensibility works with Visual Studio 2022 version 17.9 or higher and Visual Studio 2026 version 18.x, with the `Visual Studio extension development` workload installed. VisualStudio.Extensibility extensions can be installed on Visual Studio 2022 version 17.9 and above.
-VisualStudio.Extensibility packages having a version higher than 17.9 provide additional functionality and can be used when targeting the corresponding version of Visual Studio. For example, when building an extension with VisualStudio.Extensibility package version 18.12, the resulting extension will be compatible with Visual Studio 18.12 and above.
+Newer VisualStudio.Extensibility package versions provide additional functionality and require the corresponding version of Visual Studio or later. See each sample's project file for its package references.
 
 ## Get Started
 
@@ -97,7 +97,7 @@ You can find a Visual Studio solution that contains all samples at [Samples.slnx
 | [Word count margin](New_Extensibility_Model/Samples/WordCountMargin) | Shows how to create an editor margin extension that displays the word count in a document.|
 | [Markdown linter](New_Extensibility_Model/Samples/MarkdownLinter) | Shows how multiple components can interact together inside an extension and how different areas of Visual Studio can be extended.|
 | [Project Query](New_Extensibility_Model/Samples/VSProjectQueryAPISample) | Shows several different kinds of project system queries you can make. |
-| [External settings](New_Extensibility_Model/Samples/ExternalSettingsSample) | Shows an experimental external settings provider backed by an in-memory store, including validation and change notifications. |
+| [Extension settings](New_Extensibility_Model/Samples/SettingsSample) | Shows how to define and observe Boolean, integer, and enum settings, update a tool window, and enable a command based on a setting. |
 | [Taggers](New_Extensibility_Model/Samples/TaggersSample) | Shows how to create taggers to highlight portions of code or enable new Code Lenses. |
 | [Classification](New_Extensibility_Model/Samples/ClassificationSample) | Shows how to create classification taggers to color text in different colors based on syntax. |
 | [Comment remover](New_Extensibility_Model/Samples/CommentRemover) | Shows how to consume [Visual Studio SDK](https://www.nuget.org/packages/Microsoft.VisualStudio.SDK) services through .NET dependency injection and use VisualStudio.Extensibility APIs for commands, prompts, and progress report.|

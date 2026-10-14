@@ -72,9 +72,6 @@
   <Project Path="ExtensionPublisher/ExtensionPublisher.csproj">
     <Deploy />
   </Project>
-  <Project Path="ExternalSettingsSample/ExternalSettingsSample.csproj">
-    <Deploy />
-  </Project>
   <Project Path="FeatureGallery/FeatureGallery.csproj">
     <Deploy />
   </Project>

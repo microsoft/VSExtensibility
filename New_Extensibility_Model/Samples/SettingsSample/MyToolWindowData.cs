@@ -30,7 +30,6 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
     private readonly VisualStudioExtensibility extensibility;
     private readonly SettingsSampleCategoryObserver settingsObserver;
     private string sampleText = LoremIpsumText;
-    private string sampleWords = string.Empty;
     private bool manualUpdate = false;
 
     /// <summary>
@@ -92,20 +91,9 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
         set => this.SetProperty(ref this.sampleText, value);
     }
 
-    /// <summary>
-    /// Gets or sets the sample words configured in the array setting.
-    /// </summary>
-    [DataMember]
-    public string SampleWords
-    {
-        get => this.sampleWords;
-        set => this.SetProperty(ref this.sampleWords, value);
-    }
-
     private Task SettingsObserver_ChangedAsync(SettingsSampleCategorySnapshot settingsSnapshot)
     {
         this.ManualUpdate = !settingsSnapshot.AutoUpdateSetting.ValueOrDefault(SettingDefinitions.AutoUpdateSetting.DefaultValue);
-        this.SampleWords = string.Join(", ", settingsSnapshot.SampleWordsSetting.ValueOrDefault(SettingDefinitions.SampleWordsSetting.DefaultValue));
 
         if (!this.ManualUpdate)
         {

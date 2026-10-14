@@ -42,13 +42,10 @@ To disable the build error for all uses of each experimental API across all file
 
 ## Current experimental APIs
 
-Currently these features are experimental:
+The following features are experimental:
 
 | Feature | Label | Notes |
 |---------|-------|-------|
 | LSP | VSEXTPREVIEW_LSP | |
-| External settings providers | VSEXTPREVIEW_SETTINGS_EXTERNAL | Backing settings with an external store; see the [External Settings Sample](../New_Extensibility_Model/Samples/ExternalSettingsSample/README.md). |
-| Alternate setting defaults | VSEXTPREVIEW_SETTINGS_ALTERNATEDEFAULT | An alternate default value applied when a Visual Studio feature flag is enabled. |
-| Array setting migration callbacks | VSEXTPREVIEW_SETTINGS_ARRAYMIGRATION | Callback-based migration of array settings from a legacy store. |
 | Project Query Tracking | VSEXTPREVIEW_PROJECTQUERY_TRACKING | [`TrackUpdatesAsync`](https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.projectsystem.query.iasyncqueryable-1.trackupdatesasync) is a preview API. |
 | Project Query VC properties | VSEXTPREVIEW_PROJECTQUERY_PROPERTIES_VCPROJECTS | Property-related APIs like [this](https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.projectsystem.query.filepropertiesfilterextensions.propertiesbyrulename) property are preview APIs. |
