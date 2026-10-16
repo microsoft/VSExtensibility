@@ -41,6 +41,13 @@
     </Project>
     <Project Path="RegexMatchDebugVisualizer/RegexMatchObjectSource/RegexMatchObjectSource.csproj" />
   </Folder>
+  <Folder Name="/RoslynIntegrationExtension/">
+    <File Path="RoslynIntegrationExtension/README.md" />
+    <Project Path="RoslynIntegrationExtension/RoslynIntegrationExtension/RoslynIntegrationExtension.csproj">
+      <Deploy />
+    </Project>
+    <Project Path="RoslynIntegrationExtension/RoslynMessageHandler/RoslynMessageHandler.csproj" />
+  </Folder>
   <Folder Name="/Solution Items/">
     <File Path="Directory.Build.props" />
     <File Path="shipping.ruleset" />

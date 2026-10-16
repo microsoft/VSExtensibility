@@ -1,0 +1,35 @@
+<DataTemplate xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:vs="http://schemas.microsoft.com/visualstudio/extensibility/2022/xaml"
+              xmlns:styles="clr-namespace:Microsoft.VisualStudio.Shell;assembly=Microsoft.VisualStudio.Shell.15.0">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="Label" BasedOn="{StaticResource {x:Static styles:VsResourceKeys.ThemedDialogLabelStyleKey}}" />
+            <Style TargetType="Button" BasedOn="{StaticResource {x:Static styles:VsResourceKeys.ButtonStyleKey}}" />
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Label Content="Type:" />
+        <TextBox Text="{Binding SymbolType}" Grid.Column="1" Grid.ColumnSpan="2" IsReadOnly="True" />
+        <Label Content="Assembly:" Grid.Row="1" />
+        <TextBox Text="{Binding AssemblyName}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" IsReadOnly="True" />
+        <Label Content="Assembly Version:" Grid.Row="2" />
+        <TextBox Text="{Binding AssemblyVersion}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" IsReadOnly="True" />
+        <Label Content="Assembly Path:" Grid.Row="3" />
+        <TextBox Text="{Binding AssemblyPath}" Grid.Column="1" Grid.Row="3" IsReadOnly="True" />
+        <Button ToolTip="Open containing folder" Grid.Column="2" Grid.Row="3" Command="{Binding ShowAssemblyCommand}" CommandParameter="{Binding AssemblyPath}" IsEnabled="{Binding ShowAssemblyEnabled}">
+            <Button.Content>
+                <vs:Image Source="KnownMonikers.OpenFolder" />
+            </Button.Content>
+        </Button>
+    </Grid>
+</DataTemplate>

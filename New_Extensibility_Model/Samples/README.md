@@ -6,6 +6,9 @@ and call out interesting aspects to its sample.
 For settings backed by an external source, see the
 [External Settings Sample](ExternalSettingsSample/README.md).
 
+For querying the C# workspace with a Roslyn-hosted message handler, see the
+[Roslyn Integration Sample](RoslynIntegrationExtension/README.md).
+
 ## Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a

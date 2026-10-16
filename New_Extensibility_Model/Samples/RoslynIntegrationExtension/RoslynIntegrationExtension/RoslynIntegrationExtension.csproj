@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net10.0-windows8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<LangVersion>14</LangVersion>
+		<NeutralLanguage>en-US</NeutralLanguage>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="18.13.507" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="18.13.507" PrivateAssets="all" />
+		<PackageReference Include="Microsoft.VisualStudio.Extensibility.CodeAnalysis" Version="18.13.507" PrivateAssets="all" />
+		<ProjectReference Include="..\RoslynMessageHandler\RoslynMessageHandler.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Page Remove="AssemblyInfoPopup.xaml" />
+		<EmbeddedResource Include="AssemblyInfoPopup.xaml" />
+	</ItemGroup>
+</Project>

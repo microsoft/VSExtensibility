@@ -47,6 +47,7 @@ Currently these features are experimental:
 | Feature | Label | Notes |
 |---------|-------|-------|
 | LSP | VSEXTPREVIEW_LSP | |
+| Roslyn workspace queries | VSEXTPREVIEW_LANGUAGES_QUERY | Query the C# or Visual Basic workspace using Roslyn-hosted message handlers; see the [Roslyn Integration Sample](../New_Extensibility_Model/Samples/RoslynIntegrationExtension/README.md). Roslyn's handler API also uses `RSEXPERIMENTAL008`. |
 | External settings providers | VSEXTPREVIEW_SETTINGS_EXTERNAL | Backing settings with an external store; see the [External Settings Sample](../New_Extensibility_Model/Samples/ExternalSettingsSample/README.md). |
 | Alternate setting defaults | VSEXTPREVIEW_SETTINGS_ALTERNATEDEFAULT | An alternate default value applied when a Visual Studio feature flag is enabled. |
 | Array setting migration callbacks | VSEXTPREVIEW_SETTINGS_ARRAYMIGRATION | Callback-based migration of array settings from a legacy store. |
