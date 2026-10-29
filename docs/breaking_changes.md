@@ -64,6 +64,24 @@ The following VisualStudio.Extensibility API changes apply when updating from 17
 
 `Setting.StringArray` and `Setting.FormattedStringArray` were unavailable in 18.11. Both return in 18.12, so extensions updating directly from 17.14 to 18.12 do not need an interim replacement. See the 18.12 note above if you derived from `Setting.StringArray`.
 
+# Breaking Changes for Visual Studio 2026 18.0
+The following breaking changes apply to Visual Studio 2026 18.0 and above.
+
+## VisualStudio.Extensibility
+These breaking changes are associated with VisualStudio.Extensibility.
+
+### Project Query
+
+The following methods, marked as <code>[Obsolete]</code> in Visual Studio 2022 17.11, were removed in Visual Studio 2026 18.0 and no longer work:
+
+<code>Microsoft.VisualStudio.ProjectSystem.Query.UpdateExtensions.SetBuildPropertyValue(this IAsyncUpdatable<IProjectConfigurationSnapshot> configurations, string name, string value, string storageType)</code>
+
+<code>Microsoft.VisualStudio.ProjectSystem.Query.UpdateExtensions.Delete(this IAsyncUpdatable<IBuildPropertySnapshot> buildProperties)</code>
+
+<code>Microsoft.VisualStudio.ProjectSystem.Query.ProjectConfigurationPropertiesFilterExtensions.BuildPropertiesByName(this IProjectConfigurationSnapshot projectConfiguration, string storageType, params string[] buildPropertyNames)</code>
+
+The associated build property model, including <code>IBuildPropertySnapshot</code> and <code>IProjectConfigurationSnapshot.BuildProperties</code>, was also removed. Build properties have been folded into properties. Use <code>PropertiesByName</code> to query them and <code>SetPropertyValue</code> to set their values, passing the appropriate <code>PropertySourceType</code>.
+
 # Breaking Changes for Visual Studio 2022 17.14
 The following breaking changes apply to Visual Studio 2022 17.14 and above.
 
