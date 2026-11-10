@@ -24,13 +24,13 @@
     </Project>
   </Folder>
   <Folder Name="/MultiTargetedExtensions/">
-    <Project Path="../../../../Users/maprospe/source/repos/GladstoneSamples/New_Extensibility_Model/Samples/MultiTargetedExtensions/MultiTargetedExtensibilityExtension/MultiTargetedExtensibilityExtension.csproj">
+    <Project Path="MultiTargetedExtensions/MultiTargetedExtensibilityExtension/MultiTargetedExtensibilityExtension.csproj">
       <Deploy />
     </Project>
-    <Project Path="../../../../Users/maprospe/source/repos/GladstoneSamples/New_Extensibility_Model/Samples/MultiTargetedExtensions/MultiTargetedHybridExtension/MultiTargetedHybridExtension.csproj">
+    <Project Path="MultiTargetedExtensions/MultiTargetedHybridExtension/MultiTargetedHybridExtension.csproj">
       <Deploy />
     </Project>
-    <Project Path="../../../../Users/maprospe/source/repos/GladstoneSamples/New_Extensibility_Model/Samples/MultiTargetedExtensions/MultitargetedVssdkExtension/MultitargetedVssdkExtension.csproj">
+    <Project Path="MultiTargetedExtensions/MultitargetedVssdkExtension/MultitargetedVssdkExtension.csproj">
       <Deploy />
     </Project>
   </Folder>
