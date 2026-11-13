@@ -1,5 +1,5 @@
 
-<Project Sdk="Microsoft.VisualStudio.Sdk.Build">
+<Project Sdk="Microsoft.VisualStudio.Sdk.Build/18.11.1098">
   <PropertyGroup>
     <TargetFrameworks>vs17_14;vs18_11</TargetFrameworks>
     <ExtensionType>VisualStudio.Extensibility</ExtensionType>

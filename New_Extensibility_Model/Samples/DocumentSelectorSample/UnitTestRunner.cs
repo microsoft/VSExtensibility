@@ -44,15 +44,15 @@ internal class UnitTestRunner : ExtensionPart, ITextViewOpenClosedListener, ITex
     }
 
     /// <inheritdoc />
-    public Task TextViewOpenedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
+    public Task TextViewOpenedAsync(ITextViewSnapshot textView, CancellationToken cancellationToken)
     {
-        return this.RunUnitTestsAfterDelayAsync(textViewSnapshot, cancellationToken);
+        return this.RunUnitTestsAfterDelayAsync(textView, cancellationToken);
     }
 
     /// <inheritdoc />
-    public Task TextViewClosedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
+    public Task TextViewClosedAsync(ITextViewSnapshot textView, CancellationToken cancellationToken)
     {
-        return this.StopUnitTestsAsync(textViewSnapshot, cancellationToken);
+        return this.StopUnitTestsAsync(textView, cancellationToken);
     }
 
     /// <inheritdoc />

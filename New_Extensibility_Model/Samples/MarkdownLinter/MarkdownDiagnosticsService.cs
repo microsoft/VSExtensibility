@@ -131,11 +131,11 @@ internal class MarkdownDiagnosticsService : DisposableObject
     }
 
     /// <inheritdoc />
-    protected override void Dispose(bool isDisposing)
+    protected override void Dispose(bool disposing)
     {
-        base.Dispose(isDisposing);
+        base.Dispose(disposing);
 
-        if (isDisposing)
+        if (disposing)
         {
             this.outputChannel?.Dispose();
             this.diagnosticsReporter?.Dispose();
