@@ -11,7 +11,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="18.12.1603" PrivateAssets="all" />
     <PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="18.12.1606" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.VisualStudio.SDK" Version="18.11.1606" ExcludeAssets="runtime" />
+    <PackageReference Include="Microsoft.VisualStudio.SDK" Version="18.12.1606" ExcludeAssets="runtime" />
   </ItemGroup>
 
   <ItemGroup>
