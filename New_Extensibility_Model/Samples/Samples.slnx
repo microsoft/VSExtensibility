@@ -94,6 +94,7 @@
   <Project Path="InsertGuid/InsertGuid.csproj">
     <Deploy />
   </Project>
+  <Project Path="LanguageConfigurationSample/LanguageConfigurationSample.csproj" />
   <Project Path="MarkdownLinter/MarkdownLinter.csproj">
     <Deploy />
   </Project>

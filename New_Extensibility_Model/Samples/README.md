@@ -4,7 +4,7 @@ Each sample directory may have its own `README.md` file to describe its specific
 and call out interesting aspects to its sample.
 
 Open [Samples.slnx](./Samples.slnx) for all samples in this directory, including out-of-process,
-in-process, and hybrid extensions.
+in-process, and hybrid extensions, as well as a VSSDK language-configuration example.
 
 | Sample | Description |
 | --- | --- |
@@ -27,6 +27,7 @@ in-process, and hybrid extensions.
 | [Classification](./ClassificationSample) | Shows how to create classification taggers to color text in different colors based on syntax. |
 | [Code Lens](./CodeLensSample) | Shows how to create an invokable click-count Code Lens and a word-count Code Lens with custom UI. |
 | [Rust language server provider](./RustLanguageServerProvider) | Shows how to launch and connect to rust-analyzer to provide IntelliSense and tooltips for Rust files. Requires Rust and rust-analyzer. |
+| [Language configuration](./LanguageConfigurationSample) | Shows how to package and register a language-configuration JSON file and an optional TextMate grammar in a content-only VSIX, without any DLLs, to support editor behavior such as comment toggling and bracket auto-closing. |
 | [Roslyn integration](./RoslynIntegrationExtension) | Shows how an out-of-process extension queries the C# workspace through a Roslyn-hosted message handler to find a symbol's defining assembly. |
 | [Comment remover](./CommentRemover) | Shows how to consume [Visual Studio SDK](https://www.nuget.org/packages/Microsoft.VisualStudio.SDK) services through .NET dependency injection and use VisualStudio.Extensibility APIs for commands, prompts, and progress reporting. |
 | [RegexMatchDebugVisualizer](./RegexMatchDebugVisualizer) | Shows how to use [Remote UI](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/inside-the-sdk/remote-ui) to create a [Debugger Visualizer](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/debugger-visualizer/debugger-visualizers) to visualize regular expression matches that will launch in a modal dialog window. |

@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.VisualStudio.Sdk.Build/18.11.1098">
+  <PropertyGroup>
+    <TargetFrameworks>vs17_14</TargetFrameworks>
+    <ExtensionType>VSSDK</ExtensionType>
+    <GeneratePkgDefFile>false</GeneratePkgDefFile>
+    <IncludeAssemblyInVSIXContainer>false</IncludeAssemblyInVSIXContainer>
+    <IncludeCopyLocalReferencesInVSIXContainer>false</IncludeCopyLocalReferencesInVSIXContainer>
+    <IncludeDebugSymbolsInVSIXContainer>false</IncludeDebugSymbolsInVSIXContainer>
+    <IncludeDebugSymbolsInLocalVSIXDeployment>false</IncludeDebugSymbolsInLocalVSIXDeployment>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Example-language-configuration.json" />
+    <Content Include="Test.pkgdef" />
+    <Content Include="Grammars\Example.tmlanguage" />
+  </ItemGroup>
+</Project>

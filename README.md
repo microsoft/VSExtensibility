@@ -82,7 +82,7 @@ Read an overview of the areas of the SDK that you might need for your extension 
 
 ## Samples and tutorials
 
-You can find a Visual Studio solution that contains all VisualStudio.Extensibility samples at [Samples.slnx](New_Extensibility_Model/Samples/Samples.slnx). These samples include out-of-process, in-process, and hybrid extensions.
+You can find a Visual Studio solution that contains all samples at [Samples.slnx](New_Extensibility_Model/Samples/Samples.slnx). These samples include out-of-process, in-process, and hybrid extensions, as well as a VSSDK language-configuration example.
 
 | Sample | Description|
 |-|-|
@@ -105,6 +105,7 @@ You can find a Visual Studio solution that contains all VisualStudio.Extensibili
 | [Classification](New_Extensibility_Model/Samples/ClassificationSample) | Shows how to create classification taggers to color text in different colors based on syntax. |
 | [Code Lens](New_Extensibility_Model/Samples/CodeLensSample) | Shows how to create an invokable click-count Code Lens and a word-count Code Lens with custom UI. |
 | [Rust language server provider](New_Extensibility_Model/Samples/RustLanguageServerProvider) | Shows how to launch and connect to rust-analyzer to provide IntelliSense and tooltips for Rust files. Requires Rust and rust-analyzer. |
+| [Language configuration](New_Extensibility_Model/Samples/LanguageConfigurationSample) | Shows how to package and register a language-configuration JSON file and an optional TextMate grammar in a content-only VSIX, without any DLLs, to support editor behavior such as comment toggling and bracket auto-closing. |
 | [Roslyn integration](New_Extensibility_Model/Samples/RoslynIntegrationExtension) | Shows how an out-of-process extension queries the C# workspace through a Roslyn-hosted message handler to find a symbol's defining assembly. |
 | [Comment remover](New_Extensibility_Model/Samples/CommentRemover) | Shows how to consume [Visual Studio SDK](https://www.nuget.org/packages/Microsoft.VisualStudio.SDK) services through .NET dependency injection and use VisualStudio.Extensibility APIs for commands, prompts, and progress reporting. |
 | [RegexMatchDebugVisualizer](New_Extensibility_Model/Samples/RegexMatchDebugVisualizer) | Shows how to use [Remote UI](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/inside-the-sdk/remote-ui) to create a [Debugger Visualizer](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/debugger-visualizer/debugger-visualizers) to visualize regular expression matches that will launch in a modal dialog window. |
@@ -116,14 +117,6 @@ You can find a Visual Studio solution that contains all VisualStudio.Extensibili
 | [ExtensionWithTraditionalComponents](New_Extensibility_Model/Samples/ExtensionWithTraditionalComponents) | Shows how to create an out-of-proc extension that packages VSSDK components. |
 | [AsyncPackageAndMEF](New_Extensibility_Model/Samples/AsyncPackageAndMEF) | Shows how to write an in-proc VisualStudio.Extensibility extension that also includes components that are common in VSSDK extensions: `AsyncPackage`s and MEF components. |
 | [MultiTargetedExtensions](New_Extensibility_Model/Samples/MultiTargetedExtensions) | Shows how to target multiple versions of Visual Studio with [out-of-process VisualStudio.Extensibility](New_Extensibility_Model/Samples/MultiTargetedExtensions/MultiTargetedExtensibilityExtension), [hybrid VSSDK + VisualStudio.Extensibility](New_Extensibility_Model/Samples/MultiTargetedExtensions/MultiTargetedHybridExtension), and [classic VSSDK](New_Extensibility_Model/Samples/MultiTargetedExtensions/MultitargetedVssdkExtension) extensions. |
-
-### Language configuration sample
-
-This sample is separate from the VisualStudio.Extensibility solution above.
-
-| Sample | Description |
-| --- | --- |
-| [Language configuration setup](LSP/Samples/Language%20Configuration%20Setup%20Example) | Shows how to package and register a language-configuration JSON file and an optional TextMate grammar in a VSIX to support editor behavior such as comment toggling and bracket auto-closing. |
 
 ## Experimental APIs and Breaking Changes
 Starting with our 17.9 release, we're ready to label the vast majority of our APIs as stable. That is, we don't plan to make any breaking changes to these APIs. Any breaking changes that might need to be made, for example in response to user feedback about usability, will be communicated formally and with plenty of notice on our [breaking changes](./docs/breaking_changes.md) page.
