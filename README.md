@@ -82,32 +82,48 @@ Read an overview of the areas of the SDK that you might need for your extension 
 
 ## Samples and tutorials
 
-You can find a Visual Studio solution that contains all samples at [Samples.slnx](New_Extensibility_Model/Samples/Samples.slnx).
+You can find a Visual Studio solution that contains all VisualStudio.Extensibility samples at [Samples.slnx](New_Extensibility_Model/Samples/Samples.slnx). These samples include out-of-process, in-process, and hybrid extensions.
 
 | Sample | Description|
 |-|-|
 | [Simple command handler](New_Extensibility_Model/Samples/SimpleRemoteCommandSample) | Demonstrates the basics of working with commands. See also the [Create your first Visual Studio extension](https://learn.microsoft.com/en-us/visualstudio/extensibility/visualstudio.extensibility/get-started/create-your-first-extension) tutorial.|
-| [Insert guid extension](New_Extensibility_Model/Samples/InsertGuid) | Shows how to insert text or code in the code editor. See also the [Create your simple extension](//learn.microsoft.com/en-us/visualstudio/extensibility/visualstudio.extensibility/get-started/tutorial-create-simple-extension) tutorial.|
+| [Insert GUID](New_Extensibility_Model/Samples/InsertGuid) | Shows how to insert text or code in the code editor, configure command activation, and localize resources. See also the [Create a simple extension](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/get-started/tutorial-create-simple-extension) tutorial. |
+| [Encode / Decode Base64](New_Extensibility_Model/Samples/EncodeDecodeBase64) | Shows how to encode or decode selected text in a C# document, including multiple selections. |
 | [Command parenting](New_Extensibility_Model/Samples/CommandParentingSample) | Shows how to author a command that can be parented to different aspects of the IDE. |
 | [Document selector](New_Extensibility_Model/Samples/DocumentSelectorSample) | Shows how to create an editor extension that is only applicable to files matching a file path pattern. |
 | [Output window](New_Extensibility_Model/Samples/OutputWindowSample) | Shows the most basic use of the [Output Window API](https://learn.microsoft.com/en-us/visualstudio/extensibility/visualstudio.extensibility/output-window/output-window).|
 | [Tool window](New_Extensibility_Model/Samples/ToolWindowSample) | Shows how to create a tool window and populate it with content. |
 | [User prompt](New_Extensibility_Model/Samples/UserPromptSample) | Shows how to display a prompt to the user. |
 | [Dialog](New_Extensibility_Model/Samples/DialogSample) | Shows how to display a dialog with custom UI to the user.|
+| [File picker](New_Extensibility_Model/Samples/FilePickerSample) | Shows how to prompt users to open one or more files, save a file, or select a folder. |
 | [Word count margin](New_Extensibility_Model/Samples/WordCountMargin) | Shows how to create an editor margin extension that displays the word count in a document.|
 | [Markdown linter](New_Extensibility_Model/Samples/MarkdownLinter) | Shows how multiple components can interact together inside an extension and how different areas of Visual Studio can be extended.|
 | [Project Query](New_Extensibility_Model/Samples/VSProjectQueryAPISample) | Shows several different kinds of project system queries you can make. |
+| [Settings](New_Extensibility_Model/Samples/SettingsSample) | Shows how to define, read, monitor, and update extension settings to configure a tool window, with settings actions, a live preview, and setting-based command activation. |
 | [External settings](New_Extensibility_Model/Samples/ExternalSettingsSample) | Shows an experimental external settings provider backed by an in-memory store, including validation and change notifications. |
 | [Taggers](New_Extensibility_Model/Samples/TaggersSample) | Shows how to create taggers to highlight portions of code or enable new Code Lenses. |
 | [Classification](New_Extensibility_Model/Samples/ClassificationSample) | Shows how to create classification taggers to color text in different colors based on syntax. |
+| [Code Lens](New_Extensibility_Model/Samples/CodeLensSample) | Shows how to create an invokable click-count Code Lens and a word-count Code Lens with custom UI. |
+| [Rust language server provider](New_Extensibility_Model/Samples/RustLanguageServerProvider) | Shows how to launch and connect to rust-analyzer to provide IntelliSense and tooltips for Rust files. Requires Rust and rust-analyzer. |
 | [Roslyn integration](New_Extensibility_Model/Samples/RoslynIntegrationExtension) | Shows how an out-of-process extension queries the C# workspace through a Roslyn-hosted message handler to find a symbol's defining assembly. |
-| [Comment remover](New_Extensibility_Model/Samples/CommentRemover) | Shows how to consume [Visual Studio SDK](https://www.nuget.org/packages/Microsoft.VisualStudio.SDK) services through .NET dependency injection and use VisualStudio.Extensibility APIs for commands, prompts, and progress report.|
+| [Comment remover](New_Extensibility_Model/Samples/CommentRemover) | Shows how to consume [Visual Studio SDK](https://www.nuget.org/packages/Microsoft.VisualStudio.SDK) services through .NET dependency injection and use VisualStudio.Extensibility APIs for commands, prompts, and progress reporting. |
 | [RegexMatchDebugVisualizer](New_Extensibility_Model/Samples/RegexMatchDebugVisualizer) | Shows how to use [Remote UI](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/inside-the-sdk/remote-ui) to create a [Debugger Visualizer](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/debugger-visualizer/debugger-visualizers) to visualize regular expression matches that will launch in a modal dialog window. |
 | [MemoryStreamDebugVisualizer](New_Extensibility_Model/Samples/MemoryStreamDebugVisualizer) | Shows how to create a [Debugger Visualizer](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/debugger-visualizer/debugger-visualizers) to visualize MemoryStream objects that launches in a non-modal tool window. |
-| [CompositeExtension](New_Extensibility_Model/Samples/CompositeExtension) | Shows how to create an extension with in-proc and out-of-proc components that communicate using brokered services. . |
+| [Feature gallery](New_Extensibility_Model/Samples/FeatureGallery) | Demonstrates multiple SDK features in an out-of-process extension, including document editing, editor margins, taggers, classification, settings, dialogs, images, and language servers. |
+| [In-process feature gallery](New_Extensibility_Model/Samples/InProcFeatureGallery) | Runs the shared Feature Gallery source as an in-process, VSSDK-compatible extension. |
+| [Extension publisher](New_Extensibility_Model/Samples/ExtensionPublisher) | Shows how to publish extensions to the Visual Studio Marketplace from within Visual Studio. |
+| [CompositeExtension](New_Extensibility_Model/Samples/CompositeExtension) | Shows how to create an extension with in-proc and out-of-proc components that communicate using brokered services. |
 | [ExtensionWithTraditionalComponents](New_Extensibility_Model/Samples/ExtensionWithTraditionalComponents) | Shows how to create an out-of-proc extension that packages VSSDK components. |
-| [AsyncPackageAndMEF](New_Extensibility_Model/Samples/AsyncPackageAndMEF) | Shows how to write an in-proc VisualStudio.Extensibility extensions that also includes components that are common in VSSDK extensions: `AsyncPackage`s and MEF components. |
-| [MultiTargetedExtensions](New_Extensibility_Model/Samples/MultiTargetedExtensions) | Shows how to write extensions that target multiple versions of Visual Studio. |
+| [AsyncPackageAndMEF](New_Extensibility_Model/Samples/AsyncPackageAndMEF) | Shows how to write an in-proc VisualStudio.Extensibility extension that also includes components that are common in VSSDK extensions: `AsyncPackage`s and MEF components. |
+| [MultiTargetedExtensions](New_Extensibility_Model/Samples/MultiTargetedExtensions) | Shows how to target multiple versions of Visual Studio with [out-of-process VisualStudio.Extensibility](New_Extensibility_Model/Samples/MultiTargetedExtensions/MultiTargetedExtensibilityExtension), [hybrid VSSDK + VisualStudio.Extensibility](New_Extensibility_Model/Samples/MultiTargetedExtensions/MultiTargetedHybridExtension), and [classic VSSDK](New_Extensibility_Model/Samples/MultiTargetedExtensions/MultitargetedVssdkExtension) extensions. |
+
+### Language configuration sample
+
+This sample is separate from the VisualStudio.Extensibility solution above.
+
+| Sample | Description |
+| --- | --- |
+| [Language configuration setup](LSP/Samples/Language%20Configuration%20Setup%20Example) | Shows how to package and register a language-configuration JSON file and an optional TextMate grammar in a VSIX to support editor behavior such as comment toggling and bracket auto-closing. |
 
 ## Experimental APIs and Breaking Changes
 Starting with our 17.9 release, we're ready to label the vast majority of our APIs as stable. That is, we don't plan to make any breaking changes to these APIs. Any breaking changes that might need to be made, for example in response to user feedback about usability, will be communicated formally and with plenty of notice on our [breaking changes](./docs/breaking_changes.md) page.
