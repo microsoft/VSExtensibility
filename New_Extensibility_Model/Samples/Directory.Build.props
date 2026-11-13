@@ -39,6 +39,17 @@
       CA1303: Do not pass literals as localized parameters
     -->
     <NoWarn>$(NoWarn);CA1812;CA1303</NoWarn>
+
+		<!--
+      Nuget warnings.
+
+      Samples are built against older versions of packages, so the vulnerability warnings are not relevant.
+			For assemblies that are included in the Visual Studio installation, a supported version of Visual Studio
+			always ships with supported versions of those assemblies that are used at runtime.
+      NU1902: Package has known moderate severity vulnerabilities
+      NU1903: Package has known high severity vulnerabilities
+    -->
+		<NoWarn>$(NoWarn);NU1902;NU1903</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>

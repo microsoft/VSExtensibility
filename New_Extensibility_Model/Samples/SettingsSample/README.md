@@ -45,7 +45,7 @@ The observer is made available to dependency injection by calling `serviceCollec
 [here](./MyToolWindow.cs);
 
 In `MyToolWindowData`, the observer is used to monitor the values of the settings in the
-`SettingSampleCategory`. The `SettingsSampleCategoryObserver` is generated under the `Settings`
+`SettingsSampleCategory`. The `SettingsSampleCategoryObserver` is generated under the `Settings`
 child namespace of the extension's namespace.
 
 ```csharp
@@ -84,7 +84,7 @@ this.extensibility.Settings().WriteAsync(
         batch.WriteSetting(SettingDefinitions.AutoUpdateSetting, !value);
     },
     description: Resources.AutoUpdateSettingWriteDescription,
-    CancellationToken.None);```
+    CancellationToken.None);
 ```
 
 ## Usage

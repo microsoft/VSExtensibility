@@ -28,12 +28,12 @@ public class UploaderExtensionCommand : Command
     };
 
     /// <inheritdoc />
-    public override async Task ExecuteCommandAsync(IClientContext clientContext, CancellationToken cancellationToken)
+    public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
         DataBinding dataBinding = new DataBinding(this.Extensibility);
         try
         {
-            await dataBinding.InitializeAsync(clientContext, cancellationToken);
+            await dataBinding.InitializeAsync(context, cancellationToken);
         }
         catch
         {

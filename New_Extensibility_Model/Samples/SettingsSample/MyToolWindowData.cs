@@ -66,7 +66,11 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
     [DataMember]
     public bool ManualUpdate
     {
-        get => this.manualUpdate;
+        get
+        {
+            return this.manualUpdate;
+        }
+
         set
         {
             if (this.SetProperty(ref this.manualUpdate, value))

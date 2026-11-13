@@ -20,10 +20,10 @@ public class OpenFolderCommand(VisualStudioExtensibility extensibility) : Comman
         Icon = new(ImageMoniker.KnownValues.OpenFileDialog, IconSettings.IconAndText),
     };
 
-    public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken ct)
+    public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
         FolderDialogOptions options = new();
-        string? folderPath = await this.Extensibility.Shell().ShowOpenFolderDialogAsync(options, ct);
+        string? folderPath = await this.Extensibility.Shell().ShowOpenFolderDialogAsync(options, cancellationToken);
         Debug.WriteLine($"Selected folder path: {folderPath ?? "No selection"}");
     }
 }

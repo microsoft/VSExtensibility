@@ -21,7 +21,7 @@ public class OpenMultipleFilesCommand(VisualStudioExtensibility extensibility) :
         Icon = new(ImageMoniker.KnownValues.OpenFileDialog, IconSettings.IconAndText),
     };
 
-    public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken ct)
+    public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
         FileDialogOptions options = new()
         {
@@ -31,7 +31,7 @@ public class OpenMultipleFilesCommand(VisualStudioExtensibility extensibility) :
                 new("CSharp Files", "*.cs")),
         };
 
-        IReadOnlyList<string>? filePaths = await this.Extensibility.Shell().ShowOpenMultipleFilesDialogAsync(options, ct);
+        IReadOnlyList<string>? filePaths = await this.Extensibility.Shell().ShowOpenMultipleFilesDialogAsync(options, cancellationToken);
         Debug.WriteLine($"Selected file paths: {string.Join('\n', filePaths ?? [])}");
     }
 }
