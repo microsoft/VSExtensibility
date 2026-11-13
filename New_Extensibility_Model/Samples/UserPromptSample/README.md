@@ -146,18 +146,50 @@ string? feedback = await shell.ShowPromptAsync(
     cancellationToken);
 ```
 
-If you don't want to provide `DefaultText`, you can use the simpler built-in `InputPromptOptions.Default` as a starting point.
+If you don't want to provide `DefaultText`, you can use `InputPromptOptions.Default` as a
+starting point. The project-name prompt uses `Validation` to require a name starting
+with a letter and containing only letters, numbers, hyphens, or underscores:
 
 ```csharp
 string? projectName = await shell.ShowPromptAsync(
     "Enter the name of the project to configure?",
-    InputPromptOptions.Default with { Title = Title },
+    InputPromptOptions.Default with
+    {
+        Title = Title,
+        Validation = new InputValidation(
+            @"^[A-Za-z][A-Za-z0-9_-]*$",
+            "Start with a letter; use only letters, numbers, hyphens, or underscores."),
+    },
     cancellationToken);
 ```
 
-Input prompts always show a dismiss button, and can be also be dismssed by the user using the `Esc` key. When the user dismisses
-an input prompt, the return value will be `null`. If the user accepts the `DefaultText` using 'OK' or by pressing `Enter`, the return
-value will be the default text.
+Until the input matches, the prompt displays the error message and disables OK. Input
+prompts always show a dismiss button and can also be dismissed with `Esc`. Dismissal
+returns `null`, which this command treats as no project name and does not configure
+anything. If the user accepts `DefaultText` using OK or `Enter`, the return value is
+the default text.
+
+### Asynchronous validation
+
+The same project-name prompt also sets `ValidationCallback` to reject the reserved
+Windows name `CON`. The SDK calls this callback after the regex check passes and
+debounces calls while the user types. The short delay stands in for an asynchronous
+lookup; the cancellation token cancels a validation request that is no longer needed.
+The callback returns an error message to disable OK, or `null` to accept the name:
+
+```csharp
+ValidationCallback = async (input, token) =>
+{
+    // Simulate an asynchronous lookup without relying on an external service.
+    await Task.Delay(150, token);
+    return string.Equals(input, "CON", StringComparison.OrdinalIgnoreCase)
+        ? "CON is a reserved Windows name; choose another project name."
+        : null;
+},
+```
+
+Try `CON` to see the callback error, or `MyProject` to continue. Dismissing the
+prompt still returns `null` without configuring a project.
 
 ## Usage
 

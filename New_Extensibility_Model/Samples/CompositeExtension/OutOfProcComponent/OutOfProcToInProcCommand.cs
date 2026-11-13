@@ -28,7 +28,7 @@ internal class OutOfProcToInProcCommand : Command
 
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
-        var inProcService = await this.Extensibility.ServiceBroker.GetProxyAsync<IOutOfProcService>(IInProcService.Configuration.ServiceDescriptor, cancellationToken);
+        var inProcService = await this.Extensibility.ServiceBroker.GetProxyAsync<IInProcService>(IInProcService.Configuration.ServiceDescriptor, cancellationToken);
         try
         {
             Assumes.NotNull(inProcService);

@@ -34,10 +34,7 @@ internal class TextViewEventListener : ExtensionPart, ITextViewOpenClosedListene
     /// <inheritdoc/>
     public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
     {
-        AppliesTo =
-        [
-            DocumentFilter.FromGlobPattern("**/*.md", true),
-        ],
+        AppliesTo = [DocumentFilter.FromGlobPattern("**/*.md", true)],
     };
 
     /// <inheritdoc />
@@ -47,14 +44,14 @@ internal class TextViewEventListener : ExtensionPart, ITextViewOpenClosedListene
     }
 
     /// <inheritdoc />
-    public async Task TextViewClosedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
+    public async Task TextViewClosedAsync(ITextViewSnapshot textView, CancellationToken cancellationToken)
     {
-        await this.diagnosticsProvider.ClearEntriesForDocumentAsync(textViewSnapshot.Document.Uri, cancellationToken);
+        await this.diagnosticsProvider.ClearEntriesForDocumentAsync(textView.Document.Uri, cancellationToken);
     }
 
     /// <inheritdoc />
-    public Task TextViewOpenedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
+    public Task TextViewOpenedAsync(ITextViewSnapshot textView, CancellationToken cancellationToken)
     {
-        return this.diagnosticsProvider.ProcessTextViewAsync(textViewSnapshot, cancellationToken);
+        return this.diagnosticsProvider.ProcessTextViewAsync(textView, cancellationToken);
     }
 }

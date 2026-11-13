@@ -3,6 +3,11 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Repo-specific
+
+# Often added for testing, we don't want this file committed to the repo.
+nuget.config
+
 # User-specific files
 *.rsuser
 *.suo

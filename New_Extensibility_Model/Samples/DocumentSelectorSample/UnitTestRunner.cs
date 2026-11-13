@@ -14,10 +14,10 @@ using Microsoft.VisualStudio.Extensibility.Editor;
 /// This text view event listener monitors users opening/modifying/closing C# files in "tests" folder and emulates running
 /// unit tests in these files.
 /// </summary>
-#pragma warning disable VSEXTPREVIEW_OUTPUTWINDOW // Type is for evaluation purposes only and is subject to change or removal in future updates.
 [VisualStudioContribution]
 internal class UnitTestRunner : ExtensionPart, ITextViewOpenClosedListener, ITextViewChangedListener
 {
+    private readonly TextViewChangesAggregator textViewChangesAggregator;
     private OutputChannel? outputChannel;
 
     /// <summary>
@@ -28,40 +28,42 @@ internal class UnitTestRunner : ExtensionPart, ITextViewOpenClosedListener, ITex
     public UnitTestRunner(Extension extension, VisualStudioExtensibility extensibility)
         : base(extension, extensibility)
     {
+        this.textViewChangesAggregator = new((beforeTextView, afterTextView, cancellationToken) => this.RunUnitTestsAfterDelayAsync(afterTextView, cancellationToken));
     }
 
     /// <inheritdoc />
     public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
     {
-        AppliesTo =
-            [
-                DocumentFilter.FromGlobPattern("**/tests/*.cs", relativePath: false),
-            ],
+        AppliesTo = [DocumentFilter.FromGlobPattern("**/tests/*.cs", relativePath: false)],
     };
 
     /// <inheritdoc />
     public Task TextViewChangedAsync(TextViewChangedArgs args, CancellationToken cancellationToken)
     {
-        return this.RunUnitTestsAfterDelayAsync(args.AfterTextView, cancellationToken);
+        return this.textViewChangesAggregator.TextViewChangedAsync(args, cancellationToken);
     }
 
     /// <inheritdoc />
-    public Task TextViewOpenedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
+    public Task TextViewOpenedAsync(ITextViewSnapshot textView, CancellationToken cancellationToken)
     {
-        return this.RunUnitTestsAfterDelayAsync(textViewSnapshot, cancellationToken);
+        return this.RunUnitTestsAfterDelayAsync(textView, cancellationToken);
     }
 
     /// <inheritdoc />
-    public Task TextViewClosedAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
+    public Task TextViewClosedAsync(ITextViewSnapshot textView, CancellationToken cancellationToken)
     {
-        return this.StopUnitTestsAsync(textViewSnapshot, cancellationToken);
+        return this.StopUnitTestsAsync(textView, cancellationToken);
     }
 
     /// <inheritdoc />
     protected override void Dispose(bool isDisposing)
     {
         base.Dispose(isDisposing);
-        this.outputChannel?.Dispose();
+        if (isDisposing)
+        {
+            this.outputChannel?.Dispose();
+            this.textViewChangesAggregator.Dispose();
+        }
     }
 
     private async Task RunUnitTestsAfterDelayAsync(ITextViewSnapshot textViewSnapshot, CancellationToken cancellationToken)
@@ -83,4 +85,3 @@ internal class UnitTestRunner : ExtensionPart, ITextViewOpenClosedListener, ITex
         await this.outputChannel.WriteLineAsync(message);
     }
 }
-#pragma warning restore VSEXTPREVIEW_OUTPUTWINDOW // Type is for evaluation purposes only and is subject to change or removal in future updates.

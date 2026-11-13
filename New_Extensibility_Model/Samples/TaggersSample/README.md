@@ -13,72 +13,99 @@ that provides CodeLens tags for the same titles.
 
 A tagger provider is an extension part that provides taggers for a document:
 
-```cs
+```csharp
 [VisualStudioContribution]
-internal class MarkdownTextMarkerTaggerProvider : ExtensionPart, ITextViewTaggerProvider<TextMarkerTag>
+internal class MarkdownTextMarkerTaggerProvider : TextViewTaggerProvider<TextMarkerTag, MarkdownTextMarkerTagger>
 {
-    public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
+    public override TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
     {
         AppliesTo = [DocumentFilter.FromDocumentType("vs-markdown")],
     };
-
-    public Task<TextViewTagger<TextMarkerTag>> CreateTaggerAsync(ITextViewSnapshot textView, CancellationToken cancellationToken)
-    {
-        var tagger = new MarkdownTextMarkerTagger(this, textView.Document.Uri);
-        return Task.FromResult<TextViewTagger<TextMarkerTag>>(tagger);
-    }
 }
 ```
 
 The `VisualStudioContribution` attribute makes the tagger provider available to Visual Studio.
 The `TextViewExtensionConfiguration` property specifies to which files the tagger provider
-applies to. The `CreateTaggerAsync` method creates a tagger for the provided text view.
+applies. `TextViewTaggerProvider<TTag, TTagger>` creates the taggers and forwards text view
+changes to them, so this sample does not need to maintain a registry of active taggers.
+See [MarkdownTextMarkerTaggerProvider.cs](./MarkdownTextMarkerTaggerProvider.cs).
 
-A tagger provider generally also implement `ITextViewChangedListener` to be notified when the
-a text view changes. Such notifications are then forwarded to the corresponding tagger. This
-requires keeping a reference to all active taggers and to which text view they belong to.
-See [MarkdownTextMarkerTaggerProvider.cs](./MarkdownTextMarkerTaggerProvider.cs) for the full implementation.
+For other editor extensions that handle changes without producing tags, such as the
+[WordCountMargin](../WordCountMargin/TextViewMarginProvider.cs), `TextViewChangesAggregator`
+can combine successive edit notifications before updating the UI.
 
 ## Tagger
 
-The tagger, [MarkdownTextMarkerTagger](./MarkdownTextMarkerTagger.cs), reacts to requests for
-tags (`RequestTagsAsync`) and to changes in the document (`TextViewChangedAsync`). When either
-of these methods is called, the tagger creates tags for the relevant ranges in the document and
-returns them by calling `UpdateTagsAsync`.
+The tagger, [MarkdownTextMarkerTagger](./MarkdownTextMarkerTagger.cs), overrides
+`OnRequestTagsAsync` and `OnTextViewChangedAsync` to handle requests for tags and changes
+to the document. It sends updated tags for the relevant ranges through `UpdateTagsAsync`.
 
 In this case, the tagger is fairly quick to compute tags because it can just look for lines that
 have been modified or requested tags for. If a line starts with a `#` character, then a tag
 should be created for that line. A tagger that can work on small subsets of the document is much
-easier to implement since it can provide quick updates for every request (`RequestTagsAsync` and
-`TextViewChangedAsync`) without needing complex synchronization logic.
+easier to implement since it can provide quick updates for every request (`OnRequestTagsAsync`
+and `OnTextViewChangedAsync`) without needing complex synchronization logic.
 
 ### Handling text view changes
 
-While tags are generated using the same code for both `RequestTagsAsync` and `TextViewChangedAsync`,
-handling text view changes requires a some additional locic:
+While tags are generated using the same code for both callbacks, handling text view changes
+requires a few additional steps:
 
-- All edited ranges must be translated to the current snapshot.
-- When the user deletes text, this results in an empty range for the current snapshot (E.g. `"deleted text" => ""`). We need to fix those ranges to be at least 1 character long to avoid them being ignored in the next step.
+- Use each edit's `RangeAfterEdit`, which refers to the current snapshot.
+- When the user deletes text, the resulting range can be empty. Expand it so that it is not ignored in the next step.
 - Intersect the edited ranges with the ranges that tags were previously requested. For example, if the user pastes a large portion of text, Visual Studio may not request tags for the portion that falls outside of the visible area.
 
-```cs
-public async Task TextViewChangedAsync(ITextViewSnapshot textView, IReadOnlyList<TextEdit> edits, CancellationToken cancellationToken)
+```csharp
+protected override async Task OnTextViewChangedAsync(TextViewChangedArgs args, CancellationToken cancellationToken)
 {
-    var allRequestedRanges = await this.GetAllRequestedRangesAsync(textView.Document, cancellationToken);
+    if (args.Edits.Count == 0)
+    {
+        return;
+    }
+
+    var allRequestedRanges = await this.GetAllRequestedRangesAsync(args.AfterTextView.Document, cancellationToken);
     await this.CreateTagsAsync(
-        textView.Document,
+        args.AfterTextView.Document,
         allRequestedRanges.Intersect(
-            edits.Select(e =>
-                EnsureNotEmpty(
-                    e.Range.TranslateTo(textView.Document, TextRangeTrackingMode.ExtendForwardAndBackward)))));
+            args.Edits.Select(e => EnsureNotEmpty(e.RangeAfterEdit))));
 }
+```
+
+### Custom marker style
+
+The sample contributes a `TextMarkerStyleConfiguration` for Markdown headings. The
+`HeaderStyle` sets a dashed border and background and border colors for light, dark,
+and high-contrast themes. Each tag refers to that style rather than to a built-in
+marker type:
+
+```csharp
+[VisualStudioContribution]
+private static TextMarkerStyleConfiguration HeaderStyle { get; } = new(
+    "MarkerFormatDefinition/TaggersSample.MarkdownHeader",
+    "%TaggersSample.MarkdownTextMarkerTagger.HeaderStyle.DisplayName%")
+{
+    BorderDashStyle = PenDashStyle.Dash,
+    BorderThickness = 2,
+    ThemedColors = new()
+    {
+        [Theme.KnownValues.Light] = new(
+            BackgroundColor: UIColor.KnownColors.LightSeaGreen,
+            BorderColor: 0xFFFF0000),
+        [Theme.KnownValues.Dark] = new(
+            BackgroundColor: UIColor.KnownColors.Teal,
+            BorderColor: UIColor.Rgb(r: byte.MaxValue, 0, 0)),
+        [Theme.KnownValues.HighContrast] = new(
+            BackgroundColor: UIColor.SysColors.COLOR_HIGHLIGHT,
+            BorderColor: UIColor.SysColors.COLOR_HIGHLIGHTTEXT),
+    },
+};
 ```
 
 ### Creating tags
 
 The `CreateTagsAsync` method is responsible for creating tags for the given ranges.
 
-The way ranges that are received from `RequestTagsAsync` and `TextViewChangedAsync` are generally not
+The ranges received from `OnRequestTagsAsync` and `OnTextViewChangedAsync` are generally not
 aligned with the syntax of the document. For example, a range may start in the middle of a word. For
 better consistency, a tagger should break up the document into meaningful sections and create tags
 for them.
@@ -89,19 +116,17 @@ for each line.
 
 Tags are returned by calling `UpdateTagsAsync`:
 
-```cs
+```csharp
 private async Task CreateTagsAsync(ITextDocumentSnapshot document, IEnumerable<TextRange> requestedRanges)
 {
     List<TaggedTrackingTextRange<TextMarkerTag>> tags = new();
     List<TextRange> ranges = new();
-    
     foreach (var lineNumber in requestedRanges.SelectMany(r =>
-        {
-            // Convert the requested range to line numbers.
-            var startLine = r.Document.GetLineNumberFromPosition(r.Start);
-            var endLine = r.Document.GetLineNumberFromPosition(r.End);
-            return Enumerable.Range(startLine, endLine - startLine + 1);
-        }).Distinct()) // Use Distinct to avoid processing the same line multiple times.
+    {
+        var startLine = r.Document.GetLineNumberFromPosition(r.Start);
+        var endLine = r.Document.GetLineNumberFromPosition(r.End);
+        return Enumerable.Range(startLine, endLine - startLine + 1);
+    }).Distinct())
     {
         var line = document.Lines[lineNumber];
         if (line.Text.StartsWith("#"))
@@ -109,39 +134,31 @@ private async Task CreateTagsAsync(ITextDocumentSnapshot document, IEnumerable<T
             int len = line.Text.Length;
             if (len > 0)
             {
-                // VisualStudio.Extensibility doesn't support defining new TextMarker types yet, so we use
-                // the built-in FindHighlight TextMarker type.
                 tags.Add(new(
                     new(document, line.Text.Start, len, TextRangeTrackingMode.ExtendForwardAndBackward),
-                    new("MarkerFormatDefinition/FindHighlight")));
+                    new(HeaderStyle)));
             }
         }
-        
-        // Add the range to the list of ranges we have calculated tags for. We add the range even if no tags
-        // were created for it, this takes care of clearing any tags that were previously created for this
-        // range and are not valid anymore.
+
         ranges.Add(new(document, line.TextIncludingLineBreak.Start, line.TextIncludingLineBreak.Length));
     }
-    
-    // Return the ranges we have calculated tags for and the tags themselves.
+
     await this.UpdateTagsAsync(ranges, tags, CancellationToken.None);
 }
 ```
 
 ## Implementing "slow" taggers
 
-Certain taggers may need to peform more complex operations to compute tags. Such complex operations may
-not be reliably executed for each edit or `RequestTagsAsync` call.
+Certain taggers may need to perform more complex operations to compute tags.
 
 For example, the [MarkdownCodeLensTaggerProvider](MarkdownCodeLensTaggerProvider.cs) is used to add a
 CodeLens showing the ID for each section in a markdown file. Such tags cannot be evaluated line-by-line
 because the ID of a section may depend on the IDs of previous sections.
 
-`MarkdownCodeLensTaggerProvider` addresses this by always recalculating tags for the entire document each
-time. A full recalculation of all tags can be slow for large documents, so it cannot be done for every
-edit or `RequestTagsAsync` call. Instead it synchronizes tags evaluations so that only one is ever running
-at a time and always on the latest snapshot. It also avoids queueing a new evaluation if edits didn't
-affect lines with section titles.
+`MarkdownCodeLensTagger` recalculates tags for the entire document when tags are requested.
+On edits, it recalculates only if a line starting with `#` was touched before or after the
+edit; other edits do not trigger a recalculation. Unlike the text marker tagger, it cannot
+update a single modified line because section identifiers depend on preceding sections.
 
-This may result in a longer delay before tags are updated compared to a simpler tagger, like
-`MarkdownTextMarkerTagger`, which can reliably operate on every single edit and `RequestTagsAsync` call.
+This may take longer than a simpler tagger like `MarkdownTextMarkerTagger`, which can update
+only the edited and requested lines.

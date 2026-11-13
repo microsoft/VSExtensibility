@@ -22,7 +22,7 @@ public sealed class MyPackage : AsyncPackage
     {
         this.AddService(
             typeof(MyService),
-            (container, cancellationToken, serviceType) => Task.FromResult<object>(new MyService()),
+            (container, cancellationToken, serviceType) => Task.FromResult<object?>(new MyService()),
             promote: true);
 
         this.DoSomethingAsync()

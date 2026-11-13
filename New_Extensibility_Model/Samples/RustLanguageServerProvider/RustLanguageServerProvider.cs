@@ -45,9 +45,7 @@ internal class RustLanguageServerProvider : LanguageServerProvider
         info.UseShellExecute = false;
         info.CreateNoWindow = true;
 
-#pragma warning disable CA2000 // The process is disposed after Visual Studio sends the stop command.
         Process process = new Process();
-#pragma warning restore CA2000 // Dispose objects before losing scope.
         process.StartInfo = info;
 
         if (process.Start())

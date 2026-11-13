@@ -6,22 +6,20 @@ date: 2024-01-30
 
 # Known Issues
 
-This is a list of known issues with VisualStudio.Extensibility. We'll keep this page updated if any fixes or workarounds become available.
+This page keeps a short record of issues that were previously known in VisualStudio.Extensibility and the releases that fixed them. Current issues, when identified, will be added here.
 
-## Out-of-process extensions won't install on ARM64 machines
+## Historical issue: out-of-process extensions on ARM64
 
-We've found a bug that prevents fully out-of-process VisualStudio.Extensibility extensions from installing on ARM64 systems. In the meantime, you could structure your extension as an [in-proc/VSSDK-compatible extension](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/get-started/in-proc-extensions) if you need ARM64 compatability.
+Older VisualStudio.Extensibility builds prevented fully out-of-process extensions from installing on ARM64 systems. If you needed ARM64 compatibility before the fix, you could structure your extension as an [in-proc/VSSDK-compatible extension](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/get-started/in-proc-extensions).
 
-**This issue is now fixed with Visual Studio 17.12 release.** 
+This issue was fixed in Visual Studio 17.12.
 
 *Last updated on 09-September-2024*
 
-## Hot-loading issue when language packs are installed
+## Historical issue: hot-loading with language packs
 
-With Visual Studio 2022 17.9, we've added the ability to publish VisualStudio.Extensibility-based extensions in the Visual Studio Marketplace. Users can then find your extensions in the Marketplace, and they can install them without closing or restarting Visual Studio, which we call "hot-loading".
+Older Visual Studio 2022 17.9 builds had a hot-loading issue when a language pack was installed. Instead of installing without restarting Visual Studio, the extension needed a restart.
 
-We've discovered that if you have a Language Pack installed with Visual Studio, hot-loading new extensions won't work. Instead, until we release a fix, you'll need to close and restart Visual Studio after installing your extensions like you would for traditional non-VisualStudio.Extensibility extensions.
-
-**This issue is now fixed with Visual Studio 17.11 release.**
+This issue was fixed in Visual Studio 17.11.
 
 *Last updated on 10-25-2024*

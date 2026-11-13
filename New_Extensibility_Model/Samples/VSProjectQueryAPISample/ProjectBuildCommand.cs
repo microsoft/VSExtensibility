@@ -30,7 +30,7 @@ public class ProjectBuildCommand : Command
             project => project.Where(p => p.Name == projectName),
             cancellationToken);
 
-        await result.First().BuildAsync(cancellationToken);
+        await result.First().BuildAsync(waitForCompletion: false, cancellationToken);
 
         await this.Extensibility.Shell().ShowPromptAsync($"Building project {projectName}.", PromptOptions.OK, cancellationToken);
     }

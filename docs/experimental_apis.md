@@ -18,9 +18,7 @@ Here are some examples of the situations in which we would use the `[Experimenta
 Using an experimental API in your extension will result in a build error, which is designed to prevent developers from unintentionally using code that is likely to change in future versions.
 
 ### Build errors
-The error begins with `VSEXTPREVIEW_` and includes the specific experimental feature being used. For example, if you use the experimental output window feature, you will see `VSEXTPREVIEW_OUTPUTWINDOW`:
-
-![Localization directory structure](./media/experimental_api_error.png)
+The error begins with `VSEXTPREVIEW_` and includes the specific experimental feature being used. For example, using an experimental LSP API produces `VSEXTPREVIEW_LSP`.
 
 ### Disable experimental API build errors
 
@@ -31,28 +29,23 @@ You can disable the build errors either in your source code for the files where 
 Place the following `#pragma` statement in your source code where you use the experimental APIs:
 
 ```csharp
-#pragma warning disable VSEXTPREVIEW_OUTPUTWINDOW // Type is for evaluation purposes only and is subject to change or removal in future updates.
+#pragma warning disable VSEXTPREVIEW_LSP // Type is for evaluation purposes only and is subject to change or removal in future updates.
 ```
 
 #### In project file
 
-To disable the build error for all uses of each experimental API across all files in your project, you can add a `<NoWarn>` element to your `.csproj` file. For example, to disable the build error for all uses of the output window experimental API in your project, add this statement to your project file:
+To disable the build error for all uses of each experimental API across all files in your project, you can add a `<NoWarn>` element to your `.csproj` file. For example, to disable the build error for all uses of an experimental LSP API in your project, add this statement to your project file:
 
 ```xml
-<NoWarn>$(NoWarn);VSEXTPREVIEW_OUTPUTWINDOW</NoWarn>
+<NoWarn>$(NoWarn);VSEXTPREVIEW_LSP</NoWarn>
 ```
 
 ## Current experimental APIs
 
-Currently these features are experimental:
+The following features are experimental:
 
 | Feature | Label | Notes |
 |---------|-------|-------|
-| Output Window | VSEXTPREVIEW_OUTPUTWINDOW | |
 | LSP | VSEXTPREVIEW_LSP | |
-| Settings | VSEXTPREVIEW_SETTINGS | |
 | Project Query Tracking | VSEXTPREVIEW_PROJECTQUERY_TRACKING | [`TrackUpdatesAsync`](https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.projectsystem.query.iasyncqueryable-1.trackupdatesasync) is a preview API. |
-| Project Query Properties and Build Properties | VSEXTPREVIEW_PROJECTQUERY_PROPERTIES_BUILDPROPERTIES | Property-related APIs like [this](https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.projectsystem.query.filepropertiesfilterextensions.propertiesbyrulename) property are preview APIs. |
-| Code lens | VSEXTPREVIEW_CODELENS | |
-| Taggers | VSEXTPREVIEW_TAGGERS | |
-| Debugger Visualizers Expression | VSEXTPREVIEW_DEBUGGERVISUALIZERS_EXPRESSION | The [`OriginalVisualizedExpression`](https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.extensibility.debuggervisualizers.visualizertarget.originalvisualizedexpression) property and the [related event](https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.extensibility.debuggervisualizers.visualizertarget.visualizedexpressionchanged) are preview APIs. |
+| Project Query VC properties | VSEXTPREVIEW_PROJECTQUERY_PROPERTIES_VCPROJECTS | Property-related APIs like [this](https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.projectsystem.query.filepropertiesfilterextensions.propertiesbyrulename) property are preview APIs. |

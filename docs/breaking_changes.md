@@ -10,6 +10,32 @@ We work hard to minimize breaking changes between versions to help minimize disr
 
 For more information how our policy and guidance towards breaking changes, please review [here](#Guidance-and-Expectations-Around-Breaking-Changes).
 
+# Breaking Changes for Visual Studio 18.11
+
+The following VisualStudio.Extensibility API changes apply when updating from 17.14 to 18.11.
+
+## VisualStudio.Extensibility
+
+### Classification type assembly
+
+`Microsoft.VisualStudio.Extensibility.Editor.ClassificationType` moved from `Microsoft.VisualStudio.Extensibility.dll` to `Microsoft.VisualStudio.Extensibility.Contracts.dll`. Its namespace and type name remain the same. Rebuild extensions against the newer SDK; see the [Classification Sample](../New_Extensibility_Model/Samples/ClassificationSample/README.md) for current classification definitions.
+
+### Text view taggers
+
+`ITextViewTaggerProvider<T>.CreateTaggerAsync` now returns `Task<TextViewTaggerBase<T>>` instead of `Task<TextViewTagger<T>>`. Implementations of the interface must update their return type. The built-in `TextViewTaggerProvider<TTag, TTagger>` handles tagger creation for the common case.
+
+`TextViewTagger<T>.RequestTagsAsync` and `Dispose` are no longer overridable. Taggers derived from `TextViewTagger<T>` must instead implement the new abstract `OnRequestTagsAsync` and `OnTextViewChangedAsync` callbacks. For low-level control over tag requests or disposal, derive from `TextViewTaggerBase<T>`. See the [Taggers Sample](../New_Extensibility_Model/Samples/TaggersSample/README.md).
+
+### Client context implementations
+
+`IClientContext` gained `TryGetValue(string, out string?)`. Extensions that implement this interface must implement the new member; code that only consumes a client context does not need to change for this addition. In 18.11, `IClientContext` remains in `Microsoft.VisualStudio.Extensibility.Framework.dll`, and `Extensibility` and `ServiceBrokerClient` remain interface properties.
+
+### Array settings
+
+`Setting.EnumArray.ItemsAreUnique` was removed. Remove uses of this property when updating enum array settings.
+
+`Setting.StringArray` and `Setting.FormattedStringArray` are unavailable in 18.11. Remove uses of these types when targeting this SDK. The [Settings Sample](../New_Extensibility_Model/Samples/SettingsSample/README.md) demonstrates Boolean, integer, and enum settings instead.
+
 # Breaking Changes for Visual Studio 2022 17.14
 The following breaking changes apply to Visual Studio 2022 17.14 and above.
 

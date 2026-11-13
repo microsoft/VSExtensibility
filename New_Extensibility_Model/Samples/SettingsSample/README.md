@@ -9,6 +9,8 @@ date: 2024-08-20
 This is a simple extension that shows how settings can be added to Visual Studio and read
 to configure the behavior of a tool window.
 
+The sample demonstrates Boolean, integer, and enum settings.
+
 ## Tool window definition
 
 See the [ToolWindowSample](../ToolWindowSample/README.md) for more information on defining
@@ -45,7 +47,7 @@ The observer is made available to dependency injection by calling `serviceCollec
 [here](./MyToolWindow.cs);
 
 In `MyToolWindowData`, the observer is used to monitor the values of the settings in the
-`SettingSampleCategory`. The `SettingsSampleCategoryObserver` is generated under the `Settings`
+`SettingsSampleCategory`. The `SettingsSampleCategoryObserver` is generated under the `Settings`
 child namespace of the extension's namespace.
 
 ```csharp
@@ -84,13 +86,30 @@ this.extensibility.Settings().WriteAsync(
         batch.WriteSetting(SettingDefinitions.AutoUpdateSetting, !value);
     },
     description: Resources.AutoUpdateSettingWriteDescription,
-    CancellationToken.None);```
+    CancellationToken.None);
 ```
 
 ## Usage
 
 Once deployed, the "Sample Text Tool Window" command can be used to show the "Settings
 Sample Tool Window" in the document well.
+
+### A command enabled by a setting
+
+The [Enable Sample Text Auto Update command](./EnableAutoUpdateCommand.cs) uses
+`ActivationConstraint.Setting` to be enabled only when `AutoUpdateSetting` is `false`.
+Its `CommandConfiguration.Description` provides explanatory text in Feature Search.
+The tool-window command remains available regardless of the setting value.
+
+To try both states, open **Tools > Sample Text Tool Window**. By default, auto-update
+is on, so **Tools > Enable Sample Text Auto Update** is disabled. Select **Manual
+update** in the tool window to turn auto-update off; the command becomes enabled.
+Run it to turn auto-update back on, and the command becomes disabled again.
+
+```csharp
+EnabledWhen = ActivationConstraint.Setting(SettingDefinitions.AutoUpdateSetting, false),
+Description = "%SettingsSample.EnableAutoUpdateCommand.Description%",
+```
 
 ### Changing the TextLengthSetting
 
@@ -116,11 +135,5 @@ The string key is the `FullId` property of the `TextLengthSetting` property defi
 the id of the setting.
 
 Each time you change the value and save the file, the sample text in the tool window will
-update.
-
-## Current Limitations
-
-The settings API is currently experimental, and has several limitations:
-
-* An extension can only read or write settings from itself or other extensions. Core Visual Studio settings are not available.
-* There is no UI for extension settings. They can only be changed by using the json files available in the Extensions -> Extension Settings (experimental) menu.
+update if **Manual update** is not selected. In manual mode, click **Update Sample Text
+From Settings** to read the current settings and refresh the text.

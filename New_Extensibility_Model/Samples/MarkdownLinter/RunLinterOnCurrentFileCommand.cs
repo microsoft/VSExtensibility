@@ -55,11 +55,10 @@ internal class RunLinterOnCurrentFileCommand : Command
         cancellationToken.ThrowIfCancellationRequested();
         try
         {
-            // Get the selected item URIs from IDE context that represents the state when command was executed.
-            Uri[] selectedItemPaths = [await context.GetSelectedPathAsync(cancellationToken)];
+            // Get the selected item URI from IDE context that represents the state when command was executed.
+            var selectedItem = await context.GetActiveDocumentUriAsync(cancellationToken);
 
-            // Enumerate through each selection and run linter on each selected item.
-            foreach (var selectedItem in selectedItemPaths.Where(p => p.IsFile))
+            if (selectedItem is not null)
             {
                 await this.diagnosticsProvider.ProcessFileAsync(selectedItem, cancellationToken);
             }

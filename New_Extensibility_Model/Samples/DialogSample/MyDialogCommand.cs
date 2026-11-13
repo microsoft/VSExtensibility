@@ -24,11 +24,7 @@ public class MyDialogCommand : Command
     /// <inheritdoc />
     public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
-        // Ownership of the RemoteUserControl is transferred to VisualStudio, so it should not be disposed by the extension
-        #pragma warning disable CA2000 // Dispose objects before losing scope
         var control = new MyDialogControl(null);
-        #pragma warning restore CA2000 // Dispose objects before losing scope
-
         await this.Extensibility.Shell().ShowDialogAsync(control, cancellationToken);
     }
 }

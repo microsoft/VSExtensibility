@@ -11,8 +11,6 @@ using Microsoft.VisualStudio.Extensibility.ToolWindows;
 using Microsoft.VisualStudio.RpcContracts.RemoteUI;
 using SettingsSample.Settings;
 
-#pragma warning disable VSEXTPREVIEW_SETTINGS // Type is for evaluation purposes only and is subject to change or removal in future updates.
-
 /// <summary>
 /// A sample tool window.
 /// </summary>

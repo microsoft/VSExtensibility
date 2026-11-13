@@ -21,7 +21,6 @@ using Microsoft.VisualStudio.Threading;
 /// commands or editor listeners.
 /// </summary>
 /// <remarks>For a sample ingestion of this service, see <see cref="TextViewEventListener"/> constructor.</remarks>
-#pragma warning disable VSEXTPREVIEW_OUTPUTWINDOW // Type is for evaluation purposes only and is subject to change or removal in future updates.
 internal class MarkdownDiagnosticsService : DisposableObject
 {
 #pragma warning disable CA2213 // Disposable fields should be disposed, object now owned by this instance.
@@ -132,11 +131,11 @@ internal class MarkdownDiagnosticsService : DisposableObject
     }
 
     /// <inheritdoc />
-    protected override void Dispose(bool isDisposing)
+    protected override void Dispose(bool disposing)
     {
-        base.Dispose(isDisposing);
+        base.Dispose(disposing);
 
-        if (isDisposing)
+        if (disposing)
         {
             this.outputChannel?.Dispose();
             this.diagnosticsReporter?.Dispose();
@@ -176,4 +175,3 @@ internal class MarkdownDiagnosticsService : DisposableObject
         Assumes.NotNull(this.diagnosticsReporter);
     }
 }
-#pragma warning restore VSEXTPREVIEW_OUTPUTWINDOW // Type is for evaluation purposes only and is subject to change or removal in future updates.

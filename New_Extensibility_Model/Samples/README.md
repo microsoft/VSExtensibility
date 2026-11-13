@@ -3,24 +3,8 @@
 Each sample directory may have its own `README.md` file to describe its specific scenario
 and call out interesting aspects to its sample.
 
-Samples include:
-
-| Sample | Description|
-|-|-|
-| [Simple command handler](./SimpleRemoteCommandSample) | Demonstrates the basics of working with commands. See also the [Create your first extension](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/get-started/create-your-first-extension) tutorial.|
-| [Insert guid](./InsertGuid) | Shows how to insert text or code in the code editor, how to configure a command with a specific activation condition, and how to use a resource file for localization. See also the [tutorial](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/get-started/tutorial-create-simple-extension). |
-| [Command parenting](./CommandParentingSample) | Shows how to author a command that can be parented to different aspects of the IDE. |
-| [Document selector](./DocumentSelectorSample) | Shows how to create an editor extension that is only applicable to files matching a file path pattern. |
-| [Output window](./OutputWindowSample) | Shows the most basic use of the [Output Window API](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/output-window/output-window)|
-| [Tool window](./ToolWindowSample) | Shows how to create a tool window and populate it with content. |
-| [User prompt](./UserPromptSample) | Shows how to display a prompt to the user and gather simple input. |
-| [Dialog](./DialogSample) | Shows how to display a dialog with custom UI to the user. |
-| [Word count margin](./WordCountMargin) | Shows how to create an editor margin extension that displays the word count in a document. |
-| [Markdown linter](./MarkdownLinter) | A complete extension with many moving parts interacting to provide an enhanced experience in the editor for a certain file type. |
-| [Project Query](./VSProjectQueryAPISample) | Shows several different kinds of project system queries you can make. |
-| [Comment remover](./CommentRemover) | Shows how to consume [Visual Studio SDK](https://www.nuget.org/packages/Microsoft.VisualStudio.SDK) services through .NET dependency injection and use VisualStudio.Extensibility APIs for commands, prompts and progress report. |
-| [RegexMatchDebugVisualizer](./RegexMatchDebugVisualizer) | Shows how to use [Remote UI](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/inside-the-sdk/remote-ui) to create a [Debugger Visualizer](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/debugger-visualizer/debugger-visualizers) to visualize regular expression matches that will launch in a modal dialog window. |
-| [MemoryStreamDebugVisualizer](./MemoryStreamDebugVisualizer) | Shows how to create a [Debugger Visualizer](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/debugger-visualizer/debugger-visualizers) to visualize MemoryStream objects that launches in a non-modal tool window. |
+For defining, reading, and writing extension settings, see the
+[Settings Sample](SettingsSample/README.md).
 
 ## Contributing
 

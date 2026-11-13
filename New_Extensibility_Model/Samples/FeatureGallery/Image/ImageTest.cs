@@ -28,8 +28,6 @@ internal class ImageTest : TestData
 
     protected override async Task RunAsync(IClientContext clientContext, CancellationToken cancellationToken)
     {
-#pragma warning disable CA2000 // Dispose objects before losing scope. ModalDialogControl is passed to Visual Studio which will take care of disposing it
         await this.Extensibility.Shell().ShowDialogAsync(new Image.ModalDialogControl(), cancellationToken);
-#pragma warning restore CA2000 // Dispose objects before losing scope
     }
 }

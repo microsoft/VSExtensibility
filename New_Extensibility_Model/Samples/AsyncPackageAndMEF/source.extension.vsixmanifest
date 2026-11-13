@@ -6,15 +6,15 @@
     <Description xml:space="preserve">An extension demonstrating interactions between different parts of a VisualStudio.Extensibility extension that also provides MEF components and an AsyncPackage.</Description>
   </Metadata>
   <Installation ExtensionType="VSSDK+VisualStudio.Extensibility">
-    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.14,)">
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[18.0,)">
       <ProductArchitecture>amd64</ProductArchitecture>
     </InstallationTarget>
-    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.14,)">
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[18.0,)">
       <ProductArchitecture>arm64</ProductArchitecture>
     </InstallationTarget>
   </Installation>
   <Prerequisites>
-    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[17.0,)" DisplayName="Visual Studio core editor" />
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[18.0,)" DisplayName="Visual Studio core editor" />
   </Prerequisites>
   <Assets>
     <Asset Type="Microsoft.VisualStudio.VsPackage" Path="AsyncPackageAndMEF.pkgdef" />

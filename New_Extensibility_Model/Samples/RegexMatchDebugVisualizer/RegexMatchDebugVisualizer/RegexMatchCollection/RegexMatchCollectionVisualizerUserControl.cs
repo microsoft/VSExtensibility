@@ -33,22 +33,17 @@ internal class RegexMatchCollectionVisualizerUserControl : RemoteUserControl
     private ObservableCollection<RegexMatch> RegexMatches => (ObservableCollection<RegexMatch>)this.DataContext!;
 
     /// <inheritdoc/>
-    public override Task ControlLoadedAsync(CancellationToken cancellationToken)
+    public override async Task ControlLoadedAsync(CancellationToken cancellationToken)
     {
-        _ = Task.Run(async () =>
+        for (int i = 0; ; i++)
         {
-            for (int i = 0; ; i++)
+            RegexMatch? regexMatch = await this.visualizerTarget.ObjectSource.RequestDataAsync<int, RegexMatch?>(message: i, jsonSerializer: null, CancellationToken.None);
+            if (regexMatch is null)
             {
-                RegexMatch? regexMatch = await this.visualizerTarget.ObjectSource.RequestDataAsync<int, RegexMatch?>(message: i, jsonSerializer: null, CancellationToken.None);
-                if (regexMatch is null)
-                {
-                    break;
-                }
-
-                this.RegexMatches.Add(regexMatch);
+                break;
             }
-        });
 
-        return Task.CompletedTask;
+            this.RegexMatches.Add(regexMatch);
+        }
     }
 }

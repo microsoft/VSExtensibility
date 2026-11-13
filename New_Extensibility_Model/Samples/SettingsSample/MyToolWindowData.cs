@@ -12,8 +12,6 @@ using Microsoft.VisualStudio.Extensibility;
 using Microsoft.VisualStudio.Extensibility.UI;
 using SettingsSample.Settings;
 
-#pragma warning disable VSEXTPREVIEW_SETTINGS // Type is for evaluation purposes only and is subject to change or removal in future updates.
-
 /// <summary>
 /// A sample data context object to use with tool window UI content.
 /// </summary>
@@ -67,7 +65,11 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
     [DataMember]
     public bool ManualUpdate
     {
-        get => this.manualUpdate;
+        get
+        {
+            return this.manualUpdate;
+        }
+
         set
         {
             if (this.SetProperty(ref this.manualUpdate, value))

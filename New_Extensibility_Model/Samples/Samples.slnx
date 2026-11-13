@@ -1,0 +1,117 @@
+<Solution>
+  <Folder Name="/CompositeExtension/">
+    <File Path="CompositeExtension/README.md" />
+    <Project Path="CompositeExtension/CompositeExtension/CompositeExtension.csproj">
+      <Deploy />
+    </Project>
+    <Project Path="CompositeExtension/OutOfProcComponent/OutOfProcComponent.csproj">
+      <Deploy />
+    </Project>
+  </Folder>
+  <Folder Name="/ExtensionWithTraditionalComponents/">
+    <File Path="ExtensionWithTraditionalComponents/README.md" />
+    <Project Path="ExtensionWithTraditionalComponents/Container/Container.csproj">
+      <Deploy />
+    </Project>
+    <Project Path="ExtensionWithTraditionalComponents/Extension/Extension.csproj">
+      <Deploy />
+    </Project>
+  </Folder>
+  <Folder Name="/MemoryStreamDebugVisualizer/">
+    <Project Path="MemoryStreamDebugVisualizer/MemoryStreamObjectSource/MemoryStreamObjectSource.csproj" />
+    <Project Path="MemoryStreamDebugVisualizer/MemoryStreamVisualizer/MemoryStreamVisualizer.csproj">
+      <Deploy />
+    </Project>
+  </Folder>
+  <Folder Name="/MultiTargetedExtensions/">
+    <Project Path="MultiTargetedExtensions/MultiTargetedExtensibilityExtension/MultiTargetedExtensibilityExtension.csproj">
+      <Deploy />
+    </Project>
+    <Project Path="MultiTargetedExtensions/MultiTargetedHybridExtension/MultiTargetedHybridExtension.csproj">
+      <Deploy />
+    </Project>
+    <Project Path="MultiTargetedExtensions/MultitargetedVssdkExtension/MultitargetedVssdkExtension.csproj">
+      <Deploy />
+    </Project>
+  </Folder>
+  <Folder Name="/RegexMatchDebugVisualizer/">
+    <File Path="RegexMatchDebugVisualizer/README.md" />
+    <Project Path="RegexMatchDebugVisualizer/RegexMatchDebugVisualizer/RegexMatchDebugVisualizer.csproj">
+      <Deploy />
+    </Project>
+    <Project Path="RegexMatchDebugVisualizer/RegexMatchObjectSource/RegexMatchObjectSource.csproj" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.Build.props" />
+    <File Path="shipping.ruleset" />
+  </Folder>
+  <Project Path="AsyncPackageAndMEF/AsyncPackageAndMEF.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="ClassificationSample/ClassificationSample.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="CodeLensSample/CodeLensSample.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="CommandParentingSample/CommandParentingSample.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="CommentRemover/CommentRemover.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="DialogSample/DialogSample.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="DocumentSelectorSample/DocumentSelectorSample.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="EncodeDecodeBase64/EncodeDecodeBase64.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="ExtensionPublisher/ExtensionPublisher.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="FeatureGallery/FeatureGallery.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="FilePickerSample/FilePickerSample.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="InProcFeatureGallery/InProcFeatureGallery.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="InsertGuid/InsertGuid.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="MarkdownLinter/MarkdownLinter.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="OutputWindowSample/OutputWindowSample.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="RustLanguageServerProvider/RustLanguageServerProvider.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="SettingsSample/SettingsSample.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="SimpleRemoteCommandSample/SimpleRemoteCommandSample.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="TaggersSample/TaggersSample.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="ToolWindowSample/ToolWindowSample.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="UserPromptSample/UserPromptSample.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="VSProjectQueryAPISample/VSProjectQueryAPISample.csproj">
+    <Deploy />
+  </Project>
+  <Project Path="WordCountMargin/WordCountMarginSample.csproj">
+    <Deploy />
+  </Project>
+</Solution>

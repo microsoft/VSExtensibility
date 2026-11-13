@@ -24,7 +24,11 @@ public class MemoryStreamData : NotifyPropertyChangedObject
     [DataMember]
     public long Length
     {
-        get => this.length;
+        get
+        {
+            return this.length;
+        }
+
         set
         {
             if (this.SetProperty(ref this.length, value))

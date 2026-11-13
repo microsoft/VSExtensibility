@@ -12,32 +12,50 @@ A detailed walkthrough of how to create a tagger is available in the
 [Taggers sample readme file](../TaggersSample/README.md). Please read
 that first.
 
-This sample's `CsvTaggerProvider` and `CsvTagger` are equivalent to `MarkdownTextMarkerTaggerProvider` and `MarkdownTextMarkerTagger`.
+Like the Markdown tagger in that sample, `CsvTaggerProvider` uses
+`TextViewTaggerProvider<ClassificationTag, CsvTagger>` to provide tags for matching documents.
 
 ## Classification
 
-Classification can be performed by an extension by implementing an
-`ITextViewTaggerProvider<ClassificationTag>` and have the `TextViewTagger<>`
-generate `ClassificationTag` values.
+The [Classifications](./Classifications.cs) file contributes four custom classification
+types: `Header`, `Separator`, `Quote`, and `EscapedQuote`. Each has a parent built-in
+classification and a style with colors for light, dark, and high-contrast themes.
+For example, the separator inherits from the built-in operator classification:
 
-```cs
-tags.Add(
-    new TaggedTrackingTextRange<ClassificationTag>(
-        new TrackingTextRange(
-            document,
-            tagStartPosition,
-            tagLength,
-            TextRangeTrackingMode.ExtendNone),
-        new ClassificationTag(ClassificationType.KnownValues.Operator)));
-
+```csharp
+[VisualStudioContribution]
+public static ClassificationTypeConfiguration Separator { get; } = new(
+    "ClassificationType/ClassificationSample.Separator")
+{
+    ParentClassifications = [ClassificationType.KnownValues.Operator],
+    Style = new("%ClassificationSample.Classifications.Separator.DisplayName%")
+    {
+        ThemedColors = new()
+        {
+            [Theme.KnownValues.Light] = new(UIColor.KnownColors.Black),
+            [Theme.KnownValues.Dark] = new(UIColor.KnownColors.White),
+            [Theme.KnownValues.HighContrast] = new(UIColor.SysColors.COLOR_HOTLIGHT),
+        },
+    },
+};
 ```
 
-At this time, VisualStudio.Extensibility doesn't support defining text colors for
-new classification types yet, so we must use existing classification types.
+The [CSV tagger](./CsvTagger.cs) creates `ClassificationTag` values using these
+configurations. It uses `Header` for field text on the first line and the built-in
+`ClassificationType.KnownValues.String` for field text on subsequent lines. Quotes,
+escaped quotes, and separators use their respective custom classifications:
 
-VSSDK-compatible extensions, can use [ClassificationTypeDefinition](https://learn.microsoft.com/dotnet/api/microsoft.visualstudio.text.classification.classificationtypedefinition)
-to define new classification types. Their name can be referenced using
-`ClassificationType.Custom`.
+```csharp
+foreach (Capture capture in match.Groups[SeparatorMatchName].Captures)
+{
+    AddTag(capture, Classifications.Separator);
+}
+
+void AddTag(Capture capture, ClassificationType classificationType)
+{
+    tags.Add(new(new(document, line.Text.Start + capture.Index, capture.Length, TextRangeTrackingMode.ExtendNone), new(classificationType)));
+}
+```
 
 ## Performance considerations
 

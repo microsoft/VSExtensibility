@@ -1,0 +1,9 @@
+
+<Project Sdk="Microsoft.VisualStudio.Sdk.Build/18.11.1098">
+  <PropertyGroup>
+    <TargetFrameworks>vs17_14;vs18_11</TargetFrameworks>
+    <GeneratePkgDefFile>False</GeneratePkgDefFile>
+    <ExtensionType>VSSDK+VisualStudio.Extensibility</ExtensionType>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+</Project>

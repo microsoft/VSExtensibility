@@ -18,15 +18,22 @@ using Microsoft.VisualStudio.RpcContracts.RemoteUI;
 [VisualStudioContribution]
 internal class TextViewMarginProvider : ExtensionPart, ITextViewMarginProvider, ITextViewOpenClosedListener, ITextViewChangedListener
 {
+    private readonly TextViewChangesAggregator textViewChangesAggregator;
     private readonly Dictionary<Uri, WordCountData> dataModels = new();
+
+    public TextViewMarginProvider()
+    {
+        this.textViewChangesAggregator = new((beforeTextView, afterTextView, cancellationToken) =>
+        {
+            this.dataModels[afterTextView.Uri].WordCount = CountWords(afterTextView.Document);
+            return Task.CompletedTask;
+        });
+    }
 
     /// <inheritdoc />
     public TextViewExtensionConfiguration TextViewExtensionConfiguration => new()
     {
-        AppliesTo =
-        [
-            DocumentFilter.FromDocumentType(DocumentType.KnownValues.Text),
-        ],
+        AppliesTo = [DocumentFilter.FromDocumentType(DocumentType.KnownValues.Text)],
     };
 
     /// <inheritdoc />
@@ -48,8 +55,7 @@ internal class TextViewMarginProvider : ExtensionPart, ITextViewMarginProvider, 
     /// <inheritdoc />
     public Task TextViewChangedAsync(TextViewChangedArgs args, CancellationToken cancellationToken)
     {
-        this.dataModels[args.AfterTextView.Uri].WordCount = CountWords(args.AfterTextView.Document);
-        return Task.CompletedTask;
+        return this.textViewChangesAggregator.TextViewChangedAsync(args, cancellationToken);
     }
 
     /// <inheritdoc />
@@ -63,6 +69,14 @@ internal class TextViewMarginProvider : ExtensionPart, ITextViewMarginProvider, 
     public Task TextViewOpenedAsync(ITextViewSnapshot textView, CancellationToken cancellationToken)
     {
         return Task.CompletedTask;
+    }
+
+    protected override void Dispose(bool isDisposing)
+    {
+        if (isDisposing)
+        {
+            this.textViewChangesAggregator.Dispose();
+        }
     }
 
     private static int CountWords(ITextDocumentSnapshot documentSnapshot)

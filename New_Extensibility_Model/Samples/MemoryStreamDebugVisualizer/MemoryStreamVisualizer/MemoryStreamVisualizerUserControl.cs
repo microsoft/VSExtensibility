@@ -70,7 +70,7 @@ internal class MemoryStreamVisualizerUserControl : RemoteUserControl
             binaryWriter.Flush();
             try
             {
-                data = (await this.visualizerTarget.ObjectSource.RequestDataAsync(new ReadOnlySequence<byte>(memoryStream.ToArray()), CancellationToken.None)).Value;
+                data = (await this.visualizerTarget.ObjectSource.RequestDataAsync(new ReadOnlySequence<byte>(memoryStream.ToArray()), CancellationToken.None))!.Value;
             }
 #pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception)

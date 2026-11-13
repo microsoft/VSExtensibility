@@ -20,6 +20,6 @@ jobs:
 #     with:
 #       global-json-file: global.json
     - name: Restore dependencies
-      run: msbuild /t:restore New_Extensibility_Model/Samples/Samples.sln
+      run: msbuild /t:restore New_Extensibility_Model/Samples/Samples.slnx
     - name: Build
-      run: msbuild /t:build New_Extensibility_Model/Samples/Samples.sln
+      run: msbuild /t:build New_Extensibility_Model/Samples/Samples.slnx

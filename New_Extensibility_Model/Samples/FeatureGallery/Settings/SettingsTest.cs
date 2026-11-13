@@ -29,7 +29,6 @@ internal class SettingsTest : TestData
     public override string Description => "This command updates a setting value and shows a prompt when the value update is complete.";
 
     [VisualStudioContribution]
-#pragma warning disable VSEXTPREVIEW_SETTINGS // Type is for evaluation purposes only and is subject to change or removal in future updates.
 #pragma warning disable CEE0027 // String not localized
 #if INPROC
     private static SettingCategory Category { get; } = new("inProcFeatureGallery", "In-Proc Feature Gallery");
@@ -59,19 +58,18 @@ internal class SettingsTest : TestData
 
         async Task WaitForSettingValueAsync(bool expectedValue)
         {
-            TaskCompletionSource<bool> settingValueIsFalse = new();
+            TaskCompletionSource<bool> settingValueIsAsExpected = new();
             using var settingValueObserver = await this.Extensibility.Settings().SubscribeAsync(BooleanSetting, cancellationToken, value =>
             {
                 if (value.Succeeded && value.Value == expectedValue)
                 {
-                    settingValueIsFalse.SetResult(true);
+                    settingValueIsAsExpected.SetResult(true);
                 }
             });
 
-            await settingValueIsFalse.Task;
+            await settingValueIsAsExpected.Task;
         }
 
         await this.Extensibility.Shell().ShowPromptAsync("All done.", PromptOptions.OK, cancellationToken);
     }
-#pragma warning restore VSEXTPREVIEW_SETTINGS // Type is for evaluation purposes only and is subject to change or removal in future updates.
 }
