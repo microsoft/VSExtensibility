@@ -20,7 +20,7 @@ public class OpenFileCommand(VisualStudioExtensibility extensibility) : Command(
         Icon = new(ImageMoniker.KnownValues.OpenFileDialog, IconSettings.IconAndText),
     };
 
-    public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken ct)
+    public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
         FileDialogOptions options = new()
         {
@@ -33,7 +33,7 @@ public class OpenFileCommand(VisualStudioExtensibility extensibility) : Command(
                 DefaultFilterIndex = 1,
             },
         };
-        string? filePath = await this.Extensibility.Shell().ShowOpenFileDialogAsync(options, ct);
+        string? filePath = await this.Extensibility.Shell().ShowOpenFileDialogAsync(options, cancellationToken);
         Debug.WriteLine($"Selected file path: {filePath ?? "No selection"}");
     }
 }

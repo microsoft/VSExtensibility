@@ -29,24 +29,24 @@ public class SampleCommand : Command
     };
 
     /// <inheritdoc />
-    public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken ct)
+    public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
         var shell = this.Extensibility.Shell();
 
         // Asking the user to confirm an operation.
-        if (!await shell.ShowPromptAsync("Continue with executing the command?", PromptOptions.OKCancel, ct))
+        if (!await shell.ShowPromptAsync("Continue with executing the command?", PromptOptions.OKCancel, cancellationToken))
         {
             return;
         }
 
         // Asking the user to confirm a dangerous operation.
-        if (!await shell.ShowPromptAsync("Continue with executing the command?", PromptOptions.OKCancel.WithCancelAsDefault(), ct))
+        if (!await shell.ShowPromptAsync("Continue with executing the command?", PromptOptions.OKCancel.WithCancelAsDefault(), cancellationToken))
         {
             return;
         }
 
         // OK-only prompt
-        await shell.ShowPromptAsync("The extension must reload.", PromptOptions.OK, ct);
+        await shell.ShowPromptAsync("The extension must reload.", PromptOptions.OK, cancellationToken);
 
         // Custom prompt
         var themeResult = await shell.ShowPromptAsync(
@@ -62,7 +62,7 @@ public class SampleCommand : Command
                 DismissedReturns = TokenThemeResult.None,
                 DefaultChoiceIndex = 2,
             },
-            ct);
+            cancellationToken);
 
         Debug.WriteLine($"Selected Token Theme: {themeResult}");
     }

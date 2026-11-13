@@ -79,7 +79,11 @@ internal class MyToolWindowData : NotifyPropertyChangedObject
     [DataMember]
     public string Message
     {
-        get => this.message;
+        get
+        {
+            return this.message;
+        }
+
         set
         {
             if (string.IsNullOrWhiteSpace(value))

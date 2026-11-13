@@ -20,7 +20,7 @@ public class OpenSaveAsFileCommand(VisualStudioExtensibility extensibility) : Co
         Icon = new(ImageMoniker.KnownValues.OpenFileDialog, IconSettings.IconAndText),
     };
 
-    public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken ct)
+    public override async Task ExecuteCommandAsync(IClientContext context, CancellationToken cancellationToken)
     {
         FileDialogOptions options = new()
         {
@@ -28,7 +28,7 @@ public class OpenSaveAsFileCommand(VisualStudioExtensibility extensibility) : Co
             InitialFileName = "result.txt",
         };
 
-        string? filePath = await this.Extensibility.Shell().ShowSaveAsFileDialogAsync(options, ct);
+        string? filePath = await this.Extensibility.Shell().ShowSaveAsFileDialogAsync(options, cancellationToken);
         Debug.WriteLine($"Selected file path: {filePath ?? "No selection"}");
     }
 }
