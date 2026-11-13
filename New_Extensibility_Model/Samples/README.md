@@ -3,8 +3,6 @@
 Each sample directory may have its own `README.md` file to describe its specific scenario
 and call out interesting aspects to its sample.
 
-For defining, reading, and writing extension settings, see the
-[Settings Sample](SettingsSample/README.md).
 
 ## Contributing
 

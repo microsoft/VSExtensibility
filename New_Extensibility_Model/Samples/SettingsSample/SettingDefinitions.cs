@@ -13,6 +13,18 @@ internal static class SettingDefinitions
     {
         Description = "%SettingsSample.Settings.Category.Description%",
         GenerateObserverClass = true,
+        Actions =
+        [
+            new("%SettingsSample.Settings.Category.OpenToolWindow%")
+            {
+                Execute = (setting, context, cancellationToken) =>
+                    context.Extensibility.Shell().ShowToolWindowAsync<MyToolWindow>(activate: true, cancellationToken),
+            },
+        ],
+        Preview = new()
+        {
+            Factory = SettingPreviewFactory.Create(SettingsPreviewControl.CreateAsync),
+        },
     };
 
     [VisualStudioContribution]
@@ -38,5 +50,18 @@ internal static class SettingDefinitions
         defaultValue: "double")
     {
         Description = "%SettingsSample.Settings.QuoteStyle.Description%",
+    };
+
+    [VisualStudioContribution]
+    internal static Setting.StringArray SampleWordsSetting { get; } = new(
+        "sampleWords",
+        "%SettingsSample.Settings.SampleWords.DisplayName%",
+        SettingsSampleCategory,
+        ["Lorem", "ipsum"])
+    {
+        Description = "%SettingsSample.Settings.SampleWords.Description%",
+        UniqueItems = true,
+        AllowAdditions = true,
+        AllowRemovals = true,
     };
 }

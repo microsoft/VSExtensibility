@@ -9,8 +9,6 @@ date: 2024-08-20
 This is a simple extension that shows how settings can be added to Visual Studio and read
 to configure the behavior of a tool window.
 
-The sample demonstrates Boolean, integer, and enum settings.
-
 ## Tool window definition
 
 See the [ToolWindowSample](../ToolWindowSample/README.md) for more information on defining
@@ -18,7 +16,7 @@ the tool window.
 
 ## Setting definitions
 
-The extension contains a [code file](./SettingDefinitions.cs) that defines three settings
+The extension contains a [code file](./SettingDefinitions.cs) that defines four settings
 and a parent category to contain them. Each setting and the category starts with the
 `VisualStudioContribution` class attribute which makes it available to Visual Studio:
 
@@ -94,6 +92,44 @@ this.extensibility.Settings().WriteAsync(
 Once deployed, the "Sample Text Tool Window" command can be used to show the "Settings
 Sample Tool Window" in the document well.
 
+### An action in the settings category
+
+The **Settings Sample** category contributes an **Open Sample Text Tool Window**
+action. Open **Tools > Options**, select the **Settings Sample** category, and
+choose the action to open the existing tool window. The action's `Execute`
+delegate is invoked only when you click it; displaying the category does not
+run the action or load the extension just for that action.
+
+```csharp
+Actions =
+[
+    new("%SettingsSample.Settings.Category.OpenToolWindow%")
+    {
+        Execute = (setting, context, cancellationToken) =>
+            context.Extensibility.Shell().ShowToolWindowAsync<MyToolWindow>(activate: true, cancellationToken),
+    },
+],
+```
+
+### A live preview in the settings category
+
+The same category has a read-only preview of the sample text at the configured
+`TextLengthSetting` value. `SettingPreviewFactory` creates the Remote UI control
+when you select the category; it does not load the extension just because the
+settings window is open. The control subscribes to changes in the text-length
+setting and disposes that subscription when the preview closes.
+
+```csharp
+Preview = new()
+{
+    Factory = SettingPreviewFactory.Create(SettingsPreviewControl.CreateAsync),
+},
+```
+
+Select **Tools > Options > Settings Sample**, change **Text Length**, and watch
+the preview update. Switching away and back creates a fresh preview with the
+current value. The separate tool window still has its original controls.
+
 ### A command enabled by a setting
 
 The [Enable Sample Text Auto Update command](./EnableAutoUpdateCommand.cs) uses
@@ -135,5 +171,22 @@ The string key is the `FullId` property of the `TextLengthSetting` property defi
 the id of the setting.
 
 Each time you change the value and save the file, the sample text in the tool window will
-update if **Manual update** is not selected. In manual mode, click **Update Sample Text
-From Settings** to read the current settings and refresh the text.
+update.
+
+### Editing an array setting
+
+`SampleWordsSetting` is a `Setting.StringArray` with two default words, `Lorem` and
+`ipsum`. It allows adding and removing words, but does not permit duplicate entries.
+The tool window displays the words as a comma-separated list; its settings observer
+updates that list when the setting changes, even when **Manual update** is selected.
+
+To try it, open the extension settings JSON file as above and add:
+
+```json
+{
+  "settingsSample.sampleWords": ["Lorem", "ipsum", "dolor"]
+}
+```
+
+Save the file and check that the tool window shows `Lorem, ipsum, dolor`. Edit or
+remove `dolor` and save again to see the new value without reopening the window.
