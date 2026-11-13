@@ -13,6 +13,26 @@
     <AnalysisLevel>latest</AnalysisLevel>
   </PropertyGroup>
 
+  <!-- Configure the temporary moniker and its package versions here until the SDK supports it. -->
+  <PropertyGroup Label="Temporary Visual Studio target framework" Condition=" '$(UsingMicrosoftVisualStudioSdkBuild)' == 'true' ">
+    <TemporaryVisualStudioVersion>18.13</TemporaryVisualStudioVersion>
+    <TemporaryVisualStudioTargetFramework>vs$(TemporaryVisualStudioVersion.Replace('.', '_'))</TemporaryVisualStudioTargetFramework>
+    <TemporaryVisualStudioSdkVersion>18.13.1048</TemporaryVisualStudioSdkVersion>
+    <TemporaryVisualStudioExtensibilitySdkVersion>18.13.1041</TemporaryVisualStudioExtensibilitySdkVersion>
+    <TemporaryVisualStudioExtensibilityBuildVersion>18.13.1041</TemporaryVisualStudioExtensibilityBuildVersion>
+    <TemporaryVisualStudioBuildToolsVersion>18.13.1041</TemporaryVisualStudioBuildToolsVersion>
+  </PropertyGroup>
+
+  <!-- Set package defaults early; defer runtime selection until ExtensionType is known. -->
+  <PropertyGroup Condition=" '$(UsingMicrosoftVisualStudioSdkBuild)' == 'true' and '$(TargetFramework)' == '$(TemporaryVisualStudioTargetFramework)' ">
+    <VisualStudioSDKImplicitPackageVersion>$(TemporaryVisualStudioSdkVersion)</VisualStudioSDKImplicitPackageVersion>
+    <VisualStudioExtensibilitySDKImplicitPackageVersion>$(TemporaryVisualStudioExtensibilitySdkVersion)</VisualStudioExtensibilitySDKImplicitPackageVersion>
+    <VSExtensibilityBuildToolsImplicitPackageVersion>$(TemporaryVisualStudioExtensibilityBuildVersion)</VSExtensibilityBuildToolsImplicitPackageVersion>
+    <VSSDKBuildToolsImplicitPackageVersion>$(TemporaryVisualStudioBuildToolsVersion)</VSSDKBuildToolsImplicitPackageVersion>
+    <_SamplesBeforeTargetFrameworkInferenceTargets>$(BeforeTargetFrameworkInferenceTargets)</_SamplesBeforeTargetFrameworkInferenceTargets>
+    <BeforeTargetFrameworkInferenceTargets>$(MSBuildThisFileDirectory)VisualStudioTargetFrameworks.props</BeforeTargetFrameworkInferenceTargets>
+  </PropertyGroup>
+
   <PropertyGroup>
     <!--
       Make sure any documentation comments which are included in code get checked for syntax during the build, but do

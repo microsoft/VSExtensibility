@@ -6,14 +6,14 @@
         <Description xml:space="preserve">An extension demonstrating multiple Visual Studio extension points.</Description>
     </Metadata>
     <Installation ExtensionType="VSSDK+VisualStudio.Extensibility">
-      <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[18.0,)">
+      <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="|%CurrentProject%;GetInstallationTargetVersion|">
         <ProductArchitecture>amd64</ProductArchitecture>
       </InstallationTarget>
-      <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[18.0,)">
+      <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="|%CurrentProject%;GetInstallationTargetVersion|">
         <ProductArchitecture>arm64</ProductArchitecture>
       </InstallationTarget>
     </Installation>
     <Prerequisites>
-        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[18.0,)" DisplayName="Visual Studio core editor" />
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="|%CurrentProject%;GetPrerequisiteTargetVersion|" DisplayName="Visual Studio core editor" />
     </Prerequisites>
 </PackageManifest>

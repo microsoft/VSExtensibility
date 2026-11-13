@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(_SamplesBeforeTargetFrameworkInferenceTargets)" Condition=" '$(_SamplesBeforeTargetFrameworkInferenceTargets)' != '' " />
+
+  <!-- Support target framework monikers not yet defined in Microsoft.VisualStudio.Sdk.Build. -->
+  <PropertyGroup Condition=" '$(UsingMicrosoftVisualStudioSdkBuild)' == 'true' and '$(TargetFramework)' == '$(TemporaryVisualStudioTargetFramework)' ">
+    <IsVisualStudioTargetFramework>true</IsVisualStudioTargetFramework>
+    <InstallationTargetVersion Condition=" '$(InstallationTargetVersion)' == '' ">[$(TemporaryVisualStudioVersion), )</InstallationTargetVersion>
+    <PrerequisiteTargetVersion Condition=" '$(PrerequisiteTargetVersion)' == '' ">$(InstallationTargetVersion)</PrerequisiteTargetVersion>
+    <InstallationTargetProductArchitecture Condition=" '$(InstallationTargetProductArchitecture)' == '' ">amd64;arm64</InstallationTargetProductArchitecture>
+    <_TemporaryVisualStudioVersionSymbol>VS_$(TemporaryVisualStudioVersion.Replace('.', ''))</_TemporaryVisualStudioVersionSymbol>
+    <DefineConstants>$(DefineConstants);VS_1714_OR_GREATER;VS_180_OR_GREATER;VS_1811_OR_GREATER;VS_1812_OR_GREATER;$(_TemporaryVisualStudioVersionSymbol)_OR_GREATER;$(_TemporaryVisualStudioVersionSymbol)</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == '$(TemporaryVisualStudioTargetFramework)' and '$(IsOutOfProcessExtension)' == 'true' ">
+    <TargetFrameworkIdentifier Condition=" '$(TargetFrameworkIdentifier)' == '' ">.NETCoreApp</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion Condition=" '$(TargetFrameworkVersion)' == '' ">v10.0</TargetFrameworkVersion>
+    <TargetFrameworkMoniker Condition=" '$(TargetFrameworkMoniker)' == '' ">.NETCoreApp,Version=v10.0</TargetFrameworkMoniker>
+    <TargetPlatformIdentifier Condition=" '$(TargetPlatformIdentifier)' == '' ">windows</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">8.0</TargetPlatformVersion>
+    <ExtensionTargetRuntime Condition=" '$(ExtensionTargetRuntime)' == '' ">net10.0</ExtensionTargetRuntime>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == '$(TemporaryVisualStudioTargetFramework)' and '$(IsOutOfProcessExtension)' != 'true' ">
+    <TargetFrameworkIdentifier Condition=" '$(TargetFrameworkIdentifier)' == '' ">.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion Condition=" '$(TargetFrameworkVersion)' == '' ">v4.8</TargetFrameworkVersion>
+    <TargetFrameworkMoniker Condition=" '$(TargetFrameworkMoniker)' == '' ">.NETFramework,Version=v4.8</TargetFrameworkMoniker>
+  </PropertyGroup>
+</Project>

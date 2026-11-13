@@ -10,7 +10,8 @@ when available. A button opens File Explorer with that assembly selected.
 
 - Visual Studio 2026 version 18.13 or later with the **Visual Studio extension
   development** workload and the .NET 10 SDK.
-- The VisualStudio.Extensibility SDK and Build packages at version `18.13.507`,
+- The VisualStudio.Extensibility SDK and Build packages supplied by `Microsoft.VisualStudio.Sdk.Build`,
+  with versions configured in [Directory.Build.props](../Directory.Build.props),
   `Microsoft.VisualStudio.Extensibility.CodeAnalysis` at version `18.13.507`, and
   `Microsoft.VisualStudio.Extensibility.CodeAnalysis.Server` at version `18.13.458`.
   If these packages are not available from your configured sources, add the
