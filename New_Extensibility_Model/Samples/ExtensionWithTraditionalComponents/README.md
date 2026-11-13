@@ -13,10 +13,11 @@ and packages a WPF user control to be loaded in-proc in VS.
 This sample is similar to [CompositeExtension](../CompositeExtension) but it doesn't contribute any
 in-proc VisualStudio.Extensibility components.
 
-`Extension.csproj` targets .NET 8.0 and uses the VisualStudio.Extensibility packages.
+Both projects use `Microsoft.VisualStudio.Sdk.Build` and target `vs18_13`.
+`Extension.csproj` uses `ExtensionType=VisualStudio.Extensibility` and runs on .NET 10.
 
-`Container.csproj` targets .NET Framework and packages the output of `Extension.csproj` into a VSIX
-while also packaging its own assembly containing the WPF user control.
+`Container.csproj` uses `ExtensionType=VSSDK` and runs on .NET Framework 4.8. It packages the output
+of `Extension.csproj` into a VSIX while also packaging its own assembly containing the WPF user control.
 
 The same structure can be applied to package any traditional VSSDK content (like classification type
 definitions, editor format definitions, project templates, TextMate files, ect.)
@@ -37,7 +38,7 @@ create a VSIX package. Let's add the following to the csproj:
 <CreateVsixContainer>false</CreateVsixContainer>
 ```
 
-As mentioned above, `Extension.csproj` and `Container.csproj` have different target frameworks.
+As mentioned above, `Extension.csproj` and `Container.csproj` use different .NET runtimes despite sharing the `vs18_13` target moniker.
 This results in them potentially having incompatible versions of the same dependencies. To avoid issues, we
 will package the `Extension` assembly and it's dependencies in a subfolder of the VSIX. Let's add
 the following to the csproj:
@@ -56,11 +57,13 @@ One of the steps in creating an out-of-proc VisualStudio.Extensibility extension
 worth noting that most of this information will be ignored since the `Container` will provide this
 information for the entire VSIX using a `vsixmanifest` file.
 
-## Implementing the in-proc component (`CompositeExtension`)
+## Implementing the in-proc component (`Container`)
 
-The `Container` project starts as a [standard VSSDK-compatible VisualStudio.Extensibility extension](https://learn.microsoft.com/visualstudio/extensibility/visualstudio.extensibility/get-started/in-proc-extensions)
-but it is stripped of most of its content. The `Extension` class and the project reference to
-`Microsoft.VisualStudio.Extensibility.Sdk` are removed.
+The `Container` project uses `ExtensionType=VSSDK`, so the build SDK supplies `Microsoft.VisualStudio.SDK`
+without adding `Microsoft.VisualStudio.Extensibility.Sdk`. It has no `Extension` class or in-proc
+VisualStudio.Extensibility contributions. The implicitly referenced `Microsoft.VSSDK.BuildTools`
+provides the container's packaging support; `Microsoft.VisualStudio.Extensibility.Build` is only needed
+by the out-of-proc `Extension` project, which references it implicitly.
 
 ### Updating the `Container`'s csproj file
 
@@ -79,14 +82,14 @@ file is to add a reference to `Extension.csproj` so that it's output is packaged
 ```
 
 You can see that `Container` doesn't reference the out-of-proc component's assembly directly, since they
-have different target frameworks.
+have different underlying .NET target frameworks.
 
 Including the `ExtensionFilesOutputGroup` output in the VSIX ensures that all the `Extension`'s
 dependencies are correctly packaged (in a separate subfolder, since `Extension` specifies an
 `AssemblyVSIXSubPath`).
 
-`SetTargetFramework` allows the out-of-proc component to correctly build as a dependency of `CompositeExtension`
-even if the two project have different target frameworks.
+`SkipGetTargetFrameworkProperties` bypasses framework compatibility negotiation for this build-only
+reference. Both projects target `vs18_13`, but their extension types select different .NET runtimes.
 
 #### Including the `Extension`'s `extension.json`
 
@@ -98,7 +101,7 @@ vsix:
 
 ```xml
 <ItemGroup>
-  <VSIXSourceItem Include="$(BaseOutputPath)..\Extension\$(Configuration)\net8.0-windows8.0\.vsextension\extension.json" VsixSubPath=".vsextension" />
+  <VSIXSourceItem Include="$(BaseOutputPath)..\Extension\$(Configuration)\$(TargetFramework)\.vsextension\extension.json" VsixSubPath=".vsextension" />
 </ItemGroup>
 ```
 
@@ -115,7 +118,7 @@ instead of merging the two `extension.json` files together.
 After adding `<UseWPF>true</UseWPF>` to `Container.csproj`, we add the [MyUserControl.xaml](./Container/MyUserControl.xaml)
 WPF user control as we would to to any class library.
 
-Since `Container.csproj` has a package reference to `Microsoft.VisualStudio.SDK` and this assembly is meant
+Since `Container.csproj` implicitly references `Microsoft.VisualStudio.SDK` and this assembly is meant
 to be loaded inside the Visual Studio process, the xaml file can reference Visual Studio types:
 
 ```xml

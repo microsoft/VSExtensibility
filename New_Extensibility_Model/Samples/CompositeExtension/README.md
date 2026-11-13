@@ -9,12 +9,12 @@ date: 2025-01-15
 This is sample of how to write a VisualStudio.Extensibility extensions with both in-proc and out-of-proc
 components and have them communicate with each other.
 
-The out-of-proc component is a project targeting .NET 8.0 and using the VisualStudio.Extensibility
-packages.
+Both projects use `Microsoft.VisualStudio.Sdk.Build` and target `vs18_13`. With
+`ExtensionType=VisualStudio.Extensibility`, the out-of-proc component runs on .NET 10.
 
-The in-proc-component, named `CompositeExtension`, is a project targeting .NET Framework and using the
-VisualStudio.Extensibility packages and, optionally, the VSSDK packages. The `CompositeExtension` project
-packages the output of the out-of-proc component in its own VSIX.
+The in-proc component, named `CompositeExtension`, uses `ExtensionType=VSSDK+VisualStudio.Extensibility`
+and runs on .NET Framework 4.8. The build SDK supplies the appropriate packages for each extension type.
+The `CompositeExtension` project packages the output of the out-of-proc component in its own VSIX.
 
 While this sample doesn't demonstrate this, the in-proc-component can also include any content that is
 otherwise supported by VSSDK extensions like an [AsyncPackage](https://learn.microsoft.com/visualstudio/extensibility/how-to-use-asyncpackage-to-load-vspackages-in-the-background),
@@ -34,7 +34,7 @@ create a VSIX package. Let's add the following to the csproj:
 <CreateVsixContainer>false</CreateVsixContainer>
 ```
 
-As mentioned above, the out-of-proc component and the in-proc component have different target frameworks.
+As mentioned above, the out-of-proc component and the in-proc component use different .NET runtimes despite sharing the `vs18_13` target moniker.
 This results in them potentially having incompatible versions of the same dependencies. To avoid issues, we
 will package the out-of-proc component assembly and it's dependencies in a subfolder of the VSIX. Let's add
 the following to the csproj:
@@ -67,22 +67,22 @@ file is to add a reference to the out-of-proc component's project so that it's o
 ```xml
 <ProjectReference Include="..\OutOfProcComponent\OutOfProcComponent.csproj">
   <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-  <SetTargetFramework>TargetFramework=net8.0-windows8.0</SetTargetFramework>
+  <SkipGetTargetFrameworkProperties>true</SkipGetTargetFrameworkProperties>
   <IncludeInVSIX>true</IncludeInVSIX>
   <IncludeOutputGroupsInVSIX>ExtensionFilesOutputGroup</IncludeOutputGroupsInVSIX>
 </ProjectReference>
 ```
 
 You can see that `CompositeExtension` doesn't reference the out-of-proc component's assembly directly, since they
-have different target frameworks. Any shared types will have to be either compiled into both assemblies, or placed
+have different underlying .NET target frameworks. Any shared types will have to be either compiled into both assemblies, or placed
 in a shared `netstandard2.0` shared dependency.
 
 Including the `ExtensionFilesOutputGroup` output in the VSIX ensures that all the out-of-proc component's
 dependencies are correctly packaged (in a separate subfolder, since the out-of-proc component declares an
 `AssemblyVSIXSubPath`).
 
-`SetTargetFramework` allows the out-of-proc component to correctly build as a dependency of `CompositeExtension`
-even if the two project have different target frameworks.
+`SkipGetTargetFrameworkProperties` bypasses framework compatibility negotiation for this build-only
+reference. Both projects target `vs18_13`, but their extension types select different .NET runtimes.
 
 #### Merging the out-of-proc component's `extension.json`
 
@@ -94,7 +94,7 @@ Since the out-of-proc component is a separate project, it will generate its own 
 
 ```xml
 <ItemGroup>
-  <DependentExtensionJson Include="$(BaseOutputPath)..\OutOfProcComponent\$(Configuration)\net8.0-windows8.0\.vsextension\extension.json" />
+  <DependentExtensionJson Include="$(BaseOutputPath)..\OutOfProcComponent\$(Configuration)\$(TargetFramework)\.vsextension\extension.json" />
 </ItemGroup>
 ```
 

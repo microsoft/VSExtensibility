@@ -1,18 +1,12 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.VisualStudio.Sdk.Build/18.11.1098">
   <PropertyGroup>
-    <TargetFrameworks>net472</TargetFrameworks>
+    <TargetFrameworks>vs18_13</TargetFrameworks>
+    <ExtensionType>VSSDK+VisualStudio.Extensibility</ExtensionType>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>14</LangVersion>
 
-    <VssdkCompatibleExtension>true</VssdkCompatibleExtension>
     <GeneratePkgDefFile>true</GeneratePkgDefFile>
     <UseCodebase>true</UseCodebase>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Sdk" Version="18.13.507" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.VisualStudio.Extensibility.Build" Version="18.13.507" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.VisualStudio.SDK" Version="18.12.1606" ExcludeAssets="runtime" />
-  </ItemGroup>
 </Project>
